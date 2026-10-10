@@ -1,0 +1,512 @@
+{
+  "request": {
+    "contract_version": "1.0.0",
+    "submission": {
+      "name": "Campus Queue",
+      "tagline": "Explain campus shuttle delays using sample data.",
+      "inspiration": "Students need clearer route-delay information.",
+      "what_it_does": "A dashboard answers route questions using Gemini grounded in uploaded CSV aggregates.",
+      "how_we_built_it": "React sends CSVs to FastAPI. The backend computes route aggregates and passes them to Gemini; React renders the answer.",
+      "challenges_we_ran_into": "The sample-data flow works. Live GPS ingestion is future work.",
+      "accomplishments": "Connected upload, processing, grounded explanations and display.",
+      "what_we_learned": "We learned to keep the data flow explicit.",
+      "whats_next": "Add live GPS updates.",
+      "built_with": [
+        "react",
+        "python",
+        "gemini"
+      ],
+      "challenges": [
+        "gemini"
+      ]
+    }
+  },
+  "queued": {
+    "evaluation_id": "fixture-evaluation",
+    "contract_version": "1.0.0",
+    "judge_version": "fixture-judge-v1",
+    "pool_version": "fixture-pool-v1",
+    "status": "queued",
+    "result": null,
+    "error": null
+  },
+  "completed": {
+    "evaluation_id": "fixture-evaluation",
+    "contract_version": "1.0.0",
+    "judge_version": "fixture-judge-v1",
+    "pool_version": "fixture-pool-v1",
+    "status": "completed",
+    "result": {
+      "challenge_results": [
+        {
+          "challenge_id": "gemini",
+          "eligible": true,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "runs": [
+            {
+              "run": 0,
+              "criteria": {
+                "originality": 3,
+                "tech_understanding": 4,
+                "functionality": 4,
+                "wow": 2,
+                "relevance": 4
+              },
+              "total": 17,
+              "max_total": 25,
+              "score_10": 6.8,
+              "eligible": true
+            },
+            {
+              "run": 1,
+              "criteria": {
+                "originality": 3,
+                "tech_understanding": 4,
+                "functionality": 4,
+                "wow": 2,
+                "relevance": 4
+              },
+              "total": 17,
+              "max_total": 25,
+              "score_10": 6.8,
+              "eligible": true
+            },
+            {
+              "run": 2,
+              "criteria": {
+                "originality": 3,
+                "tech_understanding": 4,
+                "functionality": 4,
+                "wow": 2,
+                "relevance": 4
+              },
+              "total": 17,
+              "max_total": 25,
+              "score_10": 6.8,
+              "eligible": true
+            }
+          ],
+          "rationale": "Synthetic UI fixture; these values are illustrative and were not produced by a judge.",
+          "evidence": {
+            "originality": "not described",
+            "tech_understanding": "not described",
+            "functionality": "not described",
+            "wow": "not described",
+            "relevance": "not described"
+          },
+          "warnings": [
+            "Fixture only; not a live evaluation."
+          ],
+          "placement": {
+            "best_rank": 2,
+            "worst_rank": 3,
+            "eligible_competitors": 10,
+            "field_size_including_user": 11
+          },
+          "rivals": [],
+          "improvements": []
+        },
+        {
+          "challenge_id": "overall",
+          "eligible": true,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "runs": [
+            {
+              "run": 0,
+              "criteria": {
+                "originality": 3,
+                "tech_understanding": 4,
+                "functionality": 4,
+                "wow": 2
+              },
+              "total": 13,
+              "max_total": 20,
+              "score_10": 6.5,
+              "eligible": true
+            },
+            {
+              "run": 1,
+              "criteria": {
+                "originality": 3,
+                "tech_understanding": 4,
+                "functionality": 4,
+                "wow": 2
+              },
+              "total": 13,
+              "max_total": 20,
+              "score_10": 6.5,
+              "eligible": true
+            },
+            {
+              "run": 2,
+              "criteria": {
+                "originality": 3,
+                "tech_understanding": 4,
+                "functionality": 4,
+                "wow": 2
+              },
+              "total": 13,
+              "max_total": 20,
+              "score_10": 6.5,
+              "eligible": true
+            }
+          ],
+          "rationale": "Synthetic UI fixture; these values are illustrative and were not produced by a judge.",
+          "evidence": {
+            "originality": "not described",
+            "tech_understanding": "not described",
+            "functionality": "not described",
+            "wow": "not described"
+          },
+          "warnings": [
+            "Fixture only; not a live evaluation."
+          ],
+          "placement": {
+            "best_rank": 2,
+            "worst_rank": 3,
+            "eligible_competitors": 10,
+            "field_size_including_user": 11
+          },
+          "rivals": [],
+          "improvements": []
+        },
+        {
+          "challenge_id": "best_ai",
+          "eligible": true,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "runs": [
+            {
+              "run": 0,
+              "criteria": {
+                "originality": 3,
+                "tech_understanding": 4,
+                "functionality": 4,
+                "wow": 2,
+                "relevance": 4
+              },
+              "total": 17,
+              "max_total": 25,
+              "score_10": 6.8,
+              "eligible": true
+            },
+            {
+              "run": 1,
+              "criteria": {
+                "originality": 3,
+                "tech_understanding": 4,
+                "functionality": 4,
+                "wow": 2,
+                "relevance": 4
+              },
+              "total": 17,
+              "max_total": 25,
+              "score_10": 6.8,
+              "eligible": true
+            },
+            {
+              "run": 2,
+              "criteria": {
+                "originality": 3,
+                "tech_understanding": 4,
+                "functionality": 4,
+                "wow": 2,
+                "relevance": 4
+              },
+              "total": 17,
+              "max_total": 25,
+              "score_10": 6.8,
+              "eligible": true
+            }
+          ],
+          "rationale": "Synthetic UI fixture; these values are illustrative and were not produced by a judge.",
+          "evidence": {
+            "originality": "not described",
+            "tech_understanding": "not described",
+            "functionality": "not described",
+            "wow": "not described",
+            "relevance": "not described"
+          },
+          "warnings": [
+            "Fixture only; not a live evaluation."
+          ],
+          "placement": {
+            "best_rank": 2,
+            "worst_rank": 3,
+            "eligible_competitors": 10,
+            "field_size_including_user": 11
+          },
+          "rivals": [],
+          "improvements": []
+        },
+        {
+          "challenge_id": "best_game",
+          "eligible": false,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 1
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "runs": [
+            {
+              "run": 0,
+              "criteria": {
+                "originality": 3,
+                "tech_understanding": 4,
+                "functionality": 4,
+                "wow": 2,
+                "relevance": 1
+              },
+              "total": 14,
+              "max_total": 25,
+              "score_10": 5.6,
+              "eligible": false
+            },
+            {
+              "run": 1,
+              "criteria": {
+                "originality": 3,
+                "tech_understanding": 4,
+                "functionality": 4,
+                "wow": 2,
+                "relevance": 1
+              },
+              "total": 14,
+              "max_total": 25,
+              "score_10": 5.6,
+              "eligible": false
+            },
+            {
+              "run": 2,
+              "criteria": {
+                "originality": 3,
+                "tech_understanding": 4,
+                "functionality": 4,
+                "wow": 2,
+                "relevance": 1
+              },
+              "total": 14,
+              "max_total": 25,
+              "score_10": 5.6,
+              "eligible": false
+            }
+          ],
+          "rationale": "Synthetic UI fixture; these values are illustrative and were not produced by a judge.",
+          "evidence": {
+            "originality": "not described",
+            "tech_understanding": "not described",
+            "functionality": "not described",
+            "wow": "not described",
+            "relevance": "not described"
+          },
+          "warnings": [
+            "Fixture only; not a live evaluation."
+          ],
+          "placement": null,
+          "rivals": [],
+          "improvements": []
+        },
+        {
+          "challenge_id": "most_useful",
+          "eligible": true,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "runs": [
+            {
+              "run": 0,
+              "criteria": {
+                "originality": 3,
+                "tech_understanding": 4,
+                "functionality": 4,
+                "wow": 2,
+                "relevance": 4
+              },
+              "total": 17,
+              "max_total": 25,
+              "score_10": 6.8,
+              "eligible": true
+            },
+            {
+              "run": 1,
+              "criteria": {
+                "originality": 3,
+                "tech_understanding": 4,
+                "functionality": 4,
+                "wow": 2,
+                "relevance": 4
+              },
+              "total": 17,
+              "max_total": 25,
+              "score_10": 6.8,
+              "eligible": true
+            },
+            {
+              "run": 2,
+              "criteria": {
+                "originality": 3,
+                "tech_understanding": 4,
+                "functionality": 4,
+                "wow": 2,
+                "relevance": 4
+              },
+              "total": 17,
+              "max_total": 25,
+              "score_10": 6.8,
+              "eligible": true
+            }
+          ],
+          "rationale": "Synthetic UI fixture; these values are illustrative and were not produced by a judge.",
+          "evidence": {
+            "originality": "not described",
+            "tech_understanding": "not described",
+            "functionality": "not described",
+            "wow": "not described",
+            "relevance": "not described"
+          },
+          "warnings": [
+            "Fixture only; not a live evaluation."
+          ],
+          "placement": {
+            "best_rank": 2,
+            "worst_rank": 3,
+            "eligible_competitors": 10,
+            "field_size_including_user": 11
+          },
+          "rivals": [],
+          "improvements": []
+        }
+      ]
+    },
+    "error": null
+  },
+  "failed": {
+    "evaluation_id": "fixture-evaluation",
+    "contract_version": "1.0.0",
+    "judge_version": "fixture-judge-v1",
+    "pool_version": "fixture-pool-v1",
+    "status": "failed",
+    "result": null,
+    "error": {
+      "code": "JUDGE_UNAVAILABLE",
+      "message": "Scoring did not complete within the retry budget.",
+      "details": []
+    }
+  },
+  "validation_error": {
+    "code": "INVALID_SUBMISSION",
+    "message": "Submission validation failed.",
+    "details": [
+      "name is required"
+    ]
+  },
+  "challenges": {
+    "contract_version": "1.0.0",
+    "judge_version": "fixture-judge-v1",
+    "pool_version": "fixture-pool-v1",
+    "field_ready": true,
+    "challenges": [
+      {
+        "id": "gemini",
+        "name": "Best Use of Gemini API",
+        "kind": "sponsor",
+        "description": "Synthetic API fixture; replace with the reviewed official brief or category definition.",
+        "automatic": false,
+        "max_total": 25
+      },
+      {
+        "id": "elevenlabs",
+        "name": "Best Use of ElevenLabs",
+        "kind": "sponsor",
+        "description": "Synthetic API fixture; replace with the reviewed official brief or category definition.",
+        "automatic": false,
+        "max_total": 25
+      },
+      {
+        "id": "databricks",
+        "name": "Best Use of Databricks",
+        "kind": "sponsor",
+        "description": "Synthetic API fixture; replace with the reviewed official brief or category definition.",
+        "automatic": false,
+        "max_total": 25
+      },
+      {
+        "id": "bny",
+        "name": "BNY Financial Services",
+        "kind": "sponsor",
+        "description": "Synthetic API fixture; replace with the reviewed official brief or category definition.",
+        "automatic": false,
+        "max_total": 25
+      },
+      {
+        "id": "overall",
+        "name": "Best Overall Hack",
+        "kind": "general",
+        "description": "Synthetic API fixture; replace with the reviewed official brief or category definition.",
+        "automatic": true,
+        "max_total": 20
+      },
+      {
+        "id": "best_ai",
+        "name": "Best AI Hack",
+        "kind": "general",
+        "description": "Synthetic API fixture; replace with the reviewed official brief or category definition.",
+        "automatic": true,
+        "max_total": 25
+      },
+      {
+        "id": "best_game",
+        "name": "Best Game Hack",
+        "kind": "general",
+        "description": "Synthetic API fixture; replace with the reviewed official brief or category definition.",
+        "automatic": true,
+        "max_total": 25
+      },
+      {
+        "id": "most_useful",
+        "name": "Most Useful Hack",
+        "kind": "general",
+        "description": "Synthetic API fixture; replace with the reviewed official brief or category definition.",
+        "automatic": true,
+        "max_total": 25
+      }
+    ]
+  }
+}
