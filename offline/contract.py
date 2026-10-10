@@ -1,36 +1,20 @@
-"""Validate offline data against the shared contract in contracts/openapi.json.
+"""Offline helpers over the shared contract loader in backend.app.contracts.
 
-The schemas are read from the contract file rather than copied, so offline output
-stays in lockstep with the backend and frontend.
+Schemas come from contracts/openapi.json through the backend loader, so offline
+output stays in lockstep with the backend and frontend.
 """
 import hashlib
 import json
-from functools import cache
 
-from jsonschema import Draft202012Validator
-
-from offline.config import ROOT
-
-CONTRACT_PATH = ROOT / "contracts" / "openapi.json"
-
-
-@cache
-def _components():
-    return json.loads(CONTRACT_PATH.read_text(encoding="utf-8"))["components"]
+from backend.app.contracts import SPEC, validator
 
 
 def contract_version():
-    return json.loads(CONTRACT_PATH.read_text(encoding="utf-8"))["info"]["version"]
-
-
-@cache
-def validator(name):
-    """Draft 2020-12 validator for one named component schema; $refs resolve within the contract."""
-    return Draft202012Validator({"$ref": f"#/components/schemas/{name}", "components": _components()})
+    return SPEC["info"]["version"]
 
 
 def schema(name):
-    return _components()["schemas"][name]
+    return SPEC["components"]["schemas"][name]
 
 
 def errors(name, instance):

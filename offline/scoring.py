@@ -1,23 +1,15 @@
 """Score accepted projects with the backend's shared score_submission and export the field.
 
-There is deliberately no judge client here: the scorer is imported from the
-backend module named on the command line, so offline and live scoring share one path.
+There is deliberately no judge client here: offline and live scoring share
+backend.app.judging.score_submission, the fixed async import from the contract.
 """
 import asyncio
-import importlib
-import inspect
 import json
 from pathlib import Path
 
+from backend.app.judging import score_submission
 from offline import artifact, config, contract, field
 from offline.config import load_json, write_json
-
-
-def load_scorer(spec):
-    module, _, name = spec.partition(":")
-    if not name:
-        raise SystemExit("--scorer must look like package.module:score_submission")
-    return getattr(importlib.import_module(module), name)
 
 
 def load_judge_config(path):
@@ -28,24 +20,14 @@ def load_judge_config(path):
     return judge_config
 
 
-async def _resolve(value):
-    return await value
-
-
-def call_scorer(scorer, submission, challenge_ids, judge_config):
-    results = scorer(submission, challenge_ids, judge_config)
-    return asyncio.run(_resolve(results)) if inspect.isawaitable(results) else results
-
-
 def scores_dir(field_id, judge_version):
     return config.require_local(config.field_dir(field_id) / "scores" / judge_version)
 
 
-def score_field(field_id, scorer_spec, judge_config_path, limit=None):
+def score_field(field_id, judge_config_path, limit=None):
     """Score accepted projects not yet scored under this exact judge config; never mix configs."""
     judge_config = load_judge_config(judge_config_path)
     sha = contract.judge_config_sha256(judge_config)
-    scorer = load_scorer(scorer_spec)
     folder = scores_dir(field_id, judge_config["judge_version"])
     done, failures = [], []
     todo = []
@@ -63,8 +45,8 @@ def score_field(field_id, scorer_spec, judge_config_path, limit=None):
         submission = record["submission"]
         expected = artifact.expected_challenge_ids(submission)
         try:
-            results = call_scorer(scorer, submission, expected, judge_config)
-            problems = artifact.result_problems(results, expected)
+            results = asyncio.run(score_submission(submission, expected, judge_config))
+            problems = artifact.result_problems(results, submission)
         except Exception as error:  # preserve every provider/validation failure and keep going
             results, problems = None, [f"{type(error).__name__}: {error}"]
         if problems:

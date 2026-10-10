@@ -1,0 +1,48 @@
+name: Integration contract
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  ownership:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python backend/tools/check_ownership.py
+        env:
+          PR_HEAD_REF: ${{ github.head_ref }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+  backend-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install -r backend/requirements.txt
+      - run: python -m backend.tools.check_contracts
+      - run: python -m pytest backend/tests -q
+  frontend-contract:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci
+      - run: npm run contracts
+      - run: git diff --exit-code -- src/api/contract.d.ts
+      - run: npm run build

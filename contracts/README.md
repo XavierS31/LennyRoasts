@@ -18,7 +18,7 @@ Only sponsor opt-ins go in `submission.challenges`: `gemini`, `elevenlabs`, `dat
 
 ## Scoring semantics shared by offline and live paths
 
-Person 2 owns one scoring module used by Person 1's offline command and the live API. Its interface is `score_submission(submission, challenge_ids, judge_config) -> list[ChallengeResult]` (async is allowed); its scoring results have `placement=null` and empty `rivals`/`improvements` until ranking enrichment. Ranking reads the frozen cache without rejudging it. Person 1 imports this module rather than copying its prompts or reimplementing its calculations.
+Person 2 owns one scoring module used by Person 1's offline command and the live API. Its fixed import is `backend.app.judging.score_submission`. Its async interface is `score_submission(submission, challenge_ids, judge_config) -> list[ChallengeResult]`; its scoring results have `placement=null` and empty `rivals`/`improvements` until ranking enrichment. Ranking reads the frozen cache without rejudging it. Person 1 imports this module rather than copying its prompts or reimplementing its calculations.
 
 - Raw Qwen responses use `OverallJudgeResponse` or `CategoryJudgeResponse`. These omit totals and eligibility. All raw criterion scores are integers 1–5; rationale ≤500 characters; evidence ≤120 characters per criterion.
 - Best Overall omits relevance everywhere and uses max_total=20. Other categories require relevance and max_total=25. The generic API schema permits relevance to be absent for overall; the backend must enforce this category-specific rule.
@@ -42,6 +42,12 @@ Person 2 owns Neon-hosted PostgreSQL schema migrations, persistence and cache im
 
 Person 2 owns contract changes, shared backend scoring and import/storage. Person 1 owns `offline/` and `experiments/`. Person 3 owns `frontend/`. Each developer uses a separate clone or worktree and a `codex/` branch. AI agents edit only their owned paths. A dependency change in another area becomes a handoff request to its owner, not a cross-folder edit.
 
-Freeze v1 at kickoff. Any required change gets one coordinated contract PR and updated fixtures/types before dependent implementation merges. Only Person 2 edits shared root files, this contract and the plan after kickoff; integration PRs are merged serially. Each PR must sync with main before final verification. Never have two agents write into the same checkout.
+Freeze v1 at kickoff. Any required change gets one coordinated contract PR and updated fixtures/types before dependent implementation merges. Only Person 2 edits shared root files, this contract and the plan after kickoff; a coordinated contract PR may also regenerate the derived frontend type file, with no handwritten frontend changes; integration PRs are merged serially. Each PR must sync with main before final verification. Never have two agents write into the same checkout.
 
 No live leaderboard, public project sharing or full user-auth system is required for the 18-hour MVP. Keep evaluation data private to the requesting session and retention minimal; do not expose submission bodies in logs. Frontend forwards `/api/*` through a development proxy or uses one documented API base URL; it must not call Hugging Face directly or contain HF_TOKEN.
+
+The initial bootstrap and package commands are documented in [`docs/TEAM_HANDOFF.md`](../docs/TEAM_HANDOFF.md). Explicit mock mode now uses the [200-project mock field](mock/README.md), input-dependent mock scoring and computed placements; the shared Qwen implementation and Neon persistence are still pending.
+
+## Shared mock field
+
+`contracts/mock/pool.json` is a synthetic PoolArtifact with 200 projects and saved three-run scores; `rankings.json` records computed placements with MockRankings. `MockJudgeConfig` is deliberately distinct from the live Qwen config. PoolArtifact capacity is now 200 (a compatible validation expansion); API shapes and wire version 1.0.0 are unchanged. No endpoint was added. Backend ranking/calculation checks are shared code rather than fabricated ranks. The requested mock field is separate from the 109-project historical live-field calibration. Never use mock scores as a live fallback.

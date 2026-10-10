@@ -1503,7 +1503,7 @@
               "$ref": "#/components/schemas/PoolProject"
             },
             "minItems": 1,
-            "maxItems": 109
+            "maxItems": 200
           }
         },
         "required": [
@@ -1512,6 +1512,178 @@
           "pool_version",
           "judge_config_sha256",
           "projects"
+        ],
+        "description": "Versioned field of up to 200 submissions. Mock fixtures are explicitly labeled and must never be imported as live Qwen results."
+      },
+      "MockJudgeConfig": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "judge_version": {
+            "type": "string",
+            "const": "mock-heuristic-v1"
+          },
+          "kind": {
+            "type": "string",
+            "const": "deterministic-mock"
+          },
+          "runs": {
+            "type": "integer",
+            "const": 3
+          },
+          "seed": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "rules_version": {
+            "type": "string",
+            "const": "1"
+          }
+        },
+        "required": [
+          "judge_version",
+          "kind",
+          "runs",
+          "seed",
+          "rules_version"
+        ]
+      },
+      "MockRankingRow": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "project_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "score_10": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10
+          },
+          "eligible": {
+            "type": "boolean"
+          },
+          "placement": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Placement"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "project_id",
+          "name",
+          "score_10",
+          "eligible",
+          "placement"
+        ]
+      },
+      "MockRankings": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "contract_version": {
+            "$ref": "#/components/schemas/ContractVersion"
+          },
+          "judge_version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "pool_version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "rankings": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "gemini": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/MockRankingRow"
+                },
+                "maxItems": 200
+              },
+              "elevenlabs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/MockRankingRow"
+                },
+                "maxItems": 200
+              },
+              "databricks": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/MockRankingRow"
+                },
+                "maxItems": 200
+              },
+              "bny": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/MockRankingRow"
+                },
+                "maxItems": 200
+              },
+              "overall": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/MockRankingRow"
+                },
+                "maxItems": 200
+              },
+              "best_ai": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/MockRankingRow"
+                },
+                "maxItems": 200
+              },
+              "best_game": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/MockRankingRow"
+                },
+                "maxItems": 200
+              },
+              "most_useful": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/MockRankingRow"
+                },
+                "maxItems": 200
+              }
+            },
+            "required": [
+              "gemini",
+              "elevenlabs",
+              "databricks",
+              "bny",
+              "overall",
+              "best_ai",
+              "best_game",
+              "most_useful"
+            ]
+          }
+        },
+        "required": [
+          "contract_version",
+          "judge_version",
+          "pool_version",
+          "rankings"
         ]
       }
     }

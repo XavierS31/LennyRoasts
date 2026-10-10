@@ -1,1 +1,1 @@
-"""Offline field preparation: seeds, sampling, generator batches, validation, scoring and export."""
+"""Offline generation package owned by Person 1."""

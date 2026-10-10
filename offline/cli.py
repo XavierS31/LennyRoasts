@@ -1,8 +1,15 @@
-"""Offline field pipeline CLI: python -m offline <command> --help."""
+"""Offline field pipeline CLI: python -m offline.cli <command> --help."""
 import argparse
 import json
+from pathlib import Path
 
+from backend.app.contracts import validate
 from offline import collect, config, field, generate, scoring
+
+
+def cmd_validate(args):
+    validate(args.kind, json.loads(args.path.read_text()))
+    print(f"Valid {args.kind}. This checks schema only, not realism or scoring correctness.")
 
 
 def cmd_prizes(args):
@@ -33,8 +40,7 @@ def cmd_sample(args):
 def cmd_prepare(args):
     folder = field.prepare_batch(args.field, args.size)
     print(f"Batch written: {folder}\n  prompt: {folder / 'prompt.md'}\n  output schema: {folder / 'output_schema.json'}")
-    print(f"Save the generator's JSON answer, then run: python -m offline ingest --field {args.field} "
-          f"--batch {folder.name} --output <answer.json> --model <generator model>")
+    print(f"Next: python -m offline.cli generate --field {args.field} --batch {folder.name}")
 
 
 def print_outcomes(outcomes):
@@ -68,7 +74,7 @@ def cmd_report(args):
 
 
 def cmd_score(args):
-    done, failures, remaining = scoring.score_field(args.field, args.scorer, args.judge_config, args.limit)
+    done, failures, remaining = scoring.score_field(args.field, args.judge_config, args.limit)
     print(f"scored {len(done)}; failed {len(failures)}; not attempted {remaining}")
     for failure in failures:
         print(f"FAILED {failure['project_id']}: {failure['problems'][:3]}")
@@ -87,8 +93,13 @@ def cmd_validate_artifact(args):
 
 
 def main():
-    parser = argparse.ArgumentParser(prog="python -m offline", description=__doc__)
+    parser = argparse.ArgumentParser(prog="python -m offline.cli", description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
+
+    p = sub.add_parser("validate", help="Validate a local artifact against the shared contract")
+    p.add_argument("kind", choices=["Submission", "JudgeConfig", "PoolArtifact"])
+    p.add_argument("path", type=Path)
+    p.set_defaults(func=cmd_validate)
 
     p = sub.add_parser("prizes", help="List a hackathon's Devpost prize filter ids")
     p.add_argument("--hackathon", required=True, help="Devpost subdomain, e.g. shellhacks2024")
@@ -139,9 +150,8 @@ def main():
     p.add_argument("--field", required=True)
     p.set_defaults(func=cmd_report)
 
-    p = sub.add_parser("score", help="Score accepted projects with the backend's shared score_submission")
+    p = sub.add_parser("score", help="Score accepted projects with backend.app.judging.score_submission")
     p.add_argument("--field", required=True)
-    p.add_argument("--scorer", required=True, help="Backend import path, module:function")
     p.add_argument("--judge-config", required=True, help="Frozen JudgeConfig JSON from the backend owner")
     p.add_argument("--limit", type=int, help="Score at most this many new projects")
     p.set_defaults(func=cmd_score)
