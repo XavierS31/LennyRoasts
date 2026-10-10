@@ -76,10 +76,11 @@ The judging rubric scores all projects first; the top scorers are then sorted in
 | BNY                  | Financial Services Challenge                               | Yes                                    |
 | OneEthos             | Innovation for Good (local environmental issue)            | Yes                                    |
 | Databricks           | Best Use of Databricks                                     | Yes                                    |
-| Neon                 | Best Use of Neon                                           | Yes                                    |
+| Neon                 | Best Use of Neon                                           | No: excluded from seed pool            |
 | Figma                | Best Design                                                | No: visual, cannot be judged from text |
 | Adobe                | Prettiest Hack                                             | No: visual, cannot be judged from text |
-| MLH                  | Gemini API, ElevenLabs, Vultr, Solana, Tiger Data, Presage | Yes                                    |
+| MLH                  | Gemini API, ElevenLabs, Vultr, Solana                       | Yes                                    |
+| MLH                  | Tiger Data, Presage                                         | No: excluded from seed pool            |
 | MLH                  | Best Domain Name from GoDaddy Registry                     | No: not judgeable from a write-up      |
 
 Sponsors with no challenge this year: Morgan & Morgan, RF-SMART, Bloomberg, AWS.
@@ -140,8 +141,6 @@ Each challenge gets its own pool of 15-30 real past Devpost projects that target
 | BNY                                   | Fraud-detection challenge (Knight Hacks VII, ShellHacks 2024), fintech tracks                           | Moderate                            |
 | OneEthos                              | Sustainability tracks (e.g. Bloomberg's at PennApps, Bitcamp); its 2025 challenge was a different topic | Moderate                            |
 | Hugging Face                          | No sponsor challenge found; projects that list Hugging Face under "Built with"                          | Moderate                            |
-| Neon                                  | No sponsor challenge found; projects that list Neon under "Built with"                                  | Limited                             |
-| MLH Tiger Data, Presage               | Presage once (Hacklytics 2026), Tiger Data never                                                        | Very limited                        |
 
 **Mix winners and non-winners.** About 10% of seeds should be winners. A winners-only pool makes the simulated field far stronger than a real one, and users would place too low.
 
@@ -166,7 +165,7 @@ Hackathon URLs can be found with Devpost's search API: `https://devpost.com/api/
 
 ### 4.5 Sponsor challenge history
 
-Of the Knight Hacks IX sponsors, only NVIDIA, Databricks, BNY, OneEthos, Figma, Adobe and MLH ran challenges at the 53 editions checked (27 undergraduate hackathons, 2023-2026). Hugging Face, Encompass and Neon had none, so their seeds must come from projects that use their technology. NVIDIA and Encompass are excluded as hardware challenges (section 3); their history is kept below for reference only.
+Among the sponsors retained in this history, NVIDIA, Databricks, BNY, OneEthos and MLH ran challenges at the 53 editions checked (27 undergraduate hackathons, 2023-2026). Hugging Face and Encompass had none; Hugging Face seeds must come from projects that use its technology. NVIDIA and Encompass are excluded as hardware challenges (section 3); their history is kept below for reference only.
 
 Each hackathon's Devpost page was read on 2026-10-10. Devpost does not index hackathons by sponsor, so "all hackathons a sponsor ran" cannot be listed directly. This covers large US and Canadian student hackathons plus Florida events; descriptions are paraphrased and should be checked before use.
 
@@ -176,10 +175,8 @@ Each hackathon's Devpost page was read on 2026-10-10. Devpost does not index hac
 | Databricks                               | HackTX 2024, Knight Hacks VII 2024, HackHarvard 2024: Best AI Project with Databricks Open Source · Hack the North 2024 and 2025: Best Use of Databricks · Hacklytics 2026: Geo-Insight Challenge                                                   |
 | BNY                                      | Knight Hacks VII 2024 and ShellHacks 2024: AI-powered financial fraud detection                                                                                                                                                                     |
 | OneEthos                                 | Knight Hacks VIII 2025: AI for Financial Empowerment                                                                                                                                                                                                |
-| Figma                                    | Hacklytics 2026: Figma Make data visualization · LA Hacks 2026: Figma Make · HackDavis 2026: Best UI/UX                                                                                                                                             |
-| Adobe                                    | HackRice 14 (2024): Most Creative Adobe Express Add-On                                                                                                                                                                                              |
-| MLH                                      | Gemini API at about 28 editions, ElevenLabs about 18, Solana about 12, Vultr about 8, Presage 1 (Hacklytics 2026), Tiger Data none                                                                                                                  |
-| Hugging Face, Encompass, Neon | None found                                                                                                                                                                                                                                          |
+| MLH                                      | Gemini API at about 28 editions, ElevenLabs about 18, Solana about 12, Vultr about 8                                                                                                                  |
+| Hugging Face, Encompass | None found                                                                                                                                                                                                                                          |
 
 Sponsors without a Knight Hacks IX challenge also have history: Morgan & Morgan (Knight Hacks VI 2023, Knight Hacks VIII 2025, SwampHacks XI 2026; legal-tech AI), Bloomberg (PennApps 2024-2025 sustainability; Bitcamp 2025 public health, 2026 social impact) and AWS (Hacklytics 2025; Hack the North 2024-2025).
 
@@ -189,7 +186,7 @@ What this means for seeds:
 - MLH and Databricks have enough past entries to seed from directly.
 - Not yet checked: smaller Florida events (HootHacks, SASEHacks, Gator Hack, 305 HackShells) and UofTHacks 12, which was not on Devpost.
 
-Sources (Devpost): [Knight Hacks VI](https://knight-hacks-vi.devpost.com/), [VII](https://knight-hacks-vii.devpost.com/), [VIII](https://knighthacksviii.devpost.com/) · [ShellHacks 2023](https://shellhacks-2023.devpost.com/), [2024](https://shellhacks2024.devpost.com/), [2025](https://shellhacks2025.devpost.com/) · [SwampHacks XI](https://swamphacks-xi.devpost.com/) · [HackUSF 2026](https://hackusf-2026.devpost.com/) · [TreeHacks 2025](https://treehacks-2025.devpost.com/), [2026](https://treehacks-2026.devpost.com/) · [HackUTD 2025](https://hackutd-2025.devpost.com/) · [HackTX 2024](https://hacktx-2024.devpost.com/) · [HackHarvard 2024](https://hackharvard-2024.devpost.com/) · [Hack the North 2024](https://hackthenorth2024.devpost.com/), [2025](https://hackthenorth2025.devpost.com/) · [Hacklytics 2025](https://hacklytics2025.devpost.com/), [2026](https://hacklytics-2026.devpost.com/) · [LA Hacks 2026](https://la-hacks-2026.devpost.com/) · [HackDavis 2026](https://hackdavis-2026.devpost.com/) · [HackRice 14](https://hackrice14.devpost.com/) · [PennApps XXV](https://pennapps-xxv.devpost.com/), [XXVI](https://pennapps-xxvi.devpost.com/) · [Bitcamp 2025](https://bitcamp2025.devpost.com/), [2026](https://bitcamp-2026.devpost.com/)
+Sources (Devpost): [Knight Hacks VI](https://knight-hacks-vi.devpost.com/), [VII](https://knight-hacks-vii.devpost.com/), [VIII](https://knighthacksviii.devpost.com/) · [ShellHacks 2023](https://shellhacks-2023.devpost.com/), [2024](https://shellhacks2024.devpost.com/), [2025](https://shellhacks2025.devpost.com/) · [SwampHacks XI](https://swamphacks-xi.devpost.com/) · [HackUSF 2026](https://hackusf-2026.devpost.com/) · [TreeHacks 2025](https://treehacks-2025.devpost.com/), [2026](https://treehacks-2026.devpost.com/) · [HackUTD 2025](https://hackutd-2025.devpost.com/) · [HackTX 2024](https://hacktx-2024.devpost.com/) · [HackHarvard 2024](https://hackharvard-2024.devpost.com/) · [Hack the North 2024](https://hackthenorth2024.devpost.com/), [2025](https://hackthenorth2025.devpost.com/) · [Hacklytics 2025](https://hacklytics2025.devpost.com/), [2026](https://hacklytics-2026.devpost.com/) · [PennApps XXV](https://pennapps-xxv.devpost.com/), [XXVI](https://pennapps-xxvi.devpost.com/) · [Bitcamp 2025](https://bitcamp2025.devpost.com/), [2026](https://bitcamp-2026.devpost.com/)
 
 ### 4.6 Field calibration
 
@@ -229,10 +226,9 @@ The opt-in shares, popularity weights and fit shares below remain configurable s
 | Hugging Face                           | 8      | Any AI project                                        |
 | OneEthos                               | 6      | Environmental, local community                        |
 | BNY                                    | 5      | Finance                                               |
-| Neon                                   | 5      | Needs a Postgres backend                              |
 | MLH ElevenLabs                         | 5      | Voice feature                                         |
 | Databricks                             | 3      | Data/ML pipeline                                      |
-| MLH Vultr, Solana, Tiger Data, Presage | 2 each | Tech-specific                                         |
+| MLH Vultr, Solana                     | 2 each | Tech-specific                                         |
 
 **Fit level per opt-in**, sampled independently: strong 50%, medium 30%, weak 20%. Weak means the team tagged the track with only incidental use, which real teams do often and which the Relevance gate should catch.
 
@@ -347,7 +343,7 @@ With seeds, variety comes from real projects. The risks are a rewrite that stays
 - [ ] Parses against the schema; every field non-empty.
 - [ ] `challenges` equals the assigned ids exactly.
 - [ ] Section lengths within the writing-style bounds (allow ±50%).
-- [ ] For strong and medium fit, `built_with` names the sponsor tech (Databricks, Neon, Hugging Face, Gemini, ElevenLabs).
+- [ ] For strong and medium fit, `built_with` names the sponsor tech (Databricks, Hugging Face, Gemini, ElevenLabs).
 - [ ] No leaked labels: none of "persona", "completion level", "mutation strength", "originality target", "as an AI".
 - [ ] Polished completion only if the persona says so: broken or partial write-ups must mention something unfinished.
 
