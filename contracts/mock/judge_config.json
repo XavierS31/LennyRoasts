@@ -1,0 +1,7 @@
+{
+  "judge_version": "mock-heuristic-v1",
+  "kind": "deterministic-mock",
+  "runs": 3,
+  "seed": 109200,
+  "rules_version": "1"
+}

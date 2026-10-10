@@ -25,6 +25,8 @@ Validate your owned deliverable against the contract and fixtures, then report t
 
 ## Existing bootstrap
 
-Continue the packages rather than recreating them. API: `backend.app.main:app`; async judge import: `backend.app.judging.score_submission`; offline CLI: `python -m offline.cli`; frontend types: generated `frontend/src/api/contract.d.ts`; fetch wrappers: `frontend/src/api/client.ts`. Package READMEs give startup/check commands. The explicit fixture mode tests connectivity only; live Qwen, Neon and field generation remain unimplemented.
+Continue the packages rather than recreating them. API: `backend.app.main:app`; async judge import: `backend.app.judging.score_submission`; offline CLI: `python -m offline.cli`; frontend types: generated `frontend/src/api/contract.d.ts`; fetch wrappers: `frontend/src/api/client.ts`. Package READMEs give startup/check commands. Explicit mock mode now uses 200 committed synthetic projects and calculates input-dependent scores/placements; live Qwen, Neon and field generation remain unimplemented.
 
 Use `codex/offline-*`, `codex/backend-*` or `codex/frontend-*` branches. CI catches accidental cross-owner edits and contract/type drift. Merge small PRs serially and integrate every 2-3 hours.
+
+Use `contracts/mock/` for the common 200-project mock field and saved rankings. It is a synthetic-fixture exception to the ban on committing generated real field data. Do not score a live Qwen user against mock heuristic competitors. Reuse backend ranking and semantic validation modules.

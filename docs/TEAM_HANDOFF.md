@@ -1,6 +1,6 @@
 # Start here: three agents, one foundation
 
-Everyone pulls the merged bootstrap before implementation. It contains working local fixture routes, generated frontend types, a submit/poll UI and an offline validation CLI. Live Qwen, Neon storage and field generation remain assigned implementation work.
+Everyone pulls the merged bootstrap before implementation. It contains working local mock routes backed by 200 synthetic projects and computed rankings, generated frontend types, a submit/poll UI and an offline validation CLI. Live Qwen, Neon storage and field generation remain assigned implementation work.
 
 ## Kickoff
 
@@ -21,6 +21,7 @@ Canonical foundation:
 | Frontend fetch wrappers | `frontend/src/api/client.ts` |
 | Offline command | `python -m offline.cli`; configuration under `offline/config/` |
 | Local backend / frontend | `127.0.0.1:8110` / `127.0.0.1:5173`; `/api` proxy |
+| Shared mock field | `contracts/mock/pool.json`; saved scores and per-category `rankings.json`; `LENNY_MODE=mock` |
 | Runtime inputs/exports | Ignored `.local-tests/`; no secrets or copied stories in Git |
 
 ## Give your agent this common instruction
@@ -67,3 +68,7 @@ We cannot guarantee zero conflicts or zero integration bugs. These boundaries ma
 ## Deadline checkpoints
 
 By hour 4, frontend and backend communicate and the shared judge scores one category. By hour 8, integrate a ten-project real-seed field. Expand only after that works. Freeze features at hour 15 and use the last three hours for blockers, deployment configuration and rehearsal. Show actual accepted counts; 109 is an expansion target.
+
+## Mock data is ready now
+
+All owners can use the same 200-project field and saved ranking files immediately. The API computes new-user mock placements rather than returning the old fixed one-project report. Use `backend.app.ranking.rank_results` and `backend.app.scoring_contract.validate_score_result` for reusable ranking/calculation semantics. Keep mock and live judge/pool versions separate. The UI prototype labels should refer to mock scoring against 200 synthetic projects, not fixed example scores.

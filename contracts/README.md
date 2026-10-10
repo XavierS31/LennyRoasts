@@ -46,4 +46,8 @@ Freeze v1 at kickoff. Any required change gets one coordinated contract PR and u
 
 No live leaderboard, public project sharing or full user-auth system is required for the 18-hour MVP. Keep evaluation data private to the requesting session and retention minimal; do not expose submission bodies in logs. Frontend forwards `/api/*` through a development proxy or uses one documented API base URL; it must not call Hugging Face directly or contain HF_TOKEN.
 
-The initial bootstrap and package commands are documented in [`docs/TEAM_HANDOFF.md`](../docs/TEAM_HANDOFF.md). Explicit fixture mode exercises the endpoints with synthetic examples; the shared Qwen implementation and Neon persistence are still pending.
+The initial bootstrap and package commands are documented in [`docs/TEAM_HANDOFF.md`](../docs/TEAM_HANDOFF.md). Explicit mock mode now uses the [200-project mock field](mock/README.md), input-dependent mock scoring and computed placements; the shared Qwen implementation and Neon persistence are still pending.
+
+## Shared mock field
+
+`contracts/mock/pool.json` is a synthetic PoolArtifact with 200 projects and saved three-run scores; `rankings.json` records computed placements with MockRankings. `MockJudgeConfig` is deliberately distinct from the live Qwen config. PoolArtifact capacity is now 200 (a compatible validation expansion); API shapes and wire version 1.0.0 are unchanged. No endpoint was added. Backend ranking/calculation checks are shared code rather than fabricated ranks. The requested mock field is separate from the 109-project historical live-field calibration. Never use mock scores as a live fallback.
