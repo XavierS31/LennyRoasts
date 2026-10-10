@@ -1,0 +1,35 @@
+{
+  "settings_version": "kh9-field-settings-v1",
+  "prompt_version": "luna-mutation-v1",
+  "master_rng_seed": 20261009,
+  "target_field_size": 109,
+  "batch_size": 5,
+  "generator": {"model": "gpt-6-luna", "reasoning_effort": "medium", "timeout_seconds": 1200},
+  "opt_in_count_shares": {"0": 0.15, "1": 0.35, "2": 0.30, "3": 0.15, "4": 0.05},
+  "fit_shares": {"strong": 0.5, "medium": 0.3, "weak": 0.2},
+  "persona_shares": {
+    "skill_focus": {"web": 0.35, "ai_ml": 0.25, "mobile": 0.12, "hardware": 0.10, "game_dev": 0.08, "data": 0.10},
+    "mutation": {"light": 0.50, "medium": 0.35, "heavy": 0.15},
+    "completion": {"broken": 0.15, "partial": 0.35, "shaky": 0.30, "polished": 0.20},
+    "writing_style": {"terse": 0.40, "average": 0.40, "detailed": 0.20}
+  },
+  "seed_use_cap": 3,
+  "max_attempts": 3,
+  "copy_run_words": 12,
+  "similarity_threshold": 0.95,
+  "embedding": {
+    "model": "minishlab/potion-base-8M",
+    "revision": "bf8b056651a2c21b8d2565580b8569da283cab23",
+    "fields": ["name", "tagline", "what_it_does"]
+  },
+  "style_sentences": {"terse": [1, 2], "average": [2, 4], "detailed": [4, 8]},
+  "length_tolerance": 0.5,
+  "max_name_words": 5,
+  "leaked_labels": ["persona", "completion level", "completion target", "mutation strength", "originality target", "writing style", "skill focus", "as an ai", "seed submission", "second seed"],
+  "unfinished_markers": ["not yet", "not connected", "not wired", "not working", "not work", "never got", "never finished", "doesn't work", "didn't work", "does not", "did not", "isn't", "wasn't", "couldn't", "could not", "can't", "mock", "hardcoded", "hard-coded", "placeholder", "unfinished", "incomplete", "fail", "broke", "isolation", "separately", "disconnected", "stub", "fake data", "manually", "unreliabl", "occasionally", "sometimes", "crash", "flaky", "bug", "slow", "only works", "still need", "ran out of time", "known issue", "glitch", "timeout", "times out", "drops"],
+  "split": {
+    "judge_example_hackathons": ["knight-hacks-vii"],
+    "holdout_hackathons": ["knighthacksviii"],
+    "note": "Seeds may not come from judge-example or holdout hackathons. Knight Hacks VII supplies future judge reference examples; Knight Hacks VIII is reserved for the KH25 backtest."
+  }
+}
