@@ -1,0 +1,2 @@
+certifi>=2025.1
+jsonschema>=4.23,<5

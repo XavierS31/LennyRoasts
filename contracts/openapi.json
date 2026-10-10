@@ -1,0 +1,1519 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "LennyRoasts MVP API",
+    "version": "1.0.0",
+    "description": "Frozen initial contract for three parallel AI-assisted workstreams. Contract changes require all owners to coordinate."
+  },
+  "paths": {
+    "/api/challenges": {
+      "get": {
+        "operationId": "listChallenges",
+        "responses": {
+          "200": {
+            "description": "Active challenge definitions and frozen versions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChallengeList"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Field not ready or scoring service unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/evaluations": {
+      "post": {
+        "operationId": "createEvaluation",
+        "description": "Validate input, capture frozen versions and queue scoring. Return before inference completes. General categories are automatic.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EvaluationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Queued evaluation; poll its evaluation_id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvaluationJob"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid payload or contract version",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Field not ready or scoring service unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/evaluations/{evaluation_id}": {
+      "get": {
+        "operationId": "getEvaluation",
+        "parameters": [
+          {
+            "name": "evaluation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Evaluation state, completed result or failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvaluationJob"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Unknown evaluation id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/APIError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Submission": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "tagline": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 139
+          },
+          "inspiration": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 8000
+          },
+          "what_it_does": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 8000
+          },
+          "how_we_built_it": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 8000
+          },
+          "challenges_we_ran_into": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 8000
+          },
+          "accomplishments": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 8000
+          },
+          "what_we_learned": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 8000
+          },
+          "whats_next": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 8000
+          },
+          "built_with": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "minItems": 1,
+            "maxItems": 30,
+            "uniqueItems": true
+          },
+          "challenges": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "gemini",
+                "elevenlabs",
+                "databricks",
+                "bny"
+              ]
+            },
+            "minItems": 0,
+            "maxItems": 4,
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "name",
+          "tagline",
+          "inspiration",
+          "what_it_does",
+          "how_we_built_it",
+          "challenges_we_ran_into",
+          "accomplishments",
+          "what_we_learned",
+          "whats_next",
+          "built_with",
+          "challenges"
+        ],
+        "description": "Canonical Devpost input. Sponsor opt-ins only in challenges; four general categories are automatic. No hidden persona, awards or seed metadata is sent to a judge."
+      },
+      "ChallengeId": {
+        "type": "string",
+        "enum": [
+          "gemini",
+          "elevenlabs",
+          "databricks",
+          "bny",
+          "overall",
+          "best_ai",
+          "best_game",
+          "most_useful"
+        ]
+      },
+      "ContractVersion": {
+        "type": "string",
+        "const": "1.0.0"
+      },
+      "EvaluationRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "contract_version": {
+            "$ref": "#/components/schemas/ContractVersion"
+          },
+          "submission": {
+            "$ref": "#/components/schemas/Submission"
+          }
+        },
+        "required": [
+          "contract_version",
+          "submission"
+        ]
+      },
+      "APIError": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "message": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 500
+            },
+            "minItems": 0,
+            "maxItems": 20
+          }
+        },
+        "required": [
+          "code",
+          "message",
+          "details"
+        ]
+      },
+      "Criteria": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "originality": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "tech_understanding": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "functionality": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "wow": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "relevance": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          }
+        },
+        "required": [
+          "originality",
+          "tech_understanding",
+          "functionality",
+          "wow"
+        ]
+      },
+      "CriterionMeans": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "originality": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "tech_understanding": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "functionality": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "wow": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "relevance": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 5
+          }
+        },
+        "required": [
+          "originality",
+          "tech_understanding",
+          "functionality",
+          "wow"
+        ]
+      },
+      "Evidence": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "originality": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "tech_understanding": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "functionality": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "wow": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "relevance": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          }
+        },
+        "required": [
+          "originality",
+          "tech_understanding",
+          "functionality",
+          "wow"
+        ]
+      },
+      "RunScore": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "run": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "criteria": {
+            "$ref": "#/components/schemas/Criteria"
+          },
+          "total": {
+            "type": "integer",
+            "minimum": 4,
+            "maximum": 25
+          },
+          "max_total": {
+            "type": "integer",
+            "enum": [
+              20,
+              25
+            ]
+          },
+          "score_10": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10
+          },
+          "eligible": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "run",
+          "criteria",
+          "total",
+          "max_total",
+          "score_10",
+          "eligible"
+        ],
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "max_total": {
+                  "const": 20
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "criteria": {
+                  "not": {
+                    "required": [
+                      "relevance"
+                    ]
+                  }
+                }
+              }
+            },
+            "else": {
+              "properties": {
+                "criteria": {
+                  "required": [
+                    "relevance"
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      },
+      "Placement": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "best_rank": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "worst_rank": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "eligible_competitors": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "field_size_including_user": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": [
+          "best_rank",
+          "worst_rank",
+          "eligible_competitors",
+          "field_size_including_user"
+        ]
+      },
+      "Rival": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "project_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "score_10": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10
+          }
+        },
+        "required": [
+          "project_id",
+          "name",
+          "summary",
+          "score_10"
+        ]
+      },
+      "ChallengeResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "challenge_id": {
+            "$ref": "#/components/schemas/ChallengeId"
+          },
+          "eligible": {
+            "type": "boolean"
+          },
+          "criteria": {
+            "$ref": "#/components/schemas/CriterionMeans"
+          },
+          "total": {
+            "type": "number",
+            "minimum": 4,
+            "maximum": 25
+          },
+          "max_total": {
+            "type": "integer",
+            "enum": [
+              20,
+              25
+            ]
+          },
+          "score_10": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10
+          },
+          "runs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RunScore"
+            },
+            "minItems": 3,
+            "maxItems": 3
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "evidence": {
+            "$ref": "#/components/schemas/Evidence"
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 500
+            },
+            "minItems": 0,
+            "maxItems": 30
+          },
+          "placement": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Placement"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "rivals": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Rival"
+            },
+            "minItems": 0,
+            "maxItems": 3
+          },
+          "improvements": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 500
+            },
+            "minItems": 0,
+            "maxItems": 3
+          }
+        },
+        "required": [
+          "challenge_id",
+          "eligible",
+          "criteria",
+          "total",
+          "max_total",
+          "score_10",
+          "runs",
+          "rationale",
+          "evidence",
+          "warnings",
+          "placement",
+          "rivals",
+          "improvements"
+        ],
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "challenge_id": {
+                  "const": "overall"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "criteria": {
+                  "not": {
+                    "required": [
+                      "relevance"
+                    ]
+                  }
+                },
+                "evidence": {
+                  "not": {
+                    "required": [
+                      "relevance"
+                    ]
+                  }
+                },
+                "max_total": {
+                  "const": 20
+                },
+                "eligible": {
+                  "const": true
+                }
+              }
+            },
+            "else": {
+              "properties": {
+                "criteria": {
+                  "required": [
+                    "relevance"
+                  ]
+                },
+                "evidence": {
+                  "required": [
+                    "relevance"
+                  ]
+                },
+                "max_total": {
+                  "const": 25
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "eligible": {
+                  "const": false
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "placement": {
+                  "type": "null"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "EvaluationResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "challenge_results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChallengeResult"
+            },
+            "minItems": 4,
+            "maxItems": 8
+          }
+        },
+        "required": [
+          "challenge_results"
+        ]
+      },
+      "EvaluationJob": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "evaluation_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "contract_version": {
+            "$ref": "#/components/schemas/ContractVersion"
+          },
+          "judge_version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "pool_version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "queued",
+              "running",
+              "completed",
+              "failed"
+            ]
+          },
+          "result": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EvaluationResult"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "error": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/APIError"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "evaluation_id",
+          "contract_version",
+          "judge_version",
+          "pool_version",
+          "status",
+          "result",
+          "error"
+        ],
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "enum": [
+                    "queued",
+                    "running"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "type": "null"
+                },
+                "error": {
+                  "type": "null"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "completed"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "$ref": "#/components/schemas/EvaluationResult"
+                },
+                "error": {
+                  "type": "null"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "failed"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "result": {
+                  "type": "null"
+                },
+                "error": {
+                  "$ref": "#/components/schemas/APIError"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "Challenge": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/ChallengeId"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 150
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "sponsor",
+              "general"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 8000
+          },
+          "automatic": {
+            "type": "boolean"
+          },
+          "max_total": {
+            "type": "integer",
+            "enum": [
+              20,
+              25
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "kind",
+          "description",
+          "automatic",
+          "max_total"
+        ]
+      },
+      "ChallengeList": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "contract_version": {
+            "$ref": "#/components/schemas/ContractVersion"
+          },
+          "judge_version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "pool_version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "field_ready": {
+            "type": "boolean"
+          },
+          "challenges": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Challenge"
+            },
+            "minItems": 8,
+            "maxItems": 8
+          }
+        },
+        "required": [
+          "contract_version",
+          "judge_version",
+          "pool_version",
+          "field_ready",
+          "challenges"
+        ]
+      },
+      "CategoryJudgeResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "originality": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "tech_understanding": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "functionality": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "wow": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "relevance": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "evidence": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "originality": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "tech_understanding": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "functionality": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "wow": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "relevance": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              }
+            },
+            "required": [
+              "originality",
+              "tech_understanding",
+              "functionality",
+              "wow",
+              "relevance"
+            ]
+          }
+        },
+        "required": [
+          "originality",
+          "tech_understanding",
+          "functionality",
+          "wow",
+          "relevance",
+          "rationale",
+          "evidence"
+        ],
+        "description": "Raw model output only. The application validates quotes and computes totals/eligibility."
+      },
+      "OverallJudgeResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "originality": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "tech_understanding": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "functionality": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "wow": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "evidence": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "originality": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "tech_understanding": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "functionality": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              },
+              "wow": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 120
+              }
+            },
+            "required": [
+              "originality",
+              "tech_understanding",
+              "functionality",
+              "wow"
+            ]
+          }
+        },
+        "required": [
+          "originality",
+          "tech_understanding",
+          "functionality",
+          "wow",
+          "rationale",
+          "evidence"
+        ],
+        "description": "Raw model output only. The application validates quotes and computes totals/eligibility."
+      },
+      "JudgeResponse": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/OverallJudgeResponse"
+          },
+          {
+            "$ref": "#/components/schemas/CategoryJudgeResponse"
+          }
+        ]
+      },
+      "JudgeConfig": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "judge_version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "model": {
+            "type": "string",
+            "const": "Qwen/Qwen3-32B"
+          },
+          "provider": {
+            "type": "string",
+            "const": "deepinfra"
+          },
+          "temperature": {
+            "type": "number",
+            "const": 0.2
+          },
+          "output_mode": {
+            "type": "string",
+            "const": "schema"
+          },
+          "non_thinking": {
+            "type": "boolean",
+            "const": true
+          },
+          "max_output_tokens": {
+            "type": "integer",
+            "const": 1200
+          },
+          "runs": {
+            "type": "integer",
+            "const": 3
+          },
+          "eligible_run_min": {
+            "type": "integer",
+            "const": 2
+          },
+          "prompt_version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "rubric_version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "prompts": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "gemini": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 32000
+              },
+              "elevenlabs": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 32000
+              },
+              "databricks": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 32000
+              },
+              "bny": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 32000
+              },
+              "overall": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 32000
+              },
+              "best_ai": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 32000
+              },
+              "best_game": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 32000
+              },
+              "most_useful": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 32000
+              }
+            },
+            "required": [
+              "gemini",
+              "elevenlabs",
+              "databricks",
+              "bny",
+              "overall",
+              "best_ai",
+              "best_game",
+              "most_useful"
+            ]
+          },
+          "reference_example_ids": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "gemini": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                "minItems": 0,
+                "maxItems": 6
+              },
+              "elevenlabs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                "minItems": 0,
+                "maxItems": 6
+              },
+              "databricks": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                "minItems": 0,
+                "maxItems": 6
+              },
+              "bny": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                "minItems": 0,
+                "maxItems": 6
+              },
+              "overall": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                "minItems": 0,
+                "maxItems": 6
+              },
+              "best_ai": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                "minItems": 0,
+                "maxItems": 6
+              },
+              "best_game": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                "minItems": 0,
+                "maxItems": 6
+              },
+              "most_useful": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                "minItems": 0,
+                "maxItems": 6
+              }
+            },
+            "required": [
+              "gemini",
+              "elevenlabs",
+              "databricks",
+              "bny",
+              "overall",
+              "best_ai",
+              "best_game",
+              "most_useful"
+            ]
+          }
+        },
+        "required": [
+          "judge_version",
+          "model",
+          "provider",
+          "temperature",
+          "output_mode",
+          "non_thinking",
+          "max_output_tokens",
+          "runs",
+          "eligible_run_min",
+          "prompt_version",
+          "rubric_version",
+          "prompts",
+          "reference_example_ids"
+        ]
+      },
+      "ProjectMeta": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "seed_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "minItems": 1,
+            "maxItems": 2
+          },
+          "source_urls": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1000
+            },
+            "minItems": 1,
+            "maxItems": 2
+          },
+          "mutation": {
+            "type": "string",
+            "enum": [
+              "light",
+              "medium",
+              "heavy"
+            ]
+          },
+          "persona": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "skill_focus": {
+                "type": "string",
+                "enum": [
+                  "web",
+                  "ai_ml",
+                  "mobile",
+                  "hardware",
+                  "game_dev",
+                  "data"
+                ]
+              },
+              "completion": {
+                "type": "string",
+                "enum": [
+                  "broken",
+                  "partial",
+                  "shaky",
+                  "polished"
+                ]
+              },
+              "writing_style": {
+                "type": "string",
+                "enum": [
+                  "terse",
+                  "average",
+                  "detailed"
+                ]
+              }
+            },
+            "required": [
+              "skill_focus",
+              "completion",
+              "writing_style"
+            ]
+          },
+          "fit": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "gemini": {
+                "type": "string",
+                "enum": [
+                  "strong",
+                  "medium",
+                  "weak"
+                ]
+              },
+              "elevenlabs": {
+                "type": "string",
+                "enum": [
+                  "strong",
+                  "medium",
+                  "weak"
+                ]
+              },
+              "databricks": {
+                "type": "string",
+                "enum": [
+                  "strong",
+                  "medium",
+                  "weak"
+                ]
+              },
+              "bny": {
+                "type": "string",
+                "enum": [
+                  "strong",
+                  "medium",
+                  "weak"
+                ]
+              }
+            }
+          },
+          "pool_version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "prompt_version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "model": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "rng_seed": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "seed_ids",
+          "source_urls",
+          "mutation",
+          "persona",
+          "fit",
+          "pool_version",
+          "prompt_version",
+          "model",
+          "rng_seed",
+          "created_at"
+        ]
+      },
+      "PoolProject": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "project_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "submission": {
+            "$ref": "#/components/schemas/Submission"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/ProjectMeta"
+          },
+          "challenge_results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChallengeResult"
+            },
+            "minItems": 4,
+            "maxItems": 8
+          }
+        },
+        "required": [
+          "project_id",
+          "submission",
+          "meta",
+          "challenge_results"
+        ]
+      },
+      "PoolArtifact": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "contract_version": {
+            "$ref": "#/components/schemas/ContractVersion"
+          },
+          "judge_version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "pool_version": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "judge_config_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "projects": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PoolProject"
+            },
+            "minItems": 1,
+            "maxItems": 109
+          }
+        },
+        "required": [
+          "contract_version",
+          "judge_version",
+          "pool_version",
+          "judge_config_sha256",
+          "projects"
+        ]
+      }
+    }
+  }
+}

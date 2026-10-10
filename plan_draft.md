@@ -16,21 +16,23 @@ The first target event is **Knight Hacks IX** (UCF, Oct 9-11, 2026, 36 hours, te
 
 1. **User input.** The user enters their project in Devpost format (title, tagline, what it does, how it was built, and so on) and picks the challenges they are entering.
 2. **LLM participants.** 109 simulated teams, based on the average public project count across the main Knight Hacks editions in 2021-2025 (section 4.6). Each fake submission is made by lightly rewriting a real past Devpost project from the same sponsor or the same kind of challenge.
-3. **LLM judges.** One Gemini judge per challenge, prompted with past winners and non-winners for that sponsor. Judges score every project in the field on the same rubric, so the user's project gets a score and a place within each challenge.
+3. **LLM judges.** One saved judge configuration per challenge, using Qwen3-32B through Hugging Face/DeepInfra. The same model, provider, prompt, rubric and settings score saved competitors offline and user submissions live, so both are compared on the same basis.
 
-**Why Gemini?** Gemini powers both project mutation and judging. The product adds challenge-specific rubrics, historical examples, a cached comparison field and structured feedback around the model. Confidence in improving LLM capabilities motivates the prototype; it is not a measured claim that Gemini predicts human judges.
+**Model decisions.** Use GPT-6 Luna through our existing Codex account for offline preparation: draft challenge judge prompts and generate project mutations in small batches, then validate and save them. Use Qwen3-32B through Hugging Face/DeepInfra for all scoring, including the saved competitors. Local checks favored 32B over 14B for category fit and eligibility consistency (section 7.1). This is a prototype choice, not measured agreement with human judges.
+
+A judge persona is saved prompt/configuration included in every scoring request, not a persistent agent or trained model. Sample competitor personas in code. Preparation runs once **per frozen version**; live requests only judge the submitted project against the cached field. Do not deploy a live mutation generator or require a separate OpenAI API key for the MVP. Use Sol only for an occasional difficult offline repair if needed; do not add automatic model routing.
 
 ### Novelty
 
-The building blocks exist: tournament ranking of LLM-generated ideas (e.g. Google's AI co-scientist), simulated peer review (AgentReview), LLM vs. human idea studies (Si et al.), LLM reviewers (Sakana's AI Scientist), and some hackathons already use AI-assisted judging. The proposed distinction is a **sponsor-specific simulated field of competitors built from past projects**, paired with **Gemini judges using challenge-specific rubrics and historical examples** to provide comparative practice feedback. A dedicated literature and product search is still needed before claiming novelty.
+The building blocks exist: tournament ranking of LLM-generated ideas (e.g. Google's AI co-scientist), simulated peer review (AgentReview), LLM vs. human idea studies (Si et al.), LLM reviewers (Sakana's AI Scientist), and some hackathons already use AI-assisted judging. The proposed distinction is a **sponsor-specific simulated field of competitors built from past projects**, paired with **Qwen judges using challenge-specific rubrics and historical examples** to provide comparative practice feedback. A dedicated literature and product search is still needed before claiming novelty.
 
 A research angle for the lab: "Can LLM judges predict hackathon winners?", measured by backtesting on past Knight Hacks results (section 7).
 
 ## 2. End-to-end flow
 
-1. **Offline, once per event:** scrape seeds, generate the simulated field (about 109 projects), judge every fake project in each challenge it entered, and cache the scores.
+1. **Offline, once per version:** collect seeds and disjoint judge examples, save reviewed challenge prompts/configs, use Luna to generate about 109 competitors, then use Qwen to score every accepted competitor in its assigned sponsor tracks and all included general categories. Save projects, raw scores and validated results.
 2. **User submits** a project in Devpost JSON plus the challenges entered.
-3. **Judge the user's project** in each entered sponsor challenge and in the general challenges, with the same judge version used for the field.
+3. **Live:** use Qwen to judge only the user's project in each entered sponsor challenge and the included general categories, with exactly the judge configuration used for the field. Do not regenerate or rejudge the competitors during a request.
 4. **Rank:** compare the user's score with the cached field scores for that challenge, computing places at query time.
 5. **Report** per challenge: score out of 10, place range out of N, eligibility, top rivals and what they have that the user's project lacks.
 6. **Optionally store** the user's project in a live leaderboard (section 6).
@@ -42,7 +44,7 @@ Whiteboard plan, mapped to this flow:
 | 1. Historical project-count average -> 109 simulated teams                | Section 4 (LLM participants)  |
 | 2. Sponsor list                                                       | Section 3 (challenges config) |
 | 3. LLM project -> Devpost structured input -> run once -> save (fake) | Sections 4.2-4.9              |
-| 4. One agent per challenge (expert) -> make and save                  | Section 5 (judges)            |
+| 4. One judge prompt/config per challenge -> prepare and save                  | Section 5 (judges)            |
 | 5. User inputs -> Devpost JSON                                        | Section 4.2 (shared schema)   |
 | 6. Judge output -> JSON: category, user ranking (e.g. 9.1/10, 7/30)   | Section 5.4                   |
 | 7. Test with mock fake                                                | Sections 4.9 and 7            |
@@ -50,11 +52,11 @@ Whiteboard plan, mapped to this flow:
 
 ## 3. Event config: Knight Hacks IX
 
-All challenges, descriptions, prizes and the rubric are in `kh9_challenges.json` (extracted from the Knight Hacks IX Hacker's Guide).
+Store challenges, descriptions, prizes and the rubric in `kh9_challenges.json`, to be extracted and checked against the Knight Hacks IX Hacker's Guide during implementation. This file has not been built yet. Active sponsor tracks are Gemini, ElevenLabs, Databricks and BNY; active general categories are Best Overall, Best AI, Best Game and Most Useful. Excluded tracks remain excluded even though Hugging Face hosts our judge model.
 
 ### General challenges (every project is considered automatically)
 
-The judging rubric scores all projects first; the top scorers are then sorted into categories.
+Evaluate each included category separately using its own definition and Relevance gate. Best Overall uses four criteria and no Relevance gate.
 
 | Challenge                   | Simulated? | Notes                                              |
 | --------------------------- | ---------- | -------------------------------------------------- |
@@ -70,17 +72,17 @@ The judging rubric scores all projects first; the top scorers are then sorted in
 
 | Sponsor              | Challenge                                                  | Simulated?                             |
 | -------------------- | ---------------------------------------------------------- | -------------------------------------- |
-| Hugging Face         | Best Use of Open Source AI                                 | Yes                                    |
+| Hugging Face         | Best Use of Open Source AI                                 | No: excluded from seed pool            |
 | NVIDIA               | Best Use of Jetson Nano                                    | No: hardware challenge                 |
 | Encompass            | Data Capturing Hardware                                    | No: hardware challenge                 |
 | BNY                  | Financial Services Challenge                               | Yes                                    |
-| OneEthos             | Innovation for Good (local environmental issue)            | Yes                                    |
+| OneEthos             | Innovation for Good (local environmental issue)            | No: excluded from seed pool            |
 | Databricks           | Best Use of Databricks                                     | Yes                                    |
 | Neon                 | Best Use of Neon                                           | No: excluded from seed pool            |
 | Figma                | Best Design                                                | No: visual, cannot be judged from text |
 | Adobe                | Prettiest Hack                                             | No: visual, cannot be judged from text |
-| MLH                  | Gemini API, ElevenLabs, Vultr, Solana                       | Yes                                    |
-| MLH                  | Tiger Data, Presage                                         | No: excluded from seed pool            |
+| MLH                  | Gemini API, ElevenLabs                                     | Yes                                    |
+| MLH                  | Tiger Data, Presage, Vultr, Solana                          | No: excluded from seed pool            |
 | MLH                  | Best Domain Name from GoDaddy Registry                     | No: not judgeable from a write-up      |
 
 Sponsors with no challenge this year: Morgan & Morgan, RF-SMART, Bloomberg, AWS.
@@ -91,7 +93,7 @@ Sponsors with no challenge this year: Morgan & Morgan, RF-SMART, Bloomberg, AWS.
 
 ### 4.1 Approach
 
-The component builds a cached pool of about 109 fake Knight Hacks IX submissions by lightly changing real past Devpost projects, not by writing them from scratch. Each fake team starts from a real seed project from the same sponsor's past challenges, and Gemini changes it just enough to be a new, plausible entry.
+The component builds a cached pool of about 109 fake Knight Hacks IX submissions by lightly changing real past Devpost projects, not by writing them from scratch. Each fake team starts from a real seed project from the same sponsor's past challenges, and Luna changes it just enough to be a new, plausible entry.
 
 Pipeline, in order:
 
@@ -99,7 +101,7 @@ Pipeline, in order:
 2. **Assign challenges** to each fake team from the config, including one primary challenge.
 3. **Sample a persona**: skill focus, mutation strength, completion and writing style (seeded, reproducible).
 4. **Pick a seed** from the primary challenge's pool, preferring seeds used least so far.
-5. **Mutate**: one Gemini call rewrites the seed for this team's challenges and persona.
+5. **Mutate offline**: Luna rewrites the seed for this team's challenges and persona, returning one submission per team in a small Codex batch.
 6. **Check similarity** against the seed and against other mutants; retry if too close.
 7. **Validate** schema and content rules; retry failures (max 2).
 8. **Save** to the pool database with seed id, persona, prompt version and model.
@@ -130,23 +132,21 @@ Section lengths follow the persona's writing style: terse 1-2 sentences each, av
 
 ### 4.3 Seed pool
 
-Each challenge gets its own pool of 15-30 real past Devpost projects that targeted the same sponsor or the same kind of challenge. Gemini only edits these, so fake projects keep the scope, detail and rough edges of real student work.
+Each challenge gets its own pool of 15-30 real past Devpost projects that targeted the same sponsor or the same kind of challenge. Luna only edits these, so fake projects keep the scope, detail and rough edges of real student work.
 
 **Where seeds come from.** Devpost galleries of past hackathons, filtered by the prize each project was submitted to, plus all 188 Knight Hacks VIII (KH25) submissions labeled with their tracks.
 
 | Challenge                             | Seed source                                                                                             | Availability (found)                |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------- | ----------------------------------- |
-| MLH Gemini, ElevenLabs, Solana, Vultr | Same MLH prize at other hackathons                                                                      | Plentiful (8-28 past editions each) |
+| MLH Gemini, ElevenLabs               | Same MLH prize at other hackathons                                                                      | Plentiful (18-28 past editions each) |
 | Databricks                            | 6 past Databricks challenges                                                                            | Plentiful                           |
 | BNY                                   | Fraud-detection challenge (Knight Hacks VII, ShellHacks 2024), fintech tracks                           | Moderate                            |
-| OneEthos                              | Sustainability tracks (e.g. Bloomberg's at PennApps, Bitcamp); its 2025 challenge was a different topic | Moderate                            |
-| Hugging Face                          | No sponsor challenge found; projects that list Hugging Face under "Built with"                          | Moderate                            |
 
 **Mix winners and non-winners.** About 10% of seeds should be winners. A winners-only pool makes the simulated field far stronger than a real one, and users would place too low.
 
 **Keep seeds apart from judge examples.** If judges see past winners as reference examples and the fake projects are rewrites of those same winners, judges will recognize them and overrate them. Split by hackathon or year: one set seeds the pool, a different set teaches the judges.
 
-**Mutated projects, not unchanged submissions.** Past projects supply starting ideas and technical context. Gemini changes the name and tagline, rewrites every section, and changes the audience, setting, features or technical approach according to mutation strength. Rivals are labeled synthetic; they are not presented as the original teams or actual current entrants. Keep source URLs and seed IDs for provenance. Mutation does not establish independent invention.
+**Mutated projects, not unchanged submissions.** Past projects supply starting ideas and technical context. Luna changes the name and tagline, rewrites every section, and changes the audience, setting, features or technical approach according to mutation strength. Rivals are labeled synthetic; they are not presented as the original teams or actual current entrants. Keep source URLs and seed IDs for provenance. Mutation does not establish independent invention.
 
 **Use only internally.** Seeds and their close rewrites stay inside the system. When users see rival projects, show short summaries, not full rewritten text.
 
@@ -165,7 +165,7 @@ Hackathon URLs can be found with Devpost's search API: `https://devpost.com/api/
 
 ### 4.5 Sponsor challenge history
 
-Among the sponsors retained in this history, NVIDIA, Databricks, BNY, OneEthos and MLH ran challenges at the 53 editions checked (27 undergraduate hackathons, 2023-2026). Hugging Face and Encompass had none; Hugging Face seeds must come from projects that use its technology. NVIDIA and Encompass are excluded as hardware challenges (section 3); their history is kept below for reference only.
+Among the sponsors retained in this history, NVIDIA, Databricks, BNY and MLH ran challenges at the 53 editions checked (27 undergraduate hackathons, 2023-2026). NVIDIA is excluded as a hardware challenge (section 3); its history is kept below for reference only.
 
 Each hackathon's Devpost page was read on 2026-10-10. Devpost does not index hackathons by sponsor, so "all hackathons a sponsor ran" cannot be listed directly. This covers large US and Canadian student hackathons plus Florida events; descriptions are paraphrased and should be checked before use.
 
@@ -174,15 +174,13 @@ Each hackathon's Devpost page was read on 2026-10-10. Devpost does not index hac
 | NVIDIA                                   | TreeHacks 2025: Best Accelerated Compute; Robo Prize (robotics, vision, edge AI) · TreeHacks 2026: Edge AI Track; Open Models on DGX Spark · ShellHacks 2025: AI, graphics or accelerated computing · HackUTD 2025: NVIDIA track (brief not public) |
 | Databricks                               | HackTX 2024, Knight Hacks VII 2024, HackHarvard 2024: Best AI Project with Databricks Open Source · Hack the North 2024 and 2025: Best Use of Databricks · Hacklytics 2026: Geo-Insight Challenge                                                   |
 | BNY                                      | Knight Hacks VII 2024 and ShellHacks 2024: AI-powered financial fraud detection                                                                                                                                                                     |
-| OneEthos                                 | Knight Hacks VIII 2025: AI for Financial Empowerment                                                                                                                                                                                                |
-| MLH                                      | Gemini API at about 28 editions, ElevenLabs about 18, Solana about 12, Vultr about 8                                                                                                                  |
-| Hugging Face, Encompass | None found                                                                                                                                                                                                                                          |
+| MLH                                      | Gemini API at about 28 editions, ElevenLabs about 18                                                                                                                  |
 
 Sponsors without a Knight Hacks IX challenge also have history: Morgan & Morgan (Knight Hacks VI 2023, Knight Hacks VIII 2025, SwampHacks XI 2026; legal-tech AI), Bloomberg (PennApps 2024-2025 sustainability; Bitcamp 2025 public health, 2026 social impact) and AWS (Hacklytics 2025; Hack the North 2024-2025).
 
 What this means for seeds:
 
-- Florida sponsors (BNY, OneEthos) mostly appear at Knight Hacks and ShellHacks, and their challenge topic changes every year. Pick their seeds by theme, not by sponsor name.
+- BNY appears at Knight Hacks and ShellHacks. Pick its seeds by theme, not by sponsor name.
 - MLH and Databricks have enough past entries to seed from directly.
 - Not yet checked: smaller Florida events (HootHacks, SASEHacks, Gator Hack, 305 HackShells) and UofTHacks 12, which was not on Devpost.
 
@@ -216,25 +214,22 @@ The opt-in shares, popularity weights and fit shares below remain configurable s
 | 1       | 35%            |
 | 2       | 30%            |
 | 3       | 15%            |
-| 4+      | 5%             |
+| 4       | 5%             |
 
 **Challenge popularity weights** (relative odds a team picks it; sampled without replacement):
 
 | Challenge                              | Weight | Constraint                                            |
 | -------------------------------------- | ------ | ----------------------------------------------------- |
 | MLH Gemini API                         | 10     | Any AI project                                        |
-| Hugging Face                           | 8      | Any AI project                                        |
-| OneEthos                               | 6      | Environmental, local community                        |
 | BNY                                    | 5      | Finance                                               |
 | MLH ElevenLabs                         | 5      | Voice feature                                         |
 | Databricks                             | 3      | Data/ML pipeline                                      |
-| MLH Vultr, Solana                     | 2 each | Tech-specific                                         |
 
 **Fit level per opt-in**, sampled independently: strong 50%, medium 30%, weak 20%. Weak means the team tagged the track with only incidental use, which real teams do often and which the Relevance gate should catch.
 
 ### 4.7 Persona sampler
 
-Each team gets a small persona sampled in plain code (no LLM), with a fixed seed so the pool is reproducible. The seed project already supplies the domain, team texture and idea; the persona only controls how far the rewrite moves from it.
+Each team gets a small persona sampled in plain code (no LLM), with a fixed seed so assignments are reproducible; save generated outputs because LLM text itself is not guaranteed reproducible. The seed project already supplies the domain, team texture and idea; the persona only controls how far the rewrite moves from it.
 
 **Why these percentages?** The weights are configurable diversity controls, not measured frequencies of real hacker attributes. They favor some profiles while reserving room for others, producing a mix of technical focuses, completion levels, writing styles and mutation strengths. The exact percentages are design choices for the hackathon prototype; they do not establish that the pool represents the real competition. Mutation strength controls the extent of the rewrite, not proven originality.
 
@@ -250,9 +245,11 @@ Consistency rules, applied after sampling:
 - Hardware-focus teams enter only general challenges and software sponsor challenges; no hardware challenge is assigned.
 - If no seed in the primary pool matches the skill focus, drop the skill filter for that team.
 
-### 4.8 Mutation prompt (Gemini)
+### 4.8 Mutation prompt (Luna, offline)
 
-One Gemini call per fake team: the seed submission, the team's challenges and its persona go in, a new submission comes out. `{braces}` are filled by code. Use JSON output with a response schema and temperature about 0.8.
+Use GPT-6 Luna through Codex in small batches. Each team receives its seed submission, assigned challenges and sampled persona; each result must match the shared JSON schema. `{braces}` are filled by preparation code. Save outputs for validation and import; no generation happens during user requests. Our test used one Codex batch of ten synthetic inputs, not a deployed API generator or real-seed benchmark.
+
+Target completion and challenge fit override contradictory seed claims. Light mutation must preserve the core concept except changes needed for those targets. Heavy mutation must visibly incorporate a distinctive technique from the second seed. Weak fit means an actual incidental role, rather than merely listing unused technology. Review these semantic properties before accepting the field; schema checks alone missed two such issues in the Luna test.
 
 System prompt:
 
@@ -329,21 +326,21 @@ With seeds, variety comes from real projects. The risks are a rewrite that stays
 **Why this similarity cutoff?** A single permissive cosine-similarity cutoff of 0.95 is an inexpensive generation heuristic intended to discourage near-duplicates while allowing related ideas. It is a provisional choice, not a validated duplicate boundary, and its behavior depends on the embedding model and input fields. Mutation strength is controlled by the prompt, not by separate similarity thresholds. The hackathon prototype requires no manual labeling study. Passing the filter does not prove originality or make placement estimates realistic.
 
 1. **Seed usage cap.** Each seed is used at most 3 times per pool; the least-used seed is picked first.
-2. **Similarity to source seeds.** Embed `name + tagline + what_it_does` with the same Gemini embedding model and settings for every comparison. Retry if cosine similarity exceeds 0.95 against either source seed, regardless of mutation strength.
+2. **Similarity to source seeds.** Embed `name + tagline + what_it_does` with one fixed embedding model, version and settings for every comparison (selected and smoke-tested during implementation, independently of the generator and judge). Retry if cosine similarity exceeds 0.95 against either source seed, regardless of mutation strength.
 3. **No copied sentences.** Retry if the rewrite shares any run of 12 or more words with the seed.
 4. **Similarity within the field.** Apply the same 0.95 cutoff against every accepted generated project, including rewrites from different seeds.
 5. **Pool report** after each run: teams per challenge, seeds used per challenge, mix of mutation and completion levels, and a histogram of nearest-neighbor similarity. This is a diagnostic report, not a manual labeling requirement.
 
 **Retry budget.** Allow at most 2 retries after the initial generation for a team, shared across similarity and validation failures. Retries may choose another eligible seed. If all 3 attempts fail, record the skipped team and continue; report the actual accepted field size.
 
-**Gemini settings.** Use a Flash-tier model for the mutation call (about 109 calls per pool) and check current model names in Google AI Studio. Set `responseMimeType: application/json` with a `responseSchema` and temperature about 0.8. Run 5-10 calls concurrently with exponential backoff on rate-limit errors.
+**Offline generation settings.** Request GPT-6 Luna in Codex, provide the schema and target rules, and save each batch before continuing. Record the requested model, prompt version and batch provenance. Codex generation is not an API call with measured token pricing or configurable API temperature in these tests. Repair only rejected teams within the retry budget; do not regenerate accepted teams. If an API generator is added later, evaluate that route separately.
 
 **Checks on every rewrite** (failures use the shared retry budget above):
 
 - [ ] Parses against the schema; every field non-empty.
 - [ ] `challenges` equals the assigned ids exactly.
 - [ ] Section lengths within the writing-style bounds (allow ±50%).
-- [ ] For strong and medium fit, `built_with` names the sponsor tech (Databricks, Hugging Face, Gemini, ElevenLabs).
+- [ ] For strong and medium fit, `built_with` names the sponsor tech (Databricks, Gemini, ElevenLabs).
 - [ ] No leaked labels: none of "persona", "completion level", "mutation strength", "originality target", "as an AI".
 - [ ] Polished completion only if the persona says so: broken or partial write-ups must mention something unfinished.
 
@@ -353,7 +350,7 @@ With seeds, variety comes from real projects. The risks are a rewrite that stays
 
 ### 5.1 Rubric
 
-Based on the official Knight Hacks IX judging rubric, with **Design removed** (the field is text-only) and **Relevance added**. Each criterion is scored 1-5; total out of 25; score out of 10 = total / 2.5.
+Based on the official Knight Hacks IX judging rubric, with **Design removed** (the field is text-only) and **Relevance added** for sponsor tracks and general categories other than Best Overall. Score each criterion 1-5. Five criteria total /25; Best Overall has four criteria total /20. Code computes `score_10 = 10 * total / max_total` and eligibility, rather than trusting model-generated totals or flags.
 
 | Criterion                   | What the judge reads in a text-only submission                                                                                                                                            |
 | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -371,26 +368,28 @@ Relevance scale:
 4. Challenge tech or theme is central to the project.
 5. Built around the challenge; showcases exactly what the sponsor cares about.
 
-**Relevance gate:** a project scoring 1-2 on Relevance is not ranked in that challenge, as real sponsor judges skip it. For general categories (AI, Game, Most Useful), Relevance means fit with the category; Best Overall uses no Relevance.
+**Relevance gate:** code excludes a project with Relevance 1-2 from that challenge's practice ranking. This is our scoring rule, not a verified rule for all human judges. For general categories (AI, Game, Most Useful), Relevance means category fit; Best Overall omits Relevance and is eligible by default.
+
+**Separate fit from completion.** An incomplete central sponsor integration can have high Relevance and low Functionality. Planned features in `whats_next` do not reduce the score for a working scoped core. For Best Game, require described player objectives, choices, rules or a gameplay loop; VR, Unity, AI or voice alone does not establish gameplay. Define category-specific anchors for Best AI and Most Useful too.
 
 **Writing versus execution.** The judge evaluates documented claims, not verified working software. Reward concrete implementation details, described integrations, limitations and tradeoffs rather than length, polished prose or confident language. Missing evidence should be called out in the rationale. These instructions reduce the incentive to oversell but cannot verify claims from text alone.
 
 ### 5.2 One judge per challenge
 
-Each judge is a Gemini prompt built from:
+Each judge is a reviewed, saved Qwen prompt/configuration, drafted offline with Luna if useful, built from:
 
 - the challenge's brief and prize from `kh9_challenges.json`;
 - the rubric above with its scale anchors;
-- **reference examples in the prompt:** 3 winning and 3 non-winning past submissions from comparable challenges, each labeled `winning` or `non-winning`. `winning` means the project received that specific challenge's prize; `non-winning` means it entered that challenge but did not receive its prize. These come from the judge-example split, never from the seeds used to build the field (section 4.3).
+- **reference examples in the prompt:** 3 winning and 3 non-winning past submissions from comparable challenges, each labeled `winning` or `non-winning`. `winning` means the project received that specific challenge's prize; `non-winning` means it entered that challenge but did not receive its prize. These come from the judge-example split, never from the seeds used to build the field (section 4.3). For the 18-hour MVP, use only examples verified before the judge freeze; if unavailable, launch the tested brief-and-rubric prompt without examples and record that limitation. Adding examples later creates a new judge version and requires rescoring.
 
-The current challenge brief and rubric guide scoring; past examples provide context. We only have outcome labels, so no historical judge feedback or explanations are required. This is the MVP approach; the examples alone do not establish prediction accuracy.
+The current challenge brief and rubric guide scoring; past examples provide context. We only have outcome labels, so no historical judge feedback or explanations are required. The reference setup remains planned and was not included in the local smoke tests. Winner labels are not historical criterion scores; examples alone do not establish prediction accuracy. Save real examples and briefs rather than generating invented historical evidence.
 
 Judges see only the `submission` object for the project being evaluated, never its `meta`. Reference examples include their outcome labels explicitly.
 
 ### 5.3 Judge prompt (draft)
 
 ```text
-You are the {sponsor} judge for the "{challenge_name}" challenge at Knight Hacks IX,
+You are the judge for the "{challenge_name}" challenge at Knight Hacks IX,
 a 36-hour student hackathon. There is no live demo: you judge from the Devpost
 write-up only.
 
@@ -422,7 +421,13 @@ Rules:
   with assumptions or treat missing detail as proof that the project is broken.
 - Do not take claims at face value; judge what is plausible in 36 hours.
 - Wow Factor is rare: default to 1-2.
-- If Relevance is 1 or 2, set "eligible" to false.
+- Judge the scoped core; do not count future features as failed current features.
+- Relevance is category fit, independently of whether the integration is complete.
+- Apply the category-specific anchors; technology tags alone do not establish fit.
+- For each criterion, provide a verbatim contiguous submission quote, at most 120
+  characters, or "not described". Never invent or paraphrase an exact quote.
+- Explain the scores in at most two sentences and 500 characters; plain prose only.
+- Omit Relevance for Best Overall. Code computes totals and eligibility.
 
 <submission>
 {submission JSON}
@@ -431,33 +436,27 @@ Rules:
 Return only JSON matching the schema.
 ```
 
-### 5.4 Judge output
+### 5.4 Judge output and code validation
 
-```json
-{
-  "challenge": "databricks",
-  "relevance": 4,
-  "originality": 3,
-  "tech_understanding": 4,
-  "functionality": 3,
-  "wow": 2,
-  "total": 16,
-  "score_10": 6.4,
-  "eligible": true,
-  "rationale": "..."
-}
-```
+The model returns only the active criterion scores, a short rationale and evidence strings keyed by criterion. Require integers 1-5, all required fields, no extra fields, rationale at most 500 characters and each evidence string at most 120 characters. Best Overall omits Relevance. Use structured JSON output plus server-side schema validation; the tested output budget was 1,200 tokens.
 
-### 5.5 Reliability
+Code adds `challenge`, `total`, `max_total`, `score_10`, `eligible` and `judge_version`. For example, scores Relevance 4, Originality 3, Technical Understanding 4, Functionality 3 and Wow 2 produce 16/25 = 6.4/10 and `eligible=true`. Best Overall with 14 points produces 14/20 = 7.0/10. Never ask the model to calculate placement.
 
-- **Low temperature, 3 runs, averaged.** Report a place range ("5th-8th") rather than a falsely precise "7th".
-- **Pairwise tie-break.** Absolute scores bunch up (many 8.0s), so re-rank the top ~10 per challenge with head-to-head comparisons, randomizing which project is shown first to avoid position bias.
-- **Same judge for field and user.** Store the judge version with every score; if the rubric or prompt changes, re-score the whole field.
-- **Sanity check from hidden labels.** Functionality should rise with the completion target and Relevance with fit level. Stronger mutation does not necessarily deserve a higher Originality score. If a judge cannot separate broken from polished, fix it before trusting any ranking.
+Validate evidence against actual submission strings. Non-matching excerpts are flagged and omitted from displayed direct quotes; a passing JSON schema does not make a rationale factually correct. Preserve raw responses locally for diagnosis. If a test or provider response includes an eligibility flag, detect disagreement with the rule instead of trusting the flag.
+
+### 5.5 Reliability and versioning
+
+- **Fixed route.** Start with `Qwen/Qwen3-32B:deepinfra` via the Hugging Face router, structured JSON, temperature 0.2 and non-thinking requests as tested. Verify provider support and returned model metadata. `/no_think` was used in the probes; do not assume every host supports identical control parameters. No silent fallback to 14B, another provider or a different output protocol.
+- **Same scoring protocol for field and user.** Use three low-temperature runs and average the normalized scores for both paths. The small local test did not benchmark this complete protocol. Compute eligibility per run; rank only if at least two runs pass the Relevance gate, with Best Overall always eligible. Display disagreement when a project straddles the gate.
+- **Honest place ranges.** Compare each user run with cached field runs using the same protocol; report the resulting placement spread and tied ranks. A score spread is not a calibrated confidence interval. Show actual ties even if repeated runs happen to agree. Pairwise reranking is deferred from the MVP; it would need its own consistent field/user protocol.
+- **Freeze the judge.** Version model, provider, prompt, rubric, reference examples, schema, generation settings and aggregation rules together. Any change creates a new judge version and requires rescoring the whole cached field before live comparisons resume. Never mix versions.
+- **Bounded failures.** Apply timeouts and at most two retries for transient or invalid responses. Preserve failures; if scoring remains incomplete, report evaluation unavailable rather than fabricating a rank or switching judges.
+- **Sanity checks.** Functionality should rise with completion target and Relevance with fit level. Mutation strength does not automatically deserve higher Originality. Check injections, padded wording, category gates, valid JSON and exact quotes before scoring the full field.
+- **No fine-tuning for the MVP.** Start with prompts, anchors and validation. Consider Qwen LoRA/QLoRA later only with enough human-reviewed scoring examples and held-out evaluation; historical winner labels and the model's own scores are not ground truth. Custom weights require a separately evaluated serving route.
 
 ## 6. Ranking, output and the cached database
 
-**Store scores, compute places.** Save each project's score per challenge; a place is computed at query time by sorting. Adding a project means saving one scored row; nothing else is re-ranked.
+**Store scores, compute places.** Save each project's score per challenge; a place is computed at query time by sorting. Scoring a user adds its per-category runs; ranking inserts its aggregate into the cached score ordering without re-evaluating competitors. N is the eligible simulated competitor count; show the user's place out of N + 1.
 
 **What placement means.** Placement is relative to the accepted simulated practice field and the selected judge version. It is not a forecast of actual hackathon results or a probability of winning. A range reflects variation in model scoring within this field, not a calibrated confidence interval for the real event. Label the field as simulated wherever placement is displayed.
 
@@ -465,7 +464,7 @@ Return only JSON matching the schema.
 
 ```text
 Databricks - Best Use of Databricks
-Score: 7.2/10 (Relevance 4, Originality 3, Tech 4, Functionality 4, Wow 2)
+Score: 7.2/10 (Relevance 4, Originality 3, Tech 5, Functionality 4, Wow 2)
 Practice-field placement: about 5th-8th of 31 eligible entries
 Based on the write-up; software execution has not been verified.
 Top rivals: <short summaries of the top 3>
@@ -476,21 +475,40 @@ Plus general categories, and a saturation warning when many rivals share the ide
 
 **Updating the cached database when a user ranks high.** Doable, with these rules:
 
-1. **Don't let the field drift stronger.** Adding only high-ranking projects makes later users place unfairly low. Recommended: keep the simulated field frozen and add a separate **live leaderboard** of real user submissions, showing both places. Alternative: keep the field at a fixed size and replace the most similar fake project in that challenge.
-2. **One entry per team.** Resubmissions update the team's entry instead of adding a new one; embeddings catch near-duplicates.
+1. **Don't let the field drift stronger.** Adding only high-ranking projects makes later users place unfairly low. Keep the simulated field frozen. A separate, optional **live leaderboard** can show consenting real user submissions; do not replace rivals in the practice field.
+2. **One entry per team.** Resubmissions update the team's entry instead of adding a new one. Any optional duplicate detection must not trigger field regeneration.
 3. **Privacy.** Ask for consent before storing a user's project, and show it to others only as a short anonymized summary, or not at all. Hackers may not want their idea visible to rivals during the event.
 4. **Versioning.** Store the judge version with each score; re-score everything when it changes.
 
-**Storage (SQLite).**
+**Storage (Neon-hosted PostgreSQL).** Neon is the backend database, while its sponsor challenge remains excluded. Person 2 owns schema migrations, persistence and imports; offline scripts produce versioned artifacts and use the backend import path rather than changing tables independently. Store structured submissions/configs/evidence as JSONB and index project/challenge/version keys.
+
+Keep `DATABASE_URL` (Neon pooled connection for runtime) and `DATABASE_URL_DIRECT` (direct connection for migrations) server-only, alongside `HF_TOKEN`. Use the console-provided TLS connection settings; never disable TLS verification or expose either URL to the browser. Follow [Neon connection guidance](https://neon.com/docs/get-started/connect-neon) and [pooling guidance](https://neon.com/docs/connect/connection-pooling). Use SQLAlchemy 2 with psycopg 3; parse the PostgreSQL URL and select the psycopg dialect without logging credentials. No Neon project or live connection has been configured or tested yet.
+
+Planned tables:
 
 - `seeds`: `id`, `challenge_id`, `submission_json`, `source_hackathon`, `year`, `devpost_url`, `submitted_to`, `prize_won`, `split` (seed or judge-example).
 - `pool_projects`: `id`, `pool_version`, `rng_seed`, `seed_ids`, `mutation`, `persona_json`, `fit_json`, `submission_json`, `model`, `prompt_version`, `created_at`.
-- `scores`: `project_id`, `challenge_id`, criterion scores, `score_10`, `eligible`, `judge_version`, `run`.
-- `user_projects`: `id`, `team_key`, `submission_json`, `consent`, `created_at`.
+- `judge_configs`: `judge_version`, model, provider, prompt, rubric, reference-example ids, response schema, inference settings, aggregation rules and content hashes.
+- `scores`: `project_id`, `pool_version`, `challenge_id`, raw response, criterion scores, computed total and denominator, `score_10`, computed `eligible`, validated evidence, warnings, `judge_version`, `run`.
+- Cache/import checks reject mismatched judge or pool versions. Keep secrets in server environment variables, never in exported artifacts or the frontend.
+- `evaluation_jobs`: `id`, requesting session key, `judge_version`, `pool_version`, status, result/error JSON, created/expiry timestamps.
+- `user_projects`: `id`, requesting session key, `submission_json`, `created_at`, expiry. Live-leaderboard team/consent fields are deferred.
 
-## 7. Future validation (beyond the hackathon MVP)
+## 7. Validation
 
-The MVP demonstrates comparative feedback using Gemini. The studies below are optional follow-up work, not completed evidence or required manual labeling for the demo.
+### 7.1 Completed local smoke tests
+
+Reusable probes and a sanitized summary are in [`experiments/`](experiments/README.md) and [`experiments/RESULTS.md`](experiments/RESULTS.md). Tokens, copied Devpost stories, generated outputs and raw provider responses stay in Git-ignored local files.
+
+- **Luna:** ten mutations from synthetic inputs in one Codex batch. All ten passed mechanical checks; manual review found two scope/fit issues. This supports offline generation with validation, not automatic acceptance of every output.
+- **Bounded Qwen3-32B:** 13/13 JSON/schema and relevance/eligibility consistency checks passed; median observed request time was about 7 seconds. It excluded a non-game under the explicit gameplay rule and admitted a real game control. Qwen3-14B made eligibility/category errors in the comparison.
+- **Remaining issues:** 5/13 32B responses contained a non-exact evidence excerpt. Real-input padded wording shifted the average by 0.4/10, while repeated scores also varied by 0.4. One rationale included an unsupported detail. Longer responses previously produced truncation and timeout failures, motivating the output bounds.
+
+These are small smoke tests, not human-judge agreement or winner prediction. Historical reference examples, real-seed Luna generation, full BNY/Databricks briefs, three-run aggregation and the 109-project field still need implementation and validation. Do not use smoke-test pass counts as evidence that the full product is ready.
+
+### 7.2 Future validation (beyond the hackathon MVP)
+
+The MVP demonstrates comparative feedback using Qwen. The studies below are optional follow-up work, not completed evidence or required manual labeling for the demo.
 
 1. **Backtest on Knight Hacks VIII.** Scrape all 188 KH25 submissions with their opt-ins and the prizes they won (section 4.4). Run the judges on the real projects in each challenge and measure how often the actual winner lands in the predicted top 3. A result like "the real winner was in our top 3 for 6 of 8 challenges" is the headline number.
 2. **Field realism.** Compare the simulated field with the real KH25 field: track distribution, score distribution, topic overlap. If fake projects are more polished, users will place too low.
@@ -508,31 +526,69 @@ The MVP demonstrates comparative feedback using Gemini. The studies below are op
 | Polished writing hides weak implementation | Reward specific documented details; identify missing evidence; explain that execution is unverified |
 | Practice rank mistaken for a real prediction | Label placements as simulated and explain the comparison field |
 | Prompt injection in user submissions         | Submission wrapped in tags and treated as data                                              |
-| Judge noise and ties                         | 3 averaged runs; pairwise re-rank of the top ~10                                            |
+| Judge noise and ties                         | Same three-run protocol for field and user; show observed ranges and ties                   |
+| Invented quotes or unsupported explanations   | Exact substring checks; suppress invalid quotes; retain warnings and raw responses          |
+| Cached field scored by a different judge      | Freeze/version the full judge config; rescore before comparisons after any change            |
+| Invalid or truncated provider responses       | Bounded JSON output, timeouts and retries; report unavailable when checks fail               |
 | Field drift from user submissions            | Frozen field plus separate live leaderboard                                                 |
 | Privacy of user ideas                        | Consent, anonymized summaries                                                               |
 | Scraping terms of service                    | Check Devpost's terms; throttle; keep data internal                                         |
 
 ## 9. Build order and next steps
 
-Build the Gemini judge and a small end-to-end practice field first. Historical backtesting is future validation, not a prerequisite for the hackathon demo; do not claim measured predictive accuracy before running it.
+Build the Qwen judge and a small end-to-end practice field first. Historical backtesting is future validation, not a prerequisite for the hackathon demo; do not claim measured predictive accuracy before running it.
 
-- [ ] Scrape KH25: all submissions, opt-ins via prize filters, prizes won
-- [ ] Collect seeds: 15-30 past projects per challenge, about 10% winners
-- [ ] Split seeds from judge examples by hackathon or year
-- [ ] Build the Gemini judge prompt and JSON output
+- [x] Run small Luna and Qwen smoke tests; record findings and limitations
+- [x] Decide offline Luna preparation plus Qwen3-32B for all scoring
+- [ ] Agree shared contracts and record the first frozen judge/pool versions
+- [ ] Extract and review the four sponsor and four general challenge configs
+- [ ] Collect a small verified seed set first; split any judge examples by hackathon/year. Expand later, rather than blocking the demo on all 188 KH25 entries or 15-30 seeds per track.
+- [ ] Save reviewed per-challenge judge prompts, rubric and reference examples
+- [ ] Build the shared Qwen scoring client and validation/aggregation code
 - [ ] Write the challenge assigner and persona sampler
-- [ ] Implement the mutation call with JSON schema output
-- [ ] Add similarity checks, the copied-sentence check and the pool report
-- [ ] Add validation checks and SQLite storage
-- [ ] Smoke run of 10 rewrites; inspect automated checks and the pool report
-- [ ] Full run of 109 teams; judge the field and cache scores
-- [ ] User input form, ranking and output report
-- [ ] Live leaderboard with consent
-- [ ] Future validation: backtest on KH25 and compare rankings with real KH IX winners
+- [ ] Prepare Luna batches, validate outputs and import accepted mutations
+- [ ] Add similarity/copy checks, semantic spot checks and the pool report
+- [ ] Add Neon PostgreSQL storage and version-checked cache import/export
+- [ ] Smoke run with ten real-seed rewrites and the exact judge configurations
+- [ ] Generate up to 109 accepted teams; Qwen-score and cache the field
+- [ ] User input form, per-category ranking and grounded feedback
+- [ ] Run the full submit-to-report flow with the frozen field
+- [ ] Optional live leaderboard with consent
+- [ ] Future validation: backtest on KH25 and compare with real KH IX winners
 
-Open questions:
+Open questions: which historical editions supply disjoint seeds and examples, and who checks collection terms? The sponsor exclusions, model split and frozen practice field are decided.
 
-- Which past hackathons do we pull seeds from, and who checks Devpost's terms before collecting pages?
-- Keep Figma, Adobe, GoDaddy and the hardware challenges (NVIDIA, Encompass, Best Embedded) excluded, or show "cannot evaluate from text" for them?
-- Frozen field plus live leaderboard, or replace-in-field when a user ranks high?
+## 10. Three-person AI-agent workflow: 18 hours
+
+Use Python/FastAPI for the scoring API and Neon PostgreSQL, with React/TypeScript/Vite for the frontend. This keeps the Python probes and offline tooling usable without a second scoring implementation. Three human developers supervise separate AI-agent workstreams, each in its own clone or worktree and branch; never run their agents against one shared working directory.
+
+The initial source of truth is [`contracts/openapi.json`](contracts/openapi.json), with [`contracts/fixtures.json`](contracts/fixtures.json) and the semantic rules in [`contracts/README.md`](contracts/README.md). This is a contract, not an implemented service. All agents must read these files before coding and reuse the exact field names, challenge ids, status values and endpoint paths.
+
+| Owner | Work | Deliverable and handoff |
+| --- | --- | --- |
+| Person 1: data and offline preparation (`offline/`, `experiments/`) | Challenge config; seed/opt-in collection and provenance; disjoint judge examples; persona/challenge sampling; Luna mutations; validation, similarity checks and pool report | Versioned, validated submission/metadata artifacts and reviewed challenge prompts. Uses Person 2's shared scoring module to Qwen-score the saved field and export its cache. No separate judge implementation. |
+| Person 2: judging, storage and ranking (`backend/`, `contracts/`, shared root files) | Shared Qwen client; prompt/schema assembly; output, evidence and eligibility checks; retries; three-run aggregation; Neon PostgreSQL, versioned cache import/export; ranking and API endpoints | One scoring path used by offline and live requests, plus a stable submit/result API. Owns the judge version and rejects incompatible cached scores. |
+| Person 3: frontend and integration (`frontend/`) | Devpost input form; challenge selection; progress/error states; score/range/eligibility views; rival summaries and grounded feedback; simulated-field labels; private evaluation session handling | UI built against synthetic API fixtures first, then integrated with Person 2's endpoints and Person 1's frozen field. Owns end-to-end demo checks. |
+
+**Frozen API:** `GET /api/challenges`, `POST /api/evaluations` (202 queued job), `GET /api/evaluations/{evaluation_id}` (poll queued/running/completed/failed). Submit `contract_version` and the canonical `submission`; general categories are automatic. API results carry three runs, criterion means, computed totals/eligibility, validated evidence, warnings and placement. Person 1 uses Person 2's shared `score_submission(submission, challenge_ids, judge_config)` module for offline scoring. No duplicate judge client, schema or calculation in the offline pipeline or frontend.
+
+**Prevent merge conflicts:** agents edit only owned folders. Person 2 is the integrator and sole owner of shared contract/root-file changes after kickoff. Freeze the contract in the first hour. Any change goes through one coordinated contract PR with fixtures/types updated before dependent PRs merge. Each workstream syncs main before its PR's final checks; merge serially. Small PRs should describe contract compatibility and include their actual validation evidence. Do not let agents independently rename endpoints, add fields or change score formulas.
+
+**Handoff order:** agree contracts → parallel small fixtures/config, scoring API and UI → ten real-seed end-to-end smoke run → accepted field generation and cached Qwen scores → integrated demo. Person 3 can start with fixtures while data is collected. Person 1 can generate mutations before scoring is ready, then scores them with the shared module once Person 2 delivers it. If judge configuration changes after caching, Person 2 bumps the version and Person 1 rebuilds the cache before Person 3 presents ranks.
+
+**Git policy:** commit source, synthetic fixtures, docs and sanitized results. Keep credentials, copied historical write-ups, raw responses and generated field databases local; hand off runtime data through a separate agreed artifact channel. Commit scripts that build/import those artifacts so a fresh checkout explains how to prepare the demo.
+
+### 18-hour delivery schedule
+
+| Elapsed time | Shared milestone | Parallel work |
+| --- | --- | --- |
+| 0-1h | Freeze contract, folders, stack, branches and demo acceptance checks | All agents read the plan and contract; Person 2 confirms scaffolding/API shape and Neon setup; Person 1 chooses seeds/config; Person 3 runs fixture UI. |
+| 1-4h | One category works with Qwen; frontend submits and polls using fixtures | Person 1 builds small Luna batches and provenance; Person 2 validates real Qwen output and async jobs; Person 3 implements form/results/error states. |
+| 4-8h | Ten accepted real-seed projects, versioned cache import, real API-to-UI path | Person 1 reviews mutations and scores with shared client; Person 2 adds ranking/cache checks; Person 3 integrates endpoints. Freeze the judge before broader caching. |
+| 8-12h | Complete demo across four sponsor tracks and four general categories | Grow toward 109 only while the working demo stays intact. Report actual accepted/eligible counts. Check injection, non-games, partial builds, quote warnings and repeated-run gates. |
+| 12-15h | Integration and failure checks pass on the final cache | Verify fresh setup, schema/type compatibility, asynchronous progress, invalid input, provider timeout, ineligible results, ties, private sessions and version mismatch rejection. |
+| 15-18h | Feature freeze, final merged build, rehearsed demo and README | Fix blockers only. Verify deployment configuration, server-only secrets and runtime data handoff. Rehearse with an ordinary project and an ineligible track. |
+
+**18-hour scope:** a working form → Qwen evaluation → simulated placement/feedback with a small validated frozen field is the minimum deliverable. 109 is the expansion target, not a reason to miss the demo. Use the actual field size prominently; do not pad it with unvalidated entries. Defer full historical scraping, winner backtesting, fine-tuning, pairwise reranking, a live leaderboard and richer auth/sharing. Do not reduce live scoring quality or silently change models to hit the deadline; if the three-run protocol changes before launch, version it and rescore the field.
+
+**Agent handoff template:** assign the owner and owned paths; link this plan and the contract; list the deliverable and deadline; prohibit cross-owner edits; require synthetic fixtures for early integration; require validation against the contract and a small PR. Raise dependency/contract changes to the human integrator immediately. Each owner is accountable for reviewing their agent's output before merging.
