@@ -280,12 +280,46 @@ export interface components {
             meta: components["schemas"]["ProjectMeta"];
             challenge_results: components["schemas"]["ChallengeResult"][];
         };
+        /** @description Versioned field of up to 200 submissions. Mock fixtures are explicitly labeled and must never be imported as live Qwen results. */
         PoolArtifact: {
             contract_version: components["schemas"]["ContractVersion"];
             judge_version: string;
             pool_version: string;
             judge_config_sha256: string;
             projects: components["schemas"]["PoolProject"][];
+        };
+        MockJudgeConfig: {
+            /** @constant */
+            judge_version: "mock-heuristic-v1";
+            /** @constant */
+            kind: "deterministic-mock";
+            /** @constant */
+            runs: 3;
+            seed: number;
+            /** @constant */
+            rules_version: "1";
+        };
+        MockRankingRow: {
+            project_id: string;
+            name: string;
+            score_10: number;
+            eligible: boolean;
+            placement: components["schemas"]["Placement"] | null;
+        };
+        MockRankings: {
+            contract_version: components["schemas"]["ContractVersion"];
+            judge_version: string;
+            pool_version: string;
+            rankings: {
+                gemini: components["schemas"]["MockRankingRow"][];
+                elevenlabs: components["schemas"]["MockRankingRow"][];
+                databricks: components["schemas"]["MockRankingRow"][];
+                bny: components["schemas"]["MockRankingRow"][];
+                overall: components["schemas"]["MockRankingRow"][];
+                best_ai: components["schemas"]["MockRankingRow"][];
+                best_game: components["schemas"]["MockRankingRow"][];
+                most_useful: components["schemas"]["MockRankingRow"][];
+            };
         };
     };
     responses: never;
