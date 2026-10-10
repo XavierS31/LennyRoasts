@@ -69,11 +69,9 @@ The judging rubric scores all projects first; the top scorers are then sorted in
 | Sponsor              | Challenge                                                  | Simulated?                             |
 | -------------------- | ---------------------------------------------------------- | -------------------------------------- |
 | Hugging Face         | Best Use of Open Source AI                                 | Yes                                    |
-| Full Sail University | Pathways & Perception: Serious Games & Simulation          | Yes                                    |
 | NVIDIA               | Best Use of Jetson Nano                                    | No: hardware challenge                 |
 | Encompass            | Data Capturing Hardware                                    | No: hardware challenge                 |
 | BNY                  | Financial Services Challenge                               | Yes                                    |
-| NextEra Energy       | SPOT Management Dashboard                                  | Yes                                    |
 | OneEthos             | Innovation for Good (local environmental issue)            | Yes                                    |
 | AMD                  | Best Use of AMD Technologies (FSR4 or ROCm)                | Yes                                    |
 | Databricks           | Best Use of Databricks                                     | Yes                                    |
@@ -143,9 +141,7 @@ Each challenge gets its own pool of 15-30 real past Devpost projects that target
 | Hugging Face                          | No sponsor challenge found; projects that list Hugging Face under "Built with"                          | Moderate                            |
 | AMD                                   | Knight Hacks VIII 2025 only                                                                             | Limited                             |
 | Neon                                  | No sponsor challenge found; projects that list Neon under "Built with"                                  | Limited                             |
-| Full Sail                             | No sponsor challenge found; game projects with pathfinding or face detection                            | Limited                             |
 | MLH Tiger Data, Presage               | Presage once (Hacklytics 2026), Tiger Data never                                                        | Very limited                        |
-| NextEra SPOT                          | New challenge; Drone Optimization (Knight Hacks VIII) is the closest stand-in                           | Very limited                        |
 
 **Mix winners and non-winners.** About 10% of seeds should be winners. A winners-only pool makes the simulated field far stronger than a real one, and users would place too low.
 
@@ -168,7 +164,7 @@ Hackathon URLs can be found with Devpost's search API: `https://devpost.com/api/
 
 ### 4.5 Sponsor challenge history
 
-Of the Knight Hacks IX sponsors, only NVIDIA, Databricks, BNY, NextEra, OneEthos, AMD, Figma, Adobe and MLH ran challenges at the 53 editions checked (27 undergraduate hackathons, 2023-2026). Hugging Face, Full Sail, Encompass and Neon had none, so their seeds must come from projects that use their technology. NVIDIA and Encompass are excluded as hardware challenges (section 3); their history is kept below for reference only.
+Of the Knight Hacks IX sponsors, only NVIDIA, Databricks, BNY, OneEthos, AMD, Figma, Adobe and MLH ran challenges at the 53 editions checked (27 undergraduate hackathons, 2023-2026). Hugging Face, Encompass and Neon had none, so their seeds must come from projects that use their technology. NVIDIA and Encompass are excluded as hardware challenges (section 3); their history is kept below for reference only.
 
 Each hackathon's Devpost page was read on 2026-10-10. Devpost does not index hackathons by sponsor, so "all hackathons a sponsor ran" cannot be listed directly. This covers large US and Canadian student hackathons plus Florida events; descriptions are paraphrased and should be checked before use.
 
@@ -177,19 +173,18 @@ Each hackathon's Devpost page was read on 2026-10-10. Devpost does not index hac
 | NVIDIA                                   | TreeHacks 2025: Best Accelerated Compute; Robo Prize (robotics, vision, edge AI) · TreeHacks 2026: Edge AI Track; Open Models on DGX Spark · ShellHacks 2025: AI, graphics or accelerated computing · HackUTD 2025: NVIDIA track (brief not public) |
 | Databricks                               | HackTX 2024, Knight Hacks VII 2024, HackHarvard 2024: Best AI Project with Databricks Open Source · Hack the North 2024 and 2025: Best Use of Databricks · Hacklytics 2026: Geo-Insight Challenge                                                   |
 | BNY                                      | Knight Hacks VII 2024 and ShellHacks 2024: AI-powered financial fraud detection                                                                                                                                                                     |
-| NextEra Energy                           | Knight Hacks VII 2024: Energy Efficiency · Knight Hacks VIII 2025: Drone Optimization · HackUSF 2026: Malware Analysis                                                                                                                              |
 | OneEthos                                 | Knight Hacks VIII 2025: AI for Financial Empowerment                                                                                                                                                                                                |
 | AMD                                      | Knight Hacks VIII 2025: Best Use of AMD Hardware/Software                                                                                                                                                                                           |
 | Figma                                    | Hacklytics 2026: Figma Make data visualization · LA Hacks 2026: Figma Make · HackDavis 2026: Best UI/UX                                                                                                                                             |
 | Adobe                                    | HackRice 14 (2024): Most Creative Adobe Express Add-On                                                                                                                                                                                              |
 | MLH                                      | Gemini API at about 28 editions, ElevenLabs about 18, Solana about 12, Vultr about 8, Presage 1 (Hacklytics 2026), Tiger Data none                                                                                                                  |
-| Hugging Face, Full Sail, Encompass, Neon | None found                                                                                                                                                                                                                                          |
+| Hugging Face, Encompass, Neon | None found                                                                                                                                                                                                                                          |
 
 Sponsors without a Knight Hacks IX challenge also have history: Morgan & Morgan (Knight Hacks VI 2023, Knight Hacks VIII 2025, SwampHacks XI 2026; legal-tech AI), Bloomberg (PennApps 2024-2025 sustainability; Bitcamp 2025 public health, 2026 social impact) and AWS (Hacklytics 2025; Hack the North 2024-2025).
 
 What this means for seeds:
 
-- Florida sponsors (BNY, NextEra, OneEthos, AMD) mostly appear at Knight Hacks and ShellHacks, and their challenge topic changes every year. Pick their seeds by theme, not by sponsor name.
+- Florida sponsors (BNY, OneEthos, AMD) mostly appear at Knight Hacks and ShellHacks, and their challenge topic changes every year. Pick their seeds by theme, not by sponsor name.
 - MLH and Databricks have enough past entries to seed from directly.
 - Not yet checked: smaller Florida events (HootHacks, SASEHacks, Gator Hack, 305 HackShells) and UofTHacks 12, which was not on Devpost.
 
@@ -222,10 +217,8 @@ Default pool size is N = 200 (KH25 had 188 submissions). Every number below is a
 | Neon                                   | 5      | Needs a Postgres backend                              |
 | MLH ElevenLabs                         | 5      | Voice feature                                         |
 | Databricks                             | 3      | Data/ML pipeline                                      |
-| Full Sail                              | 3      | Game or simulation with pathfinding or face detection |
 | MLH Vultr, Solana, Tiger Data, Presage | 2 each | Tech-specific                                         |
 | AMD                                    | 2      | Needs FSR4 or ROCm                                    |
-| NextEra SPOT                           | 1      | Uses the SPOT challenge kit data                      |
 
 **Fit level per opt-in**, sampled independently: strong 50%, medium 30%, weak 20%. Weak means the team tagged the track with only incidental use, which real teams do often and which the Relevance gate should catch.
 
@@ -242,7 +235,6 @@ Each team gets a small persona sampled in plain code (no LLM), with a fixed seed
 
 Consistency rules, applied after sampling:
 
-- Full Sail forces game dev or AI/ML.
 - Hardware-focus teams enter only general challenges and software sponsor challenges; no hardware challenge is assigned.
 - If no seed in the primary pool matches the skill focus, drop the skill filter for that team.
 
@@ -511,6 +503,5 @@ Build the judges first and backtest them: if they cannot pick past winners, the 
 Open questions:
 
 - Which past hackathons do we pull seeds from, and who checks Devpost's terms before collecting pages?
-- What stands in for NextEra SPOT and Full Sail, where few direct seeds exist?
 - Keep Figma, Adobe, GoDaddy and the hardware challenges (NVIDIA, Encompass, Best Embedded) excluded, or show "cannot evaluate from text" for them?
 - Frozen field plus live leaderboard, or replace-in-field when a user ranks high?
