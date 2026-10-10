@@ -130,10 +130,10 @@ export default function App() {
         </p>
       </section>
       <aside className="fixture-banner">
-        <strong>Fixture integration demo</strong>
+        <strong>Mock field demo</strong>
         <span>
-          Results are fixed synthetic examples. This starter does not run Qwen
-          or verify software.
+          Your input is scored with mock rules against 200 synthetic projects.
+          These are not Qwen judgments or verified software results.
         </span>
       </aside>
       <div className="workspace">
@@ -241,7 +241,7 @@ export default function App() {
               >
                 {busy
                   ? "Checking the practice field…"
-                  : "Run fixture evaluation"}{" "}
+                  : "Rank against mock field"}{" "}
                 <span>↗</span>
               </button>
             </fieldset>
@@ -263,7 +263,7 @@ export default function App() {
           )}
           {config && !config.field_ready && (
             <p className="error">
-              The scoring field is not ready. Start the explicit fixture backend
+              The scoring field is not ready. Start the explicit mock backend
               to test this flow.
             </p>
           )}
