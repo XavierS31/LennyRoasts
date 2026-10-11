@@ -1,5 +1,5 @@
 {
-  "controls_version": "kh9-category-controls-v1",
+  "controls_version": "kh9-category-controls-v2",
   "note": "Synthetic hand-written submissions with expected category outcomes, for smoke-testing a JudgeConfig before field scoring (issue #10). Not real projects, never part of a field or PoolArtifact. 'eligible' is compared with the code-computed two-of-three gate; 'min'/'max' bound the three-run criterion means. Only the categories listed under 'expect' are scored.",
   "controls": [
     {
@@ -200,6 +200,86 @@
       },
       "expect": {
         "elevenlabs": {"eligible": false}
+      }
+    },
+    {
+      "id": "game-gamified-utility",
+      "purpose": "Utility app with game-like rewards but no gameplay (field false positives: study, fitness and habit apps)",
+      "submission": {
+        "name": "FocusFern",
+        "tagline": "Grow a pixel fern by finishing your study tasks.",
+        "inspiration": "Our study group needed a nudge to actually start assignments.",
+        "what_it_does": "Students add study tasks with due dates and check them off when done. Each completed task earns coins that grow a pixel fern companion, daily streaks unlock new pot styles and a weekly leaderboard ranks friends in the same study group.",
+        "how_we_built_it": "A React app stores tasks and coin balances in Firebase. A scheduled function resets streaks at midnight and recomputes the leaderboard from completed tasks.",
+        "challenges_we_ran_into": "Streaks broke across time zones until we stored dates in UTC.",
+        "accomplishments": "Tasks, coins, fern growth, streaks and the leaderboard all work.",
+        "what_we_learned": "Small rewards made our own group finish more tasks during testing.",
+        "whats_next": "Push reminders before due dates.",
+        "built_with": ["react", "firebase", "typescript"],
+        "challenges": []
+      },
+      "expect": {
+        "best_game": {"eligible": false}
+      }
+    },
+    {
+      "id": "game-training-sim",
+      "purpose": "Training game where play under rules is the main experience: must stay eligible",
+      "submission": {
+        "name": "Code Blue Drill",
+        "tagline": "Practice a campus emergency response before the clock runs out.",
+        "inspiration": "Our resident assistants freeze during their first real emergency.",
+        "what_it_does": "Players act as a resident assistant during a timed emergency scenario. Each turn reveals a new event, and the player picks one of three actions such as calling dispatch, clearing a hallway or checking a room. Wrong or slow choices cost points, and the round is lost if the timer runs out before the building is safe. A final score ranks each attempt.",
+        "how_we_built_it": "We built it in Godot with a branching event graph, a countdown timer, a scoring system for each action and three scenario levels of increasing difficulty.",
+        "challenges_we_ran_into": "Balancing the timer so the hardest level was tense but winnable took many playtests.",
+        "accomplishments": "All three scenarios are playable from the menu through the win or loss screen.",
+        "what_we_learned": "Clear feedback after each choice mattered more than graphics.",
+        "whats_next": "More scenarios and a two-player mode.",
+        "built_with": ["godot", "gdscript"],
+        "challenges": []
+      },
+      "expect": {
+        "best_game": {"eligible": true}
+      }
+    },
+    {
+      "id": "sponsor-minor-optional",
+      "purpose": "Sponsor use described as small, optional and outside the core flow (field weak-fit false positives)",
+      "submission": {
+        "name": "FridgeMap",
+        "tagline": "Find community fridges and pantries near campus.",
+        "inspiration": "Students facing food insecurity did not know where free food was available.",
+        "what_it_does": "FridgeMap shows community fridges and food pantries on a map with opening hours and user-reported stock levels. Users can report when a fridge is restocked or empty. An optional Gemini button writes a one-line summary of a selected location; the map, listings and reports are the core.",
+        "how_we_built_it": "A Next.js map uses Leaflet and a PostgreSQL table of locations from the county open-data portal. Stock reports update each location in real time. The optional summary button sends the location's listing text to the Gemini API.",
+        "challenges_we_ran_into": "Open-data addresses were messy, so we geocoded and cleaned them by hand.",
+        "accomplishments": "The map, listings and live stock reports work for 40 locations.",
+        "what_we_learned": "Real-time reports only help if enough people submit them.",
+        "whats_next": "Volunteer verification of stock reports.",
+        "built_with": ["next.js", "leaflet", "postgresql", "gemini-api"],
+        "challenges": ["gemini"]
+      },
+      "expect": {
+        "gemini": {"eligible": false}
+      }
+    },
+    {
+      "id": "sponsor-meaningful-secondary",
+      "purpose": "Sponsor performs a meaningful step in the main flow but is not the centre: must stay eligible",
+      "submission": {
+        "name": "LabNote",
+        "tagline": "Turn messy lab notebook photos into searchable experiment records.",
+        "inspiration": "Our chemistry lab loses results in handwritten notebooks.",
+        "what_it_does": "Students photograph a notebook page. The app extracts the procedure, measurements and results into a structured record, and lab members search records by reagent or date. Gemini reads each photo and returns the structured fields; the search index, record editor and lab sharing are built around those records.",
+        "how_we_built_it": "A Flask backend sends each uploaded photo to the Gemini API with a JSON schema for procedure, measurements and results, validates the response, then stores records in SQLite with a full-text index. A React front end handles upload, review and search.",
+        "challenges_we_ran_into": "Gemini sometimes merged two measurements, so users review and correct each record before saving.",
+        "accomplishments": "Photo to reviewed, searchable record works end to end on our own notebook pages.",
+        "what_we_learned": "A review step made extraction errors acceptable.",
+        "whats_next": "Unit normalization and export to the lab's spreadsheet.",
+        "built_with": ["flask", "react", "sqlite", "gemini-api"],
+        "challenges": ["gemini"]
+      },
+      "expect": {
+        "gemini": {"eligible": true}
       }
     }
   ]
