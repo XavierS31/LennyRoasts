@@ -25,8 +25,8 @@ def result_problems(results, submission):
         except (ValueError, ValidationError) as error:
             problems.append(f"{cid}: {getattr(error, 'message', error)}")
             continue
-        if result["placement"] is not None or result["rivals"] or result["improvements"]:
-            problems.append(f"{cid}: offline results need null placement and empty rivals/improvements")
+        if result["placement"] is not None or result["rivals"]:
+            problems.append(f"{cid}: offline results need null placement and empty rivals")
     return problems
 
 
