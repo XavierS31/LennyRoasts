@@ -1,4 +1,4 @@
-"""Bounded feedback from validated criteria/evidence; no additional inference."""
+"""Improvements: the judge's own suggestions from the selected run, else bounded templates; no additional inference."""
 import copy
 
 ACTIONS={
@@ -13,6 +13,8 @@ ACTIONS={
 def add_feedback(results):
     enriched=copy.deepcopy(results)
     for result in enriched:
+        if result['improvements']:
+            continue
         priorities=sorted(result['criteria'],key=lambda k:(result['criteria'][k],k))
         result['improvements']=[f"{key.replace('_',' ').capitalize()} averaged {result['criteria'][key]:.1f}/5 in the three runs. "
             + ('Supporting detail was not described. ' if result['evidence'][key]=='not described' else 'Review the quoted detail in the report. ')

@@ -172,7 +172,7 @@ export interface components {
             field_ready: boolean;
             challenges: components["schemas"]["Challenge"][];
         };
-        /** @description Raw model output only. The application validates quotes and computes totals/eligibility. */
+        /** @description Raw model output only. The application validates quotes and computes totals/eligibility; improvements from the selected run become the result's improvements. */
         CategoryJudgeResponse: {
             originality: number;
             tech_understanding: number;
@@ -187,8 +187,10 @@ export interface components {
                 wow: string;
                 relevance: string;
             };
+            /** @description One to three concrete next steps for this submission, aimed at its lowest criteria in this category. */
+            improvements: string[];
         };
-        /** @description Raw model output only. The application validates quotes and computes totals/eligibility. */
+        /** @description Raw model output only. The application validates quotes and computes totals/eligibility; improvements from the selected run become the result's improvements. */
         OverallJudgeResponse: {
             originality: number;
             tech_understanding: number;
@@ -201,6 +203,8 @@ export interface components {
                 functionality: string;
                 wow: string;
             };
+            /** @description One to three concrete next steps for this submission, aimed at its lowest criteria in this category. */
+            improvements: string[];
         };
         JudgeResponse: components["schemas"]["OverallJudgeResponse"] | components["schemas"]["CategoryJudgeResponse"];
         JudgeConfig: {

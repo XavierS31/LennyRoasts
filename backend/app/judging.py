@@ -43,7 +43,7 @@ def parse_response(response, schema_name):
         raw = json.loads(choice['message']['content'])
         validate(schema_name, raw)
         Draft202012Validator(provider_schema(schema_name)).validate(raw)
-        keys = set(raw) - {'rationale', 'evidence'}
+        keys = set(raw) - {'rationale', 'evidence', 'improvements'}
         if any(type(raw[key]) is not int for key in keys):
             raise ValueError('Criteria must be JSON integers')
         sentences = [s for s in re.split(r'[.!?]+(?:\s+|$)', raw['rationale'].strip()) if s.strip()]
@@ -81,7 +81,7 @@ def aggregate(challenge_id, raw_runs, submission):
                   criteria={k: mean(r[k] for r in raw_runs) for k in criteria}, total=total,
                   max_total=maximum, score_10=mean(r['score_10'] for r in runs), runs=runs,
                   rationale=raw_runs[selected]['rationale'], evidence=evidence[selected],
-                  warnings=warnings, placement=None, rivals=[], improvements=[])
+                  warnings=warnings, placement=None, rivals=[], improvements=raw_runs[selected]['improvements'])
     validate_score_result(result, submission)
     return result
 

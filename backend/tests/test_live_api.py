@@ -57,7 +57,7 @@ def test_actual_worker_without_get_and_private_restart(store):
         assert completed['status']=='completed' and len(calls)==1
         results=completed['result']['challenge_results']
         assert results[0]['placement']['field_size_including_user']==2
-        assert len(results[0]['rivals'])==1 and len(results[0]['improvements'])==3
+        assert len(results[0]['rivals'])==1 and results[0]['improvements']==['Synthetic replay improvement.']
         assert owner.get('/api/evaluations/'+identifier).json()==completed
     with TestClient(create_live_app(store=Store(store.engine),scorer=scorer),base_url='https://testserver') as restarted:
         restarted.cookies.set('lenny_session',cookie)
