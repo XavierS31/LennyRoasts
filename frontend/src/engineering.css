@@ -19,8 +19,8 @@
   --accent: #ffda74;
   --accent-ink: #413513;
   --focus: #fff;
-  --glass-fill: rgba(255, 255, 255, .04);
-  --glass-shine: rgba(255, 255, 255, .025);
+  --glass-fill: rgba(255, 255, 255, .025);
+  --glass-shine: rgba(255, 255, 255, .015);
   -webkit-font-smoothing: antialiased;
   --warning: rgba(133, 95, 24, .2);
   --warning-line: rgba(255, 211, 111, .45);
@@ -30,7 +30,7 @@
   --success-line: rgba(157, 230, 202, .4);
 }
 [hidden] { display: none !important; }
-.engineering-app { width: 100%; max-width: none; padding: 20px; color: var(--ink); text-shadow: 0 1px 2px rgba(0,0,0,.2); }
+.engineering-app { width: 100%; max-width: none; padding: 20px; color: var(--ink); text-shadow: 0 1px 3px rgba(0,0,0,.6), 0 2px 8px rgba(0,0,0,.28); }
 .engineering-scene { position: fixed; inset: 0; z-index: 0; background: linear-gradient(180deg, #5caee5 0%, #acd4e5 14%, #ffc1a0 24%, #ff9b7b 34%, #ffd37e 50%); }
 .engineering-scene canvas { display: block; width: 100%; height: 100%; touch-action: none; }
 /* Interior rooms occupy the viewport independently of the exterior form. */
@@ -43,8 +43,8 @@
   border: 1px solid rgba(255,255,255,.28);
   border-radius: 22px;
   /* Prefix first: the production minifier must retain the standard declaration. */
-  -webkit-backdrop-filter: blur(10px) saturate(110%) brightness(.4);
-  backdrop-filter: blur(10px) saturate(110%) brightness(.4);
+  -webkit-backdrop-filter: blur(6px) saturate(110%) brightness(.62);
+  backdrop-filter: blur(6px) saturate(110%) brightness(.62);
   box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 8px 28px rgba(0,0,0,.08);
   color: var(--ink);
 }
@@ -53,14 +53,16 @@
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
 }
-.engineering-app .masthead { position: sticky; top: 20px; z-index: 5; padding: 12px 18px; margin: 0 0 20px; gap: 14px; min-height: 68px; }
+.engineering-app .masthead { position: sticky; top: 20px; z-index: 5; padding: 10px 18px; margin: 0 0 20px; gap: 14px; min-height: 72px; }
 .engineering-app .wordmark { display: flex; align-items: center; color: #fff; }
-.engineering-app .wordmark img { width: 155px; height: 46px; object-fit: contain; filter: brightness(0) invert(1); }
+/* Display the full alpha bounds plus 4 source pixels of breathing room.
+   Crop (74,105)-(2114,557) from the original 2172×724; keep the asset intact. */
+.engineering-app .wordmark-crop { position: relative; display: block; overflow: hidden; flex-shrink: 0; width: 224px; aspect-ratio: 2040 / 452; }
+.engineering-app .wordmark img { position: absolute; width: 106.470588%; max-width: none; height: auto; left: -3.627451%; top: -23.230088%; filter: brightness(0) invert(1); }
 .masthead .scene-tabs { margin-left: auto; }
 .masthead .scene-tabs button { min-height: 44px; padding: 9px 20px; border: 1px solid transparent; border-radius: 14px; background: transparent; font-size: 16px; display: inline-flex; gap: 7px; align-items: center; justify-content: center; white-space: nowrap; }
 .masthead .scene-tabs button:hover { background: rgba(255,255,255,.12); }
 .masthead .scene-tabs button[aria-pressed=true] { background: rgba(255,255,255,.13); border-color: var(--line); }
-.engineering-app .wordmark span { color: #ffda74; }
 .engineering-app .edition { margin-left: auto; color: var(--muted); }
 .glass-content { position: relative; z-index: 2; width: min(600px, 47vw); margin-left: auto; }
 .engineering-app .intro { padding: 22px 24px; margin: 0 0 12px; }
@@ -173,7 +175,7 @@ select option { background: #26333f; color: #fff; }
   .engineering-app .masthead { top: 12px; padding: 8px 12px; gap: 8px; margin-bottom: 12px; }
   .engineering-app .edition { display: none; }
   .engineering-app .masthead { flex-wrap: wrap; }
-  .engineering-app .wordmark img { width: 130px; height: 40px; }
+  .engineering-app .wordmark-crop { width: min(190px, calc(100vw - 115px)); }
   .masthead .scene-tabs { order: 3; width: 100%; margin-left: 0; }
   .masthead .scene-tabs button { padding: 8px 12px; font-size: 14px; }
   .panel-toggle { margin-left: auto; }

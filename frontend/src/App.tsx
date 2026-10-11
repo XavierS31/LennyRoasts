@@ -757,7 +757,7 @@ export default function App() {
       </Suspense></SceneBoundary>
       <header className="masthead">
         <a href="/" className="wordmark" aria-label="LennyRoasts home" onClick={(event) => { event.preventDefault(); navigate("campus"); }}>
-          <img src="/assets/engineering/lenny-roasts-logo-transparent.png" alt="Lenny Roasts" />
+          <span className="wordmark-crop"><img src="/assets/engineering/lenny-roasts-logo-transparent.png" alt="Lenny Roasts" /></span>
         </a>
         <nav className="scene-tabs" aria-label="Explore UCF rooms and buildings">
           <button type="button" aria-label="Exterior" aria-pressed={location.kind === "campus"} onClick={() => navigate("campus")}>Exterior</button>
