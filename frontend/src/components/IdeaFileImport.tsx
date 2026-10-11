@@ -1,4 +1,4 @@
-import { useRef, useState, type ChangeEvent } from "react";
+import { useRef, useState, type ChangeEvent, type DragEvent } from "react";
 import { PaperclipIcon } from "@phosphor-icons/react";
 import { extractIdeaFile, mergeIdeaText } from "../documentImport";
 import { MAX_IDEA_LENGTH } from "../ideaSubmission";
@@ -15,12 +15,11 @@ export default function IdeaFileImport({ idea, disabled, onImport, onBusyChange 
   const [draft, setDraft] = useState<{ name: string; text: string } | null>(null);
   const [error, setError] = useState("");
   const [status, setStatus] = useState("");
+  const [isDragActive, setIsDragActive] = useState(false);
   const fileInput = useRef<HTMLInputElement>(null);
   const previewInput = useRef<HTMLTextAreaElement>(null);
 
-  async function readFile(event: ChangeEvent<HTMLInputElement>) {
-    const file = event.target.files?.[0];
-    event.target.value = ""; // Allow choosing the same file again after an error.
+  async function processFile(file: File) {
     if (!file || disabled || busy) return;
     setError("");
     setDraft(null);
@@ -41,6 +40,29 @@ export default function IdeaFileImport({ idea, disabled, onImport, onBusyChange 
     }
   }
 
+  function readFile(event: ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0];
+    event.target.value = ""; // Allow choosing the same file again after an error.
+    if (file) void processFile(file);
+  }
+
+  function handleDragOver(event: DragEvent<HTMLDivElement>) {
+    event.preventDefault();
+    if (event.dataTransfer) event.dataTransfer.dropEffect = "copy";
+    if (!disabled && !busy) setIsDragActive(true);
+  }
+
+  function handleDragLeave(event: DragEvent<HTMLDivElement>) {
+    if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setIsDragActive(false);
+  }
+
+  function handleDrop(event: DragEvent<HTMLDivElement>) {
+    event.preventDefault();
+    setIsDragActive(false);
+    const file = event.dataTransfer.files?.[0];
+    if (file) void processFile(file);
+  }
+
   function apply(append: boolean) {
     if (!draft || disabled || busy) return;
     try {
@@ -55,15 +77,21 @@ export default function IdeaFileImport({ idea, disabled, onImport, onBusyChange 
 
   const count = Array.from(draft?.text ?? "").length;
   return <div className="idea-file-import">
-    <div className="file-import-heading">
-      <button type="button" className="secondary-button" disabled={disabled || busy}
-        onClick={() => fileInput.current?.click()} aria-describedby="file-import-hint">
-        <PaperclipIcon size={18} weight="light" aria-hidden="true" /> {busy ? "Reading…" : "Import notes"}
+    <div className={`file-dropzone${isDragActive ? " is-dragging" : ""}${disabled || busy ? " is-disabled" : ""}`}
+      role="group" aria-labelledby="file-dropzone-title" aria-describedby="file-import-hint"
+      onDragOver={handleDragOver} onDragLeave={handleDragLeave} onDrop={handleDrop}>
+      <PaperclipIcon className="file-dropzone-icon" size={28} weight="light" aria-hidden="true" />
+      <div className="file-dropzone-copy">
+        <strong id="file-dropzone-title">{busy ? "Reading your notes…" : "Drop a file to import notes"}</strong>
+        <small id="file-import-hint">PDF · Markdown · Up to 10 MB</small>
+      </div>
+      <button type="button" className="file-browse-button" disabled={disabled || busy}
+        onClick={() => fileInput.current?.click()}>
+        {busy ? "Reading…" : "Browse files"}
       </button>
-      <small id="file-import-hint">PDF · MD · Markdown · 10 MB</small>
     </div>
     <input ref={fileInput} type="file" hidden accept=".pdf,.md,.markdown,application/pdf,text/markdown"
-      aria-label="Choose a PDF or Markdown file" disabled={disabled || busy} onChange={(event) => void readFile(event)} />
+      aria-label="Choose a PDF or Markdown file" disabled={disabled || busy} onChange={readFile} />
     <p className="file-import-status" role="status">{status}</p>
     {draft && <div className="file-import-preview form-field">
       <label htmlFor="document-preview">Review extracted text <span className="required-label">{draft.name}</span></label>

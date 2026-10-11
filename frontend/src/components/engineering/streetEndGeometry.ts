@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { framedWindow, stoneUVs, type ExteriorMaterials } from "./exteriorMaterials";
+import { curtainGrid, framedWindow, stoneUVs, type ExteriorMaterials } from "./exteriorMaterials";
 import { brickMap } from "./healthSciencesGeometry";
 import type { addCampusSite } from "./campusSite";
 
@@ -26,24 +26,33 @@ export function addStreetEnd(scene: THREE.Scene, facade: ExteriorMaterials, site
   // Wide silver coping, cream left block, a broad gridded curtain wall, then
   // the projecting brick stair tower and recessed entrance visible in photos 3–4.
   box(building,[104,20,22],[0,10,0],brick,"Brick building shell");
-  box(building,[104.7,.8,23],[-.1,20.4,0],facade.frame,"Continuous silver roof fascia");
+  box(building,[105.2,1.15,24.2],[-.1,20.4,.35],facade.metal,"Deep continuous silver roof fascia");
   box(building,[102,.2,20],[0,20.95,0],roof,"Inset weathered roof");
   box(building,[18,16.1,.3],[-43,12.15,11.03],facade.stone,"Cream panel wing");
   for(const x of [-47,-41,-35]) for(const y of [8,13,17.5]) pane(.9,1.65,x,y,11.24,1);
   for(let x=-51;x<-33;x+=3) box(building,[.035,15.6,.07],[x,12,11.23],facade.frame,"Cream cladding joint");
   for(const y of [6,10,14,18]) box(building,[18,.035,.07],[-43,y,11.23],facade.frame,"Panel horizontal joint");
-  for(let col=0;col<11;col++) pane(4.3,12.5,-30.6+col*4.36,12.7,11.12,9);
-  box(building,[49,1.1,.65],[-8.8,5.75,11.1],facade.frame,"Curtain wall silver spandrel");
-  box(building,[11,21.6,1.9],[21.8,10.8,11.2],brick,"Projecting stair tower");
-  pane(6.35,18.7,20.95,10.25,12.19,13);
-  pane(.95,16.8,25.96,11,12.19,9);
-  box(building,[12,.32,2.4],[21.8,21.75,11.2],facade.stone,"Stair tower coping");
+  const glazing = curtainGrid(building, 48, 12.5, facade, 14, 9, .9, 1.25);
+  glazing.position.set(-8.8, 12.7, 11.18);
+  glazing.name = "Broad glazing with thick projecting metal surround";
+  // Solid header and end returns connect the roof coping to the glass frame.
+  box(building,[49.8,1.9,1.65],[-8.8,19.95,11.35],facade.metal,"Roof-to-window silver header");
+  for (const x of [-33.25,15.65]) box(building,[.9,14.95,1.65],[x,12.475,11.35],facade.metal,"Continuous roof-to-sill gray return");
+  box(building,[49.8,1.4,1.85],[-8.8,5.75,11.35],facade.metal,"Projecting curtain wall silver spandrel");
+  box(building,[11,22.65,4.3],[21.8,11.325,12],brick,"Deeper raised brick stair tower");
+  pane(6.35,19.5,20.95,10.65,14.24,14);
+  pane(.95,17.5,25.96,11.5,14.24,10);
+  box(building,[12,.36,4.9],[21.8,22.78,12],facade.metal,"Raised projecting stair tower coping");
+  // The secondary brick pier stands forward of the glass too, with visible
+  // side returns rather than a dark line painted on the flat shell.
+  box(building,[13.4,20.9,3.4],[45.3,10.45,11.65],brick,"Projecting right brick frontage");
+  box(building,[13.8,.32,3.9],[45.3,21.05,11.65],facade.metal,"Right brick coping");
   box(building,[10,15.3,.26],[33.1,12.3,11.17],facade.recess,"Tall recessed entry slot");
   pane(5.4,13.6,33.1,12.2,11.33,8);
   box(building,[10.8,.7,2.1],[33.1,19.95,11.5],facade.frame,"Recessed entrance canopy");
   for(const x of [-47,-38,-29,-20,-11,-2,7,33,43,50]) {
     box(building,[.55,4.5,.7],[x-3.1,2.25,11.2],facade.stone,"Arcade stone pier");
-    pane(5.4,3.8,x,2.45,11.25,2);
+    pane(5.4,3.8,x,2.45,x >= 43 ? 13.44 : 11.25,2);
   }
   for(const x of [32,34]) { pane(1.8,3.1,x,1.65,11.42,2); box(building,[.06,.45,.12],[x+.55,1.6,11.58],silver,"Entrance pull handle"); }
   for(const x of [29.8,36.2]) {

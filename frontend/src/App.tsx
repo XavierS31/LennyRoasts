@@ -21,6 +21,7 @@ import {
 
 type ErrorField = "idea" | "challenges";
 type FormErrors = Partial<Record<ErrorField, string>>;
+type IdeaInputMode = "describe" | "import";
 type Notice = {
   title: string;
   message: string;
@@ -400,6 +401,7 @@ export default function App() {
   const sceneTransition = useRef(0);
   const [sceneCategory, setSceneCategory] = useState("");
   const [idea, setIdea] = useState("");
+  const [ideaInputMode, setIdeaInputMode] = useState<IdeaInputMode>("describe");
   const [isImporting, setIsImporting] = useState(false);
   const [selectedChallenges, setSelectedChallenges] = useState<Submission["challenges"]>([]);
   const [config, setConfig] = useState<ChallengeList>();
@@ -769,16 +771,17 @@ export default function App() {
 
       <div className="glass-content" id="glass-content" hidden={!panelsVisible}>
       <section className="intro" aria-label={location.kind === "campus" ? "Project introduction and service status" : "Service status"} hidden={location.kind === "awards"}>
-        <h1 id="page-title" hidden={location.kind !== "campus"}>Let Lenny roast your hackathon project.</h1>
+        <h1 id="page-title" hidden={location.kind !== "campus"}><span className="welcome-prefix">Welcome to</span><img className="hackathon-logo" src="/assets/engineering/knight-hacks-logo-inline-black.png" alt="Knight Hacks" /></h1>
 
       <div className="service-status-row">
       <details className={`mode-banner mode-${mode}`} hidden={location.kind === "awards"}>
         <summary>
-          <span>Service status: {configLoading || configError || !config ? "Loading API" : mode === "mock" ? "Mock API" : mode === "fixture" ? "Fixture API" : mode === "unavailable" ? "API unavailable" : "Judge API ready"}</span>
+          <span><span className="service-label">Service status</span><span className="service-value">{configLoading ? "Loading API…" : configError || !config || mode === "unavailable" ? "API unavailable" : mode === "mock" ? "Mock API" : mode === "fixture" ? "Fixture API" : "Judge API ready"}</span></span>
         </summary>
         <div className="mode-copy">
           <span className="mode-indicator" aria-hidden="true" />
           <div>
+            {configLoading ? <p>Loading challenge information. You can keep preparing your project below.</p> : configError ? <p>Challenge information could not be loaded. Retry to check the service again.</p> : null}
             {mode === "mock" && (
               <p>
                 This API version uses deterministic development mock rules. Scores and placements are not live judge results or verified software outcomes.
@@ -807,13 +810,13 @@ export default function App() {
           </div>
         </div>
       </details>
-      {(configError || mode === "unavailable") &&
+      {(configLoading || configError || mode === "unavailable") &&
         <button type="button" className="text-button service-retry" onClick={refreshChallenges} disabled={configLoading} aria-busy={configLoading}>
-          Retry challenge load
+          Reload
         </button>
       }
-      </div>
       {configError && <small className="compact-api-error" role="alert">{configError.message}</small>}
+      </div>
       </section>
 
       <div className="workspace">
@@ -867,14 +870,14 @@ export default function App() {
         <section className="form-panel" aria-labelledby="form-heading" hidden={location.kind !== "campus"}>
           <div className="section-heading">
             <div>
-              <h2 id="form-heading">Your hackathon project idea</h2>
+              <h2 id="form-heading">Let Lenny roast your project</h2>
             </div>
             <button type="button" className="text-button" onClick={loadSample} disabled={Boolean(activeJobId) || isSubmitting || isImporting}>
               Try a sample
             </button>
           </div>
 
-          <form onSubmit={submit} noValidate aria-describedby="privacy-copy">
+          <form onSubmit={submit} noValidate>
             {notice && (
               <div className="notice notice-error" role="alert">
                 <h3 ref={noticeHeading} tabIndex={-1}>{notice.title}</h3>
@@ -892,36 +895,50 @@ export default function App() {
 
             <fieldset disabled={Boolean(activeJobId) || isSubmitting}>
               <legend className="visually-hidden">Your idea</legend>
-              <IdeaFileImport idea={idea} disabled={Boolean(activeJobId) || isSubmitting}
-                onBusyChange={setIsImporting} onImport={(text) => {
-                  setIdea(text);
-                  setErrors((current) => ({ ...current, idea: undefined }));
-                  setNotice(null);
-                  window.requestAnimationFrame(() => { ideaInput.current?.focus(); if (ideaInput.current) ideaInput.current.scrollTop = 0; });
-                }} />
-              <div className="form-field idea-field">
-                <label htmlFor="idea-description">Describe your idea <span className="required-label">Required</span></label>
-                <textarea
-                  ref={ideaInput}
-                  id="idea-description"
-                  name="idea"
-                  rows={8}
-                  disabled={isImporting}
-                  value={idea}
-                  onChange={(event) => {
-                    setIdea(event.target.value);
+              <div className="idea-input-modes" role="group" aria-label="Choose how to add your idea">
+                <button type="button" aria-pressed={ideaInputMode === "describe"}
+                  aria-controls="idea-description-panel" disabled={isImporting}
+                  onClick={() => setIdeaInputMode("describe")}>Describe your idea</button>
+                <button type="button" aria-pressed={ideaInputMode === "import"}
+                  aria-controls="idea-import-panel" disabled={isImporting}
+                  onClick={() => setIdeaInputMode("import")}>Import notes</button>
+              </div>
+              <div id="idea-description-panel" className="idea-input-panel" hidden={ideaInputMode !== "describe"}>
+                <div className="form-field idea-field">
+                  <label className="visually-hidden" htmlFor="idea-description">Describe your idea</label>
+                  <textarea
+                    ref={ideaInput}
+                    id="idea-description"
+                    name="idea"
+                    rows={8}
+                    disabled={isImporting}
+                    value={idea}
+                    onChange={(event) => {
+                      setIdea(event.target.value);
+                      setErrors((current) => ({ ...current, idea: undefined }));
+                      setNotice(null);
+                    }}
+                    placeholder={"I want to build…\n\nIt would help… by…\n\nFor the hackathon, the first demo would…"}
+                    aria-required="true"
+                    aria-invalid={Boolean(errors.idea)}
+                    aria-describedby={`hint-idea${errors.idea ? " error-idea" : ""}`}
+                  />
+                  <div className="field-meta">
+                    <small id="hint-idea">Rough notes are welcome.</small>
+                    <span>{Array.from(idea).length.toLocaleString()} / {MAX_IDEA_LENGTH.toLocaleString()}</span>
+                  </div>
+                  {errors.idea && <p className="field-error" id="error-idea">{errors.idea}</p>}
+                </div>
+              </div>
+              <div id="idea-import-panel" className="idea-input-panel" hidden={ideaInputMode !== "import"}>
+                <IdeaFileImport idea={idea} disabled={Boolean(activeJobId) || isSubmitting}
+                  onBusyChange={setIsImporting} onImport={(text) => {
+                    setIdea(text);
+                    setIdeaInputMode("describe");
                     setErrors((current) => ({ ...current, idea: undefined }));
                     setNotice(null);
-                  }}
-                  placeholder={"I want to build…\n\nIt would help… by…\n\nFor the hackathon, the first demo would…"}
-                  aria-invalid={Boolean(errors.idea)}
-                  aria-describedby={`hint-idea${errors.idea ? " error-idea" : ""}`}
-                />
-                <div className="field-meta">
-                  <small id="hint-idea">Rough notes are welcome.</small>
-                  <span>{Array.from(idea).length.toLocaleString()} / {MAX_IDEA_LENGTH.toLocaleString()}</span>
-                </div>
-                {errors.idea && <p className="field-error" id="error-idea">{errors.idea}</p>}
+                    window.requestAnimationFrame(() => { ideaInput.current?.focus(); if (ideaInput.current) ideaInput.current.scrollTop = 0; });
+                  }} />
               </div>
 
               <details
@@ -978,24 +995,12 @@ export default function App() {
                 className="submit-button"
                 type="submit"
                 disabled={!canSubmit}
-                aria-describedby="submit-help"
               >
                 <span>{isSubmitting ? "Submitting…" : activeJobId ? "Evaluation active" : "Evaluate idea"}</span>
                 <span aria-hidden="true">↗</span>
               </button>
-              <p id="submit-help" className="submit-help">
-                {activeJobId
-                  ? "Your evaluation is active. Use the status card to pause or resume checks."
-                  : !config?.field_ready
-                    ? "The API must report a ready field before an evaluation can be submitted."
-                    : "One description is enough to get started."}
-              </p>
             </fieldset>
           </form>
-
-          <p className="privacy-copy" id="privacy-copy">
-            Evaluations are private to the requesting browser session. The current mock keeps job data in server memory; live retention details depend on the backend service.
-          </p>
         </section>
 
         <section className="report-panel" aria-labelledby="report-heading" hidden={location.kind !== "atrium"}>

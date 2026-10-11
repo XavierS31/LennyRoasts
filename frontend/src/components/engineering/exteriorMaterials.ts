@@ -118,6 +118,36 @@ export function framedWindow(parent: THREE.Object3D, width: number, height: numb
   return group;
 }
 
+// A continuous glazed elevation: substantial perimeter metal, slender interior
+// mullions and broad floor spandrels. All members retain real projection depth.
+export function curtainGrid(parent: THREE.Object3D, width: number, height: number, materials: ExteriorMaterials, columns: number, rows: number, perimeter = .32, depth = .42) {
+  const group = new THREE.Group();
+  group.name = "Continuous framed curtain wall"; parent.add(group);
+  const part = (w: number, h: number, d: number, x: number, y: number, z: number, material: THREE.Material) => {
+    const geometry = new THREE.BoxGeometry(w, h, d);
+    if (material === materials.glass) {
+      // Share reflection coordinates across the entire elevation.
+      const positions = geometry.getAttribute("position"), uv = geometry.getAttribute("uv");
+      for (let i = 0; i < positions.count; i++) uv.setXY(i,
+        (positions.getX(i) + x) / width + .5, (positions.getY(i) + y) / height + .5);
+    }
+    const mesh = new THREE.Mesh(geometry, material);
+    mesh.position.set(x, y, z); mesh.castShadow = mesh.receiveShadow = true;
+    mesh.userData.exteriorWindowDetail = true; group.add(mesh);
+  };
+  part(width, height, .08, 0, 0, -.08, materials.recess);
+  const cellWidth = width / columns, cellHeight = height / rows;
+  for (let col = 0; col < columns; col++) for (let row = 0; row < rows; row++) {
+    part(cellWidth - .1, cellHeight - .1, .06,
+      -width / 2 + (col + .5) * cellWidth, -height / 2 + (row + .5) * cellHeight, .01, materials.glass);
+  }
+  for (let col = 1; col < columns; col++) part(.095, height, .18, -width / 2 + col * cellWidth, 0, .1, materials.frame);
+  for (let row = 1; row < rows; row++) part(width, .075, .18, 0, -height / 2 + row * cellHeight, .1, materials.frame);
+  for (const x of [-width / 2, width / 2]) part(perimeter, height + perimeter, depth, x, 0, depth / 2 - .04, materials.metal);
+  for (const y of [-height / 2, height / 2]) part(width + perimeter, perimeter, depth, 0, y, depth / 2 - .04, materials.metal);
+  return group;
+}
+
 // Hundreds of exterior panes/frames share three materials. Bake their transforms
 // once, so architectural detail does not add thousands of draw calls per frame.
 export function batchExteriorWindows(scene: THREE.Scene) {
