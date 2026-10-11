@@ -9,17 +9,17 @@ export function ideaSubmission(
   challenges: Submission["challenges"],
 ): Submission {
   const text = idea.trim();
-  const title = text.split(/\r?\n/, 1)[0] || "Idea draft";
+  const title = text.split(/\r?\n/, 1)[0] || "Project description";
   return {
     name: Array.from(title).slice(0, 100).join(""),
-    tagline: "Idea-stage hackathon proposal",
+    tagline: "not described",
     inspiration: "not described",
     what_it_does: text,
     how_we_built_it: "not described",
-    challenges_we_ran_into: "Idea-stage proposal; implementation status is not described.",
+    challenges_we_ran_into: "not described",
     accomplishments: "not described",
     what_we_learned: "not described",
-    whats_next: "Features in the idea text are planned unless explicitly described as already working.",
+    whats_next: "not described",
     built_with: ["not described"],
     challenges: [...challenges],
   };
