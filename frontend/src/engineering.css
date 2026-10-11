@@ -499,6 +499,8 @@ select option { background: #fff; color: var(--ink); }
 .classroom-visitor .room-visitor-heading { font-weight: 600; margin-bottom: 8px; }
 .classroom-visitor button { margin-top: 10px; min-height: 44px; }
 .ceremony-announcement { margin: 22px 0; }
+.ceremony-your-result { padding: 0 0 16px; margin-bottom: 16px; border-bottom: 1px solid var(--line); }
+.ceremony-your-result h4 { margin-top: 0; }
 .ceremony-dashboard h3 { font-size: 17px; font-weight: 600; margin: 0 0 12px; }
 .ceremony-dashboard p { font-size: 13px; line-height: 1.65; overflow-wrap: anywhere; }
 .ceremony-dashboard .dashboard-footnote { font-size: 11px; }

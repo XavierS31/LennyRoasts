@@ -11,7 +11,7 @@ import CameraMenu from "./CameraMenu";
 import { sponsorRoom, isSponsorRoom, type SponsorRoomId } from "./classroomLayout";
 import { ArrowLeftIcon, DoorOpenIcon, MicrophoneIcon, TrophyIcon, PlayIcon, PauseIcon, CaretDownIcon } from "@phosphor-icons/react";
 import JudgingCategoryLabel from "../JudgingCategoryLabel";
-import { ceremonyCategories, sponsorCategories, generalCategories, ceremonyLeaders, confirmedTopThree } from "./ceremonyResults";
+import { ceremonyCategories, sponsorCategories, generalCategories, ceremonyLeaders, confirmedTopThree, ceremonyComparison } from "./ceremonyResults";
 
 export default function EngineeringExplorer({ job, challenges, projectName, category, onCategory, panelsVisible, isStale, location, onBuilding, controller, onSponsor, onReturnAtrium, onPitch, onViewReport, ceremonyRun }: {
   job: EvaluationJob | null;
@@ -114,6 +114,7 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
   }
   const ceremony = ceremonyCategories[ceremonyIndex];
   const ceremonyResult = results.find((entry) => entry.challenge_id === ceremony.id);
+  const comparison = ceremonyComparison(ceremonyResult);
   const leaders = ceremonyLeaders(ceremonyResult);
   const presenting = leaders[leaderIndex];
   const showingUser = !presenting && confirmedTopThree(ceremonyResult);
@@ -212,7 +213,7 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
       <p>{agents.length} {previewActive ? "synthetic sample agents" : "field representatives"} seated · same avatars as the atrium</p>
     </aside>}
     {location.kind === "awards" && <aside className="ceremony-dashboard dashboard-scroll-surface glass-panel" tabIndex={0} aria-label="Award ceremonies">
-      <h2><TrophyIcon size={23} aria-hidden="true" />Ceremonies</h2>
+      <h2><TrophyIcon size={23} aria-hidden="true" />Practice showcase</h2>
       <div className="ceremony-categories" role="group" aria-label="Ceremony categories">
         {sponsorCategories.map((entry, index) => <div className="ceremony-sponsor-choice" key={entry.id}>
           <button type="button" aria-pressed={index === ceremonyIndex} onClick={() => selectCeremony(index)}><JudgingCategoryLabel category={entry} /></button>
@@ -229,8 +230,13 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
       </div>
       <div className="ceremony-announcement" role="status" aria-live="polite">
         <h3>{ceremony.name}</h3>
-        {showingUser ? <><p className="ceremony-user-win">You placed in the top three for {ceremony.name}!</p><p>{ceremonyResult!.score_10.toFixed(1)} / 10 · practice placement {ceremonyResult!.placement!.best_rank}–{ceremonyResult!.placement!.worst_rank}</p></> : presenting ? <><p className="dashboard-footnote">Field leader {leaders.length - leaderIndex} · by average score</p><h4>{presenting.name}</h4><p><strong>{presenting.score_10.toFixed(1)} / 10</strong></p><details className="ceremony-project-details" open><summary>About this project</summary><p>{presenting.summary}</p></details></> : <p>No evaluated field leaders returned for this category.</p>}
-        <p className="dashboard-footnote">Practice prizes · API field leaders. Placement ranges include ties and scoring variation.</p>
+        {ceremonyResult && <section className="ceremony-your-result" aria-label="Your category result">
+          <h4>Your project</h4>
+          <p><strong>{ceremonyResult.score_10.toFixed(1)} / 10</strong> · {!ceremonyResult.eligible ? "Ineligible for this category" : ceremonyResult.placement ? `Practice placement ${ceremonyResult.placement.best_rank}–${ceremonyResult.placement.worst_rank} of ${ceremonyResult.placement.field_size_including_user}` : "No placement returned"}</p>
+          {comparison.aboveCachedLeaders && !comparison.confirmedTopThree && <p className="dashboard-footnote">Your average is higher than the returned competitors. Your placement range extends beyond third because it includes ties and variation across three judging runs, so a top-three finish is not confirmed.</p>}
+        </section>}
+        {showingUser ? <p className="ceremony-user-win">Your entire practice placement range is in the top three for {ceremony.name}.</p> : presenting ? <><p className="dashboard-footnote">Cached competitor showcase · by average score{ceremonyResult!.rivals.filter((rival) => rival.score_10 === presenting.score_10).length > 1 ? " · tied score" : ""}</p><h4>{presenting.name}</h4><p><strong>{presenting.score_10.toFixed(1)} / 10</strong></p><details className="ceremony-project-details" open><summary>About this project</summary><p>{presenting.summary}</p></details></> : <p>No evaluated field leaders returned for this category.</p>}
+        <p className="dashboard-footnote">Trophies illustrate saved practice competitors. This showcase does not declare a category winner.</p>
         {job && <small>{job.judge_version.startsWith("mock-") ? "Mock practice results" : job.judge_version.startsWith("fixture-") || job.pool_version.startsWith("fixture-") ? "Synthetic fixture results" : "Simulated practice field"}{isStale ? " · Last submitted idea" : ""}</small>}
       </div>
       <button type="button" className="ceremony-play" disabled={!results.length} onClick={() => { if (!ceremonyPlaying && ceremonyIndex === ceremonyCategories.length - 1 && leaderIndex >= leaders.length - 1) { activePresenter.current = ""; setLeaderIndex(0); setCeremonyIndex(0); } setCeremonyPlaying((playing) => !playing); }}>{ceremonyPlaying ? <PauseIcon size={18} aria-hidden="true" /> : <PlayIcon size={18} aria-hidden="true" />}{ceremonyPlaying ? "Pause ceremony" : "Play ceremonies in order"}</button>

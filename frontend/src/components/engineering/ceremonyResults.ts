@@ -19,6 +19,14 @@ export function confirmedTopThree(result: ChallengeResult | undefined) {
   return Boolean(result?.eligible && result.placement && result.placement.best_rank >= 1 && result.placement.worst_rank >= result.placement.best_rank && result.placement.worst_rank <= 3);
 }
 
+// A higher average does not override the API's placement across judging runs.
+export function ceremonyComparison(result: ChallengeResult | undefined) {
+  return {
+    confirmedTopThree: confirmedTopThree(result),
+    aboveCachedLeaders: Boolean(result?.eligible && result.rivals.length && result.rivals.every((rival) => result.score_10 > rival.score_10)),
+  };
+}
+
 /** Presentation order only; preserve the backend's leader order and scores. */
 export function ceremonyLeaders(result: ChallengeResult | undefined) {
   return result ? [...result.rivals].reverse() : [];

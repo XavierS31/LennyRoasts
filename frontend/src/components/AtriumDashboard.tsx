@@ -88,7 +88,7 @@ export default function AtriumDashboard({ result, results, challenges, projectNa
         })}
         <p className="category-unavailable">Best Embedded <span>Unavailable in this API</span></p>
       </div>
-      <p className="dashboard-footnote">The API returns up to three field leaders by average score. Top ten is unavailable.</p>
+      <p className="dashboard-footnote">These are simulated practice projects, not actual entrants. The API returns up to three of the category's highest-scoring saved competitors, not matches to your idea. Top ten is unavailable.</p>
       <div className="dashboard-ceremonies-link">
         <h3>Watch ceremonies to see prizes</h3>
         <button type="button" onClick={onCeremonies}><TrophyIcon size={20} aria-hidden="true" />Watch ceremonies<ArrowUpRightIcon size={17} aria-hidden="true" /></button>

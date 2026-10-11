@@ -4,7 +4,7 @@ import { readFileSync } from "node:fs";
 import * as THREE from "three";
 import { agentRoster } from "../src/components/engineering/agentRoster.ts";
 import { ballroomCapacity, ballroomSeat, winnerRoute, routePosition, createAwardsAudience, CEREMONY_SECONDS } from "../src/components/engineering/awardsAgents.ts";
-import { confirmedTopThree, ceremonyLeaders, ceremonyCategories } from "../src/components/engineering/ceremonyResults.ts";
+import { confirmedTopThree, ceremonyLeaders, ceremonyCategories, ceremonyComparison } from "../src/components/engineering/ceremonyResults.ts";
 
 test("all 200 avatars fit unique chair cushions without blocking the central aisle", () => {
   assert.equal(ballroomCapacity, 208);
@@ -53,4 +53,14 @@ test("ceremonies retain API identities and ratings and confirm only fully top-th
     assert.equal(confirmedTopThree({ eligible, placement: { best_rank: best, worst_rank: worst } }), expected);
   }
   assert.equal(confirmedTopThree(undefined), false);
+});
+
+test("a higher user average preserves uncertain placement instead of declaring a ceremony winner", () => {
+  const result = { eligible: true, score_10: 7.2, placement: { best_rank: 1, worst_rank: 16 }, rivals: [{ project_id: "synthetic-leader", score_10: 6.5 }] };
+  assert.deepEqual(ceremonyComparison(result), { aboveCachedLeaders: true, confirmedTopThree: false });
+  assert.deepEqual(ceremonyComparison({ ...result, placement: { best_rank: 1, worst_rank: 3 } }), { aboveCachedLeaders: true, confirmedTopThree: true });
+  assert.equal(ceremonyComparison({ ...result, eligible: false }).aboveCachedLeaders, false);
+  assert.equal(ceremonyComparison({ ...result, rivals: [] }).aboveCachedLeaders, false);
+  assert.equal(ceremonyComparison({ ...result, score_10: 6.5 }).aboveCachedLeaders, false);
+  assert.deepEqual(ceremonyComparison(undefined), { aboveCachedLeaders: false, confirmedTopThree: false });
 });
