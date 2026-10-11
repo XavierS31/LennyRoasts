@@ -80,7 +80,7 @@ export default function IdeaFileImport({ idea, disabled, onImport, onBusyChange 
     <div className={`file-dropzone${isDragActive ? " is-dragging" : ""}${disabled || busy ? " is-disabled" : ""}`}
       role="group" aria-labelledby="file-dropzone-title" aria-describedby="file-import-hint"
       onDragOver={handleDragOver} onDragLeave={handleDragLeave} onDrop={handleDrop}>
-      <PaperclipIcon className="file-dropzone-icon" size={20} weight="light" aria-hidden="true" />
+      <PaperclipIcon className="file-dropzone-icon" size={28} weight="light" aria-hidden="true" />
       <div className="file-dropzone-copy">
         <strong id="file-dropzone-title">{busy ? "Reading your notes…" : "Drop a file to import notes"}</strong>
         <small id="file-import-hint">PDF · Markdown · Up to 10 MB</small>

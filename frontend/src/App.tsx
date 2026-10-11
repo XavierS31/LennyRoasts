@@ -905,7 +905,7 @@ export default function App() {
               </div>
               <div id="idea-description-panel" className="idea-input-panel" hidden={ideaInputMode !== "describe"}>
                 <div className="form-field idea-field">
-                  <label htmlFor="idea-description">Your idea <span className="required-label">Required</span></label>
+                  <label className="visually-hidden" htmlFor="idea-description">Describe your idea</label>
                   <textarea
                     ref={ideaInput}
                     id="idea-description"

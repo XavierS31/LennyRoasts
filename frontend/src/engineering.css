@@ -80,9 +80,9 @@
 .engineering-app .edition { margin-left: auto; color: var(--muted); }
 .glass-content { position: relative; z-index: 2; width: min(540px, 40vw); margin-left: 0; }
 .engineering-app .intro { padding: 12px 22px; margin: 0 0 16px; }
-.engineering-app .intro h1 { display: grid; justify-items: start; gap: 4px; font-size: clamp(30px, 2.6vw, 38px); font-weight: 650; line-height: 1.12; letter-spacing: -.025em; max-width: 490px; margin: 0 0 8px; }
+.engineering-app .intro h1 { display: grid; justify-items: start; gap: 4px; font-size: clamp(30px, 2.6vw, 38px); font-weight: 650; line-height: 1.12; letter-spacing: -.025em; max-width: none; margin: 0 0 8px; }
 .engineering-app .intro h1 .welcome-prefix { color: var(--muted); font-size: 15px; font-weight: 550; line-height: 1.4; letter-spacing: 0; }
-.engineering-app .intro h1 .hackathon-logo { display: block; width: min(100%, 390px); height: auto; object-fit: contain; object-position: left center; }
+.engineering-app .intro h1 .hackathon-logo { display: block; justify-self: center; width: min(100%, 390px); height: auto; object-fit: contain; object-position: center; }
 .engineering-app :is(.eyebrow, .section-kicker) { color: var(--muted); }
 .engineering-app .lede { font-size: 14px; line-height: 1.55; margin: 0; }
 .engineering-app .mode-banner { display: block; padding: 16px 20px; margin: 0 0 12px; }
@@ -103,7 +103,10 @@
 .engineering-app .idea-file-import { margin: 0; }
 .engineering-app .idea-input-modes { border-color: rgba(255,255,255,.4); background: rgba(255,255,255,.22); }
 .engineering-app .idea-input-modes button[aria-pressed="true"] { border-color: rgba(255,255,255,.72); background: rgba(255,255,255,.7); }
-.engineering-app .file-dropzone { border-color: rgba(82,98,123,.2); background: rgba(255,255,255,.36); }
+.engineering-app .idea-input-panel { --idea-entry-height: 248px; }
+.engineering-app :is(#idea-description, .file-dropzone) { width: 100%; height: var(--idea-entry-height); min-height: var(--idea-entry-height); }
+.engineering-app #idea-description { resize: none; }
+.engineering-app .file-dropzone { border-color: rgba(82,98,123,.2); border-radius: 8px; background: rgba(255,255,255,.58); }
 .engineering-app .file-dropzone.is-dragging { border-color: rgba(82,98,123,.48); background: rgba(255,255,255,.64); }
 .engineering-app .file-dropzone-copy strong, .engineering-app .file-browse-button { color: var(--ink); }
 .engineering-app .file-dropzone-copy small { color: var(--muted); }

@@ -333,24 +333,27 @@ h1 {
 .idea-file-import { margin: 0; }
 .file-dropzone {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 12px;
   min-height: 88px;
   padding: 15px 16px;
   border: 1px dashed rgba(82, 98, 123, .22);
   border-radius: 14px;
   background: rgba(255, 255, 255, .36);
+  text-align: center;
   transition: background-color 140ms ease, border-color 140ms ease;
 }
 .file-dropzone.is-dragging { border-color: rgba(82, 98, 123, .48); background: rgba(255, 255, 255, .62); }
 .file-dropzone.is-disabled { opacity: .65; }
 .file-dropzone-icon { flex: 0 0 auto; color: var(--muted); }
-.file-dropzone-copy { display: grid; flex: 1 1 auto; min-width: 0; gap: 4px; }
+.file-dropzone-copy { display: grid; flex: 0 0 auto; min-width: 0; gap: 4px; }
 .file-dropzone-copy strong { font-size: 12px; font-weight: 600; line-height: 1.4; }
 .file-dropzone-copy small, .file-import-status { color: var(--muted); font-size: 11px; line-height: 1.5; }
 .file-browse-button {
   flex: 0 0 auto;
-  min-height: 36px;
+  min-height: 44px;
   padding: 7px 12px;
   border: 1px solid rgba(59, 76, 105, .14);
   border-radius: 10px;
