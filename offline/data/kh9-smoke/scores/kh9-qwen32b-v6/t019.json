@@ -1,0 +1,543 @@
+{
+  "project_id": "kh9-smoke-t019",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "gemini",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 2,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": true
+        }
+      ],
+      "rationale": "Gemini is used to draft examples but not yet integrated with the learning flow, giving relevance 3 as a meaningful step.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "The web prototype combines an Astro and React interface styled with Tailwind and Shadcn with a Go backend and Firebase",
+        "functionality": "not described",
+        "wow": "Practice the language of everyday banking with short, personalized lessons and spoken examples",
+        "relevance": "Gemini can help draft examples and ElevenLabs can read them aloud, but the learning tools and personalized vocabulary"
+      },
+      "warnings": [
+        "Run 0: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect onboarding, saved terms, scenario practice, and audio into a single lesson path",
+        "Validate and integrate Gemini-generated examples with learner progress tracking",
+        "Review examples for clarity and accuracy with people familiar with financial tasks"
+      ]
+    },
+    {
+      "challenge_id": "bny",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.3333333333333335,
+        "functionality": 2,
+        "wow": 2,
+        "relevance": 3.3333333333333335
+      },
+      "total": 13.666666666666666,
+      "max_total": 25,
+      "score_10": 5.466666666666667,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "MoneyWords addresses financial language barriers for English learners with a structured learning approach but lacks integrated functionality.",
+      "evidence": {
+        "originality": "planned site uses a short onboarding quiz to estimate a learner's English level",
+        "tech_understanding": "The web prototype combines an Astro and React interface styled with Tailwind and Shadcn with a Go backend",
+        "functionality": "Gemini can help draft examples and ElevenLabs can read them aloud, but the learning tools and personalized vocabulary",
+        "wow": "We shaped a focused language-learning idea around everyday financial tasks",
+        "relevance": "We wanted to make common financial language less intimidating for people who are learning English"
+      },
+      "warnings": [
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: originality evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: wow evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect onboarding, saved terms, scenario practice, and audio into a single lesson path",
+        "Review examples for clarity and accuracy with people familiar with the financial tasks",
+        "Validate and integrate Gemini and ElevenLabs features with learner progress tracking"
+      ]
+    },
+    {
+      "challenge_id": "elevenlabs",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 2.3333333333333335,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 13.333333333333334,
+      "max_total": 25,
+      "score_10": 5.333333333333333,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "ElevenLabs is used for audio playback experiments but not yet integrated into the main learning flow, which scores it as a meaningful secondary role.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We also tried Docker, AWS, and Vercel in the deployment setup",
+        "functionality": "Gemini can help draft examples and ElevenLabs can read them aloud, but the learning tools and personalized vocabulary",
+        "wow": "We shaped a focused language-learning idea around everyday financial tasks",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate ElevenLabs audio playback directly into the lesson flow with learner progress tracking",
+        "Wire the backend to combine vocabulary state, Gemini examples, and ElevenLabs audio in one service",
+        "Validate spoken examples with target users to ensure clarity and relevance"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 2,
+        "wow": 2
+      },
+      "total": 10,
+      "max_total": 20,
+      "score_10": 5.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2
+          },
+          "total": 10,
+          "max_total": 20,
+          "score_10": 5.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2
+          },
+          "total": 10,
+          "max_total": 20,
+          "score_10": 5.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2
+          },
+          "total": 10,
+          "max_total": 20,
+          "score_10": 5.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The idea of personalized financial language learning is practical but not unique.",
+      "evidence": {
+        "originality": "We wanted to make common financial language less intimidating for people who are learning English while settling into",
+        "tech_understanding": "The web prototype combines an Astro and React interface styled with Tailwind and Shadcn with a Go backend and Firebase",
+        "functionality": "Gemini can help draft examples and ElevenLabs can read them aloud, but the learning tools and personalized vocabulary",
+        "wow": "We shaped a focused language-learning idea around everyday financial tasks and made early interface and backend pieces."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate onboarding, saved terms, scenarios, and audio into a single working lesson path as planned",
+        "Validate and refine generated content accuracy with financial task experts as next step",
+        "Document the frontend-backend contracts and data flow decisions in the technical explanation"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 2,
+        "wow": 2,
+        "relevance": 3.3333333333333335
+      },
+      "total": 13.333333333333334,
+      "max_total": 25,
+      "score_10": 5.333333333333333,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": true
+        }
+      ],
+      "rationale": "The submission describes a meaningful use of AI models for generating banking examples and audio, but the core learning flow is not yet integrated.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "The intended path is for the frontend to send a learner's level and terms to the backend, which stores progress and",
+        "functionality": "The planned site uses a short onboarding quiz to estimate a learner's English level and track unfamiliar terms, then",
+        "wow": "Gemini can help draft examples and ElevenLabs can read them aloud, but the learning tools and personalized vocabulary",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate the onboarding quiz, vocabulary tracking, and AI-generated content into a working learning flow",
+        "Document the data flow between frontend and backend for storing progress and requesting Gemini-generated examples",
+        "Validate the connection between saved terms and scenario practice with user testing for clarity and accuracy"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 2,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 12,
+      "max_total": 25,
+      "score_10": 4.8,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission describes a language-learning tool with game-like elements but lacks core gameplay mechanics; technical components are partially connected but not fully integrated into a working flow.",
+      "evidence": {
+        "originality": "We wanted to make common financial language less intimidating for people who are learning English",
+        "tech_understanding": "The web prototype combines an Astro and React interface styled with Tailwind and Shadcn with a Go backend and Firebase",
+        "functionality": "Gemini can help draft examples and ElevenLabs can read them aloud, but the learning tools and personalized vocabulary",
+        "wow": "We are proud that we explored how vocabulary practice could connect to practical banking situations",
+        "relevance": "Practice the language of everyday banking with short, personalized lessons and spoken examples."
+      },
+      "warnings": [
+        "Run 2: originality evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: wow evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add core gameplay elements like rules, challenges, or win/loss conditions to transform the learning tool into a game",
+        "Integrate the onboarding quiz, vocabulary tracking, and generated content into a cohesive, working flow",
+        "Document the data flow between frontend and backend components to demonstrate technical understanding"
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 2,
+        "wow": 1,
+        "relevance": 1.6666666666666667
+      },
+      "total": 10.666666666666666,
+      "max_total": 25,
+      "score_10": 4.266666666666667,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project addresses a practical need with a focused learning approach but lacks a connected core experience and comedic elements.",
+      "evidence": {
+        "originality": "We wanted to make common financial language less intimidating for people who are learning English while settling into",
+        "tech_understanding": "The web prototype combines an Astro and React interface styled with Tailwind and Shadcn with a Go backend and Firebase",
+        "functionality": "Gemini can help draft examples and ElevenLabs can read them aloud, but the learning tools and personalized vocabulary",
+        "wow": "not described",
+        "relevance": "We wanted to make common financial language less intimidating for people who are learning English while settling into"
+      },
+      "warnings": [
+        "Run 2: originality evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate onboarding, vocabulary tracking, and audio features into a working flow",
+        "Add comedic elements or absurd scenarios to align with the funny/goofy category focus",
+        "Document a clear data flow between frontend and backend components for technical transparency"
+      ]
+    }
+  ]
+}

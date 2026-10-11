@@ -1,0 +1,459 @@
+{
+  "project_id": "kh9-smoke-t047",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "databricks",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "Databricks is used for a minor exploratory analysis of aggregate classifications, not the live decision path, limiting relevance.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "A React dashboard shows device and alert status",
+        "functionality": "When a page crosses the alert threshold, the extension can show a gentle on-screen message",
+        "wow": "not described",
+        "relevance": "Databricks was used for a small exploration of aggregate sample classifications, not the live decision path"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate Databricks into the live classification pipeline for real-time decision support",
+        "Explain the Databricks exploration methodology and how its findings inform threshold settings",
+        "Add a dashboard visualization of the Databricks aggregate classification patterns"
+      ]
+    },
+    {
+      "challenge_id": "elevenlabs",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3.3333333333333335
+      },
+      "total": 15.333333333333334,
+      "max_total": 25,
+      "score_10": 6.133333333333334,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "ElevenLabs provides a meaningful secondary audio role with voice prompts for alerts, but the main flow works without it.",
+      "evidence": {
+        "originality": "When a page crosses the alert threshold, the extension can show a gentle on-screen message and play a short ElevenLabs",
+        "tech_understanding": "not described",
+        "functionality": "We connected page capture, classification, an alert overlay, and a spoken message into a working prototype.",
+        "wow": "ElevenLabs made the messages feel less like system alerts",
+        "relevance": "When a page crosses the alert threshold, the extension can show a gentle on-screen message and play a short ElevenLabs"
+      },
+      "warnings": [
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Make ElevenLabs audio a required step in the alert flow by removing the option to skip it",
+        "Add technical details about how the classifier results are mapped to specific ElevenLabs voice parameters",
+        "Explain how the prototype handles false positives in the classification system"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 12,
+      "max_total": 20,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project integrates AI classification and voice prompts for family browsing safety but lacks detailed evidence of working core features.",
+      "evidence": {
+        "originality": "flags concerning pages and gives teens a calm voice prompt",
+        "tech_understanding": "uses TypeScript and Chrome APIs to capture and process screenshots",
+        "functionality": "prototype does not send parent emails",
+        "wow": "play a short ElevenLabs voice prompt"
+      },
+      "warnings": [
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add detailed implementation evidence for the working core features like alert overlay and voice prompt integration.",
+        "Explain how the alert threshold and Gemini classification inconsistencies are addressed in the prototype.",
+        "Provide specific examples or metrics demonstrating the system's effectiveness in real-world scenarios."
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3.3333333333333335,
+        "tech_understanding": 4,
+        "functionality": 3.3333333333333335,
+        "wow": 2.3333333333333335,
+        "relevance": 4
+      },
+      "total": 17,
+      "max_total": 25,
+      "score_10": 6.8,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 4,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 3,
+            "relevance": 4
+          },
+          "total": 19,
+          "max_total": 25,
+          "score_10": 7.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "KiteWatch uses Gemini and ElevenLabs for safety classification and prompts but lacks detailed model behavior explanations or inventive AI integration.",
+      "evidence": {
+        "originality": "flags concerning pages and gives teens a calm voice prompt",
+        "tech_understanding": "uses TypeScript and Chrome APIs to capture and process screenshots",
+        "functionality": "connected page capture, classification, an alert overlay, and a spoken message into a working prototype",
+        "wow": "We would test the experience with families",
+        "relevance": "A Chrome extension periodically checks the active page and asks Gemini to classify a screenshot into a few safety"
+      },
+      "warnings": [
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: wow evidence was not an exact quote; replaced with not described.",
+        "Run 1: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Explain how Gemini's classification thresholds work for different categories",
+        "Show example model outputs and error cases in the dashboard",
+        "Add technical details about how ElevenLabs voices are selected for different alerts"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 12,
+      "max_total": 25,
+      "score_10": 4.8,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission is a browser extension with game-like features but lacks core gameplay elements; it has plausible technical connections but incomplete evidence for AI integration.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "The extension uses TypeScript and Chrome APIs to capture and process screenshots",
+        "functionality": "We connected page capture, classification, an alert overlay, and a spoken message into a working prototype",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add clear gameplay mechanics with rules and challenges to meet the game criteria",
+        "Provide detailed implementation evidence for the AI classification and voice prompt integration",
+        "Explain how the alert threshold and classification logic are implemented technically"
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project addresses online safety with a family-focused approach but lacks a clearly goofy or absurd premise required for the category.",
+      "evidence": {
+        "originality": "We wanted to explore how families could talk about troubling online material without making every browsing session feel",
+        "tech_understanding": "The extension uses TypeScript and Chrome APIs to capture and process screenshots, then sends them to a small server for",
+        "functionality": "A Chrome extension periodically checks the active page and asks Gemini to classify a screenshot into a few safety",
+        "wow": "not described",
+        "relevance": "We wanted to explore how families could talk about troubling online material without making every browsing session feel"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add an absurd or over-engineered solution to a trivial problem to better fit the goofy category.",
+        "Enhance documentation of the comedic or humorous aspects of the project.",
+        "Incorporate a more clearly funny or satirical premise to align with the category's focus on humor."
+      ]
+    }
+  ]
+}

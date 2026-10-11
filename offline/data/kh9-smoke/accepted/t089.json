@@ -1,0 +1,57 @@
+{
+  "project_id": "kh9-smoke-t089",
+  "team_id": "t089",
+  "submission": {
+    "name": "Vault Showdown",
+    "tagline": "Settle a casino dispute in a two-player card duel controlled by a chunky handheld.",
+    "inspiration": "We like quick card games where a round can turn on one bold move, and wanted to make the players physically act out their choices. We shifted the setting to a small financial office simulation: two staff members compete to uncover a suspicious cash discrepancy before the vault closes.",
+    "what_it_does": "Two players face off in a short card duel, using a thick card-shaped controller to trigger actions that appear in the game. The round is framed around checking transactions and spotting the discrepancy, with a score deciding who resolves the case. It is a game scenario, not a real financial monitoring tool.",
+    "how_we_built_it": "We made the game in Godot and used a Raspberry Pi Pico controller to send button and movement data to a Python process over serial. Python converts that input into messages sent to Godot over UDP, where the game applies the actions to the current round. We used GitHub for version control and added a simple mock transaction ledger as the duel’s financial context.",
+    "challenges_we_ran_into": "Serial values needed to be parsed and translated consistently before Godot could use them, and the hardware drivers added another point of failure. Animation and engine issues also slowed us down, while merging Godot project changes sometimes introduced dependency problems. The controller and game work together for the main duel, though reconnecting the hardware can be finicky.",
+    "accomplishments": "We got a physical controller to drive a playable head-to-head game and tied its actions to an in-game financial scenario. We are proud that the hardware and game communicate through the full input path.",
+    "what_we_learned": "We learned how much care it takes to move input across hardware, Python, networking, and a game engine. Making the transaction theme understandable also reminded us that a financial game needs context, not just numbers on cards.",
+    "whats_next": "We would improve controller reconnection and make the opponent’s behavior more interesting. We would also expand the sample ledger and add clearer feedback explaining which transaction clues mattered.",
+    "built_with": [
+      "c",
+      "cmake",
+      "cpp",
+      "csharp",
+      "git",
+      "github",
+      "godot",
+      "pico",
+      "python",
+      "raspberry-pi",
+      "wsl"
+    ],
+    "challenges": [
+      "bny"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--the-final-draw"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/the-final-draw"
+  ],
+  "primary_pool": "general",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "game_dev",
+    "completion": "polished",
+    "writing_style": "average"
+  },
+  "fit": {
+    "bny": "medium"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009089,
+  "batch_id": "b023",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.6231149254877668,
+    "field": 0.6159322776412754
+  },
+  "created_at": "2026-10-11T00:56:00+00:00"
+}

@@ -1,0 +1,50 @@
+{
+  "project_id": "kh9-smoke-t104",
+  "team_id": "t104",
+  "submission": {
+    "name": "RouteReady Closet",
+    "tagline": "Choose a comfortable outfit for the route and weather ahead.",
+    "inspiration": "We wanted to make getting dressed less of a daily puzzle, especially when a campus day includes a long walk between classes and changing weather. The idea was to use clothing photos to build a small wardrobe catalog, then bring route conditions into the choice.",
+    "what_it_does": "Users photograph clothes and Gemini extracts basic details such as color and garment type to make a digital closet. The app can suggest an outfit for the day using local weather and a selected destination, with a simple map view that highlights a route and reported trouble spots. Suggestions are limited to items in the saved closet, though the route information is a lightweight prototype.",
+    "how_we_built_it": "We built a React Native and Expo app that stores compressed clothing images and item details on the device. Gemini analyzes an image and returns structured clothing metadata, while a weather service provides conditions for outfit suggestions. A map screen combines destination routing with a small set of safety notes inspired by public incident information; the route view and wardrobe advice are separate flows in this version.",
+    "challenges_we_ran_into": "Getting consistent clothing labels from varied photos took prompt adjustments, and image compression had to balance storage space with enough detail for recognition. The route feature is limited to a demo data set, so it cannot reliably represent current conditions or incidents.",
+    "accomplishments": "We built a usable flow from photographing a garment to seeing it in a closet and getting an outfit suggestion. We also connected that flow with a basic route screen so the app considers the shape of a campus day.",
+    "what_we_learned": "We learned how to request structured JSON from a vision model and handle on-device image storage in a mobile app. We also saw that maps and AI advice need clear data boundaries, since a polished suggestion can otherwise sound more certain than its inputs allow.",
+    "whats_next": "We would connect to dependable route and public safety data, and make the map notes easier to verify. We also want outfit planning for multiple stops and better controls for comfort preferences.",
+    "built_with": [
+      "expo",
+      "gemini",
+      "javascript",
+      "react-native",
+      "typescript",
+      "open-meteo"
+    ],
+    "challenges": []
+  },
+  "seed_ids": [
+    "swamphacks-xi--clothing-clues",
+    "hackharvard-2024--albatross"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/clothing-clues",
+    "https://devpost.com/software/albatross"
+  ],
+  "primary_pool": "general",
+  "mutation": "heavy",
+  "persona": {
+    "skill_focus": "mobile",
+    "completion": "polished",
+    "writing_style": "average"
+  },
+  "fit": {},
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009104,
+  "batch_id": "b026",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.6651471432854935,
+    "field": 0.6936115063697836
+  },
+  "created_at": "2026-10-11T00:57:10+00:00"
+}

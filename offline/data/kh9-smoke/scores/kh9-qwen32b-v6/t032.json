@@ -1,0 +1,390 @@
+{
+  "project_id": "kh9-smoke-t032",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "elevenlabs",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "ElevenLabs provides meaningful audio output for recognized signs but is not central to the core interaction.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "not described",
+        "functionality": "not described",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described.",
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 0: wow evidence was not an exact quote; replaced with not described.",
+        "Run 0: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: wow evidence was not an exact quote; replaced with not described.",
+        "Run 1: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate ElevenLabs audio directly into the sign recognition feedback loop for core interaction",
+        "Add documentation showing how audio output is specifically triggered by different recognized signs",
+        "Explain the design decisions behind choosing ElevenLabs over other text-to-speech options"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.6666666666666665,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 11.666666666666666,
+      "max_total": 20,
+      "score_10": 5.833333333333333,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project shows a clear component/data flow with decisions but lacks detailed tradeoffs.",
+      "evidence": {
+        "originality": "We wanted to help students communicate simple needs during class when speaking up is uncomfortable or not practical.",
+        "tech_understanding": "not described",
+        "functionality": "A browser prototype uses a webcam to recognize a limited set of hand shapes and phrases, then displays the interpreted t",
+        "wow": "We got browser-based hand landmarks working and built a small sign-to-text flow with spoken output."
+      },
+      "warnings": [
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate the chat companion with the hand recognition for a complete interaction flow.",
+        "Add controls for users to choose which phrases the app recognizes.",
+        "Document detailed tradeoffs and limitations in the technical implementation."
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.6666666666666665,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 15.666666666666666,
+      "max_total": 25,
+      "score_10": 6.266666666666667,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "Uses hand signs for classroom communication with MediaPipe and Gemini, but components are not fully integrated.",
+      "evidence": {
+        "originality": "We focused on a small set of visual cues and spoken output",
+        "tech_understanding": "MediaPipe runs hand landmark detection in the browser",
+        "functionality": "The chat, hand recognition, and speech output work in isolation",
+        "wow": "We got browser-based hand landmarks working",
+        "relevance": "A browser prototype uses a webcam to recognize a limited set of hand shapes and phrases"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect recognition, text, speech, and chat into one accessible flow",
+        "Add controls for choosing recognized phrases",
+        "Improve recognition reliability with camera angle and lighting variations"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2.6666666666666665,
+        "tech_understanding": 3,
+        "functionality": 2.6666666666666665,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 12.333333333333334,
+      "max_total": 25,
+      "score_10": 4.933333333333334,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission is a browser-based prototype that recognizes hand signs and converts them to text and speech, but lacks core game elements like rules, challenges, or win conditions.",
+      "evidence": {
+        "originality": "We focused on a small set of visual cues and spoken output rather than trying to translate every conversation.",
+        "tech_understanding": "not described",
+        "functionality": "A browser prototype uses a webcam to recognize a limited set of hand shapes and phrases, then displays the interpreted",
+        "wow": "We got browser-based hand landmarks working and built a small sign-to-text flow with spoken output.",
+        "relevance": "A browser prototype uses a webcam to recognize a limited set of hand shapes and phrases, then displays the interpreted"
+      },
+      "warnings": [
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add core gameplay elements like rules, objectives, and win/loss conditions to transform the prototype into a game.",
+        "Integrate the hand recognition, text, speech, and chat components into a cohesive game experience.",
+        "Test the game with users to refine gameplay mechanics and ensure engagement over time."
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.6666666666666665,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14.666666666666666,
+      "max_total": 25,
+      "score_10": 5.866666666666666,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project offers a meaningful absurd premise by using hand signs for classroom communication but lacks central integration and documented comic impact.",
+      "evidence": {
+        "originality": "We focused on a small set of visual cues and spoken output rather than trying to translate every conversation.",
+        "tech_understanding": "not described",
+        "functionality": "The chat, hand recognition, and speech output work in isolation, but the complete interaction is not reliably connected.",
+        "wow": "not described",
+        "relevance": "We wanted to help students communicate simple needs during class when speaking up is uncomfortable or not practical."
+      },
+      "warnings": [
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a clearly documented goofy twist to the core concept to increase comic impact",
+        "Integrate chat, hand recognition, and speech output into a cohesive user experience",
+        "Document specific examples of the humor or absurdity in the project's design and functionality"
+      ]
+    }
+  ]
+}

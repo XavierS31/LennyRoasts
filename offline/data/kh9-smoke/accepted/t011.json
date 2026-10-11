@@ -1,0 +1,56 @@
+{
+  "project_id": "kh9-smoke-t011",
+  "team_id": "t011",
+  "submission": {
+    "name": "Study Sentinel",
+    "tagline": "A tiny desk companion that nudges library study groups back to their work.",
+    "inspiration": "We built this for students who settle into long study sessions and lose track of how often they drift away from their screens. Browser blockers felt too easy to ignore, so we wanted a small physical presence that could offer a visual reminder without interrupting the whole table.",
+    "what_it_does": "A webcam checks whether a student appears to be looking away, then updates a small desk device with a pixel expression and a gentle visual cue. The team also made a simple web page to show the current focus state; it does not yet handle multiple people reliably.",
+    "how_we_built_it": "We used a React and TypeScript page to capture webcam frames and send them to a Python service, where MediaPipe estimates eye direction. A MongoDB store keeps the latest status, and two Pico W boards, an LCD, a motor, and a cardboard enclosure make up the desk companion. We also tried Databricks with a small set of session events to summarize when focus changes happened, but that analysis is still a separate demo from the device loop.",
+    "challenges_we_ran_into": "Getting the Pico boards online was unreliable on campus Wi-Fi, so we used a hotspot during the demo. The webcam check can mistake a glance away for distraction, and the Databricks summary is not yet connected back to the live interface.",
+    "accomplishments": "We got the browser, Python service, database, and physical display working together for a basic single-user session. We are proud that the cardboard build and the pixel expressions made the idea tangible, even with the rough edges.",
+    "what_we_learned": "We learned how much time hardware setup and network access can take away from web integration. MediaPipe gave us more useful eye landmarks than our first OpenCV attempt, and Databricks helped us explore session patterns, though we have more work to do before it can guide the product.",
+    "whats_next": "We would make the focus signal configurable, improve handling for different lighting and camera angles, and connect the session summaries to the web page. A sturdier enclosure and a clearer privacy flow would also help before using it in shared study spaces.",
+    "built_with": [
+      "c",
+      "c++",
+      "databricks",
+      "digitalocean",
+      "mediapipe",
+      "mongodb",
+      "python",
+      "raspberry pi pico w",
+      "react",
+      "typescript"
+    ],
+    "challenges": [
+      "databricks"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--angel-on-your-desk"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/angel-on-your-desk"
+  ],
+  "primary_pool": "general",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "shaky",
+    "writing_style": "average"
+  },
+  "fit": {
+    "databricks": "medium"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009011,
+  "batch_id": "b005",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.49845210037215043,
+    "field": 0.6203196224099135
+  },
+  "created_at": "2026-10-10T23:33:44+00:00"
+}

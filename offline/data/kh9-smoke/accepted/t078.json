@@ -1,0 +1,59 @@
+{
+  "project_id": "kh9-smoke-t078",
+  "team_id": "t078",
+  "submission": {
+    "name": "Campus Detour",
+    "tagline": "Explore a campus route with data-informed points of attention and spoken context.",
+    "inspiration": "Visitors and students walking between unfamiliar parts of a large campus may want more context than a fastest-route line provides. We prototyped a route view that highlights places to pay attention to, using available incident data as one imperfect signal.",
+    "what_it_does": "The prototype maps a route between campus locations and can show nearby historical incident clusters as context. Gemini can summarize a cluster in plain language and ElevenLabs can read the summary aloud, but those parts are demoed separately and the route does not yet update dynamically from them.",
+    "how_we_built_it": "We prepared sample geospatial records in Databricks and used clustering to create areas that can be displayed on a map. A lightweight routing service connects to Here Routing, while separate Gemini and ElevenLabs calls generate optional text and audio summaries; the full pipeline is not yet reliably connected.",
+    "challenges_we_ran_into": "The incident records are incomplete and delayed, so clusters can give a misleading picture if treated as current safety information. We also ran into polyline handling issues and did not finish wiring data updates through the map and narration flow.",
+    "accomplishments": "We explored a Databricks workflow for turning location records into map-ready clusters and paired that with a route prototype. We also demonstrated how a short text explanation could be generated and spoken for a location on the map.",
+    "what_we_learned": "We learned how much cleanup geospatial data needs before a cluster is useful, and that historical incidents cannot stand in for real-time conditions. Trying Gemini and ElevenLabs showed us how summaries and audio could make dense map data easier to approach.",
+    "whats_next": "We would improve the data freshness and source labeling, then connect cluster selection to the route and spoken summary. We would also add clearer map context so people can interpret the data carefully.",
+    "built_with": [
+      "cloudflare",
+      "databricks",
+      "elevenlabs",
+      "gemini-api",
+      "here-routing",
+      "javascript",
+      "python",
+      "scala",
+      "vue.js"
+    ],
+    "challenges": [
+      "elevenlabs",
+      "gemini",
+      "databricks"
+    ]
+  },
+  "seed_ids": [
+    "hackharvard-2024--albatross"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/albatross"
+  ],
+  "primary_pool": "databricks",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "ai_ml",
+    "completion": "partial",
+    "writing_style": "average"
+  },
+  "fit": {
+    "elevenlabs": "medium",
+    "gemini": "medium",
+    "databricks": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009078,
+  "batch_id": "b020",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.35694235259791995,
+    "field": 0.6610700329901062
+  },
+  "created_at": "2026-10-11T00:53:44+00:00"
+}

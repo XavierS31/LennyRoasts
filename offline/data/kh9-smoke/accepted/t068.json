@@ -1,0 +1,61 @@
+{
+  "project_id": "kh9-smoke-t068",
+  "team_id": "t068",
+  "submission": {
+    "name": "ReadyCheck Voice",
+    "tagline": "Practice checking safety gear before a campus event shift",
+    "inspiration": "Student volunteers and event crews sometimes take on unfamiliar setup jobs where protective gear matters. We wanted a quick practice tool that can check a few visible items and explain what might be missing.",
+    "what_it_does": "ReadyCheck Voice lets a user choose a sample event scenario, then uses a camera view to look for items such as gloves, goggles, or a vest. It gives a spoken status and can play through a short training scenario; it is a prototype for practice, not an operational safety check.",
+    "how_we_built_it": "The app combines a FastAPI backend with a React, TypeScript, Vite, and Tailwind interface. A YOLO11n model handles image detection, Gemini can draft scenario variations, and ElevenLabs voices the feedback; we also tried organizing example detection records in Databricks for later review.",
+    "challenges_we_ran_into": "The demo connects the camera, detection, and spoken feedback paths, but the detector can miss gear when lighting or camera angle changes. We also have a known issue where the spoken status can lag behind the latest frame, so the user may hear feedback for an earlier image.",
+    "accomplishments": "We are proud to have a working prototype that takes a camera image through detection and produces a spoken response. Building around a small vision model let us explore the whole interaction in the time available.",
+    "what_we_learned": "We learned that a vision result needs clear limits and context before it becomes useful guidance. Gemini helped us draft scenarios, while ElevenLabs made the feedback easier to follow without watching every status label.",
+    "whats_next": "We would improve the detector with more varied examples, make the voice feedback track the newest frame, and add a clear review step for a supervisor. We would also test the interface with event staff before considering real use.",
+    "built_with": [
+      "databricks",
+      "elevenlabs",
+      "fastapi",
+      "gemini",
+      "googlecolab",
+      "python",
+      "react",
+      "tailwindcss",
+      "typescript",
+      "vite",
+      "yolo11n"
+    ],
+    "challenges": [
+      "databricks",
+      "elevenlabs",
+      "bny"
+    ]
+  },
+  "seed_ids": [
+    "hackusf-2026--eppec-employee-personal-protection-equipment-checker"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/eppec-employee-personal-protection-equipment-checker"
+  ],
+  "primary_pool": "elevenlabs",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "game_dev",
+    "completion": "shaky",
+    "writing_style": "average"
+  },
+  "fit": {
+    "databricks": "weak",
+    "elevenlabs": "strong",
+    "bny": "medium"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009068,
+  "batch_id": "b018",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.6585586350087356,
+    "field": 0.6256685032393589
+  },
+  "created_at": "2026-10-11T00:52:24+00:00"
+}

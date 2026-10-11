@@ -1,0 +1,303 @@
+{
+  "project_id": "kh9-smoke-t065",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 12,
+      "max_total": 20,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project combines a community garden map with ASL fingerspelling recognition but lacks integration between components.",
+      "evidence": {
+        "originality": "combine a local garden resource map with a camera tool that recognizes a few hand-spelled letters",
+        "tech_understanding": "The map interface uses React, Vite, Tailwind, and Leaflet, with a small FastAPI service and SQLite for saved markers",
+        "functionality": "The map prototype collects nearby gardens, public growing spaces, and selected community resources from open listings",
+        "wow": "Show a garden sign, get a clearer way to share what you need"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate the fingerspelling recognition with the map search functionality to create a unified user experience",
+        "Test the webcam recognition with real users to improve accuracy and speed of letter detection",
+        "Implement a system for garden groups to update and correct outdated information in the map listings"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 16,
+      "max_total": 25,
+      "score_10": 6.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project meaningfully integrates ML for ASL recognition and map data, but the disconnected prototypes and limited model scope reduce functionality and wow.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "built a browser camera experiment that classifies hand shapes and groups recognized letters into text",
+        "functionality": "The map and camera tools run as separate prototypes; connecting recognized words to map search is the next integration",
+        "wow": "We are proud to have two concrete pieces: a map with several kinds of community locations and a small fingerspelling",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described.",
+        "Run 0: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: originality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Link camera recognition output to map search functionality to centralize AI integration",
+        "Add lighting/framing guidance for users to improve webcam recognition reliability",
+        "Implement a shared data model between map and camera tools for unified app experience"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 15,
+      "max_total": 25,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The submission is a playable game with a main part being the map and camera tools, but the two parts are not connected yet and the gesture model is limited to individual letters.",
+      "evidence": {
+        "originality": "We wanted to combine a local garden resource map with a camera tool that recognizes a few hand-spelled letters",
+        "tech_understanding": "The map interface uses React, Vite, Tailwind, and Leaflet, with a small FastAPI service and SQLite for saved markers",
+        "functionality": "The map prototype collects nearby gardens, public growing spaces, and selected community resources from open listings",
+        "wow": "not described",
+        "relevance": "The map prototype collects nearby gardens, public growing spaces, and selected community resources from open listings."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect the camera results to the map search functionality to create a unified user experience",
+        "Improve the gesture model to recognize short words for more efficient communication",
+        "Implement a system for garden groups to correct listings and flag outdated information"
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project addresses a meaningful communication challenge with a practical yet not overly goofy solution, showing clear technical understanding and partial integration but lacking a central comedic or absurd element.",
+      "evidence": {
+        "originality": "We wanted to combine a local garden resource map with a camera tool that recognizes a few hand-spelled letters",
+        "tech_understanding": "The map interface uses React, Vite, Tailwind, and Leaflet, with a small FastAPI service and SQLite for saved markers",
+        "functionality": "The map and camera tools run as separate prototypes; connecting recognized words to map search is the next integration",
+        "wow": "We are proud to have two concrete pieces: a map with several kinds of community locations and a small fingerspelling",
+        "relevance": "Volunteers at a community garden may not share a first language, and simple signs or instructions can be hard to"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a humorous or absurd twist to the core concept to better fit the funny/goofy category",
+        "Integrate the camera recognition with the map to demonstrate a working flow",
+        "Document specific examples of how the solution could be over-engineered for trivial problems"
+      ]
+    }
+  ]
+}

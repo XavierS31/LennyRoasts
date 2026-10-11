@@ -1,0 +1,47 @@
+{
+  "project_id": "kh9-smoke-t008",
+  "team_id": "t008",
+  "submission": {
+    "name": "Garden Gauge",
+    "tagline": "A small GPS tracker that helps campus gardeners see how far their watering route takes them.",
+    "inspiration": "We wanted a simple way for volunteers tending several campus garden beds to track their walking routes and compare weekly effort. Bike tracking gave us a starting point, but we adapted the display for a garden cart and short rounds between plots.",
+    "what_it_does": "The device records a route's distance and current speed from GPS and sends the totals to a small web leaderboard for the week's garden rounds. A map view shows the recorded route so volunteers can see which beds they visited.",
+    "how_we_built_it": "We used an ESP32 with a GPS reader to collect location points and calculate distance and speed between updates. The board sends the totals to a web service that stores weekly volunteer entries and orders them by distance. Google Maps displays the route from the saved location data.",
+    "challenges_we_ran_into": "The GPS receiver could take a while to get a usable fix, especially near buildings. We made the enclosure from a quick 3D print and had to adjust it so the wiring and battery would fit.",
+    "accomplishments": "We got the tracker sending route totals to the site and displaying the route on a map. We are proud that the hardware and leaderboard work together for a full garden round.",
+    "what_we_learned": "We learned how noisy GPS readings can be over short distances and how much the enclosure design matters once the electronics need to fit inside it.",
+    "whats_next": "We would add a more reliable GPS antenna and a button to mark a garden stop. A clearer volunteer view for comparing different routes would also be useful.",
+    "built_with": [
+      "arduino",
+      "c++",
+      "esp32",
+      "gps",
+      "google-maps"
+    ],
+    "challenges": []
+  },
+  "seed_ids": [
+    "swamphacks-xi--bike-buddy-8j9kg6"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/bike-buddy-8j9kg6"
+  ],
+  "primary_pool": "general",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "hardware",
+    "completion": "polished",
+    "writing_style": "terse"
+  },
+  "fit": {},
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009008,
+  "batch_id": "b002",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.6045586286002971,
+    "field": 0.5371353754050922
+  },
+  "created_at": "2026-10-10T23:32:04+00:00"
+}

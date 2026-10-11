@@ -1,0 +1,54 @@
+{
+  "project_id": "kh9-smoke-t098",
+  "team_id": "t098",
+  "submission": {
+    "name": "Worldseed Workshop",
+    "tagline": "Sketch a tiny world, then try to make it playable.",
+    "inspiration": "We wanted to give campus clubs and first-time game makers a way to turn a theme into a small playable scene. A lot of people have ideas for characters and places but get stuck before opening a full game engine. We focused on a guided editor where the art can start from a prompt and the level rules stay adjustable. The goal was a quick creative exercise, not a replacement for professional game tools.",
+    "what_it_does": "Users can request a few simple character or object sprites and arrange them in a 2D level. The editor has basic platforms, hazards, a goal, and movement settings such as gravity and speed. A play view lets users test the layout, and a configuration string is intended to let someone else reopen a level. Our Gemini connection is used only for image generation, so most of the project is still the editor and game loop.",
+    "how_we_built_it": "The interface uses React with Tailwind, while Phaser handles the game scene and player movement. An Express server routes image requests to a small Python script that calls Gemini through Google Cloud, then returns the generated image for the editor to use. Level settings live in the browser as configuration data and feed into Phaser when a scene starts. This keeps the game loop separate from the image request path, though those two paths did not come together reliably in our demo.",
+    "challenges_we_ran_into": "Getting generated images into the right sprite dimensions took more work than expected, and our crop step sometimes cut off the subject. Gemini image generation is a small part of the app, and prompt changes did not always give us consistent results. We also ran short on time wiring saved configurations into the play view. The editor and game scene run in isolation, but the complete flow from prompt to saved, playable level failed during the demo.",
+    "accomplishments": "We got a basic level editor and a Phaser play scene running, with controls for a few movement settings. We also connected an image request path to Gemini and tried the returned art as game sprites. We are proud that the pieces show how a prompt-based art step could fit into a simple maker tool, even though the full experience is unfinished.",
+    "what_we_learned": "We learned that generated art needs a predictable size and transparent background to behave like a game asset. We also learned how much care it takes to pass image files and level settings between a React editor, a server, and a game scene. Gemini helped us explore visual directions quickly, but we still needed manual cropping and prompt adjustments. Several of us were new to connecting a full stack app with a game engine.",
+    "whats_next": "We would first fix the handoff from the editor to the playable scene and make configuration sharing reliable. After that, we would add a basic sprite cleanup step and let users upload their own art. A small gallery for sharing levels could come later if the editor becomes stable.",
+    "built_with": [
+      "gemini",
+      "javascript",
+      "node.js",
+      "phaser",
+      "python",
+      "react",
+      "tailwindcss",
+      "vertex-ai"
+    ],
+    "challenges": [
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--swampmaker"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/swampmaker"
+  ],
+  "primary_pool": "general",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "ai_ml",
+    "completion": "broken",
+    "writing_style": "detailed"
+  },
+  "fit": {
+    "gemini": "weak"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009098,
+  "batch_id": "b025",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.7367810278872268,
+    "field": 0.7080469612654253
+  },
+  "created_at": "2026-10-11T00:56:48+00:00"
+}

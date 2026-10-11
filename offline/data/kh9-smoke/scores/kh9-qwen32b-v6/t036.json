@@ -1,0 +1,606 @@
+{
+  "project_id": "kh9-smoke-t036",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "bny",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "Checkout Compass addresses a specific financial process for student organizations by suggesting reward-optimized cards during purchases, but its functionality is limited to a basic prototype with disconnected components and mocked results.",
+      "evidence": {
+        "originality": "We adapted a card recommendation idea for student treasurers who need a useful answer at checkout",
+        "tech_understanding": "The prototype uses a Manifest V3 JavaScript extension, an Express API, and a small card and merchant dataset",
+        "functionality": "The dashboard lets a treasurer enter cards and review a basic rewards summary; it does not connect to bank accounts or",
+        "wow": "A quick card guide for community organizations buying supplies",
+        "relevance": "Small campus organizations often buy food, equipment, or event supplies without much time to compare which card earns"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Validate and integrate reward data into a stable recommendation API for consistent results",
+        "Implement dependable merchant categorization across diverse checkout pages",
+        "Add organization-specific spending limits to align with financial compliance needs"
+      ]
+    },
+    {
+      "challenge_id": "databricks",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission describes Databricks as planned but not connected, making relevance 2.",
+      "evidence": {
+        "originality": "We adapted a card recommendation idea for student treasurers",
+        "tech_understanding": "Databricks processing for comparing category rewards",
+        "functionality": "The dashboard lets a treasurer enter cards and review a basic rewards summary",
+        "wow": "We put together a working slice of checkout detection and a basic card comparison view",
+        "relevance": "We planned Databricks processing for comparing category rewards"
+      },
+      "warnings": [
+        "Run 1: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect Databricks to the main recommendation flow to centralize data processing",
+        "Implement stable merchant categorization and reward comparison logic in Databricks",
+        "Add documentation showing how Databricks transforms raw data into actionable card recommendations"
+      ]
+    },
+    {
+      "challenge_id": "elevenlabs",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission describes ElevenLabs as a planned extension for reading recommendations aloud but not connected into the main flow, scoring relevance 2 as it is an optional add-on.",
+      "evidence": {
+        "originality": "planned Databricks processing for comparing category rewards",
+        "tech_understanding": "Gemini to help interpret ambiguous merchant descriptions",
+        "functionality": "working slice of checkout detection and a basic card comparison view",
+        "wow": "We put together a working slice of checkout detection",
+        "relevance": "ElevenLabs to read a recommendation aloud, but these pieces were not connected into one reliable flow."
+      },
+      "warnings": [
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: originality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate ElevenLabs into the recommendation flow to read suggestions aloud during checkout",
+        "Validate and connect the merchant categorization with a stable recommendation API",
+        "Add organization-specific spending limits to the dashboard for better financial control"
+      ]
+    },
+    {
+      "challenge_id": "gemini",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project uses Gemini to interpret merchant descriptions but lacks connected integration, scoring relevance 3 as it performs a meaningful secondary role.",
+      "evidence": {
+        "originality": "We adapted a card recommendation idea for student treasurers",
+        "tech_understanding": "Gemini to help interpret ambiguous merchant descriptions",
+        "functionality": "some results are mocked and a suggestion can be missing or miscategorized",
+        "wow": "A quick card guide for community organizations buying supplies",
+        "relevance": "Gemini to help interpret ambiguous merchant descriptions"
+      },
+      "warnings": [
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect Gemini integration to the recommendation flow for live merchant interpretation",
+        "Validate and structure reward data to improve recommendation accuracy",
+        "Implement stable checkout detection across more merchant pages"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 11,
+      "max_total": 20,
+      "score_10": 5.5,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project offers a focused solution for student treasurers with a browser extension prototype that addresses a specific need but lacks a fully integrated system.",
+      "evidence": {
+        "originality": "We adapted a card recommendation idea for student treasurers who need a useful answer at checkout",
+        "tech_understanding": "The prototype uses a Manifest V3 JavaScript extension, an Express API, and a small card and merchant dataset",
+        "functionality": "A browser extension prototype looks for checkout signals and suggests a card based on a merchant category",
+        "wow": "A quick card guide for community organizations buying supplies"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Validate reward data and connect the extension to a stable recommendation API for a more reliable core functionality",
+        "Improve checkout page detection reliability across a broader range of test pages",
+        "Integrate Gemini, Databricks, and ElevenLabs into a cohesive flow to enhance recommendation accuracy and user experience"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.3333333333333335,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3.3333333333333335
+      },
+      "total": 14.666666666666666,
+      "max_total": 25,
+      "score_10": 5.866666666666666,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "The browser extension uses AI for merchant categorization and card recommendations but lacks integrated service flows and reliable checkout detection.",
+      "evidence": {
+        "originality": "We adapted a card recommendation idea for student treasurers",
+        "tech_understanding": "Gemini to help interpret ambiguous merchant descriptions",
+        "functionality": "The dashboard lets a treasurer enter cards and review a basic rewards summary",
+        "wow": "not described",
+        "relevance": "We adapted a card recommendation idea for student treasurers"
+      },
+      "warnings": [
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect the extension to a stable recommendation API for reliable checkout suggestions",
+        "Validate and expand the reward data to improve recommendation accuracy",
+        "Implement a dependable merchant categorization system across more checkout pages"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 11,
+      "max_total": 25,
+      "score_10": 4.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission is a browser extension for card recommendations at checkout, which functions as a utility rather than a game.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We planned Databricks processing for comparing category rewards, Gemini to help interpret ambiguous merchant",
+        "functionality": "A browser extension prototype looks for checkout signals and suggests a card based on a merchant category and a small",
+        "wow": "not described",
+        "relevance": "A browser extension prototype looks for checkout signals and suggests a card based on a merchant category and a small"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add game elements such as points, levels, or challenges to transform the utility into a game experience.",
+        "Implement a more reliable checkout detection system to improve the core functionality of the extension.",
+        "Integrate the planned AI services into a cohesive flow to enhance the recommendation logic and user experience."
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.6666666666666665,
+        "functionality": 3,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 12.666666666666666,
+      "max_total": 25,
+      "score_10": 5.066666666666666,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project offers a practical solution for card rewards optimization but lacks a goofy or absurd premise required for the funny category.",
+      "evidence": {
+        "originality": "We adapted a card recommendation idea for student treasurers",
+        "tech_understanding": "The prototype uses a Manifest V3 JavaScript extension",
+        "functionality": "The dashboard lets a treasurer enter cards and review a basic rewards summary",
+        "wow": "A quick card guide for community organizations buying supplies",
+        "relevance": "Small campus organizations often buy food, equipment, or event supplies"
+      },
+      "warnings": [
+        "Run 1: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add an absurdly over-engineered solution to a trivial problem to increase comedic value",
+        "Implement a more reliable checkout detection system to improve functionality",
+        "Create a more engaging and humorous user interface to enhance the overall experience"
+      ]
+    }
+  ]
+}

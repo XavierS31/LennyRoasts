@@ -1,0 +1,306 @@
+{
+  "project_id": "kh9-smoke-t026",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 4,
+        "wow": 2
+      },
+      "total": 13,
+      "max_total": 20,
+      "score_10": 6.5,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project addresses a specific campus need with a structured job matching flow, but similar solutions exist.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We used a React and TypeScript frontend with a FastAPI backend and SQLAlchemy models.",
+        "functionality": "not described",
+        "wow": "not described"
+      },
+      "warnings": [
+        "Run 0: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a feature to verify licenses and safety credentials as mentioned in 'whats_next' to improve functionality and originality."
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 4,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 17,
+      "max_total": 25,
+      "score_10": 6.8,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        }
+      ],
+      "rationale": "The submission uses AI to extract job requirements from descriptions and match candidates, showing clear technical understanding and a working core with some limitations.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We learned that matching depends on representing both a shift’s requirements and a worker’s experience in a useful way",
+        "functionality": "We got the main path working from a pasted job description through structured requirements",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described.",
+        "Run 0: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 1: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 2: originality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add detailed documentation of the AI model's architecture and training data sources",
+        "Implement and document a validation system for the extracted job requirements",
+        "Provide specific examples of the candidate matching algorithm's decision logic"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3.6666666666666665,
+        "functionality": 3,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 11.666666666666666,
+      "max_total": 25,
+      "score_10": 4.666666666666667,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission describes a job matching platform for campus event crews rather than a game with rules and challenges.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We used a React and TypeScript frontend with a FastAPI backend and SQLAlchemy models.",
+        "functionality": "not described",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add game mechanics like points, levels, or challenges to transform the job matching platform into a game experience."
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 4,
+        "functionality": 3.3333333333333335,
+        "wow": 1,
+        "relevance": 1
+      },
+      "total": 11.333333333333334,
+      "max_total": 25,
+      "score_10": 4.533333333333333,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project addresses a practical need with a clear technical approach but lacks a goofy or humorous concept as required by the category.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We used a React and TypeScript frontend with a FastAPI backend and SQLAlchemy models.",
+        "functionality": "not described",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a humorous or absurd twist to the core concept to align with the funny/goofy category requirements."
+      ]
+    }
+  ]
+}

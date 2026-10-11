@@ -1,0 +1,631 @@
+{
+  "project_id": "kh9-smoke-t025",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "elevenlabs",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3.3333333333333335
+      },
+      "total": 15.333333333333334,
+      "max_total": 25,
+      "score_10": 6.133333333333334,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "ElevenLabs provides a meaningful secondary audio role by reading warning signs aloud for accessibility, but the core experience works without it.",
+      "evidence": {
+        "originality": "Practice spotting suspicious money messages, then turn the warning signs into a short backing track.",
+        "tech_understanding": "not described",
+        "functionality": "The full flow works, but music generation sometimes returns code that Strudel cannot play",
+        "wow": "We are proud that a user’s own choices shape the recap instead of receiving only a generic scam warning.",
+        "relevance": "ElevenLabs speaks a compact recap for accessibility"
+      },
+      "warnings": [
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: originality evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Make ElevenLabs audio integral to the core feedback loop by requiring voice interaction to proceed",
+        "Document the specific audio generation parameters used for the recap to clarify technical implementation",
+        "Add a user flow diagram showing how audio feedback connects to message analysis and music generation components"
+      ]
+    },
+    {
+      "challenge_id": "bny",
+      "eligible": true,
+      "criteria": {
+        "originality": 3.6666666666666665,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 15.666666666666666,
+      "max_total": 25,
+      "score_10": 6.266666666666667,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 4,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 4,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "The submission integrates scam detection with music generation for an educational experience, showing meaningful financial process improvement but with partial working core functionality.",
+      "evidence": {
+        "originality": "Practice spotting suspicious money messages, then turn the warning signs into a short backing track.",
+        "tech_understanding": "The React and Next.js interface sends a selected message and the user’s marked clues to a Gemini-backed analysis flow",
+        "functionality": "The full flow works, but music generation sometimes returns code that Strudel cannot play",
+        "wow": "We are proud that a user’s own choices shape the recap instead of receiving only a generic scam warning",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: wow evidence was not an exact quote; replaced with not described.",
+        "Run 1: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add more message examples across different financial situations to improve functionality and relevance",
+        "Improve validation for generated loops to ensure consistent music output",
+        "Refine warning explanations with input from users new to scam terminology for better educational impact"
+      ]
+    },
+    {
+      "challenge_id": "gemini",
+      "eligible": true,
+      "criteria": {
+        "originality": 3.6666666666666665,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2.6666666666666665,
+        "relevance": 4
+      },
+      "total": 17.333333333333332,
+      "max_total": 25,
+      "score_10": 6.933333333333334,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 4,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 3,
+            "relevance": 4
+          },
+          "total": 18,
+          "max_total": 25,
+          "score_10": 7.2,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 4,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 3,
+            "relevance": 4
+          },
+          "total": 18,
+          "max_total": 25,
+          "score_10": 7.2,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project creatively integrates Gemini for scam detection explanations and music generation, showing good technical understanding but with some functional limitations in the music component.",
+      "evidence": {
+        "originality": "Practice spotting suspicious money messages, then turn the warning signs into a short backing track.",
+        "tech_understanding": "The React and Next.js interface sends a selected message and the user’s marked clues to a Gemini-backed analysis flow",
+        "functionality": "music generation sometimes returns code that Strudel cannot play",
+        "wow": "We are proud that a user’s own choices shape the recap instead of receiving only a generic scam warning",
+        "relevance": "The React and Next.js interface sends a selected message and the user’s marked clues to a Gemini-backed analysis flow"
+      },
+      "warnings": [
+        "Run 2: originality evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: wow evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add more detailed error handling and fallback mechanisms for the music generation component to ensure reliability",
+        "Expand the variety of financial message examples and test warning explanations with users unfamiliar with scam terminology",
+        "Refine the Databricks workflow to better categorize and display practice data insights on the dashboard"
+      ]
+    },
+    {
+      "challenge_id": "databricks",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "Databricks is used for summarizing anonymized practice data into a dashboard, but the core learning loop works without it.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "not described",
+        "functionality": "not described",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described.",
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 0: wow evidence was not an exact quote; replaced with not described.",
+        "Run 0: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate Databricks more deeply into the core learning loop to ensure its results are essential to the main flow.",
+        "Add detailed explanations of how Databricks analytics shape the warning labels and music generation logic.",
+        "Validate that the Databricks pipeline processes real-time user choices to influence the musical output dynamically."
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3.3333333333333335,
+        "tech_understanding": 4,
+        "functionality": 3.3333333333333335,
+        "wow": 2.3333333333333335
+      },
+      "total": 13,
+      "max_total": 20,
+      "score_10": 6.5,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 4,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 3
+          },
+          "total": 15,
+          "max_total": 20,
+          "score_10": 7.5,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project combines scam detection with music generation in a novel educational context, showing clear component integration but limited evidence of a fully working core.",
+      "evidence": {
+        "originality": "Practice spotting suspicious money messages, then turn the warning signs into a short backing track.",
+        "tech_understanding": "The React and Next.js interface sends a selected message and the user’s marked clues to a Gemini-backed analysis flow",
+        "functionality": "The full flow works, but music generation sometimes returns code that Strudel cannot play",
+        "wow": "We connected message review, explainable warning labels, generated music, spoken feedback, and a basic analysis"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add validation for generated music loops to ensure they compile and play reliably",
+        "Expand message examples across different financial situations for broader educational impact",
+        "Test warning explanations with new users to refine clarity and accessibility"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3.6666666666666665,
+        "tech_understanding": 4,
+        "functionality": 3.6666666666666665,
+        "wow": 2.6666666666666665,
+        "relevance": 4.666666666666667
+      },
+      "total": 18.666666666666668,
+      "max_total": 25,
+      "score_10": 7.466666666666667,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 4,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 3,
+            "relevance": 5
+          },
+          "total": 20,
+          "max_total": 25,
+          "score_10": 8.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 4,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 3,
+            "relevance": 5
+          },
+          "total": 20,
+          "max_total": 25,
+          "score_10": 8.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "An inventive integration of scam detection with music generation offers a memorable learning experience, using Gemini for analysis and Strudel for audio feedback.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "Gemini-backed analysis flow",
+        "functionality": "full flow works",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described.",
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: wow evidence was not an exact quote; replaced with not described.",
+        "Run 1: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add validation for generated music loops to ensure compatibility with Strudel",
+        "Expand message examples to cover diverse financial situations",
+        "Refine warning explanations for clarity with users unfamiliar with scam terminology"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission is a learning tool with game-like features but lacks core gameplay elements like rules, challenges, or win conditions.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We learned to turn a free-form model answer into structured labels",
+        "functionality": "The full flow works, but music generation sometimes returns code that Strudel cannot play",
+        "wow": "We are proud that a user’s own choices shape the recap instead of receiving only a generic scam warning",
+        "relevance": "Users review sample bank and payment messages, mark suspicious details, and get a Gemini explanation of signals"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add core gameplay elements like rules, challenges, or win conditions to transform the learning tool into a game.",
+        "Improve validation for generated music loops to ensure reliability and compatibility with Strudel."
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 15,
+      "max_total": 25,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project uses a creative approach to scam detection education by integrating music generation, but the humor is not central to the experience.",
+      "evidence": {
+        "originality": "Practice spotting suspicious money messages, then turn the warning signs into a short backing track.",
+        "tech_understanding": "The React and Next.js interface sends a selected message and the user’s marked clues to a Gemini-backed analysis flow",
+        "functionality": "The full flow works, but music generation sometimes returns code that Strudel cannot play",
+        "wow": "We are proud that a user’s own choices shape the recap instead of receiving only a generic scam warning.",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: wow evidence was not an exact quote; replaced with not described.",
+        "Run 1: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add more absurd or humorous elements to the scam scenarios to increase the comedic aspect of the experience",
+        "Improve the reliability of the music generation to ensure the full feature works consistently",
+        "Clarify how the project's approach to scam detection education is uniquely funny or over-engineered for a trivial problem"
+      ]
+    }
+  ]
+}

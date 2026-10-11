@@ -1,0 +1,382 @@
+{
+  "project_id": "kh9-smoke-t022",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "elevenlabs",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 4,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 17,
+      "max_total": 25,
+      "score_10": 6.8,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        }
+      ],
+      "rationale": "ElevenLabs is central to the case review workflow, with audio summaries as a key feature for busy coordinators, though the integration is described rather than demonstrated.",
+      "evidence": {
+        "originality": "The voice feature gives coordinators another way to scan a case while they are moving between tasks.",
+        "tech_understanding": "ElevenLabs converts selected summaries into audio for the dashboard. The pieces connect through API calls so a case can",
+        "functionality": "The demo flow works end-to-end with sample cases, but it does not yet handle secure real clinic records or a full intake",
+        "wow": "We are proud to have the case queue, agent suggestions, swipe review, and spoken summaries working together in the demo.",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 2: wow evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Show how audio playback integrates with the dashboard in a live demo",
+        "Explain how audio content is generated from case data",
+        "Add a section on how audio improves task efficiency for staff"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 4,
+        "wow": 2
+      },
+      "total": 13,
+      "max_total": 20,
+      "score_10": 6.5,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project integrates a case dashboard with AI suggestions and audio summaries for clinic staff, showing clear component connections and working core features with some limitations.",
+      "evidence": {
+        "originality": "We wanted to adapt a case dashboard for a setting where a quick spoken summary can help a busy coordinator decide what",
+        "tech_understanding": "The frontend uses React and Next.js, with a FastAPI service coordinating the case workflow and MongoDB storing case",
+        "functionality": "The demo flow works end-to-end with sample cases, but it does not yet handle secure real clinic records or a full intake",
+        "wow": "We are proud to have the case queue, agent suggestions, swipe review, and spoken summaries working together in the demo."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add secure authentication and controlled intake document import as next steps to enhance functionality and security.",
+        "Provide detailed explanations of how AI agent roles are refined and configured for staff customization.",
+        "Document the audio workflow integration process to highlight technical depth and user experience considerations."
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 4,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 17,
+      "max_total": 25,
+      "score_10": 6.8,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        }
+      ],
+      "rationale": "An AI model centralizes clinic case management with a reviewable dashboard and spoken summaries, but lacks evidence of inventive integration or extensive working features beyond the demo.",
+      "evidence": {
+        "originality": "We wanted to adapt a case dashboard for a setting where a quick spoken summary can help a busy coordinator decide what",
+        "tech_understanding": "Gemini-powered agents produce different kinds of case suggestions, while ElevenLabs converts selected summaries into",
+        "functionality": "The demo flow works end-to-end with sample cases, but it does not yet handle secure real clinic records or a full intake",
+        "wow": "We are proud to have the case queue, agent suggestions, swipe review, and spoken summaries working together in the demo",
+        "relevance": "Gemini-powered agents produce different kinds of case suggestions, while ElevenLabs converts selected summaries into"
+      },
+      "warnings": [
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 2: originality evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Implement secure authentication and controlled intake document import as outlined in 'whats_next'",
+        "Provide detailed explanations of how agent roles are refined and configured for staff customization",
+        "Demonstrate the end-to-end workflow with real clinic records to validate the system's functionality beyond sample cases"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 12,
+      "max_total": 25,
+      "score_10": 4.8,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        }
+      ],
+      "rationale": "The product is a clinic dashboard with game-like features but lacks core gameplay elements.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "The frontend uses React and Next.js, with a FastAPI service coordinating the case workflow and MongoDB storing case",
+        "functionality": "The demo flow works end-to-end with sample cases, but it does not yet handle secure real clinic records or a full intake",
+        "wow": "We are proud to have the case queue, agent suggestions, swipe review, and spoken summaries working together in the demo.",
+        "relevance": "Clinic Case Desk organizes sample patient cases into a dashboard and uses specialized AI tasks to suggest follow-ups, m"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add player-controlled actions and win/loss conditions to transform the dashboard into a game.",
+        "Implement core gameplay mechanics such as challenges or scoring to meet the game criteria.",
+        "Document the specific game design choices and how they contribute to an engaging gameplay loop."
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 2.6666666666666665,
+        "tech_understanding": 4,
+        "functionality": 3.6666666666666665,
+        "wow": 1,
+        "relevance": 1.6666666666666667
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project offers a practical clinic management solution with a meaningful premise but lacks comedic or goofy elements, and while the technical implementation is sound, the humor aspect is missing.",
+      "evidence": {
+        "originality": "We wanted to adapt a case dashboard for a setting where a quick spoken summary can help a busy coordinator decide what",
+        "tech_understanding": "The frontend uses React and Next.js, with a FastAPI service coordinating the case workflow and MongoDB storing case",
+        "functionality": "The demo flow works end-to-end with sample cases, but it does not yet handle secure real clinic records or a full intake",
+        "wow": "not described",
+        "relevance": "We wanted to adapt a case dashboard for a setting where a quick spoken summary can help a busy coordinator decide what"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a humorous twist to the clinic management concept, such as a funny voice for the spoken summaries or absurd case scenarios.",
+        "Enhance the documentation to clearly explain how the project fits the funny/goofy category, providing specific examples of comedic elements."
+      ]
+    }
+  ]
+}

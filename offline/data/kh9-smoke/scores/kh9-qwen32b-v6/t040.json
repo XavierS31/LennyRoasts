@@ -1,0 +1,465 @@
+{
+  "project_id": "kh9-smoke-t040",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "bny",
+      "eligible": true,
+      "criteria": {
+        "originality": 3.6666666666666665,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 16.666666666666668,
+      "max_total": 25,
+      "score_10": 6.666666666666667,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 4,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 4,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        }
+      ],
+      "rationale": "The tool improves a financial workflow by suggesting cards at checkout, but merchant categorization challenges limit full functionality.",
+      "evidence": {
+        "originality": "A browser extension recognizes likely checkout pages, estimates the merchant category, and suggests a matching card",
+        "tech_understanding": "We used JavaScript, a Manifest V3 Chrome extension, and a Node.js/Express REST API to connect page signals to the user's",
+        "functionality": "We connected checkout detection, merchant categorization, card matching, and a usable recommendation panel into one",
+        "wow": "not described",
+        "relevance": "We wanted to help people make a more informed payment choice at the moment they shop, instead of expecting them to study"
+      },
+      "warnings": [
+        "Run 0: wow evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add transaction import functionality to validate card benefits against actual spending patterns",
+        "Implement user-editable merchant categorization rules to improve recommendation accuracy",
+        "Document the decision logic for card recommendations to increase transparency"
+      ]
+    },
+    {
+      "challenge_id": "elevenlabs",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2.6666666666666665
+      },
+      "total": 13.666666666666666,
+      "max_total": 25,
+      "score_10": 5.466666666666667,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "ElevenLabs provides a spoken summary for checkout card recommendations, making it a meaningful secondary audio feature that aids users during the purchase process.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "not described",
+        "functionality": "We connected checkout detection, merchant categorization, card matching, and a usable recommendation panel into one",
+        "wow": "We are glad the prototype can show a relevant suggestion without asking someone to leave the checkout page",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 0: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Runs disagree on category eligibility; the two-of-three rule was applied."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a detailed explanation of how the ElevenLabs audio integration works within the recommendation flow",
+        "Demonstrate the ElevenLabs audio feature in action with specific examples of user interactions",
+        "Provide more technical details about the implementation of the spoken summary feature"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 12,
+      "max_total": 20,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project offers a useful but not unique checkout card recommendation system with clear technical implementation but limited evidence of a fully working core.",
+      "evidence": {
+        "originality": "help people make a more informed payment choice at the moment they shop",
+        "tech_understanding": "Node.js/Express REST API to connect page signals to the user's saved cards",
+        "functionality": "prototype can show a relevant suggestion without asking someone to leave the checkout page",
+        "wow": "A browser extension recognizes likely checkout pages, estimates the merchant category"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add specific examples of the checkout page detection working across different merchant websites",
+        "Provide more detailed explanations of how the card matching algorithm handles ambiguous cases",
+        "Demonstrate the spoken summary feature with audio samples or code implementation details"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 16,
+      "max_total": 25,
+      "score_10": 6.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "Uses merchant categorization and Gemini API for card recommendations during checkout, with a working extension and API flow but limited evidence of model behavior beyond categorization.",
+      "evidence": {
+        "originality": "We focused on students and other new cardholders who may not know which benefits apply to a particular merchant.",
+        "tech_understanding": "not described",
+        "functionality": "We connected checkout detection, merchant categorization, card matching, and a usable recommendation panel into one",
+        "wow": "We would like to test the extension across more merchants, make category matches easier for users to correct",
+        "relevance": "A browser extension recognizes likely checkout pages, estimates the merchant category, and suggests a matching card"
+      },
+      "warnings": [
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: wow evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add detailed examples of model inputs/outputs for merchant categorization and card ranking",
+        "Explain how Gemini's model decisions affect recommendation accuracy and user trust",
+        "Show how the extension handles checkout page variations with specific detection strategies"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 12,
+      "max_total": 25,
+      "score_10": 4.8,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission is a browser extension that helps users choose a payment card at checkout based on merchant categories and card benefits, but it lacks core gameplay elements like rules, challenges, or win/loss conditions to qualify as a game.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We used JavaScript, a Manifest V3 Chrome extension, and a Node.js/Express REST API to connect page signals to the user's",
+        "functionality": "We connected checkout detection, merchant categorization, card matching, and a usable recommendation panel into one",
+        "wow": "not described",
+        "relevance": "A browser extension recognizes likely checkout pages, estimates the merchant category, and suggests a matching card from"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add core gameplay elements like rules, challenges, or win/loss conditions to transform the tool into a game.",
+        "Explain how the system determines merchant categories and handles ambiguous cases with more technical detail.",
+        "Provide evidence that the recommendation panel works consistently across different checkout page structures."
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 2.3333333333333335,
+        "tech_understanding": 3.3333333333333335,
+        "functionality": 3,
+        "wow": 1,
+        "relevance": 1.3333333333333333
+      },
+      "total": 11,
+      "max_total": 25,
+      "score_10": 4.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project is a practical financial tool with no comedic or goofy elements, focusing on helping users choose payment cards based on rewards.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "not described",
+        "functionality": "not described",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a humorous or absurd twist to the payment recommendation process to align with the funny/goofy category requirements"
+      ]
+    }
+  ]
+}

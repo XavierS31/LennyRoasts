@@ -1,0 +1,56 @@
+{
+  "project_id": "kh9-smoke-t084",
+  "team_id": "t084",
+  "submission": {
+    "name": "SpendSidetalk",
+    "tagline": "See your spending, then ask what the numbers mean.",
+    "inspiration": "We wanted to make a bank statement less like a wall of transactions and more like a useful conversation. A chart can show where money went, while a plain-language assistant can help someone make sense of the pattern.",
+    "what_it_does": "Users can upload a transaction CSV and view spending grouped into categories with a basic chart. A chat panel is designed for questions about those totals, and a read-aloud control can speak a response for people who prefer listening. We also borrowed the idea of showing deposits and withdrawals alongside purchases, so the overview includes money coming in as well as going out.",
+    "how_we_built_it": "The browser interface uses HTML, CSS, and JavaScript for file upload, the spending chart, and audio controls. A Flask service in Python parses the CSV and exposes transaction summaries to the chat flow, which was prototyped with Gemini; ElevenLabs generates spoken versions of assistant replies. Databricks was an optional experiment for grouping transactions, but it is not part of the connected demo. The upload, chat, and audio pieces can each be shown, though their data handoff is incomplete, so the displayed conversation does not consistently reflect the uploaded file.",
+    "challenges_we_ran_into": "CSV files vary in column names, date formats, and how they represent deposits, so the parser needs more cleanup than we expected. The frontend, Flask routes, model calls, and audio playback were built as separate pieces, and we ran out of time before connecting them into a reliable single flow. That means the chat can fall back to sample context instead of the current upload.",
+    "accomplishments": "We got a transaction upload view, a category breakdown, and separate chat and speech prototypes working. We are proud that the interface gives users a visual summary and a spoken option, even though the full connection still needs work.",
+    "what_we_learned": "We learned that a helpful answer depends on clean data and passing the right summary through every layer of the app. Gemini helped us draft conversational responses, while ElevenLabs let us explore spoken output; both still need careful integration to stay grounded in a user's own transactions.",
+    "whats_next": "We would standardize more CSV formats and connect each uploaded file to its chart and chat context. We would also finish the Databricks experiment as a repeatable transaction analysis step and improve the audio controls for longer replies.",
+    "built_with": [
+      "css",
+      "databricks",
+      "elevenlabs",
+      "flask",
+      "gemini",
+      "html",
+      "javascript",
+      "python"
+    ],
+    "challenges": [
+      "databricks"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--bill-y-the-investo-gator",
+    "swamphacks-xi--carianadvisors"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/bill-y-the-investo-gator",
+    "https://devpost.com/software/carianadvisors"
+  ],
+  "primary_pool": "general",
+  "mutation": "heavy",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "partial",
+    "writing_style": "detailed"
+  },
+  "fit": {
+    "databricks": "weak"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009084,
+  "batch_id": "b022",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.7796174892625102,
+    "field": 0.7090741426166935
+  },
+  "created_at": "2026-10-11T00:55:12+00:00"
+}

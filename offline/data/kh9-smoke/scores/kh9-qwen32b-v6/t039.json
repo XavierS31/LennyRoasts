@@ -1,0 +1,378 @@
+{
+  "project_id": "kh9-smoke-t039",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "gemini",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "Gemini is used for a meaningful secondary task of summarizing reports, but the main flows are disconnected mockups.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "Gemini is used to summarize selected reports into a quick situation note",
+        "functionality": "not described",
+        "wow": "We created a clear prototype of the survivor report and responder review screens",
+        "relevance": "Gemini is used to summarize selected reports into a quick situation note"
+      },
+      "warnings": [
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: wow evidence was not an exact quote; replaced with not described.",
+        "Run 1: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect the reporting form, map, and responder tools into an end-to-end working core",
+        "Add persistent geospatial storage for reports as described in next steps",
+        "Explain how the Gemini summary integrates with the overall data flow and reliability requirements"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 2,
+        "wow": 2
+      },
+      "total": 10,
+      "max_total": 20,
+      "score_10": 5.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2
+          },
+          "total": 10,
+          "max_total": 20,
+          "score_10": 5.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2
+          },
+          "total": 10,
+          "max_total": 20,
+          "score_10": 5.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2
+          },
+          "total": 10,
+          "max_total": 20,
+          "score_10": 5.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project shows a clear idea for a shared map to organize storm response but has a partially working core with disconnected components and mockups.",
+      "evidence": {
+        "originality": "We wanted to explore a shared map for campus volunteers and facilities staff to organize incoming reports during a",
+        "tech_understanding": "We started a React interface and a FastAPI service with REST endpoints for reports and messages.",
+        "functionality": "Gemini is used to summarize selected reports into a quick situation note; the live map and reporting flows are mockups",
+        "wow": "Give campus response teams a shared picture after severe weather."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect the reporting form, map, and responder tools end to end with shared state.",
+        "Implement persistent geospatial storage for reports and real-time map updates.",
+        "Add accessible voice reporting and test the workflow with campus response staff."
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 2.6666666666666665,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 14.666666666666666,
+      "max_total": 25,
+      "score_10": 5.866666666666666,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project uses Gemini for summarizing reports but lacks full integration; the core idea is meaningful but implementation is partial with disconnected components.",
+      "evidence": {
+        "originality": "We created a clear prototype of the survivor report and responder review screens",
+        "tech_understanding": "Gemini is used to summarize selected reports into a quick situation note",
+        "functionality": "the live map and reporting flows are mockups and do not yet share state reliably",
+        "wow": "We would connect reports to persistent geospatial storage and make map updates visible across users",
+        "relevance": "Gemini is used to summarize selected reports into a quick situation note"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Implement persistent geospatial storage for reports to enable real-time map updates across users",
+        "Develop a reliable data pipeline to connect reporting form, map, and responder tools end-to-end",
+        "Add accessible voice reporting feature and test the workflow with campus response staff"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 2,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 10,
+      "max_total": 25,
+      "score_10": 4.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission describes a utility application with game-like features but lacks core gameplay elements.",
+      "evidence": {
+        "originality": "We wanted to explore a shared map for campus volunteers and facilities staff to organize incoming reports during a",
+        "tech_understanding": "We started a React interface and a FastAPI service with REST endpoints for reports and messages.",
+        "functionality": "Gemini is used to summarize selected reports into a quick situation note; the live map and reporting flows are mockups",
+        "wow": "We created a clear prototype of the survivor report and responder review screens, and got a sample Gemini summary",
+        "relevance": "A student can submit a short report that appears as a pin for a response coordinator, who can review reports and draft"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add core gameplay elements like rules, challenges, and win/loss conditions to transform the utility into a game."
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 2,
+        "wow": 1,
+        "relevance": 1
+      },
+      "total": 9,
+      "max_total": 25,
+      "score_10": 3.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 9,
+          "max_total": 25,
+          "score_10": 3.6,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 9,
+          "max_total": 25,
+          "score_10": 3.6,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 9,
+          "max_total": 25,
+          "score_10": 3.6,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project addresses a practical need with a mockup-based implementation that lacks integrated functionality and comedic elements.",
+      "evidence": {
+        "originality": "We wanted to explore a shared map for campus volunteers and facilities staff to organize incoming reports during a",
+        "tech_understanding": "We started a React interface and a FastAPI service with REST endpoints for reports and messages.",
+        "functionality": "Gemini is used to summarize selected reports into a quick situation note; the live map and reporting flows are mockups",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a humorous twist to the storm response concept to better fit the funny/goofy category requirements",
+        "Implement end-to-end connectivity between the reporting form, map, and responder tools to improve functionality",
+        "Document the comedic aspects of the project in the submission to increase relevance to the category"
+      ]
+    }
+  ]
+}

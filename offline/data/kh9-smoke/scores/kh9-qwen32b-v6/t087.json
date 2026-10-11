@@ -1,0 +1,487 @@
+{
+  "project_id": "kh9-smoke-t087",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "elevenlabs",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "ElevenLabs provides a meaningful secondary audio role by reading recipes aloud, but the core photo-to-recipe flow is incomplete.",
+      "evidence": {
+        "originality": "We wanted to help people turn familiar ingredients into a simple trail meal plan.",
+        "tech_understanding": "not described",
+        "functionality": "not described",
+        "wow": "ElevenLabs made them easier to follow hands-free.",
+        "relevance": "ElevenLabs can speak a recipe response."
+      },
+      "warnings": [
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: wow evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect camera detection to recipe suggestions for end-to-end functionality",
+        "Explain how ElevenLabs audio integrates with the meal planning workflow",
+        "Add error handling for unreliable image recognition results"
+      ]
+    },
+    {
+      "challenge_id": "gemini",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "Gemini provides central meal suggestions but lacks end-to-end integration with the camera flow; partial working core with clear technical components and decisions.",
+      "evidence": {
+        "originality": "We wanted to help people turn familiar ingredients into a simple trail meal plan.",
+        "tech_understanding": "not described",
+        "functionality": "not described",
+        "wow": "We made the meal suggestion and spoken recipe pieces work independently",
+        "relevance": "Gemini generates trail-friendly meal suggestions"
+      },
+      "warnings": [
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect camera detection output to the inventory and recipe request flow",
+        "Add error handling and feedback for failed image processing steps",
+        "Document the data flow between vision analysis, inventory tracking, and Gemini meal suggestions"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 12,
+      "max_total": 20,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The app combines food scanning and recipe generation for hiking, but the core flow lacks integration.",
+      "evidence": {
+        "originality": "Make a lighter pack from the food you already have.",
+        "tech_understanding": "Expo with React Native and TypeScript for the mobile screens",
+        "functionality": "not described",
+        "wow": "not described"
+      },
+      "warnings": [
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 0: wow evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate camera detection with inventory and recipe generation for end-to-end functionality",
+        "Document the data flow between Google Cloud Vision and Gemini for technical clarity",
+        "Add user testing results to demonstrate real-world appeal and usability"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 15,
+      "max_total": 25,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The app uses AI for ingredient scanning and recipe generation but lacks end-to-end integration; the core idea is meaningful but not fully realized.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "not described",
+        "functionality": "not described",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described.",
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 0: wow evidence was not an exact quote; replaced with not described.",
+        "Run 0: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: wow evidence was not an exact quote; replaced with not described.",
+        "Run 1: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 2: originality evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: wow evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect camera detection output directly to the recipe suggestion flow",
+        "Add error handling and feedback for failed image recognition attempts",
+        "Document the data flow between vision API results and Gemini prompt formatting"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 2,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 12,
+      "max_total": 25,
+      "score_10": 4.8,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission describes a utility app with game-like features rather than a game, scoring low on relevance.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We used Expo with React Native and TypeScript for the mobile screens, plus a FastAPI backend in Python.",
+        "functionality": "not described",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 0: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: wow evidence was not an exact quote; replaced with not described.",
+        "Run 1: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add gameplay elements like challenges or win conditions to transform the app into a game."
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project has a moderately original idea of turning home ingredients into trail meals but lacks a fully integrated goofy or absurd premise.",
+      "evidence": {
+        "originality": "We wanted to help people turn familiar ingredients into a simple trail meal plan.",
+        "tech_understanding": "We used Expo with React Native and TypeScript for the mobile screens, plus a FastAPI backend in Python.",
+        "functionality": "The app has a small inventory screen and can read a suggested recipe aloud, but the mobile scan-to-recipe flow did not",
+        "wow": "We would also add simple packing and storage notes for common day-trip foods.",
+        "relevance": "Students planning a day hike or overnight trip often buy new snacks because it is hard to tell what can travel well from"
+      },
+      "warnings": [
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add an absurdly over-engineered feature like a trail snack fortune teller or a joke-based meal planner to increase comedic value.",
+        "Improve the integration between image recognition and recipe generation to create a more seamless user experience.",
+        "Document the current limitations and future steps in more detail to provide a clearer understanding of the project's scope and challenges."
+      ]
+    }
+  ]
+}

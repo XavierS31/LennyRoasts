@@ -1,0 +1,54 @@
+{
+  "project_id": "kh9-smoke-t108",
+  "team_id": "t108",
+  "submission": {
+    "name": "Reserve Relay",
+    "tagline": "Turn small purchase roundups into a shared emergency reserve, with a live view of the work behind each suggestion.",
+    "inspiration": "We were interested in making it easier for community groups to build a modest cash buffer from everyday activity. We paired automated roundup calculations with the idea of a coordinated agent team that can explain and check a financial workflow.",
+    "what_it_does": "Reserve Relay reads sample transactions, calculates the difference to the next dollar, and shows how those amounts could build a reserve. A small set of AI agents handles transaction categorization, summarizes spending patterns, and flags items that need review; the app can also send a simulated transfer to a Solana Devnet wallet.",
+    "how_we_built_it": "A FastAPI service connects a Nessie transaction feed, roundup calculations, Gemini-generated summaries, and Solana Devnet transfers to a React dashboard. We used separate agent roles for categorization, insight writing, and review, and stream their status to the interface so users can see which step is running.",
+    "challenges_we_ran_into": "The complete demo runs with sample data, but categorization sometimes assigns a transaction to the wrong spending group, which can skew the generated advice. We also found that tiny decimal amounts need careful conversion before they become token units.",
+    "accomplishments": "We connected the sample transaction flow to roundup totals, an AI explanation, and a testnet transfer. The live agent activity view helped us make the otherwise hidden processing steps easier to follow.",
+    "what_we_learned": "We learned that multiple AI roles are useful only when their handoffs and outputs are easy to inspect. Gemini helped draft plain-language summaries, while we learned to keep calculations and transfer amounts in deterministic code.",
+    "whats_next": "We would improve categorization review, add configurable reserve goals, and support more transaction sources. Before any real financial use, we would also need stronger security and a careful review of transfer and account requirements.",
+    "built_with": [
+      "fastapi",
+      "gemini",
+      "javascript",
+      "python",
+      "react",
+      "solana"
+    ],
+    "challenges": [
+      "bny"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--sparesense",
+    "hackusf-2026--pantheon-rhemfw"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/sparesense",
+    "https://devpost.com/software/pantheon-rhemfw"
+  ],
+  "primary_pool": "bny",
+  "mutation": "heavy",
+  "persona": {
+    "skill_focus": "ai_ml",
+    "completion": "shaky",
+    "writing_style": "terse"
+  },
+  "fit": {
+    "bny": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009108,
+  "batch_id": "b027",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.6402994491665205,
+    "field": 0.6749315767410158
+  },
+  "created_at": "2026-10-11T00:57:25+00:00"
+}

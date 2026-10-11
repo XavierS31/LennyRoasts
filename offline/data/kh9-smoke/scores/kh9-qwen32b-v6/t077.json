@@ -1,0 +1,390 @@
+{
+  "project_id": "kh9-smoke-t077",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "elevenlabs",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 16,
+      "max_total": 25,
+      "score_10": 6.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "The submission describes a central ElevenLabs audio role in explaining soccer highlights, but functionality is limited by incomplete integration.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "not described",
+        "functionality": "not described",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described.",
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 0: wow evidence was not an exact quote; replaced with not described.",
+        "Run 0: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: wow evidence was not an exact quote; replaced with not described.",
+        "Run 1: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 2: originality evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: wow evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Improve the integration between video, transcript, explanation, and audio services to ensure consistent timing.",
+        "Add support for multiple explanation styles to cater to different experience levels.",
+        "Enhance the reliability of transcript availability for clips to avoid missing or generic explanations."
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.3333333333333335,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 11.333333333333334,
+      "max_total": 20,
+      "score_10": 5.666666666666667,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project shows a clear idea of making soccer highlights accessible with spoken explanations but lacks detailed technical depth and integration.",
+      "evidence": {
+        "originality": "A spoken, plain-language guide to following campus soccer highlights.",
+        "tech_understanding": "A React frontend handles clip selection and playback, an Express server passes requests to a small Python transcript and",
+        "functionality": "The demo lets a user choose a soccer highlight clip and request a simple explanation of the play, then generates a",
+        "wow": "We would connect clip transcripts and audio playback more reliably, then add a few explanation styles for different"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Improve technical details on how services are coordinated for better integration",
+        "Add evidence of working core functionality with consistent timing between video and audio",
+        "Expand on different explanation styles and how they will be implemented"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 16,
+      "max_total": 25,
+      "score_10": 6.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "A meaningful AI model role in explaining soccer highlights, with clear technical integration but partial core functionality and moderate appeal.",
+      "evidence": {
+        "originality": "A short, friendly spoken explanation seemed like a way to make highlights easier to follow together.",
+        "tech_understanding": "Gemini through OpenRouter is used for the plain-language explanation",
+        "functionality": "the narration is not consistently timed to the video yet",
+        "wow": "We are proud of the direction for making sports clips more welcoming to newcomers",
+        "relevance": "Gemini through OpenRouter is used for the plain-language explanation"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add timing synchronization between video and narration to improve core functionality",
+        "Document the decision rationale for choosing Gemini over other models",
+        "Expand on how different explanation styles will be implemented for various experience levels"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission is a game-like interactive experience but lacks core gameplay elements like rules, challenges, or win conditions, scoring low on relevance.",
+      "evidence": {
+        "originality": "We wanted friends who are new to soccer to enjoy campus match clips without needing to know every rule or player.",
+        "tech_understanding": "A React frontend handles clip selection and playback, an Express server passes requests to a small Python transcript and",
+        "functionality": "The demo lets a user choose a soccer highlight clip and request a simple explanation of the play, then generates a",
+        "wow": "We are proud of the direction for making sports clips more welcoming to newcomers, even though the full playback",
+        "relevance": "The demo lets a user choose a soccer highlight clip and request a simple explanation of the play, then generates a"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add player-controlled actions and clear game rules to transform the experience into a playable game.",
+        "Implement a scoring system or win/loss conditions to establish core gameplay objectives.",
+        "Integrate interactive elements that require user decisions during clip playback to enhance engagement."
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.6666666666666665,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2.3333333333333335
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project offers a novel approach to making soccer highlights accessible but lacks a central goofy concept.",
+      "evidence": {
+        "originality": "A short, friendly spoken explanation seemed like a way to make highlights easier to follow together.",
+        "tech_understanding": "A React frontend handles clip selection and playback, an Express server passes requests to a small Python transcript and",
+        "functionality": "Clip selection and text generation work in separate parts, so the narration is not consistently timed to the video yet.",
+        "wow": "We are proud of the direction for making sports clips more welcoming to newcomers",
+        "relevance": "We wanted friends who are new to soccer to enjoy campus match clips without needing to know every rule or player."
+      },
+      "warnings": [
+        "Runs disagree on category eligibility; the two-of-three rule was applied."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a humorous twist to the explanations to increase comedic appeal",
+        "Integrate video and audio timing to create a more cohesive experience",
+        "Explore different explanation styles that could be more entertaining for users"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "project_id": "kh9-smoke-t081",
+  "team_id": "t081",
+  "submission": {
+    "name": "SunSafe Scout",
+    "tagline": "A campus skin check companion that helps you track a spot and decide what to ask a clinician.",
+    "inspiration": "Students spend long days outdoors around campus and may not know when a changing spot is worth asking about. We built a simple way to record what someone noticed and provide calm, general information to help them prepare a question for a clinician.",
+    "what_it_does": "The app guides a user through a skin spot questionnaire and photo capture, then combines those details with an image model result to produce a plain-language summary and suggested next steps. Gemini helps phrase the result, and an ElevenLabs voice option can read the guidance aloud.",
+    "how_we_built_it": "We used React Native with Expo and TypeScript, a Hugging Face image classifier, and Gemini to combine the questionnaire with the classifier output. ElevenLabs provides spoken playback for the summary; the app keeps the flow focused on informational guidance rather than diagnosis.",
+    "challenges_we_ran_into": "Getting consistent photos across different lighting and camera conditions was difficult, and we had to keep the generated wording measured. The prototype runs through the capture and summary flow, but its output is not medically validated.",
+    "accomplishments": "We connected guided photo capture, a questionnaire, image classification, and a readable result in one mobile flow. We also made the same summary available as audio for users who prefer to listen.",
+    "what_we_learned": "We learned that model output needs careful context and plain language, especially when people may be worried about what they see. Gemini helped us turn structured inputs into a summary, while the voice feature showed how delivery can affect the experience.",
+    "whats_next": "We would add a history view for comparing a person’s own observations over time and seek clinical review before expanding the guidance. Improving image quality checks and accessibility would also be priorities.",
+    "built_with": [
+      "elevenlabs",
+      "expo",
+      "gemini",
+      "huggingface",
+      "javascript",
+      "react-native",
+      "typescript"
+    ],
+    "challenges": [
+      "elevenlabs",
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--noma-t0ysng"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/noma-t0ysng"
+  ],
+  "primary_pool": "gemini",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "polished",
+    "writing_style": "terse"
+  },
+  "fit": {
+    "elevenlabs": "weak",
+    "gemini": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009081,
+  "batch_id": "b021",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.6247339128589964,
+    "field": 0.673815032155711
+  },
+  "created_at": "2026-10-11T00:54:28+00:00"
+}

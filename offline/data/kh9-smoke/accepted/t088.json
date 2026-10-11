@@ -1,0 +1,49 @@
+{
+  "project_id": "kh9-smoke-t088",
+  "team_id": "t088",
+  "submission": {
+    "name": "Deadline Reef",
+    "tagline": "Turn school tasks into a small game where your sea buddy perks up when you stay on schedule.",
+    "inspiration": "We wanted to make keeping up with community center activities feel less like another checklist for kids. A little companion and a few rewards seemed like a friendly way to help young members remember their projects and show up for group activities.",
+    "what_it_does": "Kids add activities and due dates to a sidebar, then earn coins when they mark work complete. A sea creature’s mood changes based on how close to the deadline they finish, and the small shop lets them spend coins on another pet or accessories. The app is aimed at youth programs rather than a school assignment system.",
+    "how_we_built_it": "The sidebar uses HTML, CSS, and JavaScript, with a FastAPI service written in Python behind it. The browser sends task updates to the service, which keeps the current task and coin data in JSON so the interface can refresh. We made the artwork ourselves in Aseprite.",
+    "challenges_we_ran_into": "Getting two interface pieces built with different assumptions to work together took time. The main task flow runs through the API, but the data is only stored in JSON and can be unreliable; a restart or an unexpected update can leave progress out of sync. We had to leave the shop and progression system fairly small.",
+    "accomplishments": "We made original pet and interface art and connected task completion to the creature’s mood and coin balance. The core loop works from adding a task through marking it done and seeing the reward appear.",
+    "what_we_learned": "We learned that a quick prototype still benefits from deciding early where each piece of state lives. AI coding help was useful for getting unstuck on small implementation questions, but we still had to check how the browser and API handled updates together.",
+    "whats_next": "We would like to make task and reward data persist more safely, then add more creatures and items. A next version could also let a youth group share activities and see each other’s pets, with clear privacy controls.",
+    "built_with": [
+      "aseprite",
+      "css",
+      "fastapi",
+      "html",
+      "javascript",
+      "pydantic",
+      "python"
+    ],
+    "challenges": []
+  },
+  "seed_ids": [
+    "swamphacks-xi--swampy-the-crocodile"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/swampy-the-crocodile"
+  ],
+  "primary_pool": "general",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "shaky",
+    "writing_style": "average"
+  },
+  "fit": {},
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009088,
+  "batch_id": "b023",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.7610531274268091,
+    "field": 0.6347339743209199
+  },
+  "created_at": "2026-10-11T00:56:00+00:00"
+}

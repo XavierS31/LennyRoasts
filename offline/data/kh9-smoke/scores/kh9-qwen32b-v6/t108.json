@@ -1,0 +1,388 @@
+{
+  "project_id": "kh9-smoke-t108",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "bny",
+      "eligible": true,
+      "criteria": {
+        "originality": 3.3333333333333335,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 16.333333333333332,
+      "max_total": 25,
+      "score_10": 6.533333333333333,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 4,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        }
+      ],
+      "rationale": "Reserve Relay improves a financial process by automating small purchase roundups for community reserves, with a 3/5 relevance to financial services.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "A FastAPI service connects a Nessie transaction feed, roundup calculations, Gemini-generated summaries, and Solana Dev",
+        "functionality": "Reserve Relay reads sample transactions, calculates the difference to the next dollar, and shows how those amounts could",
+        "wow": "not described",
+        "relevance": "We were interested in making it easier for community groups to build a modest cash buffer from everyday activity."
+      },
+      "warnings": [
+        "Run 2: originality evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: wow evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a detailed explanation of how the categorization logic works and how errors are handled in the transaction processing flow.",
+        "Implement a more robust validation system for the Solana Devnet transfers to ensure accurate decimal conversion and transaction reliability.",
+        "Expand the documentation to clearly show how the application addresses a specific financial-services workflow improvement as described in the BNY challenge."
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 12,
+      "max_total": 20,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project combines automated financial roundups with AI agents for a community reserve, showing clear technical connections but limited evidence of a fully working core.",
+      "evidence": {
+        "originality": "Turn small purchase roundups into a shared emergency reserve",
+        "tech_understanding": "A FastAPI service connects a Nessie transaction feed, roundup calculations, Gemini-generated summaries",
+        "functionality": "the app can also send a simulated transfer to a Solana Devnet wallet",
+        "wow": "We connected the sample transaction flow to roundup totals, an AI explanation, and a testnet transfer"
+      },
+      "warnings": [
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add detailed documentation of the live agent activity view and its impact on user understanding",
+        "Provide specific examples of how categorization errors affect generated advice",
+        "Demonstrate the complete workflow with real transaction data beyond sample inputs"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 16,
+      "max_total": 25,
+      "score_10": 6.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "Reserve Relay uses AI agents for transaction categorization and insights with a live status view, but decimal conversion issues and limited real-world testing affect functionality.",
+      "evidence": {
+        "originality": "A small set of AI agents handles transaction categorization, summarizes spending patterns, and flags items that need",
+        "tech_understanding": "We learned that multiple AI roles are useful only when their handoffs and outputs are easy to inspect. Gemini helped",
+        "functionality": "The complete demo runs with sample data, but categorization sometimes assigns a transaction to the wrong spending",
+        "wow": "We connected the sample transaction flow to roundup totals, an AI explanation, and a testnet transfer.",
+        "relevance": "Reserve Relay reads sample transactions, calculates the difference to the next dollar, and shows how those amounts could"
+      },
+      "warnings": [
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: wow evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add error correction for categorization mistakes with user feedback loops",
+        "Implement real-time transaction validation before Solana transfers",
+        "Document the decimal conversion workflow for token unit accuracy"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 2,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 10,
+      "max_total": 25,
+      "score_10": 4.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission describes a financial management tool with game-like elements but lacks core gameplay mechanics.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We connected the sample transaction flow to roundup totals, an AI explanation, and a testnet transfer.",
+        "functionality": "The complete demo runs with sample data, but categorization sometimes assigns a transaction to the wrong spending group",
+        "wow": "not described",
+        "relevance": "We were interested in making it easier for community groups to build a modest cash buffer from everyday activity."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add core gameplay mechanics like player-controlled actions and win/loss conditions to increase relevance as a game",
+        "Implement and document the full transaction processing workflow to improve functionality",
+        "Explain the decision-making process for categorization accuracy and error handling to strengthen technical understanding"
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project has a somewhat original approach to community financial buffers but lacks a clearly goofy or humorous concept as required for the category.",
+      "evidence": {
+        "originality": "We paired automated roundup calculations with the idea of a coordinated agent team",
+        "tech_understanding": "A FastAPI service connects a Nessie transaction feed, roundup calculations, Gemini-generated summaries",
+        "functionality": "the app can also send a simulated transfer to a Solana Devnet wallet",
+        "wow": "not described",
+        "relevance": "We were interested in making it easier for community groups to build a modest cash buffer from everyday activity"
+      },
+      "warnings": [
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 2: originality evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a clearly absurd or humorous premise to better fit the funny/goofy category requirements",
+        "Enhance documentation of the comedic aspects and how they integrate with the core functionality",
+        "Demonstrate a more clearly goofy user experience or feature that aligns with the category's focus on humor"
+      ]
+    }
+  ]
+}

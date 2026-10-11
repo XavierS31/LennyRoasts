@@ -1,0 +1,477 @@
+{
+  "project_id": "kh9-smoke-t012",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "bny",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "Branch Buddy improves a financial process by guiding users through banking tasks with voice explanations, but its mock data and disconnected components limit full functionality.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We made a web interface with React and Next.js, a Node backend",
+        "functionality": "prototype uses a small set of mocked banking options",
+        "wow": "voice playback is demonstrated separately from the service flow",
+        "relevance": "help people who are unsure which banking option or service fits a situation"
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described.",
+        "Run 2: originality evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: wow evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate Plaid account data with login and recommendations for personalized context",
+        "Link ElevenLabs voice playback dynamically to user-selected banking tasks",
+        "Validate service catalog rules with financial experts for accuracy and compliance"
+      ]
+    },
+    {
+      "challenge_id": "elevenlabs",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "ElevenLabs provides a voice demo for guidance but is not integrated with user flows or account data, making it a meaningful secondary feature.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "not described",
+        "functionality": "not described",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described.",
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 0: wow evidence was not an exact quote; replaced with not described.",
+        "Run 0: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 1: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 2: originality evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: wow evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect ElevenLabs audio playback to user account context and recommendations for a seamless flow",
+        "Implement dynamic updates of spoken guidance based on real-time account data from Plaid",
+        "Expand the service catalog with more detailed explanations and integrate voice for each scenario"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 11,
+      "max_total": 20,
+      "score_10": 5.5,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project offers a helpful but common banking guidance interface with a voice demo, using standard web tech and Plaid sandbox data but lacking deep integration.",
+      "evidence": {
+        "originality": "applies it to common financial questions and branch services",
+        "tech_understanding": "We made a web interface with React and Next.js, a Node backend",
+        "functionality": "Users can pick a situation, such as replacing a card or asking about a transfer",
+        "wow": "plus a separate voice sample that makes the guidance easier to follow"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate login, account context, and dynamic voice playback into a single seamless flow",
+        "Expand the service catalog with more detailed explanations and safety checks",
+        "Document the data flow between Plaid sandbox, backend, and frontend components"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project uses a meaningful ML product role with a rule-based recommendation system and voice integration, but lacks central model behavior and has partial working core functionality.",
+      "evidence": {
+        "originality": "The project takes the idea of matching a purchase to a card and applies it to common financial questions",
+        "tech_understanding": "We learned that financial recommendations need clear context and careful wording",
+        "functionality": "We built the core screens for choosing a banking situation and comparing suggested paths",
+        "wow": "We also established a basic data shape for the service catalog",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: wow evidence was not an exact quote; replaced with not described.",
+        "Run 2: originality evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: wow evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate account context and login flow with service recommendations for end-to-end functionality",
+        "Develop dynamic spoken guidance that updates from user account details",
+        "Explain the rule-based recommendation system and its limitations in the documentation"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 2,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 10,
+      "max_total": 25,
+      "score_10": 4.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission is a banking guidance tool with game-like elements but lacks core gameplay mechanics.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We made a web interface with React and Next.js, a Node backend, and a small JSON catalog of banking tasks and options.",
+        "functionality": "The prototype uses a small set of mocked banking options, and the voice playback is demonstrated separately from the",
+        "wow": "not described",
+        "relevance": "Users can pick a situation, such as replacing a card or asking about a transfer, and see a suggested service path with a"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add player-controlled actions and win/loss conditions to transform the banking guidance into a game experience"
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 12,
+      "max_total": 25,
+      "score_10": 4.8,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project addresses a practical banking navigation issue with a mock voice-guided interface but lacks a goofy or absurd premise required for the category.",
+      "evidence": {
+        "originality": "The project takes the idea of matching a purchase to a card and applies it to common financial questions",
+        "tech_understanding": "We made a web interface with React and Next.js, a Node backend, and a small JSON catalog of banking tasks and options",
+        "functionality": "not described",
+        "wow": "not described",
+        "relevance": "We wanted to help people who are unsure which banking option or service fits a situation"
+      },
+      "warnings": [
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add an absurdly over-engineered solution to a trivial banking problem presented as life-changing",
+        "Create a comedic voice character or scenario for the guidance",
+        "Develop a mock-up of an exaggeratedly complex system for simple tasks"
+      ]
+    }
+  ]
+}

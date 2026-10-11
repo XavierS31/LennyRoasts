@@ -1,0 +1,535 @@
+{
+  "project_id": "kh9-smoke-t070",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "bny",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The app improves language learning for work contexts but lacks direct financial services integration.",
+      "evidence": {
+        "originality": "We wanted to make practice feel connected to situations like helping a customer",
+        "tech_understanding": "We used Astro and React with Tailwind and Shadcn for the web interface",
+        "functionality": "the complete account-to-practice path failed during the demo",
+        "wow": "We are proud that teammates learned unfamiliar tools while still producing something we could click through",
+        "relevance": "Some people learning English need to use it right away while handling everyday tasks at work"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add financial services scenarios like banking interactions or financial advice dialogues",
+        "Implement a working account-to-practice flow with saved progress integration",
+        "Add explanations for how Gemini and ElevenLabs integrations support language learning effectiveness"
+      ]
+    },
+    {
+      "challenge_id": "elevenlabs",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3.3333333333333335
+      },
+      "total": 14.333333333333334,
+      "max_total": 25,
+      "score_10": 5.733333333333333,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "ElevenLabs supports optional audio playback for practice lines but is not central to the main user flow.",
+      "evidence": {
+        "originality": "We are proud that teammates learned unfamiliar tools",
+        "tech_understanding": "Gemini generates draft dialogues and ElevenLabs can read sample lines aloud",
+        "functionality": "the complete account-to-practice path failed during the demo",
+        "wow": "not described",
+        "relevance": "ElevenLabs can read sample lines aloud"
+      },
+      "warnings": [
+        "Run 0: wow evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Make audio playback a required step in practice sessions",
+        "Integrate ElevenLabs with personalized vocabulary levels",
+        "Fix the account-to-practice flow to enable full feature use"
+      ]
+    },
+    {
+      "challenge_id": "gemini",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3.3333333333333335
+      },
+      "total": 14.333333333333334,
+      "max_total": 25,
+      "score_10": 5.733333333333333,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "Gemini generates dialogues for practice scenarios but lacks tight integration with user profiles and vocabulary tracking, limiting core functionality.",
+      "evidence": {
+        "originality": "Users choose a shop-floor situation and their comfort level",
+        "tech_understanding": "Gemini generates draft dialogues and ElevenLabs can read sample lines aloud",
+        "functionality": "the complete account-to-practice path failed during the demo",
+        "wow": "We are proud that teammates learned unfamiliar tools while still producing something we could click through",
+        "relevance": "Gemini generates draft dialogues"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Fix the account and vocabulary flow to connect user data with generated dialogues",
+        "Improve audio playback reliability and dialogue review interface",
+        "Validate scenario relevance with language learners through user research"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.3333333333333335,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 11.333333333333334,
+      "max_total": 20,
+      "score_10": 5.666666666666667,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        }
+      ],
+      "rationale": "The app connects English practice to work situations with generated dialogues but lacks a working account-to-practice flow.",
+      "evidence": {
+        "originality": "Practice the English you need for a neighborhood shop shift",
+        "tech_understanding": "We used Astro and React with Tailwind and Shadcn for the web interface",
+        "functionality": "the complete account-to-practice path failed during the demo",
+        "wow": "Practice the English you need for a neighborhood shop shift"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Fix the account and vocabulary flow to connect onboarding data to generated exercises",
+        "Improve Gemini and ElevenLabs integration for natural dialogues and reliable audio playback",
+        "Validate work situation usefulness with language learners through surveys or interviews"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 15,
+      "max_total": 25,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The app uses Gemini for dialogue generation but lacks tight integration with user profiles and vocabulary, limiting functionality.",
+      "evidence": {
+        "originality": "choose a shop-floor situation and their comfort level",
+        "tech_understanding": "Gemini generates draft dialogues and ElevenLabs can read sample lines",
+        "functionality": "the complete account-to-practice path failed during the demo",
+        "wow": "Practice the English you need for a neighborhood shop shift",
+        "relevance": "Gemini generates draft dialogues and ElevenLabs can read sample lines"
+      },
+      "warnings": [
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 2: originality evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: wow evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Fix the account and vocabulary flow to ensure user data connects to generated exercises",
+        "Improve Gemini integration to tailor dialogues based on user comfort level and vocabulary",
+        "Enhance audio playback reliability and naturalness of generated dialogues"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 2,
+        "wow": 1.3333333333333333,
+        "relevance": 2
+      },
+      "total": 10.333333333333334,
+      "max_total": 25,
+      "score_10": 4.133333333333334,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission is a language learning tool with game-like elements but lacks core gameplay mechanics.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We used Astro and React with Tailwind and Shadcn for the web interface, with a Go backend and Firebase for storing user",
+        "functionality": "The prototype also has a flashcard view and an audio playback path for hearing example phrases, though account onboar",
+        "wow": "not described",
+        "relevance": "Users choose a shop-floor situation and their comfort level, then get a short practice dialogue built around familiar vo"
+      },
+      "warnings": [
+        "Run 1: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add core gameplay mechanics like scoring, challenges, or win/loss conditions to increase relevance as a game.",
+        "Implement the complete account-to-practice flow to improve functionality and user experience.",
+        "Integrate tighter connections between user data and generated content to enhance technical understanding and personalization."
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 1.3333333333333333,
+        "relevance": 1.6666666666666667
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 1
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project addresses a practical need for English learners in work contexts but lacks a goofy or absurd premise required for the category, with functionality focused on core educational features rather than humor.",
+      "evidence": {
+        "originality": "We wanted to make practice feel connected to situations like helping a customer or asking a coworker for clarification.",
+        "tech_understanding": "not described",
+        "functionality": "not described",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add an absurdly over-engineered solution to a trivial problem presented as life-changing",
+        "Incorporate a comedic or absurd premise central to the user experience",
+        "Document how the goofy concept integrates with core functionality"
+      ]
+    }
+  ]
+}

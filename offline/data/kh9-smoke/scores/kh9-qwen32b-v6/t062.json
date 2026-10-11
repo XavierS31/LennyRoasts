@@ -1,0 +1,370 @@
+{
+  "project_id": "kh9-smoke-t062",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "gemini",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3.3333333333333335,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 14.333333333333334,
+      "max_total": 25,
+      "score_10": 5.733333333333333,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": false
+        }
+      ],
+      "rationale": "Gemini's optional categorization role is a minor add-on, not central to the map-based repair resource core.",
+      "evidence": {
+        "originality": "We applied a map-and-pin approach to local repair resources instead of event listings.",
+        "tech_understanding": "We used a React and TypeScript frontend with Leaflet for the map, and an Express backend with MongoDB and Mongoose for",
+        "functionality": "The app works across the main add-and-search flow, but deployment and the Gemini helper are not reliable yet.",
+        "wow": "Users can add repair locations with a description and map pin, then search the list and browse nearby options.",
+        "relevance": "Gemini has a small optional role suggesting a category from a location description; the map and resource listing are the"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Make Gemini integration central by requiring it for location validation or search",
+        "Add detailed documentation of the Gemini API call flow and error handling",
+        "Implement a user-visible status indicator for when Gemini categorization is active or failed"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.6666666666666665,
+        "functionality": 3.6666666666666665,
+        "wow": 2
+      },
+      "total": 12.333333333333334,
+      "max_total": 20,
+      "score_10": 6.166666666666667,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "eligible": true
+        }
+      ],
+      "rationale": "The map-based repair resource approach is somewhat novel but common enough for a 3.",
+      "evidence": {
+        "originality": "We noticed that students often need a quick repair but do not know which campus or neighborhood spaces have tools or",
+        "tech_understanding": "We used a React and TypeScript frontend with Leaflet for the map, and an Express backend with MongoDB and Mongoose for",
+        "functionality": "Users can add repair locations with a description and map pin, then search the list and browse nearby options.",
+        "wow": "We built a working map with searchable repair listings and a form for moving a pin to a more precise spot."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add evidence of the working map and search functionality in action",
+        "Document the implementation details of the MongoDB integration and search queries",
+        "Provide more specifics on how the Leaflet map interactions are connected to stored coordinates"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3.3333333333333335,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 15.333333333333334,
+      "max_total": 25,
+      "score_10": 6.133333333333334,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project uses a map-based approach for repair resources with a minor Gemini integration for category suggestions, showing clear technical components but limited core AI functionality.",
+      "evidence": {
+        "originality": "We applied a map-and-pin approach to local repair resources instead of event listings.",
+        "tech_understanding": "We used a React and TypeScript frontend with Leaflet for the map, and an Express backend with MongoDB and Mongoose for",
+        "functionality": "Users can add repair locations with a description and map pin, then search the list and browse nearby options.",
+        "wow": "We built a working map with searchable repair listings and a form for moving a pin to a more precise spot.",
+        "relevance": "Gemini has a small optional role suggesting a category from a location description; the map and resource listing are the"
+      },
+      "warnings": [
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Enhance the AI integration by making the Gemini categorization central to the resource listing process",
+        "Implement robust address validation and improve deployment stability for reliability",
+        "Add user authentication and community update features to support ongoing resource accuracy"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 1.3333333333333333,
+        "relevance": 2
+      },
+      "total": 11.333333333333334,
+      "max_total": 25,
+      "score_10": 4.533333333333333,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission describes a resource map with optional AI categorization but lacks core gameplay elements like rules, challenges, or win conditions, scoring low on relevance.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We used a React and TypeScript frontend with Leaflet for the map",
+        "functionality": "We built a working map with searchable repair listings",
+        "wow": "not described",
+        "relevance": "Users can add repair locations with a description and map pin, then search the list and browse nearby options"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add game mechanics like challenges or rewards for users who successfully complete repairs using the map resources."
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project offers a practical solution to finding repair resources but lacks a goofy or humorous concept, which is central to this category.",
+      "evidence": {
+        "originality": "We noticed that students often need a quick repair but do not know which campus or neighborhood spaces have tools or",
+        "tech_understanding": "We used a React and TypeScript frontend with Leaflet for the map, and an Express backend with MongoDB and Mongoose for",
+        "functionality": "Users can add repair locations with a description and map pin, then search the list and browse nearby options.",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Introduce a humorous twist to the repair map concept, such as adding fictional or absurd repair locations for comedic effect."
+      ]
+    }
+  ]
+}

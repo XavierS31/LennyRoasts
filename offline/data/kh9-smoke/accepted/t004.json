@@ -1,0 +1,55 @@
+{
+  "project_id": "kh9-smoke-t004",
+  "team_id": "t004",
+  "submission": {
+    "name": "Trail Pantry",
+    "tagline": "Pack a better day trip with the food and supplies you already have.",
+    "inspiration": "Before a day hike or campus outing, it is easy to forget what snacks and supplies are already packed. We adapted a pantry helper idea for people planning short outdoor trips, where a quick inventory can make packing less stressful.",
+    "what_it_does": "Trail Pantry lets users photograph items, save them to a trip kit, and ask Gemini for simple snack or packing suggestions based on the list. It has a mobile-friendly inventory and a chat screen, though image scans sometimes miss items or label them incorrectly.",
+    "how_we_built_it": "We used Expo and React Native with TypeScript for the app, Firebase for sign-in and saved kits, and a FastAPI backend in Python. Google Cloud Vision identifies likely objects from a photo, then Gemini uses the saved list to suggest combinations and practical packing ideas. The app sends requests through the backend so keys stay off the client.",
+    "challenges_we_ran_into": "The scan results can be inconsistent, especially with cluttered photos, and the app occasionally shows a stale kit after saving. We also had to work through differences between browser and mobile behavior.",
+    "accomplishments": "We connected photo scanning, saved trip kits, and Gemini suggestions in a usable mobile flow. The main screens are in place, and a user can build and revisit a basic packing list.",
+    "what_we_learned": "We learned that a helpful AI suggestion depends on getting reliable inventory data first. We also got more practice tracing state and authentication issues across a mobile app and backend.",
+    "whats_next": "We would improve scan editing, add expiry and quantity fields, and make suggestions account for dietary needs and trip length.",
+    "built_with": [
+      "expo",
+      "react-native",
+      "typescript",
+      "fastapi",
+      "python",
+      "firebase-auth",
+      "firestore",
+      "gemini-api",
+      "google-cloud-vision"
+    ],
+    "challenges": [
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "hackusf-2026--katchef"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/katchef"
+  ],
+  "primary_pool": "gemini",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "mobile",
+    "completion": "shaky",
+    "writing_style": "terse"
+  },
+  "fit": {
+    "gemini": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009004,
+  "batch_id": "b003",
+  "attempt": 2,
+  "similarity": {
+    "seed": 0.504104936625148,
+    "field": 0.4362623935244705
+  },
+  "created_at": "2026-10-10T23:32:47+00:00"
+}

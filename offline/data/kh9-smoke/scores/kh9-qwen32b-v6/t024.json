@@ -1,0 +1,469 @@
+{
+  "project_id": "kh9-smoke-t024",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "gemini",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "Gemini provides optional flavor text in a game with physical controllers and Godot, showing meaningful secondary use but not central to the core gameplay loop.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "not described",
+        "functionality": "not described",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described.",
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 0: wow evidence was not an exact quote; replaced with not described.",
+        "Run 0: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 2: originality evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: wow evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate Gemini-generated content more deeply into the core gameplay loop to increase relevance.",
+        "Add detailed explanations of how the serial data conversion and UDP communication work together.",
+        "Refine animations and improve input reliability for a smoother gameplay experience."
+      ]
+    },
+    {
+      "challenge_id": "databricks",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "Databricks provides a post-round summary of event logs but is not central to gameplay, scoring relevance 3 for meaningful data preparation used in the product.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "not described",
+        "functionality": "not described",
+        "wow": "We are proud that physical controller actions can affect a playable head-to-head game.",
+        "relevance": "A small Databricks notebook summarizes the round event log to show which hazard prompts came up most often."
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described.",
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: originality evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate Databricks analysis into real-time gameplay to influence hazard pacing dynamically",
+        "Add detailed explanations of how event logs are processed and summarized in Databricks",
+        "Improve controller reliability to ensure stable input during repeated rounds"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 12,
+      "max_total": 20,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project combines a physical controller with a Godot game for workshop safety scenarios, showing clear technical connections but partial working core and limited wow factor.",
+      "evidence": {
+        "originality": "A handheld controller seemed like a fun way to connect simple physical movement to decisions on screen.",
+        "tech_understanding": "The game is built in Godot, with a Raspberry Pi and microcontroller sending serial input through a Python bridge over",
+        "functionality": "The game does run end-to-end, but one controller can disconnect after repeated rounds and the animations still look",
+        "wow": "We are proud that physical controller actions can affect a playable head-to-head game."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Improve controller reliability and reconnection handling after repeated rounds",
+        "Refine game animations and feedback for missed inputs to enhance user experience",
+        "Integrate Databricks summaries into gameplay loop for real-time hazard balancing"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 16,
+      "max_total": 25,
+      "score_10": 6.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project uses a physical controller with Godot and Gemini for interactive safety scenarios, showing clear technical connections but partial core functionality and limited wow factor.",
+      "evidence": {
+        "originality": "A thick card-shaped controller sends movement and button input to a Godot game",
+        "tech_understanding": "Godot uses that input to move each player and trigger actions",
+        "functionality": "The game does run end-to-end, but one controller can disconnect after repeated rounds",
+        "wow": "We are proud that physical controller actions can affect a playable head-to-head game",
+        "relevance": "Gemini provides brief flavor text and alternate descriptions for a round"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Improve controller reconnection reliability and input handling stability",
+        "Enhance game feedback for missed inputs and refine animations",
+        "Integrate Databricks summaries into gameplay for dynamic hazard pacing"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 16,
+      "max_total": 25,
+      "score_10": 6.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "The game has a playable core with physical controller input but faces input stability issues; the Databricks analysis is separate from gameplay.",
+      "evidence": {
+        "originality": "A thick card-shaped controller sends movement and button input to a Godot game",
+        "tech_understanding": "The game is built in Godot, with a Raspberry Pi and microcontroller sending serial input through a Python bridge over",
+        "functionality": "The game does run end-to-end, but one controller can disconnect after repeated rounds",
+        "wow": "We are proud that physical controller actions can affect a playable head-to-head game",
+        "relevance": "Two players compete to identify and respond to hazards in a fictional campus workshop."
+      },
+      "warnings": [
+        "Run 2: originality evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: wow evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Improve controller reconnection reliability and input handling stability",
+        "Integrate Databricks analysis into the gameplay loop for real-time feedback",
+        "Refine animations and game feedback for missed inputs"
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        }
+      ],
+      "rationale": "The game has a moderately original interactive safety quiz concept with clear technical integration but lacks a central goofy or absurd premise, and the humor is incidental rather than core to the experience.",
+      "evidence": {
+        "originality": "We like quick competitive games and wanted to make a workshop safety scenario feel more interactive than a quiz.",
+        "tech_understanding": "The game is built in Godot, with a Raspberry Pi and microcontroller sending serial input through a Python bridge over",
+        "functionality": "The game does run end-to-end, but one controller can disconnect after repeated rounds and the animations still look",
+        "wow": "We are proud that physical controller actions can affect a playable head-to-head game.",
+        "relevance": "We like quick competitive games and wanted to make a workshop safety scenario feel more interactive than a quiz."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a deliberately absurd or over-the-top safety scenario presented as life-changing to increase comedic relevance",
+        "Implement more reliable controller reconnection and smoother animations to improve core gameplay functionality",
+        "Integrate Gemini-generated flavor text more prominently into the gameplay to enhance the interactive experience"
+      ]
+    }
+  ]
+}

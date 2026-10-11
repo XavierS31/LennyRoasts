@@ -1,0 +1,474 @@
+{
+  "project_id": "kh9-smoke-t064",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "bny",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        }
+      ],
+      "rationale": "The app addresses plant health identification for community gardens using image classification and Gemini explanations, but finance is only a side concern for volunteer workflow improvement.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "A Hugging Face image model is the planned source of candidate labels, and Gemini is meant to explain those labels",
+        "functionality": "During the weekend, the mobile flow and AI experiments worked separately, so results still need a reliable handoff",
+        "wow": "We built a working mobile shell with a guided capture flow and a place to show a contextual result",
+        "relevance": "Community garden volunteers often have to decide what to do when a leaf or fruit looks unhealthy"
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 2: originality evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add explicit financial services integration like cost tracking for garden maintenance or volunteer time management.",
+        "Document the specific plant health workflow improvements with measurable impact data from pilot testing.",
+        "Explain how the image classification and Gemini integration will handle diagnostic uncertainty in final recommendations."
+      ]
+    },
+    {
+      "challenge_id": "gemini",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 15,
+      "max_total": 25,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The app uses Gemini to explain plant issue labels with volunteer notes, but the core integration is not yet connected in the demo, limiting functionality.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "The reason for splitting the work this way is to give the image model a narrow classification job and let Gemini handle",
+        "functionality": "During the weekend, the mobile flow and AI experiments worked separately, so results still need a reliable handoff",
+        "wow": "We are glad we narrowed the project to one practical garden question instead of trying to cover every plant or",
+        "relevance": "Gemini can combine that label with the answers into a plain-language summary and suggested next steps."
+      },
+      "warnings": [
+        "Run 1: originality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect the Hugging Face classifier output to the Gemini prompt for integrated issue explanations",
+        "Add structured data passing between image classification and Gemini to enable contextual summaries",
+        "Implement photo quality adjustments to improve classifier reliability in varying conditions"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 12,
+      "max_total": 20,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The app combines image classification and Gemini for plant issue guidance but lacks integrated core functionality.",
+      "evidence": {
+        "originality": "A first-pass visual guide to plant problems for community garden volunteers.",
+        "tech_understanding": "not described",
+        "functionality": "not described",
+        "wow": "We built a working mobile shell with a guided capture flow and a place to show a contextual result."
+      },
+      "warnings": [
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate the Hugging Face classifier output with Gemini prompts for end-to-end functionality",
+        "Add structured photo quality controls to reduce variability in image inputs",
+        "Document the decision rationale for cautioning against overconfident AI outputs"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.3333333333333335,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3.6666666666666665
+      },
+      "total": 15,
+      "max_total": 25,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The app uses a Hugging Face image model and Gemini for plant issue suggestions, but the demo lacks integration between components.",
+      "evidence": {
+        "originality": "The reason for splitting the work this way is to give the image model a narrow classification job",
+        "tech_understanding": "A Hugging Face image model is the planned source of candidate labels, and Gemini is meant to explain those labels",
+        "functionality": "During the weekend, the mobile flow and AI experiments worked separately, so results still need a reliable handoff",
+        "wow": "We would connect the classifier output to the Gemini prompt and save prior observations",
+        "relevance": "A Hugging Face image model is the planned source of candidate labels, and Gemini is meant to explain those labels"
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described.",
+        "Run 0: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate the Hugging Face classifier with Gemini to create a seamless workflow",
+        "Add structured data passing between image classification and language model components",
+        "Document the decision rationale for model choice and integration strategy"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 2,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 10,
+      "max_total": 25,
+      "score_10": 4.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission is a plant problem reference tool with a prototype interface and disconnected AI components, lacking core gameplay elements required for a game.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "The reason for splitting the work this way is to give the image model a narrow classification job and let Gemini handle",
+        "functionality": "not described",
+        "wow": "not described",
+        "relevance": "The app lets a volunteer note the plant type, where the issue appears, and how long it has been visible, then take a"
+      },
+      "warnings": [
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add core gameplay elements like player-controlled actions, rules, and win/loss conditions to meet the game criteria.",
+        "Integrate the Hugging Face classifier with Gemini to create a functional diagnostic workflow.",
+        "Implement a consistent photo capture and analysis system that works reliably across different conditions."
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project offers a practical tool for garden volunteers with a clear technical approach but lacks a goofy or absurd premise required for the funny/goofy category.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We learned how image classification and language models can serve different roles in a small app",
+        "functionality": "We built a working mobile shell with a guided capture flow and a place to show a contextual result",
+        "wow": "We would connect the classifier output to the Gemini prompt and save prior observations so volunteers can compare",
+        "relevance": "Community garden volunteers often have to decide what to do when a leaf or fruit looks unhealthy"
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: originality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add an absurd or over-engineered solution to a trivial gardening problem presented as life-changing",
+        "Incorporate a humorous twist in the app's interface or suggested next steps for plant issues",
+        "Document a funny or exaggerated scenario where the app is essential for a trivial task"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "project_id": "kh9-smoke-t052",
+  "team_id": "t052",
+  "submission": {
+    "name": "Shift Memory",
+    "tagline": "A wearable note taker that helps student workers recall where equipment and handoff details came up.",
+    "inspiration": "Student workers move between counters, labs, and event spaces, then need to remember where a tool was left or what a teammate said during a busy shift. We wanted to explore a wearable capture-and-search tool for those moments, while keeping the user in control of what gets saved.",
+    "what_it_does": "A glasses-mounted camera and microphone feed sample visual and audio moments into a searchable timeline, where users can ask questions and hear a generated response through ElevenLabs. Gemini is used to describe selected scenes, and we added a simple tag for marking a moment as relevant to a shift handoff; the capture, search, and response pieces are not fully connected yet.",
+    "how_we_built_it": "Two ESP32 boards prototype camera and microphone capture, with a Python backend handling frame selection, transcription, and storage in SQLite and ChromaDB. Gemini creates scene descriptions and answers searches, while a Next.js and TypeScript interface shows saved moments and uses ElevenLabs for speech; the live hardware stream and UI still rely on separate pieces.",
+    "challenges_we_ran_into": "Keeping the camera and microphone streams stable over WiFi took repeated debugging, and audio sample conversion produced inconsistent results. We also ran into API limits and database write coordination, so we mocked parts of the memory search instead of completing a dependable live pipeline.",
+    "accomplishments": "We got the wearable capture hardware sending data and built separate prototypes for scene descriptions, semantic search, and spoken replies. We are proud of the pieces we explored, even though they do not yet behave as one finished assistant.",
+    "what_we_learned": "We learned the basics of ESP32 camera streaming, audio capture, and vector search, along with the practical limits of real-time AI calls. Gemini helped us prototype scene summaries, and ElevenLabs made the idea of hands-free spoken recall tangible.",
+    "whats_next": "We would stabilize streaming and connect saved moments to search and spoken playback before adding more features. A next iteration should make recording visible and easy to pause, and let workers explicitly review what is retained for handoffs.",
+    "built_with": [
+      "arduino",
+      "c++",
+      "esp32",
+      "python",
+      "chromadb",
+      "sqlite",
+      "gemini",
+      "elevenlabs",
+      "nextjs",
+      "react",
+      "typescript"
+    ],
+    "challenges": [
+      "elevenlabs",
+      "bny",
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "hackusf-2026--recall-oswlh3"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/recall-oswlh3"
+  ],
+  "primary_pool": "elevenlabs",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "ai_ml",
+    "completion": "partial",
+    "writing_style": "average"
+  },
+  "fit": {
+    "elevenlabs": "strong",
+    "bny": "strong",
+    "gemini": "medium"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009052,
+  "batch_id": "b014",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.7260224020809015,
+    "field": 0.692140058058906
+  },
+  "created_at": "2026-10-11T00:50:53+00:00"
+}

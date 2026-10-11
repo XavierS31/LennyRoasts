@@ -1,0 +1,59 @@
+{
+  "project_id": "kh9-smoke-t072",
+  "team_id": "t072",
+  "submission": {
+    "name": "Tab Tally",
+    "tagline": "Make group takeout spending visible before it crowds out the rest of the budget.",
+    "inspiration": "Our friend group kept ordering food between classes and then wondering where the week’s spending had gone. We wanted a low-pressure way for campus club members to set a shared takeout limit and see how their habits were adding up.",
+    "what_it_does": "Tab Tally lets a small group log restaurant visits and compare its weekly takeout spending with a target. Members can enter a purchase manually or use a small Bluetooth button at a shared club table to prompt a visit entry. A Gemini helper can turn the group’s recent totals into a short budget suggestion, and an ElevenLabs voice reads the reminder aloud; Databricks is used for a basic weekly pattern summary.",
+    "how_we_built_it": "We built the mobile interface with React Native Expo and TypeScript, and Firebase stores group, visit, and spending records so members see the same totals. A low-cost Bluetooth button sends a visit prompt to the phone; the app then asks the member to confirm the place and amount, which keeps the hardware from recording purchases automatically. Firebase data is exported as a small table for a Databricks summary, while Gemini drafts a suggestion from the current group total and ElevenLabs speaks the reminder. The BNY connection is the shared spending workflow, with the app helping a group keep a simple budget visible.",
+    "challenges_we_ran_into": "Getting the Bluetooth button to reconnect consistently was the main hardware issue, and a missed press means a visit needs to be added manually. Expo package setup and Android device pairing also took longer than we expected. The core entry and group total flow works, but notifications sometimes arrive late and the Databricks view only refreshes when we rerun the export.",
+    "accomplishments": "We connected a physical prompt to a shared mobile spending log and got a basic group view running end-to-end. We are proud that the button is optional: people can still log a meal when the phone or pairing is being difficult. The voice reminder makes a weekly total easier to notice without turning the app into a competition about individuals.",
+    "what_we_learned": "We learned that even a simple hardware trigger adds pairing and battery problems that a screen-only prototype avoids. Firebase made it straightforward to share updates, while Databricks gave us a first look at summarizing group records outside the app. Gemini helped draft short reminder language, and ElevenLabs let us hear how that reminder would sound in use.",
+    "whats_next": "We would improve Bluetooth reconnection and add a clearer offline queue so entries are not lost when campus Wi-Fi drops. We also want the weekly summary to refresh automatically and let groups choose whether reminders are spoken, shown, or muted.",
+    "built_with": [
+      "databricks",
+      "elevenlabs",
+      "expo",
+      "firebase",
+      "gemini",
+      "react",
+      "typescript"
+    ],
+    "challenges": [
+      "databricks",
+      "bny",
+      "gemini",
+      "elevenlabs"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--cut-p64i2u"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/cut-p64i2u"
+  ],
+  "primary_pool": "bny",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "hardware",
+    "completion": "shaky",
+    "writing_style": "detailed"
+  },
+  "fit": {
+    "databricks": "weak",
+    "bny": "strong",
+    "gemini": "strong",
+    "elevenlabs": "medium"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009072,
+  "batch_id": "b019",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.6927960665146409,
+    "field": 0.6494451379814805
+  },
+  "created_at": "2026-10-11T00:53:23+00:00"
+}

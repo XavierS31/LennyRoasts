@@ -1,0 +1,630 @@
+{
+  "project_id": "kh9-smoke-t042",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "elevenlabs",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 16,
+      "max_total": 25,
+      "score_10": 6.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "ElevenLabs provides central audio interaction for work session reminders, but integration challenges and limitations affect functionality.",
+      "evidence": {
+        "originality": "A little desk-side accountability for campus makers finishing a work session.",
+        "tech_understanding": "not described",
+        "functionality": "not described",
+        "wow": "We are proud that the project feels tangible at a desk rather than being only another timer window.",
+        "relevance": "ElevenLabs turns that text into audio, while the laptop sends a signal to an Arduino relay that powers a small pump"
+      },
+      "warnings": [
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add user-controlled sensitivity settings to reduce false phone detections",
+        "Improve timing coordination between camera detection, audio playback, and physical cues",
+        "Document the decision logic for when and why ElevenLabs audio is triggered"
+      ]
+    },
+    {
+      "challenge_id": "databricks",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.6666666666666665,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14.666666666666666,
+      "max_total": 25,
+      "score_10": 5.866666666666666,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "Databricks is used for session event logging and pattern inspection, integrating into the main flow but with limited depth in data analytics or ML beyond storage.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "not described",
+        "functionality": "detection can mistake a phone-shaped object for a phone",
+        "wow": "We are proud that the project feels tangible at a desk",
+        "relevance": "session events are written to a Databricks table so we can inspect patterns afterward"
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described.",
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add detailed Databricks analytics to process session data for actionable insights",
+        "Explain how Databricks integrates with other components in the data flow",
+        "Improve the accuracy of phone detection and reduce network lag for timely responses"
+      ]
+    },
+    {
+      "challenge_id": "gemini",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2.3333333333333335,
+        "relevance": 4
+      },
+      "total": 16.333333333333332,
+      "max_total": 25,
+      "score_10": 6.533333333333333,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 3,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "Gemini is centrally used for confirmation and message generation, but the physical integration is compelling without being exceptional.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "YOLOv8 phone detection on a laptop and sends likely events to Gemini for a quick confirmation and message",
+        "functionality": "The camera, model calls, audio playback, Arduino control, and event logging each worked",
+        "wow": "We are proud that the project feels tangible at a desk rather than being only another timer window",
+        "relevance": "Gemini confirms likely distractions before generating a short spoken nudge through ElevenLabs."
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described.",
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 0: wow evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add user-controlled sensitivity settings to adjust Gemini's distraction detection thresholds",
+        "Document the decision-making process for integrating Gemini with physical feedback mechanisms",
+        "Implement error handling for network lag between Gemini response and physical cues"
+      ]
+    },
+    {
+      "challenge_id": "bny",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project addresses a minor productivity issue in a shared workspace with a tangible solution, but financial services integration is minimal, using Databricks for session logging without a clear industry process improvement.",
+      "evidence": {
+        "originality": "We wanted a physical reminder that could make a short work block feel more engaging",
+        "tech_understanding": "A Python and OpenCV loop runs YOLOv8 phone detection on a laptop and sends likely events to Gemini",
+        "functionality": "The camera, model calls, audio playback, Arduino control, and event logging each worked",
+        "wow": "We are proud that the project feels tangible at a desk rather than being only another timer window",
+        "relevance": "Databricks records session events for a simple view of when interruptions happen"
+      },
+      "warnings": [
+        "Run 1: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a financial services process improvement like tracking work session efficiency metrics for billing or productivity analysis",
+        "Explain how the session logging in Databricks could integrate with industry-specific data management workflows",
+        "Detail how the physical feedback mechanism could be adapted for compliance or safety monitoring in financial environments"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 12,
+      "max_total": 20,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project combines physical and digital feedback for work sessions but has common components and limitations in detection accuracy and timing.",
+      "evidence": {
+        "originality": "A webcam checks for phone use during a timed work session",
+        "tech_understanding": "YOLOv8 phone detection on a laptop and sends likely events to Gemini",
+        "functionality": "An Arduino controls a small indicator and a brief air puff",
+        "wow": "We are proud that the project feels tangible at a desk rather than being only another timer window"
+      },
+      "warnings": [
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add documented user-controlled sensitivity settings to improve detection accuracy",
+        "Provide detailed explanations of how timing challenges were resolved in the hardware-software integration",
+        "Include specific metrics or examples showing the effectiveness of the physical notifications in reducing phone use"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 16,
+      "max_total": 25,
+      "score_10": 6.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project integrates multiple AI components with physical feedback but has some limitations in detection accuracy and timing coordination.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "not described",
+        "functionality": "not described",
+        "wow": "A webcam checks for phone use during a timed work session",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 0: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: wow evidence was not an exact quote; replaced with not described.",
+        "Run 1: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 2: originality evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: wow evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add detailed explanations of how the AI models are trained and tuned for phone detection accuracy",
+        "Implement and document a more robust system for synchronizing the physical cues with the AI-generated alerts",
+        "Provide specific examples or metrics showing the effectiveness of the session logs in identifying interruptions"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2.3333333333333335
+      },
+      "total": 14.333333333333334,
+      "max_total": 25,
+      "score_10": 5.733333333333333,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project uses a webcam and AI to detect phone use during work sessions, but it functions more as a productivity tool with game-like elements rather than a game itself.",
+      "evidence": {
+        "originality": "We wanted a physical reminder that could make a short work block feel more engaging without needing someone else to keep",
+        "tech_understanding": "A Python and OpenCV loop runs YOLOv8 phone detection on a laptop and sends likely events to Gemini for a quick confirm",
+        "functionality": "The camera, model calls, audio playback, Arduino control, and event logging each worked, but keeping them coordinated wi",
+        "wow": "We are proud that the project feels tangible at a desk rather than being only another timer window.",
+        "relevance": "A webcam checks for phone use during a timed work session, and Gemini confirms likely distractions before generating a"
+      },
+      "warnings": [
+        "Runs disagree on category eligibility; the two-of-three rule was applied."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add player-controlled actions and clear win/loss conditions to transform the productivity tool into a game.",
+        "Implement a scoring system based on uninterrupted work periods to increase engagement and game-like elements.",
+        "Develop a more interactive user interface with visual feedback to enhance the gameplay experience."
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 15,
+      "max_total": 25,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The Bench Breaker offers a moderately original and relevantly goofy solution to phone distraction with a physical reminder system, but its functionality is limited by coordination delays and detection inaccuracies.",
+      "evidence": {
+        "originality": "A webcam checks for phone use during a timed work session",
+        "tech_understanding": "A Python and OpenCV loop runs YOLOv8 phone detection on a laptop and sends likely events to Gemini for a quick",
+        "functionality": "The detection can mistake a phone-shaped object for a phone, and network lag sometimes makes the spoken cue arrive after",
+        "wow": "An Arduino controls a small indicator and a brief air puff toward a desk target",
+        "relevance": "We wanted a physical reminder that could make a short work block feel more engaging without needing someone else to keep"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add user-controlled sensitivity to reduce false positives from phone-shaped objects",
+        "Implement quieter notification options for different desk environments",
+        "Improve timing coordination to ensure spoken cues match the moment of distraction"
+      ]
+    }
+  ]
+}

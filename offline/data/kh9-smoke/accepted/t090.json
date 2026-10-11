@@ -1,0 +1,51 @@
+{
+  "project_id": "kh9-smoke-t090",
+  "team_id": "t090",
+  "submission": {
+    "name": "Closet Callboard",
+    "tagline": "Plan practical outfits for campus gigs from the clothes you already have.",
+    "inspiration": "We wanted to help students who have to move between class, a club event, and a part-time shift without changing outfits. Picking something comfortable for Florida weather while still fitting the occasion can take longer than it should.",
+    "what_it_does": "Users can photograph clothes and ask for outfit ideas for a campus event or work shift, with local weather as a small input. The app is meant to suggest combinations from the saved wardrobe, but the full path from photo to recommendation did not come together reliably.",
+    "how_we_built_it": "We used React Native and Expo for a mobile prototype, with Gemini intended to identify clothing details from photos and help assemble suggestions. Weather data was meant to add a comfort hint, while local storage holds wardrobe entries on the phone. We also tried a small Databricks notebook to summarize sample clothing categories, but it is separate from the working app flow.",
+    "challenges_we_ran_into": "The image upload, Gemini response, and saved wardrobe state did not stay connected consistently, so the demo only shows isolated pieces rather than a reliable end-to-end outfit recommendation. Databricks was an experiment with sample data and does not yet affect what the app displays.",
+    "accomplishments": "We built a mobile wardrobe screen and got parts of the photo and clothing-label flow running. The prototype gave us a concrete starting point for testing how wardrobe information could be organized on a phone.",
+    "what_we_learned": "We learned that image compression, API response formats, and mobile storage all need to be planned together. We also got a first look at preparing simple category data in Databricks, though our notebook still needs a real connection to the app.",
+    "whats_next": "We would connect the photo labeling, wardrobe storage, weather lookup, and recommendation screen into one dependable flow. We would also make the Databricks analysis useful to the app, for example by showing what clothing categories are underrepresented in a sample wardrobe.",
+    "built_with": [
+      "databricks",
+      "expo",
+      "gemini",
+      "javascript",
+      "react-native"
+    ],
+    "challenges": [
+      "databricks"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--clothing-clues"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/clothing-clues"
+  ],
+  "primary_pool": "general",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "mobile",
+    "completion": "broken",
+    "writing_style": "terse"
+  },
+  "fit": {
+    "databricks": "weak"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009090,
+  "batch_id": "b023",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.6832251650705523,
+    "field": 0.7740349385614811
+  },
+  "created_at": "2026-10-11T00:56:00+00:00"
+}

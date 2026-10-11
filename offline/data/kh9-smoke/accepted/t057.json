@@ -1,0 +1,50 @@
+{
+  "project_id": "kh9-smoke-t057",
+  "team_id": "t057",
+  "submission": {
+    "name": "SkillScroll",
+    "tagline": "A short-form learning feed where campus clubs share practical how-to clips.",
+    "inspiration": "Student organizations often teach useful skills informally, but their advice can get buried in chat threads or long documents. We wanted to try a swipeable feed where club members can share short explainers and viewers can find clips by topic.",
+    "what_it_does": "The web prototype presents short educational clips with topic labels and a basic feed. A sentence-transformer check can compare a transcript with a selected topic, and the design includes a points display for engagement. Upload validation, the feed, and reward tracking currently work as separate pieces; points are only a demo and no token transfers are connected.",
+    "how_we_built_it": "We made the interface with React, TypeScript, and Vite, with a FastAPI backend for clip and transcript endpoints. Sentence Transformers provide a relevance score for a transcript, while MongoDB is intended to keep users, clips, and engagement data together. We also sketched a Solana reward flow, but the wallet and on-chain pieces are not wired into the prototype, so the UI shows sample reward states.",
+    "challenges_we_ran_into": "Video upload and playback took more time than expected, and our relevance check can be slow on longer transcripts. The feed, model check, and reward mock are not yet connected into one complete publishing flow, so a clip can appear without its points reflecting a real transaction.",
+    "accomplishments": "We built a usable feed interface and got a first semantic topic check running against clip text. We also mapped out how a club learning feed might use engagement points without claiming that a real token economy is ready.",
+    "what_we_learned": "We learned that an embedding similarity score is a rough relevance signal, not a guarantee that advice is useful or correct. Building a familiar scrolling interface was easier than coordinating media storage, model processing, and rewards into one path.",
+    "whats_next": "We would connect uploads, transcript checks, and the feed through a background job, then test the flow with a small set of club tutorials. If that works, we could explore non-crypto badges or a real reward system with clearer abuse protections.",
+    "built_with": [
+      "fastapi",
+      "mongodb",
+      "python",
+      "react",
+      "sentence-transformers",
+      "solana",
+      "typescript",
+      "vite"
+    ],
+    "challenges": []
+  },
+  "seed_ids": [
+    "swamphacks-xi--finfluence-5y7wo1"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/finfluence-5y7wo1"
+  ],
+  "primary_pool": "general",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "partial",
+    "writing_style": "average"
+  },
+  "fit": {},
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009057,
+  "batch_id": "b015",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.5943132572057137,
+    "field": 0.6341269663293186
+  },
+  "created_at": "2026-10-11T00:51:16+00:00"
+}

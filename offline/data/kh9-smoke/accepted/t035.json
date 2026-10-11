@@ -1,0 +1,53 @@
+{
+  "project_id": "kh9-smoke-t035",
+  "team_id": "t035",
+  "submission": {
+    "name": "TraceQuest",
+    "tagline": "Follow the bug, then coordinate your next move.",
+    "inspiration": "When code fails a test, it can be difficult to tell which state change caused the problem. We wanted a browser tool that makes execution visible and adds a lightweight team-coordination idea: separate helpers can inspect different clues before forming a debugging plan.",
+    "what_it_does": "Students can run Python problems in the browser, inspect variable changes and control flow, and get Gemini hints grounded in the error and failing test. A small set of specialist panels summarizes runtime, test, and code clues before a coordinator view suggests a next debugging step.",
+    "how_we_built_it": "The app uses Next.js with Monaco Editor, and Pyodide runs Python in a browser worker. We convert execution output into structured data for visualizations and Gemini prompts; the specialist panels are simple role-based summaries rather than autonomous agents.",
+    "challenges_we_ran_into": "Normalizing problem data and tracking dynamic variable types took time, and the execution trace can become hard to follow on larger examples. We got the editor, runner, trace view, and hint flow working together, but our multi-panel summaries can disagree about which clue matters most.",
+    "accomplishments": "We built a working path from writing code to running tests, viewing a trace, and receiving a contextual hint. The coordination view gives users a way to compare different debugging clues without replacing the execution details.",
+    "what_we_learned": "We learned that useful hints depend on structured runtime evidence, not just sending source code to a model. We also learned how browser-based Python execution and WebAssembly workers fit into an interactive learning tool.",
+    "whats_next": "We’d improve trace filtering and add clearer coordination between the specialist panels. We’d also expand the problem set and explore execution views for additional languages.",
+    "built_with": [
+      "beautiful-soup",
+      "gemini",
+      "monaco",
+      "nextjs",
+      "pyodide",
+      "python",
+      "typescript",
+      "vercel",
+      "webassembly"
+    ],
+    "challenges": []
+  },
+  "seed_ids": [
+    "swamphacks-xi--smart_ptr",
+    "hackusf-2026--notus-r8uont"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/smart_ptr",
+    "https://devpost.com/software/notus-r8uont"
+  ],
+  "primary_pool": "general",
+  "mutation": "heavy",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "polished",
+    "writing_style": "terse"
+  },
+  "fit": {},
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009035,
+  "batch_id": "b010",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.6686143369273642,
+    "field": 0.5399796033866433
+  },
+  "created_at": "2026-10-11T00:48:36+00:00"
+}

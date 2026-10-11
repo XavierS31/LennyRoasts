@@ -1,0 +1,56 @@
+{
+  "project_id": "kh9-smoke-t087",
+  "team_id": "t087",
+  "submission": {
+    "name": "TrailBite",
+    "tagline": "Make a lighter pack from the food you already have.",
+    "inspiration": "Students planning a day hike or overnight trip often buy new snacks because it is hard to tell what can travel well from the kitchen. We wanted to help people turn familiar ingredients into a simple trail meal plan.",
+    "what_it_does": "Take or choose a photo of food and get a rough list of likely ingredients, then ask for a compact meal or snack idea suited to a short trip. The app has a small inventory screen and can read a suggested recipe aloud, but the mobile scan-to-recipe flow did not work end to end in our demo.",
+    "how_we_built_it": "We used Expo with React Native and TypeScript for the mobile screens, plus a FastAPI backend in Python. Gemini generates trail-friendly meal suggestions, Google Cloud Vision was used for a separate ingredient scan experiment, and ElevenLabs can speak a recipe response. The inventory screen and AI calls run as separate parts, but scan results do not reliably reach the recipe prompt yet.",
+    "challenges_we_ran_into": "Getting camera permissions and image results through the mobile app took longer than expected. We did not finish connecting the scan output to the inventory and recipe request, so the demo needs manual ingredient entry for the useful part.",
+    "accomplishments": "We made the meal suggestion and spoken recipe pieces work independently and built the mobile screens around a clear trip-planning use. We learned what needs to connect before a photo can actually save someone time.",
+    "what_we_learned": "We learned that vision output is only useful when it reaches the next step in the product. Gemini helped generate practical meal ideas, and ElevenLabs made them easier to follow hands-free.",
+    "whats_next": "We would connect camera detection, saved ingredients, and recipe suggestions into one flow. We would also add simple packing and storage notes for common day-trip foods.",
+    "built_with": [
+      "elevenlabs",
+      "expo",
+      "fastapi",
+      "gemini",
+      "google-cloud-vision",
+      "python",
+      "react-native",
+      "typescript"
+    ],
+    "challenges": [
+      "elevenlabs",
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "hackusf-2026--katchef"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/katchef"
+  ],
+  "primary_pool": "gemini",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "mobile",
+    "completion": "broken",
+    "writing_style": "terse"
+  },
+  "fit": {
+    "elevenlabs": "medium",
+    "gemini": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009087,
+  "batch_id": "b022",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.6420336338825728,
+    "field": 0.6892532863338302
+  },
+  "created_at": "2026-10-11T00:55:12+00:00"
+}

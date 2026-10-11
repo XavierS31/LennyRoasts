@@ -1,0 +1,532 @@
+{
+  "project_id": "kh9-smoke-t013",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "elevenlabs",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 16,
+      "max_total": 25,
+      "score_10": 6.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "ElevenLabs is central to the voice-first coaching experience, but technical challenges remain in audio timing and consistency.",
+      "evidence": {
+        "originality": "voice-first workout partner for students",
+        "tech_understanding": "Gemini handles the prompt-based routine and adapts it to the user's stated goals and equipment",
+        "functionality": "The prototype is small, but it gives us a useful starting point for campus fitness support",
+        "wow": "We are proud that audio is part of the coaching experience rather than an unrelated add-on",
+        "relevance": "ElevenLabs reads the plan and reminders aloud so users can listen between sets instead of staring at a screen"
+      },
+      "warnings": [
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: wow evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add structured timing controls to align audio playback with exercise steps",
+        "Improve error handling for inconsistent exercise names in spoken reminders",
+        "Expand session data collection to support more robust Databricks analysis"
+      ]
+    },
+    {
+      "challenge_id": "gemini",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.3333333333333335,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 15.333333333333334,
+      "max_total": 25,
+      "score_10": 6.133333333333334,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "Gemini is central to generating workout routines based on user inputs and adapting to feedback, but the core functionality is partially working with limitations in consistency and reliability.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We kept the seed's Python and Google ADK agent structure, with separate steps for planning, coaching language, and",
+        "functionality": "It is not reliable enough to judge live lifting form, so its guidance stays general.",
+        "wow": "We are proud that audio is part of the coaching experience rather than an unrelated add-on.",
+        "relevance": "Gemini handles the prompt-based routine and adapts it to the user's stated goals and equipment."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add structured onboarding for user ability and equipment to improve routine accuracy",
+        "Implement session data validation to strengthen Databricks analysis reliability",
+        "Document Gemini prompt engineering decisions to explain how constraints translate to workout plans"
+      ]
+    },
+    {
+      "challenge_id": "databricks",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "Databricks supports basic analytics on workout notes but is not central to the core voice coaching flow.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "A small Databricks notebook groups session notes by exercise",
+        "functionality": "The prototype is small, but it gives us a useful starting point",
+        "wow": "We are proud that audio is part of the coaching experience",
+        "relevance": "A small Databricks notebook groups session notes by exercise"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Make Databricks central by using its analytics to directly shape real-time coaching suggestions",
+        "Add structured data collection to improve the quality of insights from Databricks",
+        "Improve the reliability of the Databricks notebook data flow for broader conclusions"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 12,
+      "max_total": 20,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project offers a voice-first workout partner with a clear technical flow but faces integration and reliability issues.",
+      "evidence": {
+        "originality": "We wanted to make beginner guidance easier to access without turning every workout into a complicated plan.",
+        "tech_understanding": "Gemini handles the prompt-based routine and adapts it to the user's stated goals and equipment.",
+        "functionality": "We got a basic flow working from a student's equipment and goal to a suggested routine and spoken reminders.",
+        "wow": "The app also records completed sessions and basic notes."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add structured session data for better Databricks analysis",
+        "Improve ElevenLabs audio playback reliability and controls",
+        "Clarify AI limitations in onboarding to manage user expectations"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 16,
+      "max_total": 25,
+      "score_10": 6.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "The app uses Gemini and ElevenLabs for a voice-first workout partner, showing meaningful AI integration but with some technical limitations and general guidance.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "Gemini handles the prompt-based routine and adapts it to the user's stated goals and equipment.",
+        "functionality": "The app also records completed sessions and basic notes. It is not reliable enough to judge live lifting form",
+        "wow": "The prototype is small, but it gives us a useful starting point for campus fitness support.",
+        "relevance": "Gemini helps turn those constraints into a simple session and adjusts suggestions based on a user's feedback afterward."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add structured session data to support more useful Databricks analysis",
+        "Improve audio playback controls reliability",
+        "Enhance onboarding for ability and equipment with clearer guidance"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission describes a voice-first workout tool with AI-generated routines and audio feedback, but lacks core gameplay elements like rules, challenges, or win conditions, scoring lower on relevance as a game.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "not described",
+        "functionality": "not described",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described.",
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 0: wow evidence was not an exact quote; replaced with not described.",
+        "Run 0: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add core gameplay elements like scoring, levels, or challenges to meet game criteria",
+        "Implement form validation feedback with clear safety disclaimers",
+        "Strengthen session data collection for more robust Databricks analysis"
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.3333333333333335,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 13.333333333333334,
+      "max_total": 25,
+      "score_10": 5.333333333333333,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project offers a practical fitness coaching tool with voice integration but lacks a central goofy or absurd premise, limiting its comedic impact and originality within the category.",
+      "evidence": {
+        "originality": "We wanted to make beginner guidance easier to access without turning every workout into a complicated plan.",
+        "tech_understanding": "Gemini handles the prompt-based routine and adapts it to the user's stated goals and equipment.",
+        "functionality": "RepReady lets a user enter a fitness goal and available equipment, then suggests a short routine with practical",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add an absurd or over-the-top feature like a humorous virtual trainer with exaggerated personality traits to increase comedic relevance.",
+        "Improve the documentation of how audio playback and AI-generated routines create a cohesive and entertaining user experience.",
+        "Develop a more robust system for collecting and analyzing session data to support future improvements in user engagement and functionality."
+      ]
+    }
+  ]
+}

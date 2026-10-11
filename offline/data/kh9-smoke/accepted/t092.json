@@ -1,0 +1,55 @@
+{
+  "project_id": "kh9-smoke-t092",
+  "team_id": "t092",
+  "submission": {
+    "name": "Runway Reserve",
+    "tagline": "Play through a small business’s early money choices and see how steady investing changes the runway.",
+    "inspiration": "We wanted to make investing feel less abstract for students who are starting a small side business or freelance gig. Those owners often have to decide what to keep as a cash buffer and what might be invested for later, while juggling unpredictable expenses.",
+    "what_it_does": "Players guide a fictional one-person business through monthly events, choosing how much income to hold as savings and how much to invest in a simulated index fund. The game compares the business’s cash runway and long-term balance across choices, with no real money involved. Short spoken explanations add context to key decisions, though the voice playback can occasionally fail.",
+    "how_we_built_it": "The web game uses React, Vite, and Tailwind for the screens, with MongoDB storing a player’s scenario progress. Node.js handles the game state and asks Gemini for occasional scenario text and plain-language explanations; core balances are calculated in the app so the model does not set the numbers. ElevenLabs turns selected explanations into audio, which the browser plays alongside each event. These parts connect through the Node API, but the audio request is the least reliable link.",
+    "challenges_we_ran_into": "Scoping the business scenarios and keeping the balance calculations consistent took more time than expected. The ElevenLabs response sometimes arrives after the player has moved to the next event, and generated scenario text can need editing to fit the game’s numbers. We have a playable path, but the spoken layer is not dependable every time.",
+    "accomplishments": "We built a complete short simulation where choices affect a business’s cash cushion and projected future balance. We are proud of having a concrete game loop and adding voice to some of the financial explanations.",
+    "what_we_learned": "We learned to keep financial calculations deterministic even when AI helps write the surrounding explanation. React state and API timing also mattered more than we expected: the game has to know which event an audio response belongs to. Gemini and ElevenLabs were useful creative tools, but their outputs still needed guardrails and checks.",
+    "whats_next": "We would add more business events and let players compare different cash-buffer rules across a longer timeline. We also want to improve audio loading and let a player replay or skip narration without interrupting the scenario.",
+    "built_with": [
+      "elevenlabs",
+      "gemini",
+      "mongodb",
+      "nodejs",
+      "react",
+      "tailwindcss",
+      "vite"
+    ],
+    "challenges": [
+      "elevenlabs",
+      "bny"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--stabilityquest"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/stabilityquest"
+  ],
+  "primary_pool": "bny",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "shaky",
+    "writing_style": "detailed"
+  },
+  "fit": {
+    "elevenlabs": "medium",
+    "bny": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009092,
+  "batch_id": "b023",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.7542387211869177,
+    "field": 0.7105649576371619
+  },
+  "created_at": "2026-10-11T00:56:00+00:00"
+}

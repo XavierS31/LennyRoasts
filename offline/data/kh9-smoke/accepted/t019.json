@@ -1,0 +1,61 @@
+{
+  "project_id": "kh9-smoke-t019",
+  "team_id": "t019",
+  "submission": {
+    "name": "MoneyWords",
+    "tagline": "Practice the language of everyday banking with short, personalized lessons and spoken examples.",
+    "inspiration": "We wanted to make common financial language less intimidating for people who are learning English while settling into new communities. Banking forms and account conversations can be difficult to follow when the vocabulary is unfamiliar, so we built around small, practical learning moments.",
+    "what_it_does": "The planned site uses a short onboarding quiz to estimate a learner's English level and track unfamiliar terms, then offers financial vocabulary cards, short scenarios, and a guided practice conversation. Gemini can help draft examples and ElevenLabs can read them aloud, but the learning tools and personalized vocabulary state are not yet joined into one working flow.",
+    "how_we_built_it": "The web prototype combines an Astro and React interface styled with Tailwind and Shadcn with a Go backend and Firebase experiments. The intended path is for the frontend to send a learner's level and terms to the backend, which stores progress and requests Gemini-generated banking examples; ElevenLabs audio is a separate playback experiment. We also tried Docker, AWS, and Vercel in the deployment setup, but did not complete an integrated service.",
+    "challenges_we_ran_into": "Several of these tools were new to us, especially Go, and onboarding plus saved vocabulary took longer to plan than expected. We also hit Gemini API limits while experimenting and did not finish wiring the voice and content features to learner progress.",
+    "accomplishments": "We shaped a focused language-learning idea around everyday financial tasks and made early interface and backend pieces. We are proud that we explored how vocabulary practice could connect to practical banking situations without claiming the prototype is ready for real financial guidance.",
+    "what_we_learned": "We learned that a useful learning flow needs consistent progress data as well as generated content, and that the frontend and backend contracts have to be settled early. Gemini helped us explore examples, while ElevenLabs gave us a way to test spoken vocabulary; both still need validation and integration.",
+    "whats_next": "We would connect onboarding, saved terms, scenario practice, and audio into a single lesson path. We would also review examples for clarity and accuracy with people familiar with the financial tasks before expanding the content.",
+    "built_with": [
+      "astro",
+      "react",
+      "golang",
+      "firebase",
+      "gemini",
+      "elevenlabs",
+      "tailwindcss",
+      "shadcn",
+      "docker",
+      "amazon-web-services",
+      "vercel"
+    ],
+    "challenges": [
+      "gemini",
+      "bny",
+      "elevenlabs"
+    ]
+  },
+  "seed_ids": [
+    "shellhacks2024--lingualeap"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/lingualeap"
+  ],
+  "primary_pool": "bny",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "partial",
+    "writing_style": "average"
+  },
+  "fit": {
+    "gemini": "medium",
+    "bny": "strong",
+    "elevenlabs": "medium"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009019,
+  "batch_id": "b007",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.7655907171748217,
+    "field": 0.632545405816169
+  },
+  "created_at": "2026-10-11T00:47:28+00:00"
+}

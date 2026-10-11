@@ -1,0 +1,50 @@
+{
+  "project_id": "kh9-smoke-t041",
+  "team_id": "t041",
+  "submission": {
+    "name": "Skillway Quest",
+    "tagline": "Turn a training handbook into a map of skills, missions, and quick checks.",
+    "inspiration": "New players and student club members often get a pile of guides without knowing which ideas they need before trying a more advanced task. We wanted to make learning a game-like path where each step helps explain what to practice next.",
+    "what_it_does": "Upload a game design or club training document and get an editable map of connected concepts, with small lessons, recall cards, and quizzes attached to its nodes. Gemini helps extract topics and generate the practice material, while progress marks show which missions a learner has completed.",
+    "how_we_built_it": "We built a Next.js and React workspace with Supabase for sign-in, saved maps, and background processing of uploaded PDFs. Gemini turns document text into topic relationships and draft learning activities, and the interface lets learners explore the map and record progress between sessions.",
+    "challenges_we_ran_into": "Parsing PDFs into useful, connected concepts took iteration, and background jobs could get stuck or fail during upload processing. We added visible processing states and retries, though some documents still need a person to clean up the generated map.",
+    "accomplishments": "We got the upload-to-map workflow and the learning loop working together, including editable nodes, saved layouts, and progress tracking. The game-inspired missions gave us a way to make a course outline feel more like a set of achievable levels.",
+    "what_we_learned": "We learned to treat AI-generated topics as drafts that need structure and review, and to design around asynchronous jobs so the interface does not imply work is finished too early. Gemini helped us prototype topic explanations and quizzes, while game design thinking helped shape progression and feedback.",
+    "whats_next": "We want to improve extraction on varied documents, add cooperative study missions, and let instructors share curated maps. We would also like to tune the difficulty of activities based on learner progress.",
+    "built_with": [
+      "gemini",
+      "nextjs",
+      "react",
+      "supabase"
+    ],
+    "challenges": [
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "hackusf-2026--preqly"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/preqly"
+  ],
+  "primary_pool": "gemini",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "game_dev",
+    "completion": "polished",
+    "writing_style": "terse"
+  },
+  "fit": {
+    "gemini": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009041,
+  "batch_id": "b012",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.7291175521180153,
+    "field": 0.6011036008243184
+  },
+  "created_at": "2026-10-11T00:49:44+00:00"
+}

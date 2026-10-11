@@ -1,0 +1,56 @@
+{
+  "project_id": "kh9-smoke-t075",
+  "team_id": "t075",
+  "submission": {
+    "name": "TradeBridge",
+    "tagline": "Help Central Florida contractors find available skilled workers and show workers their next step.",
+    "inspiration": "Around Orlando, construction and facilities teams can lose time searching for people with the right trade skills. We wanted to make that process clearer for both sides, especially for workers moving between projects.",
+    "what_it_does": "Employers can paste a short-term trade job and get a list of potential matches with the relevant skills highlighted. Workers can view a suggested certification or training step, while employers can select several candidates for follow-up.",
+    "how_we_built_it": "We used a React and TypeScript interface with a FastAPI backend, SQLAlchemy, and PostgreSQL. Gemini is used as a secondary helper to turn pasted job descriptions into structured requirements; the matching flow uses those requirements against sample worker profiles.",
+    "challenges_we_ran_into": "The job parsing and candidate matching pieces work separately, but we did not get every path connected reliably during the weekend. We also had to make guesses about how to represent experience and certifications, so match scores are only a rough guide.",
+    "accomplishments": "We put together a working job input screen, a small candidate view, and an early certification suggestion flow. We are proud that the prototype focuses on helping workers understand why a role might fit instead of only showing a score.",
+    "what_we_learned": "We learned that trade experience is difficult to reduce to a few fields, and that a language model needs constrained output to make job requirements usable. Gemini helped us explore how to extract requirements, but we still needed to check its results against our own schema.",
+    "whats_next": "We would connect the employer and worker flows, improve how licenses and job sites are represented, and test the matching process with local contractors and trade workers. Automated license checks could come later once we know which regional sources are available.",
+    "built_with": [
+      "fastapi",
+      "gemini",
+      "postgresql",
+      "pydantic",
+      "python",
+      "react",
+      "sqlalchemy",
+      "tailwind",
+      "typescript",
+      "vite"
+    ],
+    "challenges": [
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--nexsetu"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/nexsetu"
+  ],
+  "primary_pool": "general",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "ai_ml",
+    "completion": "partial",
+    "writing_style": "average"
+  },
+  "fit": {
+    "gemini": "medium"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009075,
+  "batch_id": "b021",
+  "attempt": 2,
+  "similarity": {
+    "seed": 0.6267728807310875,
+    "field": 0.6702871071186098
+  },
+  "created_at": "2026-10-11T00:54:28+00:00"
+}

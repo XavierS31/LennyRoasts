@@ -1,0 +1,52 @@
+{
+  "project_id": "kh9-smoke-t032",
+  "team_id": "t032",
+  "submission": {
+    "name": "QuietCue",
+    "tagline": "Turn a few hand signs into clear classroom requests.",
+    "inspiration": "We wanted to help students communicate simple needs during class when speaking up is uncomfortable or not practical. We focused on a small set of visual cues and spoken output rather than trying to translate every conversation.",
+    "what_it_does": "A browser prototype uses a webcam to recognize a limited set of hand shapes and phrases, then displays the interpreted text and can read it aloud with ElevenLabs. A separate Gemini chat companion can respond to typed messages with supportive suggestions, though the two parts are not joined in the demo.",
+    "how_we_built_it": "MediaPipe runs hand landmark detection in the browser, and JavaScript heuristics compare joint positions to recognize selected signs. We connected a Gemini chat view and an ElevenLabs speech call as separate components.",
+    "challenges_we_ran_into": "Hand movement sometimes gets mistaken for a held sign, and recognition varies with camera angle and lighting. The chat, hand recognition, and speech output work in isolation, but the complete interaction is not reliably connected.",
+    "accomplishments": "We got browser-based hand landmarks working and built a small sign-to-text flow with spoken output. We also made a separate chat prototype to explore how a companion could respond to typed requests.",
+    "what_we_learned": "We learned that simple landmark rules need careful handling of movement and hand position. AI tools helped us draft and refine the companion responses, while MediaPipe gave us hands-on experience with local vision processing.",
+    "whats_next": "We’d expand the sign set with testing from sign language users and connect recognition, text, speech, and chat into one accessible flow. We’d also add controls for choosing which phrases the app recognizes.",
+    "built_with": [
+      "css",
+      "elevenlabs",
+      "gemini",
+      "html",
+      "javascript",
+      "mediapipe"
+    ],
+    "challenges": [
+      "elevenlabs"
+    ]
+  },
+  "seed_ids": [
+    "hackusf-2026--signbridge-ba4imv"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/signbridge-ba4imv"
+  ],
+  "primary_pool": "elevenlabs",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "ai_ml",
+    "completion": "partial",
+    "writing_style": "terse"
+  },
+  "fit": {
+    "elevenlabs": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009032,
+  "batch_id": "b010",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.7039127267725416,
+    "field": 0.5952828997558071
+  },
+  "created_at": "2026-10-11T00:48:36+00:00"
+}

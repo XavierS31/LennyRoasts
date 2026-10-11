@@ -1,0 +1,51 @@
+{
+  "project_id": "kh9-smoke-t023",
+  "team_id": "t023",
+  "submission": {
+    "name": "Campus Watchtower",
+    "tagline": "Use a camera view and Gemini to flag possible campus facility incidents for review.",
+    "inspiration": "A maintenance or safety issue can be easy to miss when it is only reported after someone walks away. We wanted to see whether a small camera-based prototype could help campus operations staff notice possible incidents sooner.",
+    "what_it_does": "Campus Watchtower analyzes a selected camera image or short feed sample with Gemini and labels possible issues such as smoke, blocked access, or an unusual crowd. It shows the location on a map and offers a suggested route to inspect the area. The output is a review prompt for staff, not an automatic emergency dispatch.",
+    "how_we_built_it": "We used Next.js for the dashboard and API, MongoDB for incident records, and Gemini for image and text analysis. A separate Python process checks the configured camera sample and posts candidate events, which the dashboard maps and turns into an inspection suggestion.",
+    "challenges_we_ran_into": "Working with low-quality or changing camera views made incident labels inconsistent, so results still need human review. The prototype runs through the demo flow, though it has only been exercised with a small set of configured feeds and does not cover a broad live camera network.",
+    "accomplishments": "We connected image analysis, an incident list, and mapped inspection routes into one usable prototype. We also made the uncertainty visible by presenting detections as candidates to verify.",
+    "what_we_learned": "We learned that image quality and camera placement shape what a model can reasonably identify. Building around hardware feeds also made us think about timing, retries, and how to keep a camera failure from looking like an all-clear.",
+    "whats_next": "We would test against more varied camera conditions and add better feed health reporting. We would also make route suggestions account for access restrictions and staff availability.",
+    "built_with": [
+      "gemini",
+      "mongodb",
+      "next.js",
+      "python",
+      "typescript"
+    ],
+    "challenges": [
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "hackusf-2026--responseone"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/responseone"
+  ],
+  "primary_pool": "gemini",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "hardware",
+    "completion": "polished",
+    "writing_style": "terse"
+  },
+  "fit": {
+    "gemini": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009023,
+  "batch_id": "b008",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.5057346495863589,
+    "field": 0.5662295571111828
+  },
+  "created_at": "2026-10-11T00:47:52+00:00"
+}

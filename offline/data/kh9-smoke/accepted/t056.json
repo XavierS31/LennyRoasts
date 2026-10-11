@@ -1,0 +1,46 @@
+{
+  "project_id": "kh9-smoke-t056",
+  "team_id": "t056",
+  "submission": {
+    "name": "Campus Cadence",
+    "tagline": "A compact ride display for campus couriers, with a weekly distance board.",
+    "inspiration": "We wanted to make a simple ride readout for students who bike between campus buildings to deliver club materials or help with events. A weekly distance board seemed like a fun way for small volunteer crews to compare how much ground they cover.",
+    "what_it_does": "The prototype reads location data to estimate a rider's speed and distance, then presents the ride on a small display. A companion website is meant to collect weekly totals for a crew leaderboard; the map view is a separate demonstration of the location data.",
+    "how_we_built_it": "We used an ESP32 with a GPS module and Arduino-style C++ code to calculate speed and mileage from successive positions. When the module struggled to get a fix, we also tried passing phone location data to the board. The display, website, and map each have working pieces, but ride data is not yet reliably connected to the leaderboard.",
+    "challenges_we_ran_into": "The GPS receiver took a long time to lock onto satellites, so location and speed readings were inconsistent. We also designed the case before accounting for space for a battery and button, then had to modify the print by hand.",
+    "accomplishments": "We worked out the basic distance and speed calculations and built a compact display concept around them. We also made a first pass at a map and weekly comparison page, though those parts still need a dependable shared data flow.",
+    "what_we_learned": "We learned that GPS location quality changes a lot with the environment and that using a phone as a location source brings its own connection work. The hardware packaging also taught us to plan for the battery and controls before printing an enclosure.",
+    "whats_next": "Next we would improve GPS reception, connect each ride to the website automatically, and add a more personalized display. An optional gyroscope could estimate incline for riders who want more detail about their route.",
+    "built_with": [
+      "arduino",
+      "c++",
+      "esp32",
+      "gps"
+    ],
+    "challenges": []
+  },
+  "seed_ids": [
+    "swamphacks-xi--bike-buddy-8j9kg6"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/bike-buddy-8j9kg6"
+  ],
+  "primary_pool": "general",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "hardware",
+    "completion": "partial",
+    "writing_style": "average"
+  },
+  "fit": {},
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009056,
+  "batch_id": "b015",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.6790970051236316,
+    "field": 0.618209202347566
+  },
+  "created_at": "2026-10-11T00:51:16+00:00"
+}

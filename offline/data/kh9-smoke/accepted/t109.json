@@ -1,0 +1,54 @@
+{
+  "project_id": "kh9-smoke-t109",
+  "team_id": "t109",
+  "submission": {
+    "name": "Crew Cutback",
+    "tagline": "Help campus volunteer crews spend less on last-minute meals and snacks.",
+    "inspiration": "Our volunteer teams often make food runs between events and lose track of how much those trips add up to. We wanted a friendly way for crews to set a shared limit and keep each other aware of the spending.",
+    "what_it_does": "A crew can set a weekly food-spending target, log purchases, and see a group total alongside a lightweight leaderboard. Members can manually log a stop or use location prompts to check whether they bought anything; Gemini can offer a short summary of the crew's recent pattern.",
+    "how_we_built_it": "We built a React Native app with Expo and TypeScript, backed by Firebase for crew, member, and purchase records. Location checks can prompt a member to enter a purchase, and Gemini turns the saved totals into a brief recap rather than making budgeting decisions.",
+    "challenges_we_ran_into": "The app works through the main logging and group view, but location prompts can arrive late or fail when the app is in the background. We also had package and device setup issues that made it hard to reproduce the same behavior on every phone.",
+    "accomplishments": "We got crews, purchase logging, and a shared spending view connected in one mobile prototype. We are glad the manual entry option still lets the group keep a record when location detection misses a stop.",
+    "what_we_learned": "We learned how Firebase data and a React Native interface fit together for a shared mobile app. Gemini was useful for drafting concise summaries, but the underlying purchase records needed to stay visible so members could check what the summary was based on.",
+    "whats_next": "We would make background location behavior more dependable and add a quick correction flow for mistaken prompts. We would also explore non-food group costs, such as supplies for recurring volunteer events.",
+    "built_with": [
+      "expo.io",
+      "firebase",
+      "gcp",
+      "gemini",
+      "react",
+      "typescript"
+    ],
+    "challenges": [
+      "bny",
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--cut-p64i2u"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/cut-p64i2u"
+  ],
+  "primary_pool": "bny",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "mobile",
+    "completion": "shaky",
+    "writing_style": "average"
+  },
+  "fit": {
+    "bny": "strong",
+    "gemini": "medium"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009109,
+  "batch_id": "b027",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.6040302239969318,
+    "field": 0.7230702061267718
+  },
+  "created_at": "2026-10-11T00:57:25+00:00"
+}

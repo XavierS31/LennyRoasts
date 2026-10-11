@@ -1,0 +1,527 @@
+{
+  "project_id": "kh9-smoke-t058",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "bny",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 15,
+      "max_total": 25,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "Improves group payment decisions with rewards comparison and explanations, but uses mock data and has limited financial workflow integration.",
+      "evidence": {
+        "originality": "We wanted to help a treasurer quickly compare likely benefits",
+        "tech_understanding": "Gemini request drafts a short explanation from the selected category and matching rates",
+        "functionality": "The prototype lets a user choose a purchase category and compare example cards or payment methods",
+        "wow": "The prototype focuses on making the decision understandable for a group treasurer",
+        "relevance": "Student clubs and neighborhood groups often make purchases with limited budgets and confusing payment options"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect Plaid account retrieval to live recommendation flow",
+        "Expand rewards database beyond sample data",
+        "Add policy saving and fee checking features"
+      ]
+    },
+    {
+      "challenge_id": "elevenlabs",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.3333333333333335,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14.333333333333334,
+      "max_total": 25,
+      "score_10": 5.733333333333333,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "ElevenLabs provides a meaningful secondary audio role by reading explanations aloud, but the main flow works without it.",
+      "evidence": {
+        "originality": "demonstrated a spoken explanation of why one sample option might fit a purchase",
+        "tech_understanding": "ElevenLabs converts the explanation to speech",
+        "functionality": "The prototype focuses on making the decision understandable for a group treasurer rather than only showing a multiplier",
+        "wow": "We made a compact comparison screen and demonstrated a spoken explanation of why one sample option might fit a purchase",
+        "relevance": "ElevenLabs converts the explanation to speech"
+      },
+      "warnings": [
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a required audio explanation step in the main decision flow",
+        "Explain how ElevenLabs speech synthesis integrates with the rewards comparison logic",
+        "Show how the spoken explanation changes based on different card rules"
+      ]
+    },
+    {
+      "challenge_id": "gemini",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project uses Gemini to generate plain-language summaries of payment comparisons, which is a meaningful secondary role in the main flow, but the core functionality relies on static data and mocks.",
+      "evidence": {
+        "originality": "The prototype focuses on making the decision understandable for a group treasurer rather than only showing a multiplier.",
+        "tech_understanding": "A Gemini request drafts a short explanation from the selected category and matching rates, while ElevenLabs converts the",
+        "functionality": "The prototype lets a user choose a purchase category and compare example cards or payment methods against a small",
+        "wow": "We made a compact comparison screen and demonstrated a spoken explanation of why one sample option might fit a purchase.",
+        "relevance": "Gemini can turn the comparison into a plain-language summary, and ElevenLabs can read that summary aloud."
+      },
+      "warnings": [
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate real account data from Plaid into the recommendation flow to move beyond sample data.",
+        "Expand the rewards database to cover more cards and merchant categories for broader applicability.",
+        "Add a feature to let organizations save purchase policies for future reference as planned."
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 12,
+      "max_total": 20,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project offers a focused solution for small organizations comparing payment methods with AI explanations, but its originality is moderate and functionality limited by mocked data.",
+      "evidence": {
+        "originality": "help a treasurer quickly compare likely benefits and keep a short explanation",
+        "tech_understanding": "Gemini request drafts a short explanation from the selected category and matching rates",
+        "functionality": "demo uses sample organization profiles and card data",
+        "wow": "demonstrated a spoken explanation of why one sample option might fit a purchase"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate real account data from Plaid to replace mocked recommendations and improve decision accuracy.",
+        "Expand the rewards database to cover more merchant categories and card types for broader applicability.",
+        "Add a feature to save and retrieve organization-specific purchase policies for future reference."
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 16,
+      "max_total": 25,
+      "score_10": 6.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project uses AI for generating explanations but lacks integration with real account data, affecting functionality and wow factor.",
+      "evidence": {
+        "originality": "We wanted to help a treasurer quickly compare likely benefits",
+        "tech_understanding": "A Gemini request drafts a short explanation from the selected category and matching rates",
+        "functionality": "not described",
+        "wow": "The prototype focuses on making the decision understandable for a group treasurer",
+        "relevance": "We used a React and Next.js interface with a small backend that looks up reward rules from JSON data"
+      },
+      "warnings": [
+        "Run 0: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate real account data from Plaid to improve functionality and relevance",
+        "Expand the rewards database to cover more cards and scenarios",
+        "Implement a system for organizations to save purchase policies"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 2,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 10,
+      "max_total": 25,
+      "score_10": 4.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission is a financial decision tool with game-like elements but lacks core gameplay mechanics.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "A Gemini request drafts a short explanation from the selected category and matching rates",
+        "functionality": "The prototype lets a user choose a purchase category and compare example cards or payment methods against a small reward",
+        "wow": "not described",
+        "relevance": "The prototype lets a user choose a purchase category and compare example cards or payment methods against a small reward"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add core gameplay mechanics like rules, challenges, and win/loss conditions to transform the financial tool into a game",
+        "Implement interactive elements that allow users to make strategic decisions impacting game outcomes",
+        "Develop a game loop with clear objectives and progression that ties the financial decision-making into an engaging gameplay experience"
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.3333333333333335,
+        "functionality": 3,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 12.333333333333334,
+      "max_total": 25,
+      "score_10": 4.933333333333334,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project offers a practical tool for comparing payment methods with rewards, but lacks a clearly goofy or humorous concept as required by the category, resulting in low wow and relevance scores.",
+      "evidence": {
+        "originality": "We wanted to help a treasurer quickly compare likely benefits",
+        "tech_understanding": "not described",
+        "functionality": "The prototype lets a user choose a purchase category and compare example cards or payment methods against a small",
+        "wow": "not described",
+        "relevance": "We wanted to help a treasurer quickly compare likely benefits"
+      },
+      "warnings": [
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a humorous or absurd twist to the payment comparison concept to better fit the funny/goofy category requirements"
+      ]
+    }
+  ]
+}

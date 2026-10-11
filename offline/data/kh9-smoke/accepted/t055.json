@@ -1,0 +1,56 @@
+{
+  "project_id": "kh9-smoke-t055",
+  "team_id": "t055",
+  "submission": {
+    "name": "Page Harbor",
+    "tagline": "A browser companion that spots risky advice in student job and housing searches.",
+    "inspiration": "Students often search for housing, work, and local services without knowing which pages are trustworthy. We wanted to make a small browser tool that can flag concerning material while showing only a limited alert instead of keeping a record of ordinary browsing.",
+    "what_it_does": "A Chrome extension periodically captures the active tab and sends an image to a backend for Gemini classification into safe, review, or harmful categories. The prototype can show an alert in the browser and speak a brief, supportive explanation using ElevenLabs; safe captures are discarded, and repeated similar alerts are suppressed. A basic React dashboard is intended to show flagged items and device settings.",
+    "how_we_built_it": "The TypeScript Manifest V3 extension uses a background service worker to capture tabs, preprocess images, and send them to a Fastify server. The server calls Gemini Vision for a category and confidence, then applies a threshold and cooldown before deciding whether to alert; it uses ElevenLabs to generate the spoken prompt. MongoDB stores device and alert records, while a React dashboard reads those records and provides basic management controls. These pieces connect through typed request and response shapes shared with Zod.",
+    "challenges_we_ran_into": "Gemini results were not always consistent, and rate limits and malformed responses made the classification path unreliable. Our fallback can mark an uncertain result for review, but that does not guarantee the right category. The dashboard, extension, and server each run, though the full device-registration and alert flow still needs more end-to-end hardening.",
+    "accomplishments": "We connected a browser capture flow to an image classifier and a child-facing alert with both visual and spoken feedback. We also added deduplication and cooldown logic so a page that remains open does not immediately generate the same notification over and over.",
+    "what_we_learned": "We learned how Chrome service workers, alarms, and content scripts coordinate, and how much validation an AI response needs before it can drive an alert. Gemini helped us sketch classification prompts and response handling, but we still had to test edge cases and account for model failures ourselves. ElevenLabs made the alerts easier to hear without building a recording pipeline.",
+    "whats_next": "We would like to test the classification flow on more kinds of student-facing pages and tune the categories with families and student support staff. We also want to finish device enrollment, improve dashboard settings, and make alert language configurable by age and context.",
+    "built_with": [
+      "elevenlabs",
+      "fastify",
+      "gemini",
+      "mongodb",
+      "react",
+      "typescript",
+      "vite",
+      "zod"
+    ],
+    "challenges": [
+      "gemini",
+      "elevenlabs"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--koalakite"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/koalakite"
+  ],
+  "primary_pool": "general",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "ai_ml",
+    "completion": "shaky",
+    "writing_style": "detailed"
+  },
+  "fit": {
+    "gemini": "medium",
+    "elevenlabs": "medium"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009055,
+  "batch_id": "b015",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.7465232842512798,
+    "field": 0.7569160969867477
+  },
+  "created_at": "2026-10-11T00:51:16+00:00"
+}

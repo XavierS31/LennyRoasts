@@ -1,0 +1,59 @@
+{
+  "project_id": "kh9-smoke-t027",
+  "team_id": "t027",
+  "submission": {
+    "name": "Pantry Route",
+    "tagline": "A map of neighborhood food support and shared growing spaces for community volunteers.",
+    "inspiration": "Volunteer groups coordinating food drives often have to search across separate directories to find pantries, community gardens, and places that accept donations. We wanted a single map that helps organizers plan outreach around the resources already in a neighborhood.",
+    "what_it_does": "Users choose what kind of food support or community space they are looking for, then browse relevant places on an interactive map. Listings combine public map and food assistance data with community-added markers, and Gemini can create a short plain-language summary of a selected location.",
+    "how_we_built_it": "The app uses React, Vite, Tailwind, and Leaflet in the browser, with a Python FastAPI service and SQLite for user-created markers. We pull place information from OpenStreetMap and USDA sources, with a Little Free Library feed as another local resource source, and call Gemini for concise listing descriptions.",
+    "challenges_we_ran_into": "The source datasets use different categories and can be incomplete, so aligning a listing with the map filters took work. We also hit merge conflicts and Python package setup problems; Gemini summaries help explain a listing, but they do not verify that its details are current.",
+    "accomplishments": "We brought several public data sources and community markers into one responsive map that volunteers can explore. The key flow from choosing a need to viewing nearby options is connected end to end.",
+    "what_we_learned": "We learned that useful mapping work involves cleaning and reconciling data as much as drawing the map. Gemini gave us a quick way to summarize service descriptions, while API integration and time management shaped much of the weekend.",
+    "whats_next": "We would like pantry and garden organizers to update their details directly and work with local groups to check listing accuracy. We also want a way to see whether a map search led someone to a useful resource.",
+    "built_with": [
+      "beautiful-soup",
+      "fastapi",
+      "google-gemini",
+      "leaflet.js",
+      "little-free-library-api",
+      "openstreetmap",
+      "overpass-openstreetmap",
+      "python",
+      "react",
+      "sqlite",
+      "tailwind",
+      "usda-api",
+      "vite"
+    ],
+    "challenges": [
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--community-compass-rmojbk"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/community-compass-rmojbk"
+  ],
+  "primary_pool": "general",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "data",
+    "completion": "polished",
+    "writing_style": "average"
+  },
+  "fit": {
+    "gemini": "weak"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009027,
+  "batch_id": "b009",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.7159790993671957,
+    "field": 0.6904543460509099
+  },
+  "created_at": "2026-10-11T00:48:16+00:00"
+}

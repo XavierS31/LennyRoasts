@@ -1,0 +1,60 @@
+{
+  "project_id": "kh9-smoke-t102",
+  "team_id": "t102",
+  "submission": {
+    "name": "Civic Beacon",
+    "tagline": "A shared incident map for neighborhood cleanup and recovery crews.",
+    "inspiration": "After seeing how storms can leave neighborhoods with scattered needs, we wanted a simple way for local volunteers and coordinators to share what is happening block by block. We focused on the period after the immediate emergency, when residents still need help and teams need a clearer picture.",
+    "what_it_does": "Residents can send a chat report about a blocked road, supply need, or other issue, which appears as a location on a shared map. Coordinators can review clusters of reports, ask Gemini questions about an area, and send updates to people nearby; the map also shows volunteer teams. We added a short spoken briefing for coordinators as a small voice feature.",
+    "how_we_built_it": "We used FastAPI for REST endpoints and a WebSocket for live updates, with PostgreSQL storing reports and their locations. A Gemini-backed retrieval flow is intended to answer questions using reports from a selected area, and React with Vite provides the resident and coordinator screens. We also tried Databricks to summarize report trends and included a BNY-themed resource status panel for tracking recovery supplies; the pieces are prototypes and are not fully connected.",
+    "challenges_we_ran_into": "Tuning report retrieval took longer than expected, and map layers were fiddly to line up. Our Gemini questions, Databricks summaries, voice briefing, and supply panel each have a basic path, but several do not yet share live data end to end.",
+    "accomplishments": "We got the core report and map experience running and connected it to a first pass at location-based questions. We are glad the prototype makes it possible to see incoming needs and coordinator updates in one place.",
+    "what_we_learned": "We learned that a retrieval system has to fit into the screens and data flow people actually use; building embeddings alone does not make answers useful. Gemini helped us shape and test the question flow, and we learned to check its responses against the reports behind them.",
+    "whats_next": "We would connect the analytics and voice briefing to the same live report stream, then test the map with local recovery coordinators. We also want clearer accessibility options and a way to mark reports resolved.",
+    "built_with": [
+      "fastapi",
+      "gemini",
+      "postgresql",
+      "python",
+      "react",
+      "vite",
+      "databricks",
+      "elevenlabs"
+    ],
+    "challenges": [
+      "elevenlabs",
+      "bny",
+      "databricks",
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "hackusf-2026--reverse-phst5o"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/reverse-phst5o"
+  ],
+  "primary_pool": "gemini",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "partial",
+    "writing_style": "terse"
+  },
+  "fit": {
+    "elevenlabs": "weak",
+    "bny": "medium",
+    "databricks": "medium",
+    "gemini": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009102,
+  "batch_id": "b026",
+  "attempt": 2,
+  "similarity": {
+    "seed": 0.6613712169637093,
+    "field": 0.6914606020094756
+  },
+  "created_at": "2026-10-11T00:57:10+00:00"
+}

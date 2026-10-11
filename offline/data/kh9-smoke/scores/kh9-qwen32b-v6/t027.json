@@ -1,0 +1,388 @@
+{
+  "project_id": "kh9-smoke-t027",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "gemini",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 4,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 16,
+      "max_total": 25,
+      "score_10": 6.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "Gemini provides a meaningful secondary function by generating summaries, but is not central to the core mapping functionality.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "not described",
+        "functionality": "The key flow from choosing a need to viewing nearby options is connected end to end.",
+        "wow": "We brought several public data sources and community markers into one responsive map that volunteers can explore.",
+        "relevance": "Gemini can create a short plain-language summary of a selected location."
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described.",
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: wow evidence was not an exact quote; replaced with not described.",
+        "Run 1: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate Gemini more deeply into location data validation or filtering logic to increase relevance",
+        "Add detailed documentation of the Gemini API integration steps and data flow decisions to strengthen technical understanding evidence",
+        "Implement user feedback tracking for Gemini summaries to demonstrate their impact on core functionality"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 4,
+        "wow": 2
+      },
+      "total": 13,
+      "max_total": 20,
+      "score_10": 6.5,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project combines public data sources with community markers in a map for food support, showing clear technical decisions and working core functionality but lacks exceptional originality or wow factor.",
+      "evidence": {
+        "originality": "A map of neighborhood food support and shared growing spaces for community volunteers.",
+        "tech_understanding": "not described",
+        "functionality": "We brought several public data sources and community markers into one responsive map that volunteers can explore.",
+        "wow": "not described"
+      },
+      "warnings": [
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 0: wow evidence was not an exact quote; replaced with not described.",
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add direct update functionality for organizers to ensure listing accuracy as described in the next steps",
+        "Implement a feedback system to track if map searches lead to successful resource access as outlined in future plans",
+        "Enhance data reconciliation processes to better align the different source datasets as mentioned in challenges"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 4,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 17,
+      "max_total": 25,
+      "score_10": 6.8,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project integrates multiple data sources with a meaningful AI role in summarizing listings, showing clear technical understanding and a working core with some limitations.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "not described",
+        "functionality": "The key flow from choosing a need to viewing nearby options is connected end to end.",
+        "wow": "not described",
+        "relevance": "Gemini can create a short plain-language summary of a selected location."
+      },
+      "warnings": [
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: originality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a feature for pantry and garden organizers to update their details directly for better listing accuracy.",
+        "Implement a feedback mechanism to track whether a map search leads someone to a useful resource.",
+        "Enhance the data reconciliation process to better align listings with map filters."
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 12,
+      "max_total": 25,
+      "score_10": 4.8,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission is a map-based utility for food support resources, not a game with player actions or challenges.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We pull place information from OpenStreetMap and USDA sources, with a Little Free Library feed as another local resource",
+        "functionality": "The key flow from choosing a need to viewing nearby options is connected end to end",
+        "wow": "not described",
+        "relevance": "Users choose what kind of food support or community space they are looking for, then browse relevant places on an"
+      },
+      "warnings": [
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add gameplay elements like challenges or quests for users to complete when interacting with food support locations on the map"
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 2.3333333333333335,
+        "tech_understanding": 3.6666666666666665,
+        "functionality": 4,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 4,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project is a practical community resource map with some technical integration but lacks a goofy or humorous concept as required by the category.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We pull place information from OpenStreetMap and USDA sources, with a Little Free Library feed as another local resource",
+        "functionality": "The key flow from choosing a need to viewing nearby options is connected end to end",
+        "wow": "not described",
+        "relevance": "We wanted a single map that helps organizers plan outreach around the resources already in a neighborhood."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a humorous or absurd twist to the concept to better fit the funny/goofy category requirements",
+        "Document a more detailed explanation of how the technical components work together",
+        "Include evidence of the project's comic impact or appeal"
+      ]
+    }
+  ]
+}

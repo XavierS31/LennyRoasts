@@ -1,0 +1,56 @@
+{
+  "project_id": "kh9-smoke-t100",
+  "team_id": "t100",
+  "submission": {
+    "name": "Catalyst Scout",
+    "tagline": "Explore enzyme candidates for compounds used in student lab projects.",
+    "inspiration": "We wanted to make enzyme sequence exploration a little more approachable for students working with small chemistry examples. Protein models can produce results that are difficult to connect back to a molecule, so we built a rough interface around that input and output. We adapted the idea toward teaching and early exploration rather than making medical claims.",
+    "what_it_does": "A user enters a compound as a SMILES string and gets a candidate amino acid sequence to inspect. The page also aims to show a basic predicted structure so users can see a rough shape alongside the sequence. Results are exploratory suggestions, not verified enzymes or treatment guidance.",
+    "how_we_built_it": "We used Python with pandas and NumPy to prepare a small set of compound and sequence pairs, then connected a transformer-based model workflow to the web interface. Databricks is used to organize the sample data and run a first-pass analysis of which compound groups appear in the dataset. The UI sends a SMILES input to the backend, which returns a candidate sequence and a summary; a structure-view step is included as a separate service. The sequence path works for some inputs, but the structure step and data workflow do not always respond in time.",
+    "challenges_we_ran_into": "Finding clean paired examples and mapping molecule strings to model inputs took most of our effort. We had limited compute and could not train a reliable model from scratch during the weekend. The Databricks analysis uses a small dataset, and the structure display can fail or time out, so outputs are not consistent.",
+    "accomplishments": "We connected a basic compound input form to a sequence generation path and made a simple data view in Databricks. We are proud that the project gave our team a concrete way to explore how chemical and protein data might meet in a web tool.",
+    "what_we_learned": "We learned more about protein language models, SMILES, and the difficulty of assembling useful biological data. Using Databricks also showed us how data preparation and analysis can support an application, even when the model itself is still rough.",
+    "whats_next": "We would expand and validate the paired dataset, compare model outputs against known examples, and make the structure view more dependable. A next version should clearly communicate confidence and provenance for every candidate.",
+    "built_with": [
+      "bootstrap",
+      "databricks",
+      "esmfold",
+      "huggingface",
+      "javascript",
+      "numpy",
+      "pandas",
+      "python",
+      "pytorch",
+      "transformers"
+    ],
+    "challenges": [
+      "databricks"
+    ]
+  },
+  "seed_ids": [
+    "hackharvard-2024--hackenzyme"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/hackenzyme"
+  ],
+  "primary_pool": "databricks",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "shaky",
+    "writing_style": "average"
+  },
+  "fit": {
+    "databricks": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009100,
+  "batch_id": "b025",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.5227836499993237,
+    "field": 0.5814388858435136
+  },
+  "created_at": "2026-10-11T00:56:48+00:00"
+}

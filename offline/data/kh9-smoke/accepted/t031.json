@@ -1,0 +1,50 @@
+{
+  "project_id": "kh9-smoke-t031",
+  "team_id": "t031",
+  "submission": {
+    "name": "Goalhouse",
+    "tagline": "Small daily challenges, shared stakes, steady progress.",
+    "inspiration": "We kept making plans to improve our routines and then losing momentum after a few days. We wanted a lightweight place to turn personal goals into manageable daily actions and let friends help keep each other accountable.",
+    "what_it_does": "Goalhouse suggests small tasks across areas like movement, creativity, and social connection based on a short onboarding quiz. Users can check tasks off and write daily reflections; a friend group can also pledge a small stake to a shared goal and see whether members have kept up.",
+    "how_we_built_it": "We made a React Native app with an Express and Supabase backend for accounts, tasks, and progress. A Cohere-powered coach can respond to questions about a user's goals, while the group pledge idea borrows the accountability mechanic of friends having a stake in one another's follow-through.",
+    "challenges_we_ran_into": "We did not get the full demo working end to end: quiz answers, task suggestions, and saved progress were isolated pieces and did not reliably stay in sync. Expo connectivity on public Wi-Fi and merging work across the team also slowed us down, so the friend pledge flow remained a sketch.",
+    "accomplishments": "We built separate screens for exploring tasks, tracking progress, and reflecting on the day. We are proud that the core interaction is concrete enough to show how a routine app could make consistency feel social.",
+    "what_we_learned": "We learned that personalization needs a clear path from onboarding answers to useful tasks, and that database updates need to be planned alongside the UI. AI assistance helped us iterate on coach responses, but it did not solve integration or state-management issues for us.",
+    "whats_next": "We would connect quiz results, task generation, and progress storage into a reliable flow before expanding the social feature. Voice reflections and user-created task categories are ideas for a later version.",
+    "built_with": [
+      "cohere",
+      "express.js",
+      "node.js",
+      "react-native",
+      "supabase",
+      "typescript"
+    ],
+    "challenges": []
+  },
+  "seed_ids": [
+    "swamphacks-xi--one-3pymti",
+    "swamphacks-xi--project-c1nomzfei7a0"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/one-3pymti",
+    "https://devpost.com/software/project-c1nomzfei7a0"
+  ],
+  "primary_pool": "general",
+  "mutation": "heavy",
+  "persona": {
+    "skill_focus": "data",
+    "completion": "broken",
+    "writing_style": "average"
+  },
+  "fit": {},
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009031,
+  "batch_id": "b011",
+  "attempt": 2,
+  "similarity": {
+    "seed": 0.6910578316056151,
+    "field": 0.5549252592649812
+  },
+  "created_at": "2026-10-11T00:48:57+00:00"
+}

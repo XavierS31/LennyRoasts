@@ -1,0 +1,57 @@
+{
+  "project_id": "kh9-smoke-t051",
+  "team_id": "t051",
+  "submission": {
+    "name": "AidCall Drill",
+    "tagline": "Practice the first few minutes of a campus emergency response through voice-led scenarios.",
+    "inspiration": "On a large campus, a student or staff member may have to report an incident before they know which details responders need. We wanted to turn emergency guidance into a short decision game, and borrowed the idea of a voice front desk that gathers context and routes urgent information for review.",
+    "what_it_does": "The player works through a simulated campus incident, choosing actions as new details arrive and answering a Gemini dispatcher that asks follow-up questions. At the end, the app creates a brief report and reads key points aloud; the experience works from start to finish, though dispatcher responses sometimes repeat or lag.",
+    "how_we_built_it": "We built the scenario interface in React with Tailwind, and used Gemini to generate context-aware dispatcher prompts and a closing review from the player's choices. Browser speech input captures replies and Google Cloud Text-to-Speech voices the dispatcher, while a simple campus map model uses locations and connections to shape available actions.",
+    "challenges_we_ran_into": "Keeping the voice exchange aligned with the game state was unreliable, and the dispatcher can repeat a prompt or miss part of an answer. Our campus locations are a small modeled set, so the route choices are not a live map or a substitute for official emergency procedures.",
+    "accomplishments": "We connected scenario choices, a contextual dispatcher, and a spoken wrap-up into a playable emergency practice loop. We are proud that Gemini can use the player's current situation to make the conversation feel tied to the exercise.",
+    "what_we_learned": "We learned to give a language model constrained context when its answer needs to match a game state, and saw how much timing matters in a voice interface. The voice-front-desk pattern also helped us think about collecting useful details before routing an incident for human review.",
+    "whats_next": "We would make turn-taking more reliable, add more campus scenarios, and review the guidance with university emergency staff. A future version could let teams coordinate roles during a drill and produce a clearer handoff report.",
+    "built_with": [
+      "react",
+      "tailwind-css",
+      "javascript",
+      "google-gemini-api",
+      "google-cloud-text-to-speech",
+      "web-speech-api",
+      "vite"
+    ],
+    "challenges": [
+      "bny",
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "hackusf-2026--the-surge-usf",
+    "hacklytics-2026--meredith-2dv74r"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/the-surge-usf",
+    "https://devpost.com/software/meredith-2dv74r"
+  ],
+  "primary_pool": "gemini",
+  "mutation": "heavy",
+  "persona": {
+    "skill_focus": "hardware",
+    "completion": "shaky",
+    "writing_style": "average"
+  },
+  "fit": {
+    "bny": "weak",
+    "gemini": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009051,
+  "batch_id": "b014",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.4948949599946668,
+    "field": 0.6934522167135194
+  },
+  "created_at": "2026-10-11T00:50:53+00:00"
+}

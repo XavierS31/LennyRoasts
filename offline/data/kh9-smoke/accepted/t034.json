@@ -1,0 +1,57 @@
+{
+  "project_id": "kh9-smoke-t034",
+  "team_id": "t034",
+  "submission": {
+    "name": "Pantry Ledger",
+    "tagline": "Use what’s on hand to plan meals and keep shared kitchen costs visible.",
+    "inspiration": "Shared apartments often have ingredients in the kitchen but no clear plan for using them, while grocery costs are split informally. We wanted to connect meal planning with a simple view of what a shared household may need to buy.",
+    "what_it_does": "Users enter available ingredients and get recipe suggestions ranked by how well they match, including missing items and instructions. Gemini can suggest substitutions from the pantry list, and a small shared-cost view estimates what missing ingredients may add to the next grocery trip.",
+    "how_we_built_it": "We used a Next.js and TypeScript frontend with Tailwind styling, and a Python Flask service that matches ingredients against TheMealDB results. Gemini handles substitution suggestions, while the cost panel uses rough item estimates in the app.",
+    "challenges_we_ran_into": "Ingredient names and quantities from recipe data are inconsistent, so match scores and cost estimates can be off. The end-to-end flow works, but Gemini sometimes suggests a substitute that doesn’t fit the recipe, and we haven’t made the estimates dependable enough for actual budgeting.",
+    "accomplishments": "We connected ingredient entry, ranked recipe results, and pantry-based substitution suggestions in a working web app. We also added a basic way to see how missing items might affect a shared grocery plan.",
+    "what_we_learned": "We learned that messy ingredient data affects both recipe matching and any cost estimate built on top of it. Gemini helped us generate substitution ideas, but those suggestions still need checks against the recipe context.",
+    "whats_next": "We’d improve ingredient normalization, let roommates save a shared pantry, and make grocery cost estimates more consistent. We’d also add a review step for substitutions before they become part of a meal plan.",
+    "built_with": [
+      "flask",
+      "gemini",
+      "javascript",
+      "nextjs",
+      "python",
+      "react",
+      "tailwindcss",
+      "themealdb",
+      "typescript"
+    ],
+    "challenges": [
+      "gemini",
+      "bny"
+    ]
+  },
+  "seed_ids": [
+    "hackusf-2026--cooked-m9206r"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/cooked-m9206r"
+  ],
+  "primary_pool": "gemini",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "ai_ml",
+    "completion": "shaky",
+    "writing_style": "terse"
+  },
+  "fit": {
+    "gemini": "strong",
+    "bny": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009034,
+  "batch_id": "b010",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.6842570063198028,
+    "field": 0.6813160320027951
+  },
+  "created_at": "2026-10-11T00:48:36+00:00"
+}

@@ -1,0 +1,56 @@
+{
+  "project_id": "kh9-smoke-t006",
+  "team_id": "t006",
+  "submission": {
+    "name": "Form Compass",
+    "tagline": "Turn campus paperwork into a short checklist and listenable plain language guide.",
+    "inspiration": "As students, we keep running into forms for housing, financial aid, and campus services that are hard to parse when deadlines are close. We wanted to make those documents feel less intimidating and help someone spot what they need to do next.",
+    "what_it_does": "Upload a document to see its original text next to a simpler explanation and a checklist of possible next steps. Gemini also labels the kind of document and creates a short walkthrough that can be played aloud. We focused the demo on student facing forms rather than every kind of technical document.",
+    "how_we_built_it": "We made a React and Vite web interface with a Node and Express backend. The backend sends extracted document text to Gemini for a plain language rewrite and action list, then stores the result in MongoDB Atlas for the page to retrieve. ElevenLabs turns the explanation into audio. The upload, explanation, and playback pieces work, though the flow between them still needs cleanup.",
+    "challenges_we_ran_into": "Connecting the upload, AI response, database, and audio service took more time than expected. We also had to keep the rewrite readable without letting it lose important details, and our current demo does not handle every document layout reliably.",
+    "accomplishments": "We got the main document explanation flow running and made a page that can show the source alongside the simpler version. We are proud that Gemini is doing the central rewrite and checklist work, with audio available as another way to consume the result.",
+    "what_we_learned": "We learned that clear prompts and predictable response structure matter when the UI depends on AI output. Gemini helped us draft and refine the summaries, but we still needed to check the results and design around gaps in document extraction.",
+    "whats_next": "We would improve support for scanned and longer documents, add a way to choose a reading level, and let students save useful explanations. We would also spend more time testing whether the checklist makes the next steps easier to find.",
+    "built_with": [
+      "css",
+      "elevenlabs",
+      "express.js",
+      "google-gemini",
+      "html",
+      "javascript",
+      "mongodb",
+      "node.js",
+      "react",
+      "vite"
+    ],
+    "challenges": [
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--plainspeak-u174s8"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/plainspeak-u174s8"
+  ],
+  "primary_pool": "gemini",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "partial",
+    "writing_style": "average"
+  },
+  "fit": {
+    "gemini": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009006,
+  "batch_id": "b002",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.6908064680042707,
+    "field": 0.44985845344306574
+  },
+  "created_at": "2026-10-10T23:32:04+00:00"
+}

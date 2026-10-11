@@ -1,0 +1,48 @@
+{
+  "project_id": "kh9-smoke-t106",
+  "team_id": "t106",
+  "submission": {
+    "name": "Break Bloom",
+    "tagline": "A small desktop garden that turns screen breaks into a routine you can shape.",
+    "inspiration": "We wanted to make short breaks feel approachable for people who spend long stretches working at a computer. A small animated companion seemed more inviting than another timer notification, and we were curious whether users could shape a simple routine from reusable activity blocks.",
+    "what_it_does": "The desktop prototype lets a user set a work interval and shows a small animated character when it is time to pause. A break screen offers a few hand and wrist exercises with a timer and an encouraging message when the interval ends. We sketched a visual workflow builder for arranging break steps, but it is not connected to the timer yet.",
+    "how_we_built_it": "We used Python, Tkinter, and Pillow to create the timer window, exercise cards, and animated desktop pet. The timer triggers the break screen, which reads from a small list of exercises and messages; the pet reacts to the timer state. Separately, we made a mock canvas for arranging routine blocks, inspired by visual agent builders, but it does not yet generate or run a routine.",
+    "challenges_we_ran_into": "Transparent-looking desktop windows and keeping the pet in place took experimentation. We also hoped to infer activity from computer use, but platform-specific permissions and hardware differences made that too large for the weekend. The routine canvas and timer remain separate pieces.",
+    "accomplishments": "We got the timer, break prompt, and draggable character working together as a basic desktop flow. We are pleased that the prototype can offer a choice of exercises instead of only displaying a generic alert.",
+    "what_we_learned": "We learned Tkinter event handling, basic animation, and how to keep user choices in a simple desktop interface. We also learned from trying a visual workflow canvas that blocks only help when they connect to real behavior, and AI coding assistance needed review to keep the implementation small.",
+    "whats_next": "We would connect the routine canvas to the timer, add more break activities, and make the companion customizable. Later, we could explore cross-platform activity signals and optional hardware reminders, with clear controls over what the app observes.",
+    "built_with": [
+      "pillow",
+      "python",
+      "random",
+      "tkinter"
+    ],
+    "challenges": []
+  },
+  "seed_ids": [
+    "swamphacks-xi--move-your-joints",
+    "hackthenorth2025--langsketch"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/move-your-joints",
+    "https://devpost.com/software/langsketch"
+  ],
+  "primary_pool": "general",
+  "mutation": "heavy",
+  "persona": {
+    "skill_focus": "mobile",
+    "completion": "partial",
+    "writing_style": "detailed"
+  },
+  "fit": {},
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009106,
+  "batch_id": "b026",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.7800662494380677,
+    "field": 0.7564776345898236
+  },
+  "created_at": "2026-10-11T00:57:10+00:00"
+}

@@ -1,0 +1,46 @@
+{
+  "project_id": "kh9-smoke-t005",
+  "team_id": "t005",
+  "submission": {
+    "name": "Trail Jam",
+    "tagline": "Race your friends to set up camp before the weather turns.",
+    "inspiration": "We wanted to turn the scramble of getting ready for an outdoor trip into a small, chaotic game. Instead of campus parking, the setting is a crowded campground where players try to claim a spot and get their gear in place.",
+    "what_it_does": "Trail Jam is a short Unity game where players steer around obstacles, compete for campsite spaces, and gather scattered gear before time runs out. It runs from start to finish, though collisions and item pickups can behave inconsistently when several objects overlap.",
+    "how_we_built_it": "We used Unity and C# for movement, collisions, and the timed round, with Photoshop for the simple art assets. GitHub helped us share the project and merge scene changes. Audio and background movement add a little atmosphere to the playable loop.",
+    "challenges_we_ran_into": "Unity scene changes were awkward to merge, and balancing movement with collisions took repeated adjustments. We still have cases where a pickup does not register on the first pass.",
+    "accomplishments": "We built a complete playable round with a clear goal and a playful campground setting. We are happy with how the menu and game screen fit together.",
+    "what_we_learned": "We got more comfortable building gameplay in Unity and coordinating shared project files. We also learned that small physics bugs can make a short game feel much harder to finish.",
+    "whats_next": "We would add more campground layouts, pause and audio controls, and a few gear-based power-ups.",
+    "built_with": [
+      "unity",
+      "csharp",
+      "github",
+      "photoshop"
+    ],
+    "challenges": []
+  },
+  "seed_ids": [
+    "swamphacks-xi--gator-spot-frenzy"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/gator-spot-frenzy"
+  ],
+  "primary_pool": "general",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "game_dev",
+    "completion": "shaky",
+    "writing_style": "terse"
+  },
+  "fit": {},
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009005,
+  "batch_id": "b003",
+  "attempt": 2,
+  "similarity": {
+    "seed": 0.5855596682190103,
+    "field": 0.41861017341121454
+  },
+  "created_at": "2026-10-10T23:32:47+00:00"
+}

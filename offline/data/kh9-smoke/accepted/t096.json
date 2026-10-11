@@ -1,0 +1,62 @@
+{
+  "project_id": "kh9-smoke-t096",
+  "team_id": "t096",
+  "submission": {
+    "name": "Relief Rhythm",
+    "tagline": "Explore local supply gaps and hear a short practice track for planning a response.",
+    "inspiration": "During a response, teams need to compare reported needs with available resources and make sense of a changing situation. We wanted to pair a simple data view with a way for volunteers to rehearse the terminology and decisions they may encounter.",
+    "what_it_does": "The site maps sample regions by a gap score comparing reported needs with listed aid, and a selected region opens its risk indicators and suggested logistics. A practice mode generates a short backing track and a set of response terms for a volunteer to improvise over, with Gemini offering a brief reflection on the submitted notes.",
+    "how_we_built_it": "We prepared sample aid and need records with Python and pandas, then used Databricks to calculate and display regional gap summaries that drive the map colors. The web interface connects selection state to a detail panel; Gemini drafts region-specific planning prompts, while the practice mode borrows the configurable track and feedback idea from a music learning tool. BNY is represented by a small resource-allocation view, and the track is a secondary workflow rather than a financial product.",
+    "challenges_we_ran_into": "Joining the map, data summaries, and practice mode took more coordination than expected, and a few map selections did not refresh the detail panel at first. The main path works with our sample dataset, but the aid figures and recommendations are not validated for real deployments.",
+    "accomplishments": "We connected a regional gap view to a detail panel and a lightweight practice flow. We are glad the Databricks calculations affect the map instead of sitting in a separate notebook, and that the demo can move from a data point to a planning prompt.",
+    "what_we_learned": "We learned that a useful index depends on clear assumptions about what its inputs mean, and that those assumptions need to be visible. We also found that map state and generated practice content need separate interfaces so a change in one does not unexpectedly reset the other.",
+    "whats_next": "We would use better sourced and regularly updated data, add uncertainty notes to the gap scores, and ask aid practitioners to review the planning prompts. The practice mode could later accept voice recordings and give feedback on clarity and terminology.",
+    "built_with": [
+      "databricks",
+      "bny",
+      "gemini",
+      "anthropic",
+      "node.js",
+      "numpy",
+      "pandas",
+      "python",
+      "scikit-learn",
+      "typescript"
+    ],
+    "challenges": [
+      "databricks",
+      "bny",
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "hacklytics-2026--aidsignal",
+    "swamphacks-xi--improvigator"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/aidsignal",
+    "https://devpost.com/software/improvigator"
+  ],
+  "primary_pool": "databricks",
+  "mutation": "heavy",
+  "persona": {
+    "skill_focus": "hardware",
+    "completion": "polished",
+    "writing_style": "average"
+  },
+  "fit": {
+    "databricks": "strong",
+    "bny": "weak",
+    "gemini": "medium"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009096,
+  "batch_id": "b024",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.5992105158869941,
+    "field": 0.6526579532766215
+  },
+  "created_at": "2026-10-11T00:56:24+00:00"
+}

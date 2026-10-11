@@ -1,0 +1,57 @@
+{
+  "project_id": "kh9-smoke-t047",
+  "team_id": "t047",
+  "submission": {
+    "name": "KiteWatch",
+    "tagline": "A family browser companion that flags concerning pages and gives teens a calm voice prompt.",
+    "inspiration": "We wanted to explore how families could talk about troubling online material without making every browsing session feel watched. We focused on a shared household computer, where a brief supportive prompt might help a teen pause and ask for help.",
+    "what_it_does": "A Chrome extension periodically checks the active page and asks Gemini to classify a screenshot into a few safety categories. When a page crosses the alert threshold, the extension can show a gentle on-screen message and play a short ElevenLabs voice prompt; safe images are discarded, and the prototype does not send parent emails.",
+    "how_we_built_it": "The extension uses TypeScript and Chrome APIs to capture and process screenshots, then sends them to a small server for Gemini classification. A React dashboard shows device and alert status, while a category-specific message is sent to ElevenLabs for playback; Databricks was used for a small exploration of aggregate sample classifications, not the live decision path.",
+    "challenges_we_ran_into": "Screenshots can be ambiguous, and the classifier sometimes returns inconsistent labels, so the alert threshold needs more work. Coordinating extension permissions, server responses, and audio playback also took careful debugging.",
+    "accomplishments": "We connected page capture, classification, an alert overlay, and a spoken message into a working prototype. We also designed the flow to discard pages classified as safe rather than keeping a browsing history.",
+    "what_we_learned": "We learned that privacy expectations need to shape the data flow from the start, and that an AI label should be treated as a prompt for a conversation rather than a final judgment. ElevenLabs made the messages feel less like system alerts, and our Databricks experiment introduced us to examining classification patterns in aggregate.",
+    "whats_next": "We would test the experience with families, add more control over alert categories, and improve handling for video and page text. We would also make the dashboard clearer about what gets processed and retained.",
+    "built_with": [
+      "chrome-extension",
+      "databricks",
+      "elevenlabs",
+      "fastify",
+      "gemini",
+      "mongodb",
+      "react",
+      "typescript",
+      "vite"
+    ],
+    "challenges": [
+      "databricks",
+      "elevenlabs"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--koalakite"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/koalakite"
+  ],
+  "primary_pool": "general",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "ai_ml",
+    "completion": "polished",
+    "writing_style": "average"
+  },
+  "fit": {
+    "databricks": "weak",
+    "elevenlabs": "medium"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009047,
+  "batch_id": "b013",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.7215405138291614,
+    "field": 0.6546132277640635
+  },
+  "created_at": "2026-10-11T00:50:08+00:00"
+}

@@ -1,0 +1,302 @@
+{
+  "project_id": "kh9-smoke-t056",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 11,
+      "max_total": 20,
+      "score_10": 5.5,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project shows a clear concept with some working components but lacks reliable data flow and detailed technical explanations.",
+      "evidence": {
+        "originality": "A compact ride display for campus couriers, with a weekly distance board.",
+        "tech_understanding": "We used an ESP32 with a GPS module and Arduino-style C++ code to calculate speed and mileage from successive positions.",
+        "functionality": "The display, website, and map each have working pieces, but ride data is not yet reliably connected to the leaderboard.",
+        "wow": "A compact ride display for campus couriers, with a weekly distance board."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Improve GPS reception and ensure reliable data flow to the leaderboard website.",
+        "Add detailed technical explanations of the GPS and data transmission processes.",
+        "Enhance the display with more personalized features and a gyroscope for incline estimation."
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": false,
+      "criteria": {
+        "originality": 2.6666666666666665,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 12.666666666666666,
+      "max_total": 25,
+      "score_10": 5.066666666666666,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project uses a meaningful ML role in location tracking but lacks central AI behavior; basic functionality is present but incomplete with disconnected components.",
+      "evidence": {
+        "originality": "A compact ride display for campus couriers, with a weekly distance board.",
+        "tech_understanding": "We used an ESP32 with a GPS module and Arduino-style C++ code to calculate speed and mileage from successive positions.",
+        "functionality": "The display, website, and map each have working pieces, but ride data is not yet reliably connected to the leaderboard.",
+        "wow": "A compact ride display for campus couriers, with a weekly distance board.",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 1: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Implement a central AI model for route prediction or rider behavior analysis to increase relevance",
+        "Add detailed explanations of how GPS data is processed and integrated with the leaderboard system",
+        "Develop a working data flow between the hardware and website to improve functionality completeness"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2.6666666666666665,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 12.666666666666666,
+      "max_total": 25,
+      "score_10": 5.066666666666666,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission describes a ride tracking system with a leaderboard but lacks core gameplay elements; the game-like features are secondary to the tracking utility.",
+      "evidence": {
+        "originality": "A weekly distance board seemed like a fun way for small volunteer crews to compare how much ground they cover.",
+        "tech_understanding": "We used an ESP32 with a GPS module and Arduino-style C++ code to calculate speed and mileage from successive positions.",
+        "functionality": "The display, website, and map each have working pieces, but ride data is not yet reliably connected to the leaderboard.",
+        "wow": "We worked out the basic distance and speed calculations and built a compact display concept around them.",
+        "relevance": "The prototype reads location data to estimate a rider's speed and distance, then presents the ride on a small display."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add core gameplay elements like challenges or win conditions to increase relevance as a game.",
+        "Implement reliable data flow between the display and leaderboard to improve functionality.",
+        "Explain specific technical tradeoffs in the hardware and software integration for better technical understanding."
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 12,
+      "max_total": 25,
+      "score_10": 4.8,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project has a simple, practical purpose with a fun weekly distance board, but lacks a central goofy or absurd concept.",
+      "evidence": {
+        "originality": "A weekly distance board seemed like a fun way for small volunteer crews to compare how much ground they cover.",
+        "tech_understanding": "We used an ESP32 with a GPS module and Arduino-style C++ code to calculate speed and mileage from successive positions.",
+        "functionality": "The display, website, and map each have working pieces, but ride data is not yet reliably connected to the leaderboard.",
+        "wow": "not described",
+        "relevance": "A weekly distance board seemed like a fun way for small volunteer crews to compare how much ground they cover."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add an absurd or over-the-top feature to the display or distance tracking concept to increase humor and fit for the category.",
+        "Improve documentation of the GPS challenges and how they were overcome to demonstrate stronger technical understanding.",
+        "Show how the weekly distance board could be used in a more humorous or unexpected way to increase wow factor."
+      ]
+    }
+  ]
+}

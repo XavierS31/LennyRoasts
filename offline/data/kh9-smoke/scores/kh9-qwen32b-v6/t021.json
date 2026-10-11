@@ -1,0 +1,391 @@
+{
+  "project_id": "kh9-smoke-t021",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "gemini",
+      "eligible": true,
+      "criteria": {
+        "originality": 3.6666666666666665,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2.6666666666666665,
+        "relevance": 4
+      },
+      "total": 17.333333333333332,
+      "max_total": 25,
+      "score_10": 6.933333333333334,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 4,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 3,
+            "relevance": 4
+          },
+          "total": 18,
+          "max_total": 25,
+          "score_10": 7.2,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 4,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 3,
+            "relevance": 4
+          },
+          "total": 18,
+          "max_total": 25,
+          "score_10": 7.2,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "Gemini is central to summarizing and ranking parcels with structured outputs, but the end-to-end flow is incomplete.",
+      "evidence": {
+        "originality": "We are proud that the project exposes its reasoning instead of presenting a single unexplained score.",
+        "tech_understanding": "The backend sends candidate parcel information to Gemini for structured summaries and scores, then returns ranked",
+        "functionality": "Some parts of the demo work in isolation, but the full flow from area search through ranked results does not",
+        "wow": "Parcel Quest lets a user choose an area and browse possible infill sites on a map.",
+        "relevance": "Gemini helps summarize each candidate’s apparent suitability across site conditions, development feasibility,"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Fix the full flow from area search to ranked results to ensure consistent completion",
+        "Add clearer links to authoritative zoning and environmental data for stronger source checks",
+        "Improve parcel boundaries and caching to support reliable end-to-end functionality"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 12,
+      "max_total": 20,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project shows a clear component/data flow with decisions but has partial working core functionality.",
+      "evidence": {
+        "originality": "We wanted to make city planning feel more tangible by letting people explore what could happen to overlooked lots.",
+        "tech_understanding": "not described",
+        "functionality": "We put together a working map view and a first pass at comparing candidate sites across several factors.",
+        "wow": "We would connect the search and ranking pieces into a reliable end-to-end flow and cache previous area results."
+      },
+      "warnings": [
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Improve parcel boundaries and add clearer links to authoritative zoning and environmental data.",
+        "Connect the search and ranking pieces into a reliable end-to-end flow.",
+        "Ensure the full flow from area search through ranked results consistently completes."
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 16,
+      "max_total": 25,
+      "score_10": 6.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project uses Gemini to rank infill sites with tradeoff explanations but has partial working core and common implementation aspects.",
+      "evidence": {
+        "originality": "We wanted to make city planning feel more tangible by letting people explore what could happen to overlooked lots.",
+        "tech_understanding": "not described",
+        "functionality": "not described",
+        "wow": "We are proud that the project exposes its reasoning instead of presenting a single unexplained score.",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 0: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Improve the end-to-end flow from area search through ranked results to ensure consistent completion",
+        "Add stronger source checks for parcel details and environmental estimates for real planning use",
+        "Connect search and ranking pieces into a reliable flow and cache previous area results"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission describes a planning tool with game-like elements but lacks core gameplay mechanics.",
+      "evidence": {
+        "originality": "We wanted to make city planning feel more tangible by letting people explore what could happen to overlooked lots.",
+        "tech_understanding": "not described",
+        "functionality": "not described",
+        "wow": "We are proud that the project exposes its reasoning instead of presenting a single unexplained score.",
+        "relevance": "Parcel Quest lets a user choose an area and browse possible infill sites on a map."
+      },
+      "warnings": [
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 0: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add player-controlled actions and win/loss conditions to transform the tool into a game",
+        "Implement a consistent end-to-end flow from area search through ranked results",
+        "Document the technical decisions behind the ranking logic and data flow"
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project's focus on infill housing and tradeoff visualization lacks a goofy or absurd premise, and the described features are practical rather than humorous.",
+      "evidence": {
+        "originality": "We wanted to make city planning feel more tangible by letting people explore what could happen to overlooked lots.",
+        "tech_understanding": "We used Python with FastAPI for the API and React, JavaScript, HTML, and CSS for the map interface.",
+        "functionality": "not described",
+        "wow": "not described",
+        "relevance": "We wanted to make city planning feel more tangible by letting people explore what could happen to overlooked lots."
+      },
+      "warnings": [
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add an absurd, over-engineered solution to a trivial problem presented as life changing.",
+        "Enhance the project with a humorous or comedic central experience to increase its wow factor.",
+        "Document a goofy premise or funny concept to improve relevance to the funny/goofy category."
+      ]
+    }
+  ]
+}

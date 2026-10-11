@@ -1,0 +1,300 @@
+{
+  "project_id": "kh9-smoke-t106",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 11,
+      "max_total": 20,
+      "score_10": 5.5,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        }
+      ],
+      "rationale": "The submission shows a working desktop garden prototype with an animated companion and exercise prompts, but the routine builder is not yet connected to the timer.",
+      "evidence": {
+        "originality": "A small desktop garden that turns screen breaks into a routine you can shape.",
+        "tech_understanding": "We used Python, Tkinter, and Pillow to create the timer window, exercise cards, and animated desktop pet.",
+        "functionality": "The desktop prototype lets a user set a work interval and shows a small animated character when it is time to pause.",
+        "wow": "We got the timer, break prompt, and draggable character working together as a basic desktop flow."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect the routine canvas to the timer to enable custom break workflows",
+        "Add more break activities to increase user engagement and variety",
+        "Implement clear controls for cross-platform activity signals and hardware reminders"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission includes a desktop garden prototype with an animated character for screen breaks but lacks a documented AI model integration, which is central to the Best AI Hack category.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We used Python, Tkinter, and Pillow to create the timer window",
+        "functionality": "not described",
+        "wow": "We are pleased that the prototype can offer a choice of exercises instead of only displaying a generic alert",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a clear description of an AI model integration and its role in the product functionality",
+        "Document how the routine canvas will connect to the timer using an AI model for dynamic break suggestions"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission is a desktop timer with break exercises and an animated pet, scoring as a utility with game-like features due to its focus on routine tracking rather than gameplay.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We used Python, Tkinter, and Pillow to create the timer window, exercise cards, and animated desktop pet.",
+        "functionality": "not described",
+        "wow": "not described",
+        "relevance": "The desktop prototype lets a user set a work interval and shows a small animated character when it is time to pause."
+      },
+      "warnings": [
+        "Run 0: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add player-controlled actions and win/loss conditions to transform the timer into a game with clear gameplay mechanics."
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project has a moderately original approach to break reminders with an animated companion but lacks a central goofy or absurd concept.",
+      "evidence": {
+        "originality": "A small animated companion seemed more inviting than another timer notification",
+        "tech_understanding": "We used Python, Tkinter, and Pillow to create the timer window, exercise cards, and animated desktop pet",
+        "functionality": "The desktop prototype lets a user set a work interval and shows a small animated character when it is time to pause",
+        "wow": "We are pleased that the prototype can offer a choice of exercises instead of only displaying a generic alert",
+        "relevance": "We wanted to make short breaks feel approachable for people who spend long stretches working at a computer"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add an absurd or humorous twist to the break activities or companion character to increase comedic relevance",
+        "Connect the routine canvas to the timer to demonstrate a more complete workflow integration",
+        "Document specific examples of how the animated companion reacts to the timer state in the implementation"
+      ]
+    }
+  ]
+}

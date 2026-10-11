@@ -1,0 +1,373 @@
+{
+  "project_id": "kh9-smoke-t075",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "gemini",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.6666666666666665,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14.666666666666666,
+      "max_total": 25,
+      "score_10": 5.866666666666666,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "Gemini helps parse job descriptions into structured requirements for matching, but core flows are not fully connected and match scoring is approximate.",
+      "evidence": {
+        "originality": "We learned that trade experience is difficult to reduce to a few fields",
+        "tech_understanding": "Gemini helped us explore how to extract requirements, but we still needed to check its results against our own schema",
+        "functionality": "The job parsing and candidate matching pieces work separately, but we did not get every path connected reliably during",
+        "wow": "We are proud that the prototype focuses on helping workers understand why a role might fit instead of only showing a",
+        "relevance": "Gemini is used as a secondary helper to turn pasted job descriptions into structured requirements; the matching flow u"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect employer and worker flows end-to-end with working matching logic",
+        "Add concrete examples of how experience and certifications are mapped to requirements",
+        "Document the schema used to validate Gemini's extracted job requirements"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 12,
+      "max_total": 20,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project addresses a specific local need with a clear problem-solution fit, using Gemini for job parsing and matching.",
+      "evidence": {
+        "originality": "Help Central Florida contractors find available skilled workers",
+        "tech_understanding": "Gemini is used as a secondary helper to turn pasted job descriptions into structured requirements",
+        "functionality": "Employers can paste a short-term trade job and get a list of potential matches",
+        "wow": "We put together a working job input screen, a small candidate view"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Improve the reliability of the job parsing and candidate matching integration paths",
+        "Add detailed explanations of how experience and certifications are represented in the matching algorithm",
+        "Expand the prototype to include automated license checks with regional data sources"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 16,
+      "max_total": 25,
+      "score_10": 6.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "Gemini helps parse job requirements but matching remains partial; trade skill representation challenges are acknowledged with schema constraints.",
+      "evidence": {
+        "originality": "We learned that trade experience is difficult to reduce to a few fields",
+        "tech_understanding": "not described",
+        "functionality": "not described",
+        "wow": "We are proud that the prototype focuses on helping workers understand why a role might fit instead of only showing a",
+        "relevance": "Gemini is used as a secondary helper to turn pasted job descriptions into structured requirements"
+      },
+      "warnings": [
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 0: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add automated license checks by integrating regional certification databases",
+        "Implement end-to-end matching flow with connected employer-worker interfaces",
+        "Document the schema constraints used for Gemini output validation and trade experience representation"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 2,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 10,
+      "max_total": 25,
+      "score_10": 4.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        }
+      ],
+      "rationale": "This is a job matching tool for trade workers, not a game.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We used a React and TypeScript interface with a FastAPI backend, SQLAlchemy, and PostgreSQL.",
+        "functionality": "The job parsing and candidate matching pieces work separately, but we did not get every path connected reliably during",
+        "wow": "not described",
+        "relevance": "Help Central Florida contractors find available skilled workers and show workers their next step."
+      },
+      "warnings": [
+        "Run 1: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add game mechanics like points, levels, or challenges to transform the job matching tool into a game experience."
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 1,
+        "relevance": 1
+      },
+      "total": 10,
+      "max_total": 25,
+      "score_10": 4.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project addresses a practical need with a job-matching system but lacks a funny or goofy concept as required by the category, and the documented functionality shows partial working core with some disconnected paths.",
+      "evidence": {
+        "originality": "Help Central Florida contractors find available skilled workers and show workers their next step.",
+        "tech_understanding": "We used a React and TypeScript interface with a FastAPI backend, SQLAlchemy, and PostgreSQL.",
+        "functionality": "The job parsing and candidate matching pieces work separately, but we did not get every path connected reliably during",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a humorous twist to the job-matching concept to align with the funny/goofy category requirements, such as absurd job descriptions or over-engineered solutions for trivial problems."
+      ]
+    }
+  ]
+}
