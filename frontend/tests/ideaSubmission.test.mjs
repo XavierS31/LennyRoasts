@@ -2,17 +2,20 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import { ideaError, ideaSubmission } from "../src/ideaSubmission.ts";
 
-test("preserves the full idea and leaves implementation claims undescribed", () => {
-  const text = "Campus Queue\n\nI would use Gemini to explain shuttle options. Nothing is built yet.";
-  const submission = ideaSubmission(`  ${text}  `, ["gemini"]);
-  assert.equal(submission.what_it_does, text);
-  assert.equal(submission.name, "Campus Queue");
-  for (const key of ["inspiration", "how_we_built_it", "accomplishments", "what_we_learned"]) {
-    assert.equal(submission[key], "not described");
+test("preserves proposed and working project descriptions without assigning implementation status", () => {
+  for (const text of [
+    "Campus Queue\n\nI would use Gemini to explain shuttle options. Nothing is built yet.",
+    "Campus Queue\n\nWe built and tested a working Gemini route guide. The deployed demo answers shuttle questions.",
+  ]) {
+    const submission = ideaSubmission(`  ${text}  `, ["gemini"]);
+    assert.equal(submission.what_it_does, text);
+    assert.equal(submission.name, "Campus Queue");
+    for (const key of ["tagline", "inspiration", "how_we_built_it", "challenges_we_ran_into", "accomplishments", "what_we_learned", "whats_next"]) {
+      assert.equal(submission[key], "not described");
+    }
+    assert.deepEqual(submission.built_with, ["not described"]);
+    assert.deepEqual(submission.challenges, ["gemini"]);
   }
-  assert.deepEqual(submission.built_with, ["not described"]);
-  assert.deepEqual(submission.challenges, ["gemini"]);
-  assert.match(submission.challenges_we_ran_into, /implementation status is not described/);
 });
 
 test("caps only the derived title by Unicode characters, retaining all user text", () => {
