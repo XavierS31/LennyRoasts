@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 
 from backend.app.contracts import validate
-from offline import collect, config, field, generate, scoring
+from offline import collect, config, controls, field, generate, scoring
 
 
 def cmd_validate(args):
@@ -109,6 +109,22 @@ def cmd_validate_artifact(args):
     raise SystemExit(1 if problems else 0)
 
 
+def cmd_controls(args):
+    failed = 0
+    for control, results, problems in controls.run(args.judge_config, args.control):
+        status = "FAILED" if results is None else "MISMATCH" if problems else "PASS"
+        failed += status != "PASS"
+        print(f"{status:8} {control['id']}")
+        for result in results or []:
+            criteria = " ".join(f"{k}={v:.2f}" for k, v in result["criteria"].items())
+            print(f"    {result['challenge_id']}: eligible={result['eligible']} {criteria}")
+        for problem in problems:
+            print(f"    - {problem}")
+    print(f"{failed} controls did not pass. Saved under .local-tests/offline/controls/; "
+          "controls are synthetic smoke checks, not field results or judge accuracy.")
+    raise SystemExit(1 if failed else 0)
+
+
 def main():
     parser = argparse.ArgumentParser(prog="python -m offline.cli", description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
@@ -190,6 +206,11 @@ def main():
     p.add_argument("--artifact", required=True)
     p.add_argument("--judge-config", required=True)
     p.set_defaults(func=cmd_validate_artifact)
+
+    p = sub.add_parser("controls", help="Score synthetic category controls and compare expected outcomes")
+    p.add_argument("--judge-config", required=True)
+    p.add_argument("--control", action="append", help="Control id to run (repeatable); default all")
+    p.set_defaults(func=cmd_controls)
 
     args = parser.parse_args()
     args.func(args)
