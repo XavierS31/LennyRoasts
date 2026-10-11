@@ -447,7 +447,7 @@
         "id": "gemini",
         "name": "Best Use of Gemini API",
         "kind": "sponsor",
-        "description": "Synthetic API fixture; replace with the reviewed official brief or category definition.",
+        "description": "AI-powered apps with the Gemini API. Choose a challenge that fits your project and show how its technology helps bring your idea to life.\nPrize: MLH Swag Kits.",
         "automatic": false,
         "max_total": 25
       },
@@ -455,7 +455,7 @@
         "id": "elevenlabs",
         "name": "Best Use of ElevenLabs",
         "kind": "sponsor",
-        "description": "Synthetic API fixture; replace with the reviewed official brief or category definition.",
+        "description": "Expressive voice experiences with ElevenLabs. Choose a challenge that fits your project and show how its technology helps bring your idea to life.\nPrize: Wireless Earbuds.",
         "automatic": false,
         "max_total": 25
       },
@@ -463,7 +463,7 @@
         "id": "databricks",
         "name": "Best Use of Databricks",
         "kind": "sponsor",
-        "description": "Synthetic API fixture; replace with the reviewed official brief or category definition.",
+        "description": "Build a solution that uses Databricks to turn data into useful insights, predictions, or actions that address a real-world problem. Bring in data of your choice, prepare it, and use Databricks analytics, machine learning, or AI capabilities to power your solution. Demonstrate a working prototype that connects the work done in Databricks to a useful result.\nPrizes: 1st place: Databricks backpack + water bottle. 2nd place: Databricks backpack or water bottle. 3rd place: Remaining Databricks backpack or water bottle.",
         "automatic": false,
         "max_total": 25
       },
@@ -471,7 +471,7 @@
         "id": "bny",
         "name": "BNY Financial Services",
         "kind": "sponsor",
-        "description": "Synthetic API fixture; replace with the reviewed official brief or category definition.",
+        "description": "Make financial services work better! Build a tool or application that improves a process in the industry, whether you simplify data management, improve client experiences, automate workflows, or tackle another problem that could make a difference.\nPrizes: 1st place: Lululemon Everyday backpack + BNY Stanley + JBL headphones. 2nd place: BNY swag bag with a BNY backpack, JBL headphones, BNY mug, laptop sleeve, and BNY umbrella.",
         "automatic": false,
         "max_total": 25
       },
