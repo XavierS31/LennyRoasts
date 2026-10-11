@@ -146,8 +146,9 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
       onSelectBuilding={(building) => onBuilding(building === "Engineering I" ? "Engineering I" : "Engineering II")} />
     <CameraMenu key={location.kind} kind={location.kind} onCamera={camera}
       onSponsor={(id) => { if (isSponsorRoom(id)) onSponsor(id); }} />
-    {location.kind === "atrium" && <AtriumMap projectNames={result ? [projectName, ...result.rivals.map((entry) => entry.name)] : []} onRoom={onSponsor} />}
-    {location.kind === "atrium" && <aside className="agent-inspector glass-panel" aria-label="AI agent inputs">
+    {location.kind === "atrium" && <div className="atrium-tools">
+    <AtriumMap projectNames={result ? [projectName, ...result.rivals.map((entry) => entry.name)] : []} onRoom={onSponsor} />
+    <aside className="agent-inspector glass-panel" aria-label="AI agent inputs">
       <button className="agent-inspector-toggle" type="button" aria-expanded={agentExpanded} aria-controls="agent-input-content" onClick={() => setAgentExpanded((value) => !value)}>
         {previewActive ? `${samples.length || "Loading"} sample agents` : `${agents.filter((agent) => agent.key !== "user").length} field representatives`} · {agentExpanded ? "Close inputs" : "Explore inputs"}
       </button>
@@ -169,7 +170,8 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
           </>}
         </> : <p>The API supplies up to three field leaders and their summaries. Select a returned agent in the report to read its summary. Other meshes represent the returned field count; their inputs are unavailable through the current API.</p>}
       </div>
-    </aside>}
+    </aside>
+    </div>}
     {location.kind === "classroom" && <>
       {!panelsVisible && <aside className="classroom-caption glass-panel" aria-label="Sponsor classroom" style={{ "--sponsor-color": room.color } as React.CSSProperties}>
         <button type="button" className="classroom-back" onClick={onReturnAtrium}><ArrowLeftIcon size={17} aria-hidden="true" />Atrium</button>
