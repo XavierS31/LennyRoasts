@@ -1,19 +1,19 @@
 {
   "gemini": {
     "name": "[MLH] Best Use of Gemini API",
-    "description": "It’s time to push the boundaries of what’s possible with AI using Google Gemini. Check out the Gemini API to build AI-powered apps that make your friends say WHOA. So, what can Gemini do for your hackathon project?\nUnderstand language like a human and build a chatbot that gives personalized advice\nAnalyze info like a supercomputer and create an app that summarizes complex research papers\nGenerate creative content like code, scripts, music, and more\nThink of the possibilities… what will you build with the Google Gemini API this weekend?"
+    "description": "AI-powered apps with the Gemini API. Choose a challenge that fits your project and show how its technology helps bring your idea to life.\nPrize: MLH Swag Kits."
   },
   "elevenlabs": {
     "name": "[MLH] Best Use of ElevenLabs",
-    "description": "Deploy natural, human-sounding audio with ElevenLabs. Create realistic, dynamic, and emotionally expressive voices for any project, from interactive AI companions to narrated stories and voice-enabled apps. ElevenLabs will empower you to build rich, immersive experiences without the need for actors or complex audio production, using simply the power of AI.\nIntegrate fully autonomous audio experiences into your hack with ElevenLabs and give your project a voice, along with giving your team the chance to win some wireless earbuds!"
+    "description": "Expressive voice experiences with ElevenLabs. Choose a challenge that fits your project and show how its technology helps bring your idea to life.\nPrize: Wireless Earbuds."
   },
   "databricks": {
     "name": "Databricks: Best Use of Databricks",
-    "description": "Build a solution that uses Databricks to turn data into useful insights, predictions, or actions that address a real-world problem. Bring in data of your choice, prepare it, and use Databricks analytics, machine learning, or AI capabilities to power your solution. Demonstrate a working prototype that connects the work done in Databricks to a useful result."
+    "description": "Build a solution that uses Databricks to turn data into useful insights, predictions, or actions that address a real-world problem. Bring in data of your choice, prepare it, and use Databricks analytics, machine learning, or AI capabilities to power your solution. Demonstrate a working prototype that connects the work done in Databricks to a useful result.\nPrizes: 1st place: Databricks backpack + water bottle. 2nd place: Databricks backpack or water bottle. 3rd place: Remaining Databricks backpack or water bottle."
   },
   "bny": {
     "name": "BNY: Financial Services Challenge",
-    "description": "Make financial services work better! Build a tool or application that improves a process in the industry, whether you simplify data management, improve client experiences, automate workflows, or tackle another problem that could make a difference."
+    "description": "Make financial services work better! Build a tool or application that improves a process in the industry, whether you simplify data management, improve client experiences, automate workflows, or tackle another problem that could make a difference.\nPrizes: 1st place: Lululemon Everyday backpack + BNY Stanley + JBL headphones. 2nd place: BNY swag bag with a BNY backpack, JBL headphones, BNY mug, laptop sleeve, and BNY umbrella."
   },
   "overall": {
     "name": "Best Overall Hack",
