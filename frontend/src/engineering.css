@@ -1,0 +1,115 @@
+/* Translucent surfaces over the original Figma Make campus. */
+:root {
+  color-scheme: dark;
+  --page: #172432;
+  --surface: rgba(19, 27, 40, .37);
+  --surface-muted: rgba(24, 35, 50, .28);
+  --ink: #f7f9ff;
+  --muted: #d3ddea;
+  --line: rgba(255, 255, 255, .2);
+  --line-strong: rgba(255, 255, 255, .38);
+  --accent: #ffda74;
+  --accent-ink: #ffda74;
+  --focus: #ffe3a3;
+  --warning: rgba(133, 95, 24, .2);
+  --warning-line: rgba(255, 211, 111, .45);
+  --error: rgba(140, 49, 48, .22);
+  --error-line: rgba(255, 170, 170, .5);
+  --success: rgba(69, 128, 114, .2);
+  --success-line: rgba(157, 230, 202, .4);
+}
+[hidden] { display: none !important; }
+.engineering-app { width: 100%; max-width: none; padding: 20px; color: var(--ink); }
+.engineering-scene { position: fixed; inset: 0; z-index: 0; background: #abc5d8; }
+.engineering-scene canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+.glass-panel, .engineering-app :is(.masthead, .intro, .mode-banner, .form-panel, .report-panel, .page-footer) {
+  background: rgba(16, 25, 39, .38);
+  border: 1px solid rgba(255,255,255,.27);
+  border-radius: 22px;
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 12px 35px rgba(0,0,0,.14);
+  color: var(--ink);
+}
+.engineering-app .masthead { position: sticky; top: 20px; z-index: 5; padding: 12px 18px; margin: 0 0 20px; gap: 14px; min-height: 68px; }
+.engineering-app .wordmark { display: flex; align-items: center; font-size: 23px; color: #fff; }
+.engineering-app .wordmark img { width: 44px; height: 44px; object-fit: contain; margin-right: 9px; }
+.engineering-app .wordmark span { color: #ffda74; }
+.engineering-app .edition { margin-left: auto; color: var(--muted); }
+.glass-content { position: relative; z-index: 2; width: min(600px, 47vw); }
+.engineering-app .intro { padding: 22px 24px; margin: 0 0 12px; }
+.engineering-app .intro h1 { font-size: clamp(27px, 2.6vw, 38px); line-height: 1.1; letter-spacing: -1.2px; max-width: 490px; margin: 8px 0 12px; }
+.engineering-app :is(.eyebrow, .section-kicker) { color: #ffdf90; }
+.engineering-app .lede { font-size: 14px; line-height: 1.55; margin: 0; }
+.engineering-app .mode-banner { padding: 16px 20px; margin: 0 0 12px; }
+.engineering-app .mode-copy p { font-size: 12px; }
+.engineering-app .workspace { display: flex; flex-direction: column; align-items: stretch; gap: 12px; margin: 0; }
+.engineering-app :is(.form-panel, .report-panel) { padding: 24px; scroll-margin-top: 110px; }
+.panel-switch { display: flex; gap: 6px; padding: 6px; }
+.panel-switch button { flex: 1; }
+.engineering-app :is(.secondary-button, .text-button) { color: var(--ink); }
+.engineering-app :is(.secondary-button, .challenge-picker, .track-item, .report-card, .placement-box, .criterion, .run-criteria, .result-mode, .evidence-quote, .processing-panel) {
+  background: rgba(19, 29, 43, .22); border-color: var(--line);
+}
+.engineering-app :is(.notice, .stale-report-note, .warning-section) { color: #fff0c9; }
+.engineering-app .notice-error { color: #ffe0df; }
+.engineering-app :is(.status-chip, .eligibility) { color: #eef6ff; background: rgba(255,255,255,.1); border-color: var(--line); }
+.engineering-app :is(.score-block, .placement-box strong, .criterion dd, .rival > span) { color: #ffde8c; }
+.engineering-app :is(.track-checkmark, .track-name, .challenge-description summary, .challenge-detail-copy, .rationale-section p, .criterion dt, .placement-box span, .evidence-list dt, .evidence-quote, table, .evaluation-status) { color: var(--ink); }
+.engineering-app :is(.field-error, .field-error a) { color: #ffcdca; }
+.engineering-app :is(textarea, input:not([type=checkbox]), select) { background: rgba(6, 15, 29, .26); color: #fff; border-color: rgba(255,255,255,.3); }
+.engineering-app textarea::placeholder { color: #c3cbd8; }
+.engineering-app textarea { min-height: 220px; }
+.engineering-app .track-choice input { accent-color: #ffda74; }
+.engineering-app .submit-button { background: #ffda74; color: #262414; border-color: #ffe7b3; }
+.engineering-app .submit-button:hover:not(:disabled) { background: #ffe4a0; }
+.engineering-app .version-line code, .engineering-app .job-id { background: rgba(0,0,0,.15); color: #e6edf7; }
+.engineering-app .page-footer { margin: 12px 0 0; padding: 14px 18px; flex-wrap: wrap; gap: 8px; font-size: 10px; }
+.scene-link { margin-bottom: 14px; }
+#report-heading { scroll-margin-top: 130px; }
+.engineering-app .report-card.scene-selected { border-color: rgba(255,218,116,.8); }
+.scene-navigation { position: fixed; z-index: 3; top: 110px; right: 20px; width: min(390px, 45vw); padding: 16px; }
+.scene-caption { display: block; font-size: 11px; font-weight: 700; letter-spacing: .12em; color: #ffdf95; margin-bottom: 12px; }
+.scene-tabs, .building-entry { display: flex; gap: 6px; }
+.scene-tabs button { flex: 1; }
+.building-entry { margin-top: 10px; }
+.building-entry select { flex: 1; width: 0; }
+.engineering-explorer button, .panel-switch button { min-height: 40px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 13px; background: rgba(255,255,255,.08); color: #f7f9ff; font-size: 12px; }
+.engineering-explorer button:hover, .panel-switch button:hover { background: rgba(255,255,255,.18); }
+.engineering-explorer button[aria-pressed=true], .panel-switch button[aria-pressed=true] { background: rgba(255,218,116,.2); border-color: rgba(255,218,116,.6); color: #ffe5a9; }
+.engineering-explorer select { min-height: 40px; padding: 8px; border-radius: 13px; border: 1px solid var(--line); font: inherit; font-size: 12px; }
+select option { background: #1a2738; color: #fff; }
+.scene-navigation small { display: block; margin-top: 12px; font-size: 11px; line-height: 1.5; color: #e0e8f1; }
+.camera-controls { position: fixed; z-index: 3; right: 20px; top: 345px; display: grid; gap: 5px; padding: 8px; }
+.scene-results { position: fixed; z-index: 3; right: 160px; bottom: 20px; padding: 20px; width: min(390px, 36vw); max-height: calc(100dvh - 340px); overflow-y: auto; overflow-wrap: anywhere; }
+.scene-results .section-kicker { margin-top: 0; color: #ffdf95; font-size: 10px; }
+.scene-results .results-toggle { width: 100%; text-align: left; line-height: 1.5; margin-bottom: 10px; }
+.scene-results:has(#scene-result-content[hidden]) .results-toggle { margin-bottom: 0; }
+.scene-results label { font-size: 12px; margin-right: 10px; }
+.scene-results select { width: 100%; margin: 8px 0; }
+.marker-selector { display: flex; flex-wrap: wrap; gap: 5px; }
+.marker-selector button { max-width: 100%; overflow-wrap: anywhere; }
+.scene-results h2 { font-size: 19px; margin: 16px 0 4px; }
+.scene-score { font-size: 33px !important; color: #ffdf95; margin: 0; }
+.scene-score span { font-size: 13px; color: var(--muted); }
+.scene-results p { font-size: 12px; line-height: 1.55; }
+.scene-results small { font-size: 10px; line-height: 1.5; color: var(--muted); }
+.scene-fallback { position: fixed; right: 20px; top: 260px; z-index: 3; max-width: 40vw; padding: 20px; }
+@supports not (backdrop-filter: blur(1px)) {
+  .glass-panel, .engineering-app :is(.masthead, .intro, .mode-banner, .form-panel, .report-panel, .page-footer) { background: rgba(16,25,39,.88); }
+}
+@media (max-width: 900px) {
+  .engineering-app { padding: 12px; }
+  .engineering-app .masthead { top: 12px; padding: 8px 12px; gap: 8px; margin-bottom: 12px; }
+  .engineering-app .edition { display: none; }
+  .panel-toggle { margin-left: auto; }
+  .glass-content { width: min(560px, calc(100vw - 24px)); margin-top: 185px; }
+  .scene-navigation { top: 100px; right: 12px; left: 12px; width: auto; padding: 12px; }
+  .camera-controls { top: auto; bottom: 12px; right: 12px; left: 12px; display: flex; justify-content: center; flex-wrap: wrap; }
+  .engineering-explorer.with-panels .camera-controls, .engineering-explorer.with-panels .scene-results { display: none; }
+  .scene-results { width: auto; left: 12px; right: 12px; bottom: 120px; max-height: calc(100dvh - 410px); padding: 16px; }
+  .engineering-app :is(.form-panel, .report-panel, .intro) { padding: 20px; }
+  .engineering-app .intro h1 { font-size: 30px; }
+  .scene-fallback { top: 275px; left: 12px; right: 12px; max-width: none; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
