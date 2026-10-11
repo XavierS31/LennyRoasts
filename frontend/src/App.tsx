@@ -1,6 +1,8 @@
 import { lazy, Suspense, useEffect, useRef, useState, type FormEvent } from "react";
 import sampleIdea from "../demo/campus-queue.txt?raw";
 import SceneBoundary from "./components/engineering/SceneBoundary";
+import { sceneLocation, scenePath, type LocationState } from "./components/engineering/navigation";
+import type { SceneController } from "./components/engineering/EngineeringScene";
 import { ideaError, ideaSubmission, MAX_IDEA_LENGTH } from "./ideaSubmission";
 import {
   ApiRequestError,
@@ -390,7 +392,10 @@ function ReportCard({
 
 export default function App() {
   const [panelsVisible, setPanelsVisible] = useState(true);
-  const [activePanel, setActivePanel] = useState<"project" | "report">("project");
+  const [location, setLocation] = useState(() => sceneLocation(new URL(window.location.href)));
+  const [entering, setEntering] = useState(false);
+  const sceneController = useRef<SceneController | null>(null);
+  const sceneTransition = useRef(0);
   const [sceneCategory, setSceneCategory] = useState("");
   const [idea, setIdea] = useState("");
   const [selectedChallenges, setSelectedChallenges] = useState<Submission["challenges"]>([]);
@@ -408,8 +413,37 @@ export default function App() {
   const [pollNotice, setPollNotice] = useState<Notice | null>(null);
   const [configRefresh, setConfigRefresh] = useState(0);
   const reportHeading = useRef<HTMLHeadingElement>(null);
+  const entryHeading = useRef<HTMLHeadingElement>(null);
   const noticeHeading = useRef<HTMLHeadingElement>(null);
   const ideaInput = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    const back = () => {
+      sceneTransition.current++;
+      setEntering(false);
+      setLocation(sceneLocation(new URL(window.location.href)));
+      setPanelsVisible(true);
+    };
+    window.addEventListener("popstate", back);
+    return () => { sceneTransition.current++; window.removeEventListener("popstate", back); };
+  }, []);
+
+  function navigate(kind: LocationState["kind"], building = location.building) {
+    sceneTransition.current++;
+    setEntering(false);
+    const next = { kind, building };
+    window.history.pushState(null, "", scenePath(next));
+    setLocation(next);
+    setPanelsVisible(true);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }
+
+  async function enterBuilding(building = location.building) {
+    const token = ++sceneTransition.current;
+    setEntering(true);
+    await sceneController.current?.command("enter", building);
+    if (token === sceneTransition.current) navigate("atrium", building);
+  }
 
   useEffect(() => {
     const controller = new AbortController();
@@ -555,23 +589,24 @@ export default function App() {
 
   useEffect(() => {
     if (job || activeJobId || pollNotice) {
-      setActivePanel("report");
       setPanelsVisible(true);
     }
   }, [job?.evaluation_id, job?.status, activeJobId, pollNotice]);
 
   useEffect(() => {
     if (notice) {
-      setActivePanel("project");
+      navigate("campus");
       setPanelsVisible(true);
     }
   }, [notice]);
 
   useEffect(() => {
-    if (job?.status === "completed" || job?.status === "failed") {
+    if (location.kind === "atrium" && (job?.status === "completed" || job?.status === "failed")) {
       window.requestAnimationFrame(() => reportHeading.current?.focus());
+    } else if (location.kind === "campus" && job?.status === "completed") {
+      window.requestAnimationFrame(() => entryHeading.current?.focus());
     }
-  }, [job?.status]);
+  }, [job?.status, location.kind]);
 
   function loadSample() {
     setIdea(sampleIdea.trim());
@@ -587,7 +622,7 @@ export default function App() {
   }
 
   function focusFirstError(nextErrors: FormErrors) {
-    setActivePanel("project");
+    if (location.kind !== "campus") navigate("campus");
     setPanelsVisible(true);
     const focusOrder: ErrorField[] = ["idea", "challenges"];
     const field = focusOrder.find(
@@ -711,27 +746,34 @@ export default function App() {
       <SceneBoundary><Suspense fallback={<p className="scene-fallback glass-panel" role="status">Loading Engineering campus…</p>}>
         <EngineeringExplorer job={job} challenges={config?.challenges ?? []}
           projectName={submittedSubmission?.name ?? "Your idea"}
-          category={sceneCategory} onCategory={setSceneCategory} panelsVisible={panelsVisible} isStale={reportIsStale} />
+          category={sceneCategory} onCategory={setSceneCategory} panelsVisible={panelsVisible} isStale={reportIsStale}
+          location={location} controller={sceneController} entering={entering}
+          onBuilding={(building) => setLocation((current) => ({ ...current, building }))}
+          onEnter={() => void enterBuilding()} />
       </Suspense></SceneBoundary>
       <header className="masthead">
-        <a href="/" className="wordmark" aria-label="LennyRoasts home" onClick={(event) => { event.preventDefault(); window.history.pushState(null, "", "/"); window.dispatchEvent(new PopStateEvent("popstate")); }}>
-          <img src="/assets/engineering/lenny-roasts-logo-transparent.png" alt="" />
-          Lenny<span>Roasts</span>
+        <a href="/" className="wordmark" aria-label="LennyRoasts home" onClick={(event) => { event.preventDefault(); navigate("campus"); }}>
+          <img src="/assets/engineering/lenny-roasts-logo-transparent.png" alt="Lenny Roasts" />
         </a>
-        <span className="edition">KNIGHT HACKS IX <span aria-hidden="true">/</span> PRACTICE TABLE</span>
+        <nav className="scene-tabs" aria-label="Explore Engineering buildings">
+          <button type="button" aria-pressed={location.kind === "campus"} onClick={() => navigate("campus")}>Exterior</button>
+          <button type="button" aria-pressed={location.kind === "atrium"} onClick={() => navigate("atrium", "Engineering II")}>Atrium</button>
+          <button type="button" aria-pressed={location.kind === "awards"} onClick={() => navigate("awards")}>Auditorium</button>
+        </nav>
         <button type="button" className="secondary-button panel-toggle" aria-expanded={panelsVisible} aria-controls="glass-content" onClick={() => setPanelsVisible((value) => !value)}>{panelsVisible ? "Hide panels" : "Show panels"}</button>
       </header>
 
       <div className="glass-content" id="glass-content" hidden={!panelsVisible}>
-      <section className="intro" aria-labelledby="page-title">
+      <section className="intro" aria-labelledby="page-title" hidden={location.kind !== "campus"}>
         <p className="eyebrow">BEFORE YOU BUILD, TEST THE IDEA</p>
-        <h1 id="page-title">Got an idea? Give it a reality check.</h1>
+        <h1 id="page-title">What will you build?</h1>
         <p className="lede">
-          Explore where your hackathon idea fits, what makes it stand out, and what to build first.
+          Submit your idea here. Enter Engineering II to explore your competition and judging results.
         </p>
       </section>
 
-      <section className={`mode-banner mode-${mode}`} aria-labelledby="mode-heading">
+      <details className={`mode-banner mode-${mode}`} hidden={location.kind === "awards"} open={mode === "unavailable" || Boolean(configError) ? true : undefined}>
+        <summary>{modeLabel(mode)} · service details</summary>
         <div className="mode-copy">
           <span className="mode-indicator" aria-hidden="true" />
           <div>
@@ -782,14 +824,57 @@ export default function App() {
             {configLoading ? "Refreshing…" : "Refresh field status"}
           </button>
         )}
-      </section>
+      </details>
 
       <div className="workspace">
-        <div className="panel-switch glass-panel" role="group" aria-label="Frontend panels">
-          <button type="button" aria-pressed={activePanel === "project"} onClick={() => setActivePanel("project")}>Your idea</button>
-          <button type="button" aria-pressed={activePanel === "report"} onClick={() => setActivePanel("report")}>Practice report {job?.status === "completed" ? "· ready" : ""}</button>
-        </div>
-        <section className="form-panel" aria-labelledby="form-heading" hidden={activePanel !== "project"}>
+        {(job || activeJobId || pollNotice) && location.kind !== "awards" && <section className="submission-status glass-panel" aria-label="Submission status">
+          <p className="evaluation-status" role="status" aria-live="polite">
+            {isPolling && <span className="working-indicator" aria-hidden="true" />}
+            {evaluationStatus}
+            {activeJobId && <code className="job-id">Job ID: {activeJobId}</code>}
+          </p>
+
+          {pollNotice && (
+            <div className="notice notice-info" role="status">
+              <h3>{pollNotice.title}</h3>
+              <p>{pollNotice.message}</p>
+              {pollNotice.details && pollNotice.details.length > 0 && (
+                <ul>{pollNotice.details.map((detail, index) => <li key={`${detail}-${index}`}>{detail}</li>)}</ul>
+              )}
+              {activeJobId && !pollingEnabled && (
+                <button type="button" className="secondary-button" onClick={resumeChecks}>
+                  Resume checks
+                </button>
+              )}
+            </div>
+          )}
+
+          {activeJobId && pollingEnabled && (
+            <button type="button" className="text-button pause-button" onClick={pauseChecks}>
+              Pause browser checks
+            </button>
+          )}
+
+          {job?.status === "failed" && (
+            <div className="notice notice-error" role="alert">
+              <h3>Evaluation failed</h3>
+              <p>{job.error?.message ?? "The API reported a terminal failure."}</p>
+              {job.error?.details && job.error.details.length > 0 && (
+                <ul>{job.error.details.map((detail, index) => <li key={`${detail}-${index}`}>{detail}</li>)}</ul>
+              )}
+              <p>Your idea description is still in the form. This failed job has no report; submit again only when you decide to start a new evaluation.</p>
+            </div>
+          )}
+
+          {job?.status === "completed" && job.result && location.kind === "campus" && <div className="enter-results">
+            <h2 ref={entryHeading} tabIndex={-1}>Your results are ready.</h2>
+            <p>Enter Engineering II to see your placement, competition, and judging feedback.</p>
+            <button type="button" className="submit-button" disabled={entering} onClick={() => void enterBuilding("Engineering II")}>
+              {entering ? "Entering Engineering II…" : "Enter Engineering II ↗"}
+            </button>
+          </div>}
+        </section>}
+        <section className="form-panel" aria-labelledby="form-heading" hidden={location.kind !== "campus"}>
           <div className="section-heading">
             <div>
               <p className="section-kicker">THE STARTING POINT</p>
@@ -828,7 +913,7 @@ export default function App() {
                   ref={ideaInput}
                   id="idea-description"
                   name="idea"
-                  rows={12}
+                  rows={8}
                   value={idea}
                   onChange={(event) => {
                     setIdea(event.target.value);
@@ -908,7 +993,7 @@ export default function App() {
               </button>
               <p id="submit-help" className="submit-help">
                 {activeJobId
-                  ? "Resume the saved evaluation in the report panel. A second job cannot be started while it is active."
+                  ? "Your evaluation is active. Use the status card to pause or resume checks."
                   : !config?.field_ready
                     ? "The API must report a ready field before an evaluation can be submitted."
                     : "One description is enough to get started."}
@@ -921,54 +1006,16 @@ export default function App() {
           </p>
         </section>
 
-        <section className="report-panel" aria-labelledby="report-heading" hidden={activePanel !== "report"}>
+        <section className="report-panel" aria-labelledby="report-heading" hidden={location.kind !== "atrium"}>
           <div className="section-heading report-heading-row">
             <div>
               <p className="section-kicker">EVALUATION REPORT</p>
-              <h2 id="report-heading" ref={reportHeading} tabIndex={-1}>Practice report</h2>
+              <h2 id="report-heading" ref={reportHeading} tabIndex={-1}>Your place in the atrium</h2>
             </div>
             <span className={`status-chip status-${job ? job.status : mode}`}>
               {job?.status ?? modeLabel(mode)}
             </span>
           </div>
-
-          <p className="evaluation-status" role="status" aria-live="polite">
-            {isPolling && <span className="working-indicator" aria-hidden="true" />}
-            {evaluationStatus}
-            {activeJobId && <code className="job-id">Job ID: {activeJobId}</code>}
-          </p>
-
-          {pollNotice && (
-            <div className="notice notice-info" role="status">
-              <h3>{pollNotice.title}</h3>
-              <p>{pollNotice.message}</p>
-              {pollNotice.details && pollNotice.details.length > 0 && (
-                <ul>{pollNotice.details.map((detail, index) => <li key={`${detail}-${index}`}>{detail}</li>)}</ul>
-              )}
-              {activeJobId && !pollingEnabled && (
-                <button type="button" className="secondary-button" onClick={resumeChecks}>
-                  Resume checks
-                </button>
-              )}
-            </div>
-          )}
-
-          {activeJobId && pollingEnabled && (
-            <button type="button" className="text-button pause-button" onClick={pauseChecks}>
-              Pause browser checks
-            </button>
-          )}
-
-          {job?.status === "failed" && (
-            <div className="notice notice-error" role="alert">
-              <h3>Evaluation failed</h3>
-              <p>{job.error?.message ?? "The API reported a terminal failure."}</p>
-              {job.error?.details && job.error.details.length > 0 && (
-                <ul>{job.error.details.map((detail, index) => <li key={`${detail}-${index}`}>{detail}</li>)}</ul>
-              )}
-              <p>Your idea description is still in the form. This failed job has no report; submit again only when you decide to start a new evaluation.</p>
-            </div>
-          )}
 
           {job?.status === "completed" && job.result && (
             <div className="report-results">
@@ -1030,7 +1077,7 @@ export default function App() {
         </section>
       </div>
 
-      <footer className="page-footer">
+      <footer className="page-footer" hidden={location.kind === "awards"}>
         <span>KNIGHT HACKS IX</span>
         <span>TEXT-ONLY PRACTICE · SIMULATED FIELD · NOT A REAL-WINNER PREDICTION</span>
       </footer>

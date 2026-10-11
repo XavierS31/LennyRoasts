@@ -40,13 +40,13 @@ function scoreLabel(name: string, score: number) {
   context.strokeStyle = "rgba(255,255,255,.4)";
   context.strokeRect(1, 1, 510, 126);
   context.fillStyle = "#ffffff";
-  context.font = "600 28px Segoe UI, sans-serif";
+  context.font = "28px Bagnard, Georgia, serif";
   context.textAlign = "center";
   // Plain text only: user/model strings never become markup or executable code.
   const shortName = Array.from(name).slice(0, 24).join("");
   context.fillText(shortName, 256, 48, 480);
   context.fillStyle = "#ffe18b";
-  context.font = "700 36px Segoe UI, sans-serif";
+  context.font = "36px Bagnard, Georgia, serif";
   context.fillText(`${score.toFixed(1)} / 10`, 256, 100);
   const texture = new THREE.CanvasTexture(canvas);
   texture.colorSpace = THREE.SRGBColorSpace;
@@ -306,6 +306,12 @@ export default function EngineeringScene({
 
   useEffect(() => {
     updateData.current?.(result, projectName, selectedMarker);
+    let cancelled = false;
+    // Canvas textures need redrawing if the local font finishes loading later.
+    void document.fonts.load("28px Bagnard").then(() => {
+      if (!cancelled) updateData.current?.(result, projectName, selectedMarker);
+    });
+    return () => { cancelled = true; };
   }, [kind, result, projectName, selectedMarker]);
 
   return <div className="engineering-scene" ref={mount} aria-label={`${kind === "campus" ? "UCF Engineering I and II exterior" : kind === "atrium" ? "Engineering atrium" : "Auditorium"} 3D scene`}>
