@@ -1,6 +1,6 @@
 # Start here: three agents, one foundation
 
-Everyone pulls current main before continuing. It contains mock routes backed by 200 synthetic projects and computed rankings, generated frontend types, a submit/poll UI, and the offline field pipeline merged in PR #6. Live Qwen and Neon remain implementation work. The offline README reports ten accepted Luna mutations stored privately on Dev1's machine; these artifacts are not included in a Git pull and still need shared Qwen scoring/export.
+Everyone pulls current main before continuing. It contains mock routes backed by 200 synthetic projects and computed rankings, generated frontend types, a submit/poll UI, and the offline field pipeline merged in PR #6. Dev2 PR #8 implements the shared Qwen scorer; persistence/import/background jobs follow in the backend storage PR. The judge config remains provisional until review/freeze. See [Dev2 status](DEV2_STATUS.md) for verified evidence and pending handoffs. The offline README reports ten accepted Luna mutations stored privately on Dev1's machine; these artifacts are not included in a Git pull and still need shared Qwen scoring/export.
 
 ## Kickoff
 
@@ -30,17 +30,17 @@ Each developer pastes the **entire assigned file** into their agent. These repla
 
 | Developer | Full prompt | First useful handoff |
 | --- | --- | --- |
-| Dev1 — offline/data | [DEV1_OFFLINE.md](prompts/DEV1_OFFLINE.md) | Continue the merged pipeline; review the private ten-project field and deliver eight judge-prompt drafts/reference availability to Dev2. |
+| Dev1 — offline/data | [DEV1_OFFLINE.md](prompts/DEV1_OFFLINE.md) | Continue the merged pipeline; report the automatically accepted private ten-project field and review Dev2’s eight provisional prompts/reference availability (issue #10). |
 | Dev2 — backend/integrator | [DEV2_BACKEND.md](prompts/DEV2_BACKEND.md) | Implement the shared scorer and freeze its config; document the field import path, then integrate Neon and real jobs. |
 | Dev3 — frontend | [DEV3_FRONTEND.md](prompts/DEV3_FRONTEND.md) | Complete the full input/report/failure flow against mock mode, then use the unchanged API with the live field. |
 
-All three start in parallel. Dev1 waits for Dev2 only for Qwen scoring/export; Dev3 waits only for final real integration. Dev2 can build/test the scorer, persistence and artifact import with synthetic replay fixtures while Dev1 reviews the field. No owner creates a second judge or patches another owner's package to bypass a dependency.
+All three start in parallel. Dev1 waits for Dev2 only for Qwen scoring/export; Dev3 waits only for final real integration. Dev2 can build/test the scorer, persistence and artifact import with synthetic replay fixtures while Dev1 reports the automatically accepted field and reviews judge prompts. Field semantic spot checks are optional under PR #9. No owner creates a second judge or patches another owner's package to bypass a dependency.
 
 The real handoff sequence is:
 
 1. Dev1 gives Dev2 reviewed briefs, prompt drafts and honest reference availability. Review the collected Most “Useful” brief's funny/goofy definition before freezing live scoring; mock heuristics are not authoritative rubric definitions.
 2. Dev2 gives Dev1 one complete frozen `JudgeConfig`, its canonical hash and the implemented async scorer. Changes after caching require a new judge version and full rescore.
-3. Dev1 privately transfers the semantically validated `PoolArtifact`, matching config/hash/versions, report and actual category counts. The teammate-reported ten accepted projects are not yet a scored/importable cache.
+3. Dev1 privately transfers the schema- and score-semantics-validated `PoolArtifact`, matching config/hash/versions, report and actual category counts. The teammate-reported ten accepted projects are not yet a scored/importable cache.
 4. Dev2 imports and activates the matching field/config pair in Neon and supplies the verified live startup/API to Dev3. `result.challenge_results` uses the existing contract; no new endpoint is needed.
 5. Dev3 verifies the same frontend against the real field and reports actual mode/counts. Dev2 integrates small reviewed PRs serially.
 
@@ -64,3 +64,11 @@ Use the remaining time in the original 18-hour budget; pulling this update does 
 ## Mock data is ready now
 
 All owners can use the same 200-project field and saved ranking files immediately. The API computes new-user mock placements rather than returning the old fixed one-project report. Use `backend.app.ranking.rank_results` and `backend.app.scoring_contract.validate_score_result` for reusable ranking/calculation semantics. Keep mock and live judge/pool versions separate. The UI prototype labels should refer to mock scoring against 200 synthetic projects, not fixed example scores.
+
+## Current handoff issues
+
+- [#10](https://github.com/XavierS31/LennyRoasts/issues/10): Dev1 reviews all eight provisional judge prompts; Dev2 applies/finalizes owned config changes.
+- [#11](https://github.com/XavierS31/LennyRoasts/issues/11): Dev1 Qwen-scores/exports the ten automatically accepted projects after freeze and transfers runtime artifacts privately; Dev2 imports them.
+- [#12](https://github.com/XavierS31/LennyRoasts/issues/12): Dev3 verifies the unchanged frontend/API against the imported live field.
+
+These issues do not authorize cross-owner edits. Manual semantic review of Luna mutations is optional after PR #9; automatic acceptance and score/cache validation remain required.

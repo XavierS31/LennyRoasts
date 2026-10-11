@@ -14,7 +14,12 @@ from .mock_scoring import MOCK_CONFIG, MOCK_POOL_VERSION, score_mock_submission
 from .ranking import rank_results
 
 
-def create_app(*, fixture_mode: bool = False, mock_mode: bool = False) -> FastAPI:
+def create_app(*, fixture_mode: bool = False, mock_mode: bool = False, live_mode: bool = False) -> FastAPI:
+    if live_mode:
+        if fixture_mode or mock_mode:
+            raise ValueError("Select exactly one explicit mode.")
+        from .live_api import create_live_app
+        return create_live_app()
     app = FastAPI(title="LennyRoasts practice API")
     mock_enabled = mock_mode or fixture_mode
     pool = load_mock_pool() if mock_enabled else None
@@ -92,4 +97,4 @@ def create_app(*, fixture_mode: bool = False, mock_mode: bool = False) -> FastAP
 
 
 # Explicit local mock mode only. The legacy fixture command is a compatible alias.
-app = create_app(mock_mode=os.environ.get("LENNY_MODE") in {"mock", "fixture"})
+app = create_app(mock_mode=os.environ.get("LENNY_MODE") in {"mock", "fixture"}, live_mode=os.environ.get("LENNY_MODE") == "live")

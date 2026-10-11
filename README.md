@@ -9,7 +9,7 @@ Hackathon practice feedback against a frozen simulated competitor field. Built f
 - [Agent ownership instructions](AGENTS.md)
 - [Reusable local probes](experiments/README.md) and [recorded findings](experiments/RESULTS.md)
 
-The repository includes a shared FastAPI/React bootstrap with a mock submit/poll flow backed by 200 synthetic projects and computed rankings. The offline collection/generation/review/scoring-export pipeline is implemented; its README reports ten accepted Luna mutations held locally by Dev1. Live Qwen judging, Neon storage and scoring/import of that private field remain to be completed. Luna prepares projects offline; Qwen3-32B scores cached competitors and live submissions using the same judge configuration. Practice placement is not a prediction of real hackathon results.
+The repository includes a shared FastAPI/React bootstrap with a mock submit/poll flow backed by 200 synthetic projects and computed rankings. The offline collection/generation/review/scoring-export pipeline is implemented; its README reports ten accepted Luna mutations held locally by Dev1. Dev2 implements shared Qwen judging, Neon storage/import and private background jobs; the config review/freeze and real ten-project field integration remain pending. See [verified Dev2 status](docs/DEV2_STATUS.md) and the [backend README](backend/README.md). Luna prepares projects offline; Qwen3-32B scores cached competitors and live submissions using the same judge configuration. Practice placement is not a prediction of real hackathon results.
 
 Commit source and synthetic fixtures. Keep credentials, copied project stories, generated field data and raw test responses local and out of Git.
 
