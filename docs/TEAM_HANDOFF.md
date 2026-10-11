@@ -68,7 +68,7 @@ All owners can use the same 200-project field and saved ranking files immediatel
 ## Current handoff issues
 
 - [#10](https://github.com/XavierS31/LennyRoasts/issues/10): Dev1 reviews all eight provisional judge prompts; Dev2 applies/finalizes owned config changes.
-- [#11](https://github.com/XavierS31/LennyRoasts/issues/11): Dev1 Qwen-scores/exports the ten automatically accepted projects after freeze and transfers runtime artifacts privately; Dev2 imports them.
+- [#11](https://github.com/XavierS31/LennyRoasts/issues/11): on the human owner's request, Dev2 handles Qwen scoring/export/import after Dev1 privately transfers accepted project records and the pool report. The frozen v5 judge is on main. Use `backend.tools.prepare_field` to select an immutable ten-project snapshot before expanding; see backend/README.md. Generated runtime projects remain outside Git.
 - [#12](https://github.com/XavierS31/LennyRoasts/issues/12): Dev3 verifies the unchanged frontend/API against the imported live field.
 
 These issues do not authorize cross-owner edits. Manual semantic review of Luna mutations is optional after PR #9; automatic acceptance and score/cache validation remain required.

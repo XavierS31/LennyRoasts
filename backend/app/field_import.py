@@ -3,15 +3,30 @@ from collections import Counter
 from datetime import datetime
 import re
 
-from .contracts import GENERAL_IDS, validate, validator
+from .contracts import GENERAL_IDS, validate
 from .judge_config import config_hash, validate_config
 from .scoring_contract import validate_score_result
+
+
+def validate_project_metadata(submission, meta, pool_version):
+    validate('ProjectMeta', meta)
+    if meta['pool_version'] != pool_version or set(meta['fit']) != set(submission['challenges']):
+        raise ValueError('Project metadata pool/fit mismatch.')
+    expected_count = 2 if meta['mutation'] == 'heavy' else 1
+    if len(meta['seed_ids']) != expected_count or len(meta['source_urls']) != expected_count or len(set(meta['seed_ids'])) != expected_count:
+        raise ValueError('Seed provenance does not match the mutation.')
+    try:
+        if not re.fullmatch(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})', meta['created_at']):
+            raise ValueError('Invalid timestamp shape')
+        datetime.fromisoformat(meta['created_at'].replace('Z', '+00:00'))
+    except ValueError:
+        raise ValueError('Invalid project timestamp.') from None
 
 
 def validate_artifact(artifact, config):
     validate_config(config)
     validate('PoolArtifact', artifact)
-    if 'provisional' in config['judge_version'].lower():
+    if any(label in config['judge_version'].lower() for label in ('provisional', 'candidate', 'draft')):
         raise ValueError('Freeze a reviewed judge version before importing the field.')
     if artifact['pool_version'].lower().startswith(('mock', 'fixture')):
         raise ValueError('Mock fields cannot be imported for live use.')
@@ -22,17 +37,7 @@ def validate_artifact(artifact, config):
         raise ValueError('Duplicate project ids.')
     for project in artifact['projects']:
         submission, meta = project['submission'], project['meta']
-        if meta['pool_version'] != artifact['pool_version'] or set(meta['fit']) != set(submission['challenges']):
-            raise ValueError('Project metadata pool/fit mismatch.')
-        expected_count = 2 if meta['mutation'] == 'heavy' else 1
-        if len(meta['seed_ids']) != expected_count or len(meta['source_urls']) != expected_count or len(set(meta['seed_ids'])) != expected_count:
-            raise ValueError('Seed provenance does not match the mutation.')
-        try:
-            if not re.fullmatch(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})', meta['created_at']):
-                raise ValueError('Invalid timestamp shape')
-            datetime.fromisoformat(meta['created_at'].replace('Z', '+00:00'))
-        except ValueError:
-            raise ValueError('Invalid project timestamp.') from None
+        validate_project_metadata(submission, meta, artifact['pool_version'])
         expected = submission['challenges'] + list(GENERAL_IDS)
         results = project['challenge_results']
         if Counter(r['challenge_id'] for r in results) != Counter(expected):
