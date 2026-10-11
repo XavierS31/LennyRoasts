@@ -28,7 +28,7 @@ export default function AtriumDashboard({ result, results, challenges, projectNa
       <button type="button" aria-pressed={mobilePanel === "user"} aria-controls="dashboard-user-panel" onClick={() => setMobilePanel("user")}>Your project</button>
       <button type="button" aria-pressed={mobilePanel === "agents"} aria-controls="dashboard-agents-panel" onClick={() => setMobilePanel("agents")}>Competitors</button>
     </div>
-    <aside className="dashboard-user dashboard-edge-panel glass-panel" id="dashboard-user-panel" tabIndex={0} aria-labelledby="report-heading">
+    <aside className="dashboard-user dashboard-edge-panel dashboard-scroll-surface glass-panel" id="dashboard-user-panel" tabIndex={0} aria-labelledby="report-heading">
       <h2 id="report-heading" ref={headingRef} tabIndex={-1}>Your Hackathon Project Ratings</h2>
       <p className="dashboard-project-name">{projectName}</p>
       {notice}
@@ -68,7 +68,7 @@ export default function AtriumDashboard({ result, results, challenges, projectNa
       </section>
       {children}
     </aside>
-    <aside className="dashboard-agents dashboard-edge-panel glass-panel" id="dashboard-agents-panel" tabIndex={0} aria-labelledby="agent-ratings-heading">
+    <aside className="dashboard-agents dashboard-edge-panel dashboard-scroll-surface glass-panel" id="dashboard-agents-panel" tabIndex={0} aria-labelledby="agent-ratings-heading">
       <h2 id="agent-ratings-heading"><RobotIcon size={22} aria-hidden="true" />Competitors’ ratings <span>(agents)</span></h2>
       <div className="dashboard-agent-categories">
         {ceremonyCategories.map((category) => {

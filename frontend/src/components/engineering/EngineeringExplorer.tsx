@@ -190,7 +190,7 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
       <h1>Cape Ballroom</h1>
       <p>{agents.length} {previewActive ? "synthetic sample agents" : "field representatives"} seated · same avatars as the atrium</p>
     </aside>}
-    {location.kind === "awards" && <aside className="ceremony-dashboard glass-panel" aria-label="Award ceremonies">
+    {location.kind === "awards" && <aside className="ceremony-dashboard dashboard-scroll-surface glass-panel" tabIndex={0} aria-label="Award ceremonies">
       <h2><TrophyIcon size={23} aria-hidden="true" />Ceremonies</h2>
       <div className="ceremony-categories" role="group" aria-label="Ceremony categories">
         {ceremonyCategories.map((entry, index) => <button key={entry.id} type="button" aria-pressed={index === ceremonyIndex} onClick={() => { prizeToken.current++; setPrizePhase("ready"); activePresenter.current = ""; setLeaderIndex(0); setCeremonyIndex(index); setCeremonyPlaying(false); void controller.current?.command("pauseAward"); }}>{entry.name}</button>)}

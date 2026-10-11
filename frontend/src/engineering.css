@@ -342,32 +342,31 @@ select option { background: #fff; color: var(--ink); }
 .scene-atrium.with-panels .atrium-map { display: none; }
 /* Paint glass on the scrollport itself: absolute pseudo-elements scroll away.
    This is a web approximation of Apple's material, with a solid fallback. */
-.atrium-dashboard .dashboard-edge-panel {
-  position: fixed; top: 136px; width: clamp(280px, 24vw, 340px);
-  max-height: calc(100dvh - 228px); padding: 22px; border-radius: 16px;
-  overflow-y: auto; overscroll-behavior: contain; pointer-events: auto;
+.atrium-dashboard .dashboard-edge-panel { position: fixed; top: 136px; width: clamp(280px, 24vw, 340px); max-height: calc(100dvh - 228px); padding: 22px; }
+.engineering-app .dashboard-scroll-surface {
+  border-radius: 16px; overflow-y: auto; overscroll-behavior: contain; pointer-events: auto;
   background: #f8faff; border-color: rgba(255,255,255,.75);
   box-shadow: inset 0 1px 0 rgba(255,255,255,.8), 0 10px 32px rgba(27,43,69,.1);
   scrollbar-width: thin; scrollbar-color: transparent transparent;
 }
-.atrium-dashboard .dashboard-edge-panel::before { display: none; }
-.atrium-dashboard .dashboard-edge-panel:is(:hover, :focus-within) { scrollbar-color: rgba(59,76,105,.25) transparent; }
+.engineering-app .dashboard-scroll-surface::before { display: none; }
+.engineering-app .dashboard-scroll-surface:is(:hover, :focus-within) { scrollbar-color: rgba(59,76,105,.25) transparent; }
 @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .atrium-dashboard .dashboard-edge-panel {
+  .engineering-app .dashboard-scroll-surface {
     background: rgba(248,250,255,.9);
     -webkit-backdrop-filter: blur(20px) saturate(115%);
     backdrop-filter: blur(20px) saturate(115%);
   }
 }
 @supports selector(::-webkit-scrollbar) {
-  .atrium-dashboard .dashboard-edge-panel, .atrium-dashboard .dashboard-edge-panel:is(:hover, :focus-within) { scrollbar-width: auto; scrollbar-color: auto; }
-  .dashboard-edge-panel::-webkit-scrollbar { width: 6px; }
-  .dashboard-edge-panel::-webkit-scrollbar-track { background: transparent; margin-block: 16px; }
-  .dashboard-edge-panel::-webkit-scrollbar-thumb { background: transparent; border: 1px solid transparent; background-clip: padding-box; border-radius: 999px; }
-  .dashboard-edge-panel:is(:hover, :focus-within)::-webkit-scrollbar-thumb { background-color: rgba(59,76,105,.25); }
+  .engineering-app .dashboard-scroll-surface, .engineering-app .dashboard-scroll-surface:is(:hover, :focus-within) { scrollbar-width: auto; scrollbar-color: auto; }
+  .dashboard-scroll-surface::-webkit-scrollbar { width: 6px; }
+  .dashboard-scroll-surface::-webkit-scrollbar-track { background: transparent; margin-block: 16px; }
+  .dashboard-scroll-surface::-webkit-scrollbar-thumb { background: transparent; border: 1px solid transparent; background-clip: padding-box; border-radius: 999px; }
+  .dashboard-scroll-surface:is(:hover, :focus-within)::-webkit-scrollbar-thumb { background-color: rgba(59,76,105,.25); }
 }
 @media (prefers-reduced-transparency: reduce) {
-  .atrium-dashboard .dashboard-edge-panel { background: #f8faff; -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .engineering-app .dashboard-scroll-surface { background: #f8faff; -webkit-backdrop-filter: none; backdrop-filter: none; }
 }
 .dashboard-user { left: 20px; }
 .dashboard-agents { right: 20px; }
@@ -447,22 +446,27 @@ select option { background: #fff; color: var(--ink); }
 .atrium-dashboard :focus-visible, .ceremony-dashboard :focus-visible, .map-rooms :focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
 .engineering-app :is(.dashboard-revise, .dashboard-category-scores button, .dashboard-agents li > button, .ceremony-categories button, .ceremony-play, .ceremony-preview button):hover:not(:disabled) { background: rgba(255,255,255,.8); color: var(--ink); }
 .engineering-app .dashboard-ceremonies-link button:hover { background: #303a50; }
-.engineering-app .ceremony-categories button { min-height: 40px; border: 0; border-radius: 999px; padding: 8px 12px; color: var(--muted); background: rgba(255,255,255,.5); font-size: 12px; }
+.engineering-app .ceremony-categories button { min-height: 40px; border: 0; border-radius: 8px; padding: 8px 10px; color: var(--muted); background: transparent; font-size: 12px; }
 .engineering-app .ceremony-categories button[aria-pressed=true] { color: #fff; background: #192234; }
 .map-rooms { display: grid; gap: 4px; margin-bottom: 12px; }
 .engineering-explorer .map-rooms button { display: flex; align-items: center; gap: 9px; min-height: 40px; padding: 8px 10px; border: 0; background: rgba(255,255,255,.5); text-align: left; font-size: 12px; border-radius: 9px; }
 .map-rooms button span { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
-.ceremony-dashboard { position: fixed; z-index: 4; top: 118px; right: 20px; width: 360px; padding: 24px; max-height: calc(100dvh - 220px); overflow-y: auto; overscroll-behavior: contain; border-radius: 26px; }
+.ceremony-dashboard { position: fixed; z-index: 4; top: 136px; right: 20px; width: clamp(280px, 24vw, 340px); padding: 22px; max-height: calc(100dvh - 228px); }
+.ceremony-dashboard h2 { font-size: 20px; line-height: 1.3; }
+.ceremony-dashboard h4 { font-size: 15px; font-weight: 600; line-height: 1.5; margin: 12px 0; overflow-wrap: anywhere; }
 .ceremony-categories { display: flex; flex-wrap: wrap; gap: 6px; }
-.ceremony-announcement { margin: 24px 0; }
+.ceremony-announcement { margin: 22px 0; }
 .ceremony-dashboard h3 { font-size: 17px; font-weight: 600; margin: 0 0 12px; }
-.ceremony-dashboard p { font-size: 13px; line-height: 1.65; }
+.ceremony-dashboard p { font-size: 13px; line-height: 1.65; overflow-wrap: anywhere; }
+.ceremony-dashboard .dashboard-footnote { font-size: 11px; }
+.ceremony-dashboard .ceremony-play { width: 100%; }
+.ceremony-dashboard:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
 .ceremony-dashboard small { font-size: 12px; color: var(--muted); }
 .ceremony-user-win { font-weight: 600; }
-.ceremony-preview { margin-top: 24px; border-top: 1px solid var(--line); padding-top: 22px; }
+.ceremony-preview { margin-top: 22px; border-top: 1px solid var(--line); padding-top: 10px; }
 .ceremony-preview p { font-size: 12px; color: var(--muted); }
 .ceremony-dashboard summary { min-height: 44px; padding: 12px 0; font-size: 13px; cursor: pointer; }
-.ceremony-preview button { min-height: 44px; font-size: 12px; border-radius: 999px; }
+.ceremony-preview button { min-height: 44px; font-size: 12px; border-radius: 8px; width: 100%; }
 .ceremony-preview button:disabled { opacity: .6; cursor: default; }
 .view-awards .ballroom-caption { max-width: min(420px, calc(100vw - 40px)); }
 @media (max-width: 900px) {
