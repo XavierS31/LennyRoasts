@@ -21,7 +21,7 @@ from backend.app.judging import score_submission
 results = await score_submission(submission, challenge_ids, judge_config)
 ```
 
-This is currently a stub that raises `LiveScoringNotReady`. Implement it here once; Person 1 imports it instead of duplicating it. Person 2 also implements cache import under `backend/`, with a documented CLI once ready. Until then Person 1 prepares/validates artifacts locally.
+The shared Qwen scorer is implemented; see [config and smoke instructions](config/README.md). The complete config is provisional until prompt review and live smoke checks. Person 1 imports this exact function instead of duplicating it. Person 2 also implements cache import under `backend/`, with a documented CLI once ready. Until then Person 1 prepares/validates artifacts locally.
 
 Checks:
 
