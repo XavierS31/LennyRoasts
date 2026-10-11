@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import fixtures from "../../contracts/fixtures.json";
+import sampleIdea from "../demo/campus-queue.txt?raw";
+import { ideaError, ideaSubmission, MAX_IDEA_LENGTH } from "./ideaSubmission";
 import {
   ApiRequestError,
   getChallenges,
@@ -13,17 +14,7 @@ import {
   type Submission,
 } from "./api/client";
 
-type TextField =
-  | "name"
-  | "tagline"
-  | "inspiration"
-  | "what_it_does"
-  | "how_we_built_it"
-  | "challenges_we_ran_into"
-  | "accomplishments"
-  | "what_we_learned"
-  | "whats_next";
-type ErrorField = TextField | "built_with" | "challenges";
+type ErrorField = "idea" | "challenges";
 type FormErrors = Partial<Record<ErrorField, string>>;
 type Notice = {
   title: string;
@@ -36,79 +27,6 @@ type ServiceMode = "loading" | "unavailable" | "mock" | "fixture" | "live";
 
 const JOB_STORAGE_KEY = "lennyroasts.active-evaluation";
 const MAX_AUTOMATIC_POLL_MS = 5 * 60 * 1000;
-const MAX_TAGS = 30;
-const MAX_TAG_LENGTH = 80;
-
-const textFields: Array<{ key: TextField; label: string; hint: string }> = [
-  {
-    key: "inspiration",
-    label: "Inspiration",
-    hint: "What need or moment led you to build this?",
-  },
-  {
-    key: "what_it_does",
-    label: "What it does",
-    hint: "Describe the features that are built and working.",
-  },
-  {
-    key: "how_we_built_it",
-    label: "How we built it",
-    hint: "Name the tools and explain how the parts connect.",
-  },
-  {
-    key: "challenges_we_ran_into",
-    label: "Challenges we ran into",
-    hint: "What did not work yet, or what was difficult?",
-  },
-  {
-    key: "accomplishments",
-    label: "Accomplishments",
-    hint: "What did the team finish during the event?",
-  },
-  {
-    key: "what_we_learned",
-    label: "What we learned",
-    hint: "What did you learn about the problem or your approach?",
-  },
-  {
-    key: "whats_next",
-    label: "What’s next",
-    hint: "Keep future plans separate from what is already built.",
-  },
-];
-
-const fieldOrder: TextField[] = [
-  "name",
-  "tagline",
-  ...textFields.map(({ key }) => key),
-];
-
-const fieldLabels: Record<TextField, string> = {
-  name: "Project name",
-  tagline: "Tagline",
-  inspiration: "Inspiration",
-  what_it_does: "What it does",
-  how_we_built_it: "How we built it",
-  challenges_we_ran_into: "Challenges we ran into",
-  accomplishments: "Accomplishments",
-  what_we_learned: "What we learned",
-  whats_next: "What’s next",
-};
-
-const emptySubmission: Submission = {
-  name: "",
-  tagline: "",
-  inspiration: "",
-  what_it_does: "",
-  how_we_built_it: "",
-  challenges_we_ran_into: "",
-  accomplishments: "",
-  what_we_learned: "",
-  whats_next: "",
-  built_with: [],
-  challenges: [],
-};
-
 const criterionLabels = [
   ["originality", "Originality"],
   ["tech_understanding", "Technical understanding"],
@@ -139,51 +57,6 @@ function removeStoredJobId(): void {
   } catch {
     // There is no persistent job id to clear when storage is disabled.
   }
-}
-
-function parseTags(value: string): string[] {
-  return [...new Set(value.split(",").map((tag) => tag.trim()).filter(Boolean))];
-}
-
-function normalizeSubmission(submission: Submission, tagText: string): Submission {
-  return {
-    ...submission,
-    built_with: parseTags(tagText),
-    challenges: [...submission.challenges],
-  };
-}
-
-function validateSubmission(
-  submission: Submission,
-  tagText: string,
-): { errors: FormErrors; normalized: Submission } {
-  const normalized = normalizeSubmission(submission, tagText);
-  const errors: FormErrors = {};
-
-  for (const field of fieldOrder) {
-    const value = submission[field];
-    const characterLimit = field === "name" ? 100 : field === "tagline" ? 139 : 8000;
-    if (!value.trim()) {
-      errors[field] = `${fieldLabels[field]} is required.`;
-    } else if (Array.from(value).length > characterLimit) {
-      errors[field] = `Use ${characterLimit} characters or fewer.`;
-    }
-  }
-
-  const tags = normalized.built_with;
-  if (tags.length === 0) {
-    errors.built_with = "Add at least one technology tag.";
-  } else if (tags.length > MAX_TAGS) {
-    errors.built_with = `Use no more than ${MAX_TAGS} unique technology tags.`;
-  } else if (tags.some((tag) => Array.from(tag).length > MAX_TAG_LENGTH)) {
-    errors.built_with = `Each technology tag must be ${MAX_TAG_LENGTH} characters or fewer.`;
-  }
-
-  if (new Set(submission.challenges).size !== submission.challenges.length) {
-    errors.challenges = "Each sponsor challenge can only be selected once.";
-  }
-
-  return { errors, normalized };
 }
 
 function challengeMode(config?: ChallengeList): ServiceMode {
@@ -253,22 +126,14 @@ function sleep(ms: number, signal: AbortSignal): Promise<void> {
 }
 
 function getInputId(field: ErrorField): string {
-  return field === "built_with"
-    ? "built-with"
-    : field === "challenges"
-      ? "sponsor-challenges"
-      : `submission-${field}`;
+  return field === "challenges" ? "sponsor-heading" : "idea-description";
 }
 
 function serverFieldErrors(details: string[]): FormErrors {
   const errors: FormErrors = {};
   for (const detail of details) {
-    const field = fieldOrder.find((candidate) =>
-      new RegExp(`(?:submission\\.)?${candidate}(?:\\b|\\[)`, "i").test(detail),
-    );
-    if (field) errors[field] = detail;
-    else if (/built_with/i.test(detail)) errors.built_with = detail;
-    else if (/challenges/i.test(detail)) errors.challenges = detail;
+    if (/challenges/i.test(detail)) errors.challenges = detail;
+    else if (/submission/i.test(detail)) errors.idea = detail;
   }
   return errors;
 }
@@ -290,7 +155,7 @@ function getSubmitNotice(error: unknown): Notice {
       title: "Evaluation is unavailable",
       message:
         error.apiError?.message ??
-        "The field or scoring service is not ready. Your project is still in this form, and no report was created.",
+        "The field or scoring service is not ready. Your idea is still in this form, and no report was created.",
       details: getApiDetails(error),
       action: "refresh-field",
     };
@@ -305,7 +170,7 @@ function getSubmitNotice(error: unknown): Notice {
   return {
     title: "Could not start the evaluation",
     message:
-      "The request did not return an evaluation ID, so no automatic retry was made. Keep your write-up here and choose when to submit again.",
+      "The request did not return an evaluation ID, so no automatic retry was made. Keep your idea description here and choose when to submit again.",
     details: error instanceof Error ? [error.message] : undefined,
   };
 }
@@ -326,7 +191,7 @@ function criterionValue(result: ChallengeResult, key: (typeof criterionLabels)[n
 
 function EvidenceValue({ value }: { value: string | undefined }) {
   if (!value || value.trim().toLowerCase() === "not described") {
-    return <p className="evidence-missing">Not described in the write-up.</p>;
+    return <p className="evidence-missing">Not described in the idea description.</p>;
   }
   return <blockquote className="evidence-quote">{value}</blockquote>;
 }
@@ -483,7 +348,7 @@ function ReportCard({
 
       {result.improvements.length > 0 && (
         <section className="improvements-section" aria-label="Suggested improvements">
-          <h4>Ways to strengthen the write-up</h4>
+          <h4>What to clarify or build next</h4>
           <ul>
             {result.improvements.map((improvement, index) => (
               <li key={`${improvement}-${index}`}>{improvement}</li>
@@ -500,7 +365,7 @@ function ReportCard({
       )}
 
       <details className="report-detail">
-        <summary>Evidence from the write-up</summary>
+        <summary>Evidence from the idea description</summary>
         <dl className="evidence-list">
           {evidenceEntries.map(([label, value]) => (
             <div key={label}>
@@ -517,8 +382,8 @@ function ReportCard({
 }
 
 export default function App() {
-  const [submission, setSubmission] = useState<Submission>(emptySubmission);
-  const [tags, setTags] = useState("");
+  const [idea, setIdea] = useState("");
+  const [selectedChallenges, setSelectedChallenges] = useState<Submission["challenges"]>([]);
   const [config, setConfig] = useState<ChallengeList>();
   const [configLoading, setConfigLoading] = useState(true);
   const [configError, setConfigError] = useState<Notice | null>(null);
@@ -534,6 +399,7 @@ export default function App() {
   const [configRefresh, setConfigRefresh] = useState(0);
   const reportHeading = useRef<HTMLHeadingElement>(null);
   const noticeHeading = useRef<HTMLHeadingElement>(null);
+  const ideaInput = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -617,7 +483,7 @@ export default function App() {
             setPollNotice({
               title: "This evaluation is no longer available",
               message:
-                "The job ID is unknown, expired, or belongs to another browser session. No replacement evaluation was created. Review your write-up and submit again only if you choose to.",
+                "The job ID is unknown, expired, or belongs to another browser session. No replacement evaluation was created. Review your idea description and submit again only if you choose to.",
               details: error.apiError?.details,
             });
             return;
@@ -684,23 +550,20 @@ export default function App() {
   }, [job?.status]);
 
   function loadSample() {
-    setSubmission(structuredClone(fixtures.request.submission) as Submission);
-    setTags(fixtures.request.submission.built_with.join(", "));
+    setIdea(sampleIdea.trim());
+    setSelectedChallenges(["gemini"]);
     setJob(null);
     setSubmittedSubmission(null);
     setErrors({});
     setNotice(null);
     setPollNotice(null);
-  }
-
-  function updateTextField(field: TextField, value: string) {
-    setSubmission((current) => ({ ...current, [field]: value }));
-    setErrors((current) => ({ ...current, [field]: undefined }));
-    setNotice(null);
+    window.requestAnimationFrame(() => {
+      if (ideaInput.current) ideaInput.current.scrollTop = 0;
+    });
   }
 
   function focusFirstError(nextErrors: FormErrors) {
-    const focusOrder: ErrorField[] = [...fieldOrder, "built_with", "challenges"];
+    const focusOrder: ErrorField[] = ["idea", "challenges"];
     const field = focusOrder.find(
       (candidate) => nextErrors[candidate],
     );
@@ -718,7 +581,9 @@ export default function App() {
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const { errors: nextErrors, normalized } = validateSubmission(submission, tags);
+    const descriptionError = ideaError(idea);
+    const nextErrors: FormErrors = descriptionError ? { idea: descriptionError } : {};
+    const normalized = ideaSubmission(idea, selectedChallenges);
     setErrors(nextErrors);
     setNotice(null);
 
@@ -737,7 +602,7 @@ export default function App() {
       const unavailableNotice: Notice = {
         title: "Evaluation is unavailable",
         message:
-          "The API has not reported a ready field. Your write-up remains in the form, and no request was submitted.",
+          "The API has not reported a ready field. Your idea description remains in the form, and no request was submitted.",
         action: "refresh-field",
       };
       setNotice(unavailableNotice);
@@ -800,7 +665,7 @@ export default function App() {
   const sponsorChallenges =
     config?.challenges.filter((challenge) => challenge.kind === "sponsor" && !challenge.automatic) ?? [];
   const canSubmit = Boolean(config?.field_ready) && !isSubmitting && !activeJobId;
-  const currentSubmission = normalizeSubmission(submission, tags);
+  const currentSubmission = ideaSubmission(idea, selectedChallenges);
   const reportIsStale =
     submittedSubmission !== null &&
     JSON.stringify(currentSubmission) !== JSON.stringify(submittedSubmission);
@@ -825,10 +690,10 @@ export default function App() {
       </header>
 
       <section className="intro" aria-labelledby="page-title">
-        <p className="eyebrow">A PRACTICE FIELD FOR YOUR DEVPOST WRITE-UP</p>
-        <h1 id="page-title">See how your hack reads in the field.</h1>
+        <p className="eyebrow">BEFORE YOU BUILD, TEST THE IDEA</p>
+        <h1 id="page-title">Got an idea? Give it a reality check.</h1>
         <p className="lede">
-          Share the project details, then review scores and placement ranges for each category.
+          Explore where your hackathon idea fits, what makes it stand out, and what to build first.
         </p>
       </section>
 
@@ -889,8 +754,8 @@ export default function App() {
         <section className="form-panel" aria-labelledby="form-heading">
           <div className="section-heading">
             <div>
-              <p className="section-kicker">PROJECT WRITE-UP</p>
-              <h2 id="form-heading">Your project</h2>
+              <p className="section-kicker">THE STARTING POINT</p>
+              <h2 id="form-heading">Your idea</h2>
             </div>
             <button type="button" className="text-button" onClick={loadSample} disabled={Boolean(activeJobId) || isSubmitting}>
               Load sample
@@ -898,7 +763,7 @@ export default function App() {
           </div>
 
           <p className="form-intro">
-            Use the details you would put on Devpost. Explain what works today and what is still planned.
+            Tell us what you want to build, who it helps, and how it would work. Include tools you’re considering and what you’d show in a first demo. It’s okay if nothing is built yet.
           </p>
 
           <form onSubmit={submit} noValidate aria-describedby="privacy-copy">
@@ -918,103 +783,40 @@ export default function App() {
             )}
 
             <fieldset disabled={Boolean(activeJobId) || isSubmitting}>
-              <legend className="visually-hidden">Project details</legend>
-              <div className="form-field">
-                <label htmlFor="submission-name">Project name <span className="required-label">Required</span></label>
-                <input
-                  id="submission-name"
-                  name="name"
-                  autoComplete="off"
-                  maxLength={100}
-                  value={submission.name}
-                  onChange={(event) => updateTextField("name", event.target.value)}
-                  placeholder="Campus Queue"
-                  aria-invalid={Boolean(errors.name)}
-                  aria-describedby={errors.name ? "error-name" : "hint-name"}
-                />
-                <div className="field-meta">
-                  <small id="hint-name">A short title for your entry.</small>
-                  <span>{Array.from(submission.name).length} / 100</span>
-                </div>
-                {errors.name && <p className="field-error" id="error-name">{errors.name}</p>}
-              </div>
-
-              <div className="form-field">
-                <label htmlFor="submission-tagline">Tagline <span className="required-label">Required</span></label>
-                <input
-                  id="submission-tagline"
-                  name="tagline"
-                  maxLength={139}
-                  value={submission.tagline}
-                  onChange={(event) => updateTextField("tagline", event.target.value)}
-                  placeholder="Explain campus shuttle delays using sample data."
-                  aria-invalid={Boolean(errors.tagline)}
-                  aria-describedby={errors.tagline ? "error-tagline" : "hint-tagline"}
-                />
-                <div className="field-meta">
-                  <small id="hint-tagline">One line about the problem and approach.</small>
-                  <span>{Array.from(submission.tagline).length} / 139</span>
-                </div>
-                {errors.tagline && <p className="field-error" id="error-tagline">{errors.tagline}</p>}
-              </div>
-
-              <div className="write-up-fields">
-                {textFields.map(({ key, label, hint }) => (
-                  <div className="form-field" key={key}>
-                    <label htmlFor={`submission-${key}`}>{label} <span className="required-label">Required</span></label>
-                    <textarea
-                      id={`submission-${key}`}
-                      name={key}
-                      maxLength={8000}
-                      rows={4}
-                      value={submission[key]}
-                      onChange={(event) => updateTextField(key, event.target.value)}
-                      placeholder={hint}
-                      aria-invalid={Boolean(errors[key])}
-                      aria-describedby={errors[key] ? `error-${key}` : `hint-${key}`}
-                    />
-                    <div className="field-meta">
-                      <small id={`hint-${key}`}>{hint}</small>
-                      <span>{Array.from(submission[key]).length} / 8,000</span>
-                    </div>
-                    {errors[key] && <p className="field-error" id={`error-${key}`}>{errors[key]}</p>}
-                  </div>
-                ))}
-              </div>
-
-              <div className="form-field">
-                <label htmlFor="built-with">Built with <span className="required-label">Required</span></label>
-                <input
-                  id="built-with"
-                  name="built_with"
-                  value={tags}
+              <legend className="visually-hidden">Your idea</legend>
+              <div className="form-field idea-field">
+                <label htmlFor="idea-description">Describe your idea <span className="required-label">Required</span></label>
+                <textarea
+                  ref={ideaInput}
+                  id="idea-description"
+                  name="idea"
+                  rows={12}
+                  value={idea}
                   onChange={(event) => {
-                    setTags(event.target.value);
-                    setErrors((current) => ({ ...current, built_with: undefined }));
+                    setIdea(event.target.value);
+                    setErrors((current) => ({ ...current, idea: undefined }));
                     setNotice(null);
                   }}
-                  placeholder="react, python, gemini"
-                  aria-invalid={Boolean(errors.built_with)}
-                  aria-describedby={errors.built_with ? "error-built-with" : "hint-built-with"}
+                  placeholder={"I want to build…\n\nIt would help… by…\n\nFor the hackathon, the first demo would…"}
+                  aria-invalid={Boolean(errors.idea)}
+                  aria-describedby={`hint-idea${errors.idea ? " error-idea" : ""}`}
                 />
                 <div className="field-meta">
-                  <small id="hint-built-with">Separate tags with commas. Repeated tags are sent once.</small>
-                  <span>{parseTags(tags).length} / {MAX_TAGS} unique</span>
+                  <small id="hint-idea">Rough notes, a paragraph, or a pasted pitch — any format works.</small>
+                  <span>{Array.from(idea).length.toLocaleString()} / {MAX_IDEA_LENGTH.toLocaleString()}</span>
                 </div>
-                {errors.built_with && <p className="field-error" id="error-built-with">{errors.built_with}</p>}
+                {errors.idea && <p className="field-error" id="error-idea">{errors.idea}</p>}
               </div>
 
-              <section
+              <details
+                id="sponsor-challenges"
                 className="challenge-picker"
+                open={errors.challenges ? true : undefined}
                 aria-labelledby="sponsor-heading"
                 aria-describedby={errors.challenges ? "error-challenges" : undefined}
               >
-                <div className="challenge-picker-heading">
-                  <div>
-                    <h3 id="sponsor-heading">Sponsor challenges</h3>
-                    <p>Choose the sponsor tracks your team entered. Leaving them all clear is okay.</p>
-                  </div>
-                </div>
+                <summary id="sponsor-heading">Check sponsor fit <span className="required-label">Optional{selectedChallenges.length ? ` · ${selectedChallenges.length} selected` : ""}</span></summary>
+                <p className="muted-copy">Choose the sponsor tools or tracks your idea would use.</p>
                 {errors.challenges && <p className="field-error" id="error-challenges">{errors.challenges}</p>}
                 {!configLoading && sponsorChallenges.length === 0 && (
                   <p className="muted-copy">No sponsor opt-ins are currently listed by the API.</p>
@@ -1022,7 +824,7 @@ export default function App() {
                 <div className="track-list">
                   {sponsorChallenges.map((challenge) => {
                     const id = challenge.id as Submission["challenges"][number];
-                    const checked = submission.challenges.includes(id);
+                    const checked = selectedChallenges.includes(id);
                     return (
                       <div className="track-item" key={challenge.id}>
                         <label className="track-choice" htmlFor={`track-${challenge.id}`}>
@@ -1031,12 +833,9 @@ export default function App() {
                             type="checkbox"
                             checked={checked}
                             onChange={(event) => {
-                              setSubmission((current) => ({
-                                ...current,
-                                challenges: event.target.checked
-                                  ? [...current.challenges, id]
-                                  : current.challenges.filter((selected) => selected !== id),
-                              }));
+                              setSelectedChallenges((current) => event.target.checked
+                                ? [...current, id]
+                                : current.filter((selected) => selected !== id));
                               setErrors((current) => ({ ...current, challenges: undefined }));
                               setNotice(null);
                             }}
@@ -1053,19 +852,12 @@ export default function App() {
                     );
                   })}
                 </div>
-                <p className="automatic-copy">
-                  Automatically included: {automaticChallenges.length > 0
-                    ? automaticChallenges.map((challenge) => challenge.name).join(", ")
-                    : "no automatic categories are listed by the API"}.
-                  These are not sent as sponsor opt-ins.
-                </p>
-                {automaticChallenges.map((challenge) => (
-                  <details className="challenge-description general-description" key={challenge.id}>
-                    <summary>{challenge.name} description</summary>
-                    <p>{challenge.description}</p>
-                  </details>
-                ))}
-              </section>
+              </details>
+              <p className="automatic-copy">
+                Always checked: {automaticChallenges.length > 0
+                  ? automaticChallenges.map((challenge) => challenge.name).join(", ")
+                  : "loading categories…"}.
+              </p>
 
               <button
                 className="submit-button"
@@ -1073,7 +865,7 @@ export default function App() {
                 disabled={!canSubmit}
                 aria-describedby="submit-help"
               >
-                <span>{isSubmitting ? "Submitting once…" : activeJobId ? "Evaluation already active" : "Evaluate this write-up"}</span>
+                <span>{isSubmitting ? "Submitting once…" : activeJobId ? "Evaluation already active" : "Evaluate my idea"}</span>
                 <span aria-hidden="true">↗</span>
               </button>
               <p id="submit-help" className="submit-help">
@@ -1081,7 +873,7 @@ export default function App() {
                   ? "Resume the saved evaluation in the report panel. A second job cannot be started while it is active."
                   : !config?.field_ready
                     ? "The API must report a ready field before an evaluation can be submitted."
-                    : "This sends the fields above once to the same-origin API."}
+                    : "One description is enough to get started."}
               </p>
             </fieldset>
           </form>
@@ -1136,7 +928,7 @@ export default function App() {
               {job.error?.details && job.error.details.length > 0 && (
                 <ul>{job.error.details.map((detail, index) => <li key={`${detail}-${index}`}>{detail}</li>)}</ul>
               )}
-              <p>Your write-up is still in the form. This failed job has no report; submit again only when you decide to start a new evaluation.</p>
+              <p>Your idea description is still in the form. This failed job has no report; submit again only when you decide to start a new evaluation.</p>
             </div>
           )}
 
@@ -1160,12 +952,12 @@ export default function App() {
 
               {reportIsStale && (
                 <p className="stale-report-note" role="status">
-                  The form has changed. This report belongs to the last submitted version of the write-up.
+                  The form has changed. This report belongs to the last submitted version of the idea description.
                 </p>
               )}
 
               <p className="report-explanation">
-                Scores and ranks below are returned by the API. Placement ranges include run-to-run variation and ties within the simulated field; they are not win probabilities or statistical confidence intervals. Feedback is based on the write-up only; software execution has not been verified.
+                Scores and ranks below are returned by the API. Placement ranges include run-to-run variation and ties within the simulated field; they are not win probabilities or statistical confidence intervals. Feedback is based on your description. Functionality reflects described implementation; planned features are not treated as proof of a working build.
               </p>
 
               <div className="report-cards">
@@ -1183,8 +975,8 @@ export default function App() {
           {!job && !activeJobId && !pollNotice && (
             <div className="empty-report">
               <p className="empty-label">Your report will appear here</p>
-              <h3>Start with the write-up you have.</h3>
-              <p>Load Campus Queue to explore the flow, or enter your own project. The API calculates each placement after submission.</p>
+              <h3>A rough idea is a good start.</h3>
+              <p>Describe what you’re thinking of building, or load the sample idea to try the flow.</p>
             </div>
           )}
 
