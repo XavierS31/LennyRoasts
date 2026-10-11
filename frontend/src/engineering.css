@@ -243,7 +243,8 @@ select option { background: #fff; color: var(--ink); }
 .engineering-app .masthead :focus-visible { outline-color: #fff; }
 .engineering-app :is(.report-card, .track-item, .criterion, .rival, .file-import-preview) { border-radius: 22px; background: rgba(255,255,255,.55); box-shadow: none; }
 .engineering-app :is(.secondary-button, .text-button) { border-radius: 999px; }
-.engineering-app .challenge-picker { border-radius: 20px; }
+.engineering-app .challenge-picker { border-radius: 20px; padding: 14px 16px; }
+.engineering-app .challenge-picker > summary { line-height: 1.5; list-style-position: inside; }
 .engineering-app .ballroom-caption { padding: 24px 30px; }
 .engineering-app .ballroom-caption h1 { font-weight: 650; letter-spacing: -.025em; }
 .engineering-app p { text-wrap: pretty; }
