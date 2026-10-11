@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { lazy, Suspense, useEffect, useRef, useState, type FormEvent } from "react";
 import sampleIdea from "../demo/campus-queue.txt?raw";
+import SceneBoundary from "./components/engineering/SceneBoundary";
 import { ideaError, ideaSubmission, MAX_IDEA_LENGTH } from "./ideaSubmission";
 import {
   ApiRequestError,
@@ -24,6 +25,7 @@ type Notice = {
   action?: "refresh-field";
 };
 type ServiceMode = "loading" | "unavailable" | "mock" | "fixture" | "live";
+const EngineeringExplorer = lazy(() => import("./components/engineering/EngineeringExplorer"));
 
 const JOB_STORAGE_KEY = "lennyroasts.active-evaluation";
 const MAX_AUTOMATIC_POLL_MS = 5 * 60 * 1000;
@@ -249,9 +251,13 @@ function RunDetails({ runs }: { runs: RunScore[] }) {
 function ReportCard({
   result,
   challenge,
+  onShowInScene,
+  selected,
 }: {
   result: ChallengeResult;
   challenge?: Challenge;
+  onShowInScene: () => void;
+  selected: boolean;
 }) {
   const evidenceEntries = criterionLabels
     .map(([key, label]) => [label, result.evidence[key]] as const)
@@ -259,7 +265,8 @@ function ReportCard({
   const placementText = rankText(result);
 
   return (
-    <article className="report-card">
+    <article className={`report-card ${selected ? "scene-selected" : ""}`}>
+      <button className="text-button scene-link" type="button" onClick={onShowInScene}>Show in 3D scene ↗</button>
       <header className="report-card-header">
         <div className="report-card-title">
           <h3>{challenge?.name ?? result.challenge_id}</h3>
@@ -382,6 +389,9 @@ function ReportCard({
 }
 
 export default function App() {
+  const [panelsVisible, setPanelsVisible] = useState(true);
+  const [activePanel, setActivePanel] = useState<"project" | "report">("project");
+  const [sceneCategory, setSceneCategory] = useState("");
   const [idea, setIdea] = useState("");
   const [selectedChallenges, setSelectedChallenges] = useState<Submission["challenges"]>([]);
   const [config, setConfig] = useState<ChallengeList>();
@@ -544,6 +554,20 @@ export default function App() {
   }, [activeJobId, pollingEnabled]);
 
   useEffect(() => {
+    if (job || activeJobId || pollNotice) {
+      setActivePanel("report");
+      setPanelsVisible(true);
+    }
+  }, [job?.evaluation_id, job?.status, activeJobId, pollNotice]);
+
+  useEffect(() => {
+    if (notice) {
+      setActivePanel("project");
+      setPanelsVisible(true);
+    }
+  }, [notice]);
+
+  useEffect(() => {
     if (job?.status === "completed" || job?.status === "failed") {
       window.requestAnimationFrame(() => reportHeading.current?.focus());
     }
@@ -563,6 +587,8 @@ export default function App() {
   }
 
   function focusFirstError(nextErrors: FormErrors) {
+    setActivePanel("project");
+    setPanelsVisible(true);
     const focusOrder: ErrorField[] = ["idea", "challenges"];
     const field = focusOrder.find(
       (candidate) => nextErrors[candidate],
@@ -681,14 +707,22 @@ export default function App() {
   else if (!config?.field_ready) evaluationStatus = "Evaluation unavailable until the field is ready";
 
   return (
-    <main className="app-shell">
+    <main className="app-shell engineering-app">
+      <SceneBoundary><Suspense fallback={<p className="scene-fallback glass-panel" role="status">Loading Engineering campus…</p>}>
+        <EngineeringExplorer job={job} challenges={config?.challenges ?? []}
+          projectName={submittedSubmission?.name ?? "Your idea"}
+          category={sceneCategory} onCategory={setSceneCategory} panelsVisible={panelsVisible} isStale={reportIsStale} />
+      </Suspense></SceneBoundary>
       <header className="masthead">
-        <a href="/" className="wordmark" aria-label="LennyRoasts home">
+        <a href="/" className="wordmark" aria-label="LennyRoasts home" onClick={(event) => { event.preventDefault(); window.history.pushState(null, "", "/"); window.dispatchEvent(new PopStateEvent("popstate")); }}>
+          <img src="/assets/engineering/lenny-roasts-logo-transparent.png" alt="" />
           Lenny<span>Roasts</span>
         </a>
         <span className="edition">KNIGHT HACKS IX <span aria-hidden="true">/</span> PRACTICE TABLE</span>
+        <button type="button" className="secondary-button panel-toggle" aria-expanded={panelsVisible} aria-controls="glass-content" onClick={() => setPanelsVisible((value) => !value)}>{panelsVisible ? "Hide panels" : "Show panels"}</button>
       </header>
 
+      <div className="glass-content" id="glass-content" hidden={!panelsVisible}>
       <section className="intro" aria-labelledby="page-title">
         <p className="eyebrow">BEFORE YOU BUILD, TEST THE IDEA</p>
         <h1 id="page-title">Got an idea? Give it a reality check.</h1>
@@ -751,7 +785,11 @@ export default function App() {
       </section>
 
       <div className="workspace">
-        <section className="form-panel" aria-labelledby="form-heading">
+        <div className="panel-switch glass-panel" role="group" aria-label="Frontend panels">
+          <button type="button" aria-pressed={activePanel === "project"} onClick={() => setActivePanel("project")}>Your idea</button>
+          <button type="button" aria-pressed={activePanel === "report"} onClick={() => setActivePanel("report")}>Practice report {job?.status === "completed" ? "· ready" : ""}</button>
+        </div>
+        <section className="form-panel" aria-labelledby="form-heading" hidden={activePanel !== "project"}>
           <div className="section-heading">
             <div>
               <p className="section-kicker">THE STARTING POINT</p>
@@ -883,7 +921,7 @@ export default function App() {
           </p>
         </section>
 
-        <section className="report-panel" aria-labelledby="report-heading">
+        <section className="report-panel" aria-labelledby="report-heading" hidden={activePanel !== "report"}>
           <div className="section-heading report-heading-row">
             <div>
               <p className="section-kicker">EVALUATION REPORT</p>
@@ -966,6 +1004,8 @@ export default function App() {
                     key={result.challenge_id}
                     result={result}
                     challenge={config?.challenges.find((challenge) => challenge.id === result.challenge_id)}
+                    selected={sceneCategory === result.challenge_id || (!sceneCategory && result === job.result?.challenge_results[0])}
+                    onShowInScene={() => { setSceneCategory(result.challenge_id); setPanelsVisible(false); }}
                   />
                 ))}
               </div>
@@ -994,6 +1034,7 @@ export default function App() {
         <span>KNIGHT HACKS IX</span>
         <span>TEXT-ONLY PRACTICE · SIMULATED FIELD · NOT A REAL-WINNER PREDICTION</span>
       </footer>
+      </div>
     </main>
   );
 }
