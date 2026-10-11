@@ -3,6 +3,7 @@ import type { Challenge, EvaluationJob } from "../../api/client";
 import EngineeringScene, { type CameraCommand, type SceneController } from "./EngineeringScene";
 import type { LocationState } from "./navigation";
 import AtriumMap from "./AtriumMap";
+import { lennySponsors } from "./lennyLayout";
 
 export default function EngineeringExplorer({ job, challenges, projectName, category, onCategory, panelsVisible, isStale, location, onBuilding, onEnter, entering, controller }: {
   job: EvaluationJob | null;
@@ -21,6 +22,7 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
   const [hovered, setHovered] = useState("");
   const [marker, setMarker] = useState("user");
   const [resultsExpanded, setResultsExpanded] = useState(false);
+  const [visitingSponsor, setVisitingSponsor] = useState(false);
   const results = location.kind === "atrium" && job?.status === "completed" ? job.result?.challenge_results ?? [] : [];
   const result = results.find((entry) => entry.challenge_id === category) ?? results.find((entry) => entry.challenge_id === "overall") ?? results[0];
   const rival = result?.rivals.find((entry) => entry.project_id === marker);
@@ -29,6 +31,7 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
 
   useEffect(() => { setMarker("user"); }, [result]);
   useEffect(() => { setResultsExpanded(false); }, [location.kind]);
+  useEffect(() => { setVisitingSponsor(false); }, [location.kind]);
   useEffect(() => {
     const narrow = window.matchMedia("(max-width: 900px)");
     const resize = () => { if (narrow.matches) setResultsExpanded(false); };
@@ -36,7 +39,7 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
     return () => narrow.removeEventListener("change", resize);
   }, []);
 
-  function camera(action: CameraCommand) { void controller.current?.command(action); }
+  function camera(action: CameraCommand) { setVisitingSponsor(false); void controller.current?.command(action); }
   function selectProject(id: string) { setMarker(id); void controller.current?.command("focus", id); }
 
   return <div className={`engineering-explorer scene-${location.kind} ${panelsVisible ? "with-panels" : "without-panels"}`}>
@@ -65,6 +68,9 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
         <button type="button" onClick={() => camera("stairs")}>Staircase</button>
         <button type="button" onClick={() => camera("ceiling")}>Skylights</button>
         <button type="button" onClick={() => camera("entrance")}>Glass entrance</button>
+        <span className="lenny-controls" role="group" aria-label="Visit sponsor Lennys">
+          {lennySponsors.map((sponsor) => <button type="button" key={sponsor.id} onClick={() => { setVisitingSponsor(true); void controller.current?.command("sponsor", sponsor.id); }} aria-label={`Visit ${sponsor.name} Lenny`}>{sponsor.name} Lenny</button>)}
+        </span>
       </> : location.kind === "awards" ? <>
         <button type="button" onClick={() => camera("floor")}>Center aisle</button>
         <button type="button" onClick={() => camera("stage")}>Award stage</button>
@@ -75,11 +81,11 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
       {location.kind === "campus" && <button type="button" onClick={() => camera("walk")}>Entrance walk</button>}
     </div>
     {location.kind === "atrium" && <AtriumMap projectNames={result ? [projectName, ...result.rivals.map((entry) => entry.name)] : []} />}
-    {location.kind === "atrium" && !result && <p className="atrium-empty glass-panel">Explore Engineering II. Submit an idea on the Exterior to bring your project and API-returned competition into the room.</p>}
+    {location.kind === "atrium" && !result && !visitingSponsor && <p className="atrium-empty glass-panel">Explore Engineering II. Submit an idea on the Exterior to bring your project and API-returned competition into the room.</p>}
     {location.kind === "awards" && <aside className="ballroom-caption glass-panel" aria-label="Award ceremony room">
       <span className="scene-caption">UCF STUDENT UNION · THIRD FLOOR</span>
       <h1>Cape Ballroom</h1>
-      <p>Award ceremony · ready for the first applause.</p>
+      <p>Lenny is ready to present the awards.</p>
       <small>Drag to explore · scroll to zoom</small>
     </aside>}
     {result && <section className="scene-results glass-panel" aria-label="API results in the scene">

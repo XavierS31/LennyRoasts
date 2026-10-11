@@ -7,9 +7,11 @@ import { addAtrium, addExterior } from "./geometry";
 import { atriumViews, projectStation } from "./atriumLayout";
 import { ballroomViews } from "./ballroomLayout";
 import { addDetailedBallroom } from "./ballroomGeometry";
+import { addLennySprites } from "./lennySprites";
+import { sponsorView } from "./lennyLayout";
 
 export type SceneKind = "campus" | "atrium" | "awards";
-export type CameraCommand = "in" | "out" | "reset" | "iso" | "top" | "front" | "enter" | "floor" | "stairs" | "ceiling" | "entrance" | "focus" | "tower" | "west" | "walk" | "stage";
+export type CameraCommand = "in" | "out" | "reset" | "iso" | "top" | "front" | "enter" | "floor" | "stairs" | "ceiling" | "entrance" | "focus" | "tower" | "west" | "walk" | "stage" | "sponsor";
 export type SceneController = { command: (action: CameraCommand, building?: string) => Promise<void> };
 
 function disposeObjects(root: THREE.Object3D) {
@@ -143,6 +145,7 @@ export default function EngineeringScene({
     const clickable = kind === "campus" ? addExterior(scene) : [];
     if (kind === "atrium") addAtrium(scene);
     if (kind === "awards") addDetailedBallroom(scene);
+    const lennys = kind === "campus" ? undefined : addLennySprites(scene, kind);
     let environment: THREE.WebGLRenderTarget | undefined;
     if (kind !== "campus") {
       const room = new RoomEnvironment();
@@ -233,6 +236,10 @@ export default function EngineeringScene({
         }
       }
       if (kind === "atrium") {
+        if (action === "sponsor") {
+          const view = sponsorView(building ?? "");
+          return view ? travel(new THREE.Vector3(...view.position), new THREE.Vector3(...view.target)) : Promise.resolve();
+        }
         if (action === "focus") {
           const point = markerPositions.get(building ?? "user");
           if (point) return travel(point.clone().add(new THREE.Vector3(6, 5, 9)), point.clone().setY(2.5));
@@ -350,6 +357,7 @@ export default function EngineeringScene({
         }
       }
       controls.update();
+      lennys?.faceCamera(camera);
       // Outside views peel away only the facing boundary, leaving the hall readable.
       for (const object of cutaways) {
         const { axis, value, outward } = object.userData.cutaway as { axis: "x" | "y" | "z"; value: number; outward: number };
@@ -378,6 +386,7 @@ export default function EngineeringScene({
       controls.dispose();
       scene.traverse((object) => { if (object instanceof THREE.Light && "shadow" in object) (object as THREE.DirectionalLight).shadow?.dispose(); });
       environment?.dispose();
+      lennys?.dispose();
       disposeObjects(scene);
       renderer.dispose();
       renderer.forceContextLoss();
@@ -395,7 +404,7 @@ export default function EngineeringScene({
     return () => { cancelled = true; };
   }, [kind, result, projectName, selectedMarker]);
 
-  return <div className="engineering-scene" ref={mount} aria-label={`${kind === "campus" ? "UCF Engineering I and II exterior" : kind === "atrium" ? "Engineering atrium" : "UCF Student Union Cape Ballroom, third floor, empty award ceremony"} 3D scene`}>
+  return <div className="engineering-scene" ref={mount} aria-label={`${kind === "campus" ? "UCF Engineering I and II exterior" : kind === "atrium" ? "Engineering atrium with four Lennys wearing MLH, BNY, ElevenLabs and Databricks shirts" : "UCF Student Union Cape Ballroom, third floor, with Lenny presenting a trophy on the award stage"} 3D scene`}>
     {error && <p className="scene-fallback glass-panel" role="status">{error}</p>}
   </div>;
 }
