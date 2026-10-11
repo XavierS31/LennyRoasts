@@ -1,0 +1,56 @@
+{
+  "project_id": "kh9-smoke-t086",
+  "team_id": "t086",
+  "submission": {
+    "name": "WireWatch",
+    "tagline": "Catch suspicious payment requests before they reach the next step.",
+    "inspiration": "Small business finance teams can receive convincing emails asking them to change payment details or rush a transfer. We wanted to give staff a quick way to review those messages before acting.",
+    "what_it_does": "Paste a payment-related email into WireWatch to get a Gemini-generated review of suspicious wording, sender claims, and link text. The result can be read aloud with ElevenLabs so a reviewer can hear the main warning signs while checking the message.",
+    "how_we_built_it": "We kept a lightweight HTML, CSS, and JavaScript page with a Python service for the analysis request. Gemini handles the message review, and ElevenLabs turns the explanation into audio; the email input and response panels work, but the API connection is mocked in the current demo, so analysis and playback do not reliably follow the submitted text.",
+    "challenges_we_ran_into": "Connecting the model response to the interface took longer than expected, and the demo still uses placeholder results in places. We also need better handling for email headers and links before this could fit into a real financial workflow.",
+    "accomplishments": "We built the review screen and explored a way to explain payment-email warning signs in plain language. The prototype gave us a clear starting point for a focused financial services tool.",
+    "what_we_learned": "We learned to keep API keys out of browser code and to treat model output as a review aid rather than a final decision. Gemini helped draft contextual explanations, and ElevenLabs gave those explanations a spoken form.",
+    "whats_next": "We would connect the backend analysis and speech calls end to end, then add a way for finance staff to mark a message for human follow-up. We would also test the review against more varied payment request examples.",
+    "built_with": [
+      "css",
+      "elevenlabs",
+      "gemini",
+      "html",
+      "javascript",
+      "python"
+    ],
+    "challenges": [
+      "bny",
+      "elevenlabs",
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "shellhacks2024--baitblock-8ti7d2"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/baitblock-8ti7d2"
+  ],
+  "primary_pool": "bny",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "ai_ml",
+    "completion": "partial",
+    "writing_style": "terse"
+  },
+  "fit": {
+    "bny": "strong",
+    "elevenlabs": "medium",
+    "gemini": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009086,
+  "batch_id": "b022",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.4896142712235513,
+    "field": 0.6704525774685138
+  },
+  "created_at": "2026-10-11T00:55:12+00:00"
+}

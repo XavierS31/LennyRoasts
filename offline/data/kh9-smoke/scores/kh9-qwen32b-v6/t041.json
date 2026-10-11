@@ -1,0 +1,387 @@
+{
+  "project_id": "kh9-smoke-t041",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "gemini",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 4,
+        "wow": 3,
+        "relevance": 4
+      },
+      "total": 18,
+      "max_total": 25,
+      "score_10": 7.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 3,
+            "relevance": 4
+          },
+          "total": 18,
+          "max_total": 25,
+          "score_10": 7.2,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 3,
+            "relevance": 4
+          },
+          "total": 18,
+          "max_total": 25,
+          "score_10": 7.2,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 3,
+            "relevance": 4
+          },
+          "total": 18,
+          "max_total": 25,
+          "score_10": 7.2,
+          "eligible": true
+        }
+      ],
+      "rationale": "Gemini is central to extracting topics and generating learning activities, but some documents require manual cleanup.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "Gemini turns document text into topic relationships and draft learning activities",
+        "functionality": "not described",
+        "wow": "not described",
+        "relevance": "Gemini helps extract topics and generate the practice material"
+      },
+      "warnings": [
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 0: wow evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: wow evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add automatic cleanup of generated maps for varied documents",
+        "Explain how AI-generated topics are structured and reviewed in the interface",
+        "Show how the system handles failed background jobs during upload processing"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 4,
+        "wow": 2
+      },
+      "total": 13,
+      "max_total": 20,
+      "score_10": 6.5,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project combines game-like learning paths with AI-generated content, showing clear technical connections but lacks detailed tradeoffs.",
+      "evidence": {
+        "originality": "game-like path where each step helps explain what to practice next",
+        "tech_understanding": "Gemini turns document text into topic relationships and draft learning activities",
+        "functionality": "Upload a game design or club training document and get an editable map of connected concepts",
+        "wow": "game-inspired missions gave us a way to make a course outline feel more like a set of achievable levels"
+      },
+      "warnings": [
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: wow evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add detailed explanations of technical tradeoffs and limitations in the documentation",
+        "Provide evidence of the current workflow's end-to-end functionality with specific examples",
+        "Include user feedback or testing results to demonstrate the solution's impact"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3.3333333333333335,
+        "tech_understanding": 4,
+        "functionality": 4,
+        "wow": 2.3333333333333335,
+        "relevance": 4.333333333333333
+      },
+      "total": 18,
+      "max_total": 25,
+      "score_10": 7.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 4,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 3,
+            "relevance": 5
+          },
+          "total": 20,
+          "max_total": 25,
+          "score_10": 8.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "Gemini's role in extracting topics and generating practice material supports relevance and functionality, but originality is moderate as the concept is common in educational tech.",
+      "evidence": {
+        "originality": "Turn a training handbook into a map of skills, missions, and quick checks.",
+        "tech_understanding": "Gemini turns document text into topic relationships and draft learning activities",
+        "functionality": "Upload a game design or club training document and get an editable map of connected concepts",
+        "wow": "We want to improve extraction on varied documents, add cooperative study missions",
+        "relevance": "Gemini helps extract topics and generate the practice material"
+      },
+      "warnings": [
+        "Run 2: originality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add specific examples of Gemini's generated content to demonstrate model behavior",
+        "Document the exact workflow for handling failed background jobs",
+        "Show how topic relationships are validated or refined after initial extraction"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.6666666666666665,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2.3333333333333335
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission describes a learning tool with game-like features but lacks core gameplay mechanics.",
+      "evidence": {
+        "originality": "game-inspired missions gave us a way to make a course outline feel more like a set of achievable levels",
+        "tech_understanding": "Gemini turns document text into topic relationships and draft learning activities",
+        "functionality": "got the upload-to-map workflow and the learning loop working together",
+        "wow": "Turn a training handbook into a map of skills, missions, and quick checks",
+        "relevance": "New players and student club members often get a pile of guides without knowing which ideas they need before trying a"
+      },
+      "warnings": [
+        "Runs disagree on category eligibility; the two-of-three rule was applied."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add core gameplay mechanics like player-controlled actions and win/loss conditions to increase relevance as a game",
+        "Implement visible challenge progression and player feedback systems to strengthen game loop functionality",
+        "Document specific game design decisions and tradeoffs in the technical implementation details"
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 4,
+        "wow": 1.6666666666666667,
+        "relevance": 2
+      },
+      "total": 14.666666666666666,
+      "max_total": 25,
+      "score_10": 5.866666666666666,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project offers a game-like learning path but lacks a goofy or absurd premise central to the category, with functionality focused on practical educational tools rather than humor.",
+      "evidence": {
+        "originality": "We wanted to make learning a game-like path where each step helps explain what to practice next.",
+        "tech_understanding": "Gemini turns document text into topic relationships and draft learning activities",
+        "functionality": "Upload a game design or club training document and get an editable map of connected concepts",
+        "wow": "The game-inspired missions gave us a way to make a course outline feel more like a set of achievable levels.",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 1: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a humorous or absurd twist to the learning path concept to better fit the funny/goofy category",
+        "Document a specific goofy feature or scenario that presents a trivial problem as life-changing",
+        "Explain how the game-like elements intentionally include over-the-top or comically exaggerated challenges"
+      ]
+    }
+  ]
+}

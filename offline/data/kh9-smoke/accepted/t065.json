@@ -1,0 +1,54 @@
+{
+  "project_id": "kh9-smoke-t065",
+  "team_id": "t065",
+  "submission": {
+    "name": "Garden Signs",
+    "tagline": "Show a garden sign, get a clearer way to share what you need.",
+    "inspiration": "Volunteers at a community garden may not share a first language, and simple signs or instructions can be hard to communicate quickly. We wanted to combine a local garden resource map with a camera tool that recognizes a few hand-spelled letters, so people can find useful places and share short labels.",
+    "what_it_does": "The map prototype collects nearby gardens, public growing spaces, and selected community resources from open listings. A separate webcam experiment tries to recognize ASL fingerspelling and display the detected letters as text. We pictured using that to search or label a map marker, but the two parts are not connected yet and the gesture model is limited to individual letters.",
+    "how_we_built_it": "The map interface uses React, Vite, Tailwind, and Leaflet, with a small FastAPI service and SQLite for saved markers. OpenStreetMap data and a few public resource sources provide starting locations, while Gemini can draft short descriptions from available listing details. For the second interaction, we built a browser camera experiment that classifies hand shapes and groups recognized letters into text. The map and camera tools run as separate prototypes; connecting recognized words to map search is the next integration step.",
+    "challenges_we_ran_into": "Listings from different sources use inconsistent categories and can be out of date, so a combined map can still mislead. Webcam recognition also depends on framing and lighting, and letter-by-letter output is slow for real conversation. We did not have time to link the camera results to the map or test the flow with garden volunteers.",
+    "accomplishments": "We are proud to have two concrete pieces: a map with several kinds of community locations and a small fingerspelling recognition demo. Working on both showed us how a communication aid could fit into a practical local-resource tool.",
+    "what_we_learned": "We learned the tradeoffs involved in combining open map data with manually saved locations, and how much visual input conditions affect a webcam classifier. Gemini helped draft concise listing descriptions, while our camera experiment taught us that recognition needs a clear task and good framing. We also learned that separate prototypes need a shared data shape before they can feel like one app.",
+    "whats_next": "We would connect recognized letters to a simple place search or marker label, then improve recognition for short words. We would also add a way for garden groups to correct listings and flag outdated information.",
+    "built_with": [
+      "beautifulsoup",
+      "fastapi",
+      "google-gemini",
+      "leaflet.js",
+      "openstreetmap",
+      "python",
+      "react",
+      "sqlite",
+      "tailwind",
+      "vite"
+    ],
+    "challenges": []
+  },
+  "seed_ids": [
+    "swamphacks-xi--community-compass-rmojbk",
+    "hackusf-2026--asl-to-tts"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/community-compass-rmojbk",
+    "https://devpost.com/software/asl-to-tts"
+  ],
+  "primary_pool": "general",
+  "mutation": "heavy",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "partial",
+    "writing_style": "detailed"
+  },
+  "fit": {},
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009065,
+  "batch_id": "b017",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.5571307691271914,
+    "field": 0.6472200877607933
+  },
+  "created_at": "2026-10-11T00:52:03+00:00"
+}

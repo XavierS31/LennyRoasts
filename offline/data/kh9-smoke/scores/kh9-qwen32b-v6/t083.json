@@ -1,0 +1,383 @@
+{
+  "project_id": "kh9-smoke-t083",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "databricks",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project shows a meaningful data preparation step in Databricks but it is not yet connected to the main product flow.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "we planned to use Databricks to prepare trip and distance data for the emissions view",
+        "functionality": "posting a trip through to a complete match did not work reliably",
+        "wow": "not described",
+        "relevance": "we planned to use Databricks to prepare trip and distance data for the emissions view"
+      },
+      "warnings": [
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect Databricks emissions analysis to the main ride matching interface",
+        "Implement reliable end-to-end trip posting and matching workflow",
+        "Add detailed documentation of the Databricks data pipeline architecture"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 11,
+      "max_total": 20,
+      "score_10": 5.5,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project has a clear purpose but lacks detailed technical explanations and the Databricks integration is incomplete.",
+      "evidence": {
+        "originality": "Long trips to campus events and weekend meetups can be expensive when everyone drives alone.",
+        "tech_understanding": "A small Python backend stores trip details and handles matching; we planned to use Databricks to prepare trip and",
+        "functionality": "posting a trip through to a complete match did not work reliably, and our analytics view stayed unfinished.",
+        "wow": "RideKind lets a driver post a trip and lets riders look for trips by destination, timing, and vehicle type."
+      },
+      "warnings": [
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Implement a working flow from trip creation to match results",
+        "Complete the Databricks emissions summary integration",
+        "Provide detailed technical explanations of the matching algorithm"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "RideKind uses a Python backend for trip matching and planned Databricks for emissions data but lacks connected core functionality.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "not described",
+        "functionality": "posting a trip through to a complete match did not work reliably, and our analytics view stayed unfinished.",
+        "wow": "Find a shared ride that fits your route and your footprint.",
+        "relevance": "planned to use Databricks to prepare trip and distance data for the emissions view"
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described.",
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 2: originality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Implement a reliable end-to-end flow from trip posting to match results",
+        "Complete the Databricks integration for emissions analytics with clear data paths",
+        "Add pickup coordination features to enhance user experience"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 2.6666666666666665,
+        "wow": 1.3333333333333333,
+        "relevance": 2
+      },
+      "total": 11,
+      "max_total": 25,
+      "score_10": 4.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission is a ride-sharing platform with game-like features but lacks core gameplay elements.",
+      "evidence": {
+        "originality": "We wanted a simple way for students heading in similar directions to find each other and make carpooling feel practical.",
+        "tech_understanding": "A small Python backend stores trip details and handles matching",
+        "functionality": "posting a trip through to a complete match did not work reliably",
+        "wow": "not described",
+        "relevance": "RideKind lets a driver post a trip and lets riders look for trips by destination, timing, and vehicle type."
+      },
+      "warnings": [
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add core gameplay elements such as rules, challenges, and win/loss conditions to transform the ride-sharing platform into a game."
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 2.6666666666666665,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 11.666666666666666,
+      "max_total": 25,
+      "score_10": 4.666666666666667,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project addresses a practical need with a clear interface and backend but lacks a goofy or absurd premise required for the category, and the implemented features are functional but not particularly impressive in a comedic way.",
+      "evidence": {
+        "originality": "We wanted a simple way for students heading in similar directions to find each other and make carpooling feel practical.",
+        "tech_understanding": "A small Python backend stores trip details and handles matching; we planned to use Databricks to prepare trip and",
+        "functionality": "posting a trip through to a complete match did not work reliably, and our analytics view stayed unfinished.",
+        "wow": "We made a usable set of ride search and posting screens and got the basic backend pieces running.",
+        "relevance": "Long trips to campus events and weekend meetups can be expensive when everyone drives alone."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a humorous or absurd twist to the carpooling concept to better fit the funny/goofy category.",
+        "Improve the reliability of the trip posting and matching flow to enhance functionality.",
+        "Develop the Databricks emissions summary to provide a more complete and engaging user experience."
+      ]
+    }
+  ]
+}

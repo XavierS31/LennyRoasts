@@ -1,7 +1,9 @@
 import { lazy, Suspense, useEffect, useRef, useState, type FormEvent } from "react";
+import { NotebookIcon, ChartBarIcon, CheckIcon, PlusIcon } from "@phosphor-icons/react";
 import sampleIdea from "../demo/campus-queue.txt?raw";
 import SceneBoundary from "./components/engineering/SceneBoundary";
 import { sceneLocation, scenePath, type LocationState } from "./components/engineering/navigation";
+import { sponsorRoom, type SponsorRoomId } from "./components/engineering/classroomLayout";
 import type { SceneController } from "./components/engineering/EngineeringScene";
 import { ideaError, ideaSubmission, MAX_IDEA_LENGTH } from "./ideaSubmission";
 import IdeaFileImport from "./components/IdeaFileImport";
@@ -20,6 +22,7 @@ import {
 
 type ErrorField = "idea" | "challenges";
 type FormErrors = Partial<Record<ErrorField, string>>;
+type IdeaInputMode = "describe" | "import";
 type Notice = {
   title: string;
   message: string;
@@ -392,13 +395,14 @@ function ReportCard({
 }
 
 export default function App() {
-  const [panelsVisible, setPanelsVisible] = useState(() => sceneLocation(new URL(window.location.href)).kind !== "atrium");
+  const [panelsVisible, setPanelsVisible] = useState(() => sceneLocation(new URL(window.location.href)).kind === "campus");
   const [location, setLocation] = useState(() => sceneLocation(new URL(window.location.href)));
   const [entering, setEntering] = useState(false);
   const sceneController = useRef<SceneController | null>(null);
   const sceneTransition = useRef(0);
   const [sceneCategory, setSceneCategory] = useState("");
   const [idea, setIdea] = useState("");
+  const [ideaInputMode, setIdeaInputMode] = useState<IdeaInputMode>("describe");
   const [isImporting, setIsImporting] = useState(false);
   const [selectedChallenges, setSelectedChallenges] = useState<Submission["challenges"]>([]);
   const [config, setConfig] = useState<ChallengeList>();
@@ -425,20 +429,34 @@ export default function App() {
       setEntering(false);
       const next = sceneLocation(new URL(window.location.href));
       setLocation(next);
-      setPanelsVisible(next.kind !== "atrium");
+      setPanelsVisible(next.kind === "campus");
     };
     window.addEventListener("popstate", back);
     return () => { sceneTransition.current++; window.removeEventListener("popstate", back); };
   }, []);
 
-  function navigate(kind: LocationState["kind"], building = location.building) {
+  function navigate(kind: LocationState["kind"], building = location.building, sponsor?: SponsorRoomId) {
     sceneTransition.current++;
     setEntering(false);
-    const next = { kind, building };
+    const next: LocationState = kind === "classroom" ? { kind, building, sponsor: sponsor ?? "gemini" } : { kind, building };
     window.history.pushState(null, "", scenePath(next));
     setLocation(next);
-    setPanelsVisible(kind !== "atrium");
+    setPanelsVisible(kind === "campus");
     window.scrollTo({ top: 0, behavior: "instant" });
+  }
+
+  function openClassroom(id: SponsorRoomId) {
+    setSceneCategory(id);
+    navigate("classroom", location.building, id);
+  }
+
+  function pitchInClassroom() {
+    const id = sponsorRoom(location.sponsor).id;
+    // Opt in only when the student chooses to pitch, and preserve other choices.
+    if (!activeJobId && !isSubmitting) setSelectedChallenges((current) => current.includes(id) ? current : [...current, id]);
+    setIdeaInputMode("describe");
+    setPanelsVisible(true);
+    window.requestAnimationFrame(() => ideaInput.current?.focus());
   }
 
   async function enterBuilding(building = location.building) {
@@ -598,7 +616,7 @@ export default function App() {
 
   useEffect(() => {
     if (notice) {
-      navigate("campus");
+      if (location.kind !== "classroom") navigate("campus");
       setPanelsVisible(true);
     }
   }, [notice]);
@@ -613,7 +631,7 @@ export default function App() {
 
   function loadSample() {
     setIdea(sampleIdea.trim());
-    setSelectedChallenges(["gemini"]);
+    setSelectedChallenges(location.kind === "classroom" && location.sponsor !== "gemini" ? ["gemini", sponsorRoom(location.sponsor).id] : ["gemini"]);
     setJob(null);
     setSubmittedSubmission(null);
     setErrors({});
@@ -625,7 +643,7 @@ export default function App() {
   }
 
   function focusFirstError(nextErrors: FormErrors) {
-    if (location.kind !== "campus") navigate("campus");
+    if (location.kind !== "campus" && location.kind !== "classroom") navigate("campus");
     setPanelsVisible(true);
     const focusOrder: ErrorField[] = ["idea", "challenges"];
     const field = focusOrder.find(
@@ -747,41 +765,41 @@ export default function App() {
 
   return (
     <main className={`app-shell engineering-app view-${location.kind}`}>
-      <SceneBoundary><Suspense fallback={<p className="scene-fallback glass-panel" role="status">Loading Engineering campus…</p>}>
+      <SceneBoundary><Suspense fallback={<p className="scene-fallback glass-panel" role="status">Loading {location.kind === "awards" ? "Cape Ballroom" : "Engineering campus"}…</p>}>
         <EngineeringExplorer job={job} challenges={config?.challenges ?? []}
           projectName={submittedSubmission?.name ?? "Your idea"}
           category={sceneCategory} onCategory={setSceneCategory} panelsVisible={panelsVisible} isStale={reportIsStale}
-          location={location} controller={sceneController} entering={entering}
-          onBuilding={(building) => setLocation((current) => ({ ...current, building }))}
-          onEnter={() => void enterBuilding()} />
+          location={location} controller={sceneController}
+          onSponsor={openClassroom} onReturnAtrium={() => navigate("atrium")}
+          onPitch={pitchInClassroom}
+          onViewReport={() => { navigate("atrium"); setPanelsVisible(true); }}
+          onBuilding={(building) => setLocation((current) => ({ ...current, building }))} />
       </Suspense></SceneBoundary>
       <header className="masthead">
         <a href="/" className="wordmark" aria-label="LennyRoasts home" onClick={(event) => { event.preventDefault(); navigate("campus"); }}>
-          <img src="/assets/engineering/lenny-roasts-logo-transparent.png" alt="Lenny Roasts" />
+          <span className="wordmark-crop"><img src="/assets/engineering/lenny-roasts-logo-transparent.png" alt="Lenny Roasts" /></span>
         </a>
-        <nav className="scene-tabs" aria-label="Explore Engineering buildings">
-          <button type="button" aria-pressed={location.kind === "campus"} onClick={() => navigate("campus")}>Exterior</button>
-          <button type="button" aria-pressed={location.kind === "atrium"} onClick={() => navigate("atrium", "Engineering II")}>Atrium</button>
-          <button type="button" aria-pressed={location.kind === "awards"} onClick={() => navigate("awards")}>Auditorium</button>
+        <nav className="scene-tabs" aria-label="Explore UCF rooms and buildings">
+          <button type="button" aria-label="Exterior" aria-pressed={location.kind === "campus"} onClick={() => navigate("campus")}>Exterior</button>
+          <button type="button" aria-label="Atrium" aria-pressed={location.kind === "atrium"} onClick={() => navigate("atrium", "Engineering II")}>Atrium</button>
+          <button type="button" aria-label="Awards" aria-pressed={location.kind === "awards"} onClick={() => navigate("awards")}>Awards</button>
         </nav>
-        <button type="button" className="secondary-button panel-toggle" aria-expanded={panelsVisible} aria-controls="glass-content" onClick={() => setPanelsVisible((value) => !value)}>{location.kind === "atrium" ? panelsVisible ? "Close report" : "Judging report" : panelsVisible ? "Hide panels" : "Show panels"}</button>
+        {location.kind !== "awards" && <button type="button" className="secondary-button panel-toggle" aria-label={location.kind === "atrium" ? "Judging report" : location.kind === "classroom" ? "Pitch panel" : "Idea panel"} title={location.kind === "atrium" ? "Judging report" : location.kind === "classroom" ? "Pitch panel" : "Idea panel"} aria-expanded={panelsVisible} aria-controls="glass-content" onClick={() => { if (location.kind === "classroom" && !panelsVisible) pitchInClassroom(); else setPanelsVisible((value) => !value); }}>{location.kind === "atrium" ? <ChartBarIcon size={23} weight="light" aria-hidden="true" /> : <NotebookIcon size={23} weight="light" aria-hidden="true" />}</button>}
       </header>
 
       <div className="glass-content" id="glass-content" hidden={!panelsVisible}>
-      <section className="intro" aria-labelledby="page-title" hidden={location.kind !== "campus"}>
-        <p className="eyebrow">BEFORE YOU BUILD, TEST THE IDEA</p>
-        <h1 id="page-title">What will you build?</h1>
-        <p className="lede">
-          Submit your idea here. Enter Engineering II to explore your competition and judging results.
-        </p>
-      </section>
+      <section className="intro" aria-label={location.kind === "campus" ? "Project introduction and service status" : "Service status"} hidden={location.kind === "awards"}>
+        <h1 id="page-title" hidden={location.kind !== "campus"}><span className="welcome-prefix">Welcome to</span><img className="hackathon-logo" src="/assets/engineering/knight-hacks-logo-inline-black.png" alt="Knight Hacks" /></h1>
 
-      <details className={`mode-banner mode-${mode}`} hidden={location.kind === "awards"} open={mode === "unavailable" || Boolean(configError) ? true : undefined}>
-        <summary>{modeLabel(mode)} · service details</summary>
+      <div className="service-status-row">
+      <details className={`mode-banner mode-${mode}`} hidden={location.kind === "awards"}>
+        <summary>
+          <span><span className="service-label">Service status</span><span className="service-value">{configLoading ? "Loading API…" : configError || !config || mode === "unavailable" ? "API unavailable" : mode === "mock" ? "Mock API" : mode === "fixture" ? "Fixture API" : "Judge API ready"}</span></span>
+        </summary>
         <div className="mode-copy">
           <span className="mode-indicator" aria-hidden="true" />
           <div>
-            <h2 id="mode-heading">{modeLabel(mode)}</h2>
+            {configLoading ? <p>Loading challenge information. You can keep preparing your project below.</p> : configError ? <p>Challenge information could not be loaded. Retry to check the service again.</p> : null}
             {mode === "mock" && (
               <p>
                 This API version uses deterministic development mock rules. Scores and placements are not live judge results or verified software outcomes.
@@ -802,7 +820,6 @@ export default function App() {
                 The API reports that evaluation is not ready. You can prepare the form, but no scoring request will be sent until the field is available.
               </p>
             )}
-            {mode === "loading" && <p>Loading challenge definitions and field readiness from the API.</p>}
             {config && (
               <p className="version-line">
                 Judge <code>{config.judge_version}</code> <span aria-hidden="true">·</span> Field <code>{config.pool_version}</code>
@@ -810,25 +827,15 @@ export default function App() {
             )}
           </div>
         </div>
-        {configError && (
-          <div className="config-failure" role="alert">
-            <p>{configError.message}</p>
-            <button type="button" className="secondary-button" onClick={refreshChallenges}>
-              Retry challenge load
-            </button>
-          </div>
-        )}
-        {mode === "unavailable" && !configError && (
-          <button
-            type="button"
-            className="secondary-button readiness-retry"
-            onClick={refreshChallenges}
-            disabled={configLoading}
-          >
-            {configLoading ? "Refreshing…" : "Refresh field status"}
-          </button>
-        )}
       </details>
+      {(configLoading || configError || mode === "unavailable") &&
+        <button type="button" className="text-button service-retry" onClick={refreshChallenges} disabled={configLoading} aria-busy={configLoading}>
+          Reload
+        </button>
+      }
+      {configError && <small className="compact-api-error" role="alert">{configError.message}</small>}
+      </div>
+      </section>
 
       <div className="workspace">
         {(job || activeJobId || pollNotice) && location.kind !== "awards" && <section className="submission-status glass-panel" aria-label="Submission status">
@@ -878,22 +885,19 @@ export default function App() {
             </button>
           </div>}
         </section>}
-        <section className="form-panel" aria-labelledby="form-heading" hidden={location.kind !== "campus"}>
+        <section className="form-panel" aria-labelledby="form-heading" hidden={location.kind !== "campus" && location.kind !== "classroom"}>
           <div className="section-heading">
             <div>
-              <p className="section-kicker">THE STARTING POINT</p>
-              <h2 id="form-heading">Your idea</h2>
+              <h2 id="form-heading">{location.kind === "classroom" ? `Pitch to ${sponsorRoom(location.sponsor).name} Lenny` : "Let Lenny roast your project"}</h2>
             </div>
             <button type="button" className="text-button" onClick={loadSample} disabled={Boolean(activeJobId) || isSubmitting || isImporting}>
-              Load sample
+              Try a sample
             </button>
           </div>
 
-          <p className="form-intro">
-            Tell us what you want to build, who it helps, and how it would work. Include tools you’re considering and what you’d show in a first demo. It’s okay if nothing is built yet.
-          </p>
+          {location.kind === "classroom" && <p className="classroom-track-note">{selectedChallenges.includes(sponsorRoom(location.sponsor).id) ? `The ${sponsorRoom(location.sponsor).name} track is included in your sponsor choices.` : `Add the ${sponsorRoom(location.sponsor).name} track below to include this sponsor.`} Describe your product below.</p>}
 
-          <form onSubmit={submit} noValidate aria-describedby="privacy-copy">
+          <form onSubmit={submit} noValidate>
             {notice && (
               <div className="notice notice-error" role="alert">
                 <h3 ref={noticeHeading} tabIndex={-1}>{notice.title}</h3>
@@ -911,47 +915,60 @@ export default function App() {
 
             <fieldset disabled={Boolean(activeJobId) || isSubmitting}>
               <legend className="visually-hidden">Your idea</legend>
-              <IdeaFileImport idea={idea} disabled={Boolean(activeJobId) || isSubmitting}
-                onBusyChange={setIsImporting} onImport={(text) => {
-                  setIdea(text);
-                  setErrors((current) => ({ ...current, idea: undefined }));
-                  setNotice(null);
-                  window.requestAnimationFrame(() => { ideaInput.current?.focus(); if (ideaInput.current) ideaInput.current.scrollTop = 0; });
-                }} />
-              <div className="form-field idea-field">
-                <label htmlFor="idea-description">Describe your idea <span className="required-label">Required</span></label>
-                <textarea
-                  ref={ideaInput}
-                  id="idea-description"
-                  name="idea"
-                  rows={8}
-                  disabled={isImporting}
-                  value={idea}
-                  onChange={(event) => {
-                    setIdea(event.target.value);
+              <div className="idea-input-modes" role="group" aria-label="Choose how to add your idea">
+                <button type="button" aria-pressed={ideaInputMode === "describe"}
+                  aria-controls="idea-description-panel" disabled={isImporting}
+                  onClick={() => setIdeaInputMode("describe")}>Describe your idea</button>
+                <button type="button" aria-pressed={ideaInputMode === "import"}
+                  aria-controls="idea-import-panel" disabled={isImporting}
+                  onClick={() => setIdeaInputMode("import")}>Import notes</button>
+              </div>
+              <div id="idea-description-panel" className="idea-input-panel" hidden={ideaInputMode !== "describe"}>
+                <div className="form-field idea-field">
+                  <label className="visually-hidden" htmlFor="idea-description">Describe your idea</label>
+                  <textarea
+                    ref={ideaInput}
+                    id="idea-description"
+                    name="idea"
+                    rows={8}
+                    disabled={isImporting}
+                    value={idea}
+                    onChange={(event) => {
+                      setIdea(event.target.value);
+                      setErrors((current) => ({ ...current, idea: undefined }));
+                      setNotice(null);
+                    }}
+                    placeholder={"I want to build…\n\nIt would help… by…\n\nFor the hackathon, the first demo would…"}
+                    aria-required="true"
+                    aria-invalid={Boolean(errors.idea)}
+                    aria-describedby={`hint-idea${errors.idea ? " error-idea" : ""}`}
+                  />
+                  <div className="field-meta">
+                    <small id="hint-idea">Rough notes are welcome.</small>
+                    <span>{Array.from(idea).length.toLocaleString()} / {MAX_IDEA_LENGTH.toLocaleString()}</span>
+                  </div>
+                  {errors.idea && <p className="field-error" id="error-idea">{errors.idea}</p>}
+                </div>
+              </div>
+              <div id="idea-import-panel" className="idea-input-panel" hidden={ideaInputMode !== "import"}>
+                <IdeaFileImport idea={idea} disabled={Boolean(activeJobId) || isSubmitting}
+                  onBusyChange={setIsImporting} onImport={(text) => {
+                    setIdea(text);
+                    setIdeaInputMode("describe");
                     setErrors((current) => ({ ...current, idea: undefined }));
                     setNotice(null);
-                  }}
-                  placeholder={"I want to build…\n\nIt would help… by…\n\nFor the hackathon, the first demo would…"}
-                  aria-invalid={Boolean(errors.idea)}
-                  aria-describedby={`hint-idea${errors.idea ? " error-idea" : ""}`}
-                />
-                <div className="field-meta">
-                  <small id="hint-idea">Rough notes, a paragraph, or a pasted pitch — any format works.</small>
-                  <span>{Array.from(idea).length.toLocaleString()} / {MAX_IDEA_LENGTH.toLocaleString()}</span>
-                </div>
-                {errors.idea && <p className="field-error" id="error-idea">{errors.idea}</p>}
+                    window.requestAnimationFrame(() => { ideaInput.current?.focus(); if (ideaInput.current) ideaInput.current.scrollTop = 0; });
+                  }} />
               </div>
 
               <details
                 id="sponsor-challenges"
                 className="challenge-picker"
-                open={errors.challenges ? true : undefined}
                 aria-labelledby="sponsor-heading"
                 aria-describedby={errors.challenges ? "error-challenges" : undefined}
               >
-                <summary id="sponsor-heading">Check sponsor fit <span className="required-label">Optional{selectedChallenges.length ? ` · ${selectedChallenges.length} selected` : ""}</span></summary>
-                <p className="muted-copy">Choose the sponsor tools or tracks your idea would use.</p>
+                <summary id="sponsor-heading">Sponsor tracks <span className="required-label">Optional{selectedChallenges.length ? ` · ${selectedChallenges.length} selected` : ""}</span></summary>
+                <p className="muted-copy">Choose the tools your idea would use.</p>
                 {errors.challenges && <p className="field-error" id="error-challenges">{errors.challenges}</p>}
                 {!configLoading && sponsorChallenges.length === 0 && (
                   <p className="muted-copy">No sponsor opt-ins are currently listed by the API.</p>
@@ -976,11 +993,11 @@ export default function App() {
                             }}
                             aria-describedby={`track-description-${challenge.id}`}
                           />
-                          <span className="track-checkmark" aria-hidden="true">{checked ? "Selected" : "Select"}</span>
+                          <span className="track-checkmark" aria-hidden="true">{checked ? <CheckIcon size={18} weight="light" /> : <PlusIcon size={18} weight="light" />}</span>
                           <span className="track-name">{challenge.name}</span>
                         </label>
                         <details className="challenge-description">
-                          <summary>Challenge description</summary>
+                          <summary>Details</summary>
                           <p id={`track-description-${challenge.id}`}>{challenge.description}</p>
                         </details>
                       </div>
@@ -998,24 +1015,12 @@ export default function App() {
                 className="submit-button"
                 type="submit"
                 disabled={!canSubmit}
-                aria-describedby="submit-help"
               >
-                <span>{isSubmitting ? "Submitting once…" : activeJobId ? "Evaluation already active" : "Evaluate my idea"}</span>
+                <span>{isSubmitting ? "Submitting…" : activeJobId ? "Evaluation active" : "Evaluate idea"}</span>
                 <span aria-hidden="true">↗</span>
               </button>
-              <p id="submit-help" className="submit-help">
-                {activeJobId
-                  ? "Your evaluation is active. Use the status card to pause or resume checks."
-                  : !config?.field_ready
-                    ? "The API must report a ready field before an evaluation can be submitted."
-                    : "One description is enough to get started."}
-              </p>
             </fieldset>
           </form>
-
-          <p className="privacy-copy" id="privacy-copy">
-            Evaluations are private to the requesting browser session. The current mock keeps job data in server memory; live retention details depend on the backend service.
-          </p>
         </section>
 
         <section className="report-panel" aria-labelledby="report-heading" hidden={location.kind !== "atrium"}>
@@ -1090,7 +1095,7 @@ export default function App() {
       </div>
 
       <footer className="page-footer" hidden={location.kind === "awards"}>
-        <span>KNIGHT HACKS IX</span>
+        <span>Lenny acts as your hackathon judges for Knight Hacks IX.</span>
         <span>TEXT-ONLY PRACTICE · SIMULATED FIELD · NOT A REAL-WINNER PREDICTION</span>
       </footer>
       </div>

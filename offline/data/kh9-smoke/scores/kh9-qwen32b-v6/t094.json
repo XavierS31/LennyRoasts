@@ -1,0 +1,459 @@
+{
+  "project_id": "kh9-smoke-t094",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "bny",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 2,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": true
+        }
+      ],
+      "rationale": "The app improves a student club financial process with shared tracking but lacks end-to-end functionality and deeper financial integration.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We started a React Native Expo app backed by Firebase for users, groups, and entries",
+        "functionality": "The project does not run end-to-end: our Android device setup and package issues kept the app from reliably reaching",
+        "wow": "We made early versions of the group ledger and weekly summary screens",
+        "relevance": "A shared mobile view of recurring costs and incoming funds for student project teams."
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: wow evidence was not an exact quote; replaced with not described.",
+        "Run 1: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect mobile forms to Firebase for end-to-end data flow",
+        "Add login and group permissions for secure access",
+        "Integrate Databricks analytics with mobile app for real-time summaries"
+      ]
+    },
+    {
+      "challenge_id": "databricks",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 2,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": true
+        }
+      ],
+      "rationale": "Databricks is used for a meaningful data exploration step but is not yet connected to the main app flow.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "A small Databricks notebook explores grouped transaction data and produces a summary view concept",
+        "functionality": "The project does not run end-to-end: our Android device setup and package issues kept the app from reliably reaching",
+        "wow": "We made early versions of the group ledger and weekly summary screens",
+        "relevance": "A small Databricks notebook explores grouped transaction data and produces a summary view concept"
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect the Databricks analytics to the mobile app's summary screens to show live insights",
+        "Fix the Android/Firebase integration to enable reliable data entry and retrieval",
+        "Implement login and group permissions to support shared access to club finances"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 2,
+        "wow": 2
+      },
+      "total": 10,
+      "max_total": 20,
+      "score_10": 5.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2
+          },
+          "total": 10,
+          "max_total": 20,
+          "score_10": 5.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2
+          },
+          "total": 10,
+          "max_total": 20,
+          "score_10": 5.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2
+          },
+          "total": 10,
+          "max_total": 20,
+          "score_10": 5.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The app concept is useful but not unique, with partial working components and clear technical decisions but no end-to-end functionality.",
+      "evidence": {
+        "originality": "We wanted a lightweight way for a club to see what money is expected and what still needs attention.",
+        "tech_understanding": "We started a React Native Expo app backed by Firebase for users, groups, and entries.",
+        "functionality": "The project does not run end-to-end: our Android device setup and package issues kept the app from reliably reaching",
+        "wow": "The app lets a group record planned expenses and incoming contributions, then view a weekly summary and reminders."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Implement a reliable end-to-end demo flow connecting mobile forms to Firebase and Databricks analytics",
+        "Add login and group permissions to secure shared ledger access",
+        "Develop a clearer reimbursement and approval flow for club treasurers"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 2,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 10,
+      "max_total": 25,
+      "score_10": 4.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        }
+      ],
+      "rationale": "The app concept is common but the use of Databricks for analytics shows some technical understanding.",
+      "evidence": {
+        "originality": "We wanted a lightweight way for a club to see what money is expected and what still needs attention.",
+        "tech_understanding": "A small Databricks notebook explores grouped transaction data and produces a summary view concept",
+        "functionality": "The project does not run end-to-end: our Android device setup and package issues kept the app from reliably reaching",
+        "wow": "not described",
+        "relevance": "A small Databricks notebook explores grouped transaction data and produces a summary view concept"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect the mobile forms to Firebase to enable end-to-end functionality",
+        "Implement login and group permissions for secure access",
+        "Integrate Databricks analytics with the mobile app for real-time insights"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 2,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 10,
+      "max_total": 25,
+      "score_10": 4.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        }
+      ],
+      "rationale": "The app focuses on financial tracking rather than gameplay, lacking player-controlled actions and win/loss conditions.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We started a React Native Expo app backed by Firebase for users, groups, and entries.",
+        "functionality": "The project does not run end-to-end: our Android device setup and package issues kept the app from reliably reaching",
+        "wow": "not described",
+        "relevance": "The app lets a group record planned expenses and incoming contributions, then view a weekly summary and reminders."
+      },
+      "warnings": [
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add core gameplay elements like player choices, rules, and win/loss conditions to transform the financial tracker into a game."
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 2,
+        "wow": 1,
+        "relevance": 1
+      },
+      "total": 9,
+      "max_total": 25,
+      "score_10": 3.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 9,
+          "max_total": 25,
+          "score_10": 3.6,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 9,
+          "max_total": 25,
+          "score_10": 3.6,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 9,
+          "max_total": 25,
+          "score_10": 3.6,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project is a practical financial management tool for student clubs with no comedic or goofy elements, focusing on core functionality that is partially implemented but lacks the absurd or over-engineered solution required for the funny category.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We started a React Native Expo app backed by Firebase for users, groups, and entries.",
+        "functionality": "not described",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a comedic or absurd premise to the project to align with the funny category requirements",
+        "Implement a working end-to-end core functionality to demonstrate the app's capabilities",
+        "Provide detailed explanations of the technical decisions and tradeoffs made during development"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "project_id": "kh9-smoke-t071",
+  "team_id": "t071",
+  "submission": {
+    "name": "Farewise",
+    "tagline": "Understand the small travel costs that shape a student trip.",
+    "inspiration": "As students moving between campus, home, and internships, we kept losing track of how fares, rideshares, and add-on fees accumulated. We wanted a tool that could explain those patterns in a practical way instead of leaving people with a pile of totals.",
+    "what_it_does": "Farewise groups sample transportation transactions into daily and category views, calling out fees, busy spending days, and rideshare versus transit use. Gemini turns those figures into short explanations, and a chat panel lets users ask basic questions about the displayed data.",
+    "how_we_built_it": "A FastAPI service normalizes transaction data from the Nessie API and calculates the core metrics, then exposes them to a Next.js and React interface written in TypeScript. We pass those summaries to Gemini for explanations; the demo works end to end, though some API data and chat responses can be inconsistent.",
+    "challenges_we_ran_into": "Keeping the deterministic calculations separate from generated explanations took some iteration, especially when the model described a pattern the metrics did not support. We also had trouble with occasional Nessie data gaps, so the dashboard can show incomplete travel activity.",
+    "accomplishments": "We connected transaction ingestion, calculated summaries, generated explanations, and a basic chat experience in one demo. We are proud the financial education angle stays grounded in visible numbers rather than asking Gemini to do the calculations.",
+    "what_we_learned": "We learned to give an AI model structured summaries instead of raw transaction records and to check its output against the source figures. Building across the API and frontend also taught us to agree on data shapes early.",
+    "whats_next": "We would improve the data coverage and add clearer controls for correcting transaction categories. We would also make the explanations easier to review and give users a way to compare different trip plans.",
+    "built_with": [
+      "capital-one-nessie-api",
+      "fastapi",
+      "google-gemini-api",
+      "next.js",
+      "python",
+      "react",
+      "rest-apis",
+      "typescript"
+    ],
+    "challenges": [
+      "bny"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--l-earning"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/l-earning"
+  ],
+  "primary_pool": "bny",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "shaky",
+    "writing_style": "average"
+  },
+  "fit": {
+    "bny": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009071,
+  "batch_id": "b020",
+  "attempt": 2,
+  "similarity": {
+    "seed": 0.6297271396825518,
+    "field": 0.5987546427697034
+  },
+  "created_at": "2026-10-11T00:53:44+00:00"
+}

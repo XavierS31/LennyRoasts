@@ -1,0 +1,375 @@
+{
+  "project_id": "kh9-smoke-t006",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "gemini",
+      "eligible": true,
+      "criteria": {
+        "originality": 3.3333333333333335,
+        "tech_understanding": 3.6666666666666665,
+        "functionality": 3,
+        "wow": 2.3333333333333335,
+        "relevance": 4.333333333333333
+      },
+      "total": 16.666666666666668,
+      "max_total": 25,
+      "score_10": 6.666666666666667,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 4,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 3,
+            "relevance": 5
+          },
+          "total": 19,
+          "max_total": 25,
+          "score_10": 7.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "Gemini central to document simplification and checklist generation with audio output, but extraction and flow issues limit core completeness.",
+      "evidence": {
+        "originality": "We focused the demo on student facing forms rather than every kind of technical document.",
+        "tech_understanding": "The backend sends extracted document text to Gemini for a plain language rewrite and action list",
+        "functionality": "The upload, explanation, and playback pieces work, though the flow between them still needs cleanup",
+        "wow": "We are proud that Gemini is doing the central rewrite and checklist work",
+        "relevance": "Gemini also labels the kind of document and creates a short walkthrough that can be played aloud."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add error handling and fallbacks for unreliable document extraction",
+        "Document how prompts guide Gemini's rewrite quality and checklist accuracy",
+        "Show how the audio walkthrough directly uses Gemini's output without extra processing"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3.3333333333333335,
+        "wow": 2
+      },
+      "total": 12.333333333333334,
+      "max_total": 20,
+      "score_10": 6.166666666666667,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project offers a useful but not unique approach to document simplification, with a clear technical flow but limited evidence of a fully integrated working core.",
+      "evidence": {
+        "originality": "We focused the demo on student facing forms rather than every kind of technical document.",
+        "tech_understanding": "The backend sends extracted document text to Gemini for a plain language rewrite and action list",
+        "functionality": "The upload, explanation, and playback pieces work, though the flow between them still needs cleanup.",
+        "wow": "We would improve support for scanned and longer documents, add a way to choose a reading level"
+      },
+      "warnings": [
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: wow evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Demonstrate a fully working end-to-end example with a student form upload and processed output",
+        "Provide specific examples of the plain language rewrites Gemini produces for different document types",
+        "Show evidence of user testing for the checklist's effectiveness in finding next steps"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 16,
+      "max_total": 25,
+      "score_10": 6.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project uses Gemini for document simplification and checklists, showing meaningful AI integration but with partial implementation and some technical limitations in flow and document handling.",
+      "evidence": {
+        "originality": "We focused the demo on student facing forms rather than every kind of technical document.",
+        "tech_understanding": "The backend sends extracted document text to Gemini for a plain language rewrite and action list",
+        "functionality": "The upload, explanation, and playback pieces work, though the flow between them still needs cleanup",
+        "wow": "We are proud that Gemini is doing the central rewrite and checklist work",
+        "relevance": "We made a React and Vite web interface with a Node and Express backend"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add detailed examples of Gemini's rewrite process and how it maintains document accuracy",
+        "Implement and document a robust system for handling various document formats and layouts",
+        "Clarify the technical flow between document upload, AI processing, and audio generation with diagrams"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 12,
+      "max_total": 25,
+      "score_10": 4.8,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission is a document simplification tool with game-like features but lacks core gameplay elements.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We made a React and Vite web interface with a Node and Express backend.",
+        "functionality": "The upload, explanation, and playback pieces work, though the flow between them still needs cleanup.",
+        "wow": "not described",
+        "relevance": "We focused the demo on student facing forms rather than every kind of technical document."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add core gameplay elements like rules, challenges, or win/loss conditions to increase relevance as a game.",
+        "Improve the flow between upload, AI response, database, and audio service for better functionality.",
+        "Document specific examples of the plain language rewrite and action list generation to demonstrate technical understanding."
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project addresses a real student need with a practical solution, but lacks a meaningful absurd or funny premise required for the category.",
+      "evidence": {
+        "originality": "We focused the demo on student facing forms rather than every kind of technical document.",
+        "tech_understanding": "The backend sends extracted document text to Gemini for a plain language rewrite and action list, then stores the result",
+        "functionality": "The upload, explanation, and playback pieces work, though the flow between them still needs cleanup.",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a humorous twist to the form processing, such as absurdly over-engineered explanations for simple forms.",
+        "Develop a funny user interface element, like a mascot or animated checklist items, to enhance the comedic aspect."
+      ]
+    }
+  ]
+}

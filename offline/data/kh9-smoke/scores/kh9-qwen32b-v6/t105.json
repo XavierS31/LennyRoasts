@@ -1,0 +1,372 @@
+{
+  "project_id": "kh9-smoke-t105",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "bny",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "The submission improves financial data visualization for small businesses but lacks implementation details and integration between components.",
+      "evidence": {
+        "originality": "We liked the idea of viewing information as connected pieces rather than rows in a spreadsheet.",
+        "tech_understanding": "We used a TypeScript web interface with D3.js to render the transaction graph, plus a small Go service to parse CSV data",
+        "functionality": "The prototype imports sample transaction data from a CSV and displays purchases as nodes grouped under category nodes",
+        "wow": "We are proud that the visual approach is clear enough to discuss, even while the analysis connection needs more work.",
+        "relevance": "We wanted to apply that approach to a small shop’s transactions, where seeing how purchases relate to broader expense"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add secure banking API integration to replace CSV imports",
+        "Implement validated AI analysis with user feedback loops",
+        "Document data flow between components in architecture diagrams"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 12,
+      "max_total": 20,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project shows a clear data flow with D3 visualization and Gemini integration but lacks secure banking connections and validated insights.",
+      "evidence": {
+        "originality": "We liked the idea of viewing information as connected pieces rather than rows in a spreadsheet",
+        "tech_understanding": "A Python script sends summarized data to Gemini for draft observations",
+        "functionality": "The prototype imports sample transaction data from a CSV and displays purchases as nodes",
+        "wow": "See how a small business’s transactions branch into everyday spending patterns"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Implement secure banking API connections for live transaction data",
+        "Validate AI-generated insights with real business owners through testing",
+        "Develop a more robust data flow between graph visualization and analysis components"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project uses a graph to visualize financial transactions with AI-generated insights but lacks deep integration between components and real data sources.",
+      "evidence": {
+        "originality": "The prototype imports sample transaction data from a CSV and displays purchases as nodes grouped under category nodes",
+        "tech_understanding": "A Python script sends summarized data to Gemini for draft observations",
+        "functionality": "The graph and analysis can be demonstrated separately, but their data handoff is still basic and some displayed insights",
+        "wow": "We made a CSV-to-graph demo that lets viewers inspect spending by category and transaction",
+        "relevance": "A Python script sends summarized data to Gemini for draft observations"
+      },
+      "warnings": [
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Implement secure bank connections for live transaction data",
+        "Refine the AI analysis to provide actionable insights with validation",
+        "Enhance the graph's interactivity for comparing date ranges"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission presents a financial visualization tool with a game-like element of exploring transaction patterns, but lacks core gameplay mechanics like rules or win conditions.",
+      "evidence": {
+        "originality": "We liked the idea of viewing information as connected pieces rather than rows in a spreadsheet.",
+        "tech_understanding": "We used a TypeScript web interface with D3.js to render the transaction graph, plus a small Go service to parse CSV data",
+        "functionality": "The prototype imports sample transaction data from a CSV and displays purchases as nodes grouped under category nodes",
+        "wow": "We are proud that the visual approach is clear enough to discuss, even while the analysis connection needs more work.",
+        "relevance": "See how a small business’s transactions branch into everyday spending patterns."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add core gameplay elements like rules, objectives, and win/loss conditions to transform the visualization into a game experience",
+        "Implement interactive challenges where users must identify spending patterns or make financial decisions based on the visualized data",
+        "Develop a scoring system that rewards users for accurately identifying patterns or making optimal financial decisions"
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 2.6666666666666665,
+        "tech_understanding": 3.3333333333333335,
+        "functionality": 3,
+        "wow": 1,
+        "relevance": 1
+      },
+      "total": 11,
+      "max_total": 25,
+      "score_10": 4.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project offers a clear financial visualization but lacks comedic or goofy elements required for the category, with functionality focused on practical business insights rather than humor.",
+      "evidence": {
+        "originality": "We wanted to apply that approach to a small shop’s transactions, where seeing how purchases relate to broader expense",
+        "tech_understanding": "We used a TypeScript web interface with D3.js to render the transaction graph, plus a small Go service to parse CSV data",
+        "functionality": "The prototype imports sample transaction data from a CSV and displays purchases as nodes grouped under category nodes",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a humorous or absurd twist to the financial visualization to align with the category's focus on comedy or goofiness."
+      ]
+    }
+  ]
+}

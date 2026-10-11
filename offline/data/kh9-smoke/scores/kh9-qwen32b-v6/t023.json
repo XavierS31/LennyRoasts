@@ -1,0 +1,373 @@
+{
+  "project_id": "kh9-smoke-t023",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "gemini",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 16,
+      "max_total": 25,
+      "score_10": 6.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "Gemini is central to analyzing camera feeds for incidents, but limited by small configured feeds and inconsistent labels.",
+      "evidence": {
+        "originality": "labels possible issues such as smoke, blocked access, or an unusual crowd",
+        "tech_understanding": "A separate Python process checks the configured camera sample and posts candidate events",
+        "functionality": "The prototype runs through the demo flow, though it has only been exercised with a small set of configured feeds",
+        "wow": "We connected image analysis, an incident list, and mapped inspection routes into one usable prototype",
+        "relevance": "Gemini for image and text analysis"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Expand camera feed testing to varied conditions and environments",
+        "Add real-time feed health monitoring and reporting",
+        "Clarify Gemini's decision boundaries for incident labeling"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 12,
+      "max_total": 20,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project combines image analysis with campus operations but uses common tools; the prototype works partially but has limitations in camera coverage and real-world testing.",
+      "evidence": {
+        "originality": "labels possible issues such as smoke, blocked access, or an unusual crowd",
+        "tech_understanding": "used Next.js for the dashboard and API, MongoDB for incident records, and Gemini for image and text analysis",
+        "functionality": "prototype runs through the demo flow, though it has only been exercised with a small set of configured feeds",
+        "wow": "shows the location on a map and offers a suggested route to inspect the area"
+      },
+      "warnings": [
+        "Run 2: wow evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Expand testing to more varied camera conditions and real-time feeds for broader functionality validation",
+        "Add detailed explanations of tradeoffs in model selection and camera integration challenges",
+        "Implement access restriction-aware route suggestions to enhance practical utility"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 16,
+      "max_total": 25,
+      "score_10": 6.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project uses Gemini for image analysis in a meaningful way but has limited working core functionality and presents a plausible technical approach with clear component connections.",
+      "evidence": {
+        "originality": "labels possible issues such as smoke, blocked access, or an unusual crowd",
+        "tech_understanding": "A separate Python process checks the configured camera sample and posts candidate events",
+        "functionality": "The prototype runs through the demo flow, though it has only been exercised with a small set of configured feeds",
+        "wow": "We connected image analysis, an incident list, and mapped inspection routes into one usable prototype",
+        "relevance": "Campus Watchtower analyzes a selected camera image or short feed sample with Gemini and labels possible issues such as"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Expand the camera feed testing to a broader range of conditions to improve detection reliability",
+        "Add detailed explanations of how Gemini's analysis is integrated with the route suggestion logic",
+        "Implement more robust error handling for camera feed failures in the Python processing component"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.3333333333333335,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 13.333333333333334,
+      "max_total": 25,
+      "score_10": 5.333333333333333,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission is a utility with game-like features but lacks core gameplay elements like rules or challenges.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We used Next.js for the dashboard and API, MongoDB for incident records, and Gemini for image and text analysis.",
+        "functionality": "The prototype runs through the demo flow, though it has only been exercised with a small set of configured feeds",
+        "wow": "not described",
+        "relevance": "Campus Watchtower analyzes a selected camera image or short feed sample with Gemini and labels possible issues such as"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add core gameplay elements like rules, challenges, or win/loss conditions to increase relevance as a game."
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project has a practical focus on campus safety with a camera-based system but lacks a goofy or humorous concept as required by the category.",
+      "evidence": {
+        "originality": "We used Next.js for the dashboard and API, MongoDB for incident records, and Gemini for image and text analysis.",
+        "tech_understanding": "We learned that image quality and camera placement shape what a model can reasonably identify.",
+        "functionality": "The prototype runs through the demo flow, though it has only been exercised with a small set of configured feeds",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a humorous or absurd twist to the campus safety concept to better fit the funny/goofy category requirements."
+      ]
+    }
+  ]
+}

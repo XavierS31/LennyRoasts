@@ -1,0 +1,377 @@
+{
+  "project_id": "kh9-smoke-t079",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "databricks",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "Databricks is used to group learning topics and influence course outlines, but integration is limited and results are not fully utilized in the main flow.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We prepared a small learning dataset in Databricks and used its analysis to organize topic suggestions",
+        "functionality": "The flow works end to end in the demo, but generated lessons sometimes repeat or point to videos that do not quite match",
+        "wow": "not described",
+        "relevance": "A Databricks notebook groups sample learning topics and activity data into skill areas, which the app uses to shape the"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add detailed explanation of how Databricks analysis directly shapes course recommendations in the main flow",
+        "Show how the Databricks topic grouping results are validated against actual learner outcomes in the prototype",
+        "Document the specific Databricks features used for topic analysis and how they improve over plain Spark or pandas"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 4,
+        "wow": 2
+      },
+      "total": 13,
+      "max_total": 20,
+      "score_10": 6.5,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project offers a focused learning path generator with a plausible technical approach but lacks uniqueness in concept and has minor implementation issues.",
+      "evidence": {
+        "originality": "Turn a training goal into a short course plan for your next lab skill.",
+        "tech_understanding": "The app uses Next.js and JavaScript with Gemini to draft course steps, and YouTube API results to attach relevant videos",
+        "functionality": "The flow works end to end in the demo, but generated lessons sometimes repeat or point to videos that do not quite match",
+        "wow": "We connected a learner prompt to a generated course outline and resource list"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Refine the topic dataset to reduce repetition and improve video relevance matching",
+        "Add detailed explanations of how Databricks analysis influences topic grouping decisions",
+        "Implement a clear editing interface for learners to modify generated skill sequences"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 4,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 17,
+      "max_total": 25,
+      "score_10": 6.8,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        }
+      ],
+      "rationale": "A meaningful AI model role in generating course outlines with Databricks analysis and Gemini, but some generated content lacks precision and video relevance.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "Databricks output, Gemini course draft, and two different data stores",
+        "functionality": "generated lessons sometimes repeat or point to videos that do not quite match the topic",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described.",
+        "Run 0: wow evidence was not an exact quote; replaced with not described.",
+        "Run 0: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 2: originality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Refine the topic dataset to reduce repetition and improve video relevance matching",
+        "Add clear explanations of how Databricks analysis influences course structure decisions",
+        "Implement a simple progress tracking system as a next step"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 12,
+      "max_total": 25,
+      "score_10": 4.8,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission describes a learning tool with game-like features but lacks core gameplay elements like rules, challenges, or win conditions, scoring low on relevance.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "The app uses Next.js and JavaScript with Gemini to draft course steps",
+        "functionality": "The flow works end to end in the demo, but generated lessons sometimes repeat",
+        "wow": "not described",
+        "relevance": "Learners enter a skill goal and their current experience, then receive a sequence of short lessons and suggested videos."
+      },
+      "warnings": [
+        "Run 1: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add core gameplay elements like rules, challenges, or win conditions to transform the learning tool into a game."
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 4,
+        "wow": 1,
+        "relevance": 1
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project offers a practical learning path generator with technical integration but lacks comedic or goofy elements required for the category.",
+      "evidence": {
+        "originality": "We wanted a way to turn a learner’s goal into a focused path with a few useful resources.",
+        "tech_understanding": "The app uses Next.js and JavaScript with Gemini to draft course steps, and YouTube API results to attach relevant videos",
+        "functionality": "The flow works end to end in the demo, but generated lessons sometimes repeat or point to videos that do not quite match",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a humorous twist to the learning path generation, such as absurd or over-the-top lesson topics presented as life-changing solutions to trivial problems.",
+        "Enhance the documentation to explicitly describe any comedic or goofy aspects of the user experience or concept to align with the category’s requirements."
+      ]
+    }
+  ]
+}

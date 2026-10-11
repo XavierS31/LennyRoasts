@@ -1,0 +1,48 @@
+{
+  "project_id": "kh9-smoke-t046",
+  "team_id": "t046",
+  "submission": {
+    "name": "Study Sprout",
+    "tagline": "Keep a little study buddy growing as your group works through its weekly tasks.",
+    "inspiration": "Our team wanted to make recurring study tasks feel less like a plain checklist, especially for students working together in a small course group. A small character seemed like a fun way to show progress without adding another complicated study planner.",
+    "what_it_does": "Students can add study tasks, mark them complete, and earn coins that help a plant-like companion grow. The app also shows a shared group progress view; the shop is a simple version with a limited set of decorations.",
+    "how_we_built_it": "We built a browser interface with HTML, CSS, and JavaScript, plus a FastAPI backend in Python that stores task and companion data in JSON. The frontend sends updates through the API and refreshes the group view after changes.",
+    "challenges_we_ran_into": "Combining separate frontend pieces and settling on a consistent data shape took time. The app works through the main flow, but rapid updates from multiple students can sometimes leave the displayed group totals stale until a refresh.",
+    "accomplishments": "We made the task-to-reward loop work from the browser through the backend, and drew the companion art ourselves. We are proud that the basic group view and character state survive a page reload.",
+    "what_we_learned": "We learned to agree on API shapes earlier and to keep features modular enough to change. We also saw how quickly a small shared-state feature can expose timing issues in a web app.",
+    "whats_next": "We would add more companion variations and a better decoration shop. We would also improve live updates and try a course platform connection if an appropriate API is available.",
+    "built_with": [
+      "css",
+      "fastapi",
+      "html",
+      "javascript",
+      "pydantic",
+      "python"
+    ],
+    "challenges": []
+  },
+  "seed_ids": [
+    "swamphacks-xi--swampy-the-crocodile"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/swampy-the-crocodile"
+  ],
+  "primary_pool": "general",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "shaky",
+    "writing_style": "average"
+  },
+  "fit": {},
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009046,
+  "batch_id": "b013",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.5297759380961024,
+    "field": 0.6216555042269942
+  },
+  "created_at": "2026-10-11T00:50:08+00:00"
+}

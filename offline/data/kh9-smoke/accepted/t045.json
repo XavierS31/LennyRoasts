@@ -1,0 +1,52 @@
+{
+  "project_id": "kh9-smoke-t045",
+  "team_id": "t045",
+  "submission": {
+    "name": "Campus Voice Desk",
+    "tagline": "A voice led incident helper for student IT teams trying to sort out a late night outage.",
+    "inspiration": "When a campus service breaks after hours, the person who notices may not know what information the IT team needs first. We wanted to try a phone friendly way to capture the report and turn it into a clear first pass for whoever is on call.",
+    "what_it_does": "A user can send a short voice report or text description of an IT issue, and the prototype turns it into a spoken summary with suggested triage questions. We planned a set of specialist analysis steps, but the voice intake, analysis, and response are not connected end to end yet.",
+    "how_we_built_it": "We used Python and FastAPI for a small backend, with a basic web interface for submitting reports. ElevenLabs generates the spoken response; separate agent-style analysis experiments can inspect a report, but they are not yet orchestrated into the same flow.",
+    "challenges_we_ran_into": "The main failure was integration: the audio response and the analysis pieces run separately, so the full incident path does not reliably complete in the demo. We also had to keep the spoken output short enough to be useful during a busy support shift.",
+    "accomplishments": "We have a working voice response for sample IT reports and a rough interface for submitting one. The project gave us a concrete way to explore how natural audio might help a small support team gather useful details.",
+    "what_we_learned": "We learned that voice interaction needs careful pacing and concise prompts, especially when someone is reporting a problem. Using ElevenLabs helped us test a more human sounding response, while our data experiments showed how much work remains to connect separate components reliably.",
+    "whats_next": "We would connect the report intake, analysis, and audio response in one tested flow. We would also add a way for a human support lead to review and edit the suggested summary before it is shared.",
+    "built_with": [
+      "elevenlabs",
+      "fastapi",
+      "python",
+      "react",
+      "telegram",
+      "typescript"
+    ],
+    "challenges": [
+      "elevenlabs"
+    ]
+  },
+  "seed_ids": [
+    "hackusf-2026--pantheon-rhemfw"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/pantheon-rhemfw"
+  ],
+  "primary_pool": "elevenlabs",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "data",
+    "completion": "broken",
+    "writing_style": "average"
+  },
+  "fit": {
+    "elevenlabs": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009045,
+  "batch_id": "b013",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.46010610184034584,
+    "field": 0.6391803685707345
+  },
+  "created_at": "2026-10-11T00:50:08+00:00"
+}

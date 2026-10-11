@@ -1,0 +1,59 @@
+{
+  "project_id": "kh9-smoke-t069",
+  "team_id": "t069",
+  "submission": {
+    "name": "Relief Gap Desk",
+    "tagline": "A clearer view of local needs and the resources assigned to them",
+    "inspiration": "Community relief groups can have many spreadsheets describing needs, donations, and active projects, but it is hard to see where coverage may be thin. We wanted to make those records easier for a local coordinator to scan and discuss.",
+    "what_it_does": "The dashboard maps sample community response areas and compares reported need with recorded support. It also flags unusual project-level ratios for review and has a Gemini panel intended to summarize what the data shows; a separate voice notification concept is still a stub.",
+    "how_we_built_it": "We prepared public and sample project data with Python, pandas, and SQL, then used Databricks to experiment with an Isolation Forest model for outlier detection. A Flask service and a simple JavaScript, HTML, and Tailwind map UI were built alongside it, but the model output and explanation panel are not yet fully connected.",
+    "challenges_we_ran_into": "Getting the data shapes consistent across the notebook, service, and interface took longer than expected. We have working pieces for the map and model exploration, but a reliable deployed endpoint and verified Gemini summaries were not ready for the demo.",
+    "accomplishments": "We brought together a map concept, a data-preparation workflow, and an anomaly model experiment around a concrete coordination question. We also made a first pass at showing how an outlier might prompt a closer look rather than an automatic decision.",
+    "what_we_learned": "We learned that an unusual ratio is only a lead for investigation; it does not explain why resources differ. Gemini helped us think through concise explanations, but those need to stay tied to the underlying records and sources.",
+    "whats_next": "We would connect the Databricks results to the dashboard, add source links and coordinator review notes, and test the workflow with a local relief organization. Forecasting and voice notifications would come later.",
+    "built_with": [
+      "css",
+      "databricks",
+      "flask",
+      "gemini",
+      "html",
+      "javascript",
+      "pandas",
+      "python",
+      "scikit-learn",
+      "sql",
+      "tailwind"
+    ],
+    "challenges": [
+      "gemini",
+      "databricks"
+    ]
+  },
+  "seed_ids": [
+    "hacklytics-2026--sentinel-xeiwj7"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/sentinel-xeiwj7"
+  ],
+  "primary_pool": "databricks",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "partial",
+    "writing_style": "average"
+  },
+  "fit": {
+    "gemini": "weak",
+    "databricks": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009069,
+  "batch_id": "b018",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.5944670928745912,
+    "field": 0.616903032650794
+  },
+  "created_at": "2026-10-11T00:52:24+00:00"
+}

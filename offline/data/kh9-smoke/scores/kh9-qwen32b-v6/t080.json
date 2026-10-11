@@ -1,0 +1,540 @@
+{
+  "project_id": "kh9-smoke-t080",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "gemini",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 16,
+      "max_total": 25,
+      "score_10": 6.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "Gemini is central for grounded questions and topic labels but ingestion issues limit functionality.",
+      "evidence": {
+        "originality": "We built an initial citation graph view and got individual paper lookup and Gemini question answering working on a small",
+        "tech_understanding": "Gemini handles grounded questions and topic labels, and a Databricks notebook explores the source collection",
+        "functionality": "The paper lookup and graph view ran as separate pieces, but our full ingestion-to-gap-to-chat demo failed when jobs did",
+        "wow": "We would also test whether audio recaps are useful for reviewing sources between meetings",
+        "relevance": "Gemini handles grounded questions and topic labels, and a Databricks notebook explores the source collection"
+      },
+      "warnings": [
+        "Run 1: wow evidence was not an exact quote; replaced with not described.",
+        "Run 2: originality evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: wow evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Fix ingestion reliability to ensure full end-to-end flow works consistently",
+        "Add metadata quality checks to improve topic grouping and audio recap usefulness",
+        "Document Gemini's role in grounded question answering and topic labeling decisions"
+      ]
+    },
+    {
+      "challenge_id": "elevenlabs",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.6666666666666665,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 13.666666666666666,
+      "max_total": 25,
+      "score_10": 5.466666666666667,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        }
+      ],
+      "rationale": "ElevenLabs provides an optional audio recap, a meaningful secondary feature that is not central to the main research organization flow.",
+      "evidence": {
+        "originality": "a short ElevenLabs audio summary is an optional way to review a finding.",
+        "tech_understanding": "ElevenLabs is used for a brief spoken recap.",
+        "functionality": "we added an audio recap as a small accessibility option.",
+        "wow": "not described",
+        "relevance": "a short ElevenLabs audio summary is an optional way to review a finding."
+      },
+      "warnings": [
+        "Run 0: wow evidence was not an exact quote; replaced with not described.",
+        "Run 1: wow evidence was not an exact quote; replaced with not described.",
+        "Run 2: wow evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Make the audio recap a required step in the main research review flow to increase relevance",
+        "Add explanations of how the ElevenLabs integration works with the text-to-speech process",
+        "Improve the ingestion reliability to make the topic groups and spoken recaps more useful"
+      ]
+    },
+    {
+      "challenge_id": "databricks",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "Databricks is used for meaningful topic grouping and gap analysis in the main flow, but ingestion reliability and metadata issues limit core functionality.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "Databricks notebook explores the source collection",
+        "functionality": "not described",
+        "wow": "audio recap as a small accessibility option",
+        "relevance": "Databricks is used to group paper topics and surface areas with relatively few sources"
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described.",
+        "Run 0: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add ingestion reliability monitoring and metadata validation steps to ensure consistent topic analysis",
+        "Document the data flow from paper ingestion to Databricks topic grouping with specific tradeoffs and limitations",
+        "Create a user interface for verifying and refining gap explanations based on the Databricks analysis"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 12,
+      "max_total": 20,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project offers a useful integration of research tools but faces ingestion issues and limited metadata affecting core functionality.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We built a React and Vite frontend with a FastAPI backend, PostgreSQL with pgvector",
+        "functionality": "We built an initial citation graph view and got individual paper lookup and Gemini question answering working",
+        "wow": "not described"
+      },
+      "warnings": [
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Stabilize the background ingestion flow to ensure consistent job completion and improve metadata reliability.",
+        "Enhance gap explanations to make them more verifiable and actionable for research teams.",
+        "Conduct user testing to assess the effectiveness of audio recaps in improving source review efficiency between meetings."
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 16,
+      "max_total": 25,
+      "score_10": 6.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "The submission integrates multiple AI models for research organization but lacks detailed explanations of core model behavior and has partial working features.",
+      "evidence": {
+        "originality": "We built an initial citation graph view and got individual paper lookup and Gemini question answering working on a small",
+        "tech_understanding": "Semantic Scholar supplies metadata, Gemini handles grounded questions and topic labels, and a Databricks notebook",
+        "functionality": "The paper lookup and graph view ran as separate pieces, but our full ingestion-to-gap-to-chat demo failed when jobs",
+        "wow": "We would stabilize the background ingestion flow, make the gap explanations easier to verify, and add workspace access",
+        "relevance": "Gemini handles grounded questions and topic labels, and a Databricks notebook explores the source collection; ElevenLabs"
+      },
+      "warnings": [
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add detailed explanations of how the AI models are integrated and their specific roles in the research organization process.",
+        "Implement and document a more robust ingestion flow to ensure consistent data processing and improve feature reliability.",
+        "Provide clearer definitions and explanations of what constitutes a 'gap' in topic coverage and how it is determined by the system."
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 11,
+      "max_total": 25,
+      "score_10": 4.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission is a research organization tool with game-like features but lacks core gameplay elements.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "Gemini handles grounded questions and topic labels",
+        "functionality": "We built an initial citation graph view and got individual paper lookup and Gemini question answering working on a small",
+        "wow": "not described",
+        "relevance": "Give your lab team a shared map of the sources behind a research question."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add player-controlled actions and win/loss conditions to transform the tool into a game"
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 1,
+        "relevance": 1.3333333333333333
+      },
+      "total": 12.333333333333334,
+      "max_total": 25,
+      "score_10": 4.933333333333334,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        }
+      ],
+      "rationale": "ReviewMap is a research organization tool with a citation graph and AI summaries but lacks a goofy or humorous concept central to the category.",
+      "evidence": {
+        "originality": "We built an initial citation graph view",
+        "tech_understanding": "Gemini handles grounded questions and topic labels",
+        "functionality": "The paper lookup and graph view ran as separate pieces",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 1: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a humorous or absurd twist to the research organization concept to align with the category's focus on comedy.",
+        "Improve documentation of the goofy premise or experience to establish relevance to the funny/goofy category."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,453 @@
+{
+  "project_id": "kh9-smoke-t109",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "bny",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2.6666666666666665
+      },
+      "total": 14.666666666666666,
+      "max_total": 25,
+      "score_10": 5.866666666666666,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The app addresses a specific financial process for student volunteer groups by tracking shared food spending with a leaderboard and summaries, but has partial working core and plausible technical connections.",
+      "evidence": {
+        "originality": "Help campus volunteer crews spend less on last-minute meals and snacks.",
+        "tech_understanding": "Firebase for crew, member, and purchase records. Location checks can prompt a member to enter a purchase",
+        "functionality": "The app works through the main logging and group view, but location prompts can arrive late or fail",
+        "wow": "We are glad the manual entry option still lets the group keep a record when location detection misses a stop",
+        "relevance": "Help campus volunteer crews spend less on last-minute meals and snacks."
+      },
+      "warnings": [
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 0: wow evidence was not an exact quote; replaced with not described.",
+        "Runs disagree on category eligibility; the two-of-three rule was applied."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Improve background location reliability for purchase prompts",
+        "Add correction flow for mistaken location prompts",
+        "Expand to track non-food group costs like event supplies"
+      ]
+    },
+    {
+      "challenge_id": "gemini",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 15,
+      "max_total": 25,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "Gemini provides a meaningful secondary function by generating purchase summaries, but is not central to the core spending tracking functionality.",
+      "evidence": {
+        "originality": "log purchases, and see a group total alongside a lightweight leaderboard.",
+        "tech_understanding": "Firebase for crew, member, and purchase records. Location checks can prompt a member to enter a purchase",
+        "functionality": "The app works through the main logging and group view, but location prompts can arrive late or fail",
+        "wow": "We are glad the manual entry option still lets the group keep a record when location detection misses",
+        "relevance": "Gemini can offer a short summary of the crew's recent pattern."
+      },
+      "warnings": [
+        "Run 1: wow evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Make Gemini's summary generation a required step in the main spending tracking flow",
+        "Add detailed explanations of how Gemini integration handles edge cases in purchase data",
+        "Implement a correction flow for Gemini-generated summaries to improve accuracy"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 12,
+      "max_total": 20,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The app's core functionality of tracking shared food spending with a leaderboard is plausible but not unique, with some technical challenges in location prompts and background behavior noted.",
+      "evidence": {
+        "originality": "A crew can set a weekly food-spending target, log purchases, and see a group total alongside a lightweight leaderboard.",
+        "tech_understanding": "We built a React Native app with Expo and TypeScript, backed by Firebase for crew, member, and purchase records.",
+        "functionality": "The app works through the main logging and group view, but location prompts can arrive late or fail when the app is in",
+        "wow": "We got crews, purchase logging, and a shared spending view connected in one mobile prototype."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Improve the reliability of background location prompts and address device-specific setup issues for consistent behavior.",
+        "Add a quick correction flow for mistaken prompts to enhance user experience.",
+        "Expand the app to handle non-food group costs for recurring volunteer events as a future feature."
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.6666666666666665,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3.6666666666666665
+      },
+      "total": 15.333333333333334,
+      "max_total": 25,
+      "score_10": 6.133333333333334,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "The app uses Gemini for summaries but lacks core AI integration; Firebase and React Native are well-explained with clear data flow.",
+      "evidence": {
+        "originality": "non-food group costs, such as supplies for recurring volunteer events",
+        "tech_understanding": "Firebase data and a React Native interface fit together for a shared mobile app",
+        "functionality": "The app works through the main logging and group view",
+        "wow": "We are glad the manual entry option still lets the group keep a record",
+        "relevance": "Gemini can offer a short summary of the crew's recent pattern"
+      },
+      "warnings": [
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Implement core AI behavior for budgeting decisions, not just summaries",
+        "Add detailed explanations of how Gemini integrates with purchase records",
+        "Fix background location reliability for consistent user experience"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 12,
+      "max_total": 25,
+      "score_10": 4.8,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission describes a utility app with game-like features rather than a core game experience.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We built a React Native app with Expo and TypeScript, backed by Firebase",
+        "functionality": "The app works through the main logging and group view",
+        "wow": "not described",
+        "relevance": "A crew can set a weekly food-spending target, log purchases, and see a group total alongside a lightweight leaderboard."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add core gameplay elements like challenges, win/loss conditions, or player-controlled actions to transform the utility into a game"
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 1.6666666666666667,
+        "relevance": 2
+      },
+      "total": 13.666666666666666,
+      "max_total": 25,
+      "score_10": 5.466666666666667,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        }
+      ],
+      "rationale": "A practical expense tracker for volunteer crews lacks the central goofy concept needed for this category, though the manual logging fallback shows thoughtful design.",
+      "evidence": {
+        "originality": "We built a React Native app with Expo and TypeScript",
+        "tech_understanding": "Firebase for crew, member, and purchase records",
+        "functionality": "log purchases, and see a group total alongside a lightweight leaderboard",
+        "wow": "Help campus volunteer crews spend less on last-minute meals and snacks",
+        "relevance": "We wanted a friendly way for crews to set a shared limit and keep each other aware of the spending."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add an absurdly over-the-top feature like a snack budgeting mascot or food cost fortune-teller to meet the goofy premise requirement"
+      ]
+    }
+  ]
+}

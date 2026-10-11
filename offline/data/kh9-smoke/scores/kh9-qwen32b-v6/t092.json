@@ -1,0 +1,468 @@
+{
+  "project_id": "kh9-smoke-t092",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "elevenlabs",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 16,
+      "max_total": 25,
+      "score_10": 6.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "ElevenLabs provides central voice explanations for financial decisions in a business simulation game, though audio reliability issues affect functionality.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "not described",
+        "functionality": "not described",
+        "wow": "We are proud of having a concrete game loop and adding voice to some of the financial explanations.",
+        "relevance": "ElevenLabs turns selected explanations into audio, which the browser plays alongside each event."
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described.",
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: originality evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add error handling and retry logic for ElevenLabs audio requests to improve reliability in the main user flow",
+        "Document the deterministic financial calculation design to clarify technical tradeoffs in the explanation system",
+        "Expand the voice narration to cover more decision points to increase the central audio interaction depth"
+      ]
+    },
+    {
+      "challenge_id": "bny",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3.6666666666666665
+      },
+      "total": 15.666666666666666,
+      "max_total": 25,
+      "score_10": 6.266666666666667,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "The submission improves a financial workflow by simulating business investment decisions with a clear tech stack and deterministic calculations, though audio reliability issues and limited scenario variety reduce functionality.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "not described",
+        "functionality": "The game compares the business’s cash runway and long-term balance across choices, with no real money involved.",
+        "wow": "We are proud of having a concrete game loop and adding voice to some of the financial explanations.",
+        "relevance": "We wanted to make investing feel less abstract for students who are starting a small side business or freelance gig."
+      },
+      "warnings": [
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: originality evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Expand the variety of business scenarios and investment choices to improve simulation depth and replayability",
+        "Implement audio request queuing or caching to ensure reliable voice playback during gameplay",
+        "Add visual indicators for cash runway projections to make financial outcomes more immediately clear"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3.3333333333333335,
+        "wow": 2
+      },
+      "total": 12.333333333333334,
+      "max_total": 20,
+      "score_10": 6.166666666666667,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "eligible": true
+        }
+      ],
+      "rationale": "The game combines a business simulation with AI-generated content and audio, but the voice playback unreliability and common tech stack limit originality and wow.",
+      "evidence": {
+        "originality": "Players guide a fictional one-person business through monthly events",
+        "tech_understanding": "Node.js handles the game state and asks Gemini for occasional scenario text",
+        "functionality": "The game compares the business’s cash runway and long-term balance across choices",
+        "wow": "Short spoken explanations add context to key decisions"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Improve the reliability of the ElevenLabs audio playback to enhance user experience",
+        "Add more detailed explanations of the financial calculations and decision-making logic",
+        "Expand the variety of business scenarios and investment options to increase engagement"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3.3333333333333335,
+        "wow": 2,
+        "relevance": 3.6666666666666665
+      },
+      "total": 16,
+      "max_total": 25,
+      "score_10": 6.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "The game meaningfully integrates AI for scenario text and explanations but core balances are deterministic, showing good technical understanding with some reliability issues in audio integration.",
+      "evidence": {
+        "originality": "Players guide a fictional one-person business through monthly events",
+        "tech_understanding": "Node.js handles the game state and asks Gemini for occasional scenario text",
+        "functionality": "The game compares the business’s cash runway and long-term balance across choices",
+        "wow": "We are proud of having a concrete game loop and adding voice to some of the financial explanations",
+        "relevance": "The game compares the business’s cash runway and long-term balance across choices"
+      },
+      "warnings": [
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add deterministic tests for audio event matching to improve reliability",
+        "Document the decision logic for cash buffer rules in the game mechanics",
+        "Implement a fallback text display when audio playback fails"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3.3333333333333335
+      },
+      "total": 15.333333333333334,
+      "max_total": 25,
+      "score_10": 6.133333333333334,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "A playable business simulation game with core financial decisions and voice narration, but audio reliability and scenario depth limit engagement.",
+      "evidence": {
+        "originality": "Players guide a fictional one-person business through monthly events",
+        "tech_understanding": "Node.js handles the game state and asks Gemini for occasional scenario text",
+        "functionality": "The game compares the business’s cash runway and long-term balance across choices",
+        "wow": "We are proud of having a concrete game loop and adding voice to some of the financial explanations",
+        "relevance": "Play through a small business’s early money choices and see how steady investing changes the runway."
+      },
+      "warnings": [
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add more varied business events to expand decision impact and replayability",
+        "Improve audio reliability and timing synchronization for voice narration",
+        "Document the deterministic financial calculation logic and AI integration tradeoffs in detail"
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission presents a game with a meaningful absurd premise of simulating business financial decisions as a life-changing experience, but lacks central comedic elements and the voice playback unreliability reduces the goofy impact.",
+      "evidence": {
+        "originality": "We wanted to make investing feel less abstract for students",
+        "tech_understanding": "Node.js handles the game state and asks Gemini for occasional scenario text",
+        "functionality": "The game compares the business’s cash runway and long-term balance across choices",
+        "wow": "Players guide a fictional one-person business through monthly events",
+        "relevance": "We wanted to make investing feel less abstract for students"
+      },
+      "warnings": [
+        "Run 2: originality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add central comedic elements to the business simulation to enhance the goofy experience",
+        "Improve the reliability of the voice playback to ensure consistent comedic delivery",
+        "Expand the game to include more absurd and over-engineered financial scenarios"
+      ]
+    }
+  ]
+}

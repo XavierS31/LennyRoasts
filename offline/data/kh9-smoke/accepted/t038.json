@@ -1,0 +1,60 @@
+{
+  "project_id": "kh9-smoke-t038",
+  "team_id": "t038",
+  "submission": {
+    "name": "Spend Constellation",
+    "tagline": "See how everyday spending connects to the goals you care about.",
+    "inspiration": "We like visual tools that show relationships instead of forcing everything into fixed lists. We brought that idea to spending data for student clubs, where purchases for events, travel, and supplies can be hard to connect back to a budget.",
+    "what_it_does": "The app turns sample club transactions into a graph of purchases and categories, with larger spending shown as larger nodes. Databricks summarizes category patterns, Gemini drafts short explanations, and ElevenLabs can speak a selected insight; the voice option is a small add-on.",
+    "how_we_built_it": "A TypeScript and D3 frontend renders the graph, while a Go service parses CSV files and produces structured data. Python scripts send summaries to Databricks and Gemini, and an ElevenLabs call can turn one generated insight into audio.",
+    "challenges_we_ran_into": "The graph, analysis, and audio work in separate paths, and the demo can fail when a CSV has unexpected columns. We also found that category labels can make the visual hard to interpret when multiple club activities share similar purchases.",
+    "accomplishments": "We built an interactive graph from example financial records and showed how a club treasurer might inspect spending by category. We are pleased that the core visualization makes a familiar CSV feel easier to explore.",
+    "what_we_learned": "We learned that data cleanup and labels shape the usefulness of a financial visualization as much as the chart itself. Gemini helped draft readable summaries, while the audio feature reminded us to keep spoken output short and tied to a specific item.",
+    "whats_next": "We would add saved budgets and a timeline to compare club spending across events. A later version could connect to approved account exports and make the analysis and narration more reliable.",
+    "built_with": [
+      "css",
+      "d3.js",
+      "databricks",
+      "elevenlabs",
+      "gemini",
+      "golang",
+      "html",
+      "python",
+      "tailwindcss",
+      "typescript"
+    ],
+    "challenges": [
+      "elevenlabs",
+      "bny",
+      "databricks"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--zettle"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/zettle"
+  ],
+  "primary_pool": "bny",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "ai_ml",
+    "completion": "shaky",
+    "writing_style": "terse"
+  },
+  "fit": {
+    "elevenlabs": "weak",
+    "bny": "strong",
+    "databricks": "medium"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009038,
+  "batch_id": "b011",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.6588434962192673,
+    "field": 0.6366439945556115
+  },
+  "created_at": "2026-10-11T00:48:57+00:00"
+}

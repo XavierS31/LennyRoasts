@@ -1,0 +1,601 @@
+{
+  "project_id": "kh9-smoke-t102",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "elevenlabs",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "Civic Beacon uses ElevenLabs for a minor voice feature in the coordinator interface, described as a 'short spoken briefing' but not central to the core map and reporting functionality.",
+      "evidence": {
+        "originality": "We added a short spoken briefing for coordinators as a small voice feature.",
+        "tech_understanding": "We also tried Databricks to summarize report trends and included a BNY-themed resource status panel",
+        "functionality": "Gemini-backed retrieval flow is intended to answer questions using reports from a selected area",
+        "wow": "We got the core report and map experience running and connected it to a first pass at location-based questions",
+        "relevance": "We added a short spoken briefing for coordinators as a small voice feature."
+      },
+      "warnings": [
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate the voice briefing more deeply with the map data flow to make it a required step for coordinators",
+        "Add detailed documentation of how the ElevenLabs integration works with the coordinator interface",
+        "Show how the voice briefing provides unique value that text alone cannot offer for recovery coordination"
+      ]
+    },
+    {
+      "challenge_id": "bny",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.3333333333333335,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14.333333333333334,
+      "max_total": 25,
+      "score_10": 5.733333333333333,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "The submission addresses a meaningful post-disaster coordination process with a map-based reporting system, but core components like Gemini integration and Databricks summaries are not fully connected.",
+      "evidence": {
+        "originality": "We focused on the period after the immediate emergency, when residents still need help and teams need a clearer picture.",
+        "tech_understanding": "We used FastAPI for REST endpoints and a WebSocket for live updates, with PostgreSQL storing reports and their locations",
+        "functionality": "We got the core report and map experience running and connected it to a first pass at location-based questions",
+        "wow": "We added a short spoken briefing for coordinators as a small voice feature",
+        "relevance": "A shared incident map for neighborhood cleanup and recovery crews"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect Gemini integration and Databricks summaries to the live report stream for end-to-end functionality",
+        "Implement accessibility options and a system for marking reports as resolved",
+        "Add detailed documentation of the data flow between components and how decisions were made"
+      ]
+    },
+    {
+      "challenge_id": "databricks",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "Databricks is used for report trend summaries but lacks end-to-end integration; the solution shows meaningful data preparation and analytics but has partial working core functionality.",
+      "evidence": {
+        "originality": "we wanted a simple way for local volunteers and coordinators to share what is happening block by block",
+        "tech_understanding": "A Gemini-backed retrieval flow is intended to answer questions using reports from a selected area",
+        "functionality": "Our Gemini questions, Databricks summaries, voice briefing, and supply panel each have a basic path, but several do not",
+        "wow": "We are glad the prototype makes it possible to see incoming needs and coordinator updates in one place",
+        "relevance": "We also tried Databricks to summarize report trends and included a BNY-themed resource status panel for tracking"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect Databricks summaries to live report data for end-to-end flow",
+        "Add detailed explanation of how Databricks analytics integrate with question answering",
+        "Implement accessibility options and report resolution tracking as next steps"
+      ]
+    },
+    {
+      "challenge_id": "gemini",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "Gemini is used for answering questions about areas using reports but is not yet fully integrated with live data, giving it a meaningful secondary role.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "Gemini helped us shape and test the question flow",
+        "functionality": "Gemini questions, Databricks summaries, voice briefing, and supply panel each have a basic path",
+        "wow": "We added a short spoken briefing for coordinators as a small voice feature",
+        "relevance": "Gemini-backed retrieval flow is intended to answer questions using reports from a selected area"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect Gemini's question answering to the live report stream for real-time insights",
+        "Implement accessibility options and a way to mark reports as resolved",
+        "Integrate Databricks summaries and voice briefing with the same live data source"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 11,
+      "max_total": 20,
+      "score_10": 5.5,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project combines a map with AI insights for post-storm recovery but lacks detailed implementation evidence for core features like live data integration.",
+      "evidence": {
+        "originality": "shared incident map for neighborhood cleanup and recovery crews",
+        "tech_understanding": "Gemini-backed retrieval flow is intended to answer questions using reports",
+        "functionality": "not described",
+        "wow": "short spoken briefing for coordinators as a small voice feature"
+      },
+      "warnings": [
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add live data integration between Gemini questions and Databricks summaries for end-to-end functionality",
+        "Provide detailed implementation evidence for the voice briefing and resource status panel",
+        "Clarify how map layers and report retrieval are technically aligned and functioning"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3.6666666666666665
+      },
+      "total": 14.666666666666666,
+      "max_total": 25,
+      "score_10": 5.866666666666666,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "A meaningful AI model role in answering location-based questions, but partial integration and prototype status limit functionality and technical depth.",
+      "evidence": {
+        "originality": "We added a short spoken briefing for coordinators as a small voice feature.",
+        "tech_understanding": "A Gemini-backed retrieval flow is intended to answer questions using reports from a selected area",
+        "functionality": "not described",
+        "wow": "We are glad the prototype makes it possible to see incoming needs and coordinator updates in one place",
+        "relevance": "A Gemini-backed retrieval flow is intended to answer questions using reports from a selected area"
+      },
+      "warnings": [
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add live data integration between Gemini questions and the map reports for end-to-end functionality",
+        "Document the technical decisions about how Gemini responses are validated against source reports",
+        "Create a detailed accessibility plan for the map interface and voice features"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 12,
+      "max_total": 25,
+      "score_10": 4.8,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission describes a utility app with game-like features but lacks core gameplay elements like rules, challenges, or win conditions, scoring low on relevance.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We used FastAPI for REST endpoints and a WebSocket for live updates, with PostgreSQL storing reports and their locations",
+        "functionality": "We got the core report and map experience running and connected it to a first pass at location-based questions",
+        "wow": "not described",
+        "relevance": "Residents can send a chat report about a blocked road, supply need, or other issue, which appears as a location on a"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add core gameplay elements like rules, challenges, or win conditions to transform the utility into a game"
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 12,
+      "max_total": 25,
+      "score_10": 4.8,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project addresses a meaningful post-disaster coordination need with a map-based solution but lacks a goofy or absurd premise central to the category.",
+      "evidence": {
+        "originality": "We focused on the period after the immediate emergency, when residents still need help and teams need a clearer picture.",
+        "tech_understanding": "We used FastAPI for REST endpoints and a WebSocket for live updates, with PostgreSQL storing reports and their locations",
+        "functionality": "We got the core report and map experience running and connected it to a first pass at location-based questions",
+        "wow": "not described",
+        "relevance": "We added a short spoken briefing for coordinators as a small voice feature"
+      },
+      "warnings": [
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a clearly absurd or humorous feature such as a fictional mascot or over-the-top fictional scenario to align with the category's focus on humor"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,616 @@
+{
+  "project_id": "kh9-smoke-t067",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "bny",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 2.6666666666666665,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 13.666666666666666,
+      "max_total": 25,
+      "score_10": 5.466666666666667,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": true
+        }
+      ],
+      "rationale": "The submission improves financial literacy through a game-based approach but lacks end-to-end functionality and deeper technical explanations.",
+      "evidence": {
+        "originality": "Players move through short life scenarios and choose how to use a limited budget",
+        "tech_understanding": "We used React, Vite, and Tailwind for the game screens, with Node and MongoDB planned for saving progress",
+        "functionality": "The demo does not work end-to-end: the game screens and some integrations can be shown in isolation",
+        "wow": "We made a playable-looking set of money decision screens",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 1: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect the choice flow to saved sessions and results view",
+        "Finish the narrated prompts and clarify Databricks analysis role",
+        "Explain technical decisions and tradeoffs in the game state management"
+      ]
+    },
+    {
+      "challenge_id": "gemini",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project uses Gemini to draft scenarios and explain choices in a budgeting game, which is a meaningful secondary role.",
+      "evidence": {
+        "originality": "A small-choice money game about building a cushion before life gets expensive.",
+        "tech_understanding": "Gemini was wired in for scenario text",
+        "functionality": "The demo does not work end-to-end",
+        "wow": "We are proud that the project stays approachable",
+        "relevance": "Gemini can suggest a follow-up scenario or give a brief explanation of a choice."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect the choice flow to saved sessions and make the results view update reliably",
+        "Finish the narrated prompts and give the Databricks analysis a clearer role in showing which decisions change the simulated cushion",
+        "Explain how Gemini's scenario suggestions are constrained to keep choices understandable and usable in the game"
+      ]
+    },
+    {
+      "challenge_id": "elevenlabs",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 2.6666666666666665,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 13.666666666666666,
+      "max_total": 25,
+      "score_10": 5.466666666666667,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "ElevenLabs is used for narration in a budgeting game but remains a stub with incomplete integration, showing a meaningful secondary role in the main flow.",
+      "evidence": {
+        "originality": "A small-choice money game about building a cushion before life gets expensive.",
+        "tech_understanding": "ElevenLabs narration was also only a stub.",
+        "functionality": "not described",
+        "wow": "not described",
+        "relevance": "ElevenLabs narration was also only a stub."
+      },
+      "warnings": [
+        "Run 0: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: wow evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Complete the ElevenLabs narration integration to provide spoken guidance within the game flow",
+        "Connect player choices to saved sessions and ensure the results view updates reliably",
+        "Define a clearer role for Databricks analysis in showing how decisions affect the simulated cushion"
+      ]
+    },
+    {
+      "challenge_id": "databricks",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 2,
+        "wow": 2,
+        "relevance": 2.6666666666666665
+      },
+      "total": 12.666666666666666,
+      "max_total": 25,
+      "score_10": 5.066666666666666,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": true
+        }
+      ],
+      "rationale": "Databricks is used for analyzing game outcomes but not yet connected to the main flow; the project has a clear educational focus on financial decisions but lacks end-to-end integration.",
+      "evidence": {
+        "originality": "A small-choice money game about building a cushion before life gets expensive.",
+        "tech_understanding": "A Databricks notebook was meant to summarize scenario outcomes",
+        "functionality": "The demo does not work end-to-end: the game screens and some integrations can be shown in isolation",
+        "wow": "We made a playable-looking set of money decision screens",
+        "relevance": "A Databricks notebook was meant to summarize scenario outcomes"
+      },
+      "warnings": [
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 0: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described.",
+        "Runs disagree on category eligibility; the two-of-three rule was applied."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect the choice flow to saved sessions and make the results view update reliably",
+        "Give the Databricks analysis a clearer role in showing which decisions change the simulated cushion",
+        "Finish the narrated prompts and ensure the Databricks analysis is integrated into the main user flow"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 2.3333333333333335,
+        "wow": 2
+      },
+      "total": 10.333333333333334,
+      "max_total": 20,
+      "score_10": 5.166666666666667,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2
+          },
+          "total": 10,
+          "max_total": 20,
+          "score_10": 5.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2
+          },
+          "total": 10,
+          "max_total": 20,
+          "score_10": 5.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The game approach to financial planning is somewhat novel but common enough for a 3.",
+      "evidence": {
+        "originality": "A small-choice money game about building a cushion before life gets expensive.",
+        "tech_understanding": "We used React, Vite, and Tailwind for the game screens, with Node and MongoDB planned for saving progress.",
+        "functionality": "The demo does not work end-to-end: the game screens and some integrations can be shown in isolation, but choices do not",
+        "wow": "Players move through short life scenarios and choose how to use a limited budget, with a simple view of how saving"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect the choice flow to saved sessions and make the results view update reliably.",
+        "Finish the narrated prompts and give the Databricks analysis a clearer role in showing decision impacts.",
+        "Ensure the full loop from player choice through persistence and analysis is integrated and functional."
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3.3333333333333335
+      },
+      "total": 14.333333333333334,
+      "max_total": 25,
+      "score_10": 5.733333333333333,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project uses AI for scenario generation and analysis but lacks full integration of the model behaviors into a cohesive system.",
+      "evidence": {
+        "originality": "A small-choice money game about building a cushion before life gets expensive.",
+        "tech_understanding": "Gemini was wired in for scenario text, and we tried a small Databricks analysis of the game’s sample outcomes.",
+        "functionality": "The demo does not work end-to-end: the game screens and some integrations can be shown in isolation, but choices do not",
+        "wow": "We made a playable-looking set of money decision screens and got the core scenario idea into a form we could demonstrate",
+        "relevance": "Gemini can suggest a follow-up scenario or give a brief explanation of a choice."
+      },
+      "warnings": [
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect the choice flow to saved sessions and make the results view update reliably",
+        "Finish the narrated prompts and give the Databricks analysis a clearer role in showing which decisions change the simulated cushion",
+        "Explain how the model behaviors are integrated into the game logic and decision-making process"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "A playable money decision game with scenario choices and budgeting mechanics, but incomplete integration of data flow and analysis features.",
+      "evidence": {
+        "originality": "A small-choice money game about building a cushion before life gets expensive.",
+        "tech_understanding": "not described",
+        "functionality": "not described",
+        "wow": "BNY angle is the budgeting decision itself.",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 0: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect choice flow to saved sessions and results view updates",
+        "Complete ElevenLabs narration integration",
+        "Document data flow between game choices, MongoDB persistence, and Databricks analysis"
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 2.6666666666666665,
+        "wow": 2,
+        "relevance": 2.6666666666666665
+      },
+      "total": 13.333333333333334,
+      "max_total": 25,
+      "score_10": 5.333333333333333,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project has a meaningful absurd premise of making money planning feel like a game, but the core functionality is incomplete with disconnected components and mocked features.",
+      "evidence": {
+        "originality": "Players move through short life scenarios and choose how to use a limited budget",
+        "tech_understanding": "We used React, Vite, and Tailwind for the game screens, with Node and MongoDB planned for saving progress",
+        "functionality": "The demo does not work end-to-end: the game screens and some integrations can be shown in isolation",
+        "wow": "We made a playable-looking set of money decision screens",
+        "relevance": "We wanted to make money planning feel less intimidating for students starting out on their own"
+      },
+      "warnings": [
+        "Runs disagree on category eligibility; the two-of-three rule was applied."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect the choice flow to saved sessions and make the results view update reliably",
+        "Finish the narrated prompts and give the Databricks analysis a clearer role in showing decision impacts",
+        "Implement end-to-end functionality for player choices to flow through persistence and analysis"
+      ]
+    }
+  ]
+}

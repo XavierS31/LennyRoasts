@@ -1,0 +1,59 @@
+{
+  "project_id": "kh9-smoke-t018",
+  "team_id": "t018",
+  "submission": {
+    "name": "LabEntry",
+    "tagline": "A prototype check-in screen that helps campus workshop teams remember required protective gear.",
+    "inspiration": "In student workshops, people may step into a task quickly and forget a basic piece of protective equipment. We wanted to see whether a simple entry check could make reminders easier for lab staff and students.",
+    "what_it_does": "A user can enter a PIN or scan an RFID badge, and a camera experiment looks for selected safety gear before showing a status on a web dashboard. We also tried ElevenLabs narration for a missing-item reminder; the badge, vision, dashboard, and audio components work as separate demonstrations, and we did not connect them into a complete checkpoint.",
+    "how_we_built_it": "The web dashboard uses React and TypeScript, with Node.js, Express, Socket.io, and MongoDB experiments for user and event data. A Flask service uses Python and OpenCV with a YOLO-based PPE detector, and we explored Gemini for explaining a result and ElevenLabs for spoken reminders. The intended flow was badge or PIN input to a camera check, then a dashboard update and optional voice prompt, but the integrations were still incomplete.",
+    "challenges_we_ran_into": "The camera model was inconsistent under our setup, and Wi-Fi and laptop compatibility made it difficult to keep the vision and web pieces aligned. We also had merge conflicts and did not finish the live update path between the checkpoint and dashboard.",
+    "accomplishments": "We got several useful components started, including a badge and keypad input experiment, a PPE recognition model experiment, and a dashboard layout. The spoken reminder idea gave us a concrete way to make a basic status feel more understandable.",
+    "what_we_learned": "We learned how many details are involved in connecting Python vision code with a Node web service and a database. We also got introductory experience with serial input and Socket.io, and saw that AI explanations and generated voice need a dependable detection result before they can help.",
+    "whats_next": "We would first connect the badge flow, camera result, and dashboard event so one check can be followed from start to finish. Then we would improve detection under varied lighting and make the voice reminder optional and concise.",
+    "built_with": [
+      "react",
+      "typescript",
+      "vite",
+      "node.js",
+      "express.js",
+      "socket.io",
+      "mongodb",
+      "mongoose",
+      "flask",
+      "python",
+      "opencv",
+      "gemini",
+      "elevenlabs"
+    ],
+    "challenges": [
+      "elevenlabs"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--aegis-axf8et"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/aegis-axf8et"
+  ],
+  "primary_pool": "general",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "partial",
+    "writing_style": "average"
+  },
+  "fit": {
+    "elevenlabs": "medium"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009018,
+  "batch_id": "b007",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.5696008926291265,
+    "field": 0.6318295021708361
+  },
+  "created_at": "2026-10-11T00:47:28+00:00"
+}

@@ -258,10 +258,10 @@ export function addDetailedAtrium(scene: THREE.Scene, participantCount = 0) {
   const bannerMap = surface((ctx) => {
     ctx.fillStyle = "#232a2e"; ctx.fillRect(0, 0, 512, 512);
     ctx.fillStyle = "#e8bd32"; ctx.fillRect(0, 220, 512, 205);
-    ctx.fillStyle = "#f5f1dc"; ctx.font = "bold 34px Georgia"; ctx.textAlign = "center";
+    ctx.fillStyle = "#f5f1dc"; ctx.font = '700 34px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'; ctx.textAlign = "center";
     ctx.fillText("UCF ENGINEERING", 256, 90); ctx.fillText("KNIGHT HACKS", 256, 150);
-    ctx.fillStyle = "#303332"; ctx.font = "bold 48px Georgia"; ctx.fillText("BUILD", 256, 325);
-    ctx.fillStyle = "#e8e4d4"; ctx.font = "24px Georgia"; ctx.fillText("CREATE · COLLABORATE", 256, 470);
+    ctx.fillStyle = "#303332"; ctx.font = '700 48px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'; ctx.fillText("BUILD", 256, 325);
+    ctx.fillStyle = "#e8e4d4"; ctx.font = '500 24px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'; ctx.fillText("CREATE · COLLABORATE", 256, 470);
   });
   const bannerMaterial = new THREE.MeshStandardMaterial({ map: bannerMap, roughness: .9, side: THREE.DoubleSide });
   for (const z of [-21, 7]) cube([.04, 7, 4.2], [23.5, 15, z], bannerMaterial);

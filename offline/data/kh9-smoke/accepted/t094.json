@@ -1,0 +1,55 @@
+{
+  "project_id": "kh9-smoke-t094",
+  "team_id": "t094",
+  "submission": {
+    "name": "ClubCashflow",
+    "tagline": "A shared mobile view of recurring costs and incoming funds for student project teams.",
+    "inspiration": "Student teams often have dues, reimbursements, and event costs spread across conversations and separate notes. We wanted a lightweight way for a club to see what money is expected and what still needs attention.",
+    "what_it_does": "The app lets a group record planned expenses and incoming contributions, then view a weekly summary and reminders. Members can add an item manually or attach it to a group, with simple categories to help a treasurer prepare a handoff.",
+    "how_we_built_it": "We started a React Native Expo app backed by Firebase for users, groups, and entries. A small Databricks notebook explores grouped transaction data and produces a summary view concept, but it is not connected to the mobile screens yet.",
+    "challenges_we_ran_into": "The project does not run end-to-end: our Android device setup and package issues kept the app from reliably reaching Firebase, and the analytics output is separate. The group screens and data pieces run in isolation, but we did not finish a dependable demo flow.",
+    "accomplishments": "We made early versions of the group ledger and weekly summary screens, and defined the basic records a treasurer would need. We also got a first pass at preparing group spending data for analysis.",
+    "what_we_learned": "We learned how quickly mobile setup problems can consume a short build window, and got more familiar with Firebase data structure. We also saw that analytics only helps once the app consistently supplies it with usable records.",
+    "whats_next": "We would connect the mobile forms to the shared ledger, finish login and group permissions, and feed the same records into the Databricks summary. After that, we would try a clearer reimbursement and approval flow for club treasurers.",
+    "built_with": [
+      "databricks",
+      "bny",
+      "expo",
+      "firebase",
+      "gcp",
+      "react",
+      "typescript"
+    ],
+    "challenges": [
+      "bny",
+      "databricks"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--cut-p64i2u"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/cut-p64i2u"
+  ],
+  "primary_pool": "bny",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "mobile",
+    "completion": "broken",
+    "writing_style": "terse"
+  },
+  "fit": {
+    "bny": "strong",
+    "databricks": "medium"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009094,
+  "batch_id": "b024",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.630871814991129,
+    "field": 0.6435069543899651
+  },
+  "created_at": "2026-10-11T00:56:24+00:00"
+}

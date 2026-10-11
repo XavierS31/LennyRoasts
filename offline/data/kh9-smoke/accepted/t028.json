@@ -1,0 +1,59 @@
+{
+  "project_id": "kh9-smoke-t028",
+  "team_id": "t028",
+  "submission": {
+    "name": "Relief Relay",
+    "tagline": "Ask about a crisis by voice, then turn the answer into a practical aid route.",
+    "inspiration": "People trying to help during a crisis can have trouble turning scattered reports into a concrete next step. We wanted a voice interface that could explain needs in plain language and help a volunteer think through where supplies might go.",
+    "what_it_does": "A volunteer asks a spoken question about a selected crisis or region and receives a spoken response with a short summary of reported needs and suggested logistics. A map view highlights aid mismatch by location, and the assistant can outline a more focused response route from the information shown.",
+    "how_we_built_it": "We made a Flutter client that streams speech through ElevenLabs transcription and speech generation, with a Python Flask service coordinating the conversation and map data. Gemini helps summarize regional information and shape the response, while a map layer displays need and aid indicators; the services run in Docker on Google Cloud.",
+    "challenges_we_ran_into": "Keeping spoken responses quick while the model and data lookups run was difficult, and crisis information can be incomplete or out of date. We connected the voice, map, and summary flow, but its recommendations need human review and are not a dispatch system.",
+    "accomplishments": "We built a working loop from a spoken question to a spoken, location-aware aid summary. The map and voice response give volunteers a shared starting point for discussing where help may be most useful.",
+    "what_we_learned": "We learned how latency accumulates across speech recognition, model calls, and speech playback, and how important it is to keep each step understandable. AI tools helped us prototype the summaries, but joining them to location data and a usable audio flow took most of our integration effort.",
+    "whats_next": "We would like to connect more reliable, timestamped crisis feeds and make it easier for local aid groups to review suggested routes. With consent, a future version could keep a shareable record of the conversation for coordinating volunteers.",
+    "built_with": [
+      "docker",
+      "elevenlabs",
+      "flask",
+      "flutter",
+      "gemini",
+      "google-cloud",
+      "huggingface",
+      "model-context-protocol",
+      "python"
+    ],
+    "challenges": [
+      "elevenlabs",
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--talk2doc-eu9fl0",
+    "hacklytics-2026--aidsignal"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/talk2doc-eu9fl0",
+    "https://devpost.com/software/aidsignal"
+  ],
+  "primary_pool": "elevenlabs",
+  "mutation": "heavy",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "polished",
+    "writing_style": "average"
+  },
+  "fit": {
+    "elevenlabs": "strong",
+    "gemini": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009028,
+  "batch_id": "b009",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.6183265918261405,
+    "field": 0.5405816078002998
+  },
+  "created_at": "2026-10-11T00:48:16+00:00"
+}

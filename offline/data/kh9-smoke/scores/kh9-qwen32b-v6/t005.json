@@ -1,0 +1,303 @@
+{
+  "project_id": "kh9-smoke-t005",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 11,
+      "max_total": 20,
+      "score_10": 5.5,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        }
+      ],
+      "rationale": "The game has a clear goal and playful setting but lacks detailed technical explanations and has inconsistent mechanics.",
+      "evidence": {
+        "originality": "We wanted to turn the scramble of getting ready for an outdoor trip into a small, chaotic game.",
+        "tech_understanding": "We used Unity and C# for movement, collisions, and the timed round, with Photoshop for the simple art assets.",
+        "functionality": "It runs from start to finish, though collisions and item pickups can behave inconsistently when several objects overlap.",
+        "wow": "Race your friends to set up camp before the weather turns."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add detailed explanations of technical decisions and tradeoffs in the game mechanics.",
+        "Fix inconsistencies in collisions and item pickups for smoother gameplay.",
+        "Implement additional features like power-ups and multiple campground layouts as planned."
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 1
+      },
+      "total": 11,
+      "max_total": 25,
+      "score_10": 4.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 1
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 1
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 1
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission describes a Unity game without any AI model integration, disqualifying it for the AI Hack category.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We used Unity and C# for movement, collisions, and the timed round",
+        "functionality": "It runs from start to finish, though collisions and item pickups can behave inconsistently",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate an AI model to enhance gameplay elements like dynamic weather or opponent behavior"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.6666666666666665,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 15.666666666666666,
+      "max_total": 25,
+      "score_10": 6.266666666666667,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "A playable game with a clear goal and challenge, but some technical inconsistencies in collisions and pickups reduce full functionality.",
+      "evidence": {
+        "originality": "We wanted to turn the scramble of getting ready for an outdoor trip into a small, chaotic game.",
+        "tech_understanding": "We used Unity and C# for movement, collisions, and the timed round",
+        "functionality": "It runs from start to finish, though collisions and item pickups can behave inconsistently",
+        "wow": "not described",
+        "relevance": "Trail Jam is a short Unity game where players steer around obstacles, compete for campsite spaces, and gather scattered"
+      },
+      "warnings": [
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Fix collision and pickup inconsistencies to ensure reliable gameplay interactions.",
+        "Add more detailed explanations of technical decisions in the how_we_built_it section.",
+        "Implement pause and audio controls as next steps to enhance user experience."
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "Trail Jam turns campground setup into a chaotic game with playful goals but lacks strong comedic elements.",
+      "evidence": {
+        "originality": "We wanted to turn the scramble of getting ready for an outdoor trip into a small, chaotic game.",
+        "tech_understanding": "We used Unity and C# for movement, collisions, and the timed round, with Photoshop for the simple art assets.",
+        "functionality": "It runs from start to finish, though collisions and item pickups can behave inconsistently when several objects overlap.",
+        "wow": "We built a complete playable round with a clear goal and a playful campground setting.",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add absurd, over-the-top elements like a giant raccoon stealing gear to enhance comedic relevance.",
+        "Document specific funny scenarios or dialogue to clarify the goofy premise.",
+        "Fix collision and pickup inconsistencies to ensure the chaotic gameplay works reliably."
+      ]
+    }
+  ]
+}

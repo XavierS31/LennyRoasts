@@ -1,0 +1,50 @@
+{
+  "project_id": "kh9-smoke-t063",
+  "team_id": "t063",
+  "submission": {
+    "name": "Molecule Habit Garden",
+    "tagline": "Grow a routine by turning small goals into building blocks.",
+    "inspiration": "We wanted to make personal goals feel easier to start by connecting daily habits with a visual sense of progress. A second idea came from molecule tools that turn a compact text description into a possible sequence of components.",
+    "what_it_does": "The prototype lets users choose a goal, log a few daily tasks, and see a small progress garden change as they keep going. A separate mocked screen accepts a molecule-style string and displays a sample sequence of habit steps, but it is not connected to the goal tracker.",
+    "how_we_built_it": "We used React Native for the task and reflection screens, Express with Supabase for user progress, and a Cohere-powered coach concept for guidance. The molecule input borrows the compact-string-to-sequence idea, but the sequence generator is currently a mock and does not produce validated biochemical predictions.",
+    "challenges_we_ran_into": "The quiz and task data were difficult to keep in sync with stored progress, and the screens for the two ideas remain separate. Public Wi-Fi also caused intermittent development connection problems.",
+    "accomplishments": "We made a usable task and reflection flow with levels stored in Supabase, and explored a separate interface for representing a sequence from a short string input.",
+    "what_we_learned": "We learned how much care it takes to keep progress data consistent across app screens. We also saw that converting a compact input into a meaningful sequence needs domain validation, not just a visual result.",
+    "whats_next": "We would connect the sequence idea to a clearly bounded, validated dataset or remove it from the habit flow. The app could also add user-created categories and voice reflections.",
+    "built_with": [
+      "cohere",
+      "express.js",
+      "node.js",
+      "react-native",
+      "supabase",
+      "typescript"
+    ],
+    "challenges": []
+  },
+  "seed_ids": [
+    "swamphacks-xi--one-3pymti",
+    "hackharvard-2024--hackenzyme"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/one-3pymti",
+    "https://devpost.com/software/hackenzyme"
+  ],
+  "primary_pool": "general",
+  "mutation": "heavy",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "partial",
+    "writing_style": "terse"
+  },
+  "fit": {},
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009063,
+  "batch_id": "b016",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.6545579907650451,
+    "field": 0.6595453110224797
+  },
+  "created_at": "2026-10-11T00:51:38+00:00"
+}

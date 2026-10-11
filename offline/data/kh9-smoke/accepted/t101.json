@@ -1,0 +1,51 @@
+{
+  "project_id": "kh9-smoke-t101",
+  "team_id": "t101",
+  "submission": {
+    "name": "LoopLens",
+    "tagline": "Trace a failing Python run and find the next clue.",
+    "inspiration": "We built this for students practicing small coding exercises who get stuck when a test fails. Seeing variables change can be more useful than rereading the same lines, so we tried to make a browser tool that turns a run into a visual trace.",
+    "what_it_does": "Users can enter Python and run it against a few sample cases, then view a basic step trace of variables and output. Gemini is meant to offer a short hint based on the error and trace. The editor and trace prototype run separately, and we did not get the complete run-to-hint flow working in the demo.",
+    "how_we_built_it": "The web app uses TypeScript and a Monaco-style editor, with Pyodide and WebAssembly intended to execute code in the browser. We extract output and error details for the trace view, then pass that context to Gemini for a nudge rather than a full solution. During the hackathon, the editor and Gemini request path were built, but the execution data did not reliably reach both the visualizer and hint prompt.",
+    "challenges_we_ran_into": "Getting consistent execution details out of browser-based Python was the main blocker. Our problem data also needed cleanup, and time ran out before the editor, runner, trace, and hint pieces were integrated end to end.",
+    "accomplishments": "We built a usable editor screen and separate prototypes for tracing output and requesting a Gemini hint. We are glad we found a direction for turning test failures into concrete visual clues.",
+    "what_we_learned": "We learned how Pyodide and WebAssembly can run code in a browser, and how important a stable trace format is before asking Gemini for useful help.",
+    "whats_next": "We would connect the execution pipeline first, then improve the trace for loops and nested data. We would also add more practice problems and test whether hints remain grounded in actual runtime information.",
+    "built_with": [
+      "gemini",
+      "monaco-editor",
+      "pyodide",
+      "typescript",
+      "webassembly"
+    ],
+    "challenges": [
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--smart_ptr"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/smart_ptr"
+  ],
+  "primary_pool": "general",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "broken",
+    "writing_style": "terse"
+  },
+  "fit": {
+    "gemini": "medium"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009101,
+  "batch_id": "b025",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.6356095292430657,
+    "field": 0.745197478812351
+  },
+  "created_at": "2026-10-11T00:56:48+00:00"
+}

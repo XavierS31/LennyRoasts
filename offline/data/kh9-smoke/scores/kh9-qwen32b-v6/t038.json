@@ -1,0 +1,534 @@
+{
+  "project_id": "kh9-smoke-t038",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "elevenlabs",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.3333333333333335,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 13.333333333333334,
+      "max_total": 25,
+      "score_10": 5.333333333333333,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "ElevenLabs is used as an optional add-on for speaking insights, not central to the main user flow of visualizing spending data.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "Python scripts send summaries to Databricks and Gemini, and an ElevenLabs call can turn one generated insight into audio",
+        "functionality": "The graph, analysis, and audio work in separate paths, and the demo can fail when a CSV has unexpected columns",
+        "wow": "We are pleased that the core visualization makes a familiar CSV feel easier to explore",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate ElevenLabs audio directly into the core visualization workflow as a required step for key insights",
+        "Add detailed documentation showing how audio generation decisions affect the main spending analysis flow",
+        "Implement error handling for audio generation failures during core visualization interactions"
+      ]
+    },
+    {
+      "challenge_id": "bny",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 15,
+      "max_total": 25,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The app improves financial data visualization for student clubs with a graph-based interface, but the disconnected components and limited core features reduce its impact.",
+      "evidence": {
+        "originality": "The app turns sample club transactions into a graph of purchases and categories",
+        "tech_understanding": "A TypeScript and D3 frontend renders the graph, while a Go service parses CSV files and produces structured data",
+        "functionality": "The graph, analysis, and audio work in separate paths, and the demo can fail when a CSV has unexpected columns",
+        "wow": "We are pleased that the core visualization makes a familiar CSV feel easier to explore",
+        "relevance": "We built an interactive graph from example financial records and showed how a club treasurer might inspect spending by c"
+      },
+      "warnings": [
+        "Run 2: wow evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add error handling for CSV parsing to ensure reliable data input",
+        "Improve category labeling to enhance visual clarity for overlapping club activities",
+        "Integrate a timeline feature to enable spending comparison across events"
+      ]
+    },
+    {
+      "challenge_id": "databricks",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "Databricks is used for meaningful data summarization in the main flow but lacks a central pipeline; the graph and audio are separate components with some integration challenges.",
+      "evidence": {
+        "originality": "We brought that idea to spending data for student clubs",
+        "tech_understanding": "Python scripts send summaries to Databricks and Gemini",
+        "functionality": "The app turns sample club transactions into a graph of purchases and categories",
+        "wow": "We are pleased that the core visualization makes a familiar CSV feel easier to explore",
+        "relevance": "Python scripts send summaries to Databricks and Gemini"
+      },
+      "warnings": [
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: wow evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add detailed documentation of the Databricks data pipeline and how it integrates with the frontend visualization",
+        "Implement error handling for CSV parsing to improve reliability of the core functionality",
+        "Clarify the specific Databricks features used and their role in the main data processing workflow"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 12,
+      "max_total": 20,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The app offers a unique graph-based spending visualization but faces integration challenges; technical components are well-connected with clear decisions, though core functionality has limitations.",
+      "evidence": {
+        "originality": "The app turns sample club transactions into a graph of purchases and categories",
+        "tech_understanding": "A TypeScript and D3 frontend renders the graph, while a Go service parses CSV files",
+        "functionality": "The graph, analysis, and audio work in separate paths, and the demo can fail when a CSV has unexpected columns",
+        "wow": "We are pleased that the core visualization makes a familiar CSV feel easier to explore"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add error handling for unexpected CSV columns to improve core functionality reliability",
+        "Enhance category labeling to improve visual interpretation clarity",
+        "Document the data cleanup and labeling process to highlight technical understanding"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 16,
+      "max_total": 25,
+      "score_10": 6.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "The app uses a graph visualization and AI tools for financial insights but lacks detailed model behavior explanations and has partial working core functionality.",
+      "evidence": {
+        "originality": "The app turns sample club transactions into a graph of purchases and categories",
+        "tech_understanding": "Python scripts send summaries to Databricks and Gemini",
+        "functionality": "The graph, analysis, and audio work in separate paths",
+        "wow": "We are pleased that the core visualization makes a familiar CSV feel easier to explore",
+        "relevance": "Gemini helped draft readable summaries"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add detailed explanations of how the AI models process and generate financial insights",
+        "Implement error handling for CSV parsing to improve core functionality reliability",
+        "Enhance the visualization with clearer category labels for better interpretability"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2.6666666666666665,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 12.666666666666666,
+      "max_total": 25,
+      "score_10": 5.066666666666666,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission is a financial visualization tool with game-like elements but lacks core gameplay mechanics.",
+      "evidence": {
+        "originality": "We like visual tools that show relationships instead of forcing everything into fixed lists.",
+        "tech_understanding": "A TypeScript and D3 frontend renders the graph, while a Go service parses CSV files and produces structured data.",
+        "functionality": "not described",
+        "wow": "We are pleased that the core visualization makes a familiar CSV feel easier to explore.",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 0: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add player-controlled actions and clear win/loss conditions to transform the visualization into a game",
+        "Implement interactive challenges where users must balance budgets or achieve financial goals",
+        "Develop core gameplay mechanics that integrate with the financial visualization rather than just displaying data"
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 1.3333333333333333,
+        "relevance": 2
+      },
+      "total": 13.333333333333334,
+      "max_total": 25,
+      "score_10": 5.333333333333333,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project offers a useful financial visualization tool for student clubs but lacks a clearly goofy or absurd premise required for the category, with functionality focused on practical data analysis rather than humor.",
+      "evidence": {
+        "originality": "We brought that idea to spending data for student clubs",
+        "tech_understanding": "A TypeScript and D3 frontend renders the graph",
+        "functionality": "The app turns sample club transactions into a graph of purchases and categories",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 1: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a humorous or absurd twist to the financial visualization concept to better fit the funny/goofy category requirements"
+      ]
+    }
+  ]
+}

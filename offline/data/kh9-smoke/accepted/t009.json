@@ -1,0 +1,54 @@
+{
+  "project_id": "kh9-smoke-t009",
+  "team_id": "t009",
+  "submission": {
+    "name": "SignSafe",
+    "tagline": "Practice everyday money decisions with spoken prompts and a simple fraud alert coach.",
+    "inspiration": "We wanted a low pressure way for people to practice spotting suspicious payment situations without needing to read a long lesson. We also wanted the practice to work as an audio interaction for users who prefer listening or have difficulty using text heavy screens.",
+    "what_it_does": "SignSafe presents short transaction scenarios and asks the user to decide whether something seems unusual. It uses a lightweight outlier check on scenario details to flag suspicious patterns, then an AI coach explains the warning in plain language and reads it aloud. Users can practice with voice or tap through the choices.",
+    "how_we_built_it": "We built a React mobile web interface and a FastAPI backend in Python. The backend checks transaction fields against simple anomaly rules and sends the scenario and result to a language model for a short explanation. ElevenLabs generates the spoken coach response, and the frontend plays it after each answer so the user can review the reasoning. The transaction examples are demo data, not a connection to real bank accounts.",
+    "challenges_we_ran_into": "It was hard to make the fraud flags understandable without implying that a simple rule can confirm fraud. The voice call also adds delay, and the demo can get stuck waiting for audio if the service is slow. We kept the examples small and the risk explanation basic so the flow would work end to end.",
+    "accomplishments": "We connected practice scenarios, anomaly flags, explanations, and spoken feedback in one mobile friendly demo. We are proud that the audio is part of the main learning loop rather than an afterthought.",
+    "what_we_learned": "We learned to distinguish a suspicious signal from a definitive fraud finding and to explain that difference in the interface. Building around ElevenLabs also taught us to keep spoken responses short enough to fit the pace of a practice session.",
+    "whats_next": "We would add more scenario types, improve the rules with safer example data, and let users adjust the pace of the audio coach. A future version could include a clearer history of which warning signs the learner has practiced.",
+    "built_with": [
+      "elevenlabs",
+      "fastapi",
+      "mediapipe",
+      "python",
+      "react",
+      "scikit-learn"
+    ],
+    "challenges": [
+      "elevenlabs"
+    ]
+  },
+  "seed_ids": [
+    "hackusf-2026--smart-interview",
+    "shellhacks2024--fraudguard-3gxd0w"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/smart-interview",
+    "https://devpost.com/software/fraudguard-3gxd0w"
+  ],
+  "primary_pool": "elevenlabs",
+  "mutation": "heavy",
+  "persona": {
+    "skill_focus": "mobile",
+    "completion": "polished",
+    "writing_style": "average"
+  },
+  "fit": {
+    "elevenlabs": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009009,
+  "batch_id": "b002",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.4621841009904043,
+    "field": 0.6698202328360197
+  },
+  "created_at": "2026-10-10T23:32:04+00:00"
+}

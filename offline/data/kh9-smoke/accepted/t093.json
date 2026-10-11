@@ -1,0 +1,61 @@
+{
+  "project_id": "kh9-smoke-t093",
+  "team_id": "t093",
+  "submission": {
+    "name": "SafeStep",
+    "tagline": "A camera checkpoint that helps makerspaces catch missing protective gear before a job starts.",
+    "inspiration": "We wanted to make PPE checks easier in shared fabrication rooms where students move between tasks and supervisors cannot watch every entrance. A quick visual check felt more practical than relying on everyone to remember the full gear list each time.",
+    "what_it_does": "A member scans an RFID badge or enters a PIN, then stands at the checkpoint camera. The prototype checks for required gear and shows what it thinks is missing; staff can review recent entries and basic compliance trends in a dashboard. It also reads a short spoken reminder when someone needs to add equipment.",
+    "how_we_built_it": "A React and TypeScript dashboard talks to a Node.js server that stores profiles, room rules, and check-in logs in MongoDB. A local Flask service uses OpenCV and a YOLO model to inspect camera frames, while Gemini turns detected items into a plain-language prompt. We added ElevenLabs speech for that reminder and a small BNY-oriented view of check-in records as a workflow example for organizations managing risk.",
+    "challenges_we_ran_into": "Getting the camera service, server, and live dashboard to agree on each scan took time, and detection was inconsistent with poor lighting or gear partly out of frame. The end-to-end flow works in our demo, but the model can miss items and the records are not a substitute for an actual safety inspection.",
+    "accomplishments": "We connected badge and PIN input to a camera check and a saved entry log. We are proud that the prototype can give a specific spoken reminder instead of only showing a generic pass or fail.",
+    "what_we_learned": "We learned how much coordination a small real-time system needs across Python vision code, a Node server, and a React screen. Gemini helped us prototype explanations, and we learned to treat those explanations as interface text rather than proof that a detection is correct.",
+    "whats_next": "We would test the detector with more gear types and varied workshop lighting, then add a staff review flow for uncertain scans. A standalone kiosk and a more useful audit export would also make the concept easier to try in a real makerspace.",
+    "built_with": [
+      "elevenlabs",
+      "bny",
+      "gemini",
+      "flask",
+      "mongodb",
+      "node.js",
+      "opencv",
+      "python",
+      "react",
+      "socket.io",
+      "typescript",
+      "vite",
+      "yolo"
+    ],
+    "challenges": [
+      "elevenlabs",
+      "bny"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--aegis-axf8et"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/aegis-axf8et"
+  ],
+  "primary_pool": "general",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "ai_ml",
+    "completion": "shaky",
+    "writing_style": "average"
+  },
+  "fit": {
+    "elevenlabs": "medium",
+    "bny": "medium"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009093,
+  "batch_id": "b024",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.6698465295443184,
+    "field": 0.7964119071816692
+  },
+  "created_at": "2026-10-11T00:56:24+00:00"
+}

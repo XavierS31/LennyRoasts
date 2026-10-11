@@ -1,0 +1,55 @@
+{
+  "project_id": "kh9-smoke-t037",
+  "team_id": "t037",
+  "submission": {
+    "name": "SpriteStage",
+    "tagline": "Build a tiny playable world from your own art direction.",
+    "inspiration": "We wanted a quick way for student artists to turn an idea into a small game without learning a full engine first. Our prototype keeps the editable 2D sandbox and AI sprite creation, but adds a Databricks-backed view of level play data to help creators spot where players get stuck.",
+    "what_it_does": "Creators can request a sprite, place it with obstacles in a side-scrolling level, and play the result in the browser. A small analytics panel groups recorded play attempts by level section; it is intended to point out trouble spots, though the data view can be slow to refresh.",
+    "how_we_built_it": "The frontend uses React, Phaser, and Tailwind, with an Express server routing requests to Python scripts for Gemini image generation. We also send sample play events into a Databricks notebook for aggregation and display the resulting section summaries in the editor.",
+    "challenges_we_ran_into": "Generated images and level configurations do not always arrive in the same shape, and large sprites sometimes need manual resizing. The analytics refresh can fail when the sample event batch is empty, so the playable editor works more reliably than the insight panel.",
+    "accomplishments": "We connected the main loop from generating a sprite to placing it in a level and trying the level in the browser. The data summary gives creators a basic way to inspect play attempts without leaving the editor.",
+    "what_we_learned": "We learned how much care it takes to pass image assets and game configuration between frontend and backend. Databricks made simple play data easier to summarize, but useful analytics depend on collecting consistent events.",
+    "whats_next": "We would add a level sharing gallery and improve the asset crop controls. We also want to make the analytics refresh handle small or empty datasets more gracefully.",
+    "built_with": [
+      "databricks",
+      "express.js",
+      "gemini",
+      "javascript",
+      "node.js",
+      "phaser.js",
+      "python",
+      "react",
+      "tailwindcss"
+    ],
+    "challenges": [
+      "databricks"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--swampmaker"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/swampmaker"
+  ],
+  "primary_pool": "general",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "shaky",
+    "writing_style": "terse"
+  },
+  "fit": {
+    "databricks": "medium"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009037,
+  "batch_id": "b011",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.5629882413952692,
+    "field": 0.5054761962527312
+  },
+  "created_at": "2026-10-11T00:48:57+00:00"
+}

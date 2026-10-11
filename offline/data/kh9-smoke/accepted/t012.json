@@ -1,0 +1,57 @@
+{
+  "project_id": "kh9-smoke-t012",
+  "team_id": "t012",
+  "submission": {
+    "name": "Branch Buddy",
+    "tagline": "A quick guide to the next step in your everyday banking task.",
+    "inspiration": "We wanted to help people who are unsure which banking option or service fits a situation, especially when they are trying to sort something out quickly. The project takes the idea of matching a purchase to a card and applies it to common financial questions and branch services.",
+    "what_it_does": "Users can pick a situation, such as replacing a card or asking about a transfer, and see a suggested service path with a short spoken explanation. The prototype uses a small set of mocked banking options, and the voice playback is demonstrated separately from the service flow.",
+    "how_we_built_it": "We made a web interface with React and Next.js, a Node backend, and a small JSON catalog of banking tasks and options. Plaid Sandbox data was used to explore account context, while an ElevenLabs voice demo reads sample guidance; login, account context, and audio are not fully connected.",
+    "challenges_we_ran_into": "Connecting sandbox account data to a reliable login flow took longer than expected, and the prototype still relies on mock task mappings. The spoken guidance does not yet update dynamically from a user's account details.",
+    "accomplishments": "We built the core screens for choosing a banking situation and comparing suggested paths, plus a separate voice sample that makes the guidance easier to follow. We also established a basic data shape for the service catalog.",
+    "what_we_learned": "We learned that financial recommendations need clear context and careful wording, and that adding voice creates another integration step beyond generating audio. AI tools helped us sketch and refine sample explanations, but the service recommendations remain rule-based.",
+    "whats_next": "We would connect account context, login, recommendations, and ElevenLabs playback into one flow, then expand and review the service catalog with clearer explanations and safeguards.",
+    "built_with": [
+      "elevenlabs",
+      "firebase",
+      "javascript",
+      "nextjs",
+      "node.js",
+      "plaid",
+      "python",
+      "react",
+      "tailwind"
+    ],
+    "challenges": [
+      "bny",
+      "elevenlabs"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--card-compass"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/card-compass"
+  ],
+  "primary_pool": "bny",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "partial",
+    "writing_style": "terse"
+  },
+  "fit": {
+    "bny": "strong",
+    "elevenlabs": "medium"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009012,
+  "batch_id": "b005",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.47007905078416434,
+    "field": 0.643047687801183
+  },
+  "created_at": "2026-10-10T23:33:44+00:00"
+}

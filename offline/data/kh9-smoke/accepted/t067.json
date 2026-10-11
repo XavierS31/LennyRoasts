@@ -1,0 +1,60 @@
+{
+  "project_id": "kh9-smoke-t067",
+  "team_id": "t067",
+  "submission": {
+    "name": "Nest Egg Quest",
+    "tagline": "A small-choice money game about building a cushion before life gets expensive.",
+    "inspiration": "We wanted to make money planning feel less intimidating for students starting out on their own. We focused on how everyday choices can affect the ability to handle later costs, rather than treating finance as a lecture.",
+    "what_it_does": "Players move through short life scenarios and choose how to use a limited budget, with a simple view of how saving decisions change their future cushion. Gemini can suggest a follow-up scenario or give a brief explanation of a choice. A Databricks notebook was meant to summarize scenario outcomes, while the BNY angle is the budgeting decision itself.",
+    "how_we_built_it": "We used React, Vite, and Tailwind for the game screens, with Node and MongoDB planned for saving progress. Gemini was wired in for scenario text, and we tried a small Databricks analysis of the game’s sample outcomes. The pieces run separately, but the full loop from a player choice through saved data and analysis is not connected yet; the ElevenLabs narration was also only a stub.",
+    "challenges_we_ran_into": "We had more ideas than we could connect in the time available, especially around saving player state and making the scenarios feel varied. The demo does not work end-to-end: the game screens and some integrations can be shown in isolation, but choices do not reliably flow through persistence and the analysis view. We also did not finish the spoken guidance.",
+    "accomplishments": "We made a playable-looking set of money decision screens and got the core scenario idea into a form we could demonstrate. We are proud that the project stays approachable and gives the player a way to compare choices without involving real money.",
+    "what_we_learned": "We learned how quickly game state can get tangled when screens, scenario data, and persistence are developed in parallel. Gemini helped us draft alternate scenario wording, but we still had to constrain it so the choices stayed understandable and usable in the game.",
+    "whats_next": "We would connect the choice flow to saved sessions and make the results view update reliably. We also want to finish the narrated prompts and give the Databricks analysis a clearer role in showing which decisions change the simulated cushion.",
+    "built_with": [
+      "databricks",
+      "elevenlabs",
+      "gemini",
+      "mongodb",
+      "node.js",
+      "react",
+      "tailwindcss",
+      "vite"
+    ],
+    "challenges": [
+      "bny",
+      "gemini",
+      "elevenlabs",
+      "databricks"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--stabilityquest"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/stabilityquest"
+  ],
+  "primary_pool": "bny",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "game_dev",
+    "completion": "broken",
+    "writing_style": "terse"
+  },
+  "fit": {
+    "bny": "strong",
+    "gemini": "medium",
+    "elevenlabs": "medium",
+    "databricks": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009067,
+  "batch_id": "b019",
+  "attempt": 3,
+  "similarity": {
+    "seed": 0.5888877453645247,
+    "field": 0.6015918647022923
+  },
+  "created_at": "2026-10-11T00:53:23+00:00"
+}

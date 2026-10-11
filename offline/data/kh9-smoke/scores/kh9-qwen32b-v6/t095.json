@@ -1,0 +1,525 @@
+{
+  "project_id": "kh9-smoke-t095",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "elevenlabs",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project uses ElevenLabs for voice prompts in a meaningful secondary role, but the integration is not central to the core timer functionality and has reliability issues.",
+      "evidence": {
+        "originality": "We also made a basic stretch selection screen, even though the transitions between parts still need work.",
+        "tech_understanding": "We used Tkinter for the windows and timer, Python and PIL for the images, and basic animation logic for the companion.",
+        "functionality": "The desktop timer and companion run, but our full reminder flow did not connect reliably and the voice prompt sometimes",
+        "wow": "We learned to keep a desktop interface manageable with Tkinter and to animate small image states.",
+        "relevance": "A small animated companion changes expression to get attention, and an ElevenLabs voice can read a brief prompt; users"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Improve the reliability of the ElevenLabs voice prompt integration to ensure consistent audio playback",
+        "Develop a more seamless transition between the timer, stretch selection, and break screens to create a unified user flow",
+        "Implement fallback mechanisms for when voice playback fails, such as displaying the prompts as on-screen text"
+      ]
+    },
+    {
+      "challenge_id": "databricks",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "Databricks is used for a disconnected analytics sketch rather than core functionality, with a working timer and companion but incomplete integration and reliability issues.",
+      "evidence": {
+        "originality": "A small desktop buddy that nudges makers to rest their hands",
+        "tech_understanding": "We used Tkinter for the windows and timer, Python and PIL for the images",
+        "functionality": "The desktop timer and companion run, but our full reminder flow did not connect reliably",
+        "wow": "We got the timer controls and draggable animated companion working as separate pieces",
+        "relevance": "A separate Databricks notebook sketches how anonymized session lengths could be summarized"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect the Databricks analytics to the app's core flow for session pattern insights",
+        "Fix the voice prompt reliability and screen transitions for a stable user flow",
+        "Add sensor integration to detect user presence and trigger breaks automatically"
+      ]
+    },
+    {
+      "challenge_id": "bny",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project improves maker rest intervals with a desktop companion but lacks financial services integration, using Tkinter and ElevenLabs for core features without addressing industry processes.",
+      "evidence": {
+        "originality": "A small desktop buddy that nudges makers to rest their hands between long build sessions.",
+        "tech_understanding": "We used Tkinter for the windows and timer, Python and PIL for the images, and basic animation logic for the companion.",
+        "functionality": "The Python desktop prototype counts down from a user-set work interval and opens a short hand-stretch break when time is",
+        "wow": "A small animated companion changes expression to get attention, and an ElevenLabs voice can read a brief prompt;",
+        "relevance": "We wanted a simple reminder that feels friendly and is easy to pause when someone is in the middle of something."
+      },
+      "warnings": [
+        "Run 1: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add financial services process integration like break pattern analytics for compliance or productivity tracking",
+        "Implement reliable voice prompt fallback and stable screen transitions for core functionality",
+        "Explain how the timer could detect user presence for workflow automation in a financial context"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 11,
+      "max_total": 20,
+      "score_10": 5.5,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project shows a clear concept with a functional prototype but lacks detailed technical explanations and has incomplete features.",
+      "evidence": {
+        "originality": "A small desktop buddy that nudges makers to rest their hands",
+        "tech_understanding": "We used Tkinter for the windows and timer, Python and PIL for the images",
+        "functionality": "The Python desktop prototype counts down from a user-set work interval",
+        "wow": "A small animated companion changes expression to get attention"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add detailed technical explanations of the implementation and integration of components",
+        "Ensure all features like voice prompts and Databricks connection are fully implemented and reliable",
+        "Improve the transitions between different parts of the application for a smoother user experience"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project uses a timer and animated companion for hand breaks but lacks integrated AI model behavior beyond prompt drafting.",
+      "evidence": {
+        "originality": "We learned to keep a desktop interface manageable with Tkinter",
+        "tech_understanding": "We used Tkinter for the windows and timer, Python and PIL for the images",
+        "functionality": "The Python desktop prototype counts down from a user-set work interval",
+        "wow": "A small animated companion changes expression to get attention",
+        "relevance": "Our AI tool helped us draft reminder wording"
+      },
+      "warnings": [
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Implement a core AI model for adaptive break scheduling",
+        "Add documented model input/output flow in the Databricks notebook",
+        "Show how session data would train or influence break patterns"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 12,
+      "max_total": 25,
+      "score_10": 4.8,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission describes a desktop companion for reminders rather than a game with player-controlled actions and challenges.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We used Tkinter for the windows and timer, Python and PIL for the images",
+        "functionality": "The Python desktop prototype counts down from a user-set work interval",
+        "wow": "not described",
+        "relevance": "A small desktop buddy that nudges makers to rest their hands between long build sessions."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add gameplay elements with rules and challenges to transform the reminder tool into a game."
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project offers a meaningful absurd premise with a functional but partial core, showing plausible technical connections but lacking detailed tradeoffs.",
+      "evidence": {
+        "originality": "A small desktop buddy that nudges makers to rest their hands",
+        "tech_understanding": "We used Tkinter for the windows and timer, Python and PIL for the images",
+        "functionality": "The Python desktop prototype counts down from a user-set work interval",
+        "wow": "We got the timer controls and draggable animated companion working as separate pieces",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 1: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate the voice playback fallback to on-screen text for reliability",
+        "Document detailed technical tradeoffs and limitations in the explanation",
+        "Enhance the transitions between the application screens for a smoother user experience"
+      ]
+    }
+  ]
+}

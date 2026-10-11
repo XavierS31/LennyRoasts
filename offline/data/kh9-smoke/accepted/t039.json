@@ -1,0 +1,51 @@
+{
+  "project_id": "kh9-smoke-t039",
+  "team_id": "t039",
+  "submission": {
+    "name": "Storm Relay",
+    "tagline": "Give campus response teams a shared picture after severe weather.",
+    "inspiration": "Central Florida storms can leave students unsure where to report a problem or find help. We wanted to explore a shared map for campus volunteers and facilities staff to organize incoming reports during a weather event.",
+    "what_it_does": "A student can submit a short report that appears as a pin for a response coordinator, who can review reports and draft an area update. Gemini is used to summarize selected reports into a quick situation note; the live map and reporting flows are mockups and do not yet share state reliably.",
+    "how_we_built_it": "We started a React interface and a FastAPI service with REST endpoints for reports and messages. Gemini summarization is wired to a sample report path, while location sharing and the responder view currently use separate demo data.",
+    "challenges_we_ran_into": "Our biggest gap is that the reporting form, map, and responder tools are not connected end to end. We also ran out of time to check how reports from multiple people would be stored and updated during a real event.",
+    "accomplishments": "We created a clear prototype of the survivor report and responder review screens, and got a sample Gemini summary working. That gave us a concrete starting point for testing the workflow with real campus response partners later.",
+    "what_we_learned": "We learned that emergency information needs to stay tied to its location and source, and that a useful summary cannot replace a reliable report pipeline. Gemini helped us condense sample messages, but the surrounding data flow needs more work.",
+    "whats_next": "We would connect reports to persistent geospatial storage and make map updates visible across users. We also want to add accessible voice reporting and test the workflow with campus response staff.",
+    "built_with": [
+      "fastapi",
+      "gemini",
+      "llamaindex",
+      "python",
+      "react"
+    ],
+    "challenges": [
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "hackusf-2026--reverse-phst5o"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/reverse-phst5o"
+  ],
+  "primary_pool": "gemini",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "hardware",
+    "completion": "partial",
+    "writing_style": "terse"
+  },
+  "fit": {
+    "gemini": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009039,
+  "batch_id": "b011",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.636796942970711,
+    "field": 0.5724639333555186
+  },
+  "created_at": "2026-10-11T00:48:57+00:00"
+}

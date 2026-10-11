@@ -1,0 +1,302 @@
+{
+  "project_id": "kh9-smoke-t088",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 11,
+      "max_total": 20,
+      "score_10": 5.5,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project combines a game-like interface with task management for youth programs, showing originality but not uniqueness.",
+      "evidence": {
+        "originality": "Turn school tasks into a small game where your sea buddy perks up when you stay on schedule.",
+        "tech_understanding": "The sidebar uses HTML, CSS, and JavaScript, with a FastAPI service written in Python behind it.",
+        "functionality": "Kids add activities and due dates to a sidebar, then earn coins when they mark work complete.",
+        "wow": "A sea creature’s mood changes based on how close to the deadline they finish"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add detailed explanations of how the API and browser interface interact to improve technical understanding",
+        "Implement a more robust data persistence solution to enhance functionality",
+        "Expand on the unique features of the game mechanics to increase wow factor"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The app uses a meaningful game mechanic with a sea creature's mood tied to task completion deadlines, but lacks a documented AI model integration.",
+      "evidence": {
+        "originality": "The core loop works from adding a task through marking it done and seeing the reward appear.",
+        "tech_understanding": "The sidebar uses HTML, CSS, and JavaScript, with a FastAPI service written in Python behind it.",
+        "functionality": "Kids add activities and due dates to a sidebar, then earn coins when they mark work complete.",
+        "wow": "A sea creature’s mood changes based on how close to the deadline they finish",
+        "relevance": "AI coding help was useful for getting unstuck on small implementation questions"
+      },
+      "warnings": [
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a documented AI model integration to qualify for the AI Hack category",
+        "Implement persistent data storage to prevent progress loss on restart",
+        "Add more detailed explanations of how the task completion tracking system works with the creature's mood changes"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "The game centers on task completion with a sea creature companion, showing a playable loop but lacking deeper mechanics.",
+      "evidence": {
+        "originality": "Turn school tasks into a small game where your sea buddy perks up when you stay on schedule.",
+        "tech_understanding": "The sidebar uses HTML, CSS, and JavaScript, with a FastAPI service written in Python behind it.",
+        "functionality": "The core loop works from adding a task through marking it done and seeing the reward appear.",
+        "wow": "A sea creature’s mood changes based on how close to the deadline they finish",
+        "relevance": "Kids add activities and due dates to a sidebar, then earn coins when they mark work complete."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add more varied game mechanics beyond task completion and rewards to increase engagement",
+        "Implement a more robust data persistence solution to prevent progress loss",
+        "Expand on the creature interaction system to create deeper emotional engagement"
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project has a meaningful absurd premise of turning school tasks into a game with a sea buddy, but the documented comic impact is limited.",
+      "evidence": {
+        "originality": "Kids add activities and due dates to a sidebar, then earn coins when they mark work complete.",
+        "tech_understanding": "The sidebar uses HTML, CSS, and JavaScript, with a FastAPI service written in Python behind it.",
+        "functionality": "The core loop works from adding a task through marking it done and seeing the reward appear.",
+        "wow": "A sea creature’s mood changes based on how close to the deadline they finish",
+        "relevance": "We wanted to make keeping up with community center activities feel less like another checklist for kids."
+      },
+      "warnings": [
+        "Run 1: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Enhance the comic impact by adding more absurd and humorous elements to the sea buddy's reactions and rewards system.",
+        "Improve the documentation of the project's comic features and their impact on user experience.",
+        "Implement more robust data persistence to ensure the game's functionality remains reliable and engaging."
+      ]
+    }
+  ]
+}

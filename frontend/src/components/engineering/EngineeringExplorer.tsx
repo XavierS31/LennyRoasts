@@ -7,8 +7,11 @@ import { agentRoster, agentStation, appearanceForProject } from "./agentRoster";
 import { projectStation } from "./atriumLayout";
 import type { AgentEntry } from "./agentMeshes";
 type SampleInput = { project_id: string; name: string; input: string };
+import CameraMenu from "./CameraMenu";
+import { sponsorRoom, isSponsorRoom, type SponsorRoomId } from "./classroomLayout";
+import { ArrowLeftIcon, DoorOpenIcon, MicrophoneIcon } from "@phosphor-icons/react";
 
-export default function EngineeringExplorer({ job, challenges, projectName, category, onCategory, panelsVisible, isStale, location, onBuilding, onEnter, entering, controller }: {
+export default function EngineeringExplorer({ job, challenges, projectName, category, onCategory, panelsVisible, isStale, location, onBuilding, controller, onSponsor, onReturnAtrium, onPitch, onViewReport }: {
   job: EvaluationJob | null;
   challenges: Challenge[];
   projectName: string;
@@ -18,17 +21,20 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
   isStale: boolean;
   location: LocationState;
   onBuilding: (building: LocationState["building"]) => void;
-  onEnter: () => void;
-  entering: boolean;
   controller: RefObject<SceneController | null>;
+  onSponsor: (id: SponsorRoomId) => void;
+  onReturnAtrium: () => void;
+  onPitch: () => void;
+  onViewReport: () => void;
 }) {
-  const [hovered, setHovered] = useState("");
   const [marker, setMarker] = useState("user");
   const [resultsExpanded, setResultsExpanded] = useState(false);
   const [showSamples, setShowSamples] = useState(true);
   const [samples, setSamples] = useState<SampleInput[]>([]);
   const [sampleError, setSampleError] = useState(false);
   const [agentExpanded, setAgentExpanded] = useState(false);
+  const room = sponsorRoom(location.sponsor);
+  const roomResult = job?.status === "completed" ? job.result?.challenge_results.find((entry) => entry.challenge_id === room.id) : undefined;
   const results = location.kind === "atrium" && job?.status === "completed" ? job.result?.challenge_results ?? [] : [];
   const result = results.find((entry) => entry.challenge_id === category) ?? results.find((entry) => entry.challenge_id === "overall") ?? results[0];
   const rival = result?.rivals.find((entry) => entry.project_id === marker);
@@ -78,34 +84,12 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
   }
 
   return <div className={`engineering-explorer scene-${location.kind} ${panelsVisible ? "with-panels" : "without-panels"}`}>
-    <EngineeringScene kind={location.kind} result={result} projectName={projectName} selectedMarker={marker} agents={agents}
-      controller={controller} onSelectMarker={selectAgent} onHoverBuilding={setHovered}
+    <EngineeringScene kind={location.kind} result={result} projectName={projectName} selectedMarker={marker} panelsVisible={panelsVisible} agents={agents}
+      sponsor={location.sponsor} onSponsor={onSponsor} onReturnAtrium={onReturnAtrium} onPitch={onPitch}
+      controller={controller} onSelectMarker={selectAgent} onHoverBuilding={() => {}}
       onSelectBuilding={(building) => onBuilding(building === "Engineering I" ? "Engineering I" : "Engineering II")} />
-    {location.kind === "campus" && <div className="scene-navigation glass-panel">
-      <span className="scene-caption">UCF · ENGINEERING I / II</span>
-      <div className="building-entry">
-        <label htmlFor="building-choice" className="visually-hidden">Building to enter</label>
-        <select id="building-choice" value={location.building} disabled={entering} onChange={(event) => onBuilding(event.target.value as LocationState["building"])}>
-          <option>Engineering I</option><option>Engineering II</option>
-        </select>
-        <button type="button" onClick={onEnter} disabled={entering}>{entering ? "Entering…" : "Enter building ↗"}</button>
-      </div>
-      <small>{hovered || "Select a building · drag to orbit · scroll to zoom"}</small>
-    </div>}
-    <div className="camera-controls glass-panel" role="group" aria-label="Camera controls">
-      <button type="button" aria-label="Zoom in" onClick={() => camera("in")}>+</button>
-      <button type="button" aria-label="Zoom out" onClick={() => camera("out")}>−</button>
-      <button type="button" onClick={() => camera("reset")}>Reset</button>
-      <button type="button" onClick={() => camera("iso")}>{location.kind === "atrium" ? "Balcony view" : "Orbit view"}</button>
-      <button type="button" onClick={() => camera("top")}>{location.kind === "atrium" ? "Whole floor" : "Top view"}</button>
-      {location.kind === "atrium" ? <>
-        <button type="button" onClick={() => camera("floor")}>Table level</button>
-        <button type="button" onClick={() => camera("stairs")}>Staircase</button>
-        <button type="button" onClick={() => camera("ceiling")}>Skylights</button>
-        <button type="button" onClick={() => camera("entrance")}>Glass entrance</button>
-      </> : <button type="button" onClick={() => camera("front")}>Front view</button>}
-      {location.kind === "campus" && <button type="button" onClick={() => camera("tower")}>Tower detail</button>}
-    </div>
+    <CameraMenu key={location.kind} kind={location.kind} onCamera={camera}
+      onSponsor={(id) => { if (isSponsorRoom(id)) onSponsor(id); }} />
     {location.kind === "atrium" && <AtriumMap projectNames={result ? [projectName, ...result.rivals.map((entry) => entry.name)] : []} />}
     {location.kind === "atrium" && <aside className="agent-inspector glass-panel" aria-label="AI agent inputs">
       <button className="agent-inspector-toggle" type="button" aria-expanded={agentExpanded} aria-controls="agent-input-content" onClick={() => setAgentExpanded((value) => !value)}>
@@ -129,6 +113,25 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
           </>}
         </> : <p>The API supplies up to three rival summaries. Select a returned rival in the report to read its summary. Other meshes represent the returned field count; their inputs are unavailable through the current API.</p>}
       </div>
+    </aside>}
+    {location.kind === "classroom" && <>
+      {!panelsVisible && <aside className="classroom-caption glass-panel" aria-label="Sponsor classroom" style={{ "--sponsor-color": room.color } as React.CSSProperties}>
+        <button type="button" className="classroom-back" onClick={onReturnAtrium}><ArrowLeftIcon size={17} aria-hidden="true" />Atrium</button>
+        <h1>{room.name} classroom</h1>
+        <p>Lenny is ready for your product pitch.</p>
+      </aside>}
+      <div className="classroom-actions glass-panel" role="group" aria-label="Classroom actions">
+        <button type="button" onClick={onReturnAtrium}><DoorOpenIcon size={20} aria-hidden="true" />Exit to atrium</button>
+        <button type="button" className="classroom-pitch" onClick={onPitch}><MicrophoneIcon size={20} aria-hidden="true" />Pitch to Lenny</button>
+      </div>
+      {roomResult && !panelsVisible && <aside className="classroom-feedback glass-panel" aria-label="Sponsor pitch result">
+        <p>{roomResult.score_10.toFixed(1)} / 10 · {roomResult.eligible ? "Eligible" : "Ineligible"}</p>
+        <small>{job?.judge_version.startsWith("mock-") ? "Development mock · practice only" : job?.judge_version.startsWith("fixture-") || job?.pool_version.startsWith("fixture-") ? "Synthetic fixture · practice only" : "Simulated field · practice only"}{isStale ? " · Last submitted pitch" : ""}</small>
+        <button type="button" onClick={onViewReport}>View practice report</button>
+      </aside>}
+    </>}
+    {location.kind === "awards" && <aside className="ballroom-caption glass-panel" aria-label="Award ceremony room">
+      <h1>Cape Ballroom</h1>
     </aside>}
     {result && <section className="scene-results glass-panel" aria-label="API results in the scene">
       <button type="button" className="results-toggle" aria-expanded={resultsExpanded} aria-controls="scene-result-content" onClick={() => setResultsExpanded((value) => !value)}>

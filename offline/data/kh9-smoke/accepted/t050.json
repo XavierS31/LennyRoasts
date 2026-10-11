@@ -1,0 +1,57 @@
+{
+  "project_id": "kh9-smoke-t050",
+  "team_id": "t050",
+  "submission": {
+    "name": "AidStatement",
+    "tagline": "Turn scattered scholarship and student aid documents into a clearer funding picture.",
+    "inspiration": "Students often receive aid details in different statements and notices, making it hard to see what is due and when. We wanted to adapt document parsing and financial summaries into a tool for student support offices helping people organize those records.",
+    "what_it_does": "AidStatement is a prototype for uploading aid letters, expense CSVs, and receipt images, then extracting dates and amounts into a single view. A Gemini-powered summary is meant to explain the entries in plain language, with ElevenLabs reading the summary aloud; several of these pieces are currently demos rather than a connected workflow.",
+    "how_we_built_it": "We used a React and TypeScript frontend with a Node and Express backend, styled with Tailwind and charted with Recharts. Gemini handles planned document and CSV interpretation, MongoDB is set up for persistence, and we prototyped spoken summaries with ElevenLabs, but the components do not yet share a complete data path.",
+    "challenges_we_ran_into": "Aid letters and receipts vary a lot, so extracting reliable dates and totals from them took more time than expected. Authentication, storage, parsing, and audio were built as separate parts, and the live upload-to-summary flow is still mocked in places.",
+    "accomplishments": "We built a responsive dashboard concept that brings aid items and expenses into one place and explored parsing more than one document format. The prototype gives us a concrete starting point for a student finance workflow.",
+    "what_we_learned": "We learned that document parsing needs checks against the original source before anyone acts on a result. Gemini helped us explore extraction and summaries, while the ElevenLabs experiment showed us how spoken explanations could help students review complex notices.",
+    "whats_next": "We would connect the upload, extraction, review, and spoken explanation steps, then add source highlights beside each extracted amount. We would also test with varied sample documents and improve sign-in and data handling before considering real student records.",
+    "built_with": [
+      "react",
+      "typescript",
+      "node.js",
+      "express.js",
+      "tailwind-css",
+      "recharts",
+      "gemini",
+      "elevenlabs",
+      "mongodb"
+    ],
+    "challenges": [
+      "bny",
+      "elevenlabs"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--financeflow-cvl2hf"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/financeflow-cvl2hf"
+  ],
+  "primary_pool": "bny",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "partial",
+    "writing_style": "average"
+  },
+  "fit": {
+    "bny": "strong",
+    "elevenlabs": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009050,
+  "batch_id": "b014",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.5056561597137257,
+    "field": 0.5450842850880171
+  },
+  "created_at": "2026-10-11T00:50:53+00:00"
+}

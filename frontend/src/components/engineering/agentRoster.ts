@@ -70,7 +70,7 @@ export function appearanceForProject(id: string): AgentAppearance {
 }
 
 export function agentStation(index: number): [number, number] {
-  // Ten open floor lanes: clear the tables, structural columns and stairs.
-  const lanes = [-20, -16, -12, -2.2, 2.2, 12, 16, 20];
+  // Eight open floor lanes: clear the tables, workstation chairs, columns and stairs.
+  const lanes = [-16.5, -11, -2.2, 2.2, 11, 17, 19.7, 22];
   return [lanes[index % lanes.length], -33 + Math.floor(index / lanes.length) * 2.7];
 }

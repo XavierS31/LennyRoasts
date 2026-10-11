@@ -1,0 +1,382 @@
+{
+  "project_id": "kh9-smoke-t066",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "bny",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "ClubTab addresses a meaningful improvement to a student club financial process with a dashboard and chat helper, but the chat functionality is disconnected from transaction data and uses sample data.",
+      "evidence": {
+        "originality": "We focused the interface on a club treasurer's view rather than building a general personal finance product.",
+        "tech_understanding": "We used React with HTML, CSS, and JavaScript for the dashboard, and Python with Flask for account and API work.",
+        "functionality": "The account feed and assistant are separate in this prototype, so the assistant does not yet answer questions using the",
+        "wow": "We made a usable dashboard layout with a transaction list and a spending breakdown, and we sketched how a treasurer",
+        "relevance": "Student organizations often have several people trying to understand the same small budget, and transaction lists can be"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate chat helper with transaction data to enable contextual financial explanations",
+        "Replace sample transactions with live financial data API integration",
+        "Add editable spending categories and multi-account support as planned"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 12,
+      "max_total": 20,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project shows a clear component/data flow with decisions but lacks detailed connections and tradeoffs.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We used React with HTML, CSS, and JavaScript for the dashboard, and Python with Flask for account and API work.",
+        "functionality": "not described",
+        "wow": "not described"
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described.",
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 0: wow evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Implement the chat helper to answer questions using the displayed transactions for improved functionality.",
+        "Provide detailed explanations of the connections and tradeoffs made in the system design to enhance technical understanding.",
+        "Replace sample transactions with a dependable financial data integration to increase originality and wow factor."
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 2.6666666666666665,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 13.666666666666666,
+      "max_total": 25,
+      "score_10": 5.466666666666667,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": true
+        }
+      ],
+      "rationale": "The AI helper explains terms but lacks transaction context, and the financial API is not fully integrated; the dashboard layout and basic features are implemented with Flask and React.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We used React with HTML, CSS, and JavaScript for the dashboard, and Python with Flask for account and API work.",
+        "functionality": "ClubTab shows a sample club account's purchases, deposits, and withdrawals, with a chart grouping spending into a few",
+        "wow": "We made a usable dashboard layout with a transaction list and a spending breakdown",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described.",
+        "Run 0: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: wow evidence was not an exact quote; replaced with not described.",
+        "Run 1: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate the chat helper with live transaction data to enable context-aware explanations",
+        "Implement a complete financial API integration for real transaction records",
+        "Add editable spending categories and support for multiple club accounts"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 2.6666666666666665,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 10.666666666666666,
+      "max_total": 25,
+      "score_10": 4.266666666666667,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission is a financial dashboard for student clubs with game-like features but lacks core gameplay elements like rules, challenges, or win/loss conditions.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We used React with HTML, CSS, and JavaScript for the dashboard",
+        "functionality": "ClubTab shows a sample club account's purchases, deposits, and withdrawals",
+        "wow": "not described",
+        "relevance": "A chat helper explains common banking and budget terms in plain language."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add core gameplay elements like rules, challenges, or win/loss conditions to transform the dashboard into a game."
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 2.6666666666666665,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 1,
+        "relevance": 1.6666666666666667
+      },
+      "total": 11.333333333333334,
+      "max_total": 25,
+      "score_10": 4.533333333333333,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project addresses a practical need for student club treasurers with a dashboard and chat helper, but lacks a goofy or absurd premise central to the category.",
+      "evidence": {
+        "originality": "We wanted to make a lightweight place where a treasurer could see recent activity and ask basic questions about club",
+        "tech_understanding": "We used React with HTML, CSS, and JavaScript for the dashboard, and Python with Flask for account and API work",
+        "functionality": "The account feed and assistant are separate in this prototype, so the assistant does not yet answer questions using the",
+        "wow": "not described",
+        "relevance": "Student organizations often have several people trying to understand the same small budget, and transaction lists can be"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a humorous or absurd twist to the treasurer dashboard experience, such as a fictional club with ridiculous spending categories.",
+        "Implement a live financial API connection to demonstrate real transaction data integration.",
+        "Document the specific tradeoffs made in separating the chat helper from transaction data in the prototype."
+      ]
+    }
+  ]
+}

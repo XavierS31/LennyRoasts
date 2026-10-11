@@ -1,0 +1,60 @@
+{
+  "project_id": "kh9-smoke-t025",
+  "team_id": "t025",
+  "submission": {
+    "name": "ScamScore Studio",
+    "tagline": "Practice spotting suspicious money messages, then turn the warning signs into a short backing track.",
+    "inspiration": "We wanted to help students learn to question urgent financial messages without making the experience feel like another lecture. We borrowed the idea of generating music around a user’s choices and paired it with a phishing-style message review so the lesson could feel more memorable.",
+    "what_it_does": "Users review sample bank and payment messages, mark suspicious details, and get a Gemini explanation of signals such as pressure tactics or odd payment requests. The app turns the review into a short musical practice loop with a selectable mood and tempo, and can read the key warning signs aloud with ElevenLabs. A small Databricks workflow groups anonymized practice choices into common warning categories for the demo dashboard.",
+    "how_we_built_it": "The React and Next.js interface sends a selected message and the user’s marked clues to a Gemini-backed analysis flow, which returns an explanation and structured warning labels. A music generator assembles a simple Strudel loop from those labels and chosen settings, while ElevenLabs speaks a compact recap for accessibility. We store practice events and use a Databricks notebook to summarize category counts, so the dashboard can show what learners are noticing without feeding those counts back as verified threat intelligence.",
+    "challenges_we_ran_into": "The full flow works, but music generation sometimes returns code that Strudel cannot play, and the message analysis can overreact to ordinary urgency. We had to keep the examples synthetic and make clear that a score is for practice, not proof that a real message is safe or fraudulent. Getting the audio, analysis, and event summary to agree on the same warning labels took extra glue work.",
+    "accomplishments": "We connected message review, explainable warning labels, generated music, spoken feedback, and a basic analysis dashboard in one demo. We are proud that a user’s own choices shape the recap instead of receiving only a generic scam warning.",
+    "what_we_learned": "We learned to turn a free-form model answer into structured labels before using it in other components. Gemini helped interpret the wording of sample messages, while our own checks kept the explanation tied to visible clues; ElevenLabs made the recap easier to listen to, and Databricks gave us a way to inspect practice patterns. We also learned that generated music needs strict constraints and a reliable fallback if the code does not compile.",
+    "whats_next": "We would improve validation for the generated loops and add more message examples across different financial situations. We would also test the warning explanations with people who are new to scam terminology and refine the category dashboard before using anything beyond synthetic practice data.",
+    "built_with": [
+      "databricks",
+      "elevenlabs",
+      "gemini",
+      "next.js",
+      "react",
+      "strudel"
+    ],
+    "challenges": [
+      "elevenlabs",
+      "bny",
+      "gemini",
+      "databricks"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--improvigator",
+    "shellhacks2024--baitblock-8ti7d2"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/improvigator",
+    "https://devpost.com/software/baitblock-8ti7d2"
+  ],
+  "primary_pool": "gemini",
+  "mutation": "heavy",
+  "persona": {
+    "skill_focus": "ai_ml",
+    "completion": "shaky",
+    "writing_style": "detailed"
+  },
+  "fit": {
+    "elevenlabs": "medium",
+    "bny": "weak",
+    "gemini": "strong",
+    "databricks": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009025,
+  "batch_id": "b008",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.5248173114069596,
+    "field": 0.6632549804929277
+  },
+  "created_at": "2026-10-11T00:47:52+00:00"
+}

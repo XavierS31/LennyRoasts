@@ -16,6 +16,13 @@ test("saved roster has exact requested quotas, repeatable unique appearances and
   assert.equal(new Set(signatures).size, 200);
   for (let i = 1; i <= 200; i++) assert.equal(appearanceForProject(`mock-project-${String(i).padStart(3, "0")}`).id, agentRoster[i - 1].id);
   assert.equal(new Set(Array.from({ length: 200 }, (_, i) => agentStation(i).join(","))).size, 200);
+  for (let i = 0; i < 200; i++) {
+    const [x, z] = agentStation(i);
+    assert.ok(x > -17.5 && x < 23, "agents clear wall workstations and room boundaries");
+    assert.ok(z < 32, "agents clear the staircase");
+    assert.ok(Math.abs(x - 14) > 2 && Math.abs(x + 14) > 2, "agents clear column shafts");
+    assert.ok(Math.abs(x - 6) > 3.5 && Math.abs(x + 6) > 3.5, "agents clear collaboration tables");
+  }
   const inputs = JSON.parse(readFileSync(new URL("../src/components/engineering/agentInputs.json", import.meta.url), "utf8"));
   assert.equal(inputs.agents.length, 200);
   assert.equal(new Set(inputs.agents.map((agent) => agent.input)).size, 200);

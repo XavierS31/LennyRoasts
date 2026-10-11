@@ -1,0 +1,59 @@
+{
+  "project_id": "kh9-smoke-t042",
+  "team_id": "t042",
+  "submission": {
+    "name": "Bench Breaker",
+    "tagline": "A little desk-side accountability for campus makers finishing a work session.",
+    "inspiration": "In a shared workshop, it is easy to wander from a build task into checking a phone, especially when a deadline is close. We wanted a physical reminder that could make a short work block feel more engaging without needing someone else to keep watch.",
+    "what_it_does": "A webcam checks for phone use during a timed work session, and Gemini confirms likely distractions before generating a short spoken nudge through ElevenLabs. An Arduino controls a small indicator and a brief air puff toward a desk target, giving the reminder a physical cue; Databricks records session events for a simple view of when interruptions happen.",
+    "how_we_built_it": "A Python and OpenCV loop runs YOLOv8 phone detection on a laptop and sends likely events to Gemini for a quick confirmation and message. ElevenLabs turns that text into audio, while the laptop sends a signal to an Arduino relay that powers a small pump; session events are written to a Databricks table so we can inspect patterns afterward.",
+    "challenges_we_ran_into": "The camera, model calls, audio playback, Arduino control, and event logging each worked, but keeping them coordinated without delays took most of our time. The detection can mistake a phone-shaped object for a phone, and network lag sometimes makes the spoken cue arrive after the moment has passed; the air puff is also intentionally small and aimed only at a test target.",
+    "accomplishments": "We connected a live vision loop to both spoken feedback and a physical response, and got the session log flowing into Databricks. We are proud that the project feels tangible at a desk rather than being only another timer window.",
+    "what_we_learned": "We learned how much timing and hardware safety matter when software triggers a physical device, and why audio should not interrupt the user's work unpredictably. ElevenLabs made the feedback feel more expressive, Gemini helped vary the wording, and Databricks gave us a first look at turning session events into a useful summary.",
+    "whats_next": "We would like to add user-controlled sensitivity, quieter notification options, and better handling for different desk layouts. We also want to make the event summaries clearer and let users review or delete their session history.",
+    "built_with": [
+      "arduino",
+      "databricks",
+      "elevenlabs",
+      "gemini",
+      "opencv",
+      "python",
+      "yolov8"
+    ],
+    "challenges": [
+      "elevenlabs",
+      "databricks",
+      "gemini",
+      "bny"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--splash-l3sgun"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/splash-l3sgun"
+  ],
+  "primary_pool": "elevenlabs",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "hardware",
+    "completion": "polished",
+    "writing_style": "average"
+  },
+  "fit": {
+    "elevenlabs": "strong",
+    "databricks": "medium",
+    "gemini": "weak",
+    "bny": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009042,
+  "batch_id": "b012",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.3584292213898726,
+    "field": 0.7885610239536189
+  },
+  "created_at": "2026-10-11T00:49:44+00:00"
+}

@@ -1,0 +1,55 @@
+{
+  "project_id": "kh9-smoke-t029",
+  "team_id": "t029",
+  "submission": {
+    "name": "Signal Skirmish",
+    "tagline": "A two-player campus radio race controlled with a chunky, button-filled handheld.",
+    "inspiration": "We liked the feel of fast card duels and wanted to make a small competitive game where players physically trigger their moves. We shifted the showdown to a campus radio booth, where players race to keep a signal clear while disrupting the other station.",
+    "what_it_does": "Two players use a homemade controller to send actions into a Godot game, where they try to hold signal quality and outlast their opponent. Gemini adds brief commentary based on the current match, and Databricks was used to inspect sample match events during development.",
+    "how_we_built_it": "The game runs in Godot, with a Raspberry Pi Pico controller sending serial input to a Python bridge that forwards events over UDP. We used GitHub for version control, Gemini for optional match commentary, and a small Databricks notebook to explore recorded play events.",
+    "challenges_we_ran_into": "Serial-to-game input and hardware drivers were finicky, and the controller occasionally misses an action, so the match can feel uneven. We also ran into Godot animation and dependency trouble plus merge conflicts while working in parallel.",
+    "accomplishments": "We got a physical controller driving a playable two-person game, with hardware inputs reflected in the match. We are happy with the core idea of making a simple duel feel more hands-on.",
+    "what_we_learned": "We learned how input travels from a microcontroller through a Python bridge into a game engine, and how small timing issues can affect play. We also got a basic look at using match data for commentary and analysis.",
+    "whats_next": "We would like to make controller input more reliable, improve the animations, and tune the opponent behavior. We also want to make the data view useful enough to compare different match strategies.",
+    "built_with": [
+      "databricks",
+      "gemini",
+      "godot",
+      "github",
+      "pico",
+      "python",
+      "raspberry-pi"
+    ],
+    "challenges": [
+      "gemini",
+      "databricks"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--the-final-draw"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/the-final-draw"
+  ],
+  "primary_pool": "general",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "game_dev",
+    "completion": "shaky",
+    "writing_style": "terse"
+  },
+  "fit": {
+    "gemini": "medium",
+    "databricks": "weak"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009029,
+  "batch_id": "b009",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.48293920774356236,
+    "field": 0.6826784988503602
+  },
+  "created_at": "2026-10-11T00:48:16+00:00"
+}

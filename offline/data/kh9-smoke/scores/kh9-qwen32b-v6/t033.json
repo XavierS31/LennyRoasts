@@ -1,0 +1,452 @@
+{
+  "project_id": "kh9-smoke-t033",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "bny",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 4,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 17,
+      "max_total": 25,
+      "score_10": 6.8,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        }
+      ],
+      "rationale": "Improves student financial buffers through round-up savings integrated with spending analysis and blockchain demo, though finance is a core feature but not a specific industry process.",
+      "evidence": {
+        "originality": "Turn everyday spending into a small buffer for student costs.",
+        "tech_understanding": "A FastAPI service processes transaction records and calculates round-ups",
+        "functionality": "We connected sample banking data, round-up calculations, a Gemini explanation, and a simulated wallet transfer in one",
+        "wow": "We’re proud that the dashboard shows both the amount set aside and the spending pattern behind it.",
+        "relevance": "We adapted round-up saving into a tool aimed at building a modest buffer for predictable campus expenses."
+      },
+      "warnings": [
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add specific financial industry process integration like loan repayment or tuition management",
+        "Document precise monetary calculation handling methods and edge cases",
+        "Refine AI suggestions with transaction history length impact analysis"
+      ]
+    },
+    {
+      "challenge_id": "gemini",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 4,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 16,
+      "max_total": 25,
+      "score_10": 6.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "Gemini provides a meaningful secondary function by summarizing spending patterns and suggesting adjustments, which is integrated into the main user flow but not central to the core round-up saving mechanism.",
+      "evidence": {
+        "originality": "We adapted round-up saving into a tool aimed at building a modest buffer for predictable campus expenses.",
+        "tech_understanding": "not described",
+        "functionality": "The demo flow works end to end with sample data, but the savings suggestions can be too broad when the transaction",
+        "wow": "We’re proud that the dashboard shows both the amount set aside and the spending pattern behind it.",
+        "relevance": "Gemini summarizes spending patterns and suggests a possible adjustment, while the dashboard shows the savings amount and"
+      },
+      "warnings": [
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Refine Gemini suggestions to handle sparse transaction histories more effectively",
+        "Add goal tracking for recurring campus costs to enhance functionality",
+        "Improve monthly projections to provide more detailed and actionable insights"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 4,
+        "wow": 2
+      },
+      "total": 13,
+      "max_total": 20,
+      "score_10": 6.5,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project combines round-up saving with AI summaries and blockchain demo, showing clear component connections but limited novelty.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We used the Solana SDK to demonstrate a devnet transfer flow",
+        "functionality": "We connected sample banking data, round-up calculations, a Gemini explanation",
+        "wow": "not described"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add specific examples of unique features that differentiate from existing round-up apps",
+        "Document the precise data flow between transaction processing and wallet display",
+        "Include measurable metrics for the demo flow's end-to-end performance"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 4,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 17,
+      "max_total": 25,
+      "score_10": 6.8,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project meaningfully integrates AI for financial insights and blockchain for simulated transfers, with clear technical explanations and a working core despite limitations in sparse data handling.",
+      "evidence": {
+        "originality": "We adapted round-up saving into a tool aimed at building a modest buffer for predictable campus expenses.",
+        "tech_understanding": "not described",
+        "functionality": "We connected sample banking data, round-up calculations, a Gemini explanation, and a simulated wallet transfer in one",
+        "wow": "We’re proud that the dashboard shows both the amount set aside and the spending pattern behind it.",
+        "relevance": "Gemini summarizes spending patterns and suggests a possible adjustment, while the dashboard shows the savings amount and"
+      },
+      "warnings": [
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Refine AI suggestions for sparse transaction histories by adding fallback logic or data aggregation methods",
+        "Add precise monetary value handling documentation to explain rounding and calculation consistency across components",
+        "Expand the demo to include goal tracking for recurring campus costs as a next step feature"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 1.3333333333333333,
+        "relevance": 2
+      },
+      "total": 11.333333333333334,
+      "max_total": 25,
+      "score_10": 4.533333333333333,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission is a financial tool with game-like features but lacks core gameplay elements.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We connected sample banking data, round-up calculations, a Gemini explanation, and a simulated wallet transfer in one",
+        "functionality": "The demo flow works end to end with sample data, but the savings suggestions can be too broad when the transaction",
+        "wow": "not described",
+        "relevance": "We adapted round-up saving into a tool aimed at building a modest buffer for predictable campus expenses."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add core gameplay elements like rules, challenges, and win/loss conditions to transform the financial tool into a game."
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 1,
+        "relevance": 1
+      },
+      "total": 10,
+      "max_total": 25,
+      "score_10": 4.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project is a practical financial tool with a clear technical implementation but lacks a goofy or humorous concept as required by the category.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "A FastAPI service processes transaction records and calculates round-ups",
+        "functionality": "We connected sample banking data, round-up calculations, a Gemini explanation, and a simulated wallet transfer in one",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a humorous or absurd premise to the project to align with the funny/goofy category requirements"
+      ]
+    }
+  ]
+}

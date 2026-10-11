@@ -1,0 +1,52 @@
+{
+  "project_id": "kh9-smoke-t107",
+  "team_id": "t107",
+  "submission": {
+    "name": "Invoice Pantry",
+    "tagline": "Sort upcoming bills into a practical next step for a small finance team.",
+    "inspiration": "We wanted to make routine bill tracking less scattered for student organizations and small campus groups. It is easy to lose track of which expenses are due soon when invoices and reminders live in different places.",
+    "what_it_does": "Invoice Pantry lets a user enter bills, due dates, and a few payment preferences, then highlights what needs attention first. It can suggest a simple payment order and show the reason behind each suggestion; voice entry and the guided review flow are rough prototypes.",
+    "how_we_built_it": "We made a web app with a React interface and a Node backend, using MongoDB for group, bill, and preference data. A scoring flow uses due dates and entered constraints to rank bills, while a voice input experiment tries to turn spoken expenses into fields the user can confirm.",
+    "challenges_we_ran_into": "Voice transcription and parsing were inconsistent, especially when people said amounts or dates casually. The demo does not work end-to-end: the bill list and ranking can run separately, but voice entry and saving a reviewed bill do not reliably connect.",
+    "accomplishments": "We got the main bill-entry screen and an explainable priority list working as separate pieces. We are proud that the ranking makes its reasoning visible instead of presenting a payment order without context.",
+    "what_we_learned": "We learned that a useful finance tool needs dependable data entry and clear handling of missing details before adding smart suggestions. Gemini helped us explore ways to summarize why a bill was surfaced, but we still needed a person to check the extracted information.",
+    "whats_next": "We would connect the review flow to persistent bill records and make date and amount confirmation more reliable. Later, we would add shared access for a group treasurer and test the ranking against real payment workflows.",
+    "built_with": [
+      "elevenlabs",
+      "gemini",
+      "mongodb",
+      "node.js",
+      "react",
+      "typescript"
+    ],
+    "challenges": [
+      "bny"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--strugglemeals-8z9kby"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/strugglemeals-8z9kby"
+  ],
+  "primary_pool": "general",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "broken",
+    "writing_style": "average"
+  },
+  "fit": {
+    "bny": "weak"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009107,
+  "batch_id": "b027",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.502573533099909,
+    "field": 0.6168430579181174
+  },
+  "created_at": "2026-10-11T00:57:25+00:00"
+}

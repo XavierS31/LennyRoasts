@@ -1,0 +1,56 @@
+{
+  "project_id": "kh9-smoke-t060",
+  "team_id": "t060",
+  "submission": {
+    "name": "Pocket Portfolio Lab",
+    "tagline": "Build a paper trading rule and see what market signals it reacts to.",
+    "inspiration": "We were interested in quantitative finance but found that the tools used to explore trading rules often assume a lot of math and market knowledge. We wanted a browser prototype where student finance clubs could assemble a simple paper strategy and inspect the signals behind it.",
+    "what_it_does": "Users connect visual blocks to define a paper trading rule, such as reacting to a moving average or a news sentiment signal. The app collects available market headlines and price data, shows the selected signals, and simulates the rule against a ticker without placing real trades. Gemini explains the rule and its inputs in plain language so a beginner can understand what the blocks are asking the simulator to do.",
+    "how_we_built_it": "The interface uses Blockly with JavaScript, HTML, and CSS to let users assemble conditions without writing Python. A Python backend turns those blocks into a constrained strategy format, requests price and news data, and stores strategy runs in SQL. The BNY angle is an educational workflow for understanding investment decision inputs; it is not connected to bank accounts or brokerage execution. Gemini receives the strategy description and displayed signals to produce an explanation, while the simulation remains a separate deterministic step.",
+    "challenges_we_ran_into": "Getting Blockly’s generated logic into a form our Python service could safely interpret took time, and its documentation left us guessing in places. Sentiment from short posts and headlines can be noisy, and our data model for keeping prices, headlines, and run settings together still needs work. The prototype’s market data coverage is limited, so its output should be treated as an exercise rather than investment guidance.",
+    "accomplishments": "We connected the visual editor to a backend simulation path and can inspect how a paper rule responds to the data we fetch. We are proud that the explanations make the block configuration less intimidating without hiding the underlying inputs.",
+    "what_we_learned": "We learned how to map a visual program into a constrained backend representation and how much detail matters when explaining financial indicators. Gemini was useful for turning a strategy description into beginner-friendly language, but we had to keep its explanation tied to the values the simulator actually displayed. We also got more comfortable combining API collection with SQL records for repeatable runs.",
+    "whats_next": "We would add more block types, improve the history and comparison views, and make the data refresh path more reliable. A future version could test additional public signals and let instructors share example strategies with a class.",
+    "built_with": [
+      "blockly",
+      "css",
+      "gemini",
+      "html",
+      "javascript",
+      "python",
+      "sql",
+      "yfinance"
+    ],
+    "challenges": [
+      "bny",
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--baby-quant"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/baby-quant"
+  ],
+  "primary_pool": "bny",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "polished",
+    "writing_style": "detailed"
+  },
+  "fit": {
+    "bny": "strong",
+    "gemini": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009060,
+  "batch_id": "b016",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.5880397557579984,
+    "field": 0.6228573173888655
+  },
+  "created_at": "2026-10-11T00:51:38+00:00"
+}
