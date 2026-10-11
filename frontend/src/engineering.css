@@ -80,9 +80,9 @@
 .engineering-app .edition { margin-left: auto; color: var(--muted); }
 .glass-content { position: relative; z-index: 2; width: min(540px, 40vw); margin-left: 0; }
 .engineering-app .intro { padding: 28px; margin: 0 0 18px; }
-.engineering-app .intro h1 { display: grid; justify-items: start; gap: 8px; font-size: clamp(30px, 2.6vw, 38px); font-weight: 650; line-height: 1.12; letter-spacing: -.025em; max-width: 490px; margin: 0 0 24px; }
+.engineering-app .intro h1 { display: grid; justify-items: start; gap: 6px; font-size: clamp(30px, 2.6vw, 38px); font-weight: 650; line-height: 1.12; letter-spacing: -.025em; max-width: 490px; margin: 0 0 24px; }
 .engineering-app .intro h1 .welcome-prefix { color: var(--muted); font-size: 15px; font-weight: 550; line-height: 1.4; letter-spacing: 0; }
-.engineering-app .intro h1 .hackathon-logo { display: block; width: min(100%, 420px); height: auto; object-fit: contain; object-position: left center; }
+.engineering-app .intro h1 .hackathon-logo { display: block; width: min(100%, 360px); height: auto; object-fit: contain; object-position: left center; }
 .engineering-app :is(.eyebrow, .section-kicker) { color: var(--muted); }
 .engineering-app .lede { font-size: 14px; line-height: 1.55; margin: 0; }
 .engineering-app .mode-banner { display: block; padding: 16px 20px; margin: 0 0 12px; }
@@ -102,7 +102,8 @@
 .engineering-app #form-heading { font-size: 22px; line-height: 1.3; letter-spacing: -.015em; }
 .engineering-app .idea-file-import { margin-bottom: 22px; }
 .engineering-app .section-heading { align-items: center; gap: 16px; margin-bottom: 22px; }
-.engineering-app .section-heading .text-button { min-height: 44px; flex-shrink: 0; font-size: 13px; font-weight: 550; }
+.engineering-app .section-heading .text-button { min-height: 44px; flex-shrink: 0; font-size: 13px; font-weight: 550; background: rgba(255,255,255,.56); border-color: rgba(255,255,255,.56); box-shadow: none; }
+.engineering-app .section-heading .text-button:hover:enabled { background: rgba(255,255,255,.72); border-color: rgba(255,255,255,.72); }
 .engineering-app .intro .mode-banner {
   padding: 0;
   margin: 0;
@@ -145,8 +146,8 @@
 .engineering-app .report-detail summary, .engineering-app .track-choice:has(input:checked), .engineering-app .track-choice input:checked + .track-checkmark, .engineering-app .improvements-section li::marker { color: var(--ink); }
 .engineering-app :is(.field-error, .field-error a) { color: var(--ink); }
 .engineering-app :is(.automatic-copy, .challenge-picker summary, .empty-label, .empty-report h3, .processing-panel strong, .rival h4, .rival p, .improvements-section li, .warning-section h4, .run-heading, .run-criteria dt) { color: var(--ink); }
-.engineering-app :is(textarea, input:not([type=checkbox]), select) { background: rgba(255,255,255,.76); color: var(--ink); border: 1px solid rgba(87,101,126,.16); box-shadow: inset 0 1px 2px rgba(24,39,63,.025); caret-color: var(--focus); text-shadow: inherit; }
-.engineering-app :is(textarea, input:not([type=checkbox]), select):focus-visible { border-color: rgba(104,85,164,.42); outline: 2px solid rgba(104,85,164,.12); outline-offset: 1px; }
+.engineering-app :is(textarea, input:not([type=checkbox]), select) { background: rgba(255,255,255,.58); color: var(--ink); border: 1px solid rgba(255,255,255,.58); box-shadow: none; caret-color: var(--focus); text-shadow: inherit; }
+.engineering-app :is(textarea, input:not([type=checkbox]), select):focus-visible { border-color: rgba(82,98,123,.2); outline: 2px solid rgba(82,98,123,.1); outline-offset: 1px; }
 .engineering-app textarea::placeholder { color: #68758a; opacity: 1; }
 .engineering-app textarea { min-height: 220px; font-size: 16px; line-height: 1.65; padding: 16px; }
 .engineering-app .track-choice input { accent-color: #ffda74; }
