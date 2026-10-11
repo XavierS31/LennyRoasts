@@ -35,7 +35,7 @@ Best Overall correctly omitted relevance: four-criterion total 14/20 normalized 
 
 ## Implementation conditions and limits
 
-Use the same frozen model/provider/prompt/rubric/settings for offline and live scoring. Compute totals and eligibility in code; validate quotes, bound output and preserve failures. Rescore the field whenever judge configuration changes. Review Luna scope/fit before accepting mutations. Keep fine-tuning out of the MVP.
+Use the same frozen model/provider/prompt/rubric/settings for offline and live scoring. Compute totals and eligibility in code; validate quotes, bound output and preserve failures. Rescore the field whenever judge configuration changes. The field accepts Luna mutations on automatic checks alone, so scope/fit issues like the two found above can reach the field. Keep fine-tuning out of the MVP.
 
 The 3-winner/3-non-winner reference setup, complete BNY/Databricks official briefs, real-seed Luna mutations, three-run aggregation, a 109-project field, embeddings, human agreement, winner backtesting, implementation and deployment were not tested. Some requests ran concurrently; latency is an observed sample, not a controlled performance guarantee. Provider cost estimates are saved locally and are not verified account charges.
 
