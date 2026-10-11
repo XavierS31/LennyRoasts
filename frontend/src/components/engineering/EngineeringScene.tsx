@@ -15,6 +15,7 @@ import { addClassroom, addSponsorPins } from "./classroomGeometry";
 import { MapPinIcon } from "@phosphor-icons/react";
 import { addSunsetSky } from "./sunsetSky";
 import { engineeringFrame } from "./campusFraming";
+import { RoomVisitSimulation, visitPose, type RoomVisit } from "./roomVisits";
 
 export type SceneKind = "campus" | "atrium" | "awards" | "classroom";
 export type CameraCommand = "in" | "out" | "reset" | "iso" | "top" | "front" | "enter" | "floor" | "stairs" | "ceiling" | "entrance" | "focus" | "tower" | "west" | "walk" | "stage" | "sponsor" | "health" | "service" | "alley" | "junction" | "courtyard" | "modern" | "award" | "pauseAward" | "resumeAward";
@@ -69,7 +70,7 @@ function scoreLabel(name: string, score: number) {
 
 export default function EngineeringScene({
   kind, result, projectName, selectedMarker, panelsVisible, onSelectBuilding, onHoverBuilding,
-  onSelectMarker, controller, sponsor, onSponsor, onReturnAtrium, onPitch, agents, prizeAgent,
+  onSelectMarker, controller, sponsor, onSponsor, onReturnAtrium, onPitch, agents, prizeAgent, visitSimulation, onVisits,
 }: {
   kind: SceneKind;
   panelsVisible: boolean;
@@ -78,6 +79,8 @@ export default function EngineeringScene({
   selectedMarker: string;
   agents: AgentEntry[];
   prizeAgent?: string;
+  visitSimulation: RoomVisitSimulation;
+  onVisits: (visits: RoomVisit[]) => void;
   onSelectBuilding: (building: string) => void;
   onHoverBuilding: (building: string) => void;
   onSelectMarker: (marker: string) => void;
@@ -94,6 +97,8 @@ export default function EngineeringScene({
   const updateData = useRef<((result?: ChallengeResult, name?: string, selected?: string, agents?: AgentEntry[], prizeAgent?: string) => void) | null>(null);
   const panelState = useRef(panelsVisible);
   const updateLayout = useRef<(() => void) | null>(null);
+  const visitState = useRef({ simulation: visitSimulation, onVisits, agents });
+  useEffect(() => { visitState.current = { simulation: visitSimulation, onVisits, agents }; }, [visitSimulation, onVisits, agents]);
   useEffect(() => { callbacks.current = { onSelectBuilding, onHoverBuilding, onSelectMarker, onSponsor, onReturnAtrium, onPitch }; });
   useEffect(() => { panelState.current = panelsVisible; updateLayout.current?.(); }, [panelsVisible]);
 
@@ -201,6 +206,12 @@ export default function EngineeringScene({
     let followingPrize = false;
     let prizeTravel = 0;
     let currentPrizeAgent: string | undefined;
+    let visitorField: ReturnType<typeof createAgentField> | undefined;
+    let visitorKey = "";
+    let movingKeys = new Set<string>();
+    const visitRotations = new Map<string, number>();
+    let visitPublication = "";
+    let visitSeconds = 0;
 
     updateData.current = (nextResult, name = "Your idea", selected = "user", nextAgents = [], nextPrizeAgent) => {
       disposeObjects(markerGroup);
@@ -342,7 +353,7 @@ export default function EngineeringScene({
         }
         if (action === "focus") {
           callbacks.current.onSelectMarker(building ?? "user");
-          const point = markerPositions.get(building ?? "user");
+          const point = agentField?.positions.get(building ?? "user") ?? markerPositions.get(building ?? "user");
           if (point) return travel(point.clone().add(new THREE.Vector3(6, 5, 9)), point.clone().setY(2.5));
           return Promise.resolve();
         }
@@ -485,7 +496,48 @@ export default function EngineeringScene({
       if (disposed) return;
       if (document.hidden) { frame = 0; return; }
       const now = performance.now();
-      const delta = Math.min(.05, (now - lastFrame) / 1000); lastFrame = now;
+      const visitDelta = Math.max(0, (now - lastFrame) / 1000);
+      const delta = Math.min(.05, visitDelta); lastFrame = now;
+      if (kind === "atrium" || kind === "classroom") {
+        const simulation = visitState.current.simulation;
+        simulation.advance(visitDelta, motion.matches);
+        if (kind === "atrium" && agentField) {
+          const nextMoving = new Set<string>();
+          for (const visit of simulation.visits.values()) {
+            nextMoving.add(visit.key);
+            const pose = visitPose(visit, motion.matches);
+            const previousRotation = visitRotations.get(visit.key) ?? pose.rotation;
+            const turn = Math.atan2(Math.sin(pose.rotation - previousRotation), Math.cos(pose.rotation - previousRotation));
+            pose.rotation = previousRotation + turn * (motion.matches ? 1 : 1 - Math.exp(-visitDelta * 12));
+            visitRotations.set(visit.key, pose.rotation);
+            if (!motion.matches && visit.phase !== "inside" && simulation.playing) pose.position[1] += Math.sin(visit.elapsed * 8) * .06;
+            agentField.move(visit.key, pose.position, pose.rotation, visit.phase !== "inside");
+          }
+          for (const key of movingKeys) if (!nextMoving.has(key)) {
+            agentField.move(key); visitRotations.delete(key);
+          }
+          movingKeys = nextMoving;
+        }
+        if (kind === "classroom") {
+          const visit = simulation.visits.get(room.id);
+          const nextKey = visit?.phase === "inside" ? visit.key : "";
+          if (nextKey !== visitorKey) {
+            if (visitorField) { scene.remove(visitorField.group); disposeObjects(visitorField.group); visitorField = undefined; }
+            const entry = visitState.current.agents.find((agent) => agent.key === nextKey);
+            if (entry) {
+              visitorField = createAgentField([{ ...entry, position: [-3.1, -4.4], elevation: .08, rotation: Math.PI }], false);
+              visitorField.group.name = "Assigned room visitor";
+              scene.add(visitorField.group);
+            }
+            visitorKey = nextKey;
+          }
+        }
+        visitSeconds += visitDelta;
+        const signature = [...simulation.visits.values()].map((visit) => `${visit.key}:${visit.phase}`).join("|");
+        if (signature !== visitPublication || visitSeconds >= .5) {
+          visitState.current.onVisits(simulation.snapshot()); visitPublication = signature; visitSeconds = 0;
+        }
+      }
       awardsAudience?.animate(delta, motion.matches);
       if (followingPrize && awardsAudience?.winner) {
         const point = awardsAudience.winner.position;
@@ -525,7 +577,7 @@ export default function EngineeringScene({
       renderer.render(scene, camera);
       frame = requestAnimationFrame(animate);
     };
-    const visibility = () => { if (!document.hidden && !frame) animate(); };
+    const visibility = () => { if (!document.hidden && !frame) { lastFrame = performance.now(); animate(); } };
     document.addEventListener("visibilitychange", visibility);
     animate();
     return () => {

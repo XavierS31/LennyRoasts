@@ -4,9 +4,9 @@ import EngineeringScene, { type CameraCommand, type SceneController } from "./En
 import type { LocationState } from "./navigation";
 import AtriumMap from "./AtriumMap";
 import { agentRoster, agentStation, appearanceForProject } from "./agentRoster";
-import { projectStation } from "./atriumLayout";
 import type { AgentEntry } from "./agentMeshes";
-type SampleInput = { project_id: string; name: string; input: string };
+type SampleInput = { project_id: string; name: string; input: string; challenges?: string[] };
+import { RoomVisitSimulation, ROOM_STAY_SECONDS, visitCategories, type RoomVisit } from "./roomVisits";
 import CameraMenu from "./CameraMenu";
 import { sponsorRoom, isSponsorRoom, type SponsorRoomId } from "./classroomLayout";
 import { ArrowLeftIcon, DoorOpenIcon, MicrophoneIcon, TrophyIcon, PlayIcon, PauseIcon, CaretDownIcon } from "@phosphor-icons/react";
@@ -40,11 +40,14 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
   const [ceremonyPlaying, setCeremonyPlaying] = useState(false);
   const [leaderIndex, setLeaderIndex] = useState(0);
   const [prizePhase, setPrizePhase] = useState("ready");
+  const [visitPlaying, setVisitPlaying] = useState(false);
+  const [visits, setVisits] = useState<RoomVisit[]>([]);
   const prizeToken = useRef(0);
   const activePresenter = useRef("");
   const room = sponsorRoom(location.sponsor);
+  const roomVisitor = visits.find((visit) => visit.room === room.id);
   const roomResult = job?.status === "completed" ? job.result?.challenge_results.find((entry) => entry.challenge_id === room.id) : undefined;
-  const results = job?.status === "completed" ? job.result?.challenge_results ?? [] : [];
+  const results = useMemo(() => job?.status === "completed" ? job.result?.challenge_results ?? [] : [], [job]);
   const result = results.find((entry) => entry.challenge_id === category) ?? results.find((entry) => entry.challenge_id === "overall") ?? results[0];
   const rival = result?.rivals.find((entry) => entry.project_id === marker);
   const selectedName = rival?.name ?? projectName;
@@ -52,29 +55,25 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
   const sample = samples.find((entry) => `sample:${entry.project_id}` === marker);
   const sampleIndex = sample ? samples.indexOf(sample) : 0;
   const previewActive = showSamples && results.length === 0;
-  const agents = useMemo<AgentEntry[]>(() => {
-    if (location.kind !== "atrium" && location.kind !== "awards") return [];
-    const user = result && location.kind === "atrium" ? [{ key: "user", appearance: appearanceForProject("your-idea-avatar"), position: [-3, 28] as [number, number] }] : [];
+  const atriumAgents = useMemo<AgentEntry[]>(() => {
+    const user = results.length ? [{ key: "user", appearance: appearanceForProject("your-idea-avatar"), position: [-2.2, 30] as [number, number] }] : [];
     if (previewActive) return [...samples.map((entry, index) => ({ key: `sample:${entry.project_id}`, appearance: appearanceForProject(entry.project_id), position: agentStation(index) })), ...user];
-    if (!result) return [];
-    if (location.kind === "awards") {
-      const returned = [...new Map(results.flatMap((entry) => entry.rivals).map((entry) => [entry.project_id, entry])).values()];
-      const overall = results.find((entry) => entry.challenge_id === "overall");
-      const count = Math.min(200, Math.max(returned.length, overall?.placement?.eligible_competitors ?? result.placement?.eligible_competitors ?? 0));
-      return Array.from({ length: count }, (_, index) => ({ key: returned[index]?.project_id ?? `anonymous:${index}`, appearance: returned[index] ? appearanceForProject(returned[index].project_id) : agentRoster[index], position: agentStation(index) }));
-    }
-    const count = Math.min(200, Math.max(result.rivals.length, result.placement?.eligible_competitors ?? 0));
-    return [...Array.from({ length: count }, (_, index) => {
-      const returned = result.rivals[index];
-      const station = returned ? projectStation(index + 1) : agentStation(index);
-      const position: [number, number] = returned ? [station[0] + 3, station[1]] : station;
-      return { key: returned?.project_id ?? `anonymous:${index}`, appearance: returned ? appearanceForProject(returned.project_id) : agentRoster[index], position };
-    }), ...user];
-  }, [location.kind, previewActive, samples, result, job]);
+    const returned = [...new Map(results.flatMap((entry) => entry.rivals).map((entry) => [entry.project_id, entry])).values()];
+    const count = Math.min(200, Math.max(returned.length, results.find((entry) => entry.challenge_id === "overall")?.placement?.eligible_competitors ?? 0));
+    return [...Array.from({ length: count }, (_, index) => ({ key: returned[index]?.project_id ?? `anonymous:${index}`, appearance: returned[index] ? appearanceForProject(returned[index].project_id) : agentRoster[index], position: agentStation(index) })), ...user];
+  }, [previewActive, samples, results]);
+  const agents = useMemo(() => location.kind === "awards" ? atriumAgents.filter((agent) => agent.key !== "user") : atriumAgents, [location.kind, atriumAgents]);
+  const simulation = useMemo(() => new RoomVisitSimulation(atriumAgents.map((agent, index) => {
+    const saved = samples.find((entry) => `sample:${entry.project_id}` === agent.key);
+    const returned = results.flatMap((entry) => entry.rivals).find((entry) => entry.project_id === agent.key);
+    return { key: agent.key, name: agent.key === "user" ? projectName : saved?.name ?? returned?.name ?? `Field representative ${index + 1}`, position: agent.position, categories: visitCategories(agent.key, results, saved?.challenges) };
+  })), [atriumAgents, results, samples, projectName]);
+  useEffect(() => { setVisitPlaying(false); setVisits([]); }, [simulation]);
+  useEffect(() => { simulation.playing = visitPlaying; }, [simulation, visitPlaying]);
 
   useEffect(() => { setMarker("user"); setAgentExpanded(false); }, [result, previewActive]);
   useEffect(() => {
-    if ((location.kind !== "atrium" && location.kind !== "awards") || !previewActive) return;
+    if ((location.kind !== "atrium" && location.kind !== "awards" && location.kind !== "classroom") || !previewActive) return;
     let cancelled = false;
     void import("./agentInputs.json").then((module) => {
       if (!cancelled) { setSamples(module.default.agents); setSampleError(false); }
@@ -147,6 +146,7 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
 
   return <div className={`engineering-explorer scene-${location.kind} ${panelsVisible ? "with-panels" : "without-panels"}`}>
     <EngineeringScene kind={location.kind} result={result} projectName={projectName} selectedMarker={marker} panelsVisible={panelsVisible} agents={agents}
+      visitSimulation={simulation} onVisits={setVisits}
       sponsor={location.sponsor} onSponsor={onSponsor} onReturnAtrium={onReturnAtrium} onPitch={onPitch}
       controller={controller} prizeAgent={presenting?.project_id} onSelectMarker={selectAgent} onHoverBuilding={() => {}}
       onSelectBuilding={(building) => onBuilding(building === "Engineering I" ? "Engineering I" : "Engineering II")} />
@@ -154,6 +154,13 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
       onSponsor={(id) => { if (isSponsorRoom(id)) onSponsor(id); }} />
     {location.kind === "atrium" && <div className="atrium-tools">
     <AtriumMap projectNames={result ? [projectName, ...result.rivals.map((entry) => entry.name)] : []} onRoom={onSponsor} />
+    <aside className="room-visit-panel glass-panel" aria-label="Atrium judging simulation">
+      <button type="button" disabled={!atriumAgents.length} onClick={() => setVisitPlaying((playing) => !playing)}>{visitPlaying ? <PauseIcon size={17} aria-hidden="true" /> : <PlayIcon size={17} aria-hidden="true" />}{visitPlaying ? "Pause room visits" : visits.length ? "Resume room visits" : "Start room visits"}</button>
+      <details><summary>Room activity · {visits.length} visitors</summary>
+        <p>Practice animation · known assignments only. Missing category data visits Overall. General categories share Overall Judging.</p>
+        {visits.map((visit) => <button key={visit.room} type="button" onClick={() => onSponsor(visit.room)}><strong>{sponsorRoom(visit.room).name}</strong><span>{visit.name} · {visit.phase === "inside" ? "Presenting" : visit.phase === "outbound" ? "Walking to room" : "Returning to spot"}</span></button>)}
+      </details>
+    </aside>
     <aside className="agent-inspector glass-panel" aria-label="AI agent inputs">
       <button className="agent-inspector-toggle" type="button" aria-expanded={agentExpanded} aria-controls="agent-input-content" onClick={() => setAgentExpanded((value) => !value)}>
         {previewActive ? `${samples.length || "Loading"} sample agents` : `${agents.filter((agent) => agent.key !== "user").length} field representatives`} · {agentExpanded ? "Close inputs" : "Explore inputs"}
@@ -188,6 +195,12 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
         <button type="button" onClick={onReturnAtrium}><DoorOpenIcon size={20} aria-hidden="true" />Exit to atrium</button>
         <button type="button" className="classroom-pitch" onClick={onPitch}><MicrophoneIcon size={20} aria-hidden="true" />Pitch to Lenny</button>
       </div>
+      <aside className="classroom-visitor glass-panel" aria-label="Current room visitor">
+        <small className="room-visitor-heading">{room.name}</small>
+        <p>{roomVisitor?.phase === "inside" ? roomVisitor.name : roomVisitor ? `${roomVisitor.name} · ${roomVisitor.phase === "outbound" ? "On the way" : "Returning to the atrium"}` : "Waiting for the next assigned visitor"}</p>
+        <small>{roomVisitor?.phase === "inside" ? `${ceremonyCategories.find((category) => category.id === roomVisitor.category)?.name ?? roomVisitor.category} · ${Math.max(0, Math.ceil(ROOM_STAY_SECONDS - roomVisitor.elapsed))} seconds remaining${visitPlaying ? "" : " · Paused"}` : "Practice room visits · ten seconds per presentation"}</small>
+        <button type="button" disabled={!atriumAgents.length} onClick={() => setVisitPlaying((playing) => !playing)}>{visitPlaying ? "Pause room visits" : visits.length ? "Resume room visits" : "Start room visits"}</button>
+      </aside>
       {roomResult && !panelsVisible && <aside className="classroom-feedback glass-panel" aria-label="Sponsor pitch result">
         <p>{roomResult.score_10.toFixed(1)} / 10 · {roomResult.eligible ? "Eligible" : "Ineligible"}</p>
         <small>{job?.judge_version.startsWith("mock-") ? "Development mock · practice only" : job?.judge_version.startsWith("fixture-") || job?.pool_version.startsWith("fixture-") ? "Synthetic fixture · practice only" : "Simulated field · practice only"}{isStale ? " · Last submitted pitch" : ""}</small>

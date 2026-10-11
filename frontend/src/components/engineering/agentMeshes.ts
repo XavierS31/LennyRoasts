@@ -112,6 +112,8 @@ export function createAgentField(entries: AgentEntry[], floating = true) {
   group.name = "floating-ai-agent-meshes";
   const buckets = new Map<THREE.BufferGeometry, { matrix: THREE.Matrix4; color: THREE.Color; key: string; phase: number }[]>();
   const positions = new Map<string, THREE.Vector3>();
+  const restingPositions = new Map<string, THREE.Vector3>();
+  const origins = new Map<string, THREE.Matrix4>();
   const time = { value: 0 }, amplitude = { value: .12 };
   entries.forEach((entry, i) => {
     const model = createAgentModel(entry.appearance, resources);
@@ -119,7 +121,9 @@ export function createAgentField(entries: AgentEntry[], floating = true) {
     model.position.set(x, entry.elevation ?? .6, z);
     model.rotation.y = entry.rotation ?? (i % 5 - 2) * .16;
     if (entry.seated) poseAgentSeated(model);
+    origins.set(entry.key, new THREE.Matrix4().makeRotationY(model.rotation.y).setPosition(model.position).invert());
     positions.set(entry.key, new THREE.Vector3(x, 2, z));
+    restingPositions.set(entry.key, positions.get(entry.key)!.clone());
     model.updateMatrixWorld(true);
     model.traverse((object) => {
       if (!(object instanceof THREE.Mesh)) return;
@@ -129,6 +133,7 @@ export function createAgentField(entries: AgentEntry[], floating = true) {
     });
   });
   const targets: THREE.InstancedMesh[] = [];
+  const instances = new Map<string, { mesh: THREE.InstancedMesh; index: number; matrix: THREE.Matrix4 }[]>();
   buckets.forEach((parts, source) => {
     const geometry = source.clone();
     geometry.setAttribute("agentPhase", new THREE.InstancedBufferAttribute(new Float32Array(parts.map((part) => part.phase)), 1));
@@ -144,17 +149,41 @@ export function createAgentField(entries: AgentEntry[], floating = true) {
     };
     material.customProgramCacheKey = () => "floating-agent-v1";
     const mesh = new THREE.InstancedMesh(geometry, material, parts.length);
+    mesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
     mesh.name = "agent-mesh-parts";
     mesh.userData.agentKeys = parts.map((part) => part.key);
-    parts.forEach((part, i) => { mesh.setMatrixAt(i, part.matrix); mesh.setColorAt(i, part.color); });
+    parts.forEach((part, i) => {
+      mesh.setMatrixAt(i, part.matrix); mesh.setColorAt(i, part.color);
+      const list = instances.get(part.key) ?? [];
+      list.push({ mesh, index: i, matrix: part.matrix }); instances.set(part.key, list);
+    });
     mesh.computeBoundingSphere();
     if (mesh.boundingSphere) mesh.boundingSphere.radius += .2;
     mesh.receiveShadow = true;
     group.add(mesh); targets.push(mesh);
   });
   resources.dispose();
+  const transform = new THREE.Matrix4(), matrix = new THREE.Matrix4(), hiddenScale = new THREE.Vector3(0, 0, 0);
   return {
     group, targets, positions,
+    move(key: string, position?: [number, number, number], rotation = 0, visible = true) {
+      const parts = instances.get(key);
+      if (!parts) return;
+      if (position) {
+        transform.makeRotationY(rotation).setPosition(...position).multiply(origins.get(key)!);
+        positions.get(key)?.set(position[0], position[1] + 1.4, position[2]);
+      } else positions.get(key)?.copy(restingPositions.get(key)!);
+      for (const part of parts) {
+        matrix.copy(part.matrix);
+        if (position) matrix.premultiply(transform);
+        if (!visible) matrix.scale(hiddenScale);
+        part.mesh.setMatrixAt(part.index, matrix);
+        part.mesh.instanceMatrix.needsUpdate = true;
+        // Animated instances can leave the original crowd bounds.
+        part.mesh.frustumCulled = false;
+        part.mesh.boundingSphere = null;
+      }
+    },
     animate(seconds: number, reducedMotion: boolean) { time.value = seconds; amplitude.value = reducedMotion || !floating ? 0 : .12; },
     select(key: string) {
       let bucketIndex = 0;
