@@ -22,6 +22,23 @@ def cmd_optins(args):
         print(f"{'W' if project['winner_badge'] else ' '} {project['url']}\t{project['name']}\t{project['tagline']}")
 
 
+def cmd_scout(args):
+    for key, scouted in collect.scout(refresh=args.refresh).items():
+        projects = scouted["projects"]
+        print(f"{key:26} pool={scouted['pool']:10} opt-ins={len(projects):3} "
+              f"winner badges={sum(p['winner_badge'] for p in projects)}")
+
+
+def cmd_grow_seeds(args):
+    added, problems = collect.grow_manifest()
+    for entry in added:
+        print(f"added {entry['pool']:10} {'W' if entry['search_winner_badge'] else ' '} {entry['seed_id']} "
+              f"skills={','.join(entry['skills']) or '-'}")
+    for problem in problems:
+        print(f"SKIPPED {problem}")
+    print(f"{len(added)} seeds added; manifest now has {len(config.seed_manifest())}")
+
+
 def cmd_fetch_seeds(args):
     stored, problems = collect.fetch_seeds(refresh=args.refresh)
     print(f"{len(stored)} seeds stored under .local-tests/offline/seeds/")
@@ -109,6 +126,13 @@ def main():
     p.add_argument("--hackathon", required=True)
     p.add_argument("--prize-id", required=True, type=int)
     p.set_defaults(func=cmd_optins)
+
+    p = sub.add_parser("scout", help="Fetch opt-in lists for the prize sources in config/seed_sources.json")
+    p.add_argument("--refresh", action="store_true", help="Re-fetch sources already scouted")
+    p.set_defaults(func=cmd_scout)
+
+    p = sub.add_parser("grow-seeds", help="Append scouted seeds to the manifest up to each pool target")
+    p.set_defaults(func=cmd_grow_seeds)
 
     p = sub.add_parser("fetch-seeds", help="Fetch seed write-ups listed in config/seed_manifest.json")
     p.add_argument("--refresh", action="store_true", help="Re-fetch seeds already stored locally")

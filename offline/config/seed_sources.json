@@ -1,0 +1,32 @@
+{
+  "manifest_version": "kh9-seeds-v2",
+  "selection_rng_seed": 20261010,
+  "note": "Prize opt-in sources for `scout` and deterministic seed selection for `grow-seeds` (plan 4.3-4.5). Targets are seeds per pool, existing manifest entries included. winner_share uses the search-result winner badge, which means the project won some prize at that hackathon.",
+  "pool_targets": {"databricks": 12, "elevenlabs": 15, "bny": 15, "gemini": 15, "general": 20},
+  "winner_share": 0.1,
+  "max_skills": 2,
+  "skill_tags": {
+    "ai_ml": ["gemini", "google-gemini", "gemini-api", "openai", "gpt", "chatgpt", "claude", "anthropic", "llm", "llama", "ollama", "langchain", "hugging-face", "huggingface", "machine-learning", "deep-learning", "tensorflow", "pytorch", "scikit-learn", "keras", "opencv", "mediapipe", "cohere", "groq", "openrouter", "elevenlabs", "whisper", "vertex-ai", "rag", "ai"],
+    "web": ["react", "react.js", "reactjs", "next.js", "nextjs", "next", "vue", "vue.js", "svelte", "angular", "html", "html5", "css", "css3", "tailwind", "tailwindcss", "javascript", "typescript", "node.js", "nodejs", "express", "express.js", "flask", "fastapi", "django", "streamlit", "vite", "vercel"],
+    "mobile": ["react-native", "expo", "expo.io", "swift", "swiftui", "kotlin", "android", "android-studio", "ios", "flutter", "dart", "xcode"],
+    "hardware": ["arduino", "raspberry-pi", "raspberrypi", "esp32", "esp8266", "sensors", "3d-printing", "circuitpython", "micropython", "pcb", "soldering", "servo"],
+    "game_dev": ["unity", "godot", "unreal-engine", "unreal", "pygame", "phaser", "phaser.js", "roblox", "gamemaker", "love2d"],
+    "data": ["databricks", "spark", "apache-spark", "pyspark", "pandas", "numpy", "jupyter", "jupyter-notebook", "snowflake", "tableau", "matplotlib", "plotly", "sql", "data-lakehouse", "delta-lake", "mlflow", "geopandas"]
+  },
+  "sources": [
+    {"pool": "bny", "hackathon": "shellhacks2024", "hackathon_name": "ShellHacks 2024", "year": 2024, "prize_id": 79317, "prize_name": "BNY AI-powered Financial Fraud Detection System"},
+    {"pool": "bny", "hackathon": "swamphacks-xi", "hackathon_name": "SwampHacks XI", "year": 2026, "prize_id": 95098, "prize_name": "Best Finance Hack Sponsored By Capital One"},
+    {"pool": "gemini", "hackathon": "hackusf-2026", "hackathon_name": "HackUSF 2026", "year": 2026, "prize_id": 99425, "prize_name": "[MLH] Best Use of Gemini API"},
+    {"pool": "gemini", "hackathon": "swamphacks-xi", "hackathon_name": "SwampHacks XI", "year": 2026, "prize_id": 95345, "prize_name": "Best Use of Gemini API"},
+    {"pool": "elevenlabs", "hackathon": "hackusf-2026", "hackathon_name": "HackUSF 2026", "year": 2026, "prize_id": 99426, "prize_name": "[MLH] Best Use of ElevenLabs"},
+    {"pool": "elevenlabs", "hackathon": "swamphacks-xi", "hackathon_name": "SwampHacks XI", "year": 2026, "prize_id": 95348, "prize_name": "Best Use of ElevenLabs"},
+    {"pool": "databricks", "hackathon": "hackthenorth2024", "hackathon_name": "Hack the North 2024", "year": 2024, "prize_id": 78461, "prize_name": "Databricks: Best Use of Databricks"},
+    {"pool": "databricks", "hackathon": "hackthenorth2025", "hackathon_name": "Hack the North 2025", "year": 2025, "prize_id": 89718, "prize_name": "Databricks: Best Use of Databricks"},
+    {"pool": "databricks", "hackathon": "hacktx-2024", "hackathon_name": "HackTX 2024", "year": 2024, "prize_id": 80826, "prize_name": "Best AI Project with Databricks Open Source"},
+    {"pool": "databricks", "hackathon": "hackharvard-2024", "hackathon_name": "HackHarvard 2024", "year": 2024, "prize_id": 79995, "prize_name": "Best AI Project with Databricks Open Source"},
+    {"pool": "databricks", "hackathon": "hacklytics-2026", "hackathon_name": "Hacklytics 2026", "year": 2026, "prize_id": 97286, "prize_name": "Databricks Geo-Insight Challenge"},
+    {"pool": "general", "hackathon": "swamphacks-xi", "hackathon_name": "SwampHacks XI", "year": 2026, "prize_id": 94357, "prize_name": "Best Game Design Project"},
+    {"pool": "general", "hackathon": "swamphacks-xi", "hackathon_name": "SwampHacks XI", "year": 2026, "prize_id": 94358, "prize_name": "Best Everyday Life & Wellbeing [Human-Centered Design] Project"},
+    {"pool": "general", "hackathon": "swamphacks-xi", "hackathon_name": "SwampHacks XI", "year": 2026, "prize_id": 94355, "prize_name": "Best Education, Accessibility, & Social Impact Project"}
+  ]
+}
