@@ -277,28 +277,3 @@ export function addExterior(scene: THREE.Scene) {
 export function addAtrium(scene: THREE.Scene, participantCount = 0) {
   return addDetailedAtrium(scene, participantCount);
 }
-
-export function addAuditorium(scene: THREE.Scene) {
-  box(scene, [54, 0.5, 62], [0, 0, 0], 0x19191d);
-  box(scene, [44, 1.2, 12], [0, 1, -24], 0x28262b);
-  box(scene, [22, 9, 0.6], [0, 7, -29.5], 0x050505);
-  box(scene, [18, 0.2, 0.3], [0, 7, -29.1], gold);
-  const seats = new THREE.InstancedMesh(
-    new THREE.BoxGeometry(1.35, 1.25, 1.2),
-    new THREE.MeshStandardMaterial({ color: 0x5a1f28, roughness: 0.7 }),
-    200,
-  );
-  const matrix = new THREE.Matrix4();
-  for (let i = 0; i < 200; i++) {
-    const row = Math.floor(i / 20);
-    const col = i % 20;
-    matrix.makeTranslation(-18 + col * 1.9, 0.7 + row * 0.34, -9 + row * 4.1);
-    seats.setMatrixAt(i, matrix);
-  }
-  scene.add(seats);
-  for (let i = 0; i < 8; i++) {
-    const light = new THREE.PointLight(gold, 18, 15);
-    light.position.set(-21 + i * 6, 9, -18);
-    scene.add(light);
-  }
-}

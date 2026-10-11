@@ -132,6 +132,12 @@ select option { background: #1a2738; color: #fff; }
 .atrium-map p { font-size: 12px; line-height: 1.5; margin: 8px; }
 .atrium-map small { display: block; margin: 8px; font-size: 10px; line-height: 1.5; color: var(--muted); }
 .atrium-empty { position: fixed; bottom: 20px; left: 20px; padding: 16px 20px; z-index: 3; max-width: 380px; font-size: 14px; line-height: 1.55; margin: 0; }
+.scene-awards .camera-controls { top: 110px; left: 20px; right: auto; display: flex; flex-wrap: wrap; gap: 5px; max-width: calc(100vw - 40px); }
+.ballroom-caption { position: fixed; bottom: 20px; left: 20px; z-index: 3; padding: 16px 22px; max-width: calc(100vw - 40px); pointer-events: none; }
+.ballroom-caption .scene-caption { margin: 0 0 8px; font-size: 10px; }
+.ballroom-caption h1 { font-size: 28px; font-weight: 400; margin: 0; }
+.ballroom-caption p { font-size: 13px; margin: 7px 0; }
+.ballroom-caption small { font-size: 10px; color: var(--muted); }
 @supports not (backdrop-filter: blur(1px)) {
   .glass-panel, .engineering-app :is(.masthead, .intro, .mode-banner, .form-panel, .report-panel, .page-footer) { background: rgba(16,25,39,.88); }
 }
@@ -161,6 +167,12 @@ select option { background: #1a2738; color: #fff; }
   .atrium-map { top: 140px; right: 12px; width: min(260px, calc(100vw - 24px)); max-height: calc(100dvh - 280px); }
   .scene-atrium.with-panels .atrium-map { display: none; }
   .atrium-empty { left: 12px; right: 12px; bottom: 126px; max-width: none; }
+  .scene-awards .camera-controls { top: auto; left: 12px; right: 12px; bottom: 12px; max-width: none; padding: 6px; }
+  .scene-awards .camera-controls button { min-height: 32px; padding: 6px 8px; font-size: 10px; }
+  .ballroom-caption { bottom: 112px; left: 12px; right: 12px; max-width: none; padding: 12px 16px; }
+  .ballroom-caption h1 { font-size: 22px; }
+  .ballroom-caption p { margin-bottom: 0; }
+  .ballroom-caption small { display: none; }
 }
 @media (max-width: 480px) {
   .scene-campus .scene-navigation { bottom: 160px; }

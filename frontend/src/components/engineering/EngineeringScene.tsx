@@ -3,11 +3,13 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 import type { ChallengeResult } from "../../api/client";
-import { addAtrium, addAuditorium, addExterior } from "./geometry";
+import { addAtrium, addExterior } from "./geometry";
 import { atriumViews, projectStation } from "./atriumLayout";
+import { ballroomViews } from "./ballroomLayout";
+import { addDetailedBallroom } from "./ballroomGeometry";
 
 export type SceneKind = "campus" | "atrium" | "awards";
-export type CameraCommand = "in" | "out" | "reset" | "iso" | "top" | "front" | "enter" | "floor" | "stairs" | "ceiling" | "entrance" | "focus" | "tower" | "west" | "walk";
+export type CameraCommand = "in" | "out" | "reset" | "iso" | "top" | "front" | "enter" | "floor" | "stairs" | "ceiling" | "entrance" | "focus" | "tower" | "west" | "walk" | "stage";
 export type SceneController = { command: (action: CameraCommand, building?: string) => Promise<void> };
 
 function disposeObjects(root: THREE.Object3D) {
@@ -88,28 +90,29 @@ export default function EngineeringScene({
     }
     setError(undefined);
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(kind === "campus" ? 0xabc5d8 : kind === "atrium" ? 0xc9dce0 : 0x08080a);
+    scene.background = new THREE.Color(kind === "campus" ? 0xabc5d8 : kind === "atrium" ? 0xc9dce0 : 0xd3c5aa);
     scene.fog = new THREE.Fog(scene.background, 110, 190);
-    const camera = new THREE.PerspectiveCamera(kind === "atrium" ? 64 : 42, 1, 0.1, 400);
+    const camera = new THREE.PerspectiveCamera(kind === "campus" ? 42 : 64, 1, 0.1, 400);
     const start = kind === "campus" ? new THREE.Vector3(-68, 32, 88)
-      : kind === "atrium" ? new THREE.Vector3(...atriumViews.overview.position) : new THREE.Vector3(0, 24, 54);
-    const startTarget = kind === "atrium" ? new THREE.Vector3(...atriumViews.overview.target) : kind === "campus" ? new THREE.Vector3(-5, 6, -7) : new THREE.Vector3(0, 6, -7);
+      : kind === "atrium" ? new THREE.Vector3(...atriumViews.overview.position) : new THREE.Vector3(...ballroomViews.overview.position);
+    const startTarget = kind === "atrium" ? new THREE.Vector3(...atriumViews.overview.target)
+      : kind === "awards" ? new THREE.Vector3(...ballroomViews.overview.target) : new THREE.Vector3(-5, 6, -7);
     camera.position.copy(start);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.6));
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFShadowMap;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = kind === "atrium" ? 1.05 : 1.15;
+    renderer.toneMappingExposure = kind === "awards" ? .85 : kind === "atrium" ? 1.05 : 1.15;
     host.appendChild(renderer.domElement);
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.target.copy(startTarget);
-    controls.minDistance = kind === "atrium" ? 3 : 18;
+    controls.minDistance = kind === "campus" ? 18 : 3;
     controls.maxDistance = kind === "atrium" ? 100 : 125;
-    controls.maxPolarAngle = kind === "atrium" ? Math.PI * .72 : Math.PI / 2.05;
+    controls.maxPolarAngle = kind === "campus" ? Math.PI / 2.05 : Math.PI * .72;
     controls.screenSpacePanning = true;
-    scene.add(new THREE.HemisphereLight(0xe6f3ff, 0x202018, kind === "atrium" ? 1.7 : 2));
-    const sun = new THREE.DirectionalLight(0xfff1d2, kind === "atrium" ? 2.4 : 3);
+    scene.add(new THREE.HemisphereLight(kind === "awards" ? 0xfff5e1 : 0xe6f3ff, kind === "awards" ? 0x514332 : 0x202018, kind === "campus" ? 2 : kind === "awards" ? 1.2 : 1.7));
+    const sun = new THREE.DirectionalLight(0xfff1d2, kind === "campus" ? 3 : 2.4);
     sun.position.set(34, 60, 20);
     sun.castShadow = true;
     sun.shadow.mapSize.set(2048, 2048);
@@ -125,12 +128,23 @@ export default function EngineeringScene({
       sun.shadow.bias = -.0003;
       sun.shadow.camera.updateProjectionMatrix();
     }
+    if (kind === "awards") {
+      sun.intensity = 1.6;
+      sun.position.set(-4, 27, 14);
+      Object.assign(sun.shadow.camera, { left: -40, right: 40, top: 50, bottom: -50, near: .5, far: 110 });
+      sun.shadow.bias = -.00025; sun.shadow.normalBias = .035;
+      sun.shadow.camera.updateProjectionMatrix();
+      for (const x of [-11, 11]) for (const z of [-20, 15]) {
+        const light = new THREE.PointLight(0xffedd3, 38, 45, 2);
+        light.position.set(x, 16.4, z); scene.add(light);
+      }
+    }
     scene.add(sun);
     const clickable = kind === "campus" ? addExterior(scene) : [];
     if (kind === "atrium") addAtrium(scene);
-    if (kind === "awards") addAuditorium(scene);
+    if (kind === "awards") addDetailedBallroom(scene);
     let environment: THREE.WebGLRenderTarget | undefined;
-    if (kind === "atrium") {
+    if (kind !== "campus") {
       const room = new RoomEnvironment();
       const pmrem = new THREE.PMREMGenerator(renderer);
       environment = pmrem.fromScene(room, .04);
@@ -211,6 +225,13 @@ export default function EngineeringScene({
       return new Promise<void>((resolve) => { finish = resolve; });
     };
     controller.current = { command: (action, building) => {
+      if (kind === "awards") {
+        const key = action === "reset" || action === "front" ? "overview" : action;
+        if (key in ballroomViews) {
+          const view = ballroomViews[key as keyof typeof ballroomViews];
+          return travel(new THREE.Vector3(...view.position), new THREE.Vector3(...view.target));
+        }
+      }
       if (kind === "atrium") {
         if (action === "focus") {
           const point = markerPositions.get(building ?? "user");
@@ -355,7 +376,7 @@ export default function EngineeringScene({
       renderer.domElement.removeEventListener("pointercancel", cancelPress);
       controls.removeEventListener("start", stopTravel);
       controls.dispose();
-      sun.shadow.dispose();
+      scene.traverse((object) => { if (object instanceof THREE.Light && "shadow" in object) (object as THREE.DirectionalLight).shadow?.dispose(); });
       environment?.dispose();
       disposeObjects(scene);
       renderer.dispose();
@@ -374,7 +395,7 @@ export default function EngineeringScene({
     return () => { cancelled = true; };
   }, [kind, result, projectName, selectedMarker]);
 
-  return <div className="engineering-scene" ref={mount} aria-label={`${kind === "campus" ? "UCF Engineering I and II exterior" : kind === "atrium" ? "Engineering atrium" : "Auditorium"} 3D scene`}>
+  return <div className="engineering-scene" ref={mount} aria-label={`${kind === "campus" ? "UCF Engineering I and II exterior" : kind === "atrium" ? "Engineering atrium" : "UCF Student Union Cape Ballroom, third floor, empty award ceremony"} 3D scene`}>
     {error && <p className="scene-fallback glass-panel" role="status">{error}</p>}
   </div>;
 }
