@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { CLASSROOM, sponsorRoom, sponsorRooms, type SponsorRoomId } from "./classroomLayout.ts";
+import { roomDoor } from "./roomVisits.ts";
 
 type Point = [number, number, number];
 
@@ -222,6 +223,15 @@ export function addClassroom(scene: THREE.Scene, id: SponsorRoomId) {
 export function addSponsorPins(scene: THREE.Scene) {
   // HTML labels are projected from these points; solid pins remain part of the hall.
   return sponsorRooms.map((room) => {
+    const [x, , z] = roomDoor(room.id);
+    const portal = new THREE.Group(); portal.name = `${room.name} visit doorway`;
+    const material = new THREE.MeshStandardMaterial({ color: room.color, roughness: .45, transparent: true, opacity: .7 });
+    for (const side of [-1, 1]) {
+      const jamb = new THREE.Mesh(new THREE.BoxGeometry(.12, 3.5, .15), material);
+      jamb.position.set(side * 1.05, 1.75, 0); portal.add(jamb);
+    }
+    const lintel = new THREE.Mesh(new THREE.BoxGeometry(2.2, .12, .15), material); lintel.position.y = 3.5; portal.add(lintel);
+    portal.position.set(x, 0, z); scene.add(portal);
     const pin = new THREE.Mesh(new THREE.SphereGeometry(.55, 20, 14), new THREE.MeshStandardMaterial({ color: room.color, roughness: .35, emissive: room.color, emissiveIntensity: .18, depthTest: false }));
     pin.name = `${room.name} classroom pin`; pin.position.set(room.pin[0], room.pin[1], room.pin[2]); pin.userData.sponsor = room.id; pin.renderOrder = 5; scene.add(pin);
     const stem = new THREE.Mesh(new THREE.ConeGeometry(.28, 1, 16), pin.material); stem.position.set(room.pin[0], room.pin[1] - .7, room.pin[2]); stem.rotation.z = Math.PI; stem.renderOrder = 5; scene.add(stem);

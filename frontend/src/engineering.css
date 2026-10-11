@@ -485,6 +485,19 @@ select option { background: #fff; color: var(--ink); }
 .engineering-app .ceremony-general-choice button { justify-content: flex-start; }
 .ceremony-dashboard .category-unavailable { font-size: 12px; }
 
+.room-visit-panel { padding: 8px 12px; max-width: 250px; }
+.scene-atrium.with-panels .atrium-tools { right: 50%; transform: translateX(50%); align-items: center; }
+.scene-classroom.with-panels .classroom-visitor { display: none; }
+.room-visit-panel > button { display: flex; align-items: center; gap: 8px; width: 100%; min-height: 44px; }
+.room-visit-panel summary { cursor: pointer; font-size: 12px; padding: 10px 0; }
+.room-visit-panel p, .room-visit-panel span { font-size: 11px; line-height: 1.5; overflow-wrap: anywhere; }
+.room-visit-panel details { max-height: 30dvh; overflow-y: auto; }
+.room-visit-panel details button { display: grid; text-align: left; gap: 4px; width: 100%; min-height: 44px; margin: 5px 0; }
+.classroom-visitor { position: fixed; z-index: 4; right: 20px; top: 124px; padding: 14px; max-width: min(310px, calc(100vw - 40px)); }
+.classroom-visitor p { margin: 0 0 6px; font-size: 14px; overflow-wrap: anywhere; }
+.classroom-visitor small { display: block; font-size: 11px; font-variant-numeric: tabular-nums; }
+.classroom-visitor .room-visitor-heading { font-weight: 600; margin-bottom: 8px; }
+.classroom-visitor button { margin-top: 10px; min-height: 44px; }
 .ceremony-announcement { margin: 22px 0; }
 .ceremony-dashboard h3 { font-size: 17px; font-weight: 600; margin: 0 0 12px; }
 .ceremony-dashboard p { font-size: 13px; line-height: 1.65; overflow-wrap: anywhere; }
@@ -500,6 +513,8 @@ select option { background: #fff; color: var(--ink); }
 .ceremony-preview button:disabled { opacity: .6; cursor: default; }
 .view-awards .ballroom-caption { max-width: min(420px, calc(100vw - 40px)); }
 @media (max-width: 900px) {
+  .classroom-visitor { top: 144px; left: 12px; right: 12px; max-width: none; }
+  .classroom-caption:has(~ .classroom-visitor) { display: none; }
   .view-atrium.has-completed-report .glass-content { inset: 0; }
   .view-atrium.has-completed-report .report-panel { padding: 0; }
   .atrium-dashboard .dashboard-edge-panel { top: auto; bottom: 144px; left: 12px; right: 12px; width: auto; padding: 20px; max-height: min(46dvh, calc(100dvh - 310px)); }
