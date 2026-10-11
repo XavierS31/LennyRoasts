@@ -4,6 +4,7 @@ import SceneBoundary from "./components/engineering/SceneBoundary";
 import { sceneLocation, scenePath, type LocationState } from "./components/engineering/navigation";
 import type { SceneController } from "./components/engineering/EngineeringScene";
 import { ideaError, ideaSubmission, MAX_IDEA_LENGTH } from "./ideaSubmission";
+import IdeaFileImport from "./components/IdeaFileImport";
 import {
   ApiRequestError,
   getChallenges,
@@ -398,6 +399,7 @@ export default function App() {
   const sceneTransition = useRef(0);
   const [sceneCategory, setSceneCategory] = useState("");
   const [idea, setIdea] = useState("");
+  const [isImporting, setIsImporting] = useState(false);
   const [selectedChallenges, setSelectedChallenges] = useState<Submission["challenges"]>([]);
   const [config, setConfig] = useState<ChallengeList>();
   const [configLoading, setConfigLoading] = useState(true);
@@ -643,6 +645,7 @@ export default function App() {
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (isImporting || isSubmitting) return;
     const descriptionError = ideaError(idea);
     const nextErrors: FormErrors = descriptionError ? { idea: descriptionError } : {};
     const normalized = ideaSubmission(idea, selectedChallenges);
@@ -726,7 +729,7 @@ export default function App() {
   const automaticChallenges = config?.challenges.filter((challenge) => challenge.automatic) ?? [];
   const sponsorChallenges =
     config?.challenges.filter((challenge) => challenge.kind === "sponsor" && !challenge.automatic) ?? [];
-  const canSubmit = Boolean(config?.field_ready) && !isSubmitting && !activeJobId;
+  const canSubmit = Boolean(config?.field_ready) && !isSubmitting && !activeJobId && !isImporting;
   const currentSubmission = ideaSubmission(idea, selectedChallenges);
   const reportIsStale =
     submittedSubmission !== null &&
@@ -881,7 +884,7 @@ export default function App() {
               <p className="section-kicker">THE STARTING POINT</p>
               <h2 id="form-heading">Your idea</h2>
             </div>
-            <button type="button" className="text-button" onClick={loadSample} disabled={Boolean(activeJobId) || isSubmitting}>
+            <button type="button" className="text-button" onClick={loadSample} disabled={Boolean(activeJobId) || isSubmitting || isImporting}>
               Load sample
             </button>
           </div>
@@ -908,6 +911,13 @@ export default function App() {
 
             <fieldset disabled={Boolean(activeJobId) || isSubmitting}>
               <legend className="visually-hidden">Your idea</legend>
+              <IdeaFileImport idea={idea} disabled={Boolean(activeJobId) || isSubmitting}
+                onBusyChange={setIsImporting} onImport={(text) => {
+                  setIdea(text);
+                  setErrors((current) => ({ ...current, idea: undefined }));
+                  setNotice(null);
+                  window.requestAnimationFrame(() => { ideaInput.current?.focus(); if (ideaInput.current) ideaInput.current.scrollTop = 0; });
+                }} />
               <div className="form-field idea-field">
                 <label htmlFor="idea-description">Describe your idea <span className="required-label">Required</span></label>
                 <textarea
@@ -915,6 +925,7 @@ export default function App() {
                   id="idea-description"
                   name="idea"
                   rows={8}
+                  disabled={isImporting}
                   value={idea}
                   onChange={(event) => {
                     setIdea(event.target.value);
