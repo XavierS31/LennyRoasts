@@ -340,8 +340,35 @@ select option { background: #fff; color: var(--ink); }
 .view-atrium.has-completed-report .report-panel::before { display: none; }
 #report-heading:focus { outline: none; }
 .scene-atrium.with-panels .atrium-map { display: none; }
-.atrium-dashboard .dashboard-edge-panel { position: fixed; top: 136px; width: clamp(280px, 24vw, 340px); max-height: calc(100dvh - 228px); padding: 22px; border-radius: 16px; overflow-y: auto; overscroll-behavior: contain; pointer-events: auto; scrollbar-width: thin; scrollbar-color: #8993a6 transparent; }
-.dashboard-edge-panel::before { clip-path: inset(0 round 16px); }
+/* Paint glass on the scrollport itself: absolute pseudo-elements scroll away.
+   This is a web approximation of Apple's material, with a solid fallback. */
+.atrium-dashboard .dashboard-edge-panel {
+  position: fixed; top: 136px; width: clamp(280px, 24vw, 340px);
+  max-height: calc(100dvh - 228px); padding: 22px; border-radius: 16px;
+  overflow-y: auto; overscroll-behavior: contain; pointer-events: auto;
+  background: #f8faff; border-color: rgba(255,255,255,.75);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.8), 0 10px 32px rgba(27,43,69,.1);
+  scrollbar-width: thin; scrollbar-color: transparent transparent;
+}
+.atrium-dashboard .dashboard-edge-panel::before { display: none; }
+.atrium-dashboard .dashboard-edge-panel:is(:hover, :focus-within) { scrollbar-color: rgba(59,76,105,.25) transparent; }
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .atrium-dashboard .dashboard-edge-panel {
+    background: rgba(248,250,255,.9);
+    -webkit-backdrop-filter: blur(20px) saturate(115%);
+    backdrop-filter: blur(20px) saturate(115%);
+  }
+}
+@supports selector(::-webkit-scrollbar) {
+  .atrium-dashboard .dashboard-edge-panel, .atrium-dashboard .dashboard-edge-panel:is(:hover, :focus-within) { scrollbar-width: auto; scrollbar-color: auto; }
+  .dashboard-edge-panel::-webkit-scrollbar { width: 6px; }
+  .dashboard-edge-panel::-webkit-scrollbar-track { background: transparent; margin-block: 16px; }
+  .dashboard-edge-panel::-webkit-scrollbar-thumb { background: transparent; border: 1px solid transparent; background-clip: padding-box; border-radius: 999px; }
+  .dashboard-edge-panel:is(:hover, :focus-within)::-webkit-scrollbar-thumb { background-color: rgba(59,76,105,.25); }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .atrium-dashboard .dashboard-edge-panel { background: #f8faff; -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
 .dashboard-user { left: 20px; }
 .dashboard-agents { right: 20px; }
 .dashboard-panel-switch { display: none; }
@@ -351,14 +378,18 @@ select option { background: #fff; color: var(--ink); }
 .dashboard-mode-note { margin: 0 0 18px; color: var(--muted); font-size: 11px; line-height: 1.55; }
 .dashboard-mode-note summary { min-height: 36px; padding: 6px 0; cursor: pointer; }
 .dashboard-mode-note p { margin: 6px 0 12px; }
-.dashboard-toolbar { display: grid; gap: 12px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+.dashboard-toolbar { margin: 0 0 22px; }
 .dashboard-toolbar label { display: grid; gap: 7px; font-size: 12px; font-weight: 550; }
 .engineering-app .dashboard-toolbar select { min-height: 44px; border-radius: 8px; border-color: var(--line); background: rgba(255,255,255,.65); font-size: 13px; }
 .engineering-app :is(.dashboard-revise, .dashboard-ceremonies-link button, .ceremony-play) { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 12px; font-size: 12px; font-weight: 550; border-radius: 8px; border: 1px solid var(--line); background: rgba(255,255,255,.5); color: var(--ink); }
 .atrium-dashboard h3, .ceremony-dashboard h2 { display: flex; align-items: center; gap: 9px; margin: 0 0 12px; font-size: 17px; font-weight: 600; letter-spacing: -.02em; }
 .atrium-dashboard h3 svg, .ceremony-dashboard h2 svg { flex-shrink: 0; }
 .dashboard-project-name { font-size: 13px; font-weight: 550; margin: 0 0 12px; overflow-wrap: anywhere; }
-.dashboard-category-scores { margin: 12px 0 22px; }
+.dashboard-scores-overview { margin: 0 0 22px; border-bottom: 1px solid var(--line); }
+.dashboard-scores-overview > summary { display: flex; align-items: center; justify-content: space-between; min-height: 44px; padding: 10px 0; cursor: pointer; list-style: none; font-size: 12px; font-weight: 550; }
+.dashboard-scores-overview > summary::-webkit-details-marker { display: none; }
+.dashboard-scores-overview[open] > summary svg { transform: rotate(180deg); }
+.dashboard-category-scores { margin: 0 0 12px; }
 .dashboard-category-scores > div { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 0 10px; padding: 6px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
 .dashboard-category-scores dd { margin: 0; font-variant-numeric: tabular-nums; }
 .dashboard-category-scores dd span { color: var(--muted); }
@@ -379,6 +410,8 @@ select option { background: #fff; color: var(--ink); }
 .dashboard-criteria dd span { color: var(--muted); font-weight: 450; }
 .dashboard-rationale { font-size: 13px; line-height: 1.65; margin: 18px 0 0; overflow-wrap: anywhere; }
 .dashboard-improvements { padding-top: 26px; }
+.engineering-app .dashboard-improvements .dashboard-revise { width: 100%; margin-top: 4px; }
+.dashboard-improvements > p:not(.dashboard-footnote) { margin: 0; font-size: 13px; line-height: 1.65; }
 .dashboard-improvements ol { margin: 0; padding-left: 19px; }
 .dashboard-improvements li { font-size: 13px; line-height: 1.65; margin-bottom: 12px; padding-left: 4px; overflow-wrap: anywhere; }
 .dashboard-footnote { font-size: 11px; color: var(--muted); line-height: 1.6; margin: 12px 0; }
@@ -405,6 +438,12 @@ select option { background: #fff; color: var(--ink); }
 .dashboard-scoring-details > summary { min-height: 44px; cursor: pointer; font-size: 12px; padding: 12px 0; }
 .engineering-app .dashboard-scoring-details .report-card { margin: 12px 0 0; border: 0; background: transparent; box-shadow: none; padding: 0; }
 .engineering-app .dashboard-scoring-details .report-card::before { display: none; }
+/* Detailed evidence belongs to the same surface, without nested glass cards. */
+.engineering-app .dashboard-scoring-details :is(.criterion, .rival, .placement-box, .warning-section, .run-criteria, .evidence-quote) { background: transparent; border-radius: 0; box-shadow: none; border: 0; padding-inline: 0; }
+.engineering-app .dashboard-scoring-details :is(.criterion, .rival, .placement-box, .warning-section, .run-criteria, .evidence-quote)::before { display: none; }
+.engineering-app .dashboard-scoring-details .criteria-list { grid-template-columns: 1fr; gap: 0; }
+.engineering-app .dashboard-scoring-details .criterion { border-bottom: 1px solid var(--line); }
+.engineering-app .dashboard-scoring-details .run-criteria-list { grid-template-columns: 1fr; }
 .atrium-dashboard :focus-visible, .ceremony-dashboard :focus-visible, .map-rooms :focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
 .engineering-app :is(.dashboard-revise, .dashboard-category-scores button, .dashboard-agents li > button, .ceremony-categories button, .ceremony-play, .ceremony-preview button):hover:not(:disabled) { background: rgba(255,255,255,.8); color: var(--ink); }
 .engineering-app .dashboard-ceremonies-link button:hover { background: #303a50; }

@@ -28,7 +28,7 @@ export default function AtriumDashboard({ result, results, challenges, projectNa
       <button type="button" aria-pressed={mobilePanel === "user"} aria-controls="dashboard-user-panel" onClick={() => setMobilePanel("user")}>Your project</button>
       <button type="button" aria-pressed={mobilePanel === "agents"} aria-controls="dashboard-agents-panel" onClick={() => setMobilePanel("agents")}>Competitors</button>
     </div>
-    <aside className="dashboard-user dashboard-edge-panel glass-panel" id="dashboard-user-panel" aria-labelledby="report-heading">
+    <aside className="dashboard-user dashboard-edge-panel glass-panel" id="dashboard-user-panel" tabIndex={0} aria-labelledby="report-heading">
       <h2 id="report-heading" ref={headingRef} tabIndex={-1}>Your Hackathon Project Ratings</h2>
       <p className="dashboard-project-name">{projectName}</p>
       {notice}
@@ -38,20 +38,22 @@ export default function AtriumDashboard({ result, results, challenges, projectNa
             {results.map((entry) => <option value={entry.challenge_id} key={entry.challenge_id}>{challenges.find((challenge) => challenge.id === entry.challenge_id)?.name ?? entry.challenge_id}</option>)}
           </select>
         </label>
-        <button type="button" className="dashboard-revise" onClick={onRevise}><PencilSimpleIcon size={18} aria-hidden="true" />Revise your idea</button>
       </div>
       <section className="dashboard-ratings" aria-label="Your ratings">
-        <dl className="dashboard-category-scores" aria-label="Your overall and sponsor category scores">
-          {results.filter((entry) => ceremonyCategories.some((category) => category.id === entry.challenge_id)).map((entry) => <div key={entry.challenge_id}>
-            <dt><button type="button" aria-pressed={entry.challenge_id === result.challenge_id} onClick={() => onCategory(entry.challenge_id)}>{ceremonyCategories.find((category) => category.id === entry.challenge_id)?.name}</button></dt>
-            <dd>{entry.score_10.toFixed(1)} <span>/ 10</span></dd>
-            <dd className="dashboard-category-place">{!entry.eligible ? "Ineligible" : entry.placement ? `Place ${entry.placement.best_rank}–${entry.placement.worst_rank}` : "Unranked"}</dd>
-          </div>)}
-        </dl>
         <div className="dashboard-score-row">
           <p className="dashboard-score" aria-label={`Your rating ${result.score_10.toFixed(1)} out of 10`}><strong>{result.score_10.toFixed(1)}</strong><span>/ 10</span></p>
           <p className="dashboard-placement">{!result.eligible ? "Not eligible for this category" : placement ? <><strong>Place {placement.best_rank === placement.worst_rank ? placement.best_rank : `${placement.best_rank}–${placement.worst_rank}`}</strong><span>of {placement.field_size_including_user} practice entries</span></> : "No placement returned"}</p>
         </div>
+        <details className="dashboard-scores-overview">
+          <summary>All category ratings<CaretDownIcon size={16} aria-hidden="true" /></summary>
+          <dl className="dashboard-category-scores" aria-label="Your overall and sponsor category scores">
+            {results.filter((entry) => ceremonyCategories.some((category) => category.id === entry.challenge_id)).map((entry) => <div key={entry.challenge_id}>
+              <dt><button type="button" aria-pressed={entry.challenge_id === result.challenge_id} onClick={() => onCategory(entry.challenge_id)}>{ceremonyCategories.find((category) => category.id === entry.challenge_id)?.name}</button></dt>
+              <dd>{entry.score_10.toFixed(1)} <span>/ 10</span></dd>
+              <dd className="dashboard-category-place">{!entry.eligible ? "Ineligible" : entry.placement ? `Place ${entry.placement.best_rank}–${entry.placement.worst_rank}` : "Unranked"}</dd>
+            </div>)}
+          </dl>
+        </details>
         <h4 className="dashboard-rubric-heading">Rubric scores · {challenges.find((challenge) => challenge.id === result.challenge_id)?.name ?? result.challenge_id}</h4>
         <dl className="dashboard-criteria" aria-label="Rubric criterion means, not criterion ranks">
           {criteria.map(([key, label]) => result.criteria[key] === undefined ? null : <div key={key}><dt>{label}</dt><dd>{result.criteria[key]!.toFixed(1)} <span>/ 5</span></dd></div>)}
@@ -62,12 +64,12 @@ export default function AtriumDashboard({ result, results, challenges, projectNa
         <h3 id="improvement-heading"><LightbulbIcon size={22} aria-hidden="true" />How to improve</h3>
         {result.improvements.length ? <ol>{result.improvements.map((suggestion, index) => <li key={`${index}:${suggestion}`}>{suggestion}</li>)}</ol> : <p>No improvement suggestions were returned for this category.</p>}
         <p className="dashboard-footnote">Judge feedback on the submitted description. Revise and evaluate again to get a new rating.</p>
+        <button type="button" className="dashboard-revise" onClick={onRevise}><PencilSimpleIcon size={18} aria-hidden="true" />Revise your idea</button>
       </section>
       {children}
     </aside>
-    <aside className="dashboard-agents dashboard-edge-panel glass-panel" id="dashboard-agents-panel" aria-labelledby="agent-ratings-heading">
+    <aside className="dashboard-agents dashboard-edge-panel glass-panel" id="dashboard-agents-panel" tabIndex={0} aria-labelledby="agent-ratings-heading">
       <h2 id="agent-ratings-heading"><RobotIcon size={22} aria-hidden="true" />Competitors’ ratings <span>(agents)</span></h2>
-      <p className="dashboard-footnote">Choose a category to see its leading projects.</p>
       <div className="dashboard-agent-categories">
         {ceremonyCategories.map((category) => {
           const categoryResult = results.find((entry) => entry.challenge_id === category.id);
@@ -83,7 +85,7 @@ export default function AtriumDashboard({ result, results, challenges, projectNa
       </div>
       <p className="dashboard-footnote">The API returns up to three field leaders by average score. Top ten is unavailable.</p>
       <div className="dashboard-ceremonies-link">
-        <div><h3>Watch ceremonies to see prizes</h3><p>Meet the API’s leading agents and review your practice placements in the ballroom.</p></div>
+        <h3>Watch ceremonies to see prizes</h3>
         <button type="button" onClick={onCeremonies}><TrophyIcon size={20} aria-hidden="true" />Watch ceremonies<ArrowUpRightIcon size={17} aria-hidden="true" /></button>
       </div>
     </aside>
