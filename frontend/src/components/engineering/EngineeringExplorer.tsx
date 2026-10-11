@@ -9,8 +9,9 @@ import type { AgentEntry } from "./agentMeshes";
 type SampleInput = { project_id: string; name: string; input: string };
 import CameraMenu from "./CameraMenu";
 import { sponsorRoom, isSponsorRoom, type SponsorRoomId } from "./classroomLayout";
-import { ArrowLeftIcon, DoorOpenIcon, MicrophoneIcon, TrophyIcon, PlayIcon, PauseIcon } from "@phosphor-icons/react";
-import { ceremonyCategories, ceremonyLeaders, confirmedTopThree } from "./ceremonyResults";
+import { ArrowLeftIcon, DoorOpenIcon, MicrophoneIcon, TrophyIcon, PlayIcon, PauseIcon, CaretDownIcon } from "@phosphor-icons/react";
+import JudgingCategoryLabel from "../JudgingCategoryLabel";
+import { ceremonyCategories, sponsorCategories, generalCategories, ceremonyLeaders, confirmedTopThree } from "./ceremonyResults";
 
 export default function EngineeringExplorer({ job, challenges, projectName, category, onCategory, panelsVisible, isStale, location, onBuilding, controller, onSponsor, onReturnAtrium, onPitch, onViewReport, ceremonyRun }: {
   job: EvaluationJob | null;
@@ -92,6 +93,11 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
     return () => narrow.removeEventListener("change", resize);
   }, []);
 
+  function selectCeremony(index: number) {
+    prizeToken.current++; setPrizePhase("ready"); activePresenter.current = "";
+    setLeaderIndex(0); setCeremonyIndex(index); setCeremonyPlaying(false);
+    void controller.current?.command("pauseAward");
+  }
   function camera(action: CameraCommand) { void controller.current?.command(action); }
   function selectProject(id: string) { setMarker(id); void controller.current?.command("focus", id); }
   function selectAgent(id: string) { setMarker(id); if (id.startsWith("sample:") || id.startsWith("anonymous:")) setAgentExpanded(true); }
@@ -195,7 +201,18 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
     {location.kind === "awards" && <aside className="ceremony-dashboard dashboard-scroll-surface glass-panel" tabIndex={0} aria-label="Award ceremonies">
       <h2><TrophyIcon size={23} aria-hidden="true" />Ceremonies</h2>
       <div className="ceremony-categories" role="group" aria-label="Ceremony categories">
-        {ceremonyCategories.map((entry, index) => <button key={entry.id} type="button" aria-pressed={index === ceremonyIndex} onClick={() => { prizeToken.current++; setPrizePhase("ready"); activePresenter.current = ""; setLeaderIndex(0); setCeremonyIndex(index); setCeremonyPlaying(false); void controller.current?.command("pauseAward"); }}>{entry.name}</button>)}
+        {sponsorCategories.map((entry, index) => <div className="ceremony-sponsor-choice" key={entry.id}>
+          <button type="button" aria-pressed={index === ceremonyIndex} onClick={() => selectCeremony(index)}><JudgingCategoryLabel category={entry} /></button>
+        </div>)}
+        <details className="ceremony-general-options" open={ceremonyIndex >= sponsorCategories.length}>
+          <summary>Overall project<CaretDownIcon size={17} aria-hidden="true" /></summary>
+          <div className="ceremony-general-grid" role="group" aria-label="Overall project categories">
+            {generalCategories.map((entry, index) => <div className="ceremony-general-choice" key={entry.id}>
+              <button type="button" aria-pressed={index + sponsorCategories.length === ceremonyIndex} onClick={() => selectCeremony(index + sponsorCategories.length)}>{entry.name}</button>
+            </div>)}
+          </div>
+          <p className="category-unavailable">Best Embedded <span>Unavailable in this API</span></p>
+        </details>
       </div>
       <div className="ceremony-announcement" role="status" aria-live="polite">
         <h3>{ceremony.name}</h3>
