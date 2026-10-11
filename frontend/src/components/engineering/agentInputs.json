@@ -1,0 +1,1006 @@
+{
+  "source": "Committed synthetic mock inputs; not live agent activity or judge results",
+  "pool_version": "mock-200-v1",
+  "agents": [
+    {
+      "project_id": "mock-project-001",
+      "name": "Shuttle Workshop 001",
+      "input": "Shuttle Workshop 001\n\nCommuters use a shuttle dashboard to track shuttle delays and find a route. A secondary databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. A optional financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. A central elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-002",
+      "name": "Recipe Workshop 002",
+      "input": "Recipe Workshop 002\n\nFamilies use a recipe dashboard to plan recipes from available ingredients.  The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-003",
+      "name": "Study Workshop 003",
+      "input": "Study Workshop 003\n\nStudents use a study dashboard to organize study sessions and practice questions. A optional financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-004",
+      "name": "Budget Workshop 004",
+      "input": "Budget Workshop 004\n\nStudents use a budget dashboard to review financial transactions and flag budget changes. A optional databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-005",
+      "name": "Garden Workshop 005",
+      "input": "Garden Workshop 005\n\nResidents use a garden dashboard to coordinate watering schedules. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. A secondary elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-006",
+      "name": "Puzzle Workshop 006",
+      "input": "Puzzle Workshop 006\n\nPlayers use a puzzle dashboard to solve puzzles through a gameplay loop with timed objectives. A optional databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-007",
+      "name": "Event Workshop 007",
+      "input": "Event Workshop 007\n\nTeams use a event dashboard to coordinate event shifts and tasks. A optional databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. A central gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-008",
+      "name": "Care Workshop 008",
+      "input": "Care Workshop 008\n\nUsers use a care dashboard to organize appointment reminders. A central elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. A secondary databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-009",
+      "name": "Reuse Workshop 009",
+      "input": "Reuse Workshop 009\n\nResidents use a reuse dashboard to exchange useful household supplies. A secondary gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. A central elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-010",
+      "name": "Quest Workshop 010",
+      "input": "Quest Workshop 010\n\nPlayers use a quest dashboard to choose routes and earn points in a cooperative gameplay loop. A secondary gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-011",
+      "name": "Shuttle Workshop 011",
+      "input": "Shuttle Workshop 011\n\nCommuters use a shuttle dashboard to track shuttle delays and find a route. A secondary gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-012",
+      "name": "Recipe Workshop 012",
+      "input": "Recipe Workshop 012\n\nFamilies use a recipe dashboard to plan recipes from available ingredients. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. A central gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-013",
+      "name": "Study Workshop 013",
+      "input": "Study Workshop 013\n\nStudents use a study dashboard to organize study sessions and practice questions. A secondary gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-014",
+      "name": "Budget Workshop 014",
+      "input": "Budget Workshop 014\n\nStudents use a budget dashboard to review financial transactions and flag budget changes. A central gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. A optional financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-015",
+      "name": "Garden Workshop 015",
+      "input": "Garden Workshop 015\n\nResidents use a garden dashboard to coordinate watering schedules. A optional elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. A secondary gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-016",
+      "name": "Puzzle Workshop 016",
+      "input": "Puzzle Workshop 016\n\nPlayers use a puzzle dashboard to solve puzzles through a gameplay loop with timed objectives. A secondary elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-017",
+      "name": "Event Workshop 017",
+      "input": "Event Workshop 017\n\nTeams use a event dashboard to coordinate event shifts and tasks. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-018",
+      "name": "Care Workshop 018",
+      "input": "Care Workshop 018\n\nUsers use a care dashboard to organize appointment reminders. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-019",
+      "name": "Reuse Workshop 019",
+      "input": "Reuse Workshop 019\n\nResidents use a reuse dashboard to exchange useful household supplies. A secondary elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-020",
+      "name": "Quest Workshop 020",
+      "input": "Quest Workshop 020\n\nPlayers use a quest dashboard to choose routes and earn points in a cooperative gameplay loop.  The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-021",
+      "name": "Shuttle Workshop 021",
+      "input": "Shuttle Workshop 021\n\nCommuters use a shuttle dashboard to track shuttle delays and find a route. A optional elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-022",
+      "name": "Recipe Workshop 022",
+      "input": "Recipe Workshop 022\n\nFamilies use a recipe dashboard to plan recipes from available ingredients. A optional gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-023",
+      "name": "Study Workshop 023",
+      "input": "Study Workshop 023\n\nStudents use a study dashboard to organize study sessions and practice questions. A central elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-024",
+      "name": "Budget Workshop 024",
+      "input": "Budget Workshop 024\n\nStudents use a budget dashboard to review financial transactions and flag budget changes. A optional financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-025",
+      "name": "Garden Workshop 025",
+      "input": "Garden Workshop 025\n\nResidents use a garden dashboard to coordinate watering schedules. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-026",
+      "name": "Puzzle Workshop 026",
+      "input": "Puzzle Workshop 026\n\nPlayers use a puzzle dashboard to solve puzzles through a gameplay loop with timed objectives. A central elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-027",
+      "name": "Event Workshop 027",
+      "input": "Event Workshop 027\n\nTeams use a event dashboard to coordinate event shifts and tasks. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-028",
+      "name": "Care Workshop 028",
+      "input": "Care Workshop 028\n\nUsers use a care dashboard to organize appointment reminders. A secondary financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-029",
+      "name": "Reuse Workshop 029",
+      "input": "Reuse Workshop 029\n\nResidents use a reuse dashboard to exchange useful household supplies. A secondary databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. A central elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-030",
+      "name": "Quest Workshop 030",
+      "input": "Quest Workshop 030\n\nPlayers use a quest dashboard to choose routes and earn points in a cooperative gameplay loop. A optional gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. A optional financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-031",
+      "name": "Shuttle Workshop 031",
+      "input": "Shuttle Workshop 031\n\nCommuters use a shuttle dashboard to track shuttle delays and find a route. A secondary elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-032",
+      "name": "Recipe Workshop 032",
+      "input": "Recipe Workshop 032\n\nFamilies use a recipe dashboard to plan recipes from available ingredients. A secondary gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-033",
+      "name": "Study Workshop 033",
+      "input": "Study Workshop 033\n\nStudents use a study dashboard to organize study sessions and practice questions. A optional financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. A central elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-034",
+      "name": "Budget Workshop 034",
+      "input": "Budget Workshop 034\n\nStudents use a budget dashboard to review financial transactions and flag budget changes. A optional databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-035",
+      "name": "Garden Workshop 035",
+      "input": "Garden Workshop 035\n\nResidents use a garden dashboard to coordinate watering schedules. A central gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. A central elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-036",
+      "name": "Puzzle Workshop 036",
+      "input": "Puzzle Workshop 036\n\nPlayers use a puzzle dashboard to solve puzzles through a gameplay loop with timed objectives. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-037",
+      "name": "Event Workshop 037",
+      "input": "Event Workshop 037\n\nTeams use a event dashboard to coordinate event shifts and tasks. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. A secondary elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-038",
+      "name": "Care Workshop 038",
+      "input": "Care Workshop 038\n\nUsers use a care dashboard to organize appointment reminders. A central elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-039",
+      "name": "Reuse Workshop 039",
+      "input": "Reuse Workshop 039\n\nResidents use a reuse dashboard to exchange useful household supplies. A central gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. A central elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-040",
+      "name": "Quest Workshop 040",
+      "input": "Quest Workshop 040\n\nPlayers use a quest dashboard to choose routes and earn points in a cooperative gameplay loop. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-041",
+      "name": "Shuttle Workshop 041",
+      "input": "Shuttle Workshop 041\n\nCommuters use a shuttle dashboard to track shuttle delays and find a route.  The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-042",
+      "name": "Recipe Workshop 042",
+      "input": "Recipe Workshop 042\n\nFamilies use a recipe dashboard to plan recipes from available ingredients. A secondary elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-043",
+      "name": "Study Workshop 043",
+      "input": "Study Workshop 043\n\nStudents use a study dashboard to organize study sessions and practice questions. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. A central gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-044",
+      "name": "Budget Workshop 044",
+      "input": "Budget Workshop 044\n\nStudents use a budget dashboard to review financial transactions and flag budget changes. A central gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-045",
+      "name": "Garden Workshop 045",
+      "input": "Garden Workshop 045\n\nResidents use a garden dashboard to coordinate watering schedules. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. A optional databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-046",
+      "name": "Puzzle Workshop 046",
+      "input": "Puzzle Workshop 046\n\nPlayers use a puzzle dashboard to solve puzzles through a gameplay loop with timed objectives. A secondary elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. A optional gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-047",
+      "name": "Event Workshop 047",
+      "input": "Event Workshop 047\n\nTeams use a event dashboard to coordinate event shifts and tasks. A optional financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-048",
+      "name": "Care Workshop 048",
+      "input": "Care Workshop 048\n\nUsers use a care dashboard to organize appointment reminders. A optional databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-049",
+      "name": "Reuse Workshop 049",
+      "input": "Reuse Workshop 049\n\nResidents use a reuse dashboard to exchange useful household supplies. A central gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-050",
+      "name": "Quest Workshop 050",
+      "input": "Quest Workshop 050\n\nPlayers use a quest dashboard to choose routes and earn points in a cooperative gameplay loop. A central elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-051",
+      "name": "Shuttle Workshop 051",
+      "input": "Shuttle Workshop 051\n\nCommuters use a shuttle dashboard to track shuttle delays and find a route. A secondary gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-052",
+      "name": "Recipe Workshop 052",
+      "input": "Recipe Workshop 052\n\nFamilies use a recipe dashboard to plan recipes from available ingredients. A secondary gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. A secondary elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-053",
+      "name": "Study Workshop 053",
+      "input": "Study Workshop 053\n\nStudents use a study dashboard to organize study sessions and practice questions. A secondary gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. A secondary databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-054",
+      "name": "Budget Workshop 054",
+      "input": "Budget Workshop 054\n\nStudents use a budget dashboard to review financial transactions and flag budget changes. A secondary financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-055",
+      "name": "Garden Workshop 055",
+      "input": "Garden Workshop 055\n\nResidents use a garden dashboard to coordinate watering schedules. A secondary databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-056",
+      "name": "Puzzle Workshop 056",
+      "input": "Puzzle Workshop 056\n\nPlayers use a puzzle dashboard to solve puzzles through a gameplay loop with timed objectives. A central elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-057",
+      "name": "Event Workshop 057",
+      "input": "Event Workshop 057\n\nTeams use a event dashboard to coordinate event shifts and tasks. A secondary elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-058",
+      "name": "Care Workshop 058",
+      "input": "Care Workshop 058\n\nUsers use a care dashboard to organize appointment reminders. A optional financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-059",
+      "name": "Reuse Workshop 059",
+      "input": "Reuse Workshop 059\n\nResidents use a reuse dashboard to exchange useful household supplies. A secondary databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-060",
+      "name": "Quest Workshop 060",
+      "input": "Quest Workshop 060\n\nPlayers use a quest dashboard to choose routes and earn points in a cooperative gameplay loop.  The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-061",
+      "name": "Shuttle Workshop 061",
+      "input": "Shuttle Workshop 061\n\nCommuters use a shuttle dashboard to track shuttle delays and find a route.  The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-062",
+      "name": "Recipe Workshop 062",
+      "input": "Recipe Workshop 062\n\nFamilies use a recipe dashboard to plan recipes from available ingredients. A central gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-063",
+      "name": "Study Workshop 063",
+      "input": "Study Workshop 063\n\nStudents use a study dashboard to organize study sessions and practice questions. A secondary databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-064",
+      "name": "Budget Workshop 064",
+      "input": "Budget Workshop 064\n\nStudents use a budget dashboard to review financial transactions and flag budget changes. A secondary elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-065",
+      "name": "Garden Workshop 065",
+      "input": "Garden Workshop 065\n\nResidents use a garden dashboard to coordinate watering schedules. A secondary financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. A secondary elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-066",
+      "name": "Puzzle Workshop 066",
+      "input": "Puzzle Workshop 066\n\nPlayers use a puzzle dashboard to solve puzzles through a gameplay loop with timed objectives. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-067",
+      "name": "Event Workshop 067",
+      "input": "Event Workshop 067\n\nTeams use a event dashboard to coordinate event shifts and tasks. A optional elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-068",
+      "name": "Care Workshop 068",
+      "input": "Care Workshop 068\n\nUsers use a care dashboard to organize appointment reminders. A secondary gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. A optional databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. A secondary financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-069",
+      "name": "Reuse Workshop 069",
+      "input": "Reuse Workshop 069\n\nResidents use a reuse dashboard to exchange useful household supplies. A secondary elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. A optional gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-070",
+      "name": "Quest Workshop 070",
+      "input": "Quest Workshop 070\n\nPlayers use a quest dashboard to choose routes and earn points in a cooperative gameplay loop. A optional elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. A central gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. A secondary financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-071",
+      "name": "Shuttle Workshop 071",
+      "input": "Shuttle Workshop 071\n\nCommuters use a shuttle dashboard to track shuttle delays and find a route. A secondary financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. A secondary gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. A central elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-072",
+      "name": "Recipe Workshop 072",
+      "input": "Recipe Workshop 072\n\nFamilies use a recipe dashboard to plan recipes from available ingredients. A secondary gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-073",
+      "name": "Study Workshop 073",
+      "input": "Study Workshop 073\n\nStudents use a study dashboard to organize study sessions and practice questions. A optional elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-074",
+      "name": "Budget Workshop 074",
+      "input": "Budget Workshop 074\n\nStudents use a budget dashboard to review financial transactions and flag budget changes. A secondary elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-075",
+      "name": "Garden Workshop 075",
+      "input": "Garden Workshop 075\n\nResidents use a garden dashboard to coordinate watering schedules. A central elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-076",
+      "name": "Puzzle Workshop 076",
+      "input": "Puzzle Workshop 076\n\nPlayers use a puzzle dashboard to solve puzzles through a gameplay loop with timed objectives.  The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-077",
+      "name": "Event Workshop 077",
+      "input": "Event Workshop 077\n\nTeams use a event dashboard to coordinate event shifts and tasks. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. A central gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. A central elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-078",
+      "name": "Care Workshop 078",
+      "input": "Care Workshop 078\n\nUsers use a care dashboard to organize appointment reminders. A secondary databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-079",
+      "name": "Reuse Workshop 079",
+      "input": "Reuse Workshop 079\n\nResidents use a reuse dashboard to exchange useful household supplies. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-080",
+      "name": "Quest Workshop 080",
+      "input": "Quest Workshop 080\n\nPlayers use a quest dashboard to choose routes and earn points in a cooperative gameplay loop. A central elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. A secondary databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-081",
+      "name": "Shuttle Workshop 081",
+      "input": "Shuttle Workshop 081\n\nCommuters use a shuttle dashboard to track shuttle delays and find a route. A optional databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-082",
+      "name": "Recipe Workshop 082",
+      "input": "Recipe Workshop 082\n\nFamilies use a recipe dashboard to plan recipes from available ingredients. A optional elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. A optional databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-083",
+      "name": "Study Workshop 083",
+      "input": "Study Workshop 083\n\nStudents use a study dashboard to organize study sessions and practice questions. A central gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-084",
+      "name": "Budget Workshop 084",
+      "input": "Budget Workshop 084\n\nStudents use a budget dashboard to review financial transactions and flag budget changes. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-085",
+      "name": "Garden Workshop 085",
+      "input": "Garden Workshop 085\n\nResidents use a garden dashboard to coordinate watering schedules. A central elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. A secondary databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-086",
+      "name": "Puzzle Workshop 086",
+      "input": "Puzzle Workshop 086\n\nPlayers use a puzzle dashboard to solve puzzles through a gameplay loop with timed objectives. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-087",
+      "name": "Event Workshop 087",
+      "input": "Event Workshop 087\n\nTeams use a event dashboard to coordinate event shifts and tasks. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-088",
+      "name": "Care Workshop 088",
+      "input": "Care Workshop 088\n\nUsers use a care dashboard to organize appointment reminders. A secondary gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-089",
+      "name": "Reuse Workshop 089",
+      "input": "Reuse Workshop 089\n\nResidents use a reuse dashboard to exchange useful household supplies. A optional elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. A central gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-090",
+      "name": "Quest Workshop 090",
+      "input": "Quest Workshop 090\n\nPlayers use a quest dashboard to choose routes and earn points in a cooperative gameplay loop. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-091",
+      "name": "Shuttle Workshop 091",
+      "input": "Shuttle Workshop 091\n\nCommuters use a shuttle dashboard to track shuttle delays and find a route. A secondary financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. A secondary databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-092",
+      "name": "Recipe Workshop 092",
+      "input": "Recipe Workshop 092\n\nFamilies use a recipe dashboard to plan recipes from available ingredients. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-093",
+      "name": "Study Workshop 093",
+      "input": "Study Workshop 093\n\nStudents use a study dashboard to organize study sessions and practice questions. A secondary elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-094",
+      "name": "Budget Workshop 094",
+      "input": "Budget Workshop 094\n\nStudents use a budget dashboard to review financial transactions and flag budget changes. A central elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. A central gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-095",
+      "name": "Garden Workshop 095",
+      "input": "Garden Workshop 095\n\nResidents use a garden dashboard to coordinate watering schedules. A secondary elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-096",
+      "name": "Puzzle Workshop 096",
+      "input": "Puzzle Workshop 096\n\nPlayers use a puzzle dashboard to solve puzzles through a gameplay loop with timed objectives. A optional databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-097",
+      "name": "Event Workshop 097",
+      "input": "Event Workshop 097\n\nTeams use a event dashboard to coordinate event shifts and tasks. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. A central gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-098",
+      "name": "Care Workshop 098",
+      "input": "Care Workshop 098\n\nUsers use a care dashboard to organize appointment reminders. A central gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-099",
+      "name": "Reuse Workshop 099",
+      "input": "Reuse Workshop 099\n\nResidents use a reuse dashboard to exchange useful household supplies. A optional elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-100",
+      "name": "Quest Workshop 100",
+      "input": "Quest Workshop 100\n\nPlayers use a quest dashboard to choose routes and earn points in a cooperative gameplay loop. A optional elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-101",
+      "name": "Shuttle Workshop 101",
+      "input": "Shuttle Workshop 101\n\nCommuters use a shuttle dashboard to track shuttle delays and find a route.  The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-102",
+      "name": "Recipe Workshop 102",
+      "input": "Recipe Workshop 102\n\nFamilies use a recipe dashboard to plan recipes from available ingredients. A central gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-103",
+      "name": "Study Workshop 103",
+      "input": "Study Workshop 103\n\nStudents use a study dashboard to organize study sessions and practice questions. A optional databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-104",
+      "name": "Budget Workshop 104",
+      "input": "Budget Workshop 104\n\nStudents use a budget dashboard to review financial transactions and flag budget changes. A secondary databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-105",
+      "name": "Garden Workshop 105",
+      "input": "Garden Workshop 105\n\nResidents use a garden dashboard to coordinate watering schedules. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. A secondary gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-106",
+      "name": "Puzzle Workshop 106",
+      "input": "Puzzle Workshop 106\n\nPlayers use a puzzle dashboard to solve puzzles through a gameplay loop with timed objectives.  The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-107",
+      "name": "Event Workshop 107",
+      "input": "Event Workshop 107\n\nTeams use a event dashboard to coordinate event shifts and tasks. A central gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-108",
+      "name": "Care Workshop 108",
+      "input": "Care Workshop 108\n\nUsers use a care dashboard to organize appointment reminders. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-109",
+      "name": "Reuse Workshop 109",
+      "input": "Reuse Workshop 109\n\nResidents use a reuse dashboard to exchange useful household supplies. A secondary financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. A central gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-110",
+      "name": "Quest Workshop 110",
+      "input": "Quest Workshop 110\n\nPlayers use a quest dashboard to choose routes and earn points in a cooperative gameplay loop. A secondary financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-111",
+      "name": "Shuttle Workshop 111",
+      "input": "Shuttle Workshop 111\n\nCommuters use a shuttle dashboard to track shuttle delays and find a route.  The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-112",
+      "name": "Recipe Workshop 112",
+      "input": "Recipe Workshop 112\n\nFamilies use a recipe dashboard to plan recipes from available ingredients. A secondary elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-113",
+      "name": "Study Workshop 113",
+      "input": "Study Workshop 113\n\nStudents use a study dashboard to organize study sessions and practice questions. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-114",
+      "name": "Budget Workshop 114",
+      "input": "Budget Workshop 114\n\nStudents use a budget dashboard to review financial transactions and flag budget changes. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. A central gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-115",
+      "name": "Garden Workshop 115",
+      "input": "Garden Workshop 115\n\nResidents use a garden dashboard to coordinate watering schedules. A secondary databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-116",
+      "name": "Puzzle Workshop 116",
+      "input": "Puzzle Workshop 116\n\nPlayers use a puzzle dashboard to solve puzzles through a gameplay loop with timed objectives. A central gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. A central elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-117",
+      "name": "Event Workshop 117",
+      "input": "Event Workshop 117\n\nTeams use a event dashboard to coordinate event shifts and tasks. A secondary databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-118",
+      "name": "Care Workshop 118",
+      "input": "Care Workshop 118\n\nUsers use a care dashboard to organize appointment reminders. A optional databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. A optional elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-119",
+      "name": "Reuse Workshop 119",
+      "input": "Reuse Workshop 119\n\nResidents use a reuse dashboard to exchange useful household supplies. A optional gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-120",
+      "name": "Quest Workshop 120",
+      "input": "Quest Workshop 120\n\nPlayers use a quest dashboard to choose routes and earn points in a cooperative gameplay loop. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. A secondary financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. A central elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-121",
+      "name": "Shuttle Workshop 121",
+      "input": "Shuttle Workshop 121\n\nCommuters use a shuttle dashboard to track shuttle delays and find a route. A secondary gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-122",
+      "name": "Recipe Workshop 122",
+      "input": "Recipe Workshop 122\n\nFamilies use a recipe dashboard to plan recipes from available ingredients. A secondary gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-123",
+      "name": "Study Workshop 123",
+      "input": "Study Workshop 123\n\nStudents use a study dashboard to organize study sessions and practice questions. A optional elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-124",
+      "name": "Budget Workshop 124",
+      "input": "Budget Workshop 124\n\nStudents use a budget dashboard to review financial transactions and flag budget changes. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-125",
+      "name": "Garden Workshop 125",
+      "input": "Garden Workshop 125\n\nResidents use a garden dashboard to coordinate watering schedules. A secondary elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-126",
+      "name": "Puzzle Workshop 126",
+      "input": "Puzzle Workshop 126\n\nPlayers use a puzzle dashboard to solve puzzles through a gameplay loop with timed objectives. A secondary databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-127",
+      "name": "Event Workshop 127",
+      "input": "Event Workshop 127\n\nTeams use a event dashboard to coordinate event shifts and tasks. A optional gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-128",
+      "name": "Care Workshop 128",
+      "input": "Care Workshop 128\n\nUsers use a care dashboard to organize appointment reminders. A secondary elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-129",
+      "name": "Reuse Workshop 129",
+      "input": "Reuse Workshop 129\n\nResidents use a reuse dashboard to exchange useful household supplies. A optional elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-130",
+      "name": "Quest Workshop 130",
+      "input": "Quest Workshop 130\n\nPlayers use a quest dashboard to choose routes and earn points in a cooperative gameplay loop. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-131",
+      "name": "Shuttle Workshop 131",
+      "input": "Shuttle Workshop 131\n\nCommuters use a shuttle dashboard to track shuttle delays and find a route. A central elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. A secondary gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-132",
+      "name": "Recipe Workshop 132",
+      "input": "Recipe Workshop 132\n\nFamilies use a recipe dashboard to plan recipes from available ingredients.  The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-133",
+      "name": "Study Workshop 133",
+      "input": "Study Workshop 133\n\nStudents use a study dashboard to organize study sessions and practice questions. A secondary gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-134",
+      "name": "Budget Workshop 134",
+      "input": "Budget Workshop 134\n\nStudents use a budget dashboard to review financial transactions and flag budget changes. A secondary databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-135",
+      "name": "Garden Workshop 135",
+      "input": "Garden Workshop 135\n\nResidents use a garden dashboard to coordinate watering schedules. A central gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-136",
+      "name": "Puzzle Workshop 136",
+      "input": "Puzzle Workshop 136\n\nPlayers use a puzzle dashboard to solve puzzles through a gameplay loop with timed objectives. A secondary financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-137",
+      "name": "Event Workshop 137",
+      "input": "Event Workshop 137\n\nTeams use a event dashboard to coordinate event shifts and tasks. A central gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-138",
+      "name": "Care Workshop 138",
+      "input": "Care Workshop 138\n\nUsers use a care dashboard to organize appointment reminders. A secondary financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-139",
+      "name": "Reuse Workshop 139",
+      "input": "Reuse Workshop 139\n\nResidents use a reuse dashboard to exchange useful household supplies.  The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-140",
+      "name": "Quest Workshop 140",
+      "input": "Quest Workshop 140\n\nPlayers use a quest dashboard to choose routes and earn points in a cooperative gameplay loop. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-141",
+      "name": "Shuttle Workshop 141",
+      "input": "Shuttle Workshop 141\n\nCommuters use a shuttle dashboard to track shuttle delays and find a route. A central elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-142",
+      "name": "Recipe Workshop 142",
+      "input": "Recipe Workshop 142\n\nFamilies use a recipe dashboard to plan recipes from available ingredients. A secondary gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-143",
+      "name": "Study Workshop 143",
+      "input": "Study Workshop 143\n\nStudents use a study dashboard to organize study sessions and practice questions. A secondary elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-144",
+      "name": "Budget Workshop 144",
+      "input": "Budget Workshop 144\n\nStudents use a budget dashboard to review financial transactions and flag budget changes. A secondary elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-145",
+      "name": "Garden Workshop 145",
+      "input": "Garden Workshop 145\n\nResidents use a garden dashboard to coordinate watering schedules. A central gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-146",
+      "name": "Puzzle Workshop 146",
+      "input": "Puzzle Workshop 146\n\nPlayers use a puzzle dashboard to solve puzzles through a gameplay loop with timed objectives. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-147",
+      "name": "Event Workshop 147",
+      "input": "Event Workshop 147\n\nTeams use a event dashboard to coordinate event shifts and tasks. A optional gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-148",
+      "name": "Care Workshop 148",
+      "input": "Care Workshop 148\n\nUsers use a care dashboard to organize appointment reminders. A central elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. A secondary gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-149",
+      "name": "Reuse Workshop 149",
+      "input": "Reuse Workshop 149\n\nResidents use a reuse dashboard to exchange useful household supplies. A central gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. A secondary financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-150",
+      "name": "Quest Workshop 150",
+      "input": "Quest Workshop 150\n\nPlayers use a quest dashboard to choose routes and earn points in a cooperative gameplay loop. A secondary databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-151",
+      "name": "Shuttle Workshop 151",
+      "input": "Shuttle Workshop 151\n\nCommuters use a shuttle dashboard to track shuttle delays and find a route. A optional gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-152",
+      "name": "Recipe Workshop 152",
+      "input": "Recipe Workshop 152\n\nFamilies use a recipe dashboard to plan recipes from available ingredients. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. A secondary financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-153",
+      "name": "Study Workshop 153",
+      "input": "Study Workshop 153\n\nStudents use a study dashboard to organize study sessions and practice questions. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-154",
+      "name": "Budget Workshop 154",
+      "input": "Budget Workshop 154\n\nStudents use a budget dashboard to review financial transactions and flag budget changes. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. A optional gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-155",
+      "name": "Garden Workshop 155",
+      "input": "Garden Workshop 155\n\nResidents use a garden dashboard to coordinate watering schedules. A central gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. A secondary elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-156",
+      "name": "Puzzle Workshop 156",
+      "input": "Puzzle Workshop 156\n\nPlayers use a puzzle dashboard to solve puzzles through a gameplay loop with timed objectives. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. A optional elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-157",
+      "name": "Event Workshop 157",
+      "input": "Event Workshop 157\n\nTeams use a event dashboard to coordinate event shifts and tasks. A secondary financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-158",
+      "name": "Care Workshop 158",
+      "input": "Care Workshop 158\n\nUsers use a care dashboard to organize appointment reminders. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. A central elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-159",
+      "name": "Reuse Workshop 159",
+      "input": "Reuse Workshop 159\n\nResidents use a reuse dashboard to exchange useful household supplies. A optional financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-160",
+      "name": "Quest Workshop 160",
+      "input": "Quest Workshop 160\n\nPlayers use a quest dashboard to choose routes and earn points in a cooperative gameplay loop. A optional databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-161",
+      "name": "Shuttle Workshop 161",
+      "input": "Shuttle Workshop 161\n\nCommuters use a shuttle dashboard to track shuttle delays and find a route. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. A optional elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-162",
+      "name": "Recipe Workshop 162",
+      "input": "Recipe Workshop 162\n\nFamilies use a recipe dashboard to plan recipes from available ingredients. A optional elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-163",
+      "name": "Study Workshop 163",
+      "input": "Study Workshop 163\n\nStudents use a study dashboard to organize study sessions and practice questions. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-164",
+      "name": "Budget Workshop 164",
+      "input": "Budget Workshop 164\n\nStudents use a budget dashboard to review financial transactions and flag budget changes. A optional elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-165",
+      "name": "Garden Workshop 165",
+      "input": "Garden Workshop 165\n\nResidents use a garden dashboard to coordinate watering schedules. A secondary databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-166",
+      "name": "Puzzle Workshop 166",
+      "input": "Puzzle Workshop 166\n\nPlayers use a puzzle dashboard to solve puzzles through a gameplay loop with timed objectives. A central elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. A central gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. A secondary databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-167",
+      "name": "Event Workshop 167",
+      "input": "Event Workshop 167\n\nTeams use a event dashboard to coordinate event shifts and tasks. A optional financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-168",
+      "name": "Care Workshop 168",
+      "input": "Care Workshop 168\n\nUsers use a care dashboard to organize appointment reminders. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. A central elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-169",
+      "name": "Reuse Workshop 169",
+      "input": "Reuse Workshop 169\n\nResidents use a reuse dashboard to exchange useful household supplies.  The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-170",
+      "name": "Quest Workshop 170",
+      "input": "Quest Workshop 170\n\nPlayers use a quest dashboard to choose routes and earn points in a cooperative gameplay loop. A central elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-171",
+      "name": "Shuttle Workshop 171",
+      "input": "Shuttle Workshop 171\n\nCommuters use a shuttle dashboard to track shuttle delays and find a route.  The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-172",
+      "name": "Recipe Workshop 172",
+      "input": "Recipe Workshop 172\n\nFamilies use a recipe dashboard to plan recipes from available ingredients. A central gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-173",
+      "name": "Study Workshop 173",
+      "input": "Study Workshop 173\n\nStudents use a study dashboard to organize study sessions and practice questions. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-174",
+      "name": "Budget Workshop 174",
+      "input": "Budget Workshop 174\n\nStudents use a budget dashboard to review financial transactions and flag budget changes. A optional gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-175",
+      "name": "Garden Workshop 175",
+      "input": "Garden Workshop 175\n\nResidents use a garden dashboard to coordinate watering schedules.  The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-176",
+      "name": "Puzzle Workshop 176",
+      "input": "Puzzle Workshop 176\n\nPlayers use a puzzle dashboard to solve puzzles through a gameplay loop with timed objectives. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. A optional gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-177",
+      "name": "Event Workshop 177",
+      "input": "Event Workshop 177\n\nTeams use a event dashboard to coordinate event shifts and tasks.  The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-178",
+      "name": "Care Workshop 178",
+      "input": "Care Workshop 178\n\nUsers use a care dashboard to organize appointment reminders. A secondary databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-179",
+      "name": "Reuse Workshop 179",
+      "input": "Reuse Workshop 179\n\nResidents use a reuse dashboard to exchange useful household supplies. A optional elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-180",
+      "name": "Quest Workshop 180",
+      "input": "Quest Workshop 180\n\nPlayers use a quest dashboard to choose routes and earn points in a cooperative gameplay loop. A optional gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-181",
+      "name": "Shuttle Workshop 181",
+      "input": "Shuttle Workshop 181\n\nCommuters use a shuttle dashboard to track shuttle delays and find a route. A secondary elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. A central gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-182",
+      "name": "Recipe Workshop 182",
+      "input": "Recipe Workshop 182\n\nFamilies use a recipe dashboard to plan recipes from available ingredients.  The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-183",
+      "name": "Study Workshop 183",
+      "input": "Study Workshop 183\n\nStudents use a study dashboard to organize study sessions and practice questions. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-184",
+      "name": "Budget Workshop 184",
+      "input": "Budget Workshop 184\n\nStudents use a budget dashboard to review financial transactions and flag budget changes. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. A secondary financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-185",
+      "name": "Garden Workshop 185",
+      "input": "Garden Workshop 185\n\nResidents use a garden dashboard to coordinate watering schedules.  The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-186",
+      "name": "Puzzle Workshop 186",
+      "input": "Puzzle Workshop 186\n\nPlayers use a puzzle dashboard to solve puzzles through a gameplay loop with timed objectives. A secondary financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-187",
+      "name": "Event Workshop 187",
+      "input": "Event Workshop 187\n\nTeams use a event dashboard to coordinate event shifts and tasks. A central gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-188",
+      "name": "Care Workshop 188",
+      "input": "Care Workshop 188\n\nUsers use a care dashboard to organize appointment reminders. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-189",
+      "name": "Reuse Workshop 189",
+      "input": "Reuse Workshop 189\n\nResidents use a reuse dashboard to exchange useful household supplies. A central gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-190",
+      "name": "Quest Workshop 190",
+      "input": "Quest Workshop 190\n\nPlayers use a quest dashboard to choose routes and earn points in a cooperative gameplay loop. A central databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-191",
+      "name": "Shuttle Workshop 191",
+      "input": "Shuttle Workshop 191\n\nCommuters use a shuttle dashboard to track shuttle delays and find a route. A central elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-192",
+      "name": "Recipe Workshop 192",
+      "input": "Recipe Workshop 192\n\nFamilies use a recipe dashboard to plan recipes from available ingredients. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-193",
+      "name": "Study Workshop 193",
+      "input": "Study Workshop 193\n\nStudents use a study dashboard to organize study sessions and practice questions. A optional gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The core components are not connected yet."
+    },
+    {
+      "project_id": "mock-project-194",
+      "name": "Budget Workshop 194",
+      "input": "Budget Workshop 194\n\nStudents use a budget dashboard to review financial transactions and flag budget changes. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-195",
+      "name": "Garden Workshop 195",
+      "input": "Garden Workshop 195\n\nResidents use a garden dashboard to coordinate watering schedules. A optional elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-196",
+      "name": "Puzzle Workshop 196",
+      "input": "Puzzle Workshop 196\n\nPlayers use a puzzle dashboard to solve puzzles through a gameplay loop with timed objectives. A secondary elevenlabs feature uses ElevenLabs API receives text and returns spoken guidance. A central financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-197",
+      "name": "Event Workshop 197",
+      "input": "Event Workshop 197\n\nTeams use a event dashboard to coordinate event shifts and tasks.  The core cannot run because its backend connection fails."
+    },
+    {
+      "project_id": "mock-project-198",
+      "name": "Care Workshop 198",
+      "input": "Care Workshop 198\n\nUsers use a care dashboard to organize appointment reminders. A optional gemini feature uses Gemini API reads structured inputs and returns grounded suggestions. The working core is unreliable under repeated requests."
+    },
+    {
+      "project_id": "mock-project-199",
+      "name": "Reuse Workshop 199",
+      "input": "Reuse Workshop 199\n\nResidents use a reuse dashboard to exchange useful household supplies. A secondary databricks feature uses Databricks stores rows in Delta tables and queries notebook aggregates. The scoped sample-data flow works end-to-end."
+    },
+    {
+      "project_id": "mock-project-200",
+      "name": "Quest Workshop 200",
+      "input": "Quest Workshop 200\n\nPlayers use a quest dashboard to choose routes and earn points in a cooperative gameplay loop. A optional financial feature uses the financial fraud classifier reads transactions and flags suspicious payments. The core cannot run because its backend connection fails."
+    }
+  ]
+}

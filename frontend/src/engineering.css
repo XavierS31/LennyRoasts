@@ -132,6 +132,23 @@ select option { background: #1a2738; color: #fff; }
 .atrium-map p { font-size: 12px; line-height: 1.5; margin: 8px; }
 .atrium-map small { display: block; margin: 8px; font-size: 10px; line-height: 1.5; color: var(--muted); }
 .atrium-empty { position: fixed; bottom: 20px; left: 20px; padding: 16px 20px; z-index: 3; max-width: 380px; font-size: 14px; line-height: 1.55; margin: 0; }
+.agent-inspector { position: fixed; top: 170px; right: 20px; z-index: 4; width: min(350px, calc(100vw - 40px)); padding: 12px; max-height: calc(100dvh - 200px); overflow-y: auto; border-radius: 14px; background: rgba(20, 30, 43, .94); }
+.agent-inspector-toggle { width: 100%; text-align: left; }
+.agent-inspector p { font-size: 14px; line-height: 1.6; }
+.agent-inspector h2 { font-size: 22px; margin: 24px 0 12px; }
+.agent-source, .agent-inspector small { color: #e5dcca; }
+.agent-preview-toggle { display: flex; align-items: center; gap: 8px; margin: 16px 0; font-size: 13px; }
+.agent-preview-toggle input { width: 18px; height: 18px; accent-color: #ffd46a; }
+.agent-inspector select { width: 100%; min-height: 42px; margin: 8px 0; }
+.agent-input-navigation { display: flex; gap: 8px; }
+.agent-input-navigation button { flex: 1; }
+.agent-input-text { white-space: pre-wrap; overflow-wrap: anywhere; }
+.agent-inspector :focus-visible { outline: 2px solid #ffd46a; outline-offset: 3px; }
+.agent-inspector ::selection { background: #ffd46a; color: #1b2028; }
+@media (max-width: 900px) {
+  .agent-inspector { top: 196px; right: 12px; width: min(330px, calc(100vw - 24px)); max-height: calc(100dvh - 330px); }
+  .scene-atrium.with-panels .agent-inspector { display: none; }
+}
 @supports not (backdrop-filter: blur(1px)) {
   .glass-panel, .engineering-app :is(.masthead, .intro, .mode-banner, .form-panel, .report-panel, .page-footer) { background: rgba(16,25,39,.88); }
 }

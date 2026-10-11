@@ -90,3 +90,30 @@ A bounded real Qwen/DeepInfra control on this exact adapted sample completed all
 On `codex/frontend-document-import`: all eleven frontend tests pass after syncing main, including four focused import tests that cover supported types/size, empty/binary/invalid UTF-8 text, Markdown/Unicode preservation, treating instruction-like text as data, append/replace, and combined character limits. Browser checks use authored synthetic files under ignored `.local-tests/document-import/`: two-page PDF extraction in page order, Markdown, review focus, append/replace/discard, an editable 8,001-character preview without truncation, password-protected/invalid/no-text PDFs, a 51-page PDF, and whitespace-only Markdown. Error cases retain the idea. Desktop and 390px mobile screenshots were visually checked; mobile has no horizontal overflow. Imported Markdown was observed in the unchanged POST payload and completed an evaluation using the existing local mock API. These checks do not establish live Qwen/Neon or deployment readiness.
 
 The production preview also verified the bundled worker and the same PDF error cases. PDF import adds a lazy display bundle (about 430 kB minified / 130 kB gzip) and a local worker (about 1.26 MB before compression). They are not part of the initial form download. The existing Three.js chunk warning remains.
+
+## Floating 3D AI agents
+
+The atrium now uses real Three.js meshes: two reusable male/female bases, floating oval shirt bodies, detached mitten hands, angular hair and assertive brows. Seed 109200 creates 200 reproducible distinct appearances: 150 men / 50 women, 60 White / 79 Asian / 61 Black fictional avatars. Asian backgrounds are split 27 East Asian, 26 South Asian and 26 Southeast Asian. These are requested art proportions, not measured demographics or inferred identities. Hair, clothing, glasses and expression vary independently of background and project quality.
+
+`src/components/engineering/agentMeshes.ts` exports the two defaults and variant builder. Runtime geometry is instanced into at most five crowd draw calls, with a GPU sine bob of 0.12 world units. Reduced motion disables the bob and hidden pages stop the render loop. Mesh picking keeps each project's identity through instancing; the input chooser and previous/next controls offer keyboard alternatives.
+
+Portable saved assets under `public/assets/agents/`:
+
+- `default-male.glb` and `default-female.glb`: reusable base meshes with a Gentle float animation.
+- `agents-200.glb`: all 200 distinct mesh models with float animation tracks (about 842 kB).
+- `appearances.json`: saved seed, appearance recipes and one-to-one common mock project IDs.
+
+Regenerate with Node 24 from `frontend/`:
+
+```sh
+node tools/prepareAgentInputs.mjs
+node tools/exportAgentMeshes.mjs
+npm test
+npm run build
+```
+
+Open `/interior.html` and select Explore inputs. The sample crowd is explicitly labeled synthetic; its lazy-loaded 67 kB input excerpt contains only project IDs, names and the saved description, with no scores or hidden metadata. Each of the common 200 mock projects gets a stable appearance and distinct input. Sample display can be switched off. An API report still displays its own category counts and scores; the sample crowd is not the category's eligible field.
+
+For live reports the sample crowd is disabled. Only API-returned rivals have identities and summaries; remaining avatars are anonymous representatives of the returned eligible count, capped at 200, plus the user's own mesh. The current API does not expose all live competitor inputs. Dev2 would need a coordinated contract change to provide them; no endpoint, backend, scoring or generated type change is made here.
+
+Verified locally: 14 frontend tests, production build, 1440x1000 desktop and 390x844 mobile rendering/selection, distinct input navigation, 201 chooser options including the placeholder, no horizontal mobile overflow or observed graphics errors. Tests check quotas, unique appearance combinations, stable mapping, volume geometry, absence of sprites/textures in agent assets, instanced identity, reduced-motion uniforms, and GLB mesh/animation counts. This is UI/mesh evidence, not live Qwen/Neon integration or deployment evidence. The existing Three.js bundle-size warning remains.

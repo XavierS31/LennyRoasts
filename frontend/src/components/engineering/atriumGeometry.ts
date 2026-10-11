@@ -277,32 +277,6 @@ export function addDetailedAtrium(scene: THREE.Scene, participantCount = 0) {
     cube([1.5, 2.8, 1.2], [21.5, 1.4, z], black);
   }
 
-  // Anonymous silhouettes represent only the API's returned eligible field count.
-  for (const geometry of [new THREE.CapsuleGeometry(.24, .65, 3, 6), new THREE.SphereGeometry(.22, 8, 6)]) {
-    const people = new THREE.InstancedMesh(geometry, material(0x303840), 200);
-    for (let i = 0; i < 200; i++) {
-      let x: number, z: number;
-      if (i < 60) {
-        const table = i % 10, angle = Math.floor(i / 10) * Math.PI / 3;
-        x = (table < 5 ? -6 : 6) + Math.sin(angle) * 2.8;
-        z = tableRows[table % 5] + Math.cos(angle) * 2.4;
-      } else if (i < 76) {
-        x = -18.4; z = -32 + Math.floor((i - 60) / 2) * 8 + (i % 2 ? 1.3 : -1.3);
-      } else {
-        // Additional field representatives occupy the circulation lanes.
-        const index = i - 76;
-        x = [-19, -11, 0, 11, 19][index % 5] + ((index * 7) % 5 - 2) * .25;
-        z = -32 + Math.floor(index / 5) * 2.65;
-      }
-      const seated = i < 76;
-      const matrix = new THREE.Matrix4().makeTranslation(x, geometry instanceof THREE.SphereGeometry ? seated ? 1.87 : 2.15 : seated ? 1.15 : 1.43, z);
-      people.setMatrixAt(i, matrix);
-      people.setColorAt(i, new THREE.Color(i % 7 === 0 ? 0xb29048 : i % 3 === 0 ? 0x737885 : 0x303840));
-    }
-    people.count = Math.min(200, Math.max(0, participantCount)); people.userData.fieldPopulation = true;
-    people.castShadow = true; scene.add(people);
-  }
-
   // Reuse geometries/materials and batch repeated parts to keep the large room light.
   for (const bucket of batches) {
     const mesh = new THREE.InstancedMesh(bucket.geometry, bucket.material, bucket.matrices.length);
