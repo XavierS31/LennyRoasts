@@ -116,7 +116,13 @@ export function addCampusSite(scene: THREE.Scene) {
   sidewalk.absarc(-49,-38,10.7,Math.PI*1.5,Math.PI,true); sidewalk.closePath();
   addSurface(sidewalk, .02, concrete, 3.8, "Continuous curbside sidewalk", .12);
   addSurface(shapeFrom(entryWalk), .03, concrete, 3.8, "Engineering II entrance forecourt", .12);
-  addSurface(shapeFrom([[12,21.2],[59,21.2],[59,25.4],[12,25.4]]), .03, concrete, 3.8, "Front facade pedestrian walk", .12);
+  // The low pavilion interrupts the old straight strip. Follow its projecting
+  // edge, then reach the glass doors through the open central courtyard.
+  addSurface(shapeFrom([[12,23.6],[21,23.6],[21,20.9],[35.2,20.9],[35.2,24.5],[23,24.5],[23,27],[12,27]]), .03, concrete, 3.8, "Glazed entrance pedestrian walk", .12);
+  addSurface(shapeFrom([[25.7,21],[29.2,21],[29.2,39.2],[57.5,39.2],[57.5,43],[25.7,43]]), .03, concrete, 3.8, "Courtyard paths around lawn", .12);
+  addSurface(shapeFrom([[35.5,29.2],[60.5,29.2],[60.5,36],[35.5,36]]), .03, concrete, 3.8, "Business entry and picnic terrace", .12);
+  addSurface(shapeFrom([[27,34.2],[38,34.2],[38,37],[27,37]]), .03, concrete, 3.8, "Courtyard cross path", .12);
+  addSurface(shapeFrom([[25.7,42.8],[29.2,42.8],[29.2,46.5],[25.7,46.5]]), .03, concrete, 3.8, "Courtyard curbside approach", .12);
   addSurface(shapeFrom([[-56.5,-37],[-49.18,-37],[-49.18,-33],[-56.5,-33]]), .03, concrete, 3.8, "Left wing entrance spur", .12);
   // Across the road: sidewalk, lawn, then Health Sciences, as in photo 1.
   const oppositeWalk = new THREE.Shape(); oppositeWalk.moveTo(-80,77); oppositeWalk.lineTo(-76.3,77); oppositeWalk.lineTo(-76.3,-38);
@@ -172,10 +178,11 @@ export function addCampusSite(scene: THREE.Scene) {
   addSurface(shapeFrom([[-55,-33],[-49.4,-33],[-49.4,16],[-54,16]]),.005,mulch,3,"Long left wing planting bed");
   addSurface(shapeFrom([[-52,18],[-45,18],[-42.5,23],[-44,29],[-52,29],[-55,24]]),.005,mulch,3,"Tower-side planted island");
   addSurface(shapeFrom([[-22,19.95],[10,19.95],[10,21],[-22,21]]),.005,mulch,3,"Front window planting border");
-  addSurface(shapeFrom([[13,25.6],[35,25.6],[35,29],[13,29]]),.005,mulch,3,"East facade planting border");
+  addSurface(shapeFrom([[13,27.1],[21,27.1],[21,30],[13,30]]),.005,mulch,3,"Pavilion planting border");
+  addSurface(shapeFrom([[31,27],[34.5,27],[34.5,32.5],[31,32.5]]),.005,mulch,3,"Courtyard tree island");
   const trees: Array<[number,number,number]> = [
     [-52,-27,7.5],[-52,-11,8],[-52,6,7.5],[-48,23,8],[-18,20.7,5.7],[-5,20.7,5.5],
-    [7,20.7,5.7],[20,27,6.2],[32,27,6.5],[60,8,7.5],[56,-36,8],
+    [7,20.7,5.7],[18,29,6.2],[32.5,29.7,7.2],[48,43,7.5],[62,25,7.5],[56,-36,8],
     [-86,27,8.5],[-88,-39,8],[-123,21,7],
   ];
   const trunks = new THREE.InstancedMesh(new THREE.CylinderGeometry(.12,.21,1,7),bark,trees.length*3);
@@ -211,7 +218,7 @@ export function addCampusSite(scene: THREE.Scene) {
   const shrubPositions: Point[] = [];
   for(let z=-46;z<15;z+=2.2) if (z < -38 || z > -32) shrubPositions.push([-50.8,z]);
   for(let x=-21;x<10;x+=2.2) shrubPositions.push([x,20.7]);
-  for(let x=15;x<34;x+=2.2) shrubPositions.push([x,27.7]);
+  for(let x=14;x<22;x+=2.2) shrubPositions.push([x,28]);
   for(let i=0;i<12;i++) shrubPositions.push([-50+(i%4)*1.7,21+Math.floor(i/4)*2]);
   const shrubs=new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1,1),darkLeaf,shrubPositions.length);
   shrubPositions.forEach(([x,z],i)=>{

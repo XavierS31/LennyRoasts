@@ -25,10 +25,12 @@ export default function CameraMenu({ kind, onCamera, onSponsor }: {
       { action: "tower" as const, icon: BuildingsIcon, label: "Tower detail" },
       { action: "west" as const, icon: ArrowLeftIcon, label: "Left wing" },
       { action: "walk" as const, icon: PersonSimpleWalkIcon, label: "Entrance walk" },
+      { action: "courtyard" as const, icon: BuildingsIcon, label: "Glass courtyard" },
       { action: "health" as const, icon: BuildingOfficeIcon, label: "Health Sciences" },
       { action: "service" as const, icon: BuildingsIcon, label: "Service side" },
       { action: "alley" as const, icon: PersonSimpleWalkIcon, label: "Campus lane" },
       { action: "junction" as const, icon: BuildingOfficeIcon, label: "Rear junction" },
+      { action: "modern" as const, icon: BuildingsIcon, label: "Newer building" },
     ] : kind === "atrium" ? [
       { action: "floor" as const, icon: ChairIcon, label: "Table level" },
       { action: "stairs" as const, icon: StepsIcon, label: "Staircase" },

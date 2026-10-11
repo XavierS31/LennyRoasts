@@ -17,11 +17,27 @@ export function addReferenceWestWing(scene: THREE.Scene, materials: ExteriorMate
     group.add(mesh); selected.push(mesh); return mesh;
   };
   // Four floors, with two taller brick stories and a cream clerestory above.
-  layer([17, 3.4, 52], [-40.5, 1.7, -12], materials.stone);
-  layer([17, 9.85, 52], [-40.5, 8.325, -12], brick);
-  layer([17.16, .36, 52.16], [-40.5, 8, -12], materials.stone);
-  layer([17.18, 3.95, 52.18], [-40.5, 15.225, -12], materials.stone);
-  layer([17.45, .19, 52.45], [-40.5, 17.23, -12], roof);
+  // Photo 2: tower, recessed beige link, then a shallower projecting brick end.
+  // Stop the full-width bar behind the link; a thin overlay would leave the
+  // original masonry blocking both the setback and its ground-level entrance.
+  layer([17, 3.4, 47.8], [-40.5, 1.7, -14.1], materials.stone);
+  layer([17, 9.85, 47.8], [-40.5, 8.325, -14.1], brick);
+  layer([17.16, .36, 47.96], [-40.5, 8, -14.1], materials.stone);
+  layer([17.18, 3.95, 47.98], [-40.5, 15.225, -14.1], materials.stone);
+  layer([17.45, .19, 48.05], [-40.5, 17.23, -14.1], roof);
+  layer([4.8, 3.4, 4.6], [-46.6, 1.7, 12.05], materials.stone);
+  layer([4.8, 9.85, 4.6], [-46.6, 8.325, 12.05], brick);
+  layer([4.96, .36, 4.76], [-46.6, 8, 12.05], materials.stone);
+  layer([4.98, 3.95, 4.78], [-46.6, 15.225, 12.05], materials.stone);
+  layer([5.08, .19, 4.88], [-46.6, 17.23, 12.05], roof);
+  const link = layer([4.6, 17.65, 5.8], [-41.9, 8.825, 9.05], materials.stone);
+  link.userData.towerConnector = "west";
+  layer([1.35, 17.65, 4.3], [-40.05, 8.825, 11.6], materials.stone);
+  layer([4.85, .22, 6.05], [-41.9, 17.7, 9.05], materials.stone);
+  for (const y of [1.8, 5.9, 10.3, 14.8]) {
+    const win = framedWindow(group, 1.85, y === 1.8 ? 3.2 : 2.4, materials, y === 1.8 ? 1 : 2);
+    win.position.set(-42.35, y, 12.04);
+  }
   // A cream vertical circulation panel and lower blank brick end, with oculi.
   layer([.28, 17.2, 3.5], [-49.12, 8.6, -35.4], materials.stone);
   layer([17, 3.4, 12], [-40.5, 1.7, -44], materials.stone);
@@ -46,10 +62,10 @@ export function addReferenceWestWing(scene: THREE.Scene, materials: ExteriorMate
       win.rotation.y = Math.PI / 2; win.position.set(-31.77, y, z);
     }
   }
-  for (const x of [-46.7, -43.15]) {
+  for (const x of [-46.6]) {
     for (const y of [1.9, 5.65, 10.55, 15]) {
       const win = framedWindow(group, 1.7, y === 15 ? 1.9 : 2.65, materials);
-      win.position.set(x, y, 14.23);
+      win.position.set(x, y, 14.48);
     }
   }
   westWindow(-35.4, 1.85, 1.65, 3.6);

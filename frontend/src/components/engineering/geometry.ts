@@ -8,6 +8,7 @@ import { addReferenceWestWing } from "./westWingGeometry";
 import { addCampusSite } from "./campusSite";
 import { addHealthSciences } from "./healthSciencesGeometry";
 import { addStreetEnd } from "./streetEndGeometry";
+import { addEngineeringCourtyard } from "./courtyardGeometry";
 
 
 const gold = 0xffc904;
@@ -88,7 +89,6 @@ export function addExterior(scene: THREE.Scene) {
   const brickMaterial = new THREE.MeshStandardMaterial({ color: 0xffffff, map: brickTexture, roughness: 0.9 });
   const creamMaterial = exteriorMaterials.stone;
   const roofMaterial = new THREE.MeshStandardMaterial({ color: 0xb8b6aa, roughness: 0.88 });
-  const glassMaterial = exteriorMaterials.glass;
   const architecturalBox = (size: [number, number, number], position: [number, number, number], material: THREE.Material) => {
     const mesh = new THREE.Mesh(new THREE.BoxGeometry(...size), material);
     if (material === creamMaterial || material === brickMaterial) stoneUVs(mesh.geometry, material === brickMaterial ? 1.6 : 4);
@@ -190,8 +190,8 @@ export function addExterior(scene: THREE.Scene) {
   const footprint = new THREE.Shape();
   const footprintPoints: Array<[number, number]> = [
     [-49, -44], [-29, -44], [-29, -25], [28, -25], [28, -17],
-    [58, -17], [58, 30], [45, 30], [45, 24], [31.2, 24],
-    [31.2, 19.7], [-25, 19.7], [-25, 14], [-49, 14],
+    [58, -17], [58, 28.8], [35.5, 28.8], [35.5, 20.1], [13, 20.1],
+    [13, 19.7], [-25, 19.7], [-25, 9.5], [-44.4, 9.5], [-44.4, 14], [-49, 14],
   ];
   footprint.moveTo(footprintPoints[0][0], -footprintPoints[0][1]);
   footprintPoints.slice(1).forEach(([x, z]) => footprint.lineTo(x, -z));
@@ -215,9 +215,7 @@ export function addExterior(scene: THREE.Scene) {
   // Filled perpendicular rear volume intersects the front bar at full depth.
   mass("Engineering I", 25, 49, 16, 7, -17, angle, 4);
   mass("Engineering I", 31, 29, 14, 34, -17, angle, 3);
-  mass("Engineering I", 29, 24, 9, 28, 8, angle, 3);
-  mass("Engineering I", 24, 24, 12, 47, 8, angle, 3);
-  mass("Engineering I", 20, 17, 11, 48, 26, angle, 3);
+  selectable.push(...addEngineeringCourtyard(scene, exteriorMaterials, brickMaterial, siteMaterials));
   // Keep the connector behind the tower so its full polygonal silhouette remains visible.
   mass("Engineering I + II", 17, 10, 9, -21, 2, 0, 2);
 
@@ -230,20 +228,6 @@ export function addExterior(scene: THREE.Scene) {
   }
   for (const x of [-27.85, -27.55]) architecturalBox([.055, .65, .07], [x, 1.65, 15.28], exteriorMaterials.metal);
 
-  // Right glass wing sits above the lower brick volume, as seen in photos 1–3.
-  const curtainWall = new THREE.Mesh(new THREE.BoxGeometry(22, 7.8, .15), glassMaterial);
-  curtainWall.position.set(24, 13.2, 20.3); scene.add(curtainWall);
-  for (let x = 13; x <= 35; x += 2.75) architecturalBox([.13, 7.95, .24], [x, 13.2, 20.43], exteriorMaterials.frame);
-  for (const y of [9.3, 13.15, 17.1]) architecturalBox([22.2, .26, .24], [24, y, 20.43], exteriorMaterials.frame);
-  for (const y of [11.1, 15]) architecturalBox([22.2, .065, .22], [24, y, 20.45], exteriorMaterials.frame);
-  architecturalBox([22, 6, 1.2], [24, 6.3, 19.75], brickMaterial);
-  architecturalBox([22, 3.3, 1.2], [24, 1.65, 19.75], creamMaterial);
-  for (const x of [16, 21, 26, 31]) {
-    const win = framedWindow(scene, 1.1, 1.15, exteriorMaterials);
-    win.position.set(x, 6.4, 20.45);
-    const ground = framedWindow(scene, 2.4, 2.95, exteriorMaterials);
-    ground.position.set(x, 1.7, 20.45);
-  }
   // Narrower five-bay signed brick panel. Its two brick stories already matched.
   architecturalBox([31, 9, 1.25], [-5.5, 8.1, 19.15], brickMaterial);
   architecturalBox([31.4, .36, 1.4], [-5.5, 8.1, 19.2], creamMaterial);

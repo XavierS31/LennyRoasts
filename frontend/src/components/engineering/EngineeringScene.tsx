@@ -13,7 +13,7 @@ import { addSunsetSky } from "./sunsetSky";
 import { engineeringFrame } from "./campusFraming";
 
 export type SceneKind = "campus" | "atrium" | "awards";
-export type CameraCommand = "in" | "out" | "reset" | "iso" | "top" | "front" | "enter" | "floor" | "stairs" | "ceiling" | "entrance" | "focus" | "tower" | "west" | "walk" | "stage" | "sponsor" | "health" | "service" | "alley" | "junction";
+export type CameraCommand = "in" | "out" | "reset" | "iso" | "top" | "front" | "enter" | "floor" | "stairs" | "ceiling" | "entrance" | "focus" | "tower" | "west" | "walk" | "stage" | "sponsor" | "health" | "service" | "alley" | "junction" | "courtyard" | "modern";
 export type SceneController = { command: (action: CameraCommand, building?: string) => Promise<void> };
 
 function disposeObjects(root: THREE.Object3D) {
@@ -316,6 +316,8 @@ export default function EngineeringScene({
       if (action === "service" && kind === "campus") return travel(new THREE.Vector3(-66, 12, -30), new THREE.Vector3(-104, 5, -12));
       if (action === "alley" && kind === "campus") return travel(new THREE.Vector3(-68, 5.2, 47), new THREE.Vector3(-68, 9, -105));
       if (action === "junction" && kind === "campus") return travel(new THREE.Vector3(-68, 6.5, -48), new THREE.Vector3(-68, 9.5, -105));
+      if (action === "modern" && kind === "campus") return travel(new THREE.Vector3(-119, 20, -59), new THREE.Vector3(-68, 10.5, -102));
+      if (action === "courtyard" && kind === "campus") return travel(new THREE.Vector3(6, 13, 64), new THREE.Vector3(31, 8, 22));
       if (action === "west" && kind === "campus") return travel(new THREE.Vector3(-86, 18, 31), new THREE.Vector3(-43, 9, -12));
       if (action === "walk" && kind === "campus") return travel(new THREE.Vector3(-46, 7, 55), new THREE.Vector3(-28, 5, 17));
       if (action === "front") return travel(kind === "campus" ? new THREE.Vector3(-50, 17, 105) : new THREE.Vector3(0, 16, 58), kind === "campus" ? new THREE.Vector3(-5, 8, -7) : new THREE.Vector3(2, 8, -5));
