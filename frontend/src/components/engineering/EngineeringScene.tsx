@@ -7,7 +7,7 @@ import { addAtrium, addExterior } from "./geometry";
 import { atriumViews, projectStation } from "./atriumLayout";
 import { ballroomViews } from "./ballroomLayout";
 import { addDetailedBallroom } from "./ballroomGeometry";
-import { addLennySprites } from "./lennySprites";
+import { addLennyCharacters } from "./lennyCharacters";
 import { sponsorView } from "./lennyLayout";
 
 export type SceneKind = "campus" | "atrium" | "awards";
@@ -145,7 +145,7 @@ export default function EngineeringScene({
     const clickable = kind === "campus" ? addExterior(scene) : [];
     if (kind === "atrium") addAtrium(scene);
     if (kind === "awards") addDetailedBallroom(scene);
-    const lennys = kind === "campus" ? undefined : addLennySprites(scene, kind);
+    const lennys = kind === "campus" ? undefined : addLennyCharacters(scene, kind);
     let environment: THREE.WebGLRenderTarget | undefined;
     if (kind !== "campus") {
       const room = new RoomEnvironment();
@@ -357,7 +357,6 @@ export default function EngineeringScene({
         }
       }
       controls.update();
-      lennys?.faceCamera(camera);
       // Outside views peel away only the facing boundary, leaving the hall readable.
       for (const object of cutaways) {
         const { axis, value, outward } = object.userData.cutaway as { axis: "x" | "y" | "z"; value: number; outward: number };
