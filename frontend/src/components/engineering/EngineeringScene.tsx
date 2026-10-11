@@ -9,6 +9,7 @@ import { ballroomViews } from "./ballroomLayout";
 import { addDetailedBallroom } from "./ballroomGeometry";
 import { addLennyCharacters } from "./lennyCharacters";
 import { sponsorView } from "./lennyLayout";
+import { addSunsetSky } from "./sunsetSky";
 
 export type SceneKind = "campus" | "atrium" | "awards";
 export type CameraCommand = "in" | "out" | "reset" | "iso" | "top" | "front" | "enter" | "floor" | "stairs" | "ceiling" | "entrance" | "focus" | "tower" | "west" | "walk" | "stage" | "sponsor" | "health" | "service";
@@ -46,13 +47,13 @@ function scoreLabel(name: string, score: number) {
   context.strokeStyle = "rgba(255,255,255,.4)";
   context.strokeRect(1, 1, 510, 126);
   context.fillStyle = "#ffffff";
-  context.font = "28px Bagnard, Georgia, serif";
+  context.font = '500 28px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
   context.textAlign = "center";
   // Plain text only: user/model strings never become markup or executable code.
   const shortName = Array.from(name).slice(0, 24).join("");
   context.fillText(shortName, 256, 48, 480);
   context.fillStyle = "#ffe18b";
-  context.font = "36px Bagnard, Georgia, serif";
+  context.font = '600 36px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
   context.fillText(`${score.toFixed(1)} / 10`, 256, 100);
   const texture = new THREE.CanvasTexture(canvas);
   texture.colorSpace = THREE.SRGBColorSpace;
@@ -93,10 +94,13 @@ export default function EngineeringScene({
     setError(undefined);
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(kind === "campus" ? 0xabc5d8 : kind === "atrium" ? 0xc9dce0 : 0xd3c5aa);
-    scene.fog = new THREE.Fog(scene.background, kind === "campus" ? 155 : 110, kind === "campus" ? 250 : 190);
+    scene.fog = new THREE.Fog(scene.background, 110, 190);
+    const sky = kind === "campus" ? addSunsetSky(scene) : undefined;
+    if (kind === "campus") {
+      scene.background = null;
+      scene.fog = new THREE.Fog(0xffd4a4, 155, 250);
+    }
     const camera = new THREE.PerspectiveCamera(kind === "campus" ? 48 : 64, 1, 0.1, 400);
-    // Street between the two campuses: Health Sciences is on the left beneath
-    // the dashboard; Engineering occupies the exposed right side of the frame.
     const start = kind === "campus" ? new THREE.Vector3(-89, 28, 106)
       : kind === "atrium" ? new THREE.Vector3(...atriumViews.overview.position) : new THREE.Vector3(...ballroomViews.overview.position);
     const startTarget = kind === "atrium" ? new THREE.Vector3(...atriumViews.overview.target)
@@ -116,7 +120,7 @@ export default function EngineeringScene({
     controls.maxPolarAngle = kind === "campus" ? Math.PI / 2.05 : Math.PI * .72;
     controls.screenSpacePanning = true;
     scene.add(new THREE.HemisphereLight(kind === "awards" ? 0xfff5e1 : 0xe6f3ff, kind === "awards" ? 0x514332 : 0x202018, kind === "campus" ? 2 : kind === "awards" ? 1.2 : 1.7));
-    const sun = new THREE.DirectionalLight(0xfff1d2, kind === "campus" ? 3 : 2.4);
+    const sun = new THREE.DirectionalLight(kind === "campus" ? 0xffdfb0 : 0xfff1d2, kind === "campus" ? 3 : 2.4);
     sun.position.set(34, 60, 20);
     sun.castShadow = true;
     sun.shadow.mapSize.set(2048, 2048);
@@ -343,6 +347,7 @@ export default function EngineeringScene({
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
       renderer.setSize(width, height);
+      sky?.resize(width, height);
     };
     const observer = new ResizeObserver(resize);
     observer.observe(host);
@@ -401,7 +406,7 @@ export default function EngineeringScene({
     updateData.current?.(result, projectName, selectedMarker);
     let cancelled = false;
     // Canvas textures need redrawing if the local font finishes loading later.
-    void document.fonts.load("28px Bagnard").then(() => {
+    void document.fonts.load("500 28px Inter").then(() => {
       if (!cancelled) updateData.current?.(result, projectName, selectedMarker);
     });
     return () => { cancelled = true; };

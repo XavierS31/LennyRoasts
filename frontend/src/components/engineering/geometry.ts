@@ -170,7 +170,7 @@ export function addExterior(scene: THREE.Scene) {
     context.strokeStyle = "#6f3b00";
     context.lineWidth = 3;
     context.fillStyle = "#c88708";
-    context.font = "bold 46px Georgia, serif";
+    context.font = '700 46px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
     context.textAlign = "center";
     context.strokeText(text, 256, 63);
     context.fillText(text, 256, 60);

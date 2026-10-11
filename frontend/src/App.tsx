@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect, useRef, useState, type FormEvent } from "react";
+import { NotebookIcon, ChartBarIcon, CheckIcon, PlusIcon } from "@phosphor-icons/react";
 import sampleIdea from "../demo/campus-queue.txt?raw";
 import SceneBoundary from "./components/engineering/SceneBoundary";
 import { sceneLocation, scenePath, type LocationState } from "./components/engineering/navigation";
@@ -751,40 +752,34 @@ export default function App() {
         <EngineeringExplorer job={job} challenges={config?.challenges ?? []}
           projectName={submittedSubmission?.name ?? "Your idea"}
           category={sceneCategory} onCategory={setSceneCategory} panelsVisible={panelsVisible} isStale={reportIsStale}
-          location={location} controller={sceneController} entering={entering}
-          onBuilding={(building) => setLocation((current) => ({ ...current, building }))}
-          onEnter={() => void enterBuilding()} />
+          location={location} controller={sceneController}
+          onBuilding={(building) => setLocation((current) => ({ ...current, building }))} />
       </Suspense></SceneBoundary>
       <header className="masthead">
         <a href="/" className="wordmark" aria-label="LennyRoasts home" onClick={(event) => { event.preventDefault(); navigate("campus"); }}>
-          <img src="/assets/engineering/lenny-roasts-logo-transparent.png" alt="Lenny Roasts" />
+          <span className="wordmark-crop"><img src="/assets/engineering/lenny-roasts-logo-transparent.png" alt="Lenny Roasts" /></span>
         </a>
         <nav className="scene-tabs" aria-label="Explore UCF rooms and buildings">
-          <button type="button" aria-pressed={location.kind === "campus"} onClick={() => navigate("campus")}>Exterior</button>
-          <button type="button" aria-pressed={location.kind === "atrium"} onClick={() => navigate("atrium", "Engineering II")}>Atrium</button>
-          <button type="button" aria-pressed={location.kind === "awards"} onClick={() => navigate("awards")}>Awards</button>
+          <button type="button" aria-label="Exterior" aria-pressed={location.kind === "campus"} onClick={() => navigate("campus")}>Exterior</button>
+          <button type="button" aria-label="Atrium" aria-pressed={location.kind === "atrium"} onClick={() => navigate("atrium", "Engineering II")}>Atrium</button>
+          <button type="button" aria-label="Awards" aria-pressed={location.kind === "awards"} onClick={() => navigate("awards")}>Awards</button>
         </nav>
-        {location.kind === "atrium" && <button type="button" className="secondary-button panel-toggle" aria-expanded={panelsVisible} aria-controls="glass-content" onClick={() => setPanelsVisible((value) => !value)}>{panelsVisible ? "Close report" : "Judging report"}</button>}
+        {location.kind !== "awards" && <button type="button" className="secondary-button panel-toggle" aria-label={location.kind === "atrium" ? "Judging report" : "Idea panel"} title={location.kind === "atrium" ? "Judging report" : "Idea panel"} aria-expanded={panelsVisible} aria-controls="glass-content" onClick={() => setPanelsVisible((value) => !value)}>{location.kind === "atrium" ? <ChartBarIcon size={23} weight="light" aria-hidden="true" /> : <NotebookIcon size={23} weight="light" aria-hidden="true" />}</button>}
       </header>
-      {location.kind === "campus" && <button type="button" className="secondary-button panel-toggle campus-panel-toggle" aria-expanded={panelsVisible} aria-controls="glass-content" onClick={() => setPanelsVisible((value) => !value)}>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/>{!panelsVisible && <path d="m3 3 18 18"/>}</svg>
-        {panelsVisible ? "Hide dashboard" : "Show dashboard"}
-      </button>}
 
       <div className="glass-content" id="glass-content" hidden={!panelsVisible}>
       <section className="intro" aria-labelledby="page-title" hidden={location.kind !== "campus"}>
         <h1 id="page-title">Let Lenny roast your hackathon project.</h1>
         <p className="lede">
-          Submit your idea here. Enter Engineering II to explore your competition and judging results.
+          Test your idea. Explore the practice field in the Atrium.
         </p>
       </section>
 
       <details className={`mode-banner mode-${mode}`} hidden={location.kind === "awards"} open={mode === "unavailable" || Boolean(configError) ? true : undefined}>
-        <summary>{modeLabel(mode)} · service details</summary>
+        <summary>{modeLabel(mode)}</summary>
         <div className="mode-copy">
           <span className="mode-indicator" aria-hidden="true" />
           <div>
-            <h2 id="mode-heading">{modeLabel(mode)}</h2>
             {mode === "mock" && (
               <p>
                 This API version uses deterministic development mock rules. Scores and placements are not live judge results or verified software outcomes.
@@ -884,16 +879,15 @@ export default function App() {
         <section className="form-panel" aria-labelledby="form-heading" hidden={location.kind !== "campus"}>
           <div className="section-heading">
             <div>
-              <p className="section-kicker">THE STARTING POINT</p>
               <h2 id="form-heading">Your idea</h2>
             </div>
             <button type="button" className="text-button" onClick={loadSample} disabled={Boolean(activeJobId) || isSubmitting || isImporting}>
-              Load sample
+              Try a sample
             </button>
           </div>
 
           <p className="form-intro">
-            Tell us what you want to build, who it helps, and how it would work. Include tools you’re considering and what you’d show in a first demo. It’s okay if nothing is built yet.
+            What would it do, who would it help, and what would your first demo show?
           </p>
 
           <form onSubmit={submit} noValidate aria-describedby="privacy-copy">
@@ -940,7 +934,7 @@ export default function App() {
                   aria-describedby={`hint-idea${errors.idea ? " error-idea" : ""}`}
                 />
                 <div className="field-meta">
-                  <small id="hint-idea">Rough notes, a paragraph, or a pasted pitch — any format works.</small>
+                  <small id="hint-idea">Rough notes are welcome.</small>
                   <span>{Array.from(idea).length.toLocaleString()} / {MAX_IDEA_LENGTH.toLocaleString()}</span>
                 </div>
                 {errors.idea && <p className="field-error" id="error-idea">{errors.idea}</p>}
@@ -949,12 +943,11 @@ export default function App() {
               <details
                 id="sponsor-challenges"
                 className="challenge-picker"
-                open
                 aria-labelledby="sponsor-heading"
                 aria-describedby={errors.challenges ? "error-challenges" : undefined}
               >
-                <summary id="sponsor-heading">Check sponsor fit <span className="required-label">Optional{selectedChallenges.length ? ` · ${selectedChallenges.length} selected` : ""}</span></summary>
-                <p className="muted-copy">Choose the sponsor tools or tracks your idea would use.</p>
+                <summary id="sponsor-heading">Sponsor tracks <span className="required-label">Optional{selectedChallenges.length ? ` · ${selectedChallenges.length} selected` : ""}</span></summary>
+                <p className="muted-copy">Choose the tools your idea would use.</p>
                 {errors.challenges && <p className="field-error" id="error-challenges">{errors.challenges}</p>}
                 {!configLoading && sponsorChallenges.length === 0 && (
                   <p className="muted-copy">No sponsor opt-ins are currently listed by the API.</p>
@@ -979,11 +972,11 @@ export default function App() {
                             }}
                             aria-describedby={`track-description-${challenge.id}`}
                           />
-                          <span className="track-checkmark" aria-hidden="true">{checked ? "Selected" : "Select"}</span>
+                          <span className="track-checkmark" aria-hidden="true">{checked ? <CheckIcon size={18} weight="light" /> : <PlusIcon size={18} weight="light" />}</span>
                           <span className="track-name">{challenge.name}</span>
                         </label>
                         <details className="challenge-description">
-                          <summary>Challenge description</summary>
+                          <summary>Details</summary>
                           <p id={`track-description-${challenge.id}`}>{challenge.description}</p>
                         </details>
                       </div>
@@ -1003,7 +996,7 @@ export default function App() {
                 disabled={!canSubmit}
                 aria-describedby="submit-help"
               >
-                <span>{isSubmitting ? "Submitting once…" : activeJobId ? "Evaluation already active" : "Evaluate my idea"}</span>
+                <span>{isSubmitting ? "Submitting…" : activeJobId ? "Evaluation active" : "Evaluate idea"}</span>
                 <span aria-hidden="true">↗</span>
               </button>
               <p id="submit-help" className="submit-help">
@@ -1094,7 +1087,7 @@ export default function App() {
 
       <footer className="page-footer" hidden={location.kind === "awards"}>
         <span>Lenny acts as your hackathon judges for Knight Hacks IX.</span>
-        <span>Text-only practice · simulated field · not a real-winner prediction</span>
+        <span>TEXT-ONLY PRACTICE · SIMULATED FIELD · NOT A REAL-WINNER PREDICTION</span>
       </footer>
       </div>
     </main>
