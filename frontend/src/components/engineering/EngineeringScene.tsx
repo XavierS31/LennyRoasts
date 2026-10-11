@@ -5,6 +5,7 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
 import type { ChallengeResult } from "../../api/client";
 import { addAtrium, addExterior } from "./geometry";
 import { atriumViews, projectStation } from "./atriumLayout";
+import { createAgentField, type AgentEntry } from "./agentMeshes";
 import { ballroomViews } from "./ballroomLayout";
 import { addDetailedBallroom } from "./ballroomGeometry";
 import { addLennyCharacters } from "./lennyCharacters";
@@ -67,13 +68,14 @@ function scoreLabel(name: string, score: number) {
 
 export default function EngineeringScene({
   kind, result, projectName, selectedMarker, panelsVisible, onSelectBuilding, onHoverBuilding,
-  onSelectMarker, controller, sponsor, onSponsor, onReturnAtrium, onPitch,
+  onSelectMarker, controller, sponsor, onSponsor, onReturnAtrium, onPitch, agents,
 }: {
   kind: SceneKind;
   panelsVisible: boolean;
   result?: ChallengeResult;
   projectName: string;
   selectedMarker: string;
+  agents: AgentEntry[];
   onSelectBuilding: (building: string) => void;
   onHoverBuilding: (building: string) => void;
   onSelectMarker: (marker: string) => void;
@@ -87,7 +89,7 @@ export default function EngineeringScene({
   const [error, setError] = useState<string>();
   const callbacks = useRef({ onSelectBuilding, onHoverBuilding, onSelectMarker, onSponsor, onReturnAtrium, onPitch });
   const pinElements = useRef(new Map<string, HTMLButtonElement>());
-  const updateData = useRef<((result?: ChallengeResult, name?: string, selected?: string) => void) | null>(null);
+  const updateData = useRef<((result?: ChallengeResult, name?: string, selected?: string, agents?: AgentEntry[]) => void) | null>(null);
   const panelState = useRef(panelsVisible);
   const updateLayout = useRef<(() => void) | null>(null);
   useEffect(() => { callbacks.current = { onSelectBuilding, onHoverBuilding, onSelectMarker, onSponsor, onReturnAtrium, onPitch }; });
@@ -191,19 +193,25 @@ export default function EngineeringScene({
     scene.add(markerGroup);
     const markerTargets: THREE.Object3D[] = [];
     const markerPositions = new Map<string, THREE.Vector3>();
+    let agentField: ReturnType<typeof createAgentField> | undefined;
+    let currentAgents: AgentEntry[] | undefined;
 
-    updateData.current = (nextResult, name = "Your idea", selected = "user") => {
+    updateData.current = (nextResult, name = "Your idea", selected = "user", nextAgents = []) => {
       disposeObjects(markerGroup);
       markerGroup.clear();
       markerTargets.length = 0;
       markerPositions.clear();
-      scene.traverse((object) => {
-        if (object instanceof THREE.InstancedMesh && object.userData.fieldPopulation) {
-          // Anonymous visual representatives only; identities are not supplied by the API.
-          object.count = Math.min(200, nextResult?.placement?.eligible_competitors ?? 0);
-          object.computeBoundingSphere();
+      if (kind === "atrium") {
+        if (nextAgents !== currentAgents) {
+          if (agentField) { scene.remove(agentField.group); disposeObjects(agentField.group); }
+          agentField = createAgentField(nextAgents);
+          scene.add(agentField.group);
+          currentAgents = nextAgents;
         }
-      });
+        agentField?.select(selected);
+        markerTargets.push(...agentField?.targets ?? []);
+        agentField?.positions.forEach((position, key) => markerPositions.set(key, position));
+      }
       if (kind !== "atrium" || !nextResult) return;
       const entries = [
         { key: "user", name, score: nextResult.score_10, eligible: nextResult.eligible },
@@ -362,7 +370,11 @@ export default function EngineeringScene({
       const rect = renderer.domElement.getBoundingClientRect();
       pointer.set(((event.clientX - rect.left) / rect.width) * 2 - 1, -((event.clientY - rect.top) / rect.height) * 2 + 1);
       raycaster.setFromCamera(pointer, camera);
-      return raycaster.intersectObjects([...markerTargets, ...clickable], false)[0]?.object;
+      const intersection = raycaster.intersectObjects([...markerTargets, ...clickable], false)[0];
+      if (!intersection) return undefined;
+      const object = intersection.object;
+      const marker = intersection.instanceId === undefined ? object.userData.marker : object.userData.agentKeys?.[intersection.instanceId];
+      return { object, marker };
     };
     const press = (event: PointerEvent) => { down = { x: event.clientX, y: event.clientY }; };
     const click = (event: PointerEvent) => {
@@ -370,17 +382,17 @@ export default function EngineeringScene({
       if (!origin || Math.hypot(event.clientX - origin.x, event.clientY - origin.y) > 5) return;
       const hit = hitAt(event);
       if (!hit) return;
-      if (hit.userData.sponsor) { callbacks.current.onSponsor(hit.userData.sponsor); return; }
-      if (hit.userData.action === "atrium") { callbacks.current.onReturnAtrium(); return; }
-      if (hit.userData.action === "pitch") { callbacks.current.onPitch(); return; }
-      if (hit.userData.marker) {
-        callbacks.current.onSelectMarker(hit.userData.marker);
-        void controller.current?.command("focus", hit.userData.marker);
+      if (hit.object.userData.sponsor) { callbacks.current.onSponsor(hit.object.userData.sponsor); return; }
+      if (hit.object.userData.action === "atrium") { callbacks.current.onReturnAtrium(); return; }
+      if (hit.object.userData.action === "pitch") { callbacks.current.onPitch(); return; }
+      if (hit.marker) {
+        callbacks.current.onSelectMarker(hit.marker);
+        void controller.current?.command("focus", hit.marker);
         return;
       }
-      callbacks.current.onSelectBuilding(hit.userData.building || hit.name);
+      callbacks.current.onSelectBuilding(hit.object.userData.building || hit.object.name);
       // The Make source used mesh-local coordinates, which misfocused grouped wings.
-      const center = new THREE.Box3().setFromObject(hit).getCenter(new THREE.Vector3()).setY(7);
+      const center = new THREE.Box3().setFromObject(hit.object).getCenter(new THREE.Vector3()).setY(7);
       void travel(center.clone().add(new THREE.Vector3(28, 20, 32)), center);
     };
     const clearHover = () => {
@@ -391,7 +403,7 @@ export default function EngineeringScene({
     };
     const move = (event: PointerEvent) => {
       const hit = hitAt(event);
-      const next = hit instanceof THREE.Mesh && !hit.userData.marker && !hit.userData.sponsor && !hit.userData.action ? hit : null;
+      const next = hit?.object instanceof THREE.Mesh && !hit.marker && !hit.object.userData.sponsor && !hit.object.userData.action ? hit.object : null;
       if (next !== hovered) {
         clearHover();
         if (next) {
@@ -444,6 +456,7 @@ export default function EngineeringScene({
         }
       }
       controls.update();
+      agentField?.animate(performance.now() / 1000, motion.matches);
       // Outside views peel away only the facing boundary, leaving the hall readable.
       for (const object of cutaways) {
         const { axis, value, outward } = object.userData.cutaway as { axis: "x" | "y" | "z"; value: number; outward: number };
@@ -494,14 +507,14 @@ export default function EngineeringScene({
   }, [kind, sponsor, controller]);
 
   useEffect(() => {
-    updateData.current?.(result, projectName, selectedMarker);
+    updateData.current?.(result, projectName, selectedMarker, agents);
     let cancelled = false;
     // Canvas textures need redrawing if the local font finishes loading later.
     void document.fonts.load("500 28px Inter").then(() => {
-      if (!cancelled) updateData.current?.(result, projectName, selectedMarker);
+      if (!cancelled) updateData.current?.(result, projectName, selectedMarker, agents);
     });
     return () => { cancelled = true; };
-  }, [kind, sponsor, result, projectName, selectedMarker]);
+  }, [kind, sponsor, result, projectName, selectedMarker, agents]);
 
   return <div className="engineering-scene" ref={mount} aria-label={`${kind === "campus" ? "UCF Engineering I and II exterior" : kind === "atrium" ? "Engineering atrium with four colored sponsor classroom pins" : kind === "classroom" ? `${sponsorRoom(sponsor).name} classroom with Lenny, desks, projector and an exit door` : "UCF Student Union Cape Ballroom, third floor, with Lenny presenting a trophy on the award stage"} 3D scene`}>
     {kind === "atrium" && <div className="sponsor-pins" role="group" aria-label="Sponsor classroom entrances">

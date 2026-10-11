@@ -262,6 +262,24 @@ select option { background: #fff; color: var(--ink); }
 .camera-menu button { transition: background-color 120ms ease-out, scale 120ms ease-out; }
 .camera-menu button:active { scale: .96; }
 .camera-menu-toggle[aria-expanded=true] { background: rgba(255,255,255,.96); }
+.agent-inspector { position: fixed; top: 170px; right: 20px; z-index: 4; width: min(350px, calc(100vw - 40px)); padding: 12px; max-height: calc(100dvh - 200px); overflow-y: auto; border-radius: 14px; background: rgba(250, 249, 244, .96); }
+.agent-inspector-toggle { width: 100%; text-align: left; }
+.agent-inspector p { font-size: 14px; line-height: 1.6; }
+.agent-inspector h2 { font-size: 22px; margin: 24px 0 12px; }
+.agent-source, .agent-inspector small { color: var(--muted); }
+.agent-preview-toggle { display: flex; align-items: center; gap: 8px; margin: 16px 0; font-size: 13px; }
+.agent-preview-toggle input { width: 18px; height: 18px; accent-color: var(--focus); }
+.agent-inspector select { width: 100%; min-height: 42px; margin: 8px 0; }
+.agent-input-navigation { display: flex; gap: 8px; }
+.agent-input-navigation button { flex: 1; }
+.agent-input-text { white-space: pre-wrap; overflow-wrap: anywhere; }
+.agent-inspector :focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+.agent-inspector ::selection { background: #ffd46a; color: #1b2028; }
+.scene-atrium.with-panels .agent-inspector, .scene-atrium:has(#atrium-reference-map:not([hidden])) .agent-inspector { display: none; }
+@media (max-width: 900px) {
+  .agent-inspector { top: 196px; right: 12px; width: min(330px, calc(100vw - 24px)); max-height: calc(100dvh - 330px); }
+  .scene-atrium.with-panels .agent-inspector { display: none; }
+}
 @supports not (backdrop-filter: blur(1px)) {
   :root { --glass-fill: rgba(255,255,255,.96); --glass-shine: transparent; }
 }
