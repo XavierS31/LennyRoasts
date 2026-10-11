@@ -37,7 +37,7 @@ export default function CameraMenu({ kind, onCamera, onSponsor }: {
       { action: "ceiling" as const, icon: SunIcon, label: "Skylights" },
       { action: "entrance" as const, icon: DoorOpenIcon, label: "Glass entrance" },
       ...sponsorRooms.map((sponsor, index) => ({ action: "sponsor" as const,
-        icon: [RobotIcon, MicrophoneIcon, StackIcon, BankIcon][index], label: `Enter ${sponsor.name} classroom`, sponsor: sponsor.id })),
+        icon: [RobotIcon, MicrophoneIcon, StackIcon, BankIcon, TrophyIcon][index], label: `Enter ${sponsor.name} classroom`, sponsor: sponsor.id })),
     ] : kind === "classroom" ? [
       { action: "floor" as const, icon: PersonSimpleWalkIcon, label: "Pitch area" },
       { action: "front" as const, icon: RobotIcon, label: "Meet Lenny" },

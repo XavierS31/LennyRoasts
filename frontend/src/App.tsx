@@ -7,6 +7,7 @@ import { sponsorRoom, type SponsorRoomId } from "./components/engineering/classr
 import type { SceneController } from "./components/engineering/EngineeringScene";
 import { ideaError, ideaSubmission, MAX_IDEA_LENGTH } from "./ideaSubmission";
 import IdeaFileImport from "./components/IdeaFileImport";
+import AtriumDashboard from "./components/AtriumDashboard";
 import {
   ApiRequestError,
   getChallenges,
@@ -401,6 +402,7 @@ export default function App() {
   const sceneController = useRef<SceneController | null>(null);
   const sceneTransition = useRef(0);
   const [sceneCategory, setSceneCategory] = useState("");
+  const [ceremonyRun, setCeremonyRun] = useState(0);
   const [idea, setIdea] = useState("");
   const [ideaInputMode, setIdeaInputMode] = useState<IdeaInputMode>("describe");
   const [isImporting, setIsImporting] = useState(false);
@@ -453,7 +455,7 @@ export default function App() {
   function pitchInClassroom() {
     const id = sponsorRoom(location.sponsor).id;
     // Opt in only when the student chooses to pitch, and preserve other choices.
-    if (!activeJobId && !isSubmitting) setSelectedChallenges((current) => current.includes(id) ? current : [...current, id]);
+    if (id !== "overall" && !activeJobId && !isSubmitting) setSelectedChallenges((current) => current.includes(id) ? current : [...current, id]);
     setIdeaInputMode("describe");
     setPanelsVisible(true);
     window.requestAnimationFrame(() => ideaInput.current?.focus());
@@ -615,6 +617,12 @@ export default function App() {
   }, [job?.evaluation_id, job?.status, activeJobId, pollNotice]);
 
   useEffect(() => {
+    if (job?.status === "completed" && job.result) {
+      navigate("atrium"); setPanelsVisible(true);
+    }
+  }, [job?.evaluation_id, job?.status]);
+
+  useEffect(() => {
     if (notice) {
       if (location.kind !== "classroom") navigate("campus");
       setPanelsVisible(true);
@@ -631,7 +639,7 @@ export default function App() {
 
   function loadSample() {
     setIdea(sampleIdea.trim());
-    setSelectedChallenges(location.kind === "classroom" && location.sponsor !== "gemini" ? ["gemini", sponsorRoom(location.sponsor).id] : ["gemini"]);
+    setSelectedChallenges(location.kind === "classroom" && location.sponsor && location.sponsor !== "gemini" && location.sponsor !== "overall" ? ["gemini", location.sponsor] : ["gemini"]);
     setJob(null);
     setSubmittedSubmission(null);
     setErrors({});
@@ -753,6 +761,9 @@ export default function App() {
     submittedSubmission !== null &&
     JSON.stringify(currentSubmission) !== JSON.stringify(submittedSubmission);
 
+  const reportResults = job?.status === "completed" ? job.result?.challenge_results ?? [] : [];
+  const dashboardResult = reportResults.find((entry) => entry.challenge_id === sceneCategory) ?? reportResults.find((entry) => entry.challenge_id === "overall") ?? reportResults[0];
+
   let evaluationStatus = "Ready for a submission";
   if (configLoading && !config) evaluationStatus = "Loading challenge readiness";
   else if (isSubmitting) evaluationStatus = "Submitting once to the evaluation API";
@@ -764,7 +775,7 @@ export default function App() {
   else if (!config?.field_ready) evaluationStatus = "Evaluation unavailable until the field is ready";
 
   return (
-    <main className={`app-shell engineering-app view-${location.kind}`}>
+    <main className={`app-shell engineering-app view-${location.kind} ${dashboardResult ? "has-completed-report" : ""}`}>
       <SceneBoundary><Suspense fallback={<p className="scene-fallback glass-panel" role="status">Loading {location.kind === "awards" ? "Cape Ballroom" : "Engineering campus"}…</p>}>
         <EngineeringExplorer job={job} challenges={config?.challenges ?? []}
           projectName={submittedSubmission?.name ?? "Your idea"}
@@ -772,7 +783,7 @@ export default function App() {
           location={location} controller={sceneController}
           onSponsor={openClassroom} onReturnAtrium={() => navigate("atrium")}
           onPitch={pitchInClassroom}
-          onViewReport={() => { navigate("atrium"); setPanelsVisible(true); }}
+          onViewReport={() => { navigate("atrium"); setPanelsVisible(true); }} ceremonyRun={ceremonyRun}
           onBuilding={(building) => setLocation((current) => ({ ...current, building }))} />
       </Suspense></SceneBoundary>
       <header className="masthead">
@@ -788,7 +799,7 @@ export default function App() {
       </header>
 
       <div className="glass-content" id="glass-content" hidden={!panelsVisible}>
-      <section className="intro" aria-label={location.kind === "campus" ? "Project introduction and service status" : "Service status"} hidden={location.kind === "awards"}>
+      <section className="intro" aria-label={location.kind === "campus" ? "Project introduction and service status" : "Service status"} hidden={location.kind === "awards" || (location.kind === "atrium" && Boolean(dashboardResult))}>
         <h1 id="page-title" hidden={location.kind !== "campus"}><span className="welcome-prefix">Welcome to</span><img className="hackathon-logo" src="/assets/engineering/knight-hacks-logo-inline-black.png" alt="Knight Hacks" /></h1>
 
       <div className="service-status-row">
@@ -838,7 +849,7 @@ export default function App() {
       </section>
 
       <div className="workspace">
-        {(job || activeJobId || pollNotice) && location.kind !== "awards" && <section className="submission-status glass-panel" aria-label="Submission status">
+        {(job || activeJobId || pollNotice) && location.kind !== "awards" && !(location.kind === "atrium" && dashboardResult) && <section className="submission-status glass-panel" aria-label="Submission status">
           <p className="evaluation-status" role="status" aria-live="polite">
             {isPolling && <span className="working-indicator" aria-hidden="true" />}
             {evaluationStatus}
@@ -895,7 +906,7 @@ export default function App() {
             </button>
           </div>
 
-          {location.kind === "classroom" && <p className="classroom-track-note">{selectedChallenges.includes(sponsorRoom(location.sponsor).id) ? `The ${sponsorRoom(location.sponsor).name} track is included in your sponsor choices.` : `Add the ${sponsorRoom(location.sponsor).name} track below to include this sponsor.`} Describe your product below.</p>}
+          {location.kind === "classroom" && <p className="classroom-track-note">{location.sponsor === "overall" ? "Overall judging is included automatically." : location.sponsor && selectedChallenges.includes(location.sponsor) ? `The ${sponsorRoom(location.sponsor).name} track is included in your sponsor choices.` : `Add the ${sponsorRoom(location.sponsor).name} track below to include this sponsor.`} Describe your product below.</p>}
 
           <form onSubmit={submit} noValidate>
             {notice && (
@@ -1023,55 +1034,32 @@ export default function App() {
         </section>
 
         <section className="report-panel" aria-labelledby="report-heading" hidden={location.kind !== "atrium"}>
-          <div className="section-heading report-heading-row">
+          {!dashboardResult && <div className="section-heading report-heading-row">
             <div>
-              <p className="section-kicker">EVALUATION REPORT</p>
-              <h2 id="report-heading" ref={reportHeading} tabIndex={-1}>Your place in the atrium</h2>
+              <h2 id="report-heading" ref={reportHeading} tabIndex={-1}>Your judging report</h2>
             </div>
             <span className={`status-chip status-${job ? job.status : mode}`}>
               {job?.status ?? modeLabel(mode)}
             </span>
-          </div>
+          </div>}
 
-          {job?.status === "completed" && job.result && (
+          {job?.status === "completed" && dashboardResult && (
             <div className="report-results">
-              <div className={`result-mode mode-${jobMode(job, config)}`}>
-                <strong>{modeLabel(jobMode(job, config))}</strong>
-                {jobMode(job, config) === "mock" && (
-                  <p>These are input-dependent mock scores against synthetic competitors. They are not Qwen judgments or live results.</p>
-                )}
-                {jobMode(job, config) === "live" && (
-                  <p>Practice ranks use the simulated field captured by this job. They are not win probability or a forecast of real event results.</p>
-                )}
-                {jobMode(job, config) === "fixture" && (
-                  <p>This response is a synthetic fixture. It is not a user's scored report.</p>
-                )}
-                <p className="version-line">
-                  Judge <code>{job.judge_version}</code> <span aria-hidden="true">·</span> Field <code>{job.pool_version}</code>
-                </p>
-              </div>
-
-              {reportIsStale && (
-                <p className="stale-report-note" role="status">
-                  The form has changed. This report belongs to the last submitted version of the idea description.
-                </p>
-              )}
-
-              <p className="report-explanation">
-                Scores and ranks below are returned by the API. Placement ranges include run-to-run variation and ties within the simulated field; they are not win probabilities or statistical confidence intervals. Feedback is based on your description. Functionality reflects described implementation; planned features are not treated as proof of a working build.
-              </p>
-
-              <div className="report-cards">
-                {job.result.challenge_results.map((result) => (
-                  <ReportCard
-                    key={result.challenge_id}
-                    result={result}
-                    challenge={config?.challenges.find((challenge) => challenge.id === result.challenge_id)}
-                    selected={sceneCategory === result.challenge_id || (!sceneCategory && result.challenge_id === "overall")}
-                    onShowInScene={() => { setSceneCategory(result.challenge_id); setPanelsVisible(false); }}
-                  />
-                ))}
-              </div>
+              <AtriumDashboard headingRef={reportHeading} notice={<>
+                <details className="dashboard-mode-note"><summary>{jobMode(job, config) === "mock" ? "Mock scores · synthetic practice field" : jobMode(job, config) === "fixture" ? "Synthetic fixture · example results" : "Simulated practice field"}</summary><p>Ratings reflect your submitted description. Practice placements are not predictions of real event results.</p></details>
+                {reportIsStale && <p className="stale-report-note" role="status">The idea has changed. This report is for your last submitted version.</p>}
+              </>} result={dashboardResult} results={reportResults} challenges={config?.challenges ?? []}
+                projectName={submittedSubmission?.name ?? "Your idea"} onCategory={setSceneCategory}
+                onRevise={() => { navigate("campus"); window.requestAnimationFrame(() => ideaInput.current?.focus()); }}
+                onAgent={(id) => { setPanelsVisible(false); window.requestAnimationFrame(() => { void sceneController.current?.command("focus", id); }); }}
+                onCeremonies={() => { setCeremonyRun((run) => run + 1); navigate("awards"); }}>
+                <details className="dashboard-scoring-details">
+                  <summary>Scoring details and evidence</summary>
+                  <p className="version-line">Judge <code>{job.judge_version}</code> · Field <code>{job.pool_version}</code></p>
+                  <ReportCard result={dashboardResult} challenge={config?.challenges.find((challenge) => challenge.id === dashboardResult.challenge_id)} selected={true}
+                    onShowInScene={() => { setSceneCategory(dashboardResult.challenge_id); setPanelsVisible(false); }} />
+                </details>
+              </AtriumDashboard>
             </div>
           )}
 
@@ -1093,7 +1081,7 @@ export default function App() {
         </section>
       </div>
 
-      <footer className="page-footer" hidden={location.kind === "awards"}>
+      <footer className="page-footer" hidden={location.kind === "awards" || (location.kind === "atrium" && Boolean(dashboardResult))}>
         <span>Lenny acts as your hackathon judges for Knight Hacks IX.</span>
         <span>TEXT-ONLY PRACTICE · SIMULATED FIELD · NOT A REAL-WINNER PREDICTION</span>
       </footer>
