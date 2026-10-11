@@ -4,6 +4,8 @@ import * as THREE from "three";
 import { batchExteriorWindows, createExteriorMaterials, framedWindow, stoneUVs } from "./exteriorMaterials";
 import { addReferenceTower } from "./towerGeometry";
 import { addDetailedAtrium } from "./atriumGeometry";
+import { addReferenceWestWing } from "./westWingGeometry";
+import { addCampusSite } from "./campusSite";
 
 
 const gold = 0xffc904;
@@ -74,7 +76,7 @@ export function addExterior(scene: THREE.Scene) {
     context.globalAlpha = 1;
     const texture = new THREE.CanvasTexture(canvas);
     texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-    texture.repeat.set(7, 7);
+    texture.repeat.set(1, 1);
     texture.colorSpace = THREE.SRGBColorSpace;
     texture.anisotropy = 4;
     return texture;
@@ -87,7 +89,7 @@ export function addExterior(scene: THREE.Scene) {
   const glassMaterial = exteriorMaterials.glass;
   const architecturalBox = (size: [number, number, number], position: [number, number, number], material: THREE.Material) => {
     const mesh = new THREE.Mesh(new THREE.BoxGeometry(...size), material);
-    if (material === creamMaterial) stoneUVs(mesh.geometry);
+    if (material === creamMaterial || material === brickMaterial) stoneUVs(mesh.geometry, material === brickMaterial ? 1.6 : 4);
     mesh.position.set(...position);
     mesh.castShadow = true;
     mesh.receiveShadow = true;
@@ -111,7 +113,7 @@ export function addExterior(scene: THREE.Scene) {
     group.rotation.y = rotation;
     scene.add(group);
     const addLayer = (geometry: THREE.BufferGeometry, material: THREE.Material, y: number) => {
-      if (material === creamMaterial) stoneUVs(geometry);
+      if (material === creamMaterial || material === brickMaterial) stoneUVs(geometry, material === brickMaterial ? 1.6 : 4);
       const mesh = new THREE.Mesh(geometry, material);
       mesh.position.y = y;
       mesh.name = name;
@@ -171,27 +173,21 @@ export function addExterior(scene: THREE.Scene) {
     context.textAlign = "center";
     context.strokeText(text, 256, 63);
     context.fillText(text, 256, 60);
-    const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(canvas), transparent: true, depthTest: false }));
-    sprite.position.set(...position);
-    sprite.scale.set(20, 3.75, 1);
-    scene.add(sprite);
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.colorSpace = THREE.SRGBColorSpace;
+    const lettering = new THREE.Mesh(new THREE.PlaneGeometry(9, 1.6), new THREE.MeshBasicMaterial({ map: texture, transparent: true, depthWrite: false }));
+    lettering.position.set(...position);
+    scene.add(lettering);
   };
 
-  // Approximately 150 m of campus around the map-derived footprint.
-  box(scene, [150, 0.4, 130], [0, -0.3, 0], 0x527342);
-  box(scene, [13, 0.16, 130], [-68, 0, 0], 0x3b4144);
-  box(scene, [150, 0.16, 13], [0, 0, 58], 0x3b4144);
-  box(scene, [3, 0.08, 130], [-59.5, 0.08, 0], 0xc8c5b8);
-  box(scene, [130, 0.08, 3], [3, 0.08, 49.5], 0xc8c5b8);
-  const diagonalWalk = box(scene, [88, 0.08, 3], [-4, 0.09, 35], 0xc8c5b8);
-  diagonalWalk.rotation.y = -0.16;
+  addCampusSite(scene);
 
-  // One map-derived, connected lower footprint unifies Engineering I, II and the tower.
+  // A connected lower footprint unifies the approximate rear campus volumes.
   const footprint = new THREE.Shape();
   const footprintPoints: Array<[number, number]> = [
     [-49, -44], [-29, -44], [-29, -25], [28, -25], [28, -17],
     [58, -17], [58, 30], [45, 30], [45, 24], [31.2, 24],
-    [31.2, 19.7], [-25, 19.7], [-25, 15], [-49, 15],
+    [31.2, 19.7], [-25, 19.7], [-25, 14], [-49, 14],
   ];
   footprint.moveTo(footprintPoints[0][0], -footprintPoints[0][1]);
   footprintPoints.slice(1).forEach(([x, z]) => footprint.lineTo(x, -z));
@@ -209,14 +205,14 @@ export function addExterior(scene: THREE.Scene) {
 
   // Western Engineering II bar and the continuous diagonal front facade.
   // Both wings terminate beside the tower; no rectangular mass projects through it.
-  mass("Engineering II", 19, 52.5, 14.5, -39, -11.25, 0, 4);
-  mass("Engineering II", 17, 18, 12, -39, -37, 0, 3);
+  selectable.push(...addReferenceWestWing(scene, exteriorMaterials, brickMaterial, roofMaterial));
   const angle = 0;
-  mass("Engineering I", 70, 21, 17, 9, 8, angle, 4, false);
+  mass("Engineering I", 39, 21, 17.2, -6.5, 8, angle, 4, false);
   // Filled perpendicular rear volume intersects the front bar at full depth.
   mass("Engineering I", 25, 49, 16, 7, -17, angle, 4);
   mass("Engineering I", 31, 29, 14, 34, -17, angle, 3);
-  mass("Engineering I", 29, 24, 12, 47, 8, angle, 3);
+  mass("Engineering I", 29, 24, 9, 28, 8, angle, 3);
+  mass("Engineering I", 24, 24, 12, 47, 8, angle, 3);
   mass("Engineering I", 20, 17, 11, 48, 26, angle, 3);
   // Keep the connector behind the tower so its full polygonal silhouette remains visible.
   mass("Engineering I + II", 17, 10, 9, -21, 2, 0, 2);
@@ -224,74 +220,56 @@ export function addExterior(scene: THREE.Scene) {
   // The reference corner is the tower alone, with a recessed beige link to the wing.
   selectable.push(addReferenceTower(scene, exteriorMaterials));
   architecturalBox([5.8, 17, 9], [-28.9, 8.5, 10.5], creamMaterial);
-  for (const y of [2, 6, 10, 14.5]) {
-    const linkWindow = framedWindow(scene, 2.15, 2.65, exteriorMaterials);
-    linkWindow.position.set(-27.7, y, 15.06);
+  for (const y of [1.7, 6, 10, 14.5]) {
+    const linkWindow = framedWindow(scene, y === 1.7 ? 2.4 : 2.15, y === 1.7 ? 3.15 : 2.65, exteriorMaterials, y === 1.7 ? 1 : 2);
+    linkWindow.position.set(-27.7, y, 15.1);
   }
+  for (const x of [-27.85, -27.55]) architecturalBox([.055, .65, .07], [x, 1.65, 15.28], exteriorMaterials.metal);
 
-  // Glass classroom/connector wing visible at the right of the reference facade.
-  const curtainWall = new THREE.Mesh(new THREE.BoxGeometry(23, 10.5, 0.3), glassMaterial);
-  curtainWall.position.set(47, 10.3, 20.15);
-  curtainWall.castShadow = true;
-  scene.add(curtainWall);
-  for (let x = 37; x <= 57; x += 4) box(scene, [0.22, 10.8, 0.38], [x, 10.3, 20.35], 0xd5d5ce);
-  for (const y of [6.7, 10.2, 13.7]) box(scene, [23.2, 0.2, 0.38], [47, y, 20.35], 0xd5d5ce);
-  // Projecting brick front block shown in the reference elevation.
-  architecturalBox([52, 9, 1.25], [5, 8.1, 19.15], brickMaterial);
-  architecturalBox([52.4, 0.5, 1.4], [5, 8.35, 19.2], creamMaterial);
-  architecturalBox([52.4, 0.55, 1.5], [5, 12.55, 19.2], creamMaterial);
-  // Framed panes carry sky reflection and slight roughness instead of flat black fills.
-  for (const y of [5.6, 10.35]) {
-    for (const x of [-15, -6.5, 2, 10.5, 19, 27.5]) {
-      const win = framedWindow(scene, 2.4, 1.95, exteriorMaterials);
+  // Right glass wing sits above the lower brick volume, as seen in photos 1–3.
+  const curtainWall = new THREE.Mesh(new THREE.BoxGeometry(22, 7.8, .15), glassMaterial);
+  curtainWall.position.set(24, 13.2, 20.3); scene.add(curtainWall);
+  for (let x = 13; x <= 35; x += 2.75) architecturalBox([.13, 7.95, .24], [x, 13.2, 20.43], exteriorMaterials.frame);
+  for (const y of [9.3, 13.15, 17.1]) architecturalBox([22.2, .26, .24], [24, y, 20.43], exteriorMaterials.frame);
+  for (const y of [11.1, 15]) architecturalBox([22.2, .065, .22], [24, y, 20.45], exteriorMaterials.frame);
+  architecturalBox([22, 6, 1.2], [24, 6.3, 19.75], brickMaterial);
+  architecturalBox([22, 3.3, 1.2], [24, 1.65, 19.75], creamMaterial);
+  for (const x of [16, 21, 26, 31]) {
+    const win = framedWindow(scene, 1.1, 1.15, exteriorMaterials);
+    win.position.set(x, 6.4, 20.45);
+    const ground = framedWindow(scene, 2.4, 2.95, exteriorMaterials);
+    ground.position.set(x, 1.7, 20.45);
+  }
+  // Narrower five-bay signed brick panel. Its two brick stories already matched.
+  architecturalBox([31, 9, 1.25], [-5.5, 8.1, 19.15], brickMaterial);
+  architecturalBox([31.4, .36, 1.4], [-5.5, 8.1, 19.2], creamMaterial);
+  architecturalBox([31.4, .25, 1.5], [-5.5, 12.62, 19.2], creamMaterial);
+  for (const y of [5.5, 10.2]) {
+    for (const x of [-17, -11, -5, 1, 7]) {
+      const win = framedWindow(scene, 1.85, 2.65, exteriorMaterials);
       win.position.set(x, y, 19.9);
     }
   }
-  for (const x of [-17, -10, -3, 4, 11, 18, 25, 32]) {
-    const win = framedWindow(scene, 3.5, 1.45, exteriorMaterials);
-    win.position.set(x, 14.7, 18.72);
+  for (const x of [-16, -11, -6, -1, 4, 9]) {
+    const win = framedWindow(scene, 2.45, 1.25, exteriorMaterials);
+    win.position.set(x, 15, 18.77);
   }
-  architecturalBox([52.4, 3.15, 1.35], [5, 1.58, 19.18], creamMaterial);
-  for (const x of [-15, -6.5, 2, 10.5, 19, 27.5]) {
-    const win = framedWindow(scene, 2.4, 1.95, exteriorMaterials);
-    win.position.set(x, 1.55, 19.9);
+  const tallUpper = framedWindow(scene, 2.5, 2.8, exteriorMaterials);
+  tallUpper.position.set(-22.5, 14.7, 18.77);
+  architecturalBox([31.4, 3.15, 1.35], [-5.5, 1.58, 19.18], creamMaterial);
+  for (const x of [-17, -11, -5, 1, 7]) {
+    const win = framedWindow(scene, 2.7, 2.9, exteriorMaterials);
+    win.position.set(x, 1.65, 19.9);
   }
-  for (const x of [-20, 31]) {
-    const fixture = new THREE.PointLight(0xffe7b0, 2.2, 7);
-    fixture.position.set(x, 11.8, 21);
-    scene.add(fixture);
-    box(scene, [0.3, 0.45, 0.3], [x, 11.8, 20.25], 0xe8dfc5);
-  }
+  for (const x of [-20, 11]) architecturalBox([.18, .27, .18], [x, 11.7, 20], exteriorMaterials.frame);
 
   // Cleaner roof planes and offsets visible in top and isometric views.
   const roofA = box(scene, [14, 1.1, 20], [7, 17.1, -19], 0x9fa49f);
   roofA.rotation.y = angle;
   const roofB = box(scene, [11, 1.4, 9], [34, 14.7, -17], 0xa9aba5);
   roofB.rotation.y = angle;
-  sign("ENGINEERING", [7, 12.05, 20.35]);
+  sign("Engineering", [-5.5, 12.05, 19.82]);
 
-  // Restrained Florida landscaping and campus context.
-  const treePositions: Array<[number, number]> = [
-    [-54, -43], [-54, -24], [-54, 8], [-53, 30], [-47, 47], [-25, 45],
-    [0, 47], [25, 47], [52, 45], [64, 16], [61, -18], [50, -43],
-  ];
-  for (let i = 0; i < treePositions.length; i++) {
-    const [x, z] = treePositions[i];
-    box(scene, [0.45, 3.8, 0.45], [x, 1.9, z], 0x594430);
-    const crown = new THREE.Mesh(
-      new THREE.IcosahedronGeometry(2.1 + (i % 3) * 0.45, 1),
-      new THREE.MeshStandardMaterial({ color: i % 2 ? 0x285c32 : 0x3f753e, roughness: 0.9 }),
-    );
-    crown.position.set(x, 5, z);
-    crown.castShadow = true;
-    scene.add(crown);
-  }
-  for (const x of [-48, -20, 8, 36, 60]) {
-    box(scene, [0.16, 4.2, 0.16], [x, 2.1, 46], 0x50575a);
-    const lamp = new THREE.Mesh(new THREE.CylinderGeometry(0.38, 0.5, 0.25, 12), new THREE.MeshStandardMaterial({ color: 0xe9e1c4, emissive: 0x4c421e }));
-    lamp.position.set(x, 4.25, 46);
-    scene.add(lamp);
-  }
   batchExteriorWindows(scene);
   return selectable;
 }

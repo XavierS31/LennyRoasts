@@ -86,14 +86,14 @@ export function createExteriorMaterials() {
 export type ExteriorMaterials = ReturnType<typeof createExteriorMaterials>;
 
 // Keep stone courses at the same physical scale on long walls and tower facets.
-export function stoneUVs(geometry: THREE.BufferGeometry) {
+export function stoneUVs(geometry: THREE.BufferGeometry, tileSize = 4) {
   const position = geometry.getAttribute("position"), normal = geometry.getAttribute("normal");
   const values = new Float32Array(position.count * 2);
   for (let i = 0; i < position.count; i++) {
     const x = position.getX(i), y = position.getY(i), z = position.getZ(i);
     const nx = Math.abs(normal.getX(i)), ny = Math.abs(normal.getY(i)), nz = Math.abs(normal.getZ(i));
-    values[i * 2] = (nx > nz ? z : x) / 4;
-    values[i * 2 + 1] = (ny > .8 ? z : y) / 4;
+    values[i * 2] = (nx > nz ? z : x) / tileSize;
+    values[i * 2 + 1] = (ny > .8 ? z : y) / tileSize;
   }
   geometry.setAttribute("uv", new THREE.BufferAttribute(values, 2));
   return geometry;
