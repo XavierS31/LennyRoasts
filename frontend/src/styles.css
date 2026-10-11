@@ -515,31 +515,39 @@ fieldset {
 
 .track-choice {
   display: grid;
-  grid-template-columns: 20px minmax(52px, auto) minmax(0, 1fr);
+  grid-template-columns: 28px minmax(0, 1fr);
   align-items: center;
   gap: 9px;
-  min-height: 23px;
+  min-height: 44px;
   cursor: pointer;
 }
 
 .track-choice input {
-  width: 18px;
-  height: 18px;
+  appearance: none;
+  width: 28px;
+  height: 28px;
   margin: 0;
-  accent-color: #476135;
+  border: 2px solid #627086;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, .8);
+  cursor: pointer;
+}
+
+.track-choice input:checked {
+  border-color: #172333;
+  background: #172333 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m6 12 4 4 8-8' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 24px no-repeat;
+}
+
+.track-choice input:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+@media (forced-colors: active) {
+  .track-choice input { appearance: auto; }
 }
 
 .track-choice:has(input:checked) {
-  color: #304829;
-}
-
-.track-checkmark {
-  color: var(--muted);
-  font-size: 10px;
-  font-weight: 600;
-}
-
-.track-choice input:checked + .track-checkmark {
   color: #304829;
 }
 
@@ -550,7 +558,7 @@ fieldset {
 }
 
 .challenge-description {
-  margin: 8px 0 0 29px;
+  margin: 8px 0 0 37px;
   color: var(--muted);
   font-size: 11px;
   line-height: 1.55;
@@ -1321,12 +1329,8 @@ th {
   }
 
   .track-choice {
-    grid-template-columns: 20px minmax(0, 1fr);
+    grid-template-columns: 28px minmax(0, 1fr);
     gap: 8px;
-  }
-
-  .track-checkmark {
-    display: none;
   }
 
   .track-name {
@@ -1334,7 +1338,7 @@ th {
   }
 
   .challenge-description {
-    margin-left: 28px;
+    margin-left: 36px;
   }
 
   .report-card-header {

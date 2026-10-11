@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect, useRef, useState, type FormEvent } from "react";
-import { NotebookIcon, ChartBarIcon, CheckIcon, PlusIcon } from "@phosphor-icons/react";
+import { NotebookIcon, ChartBarIcon } from "@phosphor-icons/react";
 import sampleIdea from "../demo/campus-queue.txt?raw";
 import SceneBoundary from "./components/engineering/SceneBoundary";
 import { sceneLocation, scenePath, type LocationState } from "./components/engineering/navigation";
@@ -993,7 +993,6 @@ export default function App() {
                             }}
                             aria-describedby={`track-description-${challenge.id}`}
                           />
-                          <span className="track-checkmark" aria-hidden="true">{checked ? <CheckIcon size={18} weight="light" /> : <PlusIcon size={18} weight="light" />}</span>
                           <span className="track-name">{challenge.name}</span>
                         </label>
                         <details className="challenge-description">
