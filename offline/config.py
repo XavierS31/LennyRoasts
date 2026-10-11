@@ -6,6 +6,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CONFIG_DIR = ROOT / "offline" / "config"
 LOCAL_DIR = ROOT / ".local-tests" / "offline"
 SEEDS_DIR = LOCAL_DIR / "seeds"
+SCOUT_PATH = LOCAL_DIR / "scout" / "optins.json"
 
 SPONSOR_IDS = ["gemini", "elevenlabs", "databricks", "bny"]
 GENERAL_IDS = ["overall", "best_ai", "best_game", "most_useful"]
@@ -33,6 +34,17 @@ def settings():
 
 def seed_manifest():
     return load_json(CONFIG_DIR / "seed_manifest.json")["seeds"]
+
+
+def write_seed_manifest(seeds, manifest_version, updated_on):
+    """Rewrite the committed provenance manifest; existing entries are passed back unchanged."""
+    manifest = load_json(CONFIG_DIR / "seed_manifest.json")
+    manifest.update({"manifest_version": manifest_version, "updated_on": updated_on, "seeds": seeds})
+    write_json(CONFIG_DIR / "seed_manifest.json", manifest)
+
+
+def seed_sources():
+    return load_json(CONFIG_DIR / "seed_sources.json")
 
 
 def field_dir(field_id):

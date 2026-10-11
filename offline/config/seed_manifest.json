@@ -1,5 +1,5 @@
 {
-  "manifest_version": "kh9-seeds-v1",
+  "manifest_version": "kh9-seeds-v2",
   "selected_on": "2026-10-10",
   "note": "Provenance only. Opt-ins come from Devpost prize-filtered submission search; awards are read from each project page at fetch time. Story text stays under .local-tests/.",
   "seeds": [
@@ -275,6 +275,981 @@
       "skills": [
         "hardware"
       ]
+    },
+    {
+      "seed_id": "hacklytics-2026--sentinel-xeiwj7",
+      "pool": "databricks",
+      "devpost_url": "https://devpost.com/software/sentinel-xeiwj7",
+      "hackathon": "hacklytics-2026",
+      "hackathon_name": "Hacklytics 2026",
+      "year": 2026,
+      "opted_into": [
+        "Databricks Geo-Insight Challenge"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "hackharvard-2024--hackenzyme",
+      "pool": "databricks",
+      "devpost_url": "https://devpost.com/software/hackenzyme",
+      "hackathon": "hackharvard-2024",
+      "hackathon_name": "HackHarvard 2024",
+      "year": 2024,
+      "opted_into": [
+        "Best AI Project with Databricks Open Source"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "hacklytics-2026--arbittron",
+      "pool": "databricks",
+      "devpost_url": "https://devpost.com/software/arbittron",
+      "hackathon": "hacklytics-2026",
+      "hackathon_name": "Hacklytics 2026",
+      "year": 2026,
+      "opted_into": [
+        "Databricks Geo-Insight Challenge"
+      ],
+      "skills": [
+        "data",
+        "ai_ml"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "hacklytics-2026--aidsignal",
+      "pool": "databricks",
+      "devpost_url": "https://devpost.com/software/aidsignal",
+      "hackathon": "hacklytics-2026",
+      "hackathon_name": "Hacklytics 2026",
+      "year": 2026,
+      "opted_into": [
+        "Databricks Geo-Insight Challenge"
+      ],
+      "skills": [
+        "ai_ml",
+        "web"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "hackharvard-2024--albatross",
+      "pool": "databricks",
+      "devpost_url": "https://devpost.com/software/albatross",
+      "hackathon": "hackharvard-2024",
+      "hackathon_name": "HackHarvard 2024",
+      "year": 2024,
+      "opted_into": [
+        "Best AI Project with Databricks Open Source"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "hackharvard-2024--educrate",
+      "pool": "databricks",
+      "devpost_url": "https://devpost.com/software/educrate",
+      "hackathon": "hackharvard-2024",
+      "hackathon_name": "HackHarvard 2024",
+      "year": 2024,
+      "opted_into": [
+        "Best AI Project with Databricks Open Source"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "hacklytics-2026--visiun",
+      "pool": "databricks",
+      "devpost_url": "https://devpost.com/software/visiun",
+      "hackathon": "hacklytics-2026",
+      "hackathon_name": "Hacklytics 2026",
+      "year": 2026,
+      "opted_into": [
+        "Databricks Geo-Insight Challenge"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "hacklytics-2026--meredith-2dv74r",
+      "pool": "databricks",
+      "devpost_url": "https://devpost.com/software/meredith-2dv74r",
+      "hackathon": "hacklytics-2026",
+      "hackathon_name": "Hacklytics 2026",
+      "year": 2026,
+      "opted_into": [
+        "Databricks Geo-Insight Challenge"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "hackusf-2026--recall-oswlh3",
+      "pool": "elevenlabs",
+      "devpost_url": "https://devpost.com/software/recall-oswlh3",
+      "hackathon": "hackusf-2026",
+      "hackathon_name": "HackUSF 2026",
+      "year": 2026,
+      "opted_into": [
+        "[MLH] Best Use of Gemini API",
+        "[MLH] Best Use of ElevenLabs"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": true
+    },
+    {
+      "seed_id": "swamphacks-xi--live-translation-extension",
+      "pool": "elevenlabs",
+      "devpost_url": "https://devpost.com/software/live-translation-extension",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Use of ElevenLabs",
+        "Best Education, Accessibility, & Social Impact Project"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": true
+    },
+    {
+      "seed_id": "hackusf-2026--pantheon-rhemfw",
+      "pool": "elevenlabs",
+      "devpost_url": "https://devpost.com/software/pantheon-rhemfw",
+      "hackathon": "hackusf-2026",
+      "hackathon_name": "HackUSF 2026",
+      "year": 2026,
+      "opted_into": [
+        "[MLH] Best Use of Gemini API",
+        "[MLH] Best Use of ElevenLabs"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "swamphacks-xi--splash-l3sgun",
+      "pool": "elevenlabs",
+      "devpost_url": "https://devpost.com/software/splash-l3sgun",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Use of Gemini API",
+        "Best Use of ElevenLabs",
+        "Best Everyday Life & Wellbeing [Human-Centered Design] Project"
+      ],
+      "skills": [
+        "ai_ml",
+        "hardware"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "hackusf-2026--formcoach-uj5yst",
+      "pool": "elevenlabs",
+      "devpost_url": "https://devpost.com/software/formcoach-uj5yst",
+      "hackathon": "hackusf-2026",
+      "hackathon_name": "HackUSF 2026",
+      "year": 2026,
+      "opted_into": [
+        "[MLH] Best Use of Gemini API",
+        "[MLH] Best Use of ElevenLabs"
+      ],
+      "skills": [
+        "ai_ml"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "swamphacks-xi--agent-agent-fg28e9",
+      "pool": "elevenlabs",
+      "devpost_url": "https://devpost.com/software/agent-agent-fg28e9",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Use of Gemini API",
+        "Best Use of ElevenLabs",
+        "Best Everyday Life & Wellbeing [Human-Centered Design] Project"
+      ],
+      "skills": [
+        "web"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "hackusf-2026--safely-398y1j",
+      "pool": "elevenlabs",
+      "devpost_url": "https://devpost.com/software/safely-398y1j",
+      "hackathon": "hackusf-2026",
+      "hackathon_name": "HackUSF 2026",
+      "year": 2026,
+      "opted_into": [
+        "[MLH] Best Use of ElevenLabs"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "hackusf-2026--signbridge-ba4imv",
+      "pool": "elevenlabs",
+      "devpost_url": "https://devpost.com/software/signbridge-ba4imv",
+      "hackathon": "hackusf-2026",
+      "hackathon_name": "HackUSF 2026",
+      "year": 2026,
+      "opted_into": [
+        "[MLH] Best Use of Gemini API",
+        "[MLH] Best Use of ElevenLabs"
+      ],
+      "skills": [
+        "ai_ml",
+        "web"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "swamphacks-xi--talk2doc-eu9fl0",
+      "pool": "elevenlabs",
+      "devpost_url": "https://devpost.com/software/talk2doc-eu9fl0",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Use of ElevenLabs",
+        "Best Education, Accessibility, & Social Impact Project"
+      ],
+      "skills": [
+        "ai_ml",
+        "web"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "hackusf-2026--eppec-employee-personal-protection-equipment-checker",
+      "pool": "elevenlabs",
+      "devpost_url": "https://devpost.com/software/eppec-employee-personal-protection-equipment-checker",
+      "hackathon": "hackusf-2026",
+      "hackathon_name": "HackUSF 2026",
+      "year": 2026,
+      "opted_into": [
+        "[MLH] Best Use of Gemini API",
+        "[MLH] Best Use of ElevenLabs"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "swamphacks-xi--arise-d3k0ap",
+      "pool": "elevenlabs",
+      "devpost_url": "https://devpost.com/software/arise-d3k0ap",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Finance Hack Sponsored By Capital One",
+        "Best Use of Gemini API",
+        "Best Use of ElevenLabs",
+        "Best Everyday Life & Wellbeing [Human-Centered Design] Project"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "hackusf-2026--asl-to-tts",
+      "pool": "elevenlabs",
+      "devpost_url": "https://devpost.com/software/asl-to-tts",
+      "hackathon": "hackusf-2026",
+      "hackathon_name": "HackUSF 2026",
+      "year": 2026,
+      "opted_into": [
+        "[MLH] Best Use of Gemini API",
+        "[MLH] Best Use of ElevenLabs"
+      ],
+      "skills": [
+        "ai_ml"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "swamphacks-xi--project-c1nomzfei7a0",
+      "pool": "bny",
+      "devpost_url": "https://devpost.com/software/project-c1nomzfei7a0",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Finance Hack Sponsored By Capital One",
+        "Best Use of Gemini API",
+        "Best Game Design Project"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": true
+    },
+    {
+      "seed_id": "swamphacks-xi--carianadvisors",
+      "pool": "bny",
+      "devpost_url": "https://devpost.com/software/carianadvisors",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Finance Hack Sponsored By Capital One",
+        "Best Education, Accessibility, & Social Impact Project"
+      ],
+      "skills": [
+        "web"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "shellhacks2024--lingualeap",
+      "pool": "bny",
+      "devpost_url": "https://devpost.com/software/lingualeap",
+      "hackathon": "shellhacks2024",
+      "hackathon_name": "ShellHacks 2024",
+      "year": 2024,
+      "opted_into": [
+        "BNY AI-powered Financial Fraud Detection System"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "swamphacks-xi--cut-p64i2u",
+      "pool": "bny",
+      "devpost_url": "https://devpost.com/software/cut-p64i2u",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Finance Hack Sponsored By Capital One"
+      ],
+      "skills": [
+        "web",
+        "mobile"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "shellhacks2024--baitblock-8ti7d2",
+      "pool": "bny",
+      "devpost_url": "https://devpost.com/software/baitblock-8ti7d2",
+      "hackathon": "shellhacks2024",
+      "hackathon_name": "ShellHacks 2024",
+      "year": 2024,
+      "opted_into": [
+        "BNY AI-powered Financial Fraud Detection System"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "swamphacks-xi--stabilityquest",
+      "pool": "bny",
+      "devpost_url": "https://devpost.com/software/stabilityquest",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Finance Hack Sponsored By Capital One",
+        "Best Use of Gemini API",
+        "Best Game Design Project"
+      ],
+      "skills": [
+        "web"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "swamphacks-xi--l-earning",
+      "pool": "bny",
+      "devpost_url": "https://devpost.com/software/l-earning",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Finance Hack Sponsored By Capital One",
+        "Best Use of Gemini API",
+        "Best Education, Accessibility, & Social Impact Project"
+      ],
+      "skills": [
+        "web"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "swamphacks-xi--sparesense",
+      "pool": "bny",
+      "devpost_url": "https://devpost.com/software/sparesense",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Finance Hack Sponsored By Capital One",
+        "Best Use of Gemini API",
+        "Best Education, Accessibility, & Social Impact Project"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "swamphacks-xi--financeflow-cvl2hf",
+      "pool": "bny",
+      "devpost_url": "https://devpost.com/software/financeflow-cvl2hf",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Finance Hack Sponsored By Capital One",
+        "Best Use of Gemini API",
+        "Best Education, Accessibility, & Social Impact Project"
+      ],
+      "skills": [
+        "web"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "swamphacks-xi--creditwise-j9tduq",
+      "pool": "bny",
+      "devpost_url": "https://devpost.com/software/creditwise-j9tduq",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Finance Hack Sponsored By Capital One",
+        "Best Everyday Life & Wellbeing [Human-Centered Design] Project"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "swamphacks-xi--baby-quant",
+      "pool": "bny",
+      "devpost_url": "https://devpost.com/software/baby-quant",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Finance Hack Sponsored By Capital One",
+        "Best Education, Accessibility, & Social Impact Project"
+      ],
+      "skills": [
+        "web",
+        "data"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "swamphacks-xi--zettle",
+      "pool": "bny",
+      "devpost_url": "https://devpost.com/software/zettle",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Finance Hack Sponsored By Capital One",
+        "Best Use of Gemini API",
+        "Best Everyday Life & Wellbeing [Human-Centered Design] Project"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "hackusf-2026--responseone",
+      "pool": "gemini",
+      "devpost_url": "https://devpost.com/software/responseone",
+      "hackathon": "hackusf-2026",
+      "hackathon_name": "HackUSF 2026",
+      "year": 2026,
+      "opted_into": [
+        "[MLH] Best Use of Gemini API"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": true
+    },
+    {
+      "seed_id": "hackusf-2026--bowser-d0nvh4",
+      "pool": "gemini",
+      "devpost_url": "https://devpost.com/software/bowser-d0nvh4",
+      "hackathon": "hackusf-2026",
+      "hackathon_name": "HackUSF 2026",
+      "year": 2026,
+      "opted_into": [
+        "[MLH] Best Use of Gemini API",
+        "[MLH] Best Use of ElevenLabs"
+      ],
+      "skills": [
+        "ai_ml",
+        "web"
+      ],
+      "search_winner_badge": true
+    },
+    {
+      "seed_id": "hackusf-2026--litlens",
+      "pool": "gemini",
+      "devpost_url": "https://devpost.com/software/litlens",
+      "hackathon": "hackusf-2026",
+      "hackathon_name": "HackUSF 2026",
+      "year": 2026,
+      "opted_into": [
+        "[MLH] Best Use of Gemini API"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "swamphacks-xi--noma-t0ysng",
+      "pool": "gemini",
+      "devpost_url": "https://devpost.com/software/noma-t0ysng",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Use of Gemini API",
+        "Best Everyday Life & Wellbeing [Human-Centered Design] Project"
+      ],
+      "skills": [
+        "ai_ml",
+        "web"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "swamphacks-xi--improvigator",
+      "pool": "gemini",
+      "devpost_url": "https://devpost.com/software/improvigator",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Use of Gemini API",
+        "Best Education, Accessibility, & Social Impact Project"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "hackusf-2026--the-surge-usf",
+      "pool": "gemini",
+      "devpost_url": "https://devpost.com/software/the-surge-usf",
+      "hackathon": "hackusf-2026",
+      "hackathon_name": "HackUSF 2026",
+      "year": 2026,
+      "opted_into": [
+        "[MLH] Best Use of Gemini API"
+      ],
+      "skills": [
+        "web"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "hackusf-2026--dispatch-3cdaye",
+      "pool": "gemini",
+      "devpost_url": "https://devpost.com/software/dispatch-3cdaye",
+      "hackathon": "hackusf-2026",
+      "hackathon_name": "HackUSF 2026",
+      "year": 2026,
+      "opted_into": [
+        "[MLH] Best Use of Gemini API"
+      ],
+      "skills": [
+        "web"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "hackusf-2026--cooked-m9206r",
+      "pool": "gemini",
+      "devpost_url": "https://devpost.com/software/cooked-m9206r",
+      "hackathon": "hackusf-2026",
+      "hackathon_name": "HackUSF 2026",
+      "year": 2026,
+      "opted_into": [
+        "[MLH] Best Use of Gemini API"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "hackusf-2026--notus-r8uont",
+      "pool": "gemini",
+      "devpost_url": "https://devpost.com/software/notus-r8uont",
+      "hackathon": "hackusf-2026",
+      "hackathon_name": "HackUSF 2026",
+      "year": 2026,
+      "opted_into": [
+        "[MLH] Best Use of Gemini API"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "swamphacks-xi--replot",
+      "pool": "gemini",
+      "devpost_url": "https://devpost.com/software/replot",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Use of Gemini API"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "hackusf-2026--reverse-phst5o",
+      "pool": "gemini",
+      "devpost_url": "https://devpost.com/software/reverse-phst5o",
+      "hackathon": "hackusf-2026",
+      "hackathon_name": "HackUSF 2026",
+      "year": 2026,
+      "opted_into": [
+        "[MLH] Best Use of Gemini API"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "swamphacks-xi--koalakite",
+      "pool": "general",
+      "devpost_url": "https://devpost.com/software/koalakite",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Use of Gemini API",
+        "Best Use of ElevenLabs",
+        "Best Education, Accessibility, & Social Impact Project"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": true
+    },
+    {
+      "seed_id": "swamphacks-xi--aegis-axf8et",
+      "pool": "general",
+      "devpost_url": "https://devpost.com/software/aegis-axf8et",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Use of Gemini API",
+        "Best Use of ElevenLabs",
+        "Best Everyday Life & Wellbeing [Human-Centered Design] Project",
+        "Best Education, Accessibility, & Social Impact Project"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": true
+    },
+    {
+      "seed_id": "swamphacks-xi--swampy-the-crocodile",
+      "pool": "general",
+      "devpost_url": "https://devpost.com/software/swampy-the-crocodile",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Education, Accessibility, & Social Impact Project"
+      ],
+      "skills": [
+        "web"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "swamphacks-xi--blast-ois-object-identification-system",
+      "pool": "general",
+      "devpost_url": "https://devpost.com/software/blast-ois-object-identification-system",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Education, Accessibility, & Social Impact Project"
+      ],
+      "skills": [
+        "hardware"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "swamphacks-xi--nexsetu",
+      "pool": "general",
+      "devpost_url": "https://devpost.com/software/nexsetu",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Everyday Life & Wellbeing [Human-Centered Design] Project",
+        "Best Education, Accessibility, & Social Impact Project"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "swamphacks-xi--mapp-lrchui",
+      "pool": "general",
+      "devpost_url": "https://devpost.com/software/mapp-lrchui",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Everyday Life & Wellbeing [Human-Centered Design] Project"
+      ],
+      "skills": [
+        "web"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "swamphacks-xi--move-your-joints",
+      "pool": "general",
+      "devpost_url": "https://devpost.com/software/move-your-joints",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Everyday Life & Wellbeing [Human-Centered Design] Project"
+      ],
+      "skills": [],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "swamphacks-xi--swampmaker",
+      "pool": "general",
+      "devpost_url": "https://devpost.com/software/swampmaker",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Use of Gemini API",
+        "Best Game Design Project"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "swamphacks-xi--strugglemeals-8z9kby",
+      "pool": "general",
+      "devpost_url": "https://devpost.com/software/strugglemeals-8z9kby",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Use of Gemini API",
+        "Best Use of ElevenLabs",
+        "Best Everyday Life & Wellbeing [Human-Centered Design] Project"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "swamphacks-xi--finfluence-5y7wo1",
+      "pool": "general",
+      "devpost_url": "https://devpost.com/software/finfluence-5y7wo1",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Education, Accessibility, & Social Impact Project"
+      ],
+      "skills": [
+        "web"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "swamphacks-xi--bill-y-the-investo-gator",
+      "pool": "general",
+      "devpost_url": "https://devpost.com/software/bill-y-the-investo-gator",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Finance Hack Sponsored By Capital One",
+        "Best Use of Gemini API",
+        "Best Use of ElevenLabs",
+        "Best Education, Accessibility, & Social Impact Project"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "swamphacks-xi--one-3pymti",
+      "pool": "general",
+      "devpost_url": "https://devpost.com/software/one-3pymti",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Everyday Life & Wellbeing [Human-Centered Design] Project"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "swamphacks-xi--pair-screen-sharing-app",
+      "pool": "general",
+      "devpost_url": "https://devpost.com/software/pair-screen-sharing-app",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Everyday Life & Wellbeing [Human-Centered Design] Project"
+      ],
+      "skills": [
+        "ai_ml"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "swamphacks-xi--community-compass-rmojbk",
+      "pool": "general",
+      "devpost_url": "https://devpost.com/software/community-compass-rmojbk",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Use of Gemini API",
+        "Best Education, Accessibility, & Social Impact Project"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "swamphacks-xi--smart_ptr",
+      "pool": "general",
+      "devpost_url": "https://devpost.com/software/smart_ptr",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Use of Gemini API",
+        "Best Education, Accessibility, & Social Impact Project"
+      ],
+      "skills": [
+        "web"
+      ],
+      "search_winner_badge": false
+    },
+    {
+      "seed_id": "swamphacks-xi--clothing-clues",
+      "pool": "general",
+      "devpost_url": "https://devpost.com/software/clothing-clues",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Use of Gemini API",
+        "Best Everyday Life & Wellbeing [Human-Centered Design] Project"
+      ],
+      "skills": [
+        "web",
+        "mobile"
+      ],
+      "search_winner_badge": false
     }
-  ]
+  ],
+  "updated_on": "2026-10-10"
 }

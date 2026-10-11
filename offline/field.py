@@ -61,6 +61,11 @@ def sample(field_id, size):
         raise SystemExit("Field settings or prompt version changed; start a new field id instead of extending this one.")
     if size > settings["target_field_size"]:
         raise SystemExit(f"Field size is capped at {settings['target_field_size']} teams.")
+    missing = sorted({s for t in state["teams"] for s in t["seed_ids"] or [] if s not in seeds})
+    if missing:
+        raise SystemExit(f"Seeds used by existing teams are not stored locally: {missing}; run `fetch-seeds`.")
+    # The manifest only grows, so extending a field records the newest version it drew from.
+    state["seed_manifest_version"] = load_json(config.CONFIG_DIR / "seed_manifest.json")["manifest_version"]
     teams = sampler.extend_field(state["teams"], size, seeds, settings, challenges)
     for team in teams:
         team.setdefault("attempts", [])
