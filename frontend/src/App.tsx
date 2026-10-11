@@ -875,7 +875,7 @@ export default function App() {
             </button>
           </div>
 
-          <form onSubmit={submit} noValidate aria-describedby="privacy-copy">
+          <form onSubmit={submit} noValidate>
             {notice && (
               <div className="notice notice-error" role="alert">
                 <h3 ref={noticeHeading} tabIndex={-1}>{notice.title}</h3>
@@ -979,24 +979,12 @@ export default function App() {
                 className="submit-button"
                 type="submit"
                 disabled={!canSubmit}
-                aria-describedby="submit-help"
               >
                 <span>{isSubmitting ? "Submitting…" : activeJobId ? "Evaluation active" : "Evaluate idea"}</span>
                 <span aria-hidden="true">↗</span>
               </button>
-              <p id="submit-help" className="submit-help">
-                {activeJobId
-                  ? "Your evaluation is active. Use the status card to pause or resume checks."
-                  : !config?.field_ready
-                    ? "The API must report a ready field before an evaluation can be submitted."
-                    : "One description is enough to get started."}
-              </p>
             </fieldset>
           </form>
-
-          <p className="privacy-copy" id="privacy-copy">
-            Evaluations are private to the requesting browser session. The current mock keeps job data in server memory; live retention details depend on the backend service.
-          </p>
         </section>
 
         <section className="report-panel" aria-labelledby="report-heading" hidden={location.kind !== "atrium"}>

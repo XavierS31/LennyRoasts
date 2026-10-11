@@ -549,23 +549,6 @@ fieldset {
   transform: translateY(1px);
 }
 
-.submit-help,
-.privacy-copy {
-  color: var(--muted);
-  font-size: 11px;
-  line-height: 1.55;
-}
-
-.submit-help {
-  margin: 9px 0 0;
-}
-
-.privacy-copy {
-  margin: 22px 0 0;
-  padding-top: 17px;
-  border-top: 1px solid var(--line);
-}
-
 .notice {
   margin: 0 0 19px;
   padding: 14px 16px;

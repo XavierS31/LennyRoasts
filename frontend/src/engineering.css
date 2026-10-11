@@ -79,10 +79,10 @@
 .masthead .scene-tabs button[aria-pressed=true] { background: #fff; color: #111827; border-color: #fff; box-shadow: 0 2px 5px rgba(0,0,0,.14); }
 .engineering-app .edition { margin-left: auto; color: var(--muted); }
 .glass-content { position: relative; z-index: 2; width: min(540px, 40vw); margin-left: 0; }
-.engineering-app .intro { padding: 28px; margin: 0 0 18px; }
-.engineering-app .intro h1 { display: grid; justify-items: start; gap: 6px; font-size: clamp(30px, 2.6vw, 38px); font-weight: 650; line-height: 1.12; letter-spacing: -.025em; max-width: 490px; margin: 0 0 24px; }
+.engineering-app .intro { padding: 22px 28px; margin: 0 0 18px; }
+.engineering-app .intro h1 { display: grid; justify-items: start; gap: 4px; font-size: clamp(30px, 2.6vw, 38px); font-weight: 650; line-height: 1.12; letter-spacing: -.025em; max-width: 490px; margin: 0 0 16px; }
 .engineering-app .intro h1 .welcome-prefix { color: var(--muted); font-size: 15px; font-weight: 550; line-height: 1.4; letter-spacing: 0; }
-.engineering-app .intro h1 .hackathon-logo { display: block; width: min(100%, 360px); height: auto; object-fit: contain; object-position: left center; }
+.engineering-app .intro h1 .hackathon-logo { display: block; width: min(100%, 390px); height: auto; object-fit: contain; object-position: left center; }
 .engineering-app :is(.eyebrow, .section-kicker) { color: var(--muted); }
 .engineering-app .lede { font-size: 14px; line-height: 1.55; margin: 0; }
 .engineering-app .mode-banner { display: block; padding: 16px 20px; margin: 0 0 12px; }
@@ -126,7 +126,7 @@
 .competition-scores strong { display: block; color: var(--ink); margin-top: 4px; }
 .engineering-app .workspace { display: flex; flex-direction: column; align-items: stretch; gap: 18px; margin: 0; }
 .engineering-app :is(.form-panel, .report-panel) { padding: 28px; scroll-margin-top: 120px; }
-.engineering-app :is(.form-intro, .submit-help, .privacy-copy, .field-meta) { font-size: 13px; line-height: 1.6; }
+.engineering-app :is(.form-intro, .field-meta) { font-size: 13px; line-height: 1.6; }
 .engineering-app .form-field label { font-size: 14px; font-weight: 600; margin-bottom: 10px; }
 .engineering-app :is(.file-import-copy, .file-import-status, .file-import-heading small) { font-size: 13px; line-height: 1.5; }
 .engineering-app .required-label { font-size: 12px; font-weight: 450; }
@@ -199,7 +199,7 @@ select option { background: #fff; color: var(--ink); }
 .engineering-app h1, .engineering-app h2 { text-wrap: balance; }
 /* Dark headings and quieter supporting copy follow the supplied glass reference. */
 .engineering-app :is(.glass-content, .glass-panel) :is(h1, h2, h3, h4, p, span, small, label, legend, summary, a, button, dt, dd, li, td, th, code, blockquote) { color: var(--ink); }
-.engineering-app :is(.glass-content, .glass-panel) :is(.muted-copy, .file-import-copy, .file-import-heading small, .field-meta, .field-meta small, .submit-help, .privacy-copy, .section-kicker, .mode-copy p, .empty-report > p:last-child) { color: var(--muted); }
+.engineering-app :is(.glass-content, .glass-panel) :is(.muted-copy, .file-import-copy, .file-import-heading small, .field-meta, .field-meta small, .section-kicker, .mode-copy p, .empty-report > p:last-child) { color: var(--muted); }
 .engineering-app .glass-content :is(.required-label, .service-label) { color: var(--muted); }
 .engineering-app .glass-content .service-retry { color: #111827; background: rgba(17,24,39,.06); border: 1px solid rgba(17,24,39,.12); border-radius: 999px; padding: 8px 16px; font-size: 13px; font-weight: 600; }
 .engineering-app .glass-content .service-retry:hover:not(:disabled) { background: rgba(17,24,39,.1); }
@@ -252,7 +252,7 @@ select option { background: #fff; color: var(--ink); }
   .engineering-explorer.with-panels .scene-results { display: none; }
   .scene-results { width: auto; left: 12px; right: 12px; top: 170px; bottom: auto; max-height: calc(100dvh - 285px); padding: 16px; }
   .engineering-app :is(.form-panel, .report-panel, .intro) { padding: 20px; }
-  .engineering-app .intro { padding: 20px; }
+  .engineering-app .intro { padding: 16px 20px; }
   .engineering-app .intro h1 { font-size: 30px; }
   .compact-api-error { flex-basis: 100%; padding-top: 0; }
   .engineering-app #form-heading { font-size: 20px; }
