@@ -38,6 +38,16 @@ function release(scene) {
   for (const resource of [...textures, ...materials, ...geometries]) resource.dispose();
 }
 
+test("overall judging uses regular solid Lenny without sponsor logos or a trophy", () => {
+  const { scene, hosts, pending } = fixture("classroom", "regular");
+  assert.equal(hosts.length, 1); assert.equal(pending.length, 0);
+  assertSolid(hosts[0], .03, 2.35);
+  assert.ok(hosts[0].getObjectByName("Regular Lenny judging"));
+  assert.equal(hosts[0].getObjectByName("Solid shirt torso"), undefined);
+  assert.equal(hosts[0].getObjectByName("Gold award trophy"), undefined);
+  release(scene);
+});
+
 function assertSolid(host, floor, height) {
   const bounds = new THREE.Box3().setFromObject(host);
   assert.ok(Math.abs(bounds.min.y - floor) < .00001, "Feet must meet the room floor or stage");

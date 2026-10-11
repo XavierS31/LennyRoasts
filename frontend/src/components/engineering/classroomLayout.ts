@@ -7,6 +7,7 @@ export const sponsorRooms = [
   { id: "elevenlabs", name: "ElevenLabs", host: "ElevenLabs", lenny: "elevenlabs", color: "#8846bf", pin: [-22, 12, 14], landmark: "Window walkway" },
   { id: "databricks", name: "Databricks", host: "Databricks", lenny: "databricks", color: "#c63e32", pin: [21, 12, -18], landmark: "Opposite gallery" },
   { id: "bny", name: "BNY", host: "BNY", lenny: "bny", color: "#997014", pin: [17, 18, 24], landmark: "Stair landing" },
+  { id: "overall", name: "Overall Judging", host: "Overall Judging · Lenny", lenny: "regular", color: "#168575", pin: [0, 12, -30], landmark: "Entrance gallery" },
 ] as const;
 
 export type SponsorRoomId = typeof sponsorRooms[number]["id"];

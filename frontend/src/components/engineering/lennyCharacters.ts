@@ -62,7 +62,7 @@ const logoPrints: Record<LennySponsor, { crop: [number, number, number, number];
   databricks: { crop: [.215, .39, .57, .22], width: 1.64, height: .32 },
 };
 
-export function addLennyCharacters(scene: THREE.Scene, kind: "atrium" | "awards" | "classroom", roomSponsor: LennySponsor = "mlh") {
+export function addLennyCharacters(scene: THREE.Scene, kind: "atrium" | "awards" | "classroom", roomSponsor: LennySponsor | "regular" = "mlh") {
   const hosts = new THREE.Group(); hosts.name = "Solid 3D Lenny hosts";
   scene.add(hosts);
   let disposed = false;
@@ -108,10 +108,10 @@ export function addLennyCharacters(scene: THREE.Scene, kind: "atrium" | "awards"
     mesh.quaternion.setFromUnitVectors(up, new THREE.Vector3(...direction).normalize()); return mesh;
   }
 
-  function build(sponsor?: LennySponsor) {
+  function build(sponsor?: LennySponsor, presenting = false) {
     const model = new THREE.Group();
-    model.name = sponsor ? `Lenny wearing a ${sponsor} shirt` : "Lenny presenting a trophy";
-    model.userData.lenny = sponsor ?? "awards";
+    model.name = sponsor ? `Lenny wearing a ${sponsor} shirt` : presenting ? "Lenny presenting a trophy" : "Regular Lenny judging";
+    model.userData.lenny = sponsor ?? (presenting ? "awards" : "regular");
     round(model, skin, "Pear-shaped torso", [0, 1.8, 0], [1, 1.4, .72]);
     round(model, skin, "Neck", [0, 3, 0], [.62, .64, .56]);
     round(model, skin, "Dragon head", [0, 3.78, .08], [1.13, 1, .88]);
@@ -211,7 +211,7 @@ export function addLennyCharacters(scene: THREE.Scene, kind: "atrium" | "awards"
       const [x, y, w, h] = print.crop;
       map.repeat.set(w, h); map.offset.set(x, 1 - y - h);
       part(model, shirtPrint(print.width, print.height), new THREE.MeshStandardMaterial({ map, roughness: .88 }), `${sponsor} shirt print`, [0, 0, 0]);
-    } else {
+    } else if (presenting) {
       const trophy = new THREE.Group(); trophy.name = "Gold award trophy"; trophy.position.set(1.24, 2.54, .56); model.add(trophy);
       part(trophy, cylinder, darkGreen, "Trophy base", [0, 0, 0], [.27, .12, .22]);
       part(trophy, cylinder, gold, "Trophy stem", [0, .2, 0], [.075, .33, .075]);
@@ -225,7 +225,7 @@ export function addLennyCharacters(scene: THREE.Scene, kind: "atrium" | "awards"
   }
 
   // Share the same geometry/materials across all four sponsor models.
-  const prototype = build(kind === "awards" ? undefined : kind === "classroom" ? roomSponsor : "mlh");
+  const prototype = build(kind === "awards" ? undefined : kind === "classroom" ? roomSponsor === "regular" ? undefined : roomSponsor : "mlh", kind === "awards");
   function place(model: THREE.Group, position: readonly number[], height: number) {
     const bounds = new THREE.Box3().setFromObject(model);
     const root = new THREE.Group(); root.name = model.name;

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { columnRows, tableRows, projectStation } from "./atriumLayout";
+import { sponsorRooms, type SponsorRoomId } from "./classroomLayout";
 
-export default function AtriumMap({ projectNames }: { projectNames: string[] }) {
+export default function AtriumMap({ projectNames, onRoom }: { projectNames: string[]; onRoom: (id: SponsorRoomId) => void }) {
   const [open, setOpen] = useState(false);
   const point = (x: number, z: number) => [120 + x * 3, 174 + z * 3.2];
   return <aside className="atrium-map glass-panel" aria-label="Atrium photo relationships">
@@ -23,15 +24,17 @@ export default function AtriumMap({ projectNames }: { projectNames: string[] }) 
           const [x, z] = projectStation(index), [cx, cy] = point(x, z);
           return <g key={`${index}:${name}`}><title>{index === 0 ? "Your idea: " : "API rival: "}{name}</title><circle cx={cx} cy={cy} r="4" fill={index === 0 ? "#f3bd34" : "#3d89a7"} stroke="#27343b" /></g>;
         })}
-        <g fill="#f5f3e8" fontFamily="inherit" fontSize="10" textAnchor="middle">
+        <g fill="#374553" fontFamily="inherit" fontSize="10" textAnchor="middle">
           <text x="120" y="20">Glass entrance · photos 1–2</text>
           <text x="120" y="338">Stairs · photos 4–6</text>
           <text x="16" y="180" transform="rotate(-90 16 180)">Brick + window bands</text>
           <text x="225" y="180" transform="rotate(90 225 180)">Cream wall + banners</text>
         </g>
       </svg>
-      <p>Photos 1–2 face the entrance. Photos 4–6 face the stairs. Photo 3 connects the gold crowns, skylights and roof beams.</p>
-      <small>Photo-based proportions · gold: your project · blue: returned API rivals.</small>
+      <div className="map-rooms" role="group" aria-label="Judging rooms">
+        {sponsorRooms.map((room) => <button key={room.id} type="button" onClick={() => onRoom(room.id)}><span style={{ background: room.color }} aria-hidden="true" />{room.name}</button>)}
+      </div>
+      <small>Gold: your idea · blue: returned rivals. Select a judging room to enter.</small>
     </div>
   </aside>;
 }

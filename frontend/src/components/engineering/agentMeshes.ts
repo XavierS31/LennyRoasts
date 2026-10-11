@@ -95,10 +95,18 @@ export function createDefaultFemale(resources: AgentModelResources) {
   return createAgentModel({ ...defaultAppearance, id: "default-female", gender: "woman", hairstyle: "bob", shirt: "#593967", clothing: "jacket" }, resources);
 }
 
-export type AgentEntry = { key: string; appearance: AgentAppearance; position: [number, number]; };
+/** Rest the oval on the chair cushion, with the detached hands in its lap. */
+export function poseAgentSeated(model: THREE.Group) {
+  model.scale.y = .86;
+  model.children.forEach((part) => {
+    if (part.name === "mitten-hand") { part.position.y = .52; part.position.z = .37; }
+  });
+}
+
+export type AgentEntry = { key: string; appearance: AgentAppearance; position: [number, number]; elevation?: number; rotation?: number; seated?: boolean; };
 
 /** Bake complete mesh models into a handful of shared draw calls. */
-export function createAgentField(entries: AgentEntry[]) {
+export function createAgentField(entries: AgentEntry[], floating = true) {
   const resources = new AgentModelResources();
   const group = new THREE.Group();
   group.name = "floating-ai-agent-meshes";
@@ -108,8 +116,9 @@ export function createAgentField(entries: AgentEntry[]) {
   entries.forEach((entry, i) => {
     const model = createAgentModel(entry.appearance, resources);
     const [x, z] = entry.position;
-    model.position.set(x, .6, z);
-    model.rotation.y = (i % 5 - 2) * .16;
+    model.position.set(x, entry.elevation ?? .6, z);
+    model.rotation.y = entry.rotation ?? (i % 5 - 2) * .16;
+    if (entry.seated) poseAgentSeated(model);
     positions.set(entry.key, new THREE.Vector3(x, 2, z));
     model.updateMatrixWorld(true);
     model.traverse((object) => {
@@ -146,7 +155,7 @@ export function createAgentField(entries: AgentEntry[]) {
   resources.dispose();
   return {
     group, targets, positions,
-    animate(seconds: number, reducedMotion: boolean) { time.value = seconds; amplitude.value = reducedMotion ? 0 : .12; },
+    animate(seconds: number, reducedMotion: boolean) { time.value = seconds; amplitude.value = reducedMotion || !floating ? 0 : .12; },
     select(key: string) {
       let bucketIndex = 0;
       buckets.forEach((parts) => {
