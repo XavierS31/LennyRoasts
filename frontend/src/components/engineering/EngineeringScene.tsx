@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 import type { ChallengeResult } from "../../api/client";
 import { addAtrium, addAuditorium, addExterior } from "./geometry";
+import { atriumViews, projectStation } from "./atriumLayout";
 
 export type SceneKind = "campus" | "atrium" | "awards";
-export type CameraCommand = "in" | "out" | "reset" | "iso" | "top" | "front" | "enter" | "tower";
+export type CameraCommand = "in" | "out" | "reset" | "iso" | "top" | "front" | "enter" | "floor" | "stairs" | "ceiling" | "entrance" | "focus" | "tower";
 export type SceneController = { command: (action: CameraCommand, building?: string) => Promise<void> };
 
 function disposeObjects(root: THREE.Object3D) {
@@ -35,7 +37,7 @@ function scoreLabel(name: string, score: number) {
   canvas.height = 128;
   const context = canvas.getContext("2d");
   if (!context) return null;
-  context.fillStyle = "rgba(14, 20, 28, .86)";
+  context.fillStyle = "rgba(14, 20, 28, .66)";
   context.fillRect(0, 0, 512, 128);
   context.strokeStyle = "rgba(255,255,255,.4)";
   context.strokeRect(1, 1, 510, 126);
@@ -86,43 +88,61 @@ export default function EngineeringScene({
     }
     setError(undefined);
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(kind === "campus" ? 0xabc5d8 : kind === "atrium" ? 0x20262a : 0x08080a);
+    scene.background = new THREE.Color(kind === "campus" ? 0xabc5d8 : kind === "atrium" ? 0xc9dce0 : 0x08080a);
     scene.fog = new THREE.Fog(scene.background, 110, 190);
-    const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 400);
-    // The original interior camera sat behind a solid side wall. View through the open front.
+    const camera = new THREE.PerspectiveCamera(kind === "atrium" ? 64 : 42, 1, 0.1, 400);
     const start = kind === "campus" ? new THREE.Vector3(68, 45, 72)
-      : kind === "atrium" ? new THREE.Vector3(18, 22, 52) : new THREE.Vector3(0, 24, 54);
-    const startTarget = new THREE.Vector3(0, 6, kind === "campus" ? 0 : -7);
+      : kind === "atrium" ? new THREE.Vector3(...atriumViews.overview.position) : new THREE.Vector3(0, 24, 54);
+    const startTarget = kind === "atrium" ? new THREE.Vector3(...atriumViews.overview.target) : new THREE.Vector3(0, 6, kind === "campus" ? 0 : -7);
     camera.position.copy(start);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.6));
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFShadowMap;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.15;
+    renderer.toneMappingExposure = kind === "atrium" ? 1.05 : 1.15;
     host.appendChild(renderer.domElement);
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.target.copy(startTarget);
-    controls.minDistance = 18;
-    controls.maxDistance = 125;
-    controls.maxPolarAngle = Math.PI / 2.05;
-    scene.add(new THREE.HemisphereLight(0xe6f3ff, 0x202018, 2.4));
-    const sun = new THREE.DirectionalLight(0xfff1d2, 4);
+    controls.minDistance = kind === "atrium" ? 3 : 18;
+    controls.maxDistance = kind === "atrium" ? 100 : 125;
+    controls.maxPolarAngle = kind === "atrium" ? Math.PI * .72 : Math.PI / 2.05;
+    controls.screenSpacePanning = true;
+    scene.add(new THREE.HemisphereLight(0xe6f3ff, 0x202018, kind === "atrium" ? 1.7 : 2.4));
+    const sun = new THREE.DirectionalLight(0xfff1d2, kind === "atrium" ? 2.4 : 4);
     sun.position.set(34, 60, 20);
     sun.castShadow = true;
     sun.shadow.mapSize.set(2048, 2048);
+    if (kind === "atrium") {
+      sun.position.set(-18, 45, -28);
+      Object.assign(sun.shadow.camera, { left: -55, right: 55, top: 55, bottom: -55, near: .5, far: 130 });
+      sun.shadow.bias = -.0003;
+      sun.shadow.camera.updateProjectionMatrix();
+    }
     scene.add(sun);
     const clickable = kind === "campus" ? addExterior(scene) : [];
     if (kind === "atrium") addAtrium(scene);
     if (kind === "awards") addAuditorium(scene);
+    let environment: THREE.WebGLRenderTarget | undefined;
+    if (kind === "atrium") {
+      const room = new RoomEnvironment();
+      const pmrem = new THREE.PMREMGenerator(renderer);
+      environment = pmrem.fromScene(room, .04);
+      scene.environment = environment.texture;
+      scene.environmentIntensity = .45;
+      disposeObjects(room); pmrem.dispose();
+    }
+    const cutaways = scene.children.filter((object) => object.userData.cutaway);
     const markerGroup = new THREE.Group();
     scene.add(markerGroup);
     const markerTargets: THREE.Object3D[] = [];
+    const markerPositions = new Map<string, THREE.Vector3>();
 
     updateData.current = (nextResult, name = "Your idea", selected = "user") => {
       disposeObjects(markerGroup);
       markerGroup.clear();
       markerTargets.length = 0;
+      markerPositions.clear();
       scene.traverse((object) => {
         if (object instanceof THREE.InstancedMesh && object.userData.fieldPopulation) {
           // Anonymous visual representatives only; identities are not supplied by the API.
@@ -136,24 +156,33 @@ export default function EngineeringScene({
         ...nextResult.rivals.map((rival) => ({ key: rival.project_id, name: rival.name, score: rival.score_10, eligible: true })),
       ];
       entries.forEach((entry, index) => {
-        const x = (index - (entries.length - 1) / 2) * 12;
-        const z = kind === "campus" ? 34 : kind === "atrium" ? 12 : -23;
-        const height = 1 + entry.score * 0.55;
-        const marker = new THREE.Mesh(new THREE.CylinderGeometry(0.7, 0.9, height, 16), new THREE.MeshStandardMaterial({
+        const [x, z] = projectStation(index);
+        markerPositions.set(entry.key, new THREE.Vector3(x, 2, z));
+        const height = .8 + entry.score * .15;
+        const marker = new THREE.Mesh(new THREE.CylinderGeometry(.32, .4, height, 16), new THREE.MeshStandardMaterial({
           color: !entry.eligible ? 0xb5bed0 : entry.key === "user" ? 0xffc904 : 0x87c4df,
           emissive: entry.key === selected ? 0x5e4010 : 0x000000,
           roughness: 0.3, metalness: 0.3,
         }));
-        marker.position.set(x, height / 2 + 0.4, z);
+        marker.position.set(x + 3, height / 2, z);
         marker.userData.marker = entry.key;
         markerGroup.add(marker);
         markerTargets.push(marker);
         const label = scoreLabel(entry.name, entry.score);
         if (label) {
-          label.position.set(x, height + 2.8, z);
+          label.position.set(x, 4.5, z);
+          label.scale.set(7.5, 1.875, 1);
           label.userData.marker = entry.key;
           markerGroup.add(label);
           markerTargets.push(label);
+        }
+        // A selectable project placard on the table, with a halo for selection.
+        const placard = new THREE.Mesh(new THREE.BoxGeometry(1.1, .07, .7), new THREE.MeshStandardMaterial({ color: entry.key === "user" ? 0xffc904 : 0x87c4df, emissive: entry.key === selected ? 0x665017 : 0x000000 }));
+        placard.position.set(x, 1.7, z + .65); placard.userData.marker = entry.key;
+        markerGroup.add(placard); markerTargets.push(placard);
+        if (entry.key === selected) {
+          const halo = new THREE.Mesh(new THREE.RingGeometry(3.4, 3.55, 48), new THREE.MeshBasicMaterial({ color: 0xffd56c, side: THREE.DoubleSide, transparent: true, opacity: .85 }));
+          halo.rotation.x = -Math.PI / 2; halo.position.set(x, .06, z); markerGroup.add(halo);
         }
       });
     };
@@ -176,6 +205,18 @@ export default function EngineeringScene({
       return new Promise<void>((resolve) => { finish = resolve; });
     };
     controller.current = { command: (action, building) => {
+      if (kind === "atrium") {
+        if (action === "focus") {
+          const point = markerPositions.get(building ?? "user");
+          if (point) return travel(point.clone().add(new THREE.Vector3(6, 5, 9)), point.clone().setY(2.5));
+          return Promise.resolve();
+        }
+        const key = action === "front" ? "entrance" : action === "iso" || action === "reset" ? "overview" : action;
+        if (key in atriumViews) {
+          const view = atriumViews[key as keyof typeof atriumViews];
+          return travel(new THREE.Vector3(...view.position), new THREE.Vector3(...view.target));
+        }
+      }
       if (action === "in" || action === "out") {
         finish?.(); finish = null; destination = targetDestination = null;
         const offset = camera.position.clone().sub(controls.target);
@@ -212,7 +253,11 @@ export default function EngineeringScene({
       if (!origin || Math.hypot(event.clientX - origin.x, event.clientY - origin.y) > 5) return;
       const hit = hitAt(event);
       if (!hit) return;
-      if (hit.userData.marker) { callbacks.current.onSelectMarker(hit.userData.marker); return; }
+      if (hit.userData.marker) {
+        callbacks.current.onSelectMarker(hit.userData.marker);
+        void controller.current?.command("focus", hit.userData.marker);
+        return;
+      }
       callbacks.current.onSelectBuilding(hit.userData.building || hit.name);
       // The Make source used mesh-local coordinates, which misfocused grouped wings.
       const center = new THREE.Box3().setFromObject(hit).getCenter(new THREE.Vector3()).setY(7);
@@ -276,6 +321,11 @@ export default function EngineeringScene({
         }
       }
       controls.update();
+      // Outside views peel away only the facing boundary, leaving the hall readable.
+      for (const object of cutaways) {
+        const { axis, value, outward } = object.userData.cutaway as { axis: "x" | "y" | "z"; value: number; outward: number };
+        object.visible = (camera.position[axis] - value) * outward < .3;
+      }
       renderer.render(scene, camera);
       frame = requestAnimationFrame(animate);
     };
@@ -298,6 +348,7 @@ export default function EngineeringScene({
       controls.removeEventListener("start", stopTravel);
       controls.dispose();
       sun.shadow.dispose();
+      environment?.dispose();
       disposeObjects(scene);
       renderer.dispose();
       renderer.forceContextLoss();
