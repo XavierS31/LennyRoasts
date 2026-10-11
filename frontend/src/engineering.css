@@ -231,6 +231,7 @@ select option { background: #fff; color: var(--ink); }
 .engineering-app h1, .engineering-app h2 { text-wrap: balance; }
 /* Dark headings and quieter supporting copy follow the supplied glass reference. */
 .engineering-app :is(.glass-content, .glass-panel) :is(h1, h2, h3, h4, p, span, small, label, legend, summary, a, button, dt, dd, li, td, th, code, blockquote) { color: var(--ink); }
+.engineering-app .glass-content .submit-button, .engineering-app .glass-content .submit-button > span { color: #fff; }
 .engineering-app :is(.glass-content, .glass-panel) :is(.muted-copy, .file-dropzone-copy small, .field-meta, .field-meta small, .section-kicker, .mode-copy p, .empty-report > p:last-child) { color: var(--muted); }
 .engineering-app .glass-content :is(.required-label, .service-label) { color: var(--muted); }
 .engineering-app .glass-content .service-retry { min-height: 40px; color: #111827; background: rgba(17,24,39,.06); border: 1px solid rgba(17,24,39,.12); border-radius: 999px; padding: 6px 12px; font-size: 11px; font-weight: 600; }
