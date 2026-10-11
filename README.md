@@ -9,9 +9,9 @@ Hackathon practice feedback against a frozen simulated competitor field. Built f
 - [Agent ownership instructions](AGENTS.md)
 - [Reusable local probes](experiments/README.md) and [recorded findings](experiments/RESULTS.md)
 
-The repository includes a shared FastAPI/React bootstrap with a mock submit/poll flow backed by 200 synthetic projects and computed rankings. The offline collection/generation/review/scoring-export pipeline is implemented; its README reports ten accepted Luna mutations held locally by Dev1. Dev2 implements shared Qwen judging, Neon storage/import and private background jobs; the config review/freeze and real ten-project field integration remain pending. See [verified Dev2 status](docs/DEV2_STATUS.md) and the [backend README](backend/README.md). Luna prepares projects offline; Qwen3-32B scores cached competitors and live submissions using the same judge configuration. Practice placement is not a prediction of real hackathon results.
+The repository includes the FastAPI/React API, shared Qwen judge, Neon storage/import, private background jobs and offline field pipeline. Dev1 completed the 106-project real-seed Luna field and shared-Qwen scoring/export in merged PR #38. Use `offline/data/kh9-smoke/kh9-smoke-n106__kh9-qwen32b-v6.json`, pool `kh9-smoke-n106`, frozen judge `kh9-qwen32b-v6`, config SHA-256 `46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79`. Dev2 owns validated Neon import/activation and live integration; do not rescore competitors or change the judge. See [Dev2 evidence](docs/DEV2_STATUS.md) for verified behavior and remaining UI/deployment checks. Luna prepares competitors offline; Qwen scores cached competitors and live submissions with the same frozen config. Practice placement is not a prediction of real hackathon results.
 
-Commit source and synthetic fixtures. Keep credentials, copied project stories, generated field data and raw test responses local and out of Git.
+PR #38 contains the agreed scored-field handoff; do not duplicate it. Commit source, synthetic fixtures and sanitized evidence. Keep credentials, new runtime inputs/reports and raw provider responses out of Git.
 
 For local setup, follow [backend](backend/README.md), [frontend](frontend/README.md) and [offline](offline/README.md) instructions. Fixture results are synthetic and are never a fallback for live scoring.
 

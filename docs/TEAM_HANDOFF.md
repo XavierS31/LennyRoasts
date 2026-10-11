@@ -1,6 +1,6 @@
 # Start here: three agents, one foundation
 
-Everyone pulls current main before continuing. It contains mock routes backed by 200 synthetic projects and computed rankings, generated frontend types, a submit/poll UI, and the offline field pipeline merged in PR #6. Dev2 PR #8 implements the shared Qwen scorer; persistence/import/background jobs follow in the backend storage PR. The judge config remains provisional until review/freeze. See [Dev2 status](DEV2_STATUS.md) for verified evidence and pending handoffs. The offline README reports ten accepted Luna mutations stored privately on Dev1's machine; these artifacts are not included in a Git pull and still need shared Qwen scoring/export.
+Everyone pulls current main before continuing. Dev1 completed the 106-project real-seed Luna field and shared-Qwen scoring/export in merged PR #38. Use `offline/data/kh9-smoke/kh9-smoke-n106__kh9-qwen32b-v6.json`, pool `kh9-smoke-n106`, frozen judge `kh9-qwen32b-v6`, config SHA-256 `46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79`. Dev2 owns validated Neon import/activation and live integration; do not rescore competitors or change the judge. See [Dev2 evidence](DEV2_STATUS.md) for verified behavior and remaining UI/deployment checks. The 200-project mock field stays separate from live Qwen scoring.
 
 ## Kickoff
 
@@ -30,17 +30,17 @@ Each developer pastes the **entire assigned file** into their agent. These repla
 
 | Developer | Full prompt | First useful handoff |
 | --- | --- | --- |
-| Dev1 — offline/data | [DEV1_OFFLINE.md](prompts/DEV1_OFFLINE.md) | Continue the merged pipeline; report the automatically accepted private ten-project field and review Dev2’s eight provisional prompts/reference availability (issue #10). |
-| Dev2 — backend/integrator | [DEV2_BACKEND.md](prompts/DEV2_BACKEND.md) | Implement the shared scorer and freeze its config; document the field import path, then integrate Neon and real jobs. |
+| Dev1 — offline/data | [DEV1_OFFLINE.md](prompts/DEV1_OFFLINE.md) | Completed: 106 accepted/scored v6 projects and artifact in PR #38. Further field work stays with Dev1. |
+| Dev2 — backend/integrator | [DEV2_BACKEND.md](prompts/DEV2_BACKEND.md) | Validate/import/activate the complete v6 field and verify live jobs, rankings, restart persistence and session privacy. |
 | Dev3 — frontend | [DEV3_FRONTEND.md](prompts/DEV3_FRONTEND.md) | Complete the full input/report/failure flow against mock mode, then use the unchanged API with the live field. |
 
-All three start in parallel. Dev1 waits for Dev2 only for Qwen scoring/export; Dev3 waits only for final real integration. Dev2 can build/test the scorer, persistence and artifact import with synthetic replay fixtures while Dev1 reports the automatically accepted field and reviews judge prompts. Field semantic spot checks are optional under PR #9. No owner creates a second judge or patches another owner's package to bypass a dependency.
+The scorer/config/field handoff is complete. Dev2 supplies verified live startup and API evidence; Dev3 finishes browser checks under #12. Field semantic spot checks are optional under PR #9. No owner creates a second judge or patches another owner's package to bypass a dependency.
 
 The real handoff sequence is:
 
 1. Dev1 gives Dev2 reviewed briefs, prompt drafts and honest reference availability. Review the collected Most “Useful” brief's funny/goofy definition before freezing live scoring; mock heuristics are not authoritative rubric definitions.
 2. Dev2 gives Dev1 one complete frozen `JudgeConfig`, its canonical hash and the implemented async scorer. Changes after caching require a new judge version and full rescore.
-3. Dev1 privately transfers the schema- and score-semantics-validated `PoolArtifact`, matching config/hash/versions, report and actual category counts. The teammate-reported ten accepted projects are not yet a scored/importable cache.
+3. Completed in PR #38: Dev1 exported the validated 106-project v6 `PoolArtifact`, with matching config/hash/versions and actual category counts. This agreed Git handoff supersedes the private ten-project instructions.
 4. Dev2 imports and activates the matching field/config pair in Neon and supplies the verified live startup/API to Dev3. `result.challenge_results` uses the existing contract; no new endpoint is needed.
 5. Dev3 verifies the same frontend against the real field and reports actual mode/counts. Dev2 integrates small reviewed PRs serially.
 
@@ -67,8 +67,8 @@ All owners can use the same 200-project field and saved ranking files immediatel
 
 ## Current handoff issues
 
-- [#10](https://github.com/XavierS31/LennyRoasts/issues/10): Dev1 reviews all eight provisional judge prompts; Dev2 applies/finalizes owned config changes.
-- [#11](https://github.com/XavierS31/LennyRoasts/issues/11): on the human owner's request, Dev2 handles Qwen scoring/export/import after Dev1 privately transfers accepted project records and the pool report. The frozen v5 judge is on main. Use `backend.tools.prepare_field` to select an immutable ten-project snapshot before expanding; see backend/README.md. Generated runtime projects remain outside Git.
-- [#12](https://github.com/XavierS31/LennyRoasts/issues/12): Dev3 verifies the unchanged frontend/API against the imported live field.
+- [#10](https://github.com/XavierS31/LennyRoasts/issues/10): done; v6 is frozen. No judge change or competitor rescore is needed.
+- [#11](https://github.com/XavierS31/LennyRoasts/issues/11): Dev2 imports/activates PR #38's complete 106-project v6 artifact and verifies real Qwen submit/poll, actual counts, separate-session 404 and restart persistence. See backend/README.md and DEV2_STATUS.md.
+- [#12](https://github.com/XavierS31/LennyRoasts/issues/12): Dev3 owns remaining UI/failure/responsive/rehearsal checks against the imported live field.
 
-These issues do not authorize cross-owner edits. Manual semantic review of Luna mutations is optional after PR #9; automatic acceptance and score/cache validation remain required.
+These issues do not authorize cross-owner edits. Manual semantic review of Luna mutations is optional after PR #9; automatic acceptance and score/cache validation remain required. New runtime data stays private; do not duplicate PR #38's agreed dataset.

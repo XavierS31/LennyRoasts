@@ -6,7 +6,7 @@ Paste this entire file into Dev2's agent. Dev2 is the backend owner and human in
 
 Repository: [XavierS31/LennyRoasts](https://github.com/XavierS31/LennyRoasts). Work from current `main`, preserving existing workstream changes.
 
-You are Dev2 for LennyRoasts, a Knight Hacks IX MVP with three human developers supervising separate AI agents. Deliver one Qwen scoring path used offline and live, a versioned field stored in Neon, private asynchronous evaluation jobs and the existing API. Use the team's remaining 18-hour budget; unblock offline scoring early and get a ten-project real flow working before expanding.
+You are Dev2 for LennyRoasts, a Knight Hacks IX MVP with three human developers supervising separate AI agents. Deliver one Qwen scoring path used offline and live, a versioned field stored in Neon, private asynchronous evaluation jobs and the existing API. Use the team's remaining 18-hour budget; continue import/live integration using the complete scored 106-project v6 field.
 
 Read `AGENTS.md`, `docs/TEAM_HANDOFF.md`, `plan_draft.md` sections 5–7 and 10, `contracts/README.md`, `contracts/openapi.json`, `contracts/fixtures.json`, `contracts/mock/README.md`, `backend/README.md`, `offline/README.md`, `offline/config/kh9_challenges.json` and `experiments/RESULTS.md` first. Contract shapes and documented semantics control implementation. Coordinate any required contract change before dependent work; no independent field/route renaming.
 
@@ -14,10 +14,10 @@ Use your own clone/worktree and `codex/backend-judge` or `codex/backend-<task>`.
 
 Current state:
 
-- `backend.app.main:app` implements explicit mock routes and cookie-scoped process-local jobs. Mock completion happens while GET is polled. Explicit LENNY_MODE=live uses persisted queued background work in Dev2’s storage implementation; GET only reads state. Do not change mock simulation to claim live evidence.
-- `backend.app.judging.score_submission` is implemented in PR #8 with a complete provisional config. Read docs/DEV2_STATUS.md before repeating work; prompt review/freeze and real-field handoff are tracked in issues #10 and #11. `backend.app.contracts`, `scoring_contract.validate_score_result` and `ranking.rank_results` already implement reusable validation/ranking behavior. Preserve and reuse them.
-- Dev1's merged offline pipeline already imports the shared scorer and has score/export/validation commands. Its README reports ten accepted Luna mutations held privately on the teammate's machine; Git does not deliver them. It now needs your frozen config and functioning scorer, then your import command.
-- The committed 200-project field uses deterministic mock scores. It is for development. Live comparisons require a real Qwen-scored field; the real expansion target is 109, after a ten-project demo works. Bounded Qwen provider checks and isolated Neon replay persistence are verified; a complete real-field/live-user flow and deployment remain unverified.
+- The shared async scorer, frozen config, Neon migrations/storage/import and actual background worker are on main. Reuse `backend.app.judging.score_submission`, `scoring_contract.validate_score_result` and `ranking.rank_results`.
+- Dev1 completed scoring/export in PR #38. Use `offline/data/kh9-smoke/kh9-smoke-n106__kh9-qwen32b-v6.json`, pool `kh9-smoke-n106`, judge `kh9-qwen32b-v6`, SHA-256 `46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79`. Do not prepare a subset, rescore competitors or change the judge.
+- Dev2 owns validation, atomic/idempotent Neon import/activation and live API integration under #11. Read docs/DEV2_STATUS.md for verified evidence before repeating paid checks.
+- Dev3 owns remaining UI checks under #12. Mock mode uses a separate 200-project heuristic field and never substitutes for live failures. Deployment remains separate from local verification.
 
 ## Exact API and shared interface
 
@@ -40,9 +40,16 @@ async def score_submission(submission: dict, challenge_ids: list[str], judge_con
     ...
 ```
 
-Keep the import `backend.app.judging.score_submission`. Each returned item is a validated `ChallengeResult`, with `placement=null`, `rivals=[]`, `improvements=[]` before enrichment. The offline caller requires those values. No hidden seed/persona/fit/award metadata reaches Qwen.
+Keep the import `backend.app.judging.score_submission`. Each returned item is a validated `ChallengeResult`, with `placement=null`, `rivals=[]` and the selected judge run's `improvements` before enrichment. No hidden seed/persona/fit/award metadata reaches Qwen.
 
-## Work to complete, in order
+## Current continuation
+
+1. Validate the complete PR #38 artifact against the unchanged frozen config. Check/apply checksum-verified migrations and import/activate with `backend.tools.import_field`; repeat to verify idempotence and read actual counts from Neon.
+2. Inspect existing processes; use explicit live startup and preserve unrelated servers. Verify the frontend same-origin `/api` proxy reaches the live backend.
+3. Verify bounded paid POST queued → GET running → completed, captured versions, rankings, exact evidence and judge-written improvements. Check separate-session 404 and persisted completed reports across a controlled restart.
+4. Record sanitized evidence, complete #11 only after its acceptance passes, and coordinate remaining Dev3 checks under #12. Do not claim deployment.
+
+## Original implementation scope (already delivered)
 
 1. Implement the shared async HF judge and config loading first. Use `Qwen/Qwen3-32B` with provider `deepinfra`, router selector `Qwen/Qwen3-32B:deepinfra`, temperature 0.2, schema output, non-thinking mode, max 1,200 output tokens and three runs. Reuse the bounded probe findings, verify actual provider support/model metadata, and retain `/no_think` only as supported by the tested route. Never silently switch model/provider/protocol or use mock fallback.
 2. Coordinate eight reviewed prompt drafts/briefs with Dev1, and freeze a complete `JudgeConfig`: model/provider/settings, prompt/rubric/judge versions, all eight prompt strings and all eight reference-id arrays. Empty reference arrays are honest when unavailable. Review the newly collected briefs: Most “Useful” is funny/goofy according to `offline/config/kh9_challenges.json`, not generic utility. Align live API descriptions and scoring anchors in your owned paths before caching; do not repurpose committed mock scores as results for a changed rubric.
@@ -53,8 +60,8 @@ Keep the import `backend.app.judging.score_submission`. Each returned item is a 
 7. Implement Neon-hosted PostgreSQL persistence with SQLAlchemy 2 + psycopg 3 and versioned migrations. Store immutable judge configs/field projects/scores and session-scoped evaluation jobs/results with expiry. Use server-only `HF_TOKEN`, pooled `DATABASE_URL` and direct migration `DATABASE_URL_DIRECT`, with the Neon-provided TLS settings. Document setup/migrations safely. If credentials are missing, request them once from the human owner while continuing code/replay tests; never claim remote verification from a local substitute.
 8. Add a documented backend import command for `PoolArtifact` plus matching `JudgeConfig`. Validate schema, canonical config hash, all versions, unique project ids, metadata/fit, exact category coverage, three runs, arithmetic, eligibility, evidence and the pre-enrichment null/empty fields. Reject mock configs for live mode, partial artifacts, duplicate/reused versions with different contents and incompatible caches. Import atomically/idempotently and activate only a complete validated field/config pair. Keep previous immutable versions available to jobs that captured them.
 9. Replace live GET-driven work with actual background execution started after POST. Persist a job's judge/pool versions at creation and expose only jobs owned by its HTTP-only cookie session; retain same-origin frontend behavior and secure cookies over HTTPS. GET only reads state. For the MVP, a bounded single-instance worker/background task is sufficient if restart recovery is explicit: resume safely or mark interrupted jobs failed, never leave them running forever or duplicate paid inference silently. Persist reports across restart, expire private inputs/results and avoid adding accounts/public listings.
-10. Reuse `rank_results`: for each category, compare user run i to cached run i for aggregate-eligible rivals. N is their count; best tie rank is 1 + strictly higher scores, worst adds equals; placement spans min best to max worst across runs. An eligible user is shown out of N+1; ineligible placement is null. Cached projects exclude themselves. Never mutate/rescore the field when a user submits. Return at most three rival summaries and three grounded improvements within contract bounds; generate improvements from validated scoring/context in code, without an extra live generation model. Rival write-ups stay private beyond the allowed summaries.
-11. Integrate Dev1's ten-project artifact and Dev3's UI, then expand while preserving a working demo. Extend CI to cover offline tests with their dependencies as well as the existing backend/ownership/type/build checks. Keep live unavailable until the exact field is ready; retain explicit `LENNY_MODE=mock` for development. Document live startup/config/import, persistence/recovery limits and deployment wiring. Do not invent new API endpoints for progress, competitors or leaderboards.
+10. Reuse `rank_results`: for each category, compare user run i to cached run i for aggregate-eligible rivals. N is their count; best tie rank is 1 + strictly higher scores, worst adds equals; placement spans min best to max worst across runs. An eligible user is shown out of N+1; ineligible placement is null. Cached projects exclude themselves. Never mutate/rescore the field when a user submits. Return at most three rival summaries and three grounded improvements within contract bounds; preserve judge-written improvements from the selected run, falling back to validated criterion templates only when absent, without extra inference. Rival write-ups stay private beyond the allowed summaries.
+11. Integrate Dev1's complete 106-project v6 artifact and Dev3's UI while preserving a working demo. Extend CI to cover offline tests with their dependencies as well as the existing backend/ownership/type/build checks. Keep live unavailable until the exact field is ready; retain explicit `LENNY_MODE=mock` for development. Document live startup/config/import, persistence/recovery limits and deployment wiring. Do not invent new API endpoints for progress, competitors or leaderboards.
 
 ## Verification and delivery
 

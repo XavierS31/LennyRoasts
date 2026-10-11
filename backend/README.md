@@ -29,46 +29,37 @@ Use the Neon-provided TLS query settings, such as sslmode=require and channel_bi
 
 ```sh
 .venv/bin/python -m backend.tools.migrate
-# After the reviewed config is frozen and Dev1 privately transfers the scored artifact:
+# Dev1 completed scoring/export; PR #38 contains the agreed handoff:
 .venv/bin/python -m backend.tools.import_field \
-  --artifact .local-tests/handoff/pool.json \
+  --artifact offline/data/kh9-smoke/kh9-smoke-n106__kh9-qwen32b-v6.json \
   --judge-config backend/config/judge_config.json --validate-only
 .venv/bin/python -m backend.tools.import_field \
-  --artifact .local-tests/handoff/pool.json \
+  --artifact offline/data/kh9-smoke/kh9-smoke-n106__kh9-qwen32b-v6.json \
   --judge-config backend/config/judge_config.json
 ```
 
-`--validate-only` needs no database. `--no-activate` imports without changing the active field. The default activates only after the complete atomic import commits. Provisional, candidate, draft and mock configs/fields are rejected. The ten-project field is the first target; show actual accepted/eligible counts. No quota padding or comparison to heuristic mock scores.
+`--validate-only` needs no database. `--no-activate` imports without changing the active field. The default activates only after the complete atomic import commits. Provisional, candidate, draft and mock configs/fields are rejected. Use the complete 106-project v6 field; show actual considered/eligible counts. No quota padding or comparison to heuristic mock scores.
 
 Import validates the authoritative schemas, canonical config hash/versions, unique ids, seed/mutation provenance, timestamps, matching metadata/fit, exact category coverage, distinct run indices, means/arithmetic/denominators, majority eligibility/disagreement warnings, exact displayed evidence, and null/empty enrichment fields. Same-content imports are idempotent; reusing judge/pool versions with different content fails. PostgreSQL triggers prevent updates/deletes to frozen configs, fields, projects and score rows. Old versions remain available to captured jobs. The database stores aggregate category reports and normalized per-run rows; raw provider diagnostics are expiring local private files, not artifact schema additions.
 
-## Issue #11: score a private ten-project handoff
+## Issue #11: import the scored 106-project v6 handoff
 
-Dev2 is taking the scoring/export/import work on the human owner's request. Dev1 supplies the private `kh9-smoke/accepted/` folder and available pool report; Git carries source code/configs, not the generated projects. Credentials need not be transferred. The final judge is `kh9-qwen32b-v5`, hash `87c962cfcaeb6da15575fb837009f88f915fea9f283d696f28d002170480af4a` (PR #20, issue #10).
+Dev1 completed scoring/export in merged [PR #38](https://github.com/XavierS31/LennyRoasts/pull/38). The agreed artifact is `offline/data/kh9-smoke/kh9-smoke-n106__kh9-qwen32b-v6.json`, pool `kh9-smoke-n106`, judge `kh9-qwen32b-v6`, canonical config SHA-256 `46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79`. Dev2 owns validation, Neon import/activation and live integration. Do not prepare a ten-project subset, rescore competitors or change the judge for this handoff.
 
-If the source field has grown beyond ten, make a separate immutable snapshot before paid scoring:
+Run the migration and validate/import commands above; repeat import to verify idempotence. The agreed dataset already exists in Git: do not duplicate it. New requests, sessions, reports and provider diagnostics remain under ignored `.local-tests/` or private Neon storage. `prepare_field` remains available for historical small snapshots and is not part of this completed handoff.
 
-```sh
-# Dev1's private accepted tNNN.json records go in this ignored directory first.
-.venv/bin/python -m backend.tools.prepare_field \
-  --accepted-dir .local-tests/handoff/accepted \
-  --field-id kh9-integration-10 --count 10
-# Score one project first; rerun without --limit to finish the selected ten.
-.venv/bin/python -m offline.cli score --field kh9-integration-10 \
-  --judge-config backend/config/judge_config.json --limit 1
-.venv/bin/python -m offline.cli score --field kh9-integration-10 \
-  --judge-config backend/config/judge_config.json
-.venv/bin/python -m offline.cli export --field kh9-integration-10 \
-  --judge-config backend/config/judge_config.json
-.venv/bin/python -m backend.tools.import_field \
-  --artifact .local-tests/offline/fields/kh9-integration-10/artifacts/kh9-integration-10-n10__kh9-qwen32b-v5.json \
-  --judge-config backend/config/judge_config.json --validate-only
-# Run the same import without --validate-only only when complete validation passes.
-```
+| Category | Considered | Eligible competitors |
+| --- | --- | --- |
+| Overall | 106 | 106 |
+| Best AI | 106 | 95 |
+| Best Game | 106 | 14 |
+| Most “Useful” | 106 | 13 |
+| Gemini | 51 | 47 |
+| ElevenLabs | 45 | 41 |
+| Databricks | 30 | 20 |
+| BNY | 43 | 32 |
 
-`prepare_field` copies the first ten accepted team files by filename, preserving project ids and all original records. It validates submission/schema/provenance shape and creates a canonical content-hash receipt under `.local-tests/offline/fields/<field-id>/`. Snapshot directories are mode 0700 and files 0600. Rerunning keeps the original selection when the source grows, but rejects changed source/snapshot content or a changed count. Use a new field id for a different selection. It makes no provider/database calls and does not claim to repeat Dev1's semantic/similarity acceptance checks; the original report is still part of the handoff. Do not run `sample`/`generate` on this snapshot or expand it in place. Rerun the preparation check before resuming scoring/export. Snapshot preparation supports at most ten until that integration works; the original source field is never changed.
-
-Scoring/export use the existing offline commands and shared judge; there is no second scorer or artifact format. Provider failures remain failures, export refuses incomplete scores, and import validates the exact version/hash and all three runs before activation. Transfer only sanitized counts, versions/hash, failure counts and filenames in issue #11; raw projects/results remain ignored/private.
+Eligible users rank out of eligible competitors + 1. These are Luna rewrites of real seeds scored by Qwen for simulated practice; they are not actual entrants or human judgments. See [Dev2 evidence](../docs/DEV2_STATUS.md) for verified import, API and browser checks and remaining Dev3 work under [#12](https://github.com/XavierS31/LennyRoasts/issues/12).
 
 ## Live startup and private jobs
 
@@ -99,6 +90,6 @@ Inputs are cleared immediately after completion/failure; inputs/results/session 
 .venv/bin/python -m backend.tools.neon_smoke
 ```
 
-The isolated Neon smoke creates/drops a temporary schema and verifies migrations/idempotence, immutable triggers, import, actual background execution, session 404, report persistence and interrupted-job failure. It never activates a synthetic field in the live/public schema, and replay inference is not live Qwen integration evidence. For a bounded paid combined check, `.venv/bin/python -m backend.tools.live_integration_smoke` uses one synthetic competitor and one user with real Qwen scores in a temporary Neon schema, then removes it. This does not replace Dev1’s ten-project artifact. See [Dev2 evidence/handoff](../docs/DEV2_STATUS.md) for actual provider/database checks and remaining work.
+The isolated Neon smoke creates/drops a temporary schema and verifies migrations/idempotence, immutable triggers, import, actual background execution, session 404, report persistence and interrupted-job failure. It never activates a synthetic field in the live/public schema, and replay inference is not live Qwen integration evidence. For a bounded paid combined check, `.venv/bin/python -m backend.tools.live_integration_smoke` uses one synthetic competitor and one user with real Qwen scores in a temporary Neon schema, then removes it. This does not replace integration against the agreed 106-project field. See [Dev2 evidence/handoff](../docs/DEV2_STATUS.md) for actual provider/database checks and remaining work.
 
-Dev1's prompt review is complete ([#10](https://github.com/XavierS31/LennyRoasts/issues/10)); the frozen config is on main. Dev2 now handles scoring/export/import for [#11](https://github.com/XavierS31/LennyRoasts/issues/11), pending Dev1's private accepted-project/report transfer. Dev3 owns the live UI check ([#12](https://github.com/XavierS31/LennyRoasts/issues/12)). Merge PRs serially under the human integrator. No ten-project live integration or deployment is claimed before the field is delivered/imported and that flow is tested.
+Dev1's prompt review and v6 field scoring/export are complete ([#10](https://github.com/XavierS31/LennyRoasts/issues/10), [PR #38](https://github.com/XavierS31/LennyRoasts/pull/38)). Dev2 owns import/live integration ([#11](https://github.com/XavierS31/LennyRoasts/issues/11)); Dev3 owns the remaining UI checks ([#12](https://github.com/XavierS31/LennyRoasts/issues/12)). Merge PRs serially under the human integrator. Local live verification is recorded separately from deployment in docs/DEV2_STATUS.md.
