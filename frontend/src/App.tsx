@@ -1035,30 +1035,32 @@ export default function App() {
         </section>
 
         <section className="report-panel" aria-labelledby="report-heading" hidden={location.kind !== "atrium"}>
-          <div className="section-heading report-heading-row">
+          {!dashboardResult && <div className="section-heading report-heading-row">
             <div>
               <h2 id="report-heading" ref={reportHeading} tabIndex={-1}>Your judging report</h2>
             </div>
             <span className={`status-chip status-${job ? job.status : mode}`}>
               {job?.status ?? modeLabel(mode)}
             </span>
-          </div>
+          </div>}
 
           {job?.status === "completed" && dashboardResult && (
             <div className="report-results">
-              <p className="dashboard-mode-note">{jobMode(job, config) === "mock" ? "Mock scores · synthetic practice field" : jobMode(job, config) === "fixture" ? "Synthetic fixture · example results" : "Simulated practice field"} · Ratings reflect your submitted description. Practice placements are not predictions of real event results.</p>
-              {reportIsStale && <p className="stale-report-note" role="status">The idea has changed. This report is for your last submitted version.</p>}
-              <AtriumDashboard result={dashboardResult} results={reportResults} challenges={config?.challenges ?? []}
+              <AtriumDashboard headingRef={reportHeading} notice={<>
+                <details className="dashboard-mode-note"><summary>{jobMode(job, config) === "mock" ? "Mock scores · synthetic practice field" : jobMode(job, config) === "fixture" ? "Synthetic fixture · example results" : "Simulated practice field"}</summary><p>Ratings reflect your submitted description. Practice placements are not predictions of real event results.</p></details>
+                {reportIsStale && <p className="stale-report-note" role="status">The idea has changed. This report is for your last submitted version.</p>}
+              </>} result={dashboardResult} results={reportResults} challenges={config?.challenges ?? []}
                 projectName={submittedSubmission?.name ?? "Your idea"} onCategory={setSceneCategory}
                 onRevise={() => { navigate("campus"); window.requestAnimationFrame(() => ideaInput.current?.focus()); }}
                 onAgent={(id) => { setPanelsVisible(false); window.requestAnimationFrame(() => { void sceneController.current?.command("focus", id); }); }}
-                onCeremonies={() => { setCeremonyRun((run) => run + 1); navigate("awards"); }} />
-              <details className="dashboard-scoring-details">
-                <summary>Scoring details and evidence</summary>
-                <p className="version-line">Judge <code>{job.judge_version}</code> · Field <code>{job.pool_version}</code></p>
-                <ReportCard result={dashboardResult} challenge={config?.challenges.find((challenge) => challenge.id === dashboardResult.challenge_id)} selected={true}
-                  onShowInScene={() => { setSceneCategory(dashboardResult.challenge_id); setPanelsVisible(false); }} />
-              </details>
+                onCeremonies={() => { setCeremonyRun((run) => run + 1); navigate("awards"); }}>
+                <details className="dashboard-scoring-details">
+                  <summary>Scoring details and evidence</summary>
+                  <p className="version-line">Judge <code>{job.judge_version}</code> · Field <code>{job.pool_version}</code></p>
+                  <ReportCard result={dashboardResult} challenge={config?.challenges.find((challenge) => challenge.id === dashboardResult.challenge_id)} selected={true}
+                    onShowInScene={() => { setSceneCategory(dashboardResult.challenge_id); setPanelsVisible(false); }} />
+                </details>
+              </AtriumDashboard>
             </div>
           )}
 
@@ -1080,7 +1082,7 @@ export default function App() {
         </section>
       </div>
 
-      <footer className="page-footer" hidden={location.kind === "awards"}>
+      <footer className="page-footer" hidden={location.kind === "awards" || (location.kind === "atrium" && Boolean(dashboardResult))}>
         <span>Lenny acts as your hackathon judges for Knight Hacks IX.</span>
         <span>TEXT-ONLY PRACTICE · SIMULATED FIELD · NOT A REAL-WINNER PREDICTION</span>
       </footer>
