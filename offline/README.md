@@ -31,8 +31,8 @@ Use the root Python environment from `backend/requirements.txt`, plus `offline/r
 | `checks.py`, `similarity.py` | Plan 4.9 checks: schema, exact challenge ids, style lengths ±50%, sponsor tech, leaked labels/hackathon names, completion honesty, renamed title/tagline, 12-word copy runs, cosine > 0.95 to seeds or accepted projects |
 | `field.py` | Field state, batches, ingest with a 3-attempt budget, optional review sheet and reject, pool report |
 | `scoring.py`, `artifact.py` | Calls the shared scorer, adds offline checks, exports and validates `PoolArtifact` |
-| `config/judge_config_candidate.json` | Reviewed prompt candidate for Dev2's judge freeze; only prompts and version labels differ from the backend config |
-| `config/judge_controls.json`, `controls.py` | Ten synthetic category controls with expected gate outcomes (playable game vs Unity/VR walkthrough, AI product vs AI-written code, goofy vs ordinary utility, finance workflow, central-but-unconnected ElevenLabs/Databricks, tag-only opt-in), scored through the shared scorer before field caching |
+| `config/judge_config_candidate.json` | Next prompt candidate for the judge freeze; only prompts and version labels differ from the frozen backend config |
+| `config/judge_controls.json`, `controls.py` | Fourteen synthetic category controls with expected gate outcomes (playable game vs Unity/VR walkthrough and gamified study app, training game, AI product vs AI-written code, goofy vs ordinary utility, finance workflow, central-but-unconnected ElevenLabs/Databricks, tag-only and small-optional sponsor use vs a meaningful secondary role), scored through the shared scorer before field caching |
 
 ## Commands
 
@@ -70,10 +70,10 @@ python -m offline.cli export --field kh9-smoke --judge-config <judge_config.json
 python -m offline.cli validate-artifact --artifact <artifact.json> --judge-config <judge_config.json>
 ```
 
-Before scoring the field under a new judge version, smoke-test its category gates on the synthetic controls. Only the categories each control expects are scored (three runs each, 30 judge calls for all ten); outcomes are saved under `.local-tests/offline/controls/<judge_version>/` and the command exits non-zero on any mismatch or failure. Controls never enter a field or artifact, and passing them is not evidence of human-judge agreement.
+Before scoring the field under a new judge version, smoke-test its category gates on the synthetic controls. Only the categories each control expects are scored (three runs each, 42 judge calls for all fourteen); outcomes are saved under `.local-tests/offline/controls/<judge_version>/` and the command exits non-zero on any mismatch or failure. Controls never enter a field or artifact, and passing them is not evidence of human-judge agreement.
 
 ```sh
-python -m offline.cli controls --judge-config <judge_config.json>                         # all ten
+python -m offline.cli controls --judge-config <judge_config.json>                         # all fourteen
 python -m offline.cli controls --judge-config <judge_config.json> --control game-playable  # repeatable
 ```
 
@@ -88,4 +88,4 @@ python -m offline.cli controls --judge-config <judge_config.json> --control game
 
 ## Status
 
-Smoke field `kh9-smoke`: 10 Luna mutations accepted on automatic checks, of 12 sampled teams (2 skipped after three failed attempts), stored locally. The seed manifest has grown from 18 to 77 seeds (general 20, BNY/Gemini/ElevenLabs 15 each, Databricks 12; 9 with a won prize on their page), enough for 109 teams under the 3-use cap; the field has been extended to 109 team plans with the first 12 unchanged, and Luna generation for the new teams runs locally. Scoring and export wait for the frozen live `JudgeConfig`. Prompt review for the provisional config is in [issue #10](https://github.com/XavierS31/LennyRoasts/issues/10), and the reviewed candidate `config/judge_config_candidate.json` passes all ten category controls in one live run (the provisional v4 config passed eight); no verified Knight Hacks VII reference examples have been collected, so all reference arrays stay empty.
+Smoke field `kh9-smoke`: 10 Luna mutations accepted on automatic checks, of 12 sampled teams (2 skipped after three failed attempts), stored locally. The seed manifest has grown from 18 to 77 seeds (general 20, BNY/Gemini/ElevenLabs 15 each, Databricks 12; 9 with a won prize on their page), enough for 109 teams under the 3-use cap; the field has been extended to 109 team plans with the first 12 unchanged, and Luna generation for the new teams runs locally. The field now has 106 accepted of 109 sampled teams (3 skipped). All 106 were scored with the frozen `kh9-qwen32b-v5` judge (0 failures), which exposed lenient gates: every Gemini (51/51), ElevenLabs (45/45) and Databricks (30/30) opt-in qualified, and 35 of 106 projects qualified for Best Game, many of them gamified utilities. The candidate `config/judge_config_candidate.json` (`kh9-qwen32b-v6r2-candidate`) passes all fourteen controls; re-judging 25 real field projects rejected 7 of 8 Best Game and 5 of 6 weak-fit false positives while all 7 real games and 4 strong-fit opt-ins kept their scores. The field must be rescored once v6 is frozen. No verified Knight Hacks VII reference examples have been collected, so all reference arrays stay empty.
