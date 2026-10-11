@@ -30,6 +30,10 @@
 .engineering-app { width: 100%; max-width: none; padding: 20px; color: var(--ink); }
 .engineering-scene { position: fixed; inset: 0; z-index: 0; background: #abc5d8; }
 .engineering-scene canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+/* Interior rooms occupy the viewport independently of the exterior form. */
+.engineering-app:is(.view-atrium, .view-awards) { min-height: 100dvh; }
+.view-awards { height: 100dvh; overflow: hidden; }
+.view-awards .glass-content { display: none; }
 .glass-panel, .engineering-app :is(.masthead, .intro, .mode-banner, .form-panel, .report-panel, .page-footer) {
   background: rgba(16, 25, 39, .38);
   border: 1px solid rgba(255,255,255,.27);
@@ -123,6 +127,7 @@ select option { background: #1a2738; color: #fff; }
 /* The atrium opens as a room to explore; the preserved report is a drawer. */
 .view-atrium .glass-content { position: fixed; left: 20px; top: 218px; bottom: 20px; width: min(430px, calc(100vw - 40px)); overflow-y: auto; z-index: 4; border-radius: 22px; }
 .scene-atrium .camera-controls { top: 110px; left: 20px; right: auto; display: flex; flex-wrap: wrap; width: min(760px, calc(100vw - 340px)); gap: 5px; }
+.lenny-controls { display: flex; flex-wrap: wrap; gap: 5px; flex-basis: 100%; }
 .scene-atrium .scene-results { left: 20px; right: auto; top: auto; bottom: 20px; width: min(360px, calc(100vw - 40px)); max-height: calc(100dvh - 245px); }
 .scene-atrium.with-panels .scene-results { left: auto; right: 20px; width: min(340px, 32vw); }
 .atrium-map { position: fixed; top: 110px; right: 20px; z-index: 3; padding: 8px; width: 260px; max-height: calc(100dvh - 140px); overflow-y: auto; }
@@ -163,10 +168,11 @@ select option { background: #1a2738; color: #fff; }
   .view-atrium .glass-content { top: 144px; left: 12px; right: 12px; bottom: 12px; width: auto; }
   .scene-atrium .camera-controls { top: auto; left: 12px; right: 12px; bottom: 12px; width: auto; padding: 6px; }
   .scene-atrium .camera-controls button { min-height: 32px; font-size: 10px; padding: 6px 8px; }
-  .scene-atrium .scene-results { top: auto; left: 12px; right: 12px; width: auto; bottom: 116px; max-height: calc(100dvh - 315px); }
+  .scene-atrium .scene-results { top: auto; left: 12px; right: 12px; width: auto; bottom: 204px; max-height: calc(100dvh - 380px); }
   .atrium-map { top: 140px; right: 12px; width: min(260px, calc(100vw - 24px)); max-height: calc(100dvh - 280px); }
   .scene-atrium.with-panels .atrium-map { display: none; }
-  .atrium-empty { left: 12px; right: 12px; bottom: 126px; max-width: none; }
+  .atrium-empty { left: 12px; right: 12px; bottom: 204px; max-width: none; }
+  .lenny-controls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .scene-awards .camera-controls { top: auto; left: 12px; right: 12px; bottom: 12px; max-width: none; padding: 6px; }
   .scene-awards .camera-controls button { min-height: 32px; padding: 6px 8px; font-size: 10px; }
   .ballroom-caption { bottom: 112px; left: 12px; right: 12px; max-width: none; padding: 12px 16px; }

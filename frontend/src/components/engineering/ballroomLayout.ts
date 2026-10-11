@@ -5,7 +5,7 @@ export const BALLROOM = { halfWidth: 24, halfLength: 34, height: 19, rows: 13, s
 export const ballroomViews = {
   overview: { position: [0, 6.5, 29], target: [0, 8, -30] },
   floor: { position: [0, 3.9, 19], target: [0, 7.5, -31] },
-  stage: { position: [-7, 6, -10], target: [0, 8, -30] },
+  stage: { position: [0, 4.8, -17.5], target: [0, 4.2, -28.4] },
   ceiling: { position: [0, 7, 19], target: [0, 18, -8] },
   iso: { position: [40, 37, 48], target: [0, 4, -3] },
   top: { position: [0, 84, .1], target: [0, 0, 0] },
