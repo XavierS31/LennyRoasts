@@ -1,0 +1,3 @@
+# Install on top of backend/requirements.txt (the shared root environment).
+model2vec==0.6.0
+numpy>=2.0

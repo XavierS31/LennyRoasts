@@ -1,0 +1,280 @@
+{
+  "manifest_version": "kh9-seeds-v1",
+  "selected_on": "2026-10-10",
+  "note": "Provenance only. Opt-ins come from Devpost prize-filtered submission search; awards are read from each project page at fetch time. Story text stays under .local-tests/.",
+  "seeds": [
+    {
+      "seed_id": "shellhacks2024--fraud-guard",
+      "pool": "bny",
+      "devpost_url": "https://devpost.com/software/fraud-guard",
+      "hackathon": "shellhacks2024",
+      "hackathon_name": "ShellHacks 2024",
+      "year": 2024,
+      "opted_into": [
+        "BNY AI-powered Financial Fraud Detection System"
+      ],
+      "skills": [
+        "data",
+        "web"
+      ]
+    },
+    {
+      "seed_id": "shellhacks2024--fraudguard-3gxd0w",
+      "pool": "bny",
+      "devpost_url": "https://devpost.com/software/fraudguard-3gxd0w",
+      "hackathon": "shellhacks2024",
+      "hackathon_name": "ShellHacks 2024",
+      "year": 2024,
+      "opted_into": [
+        "BNY AI-powered Financial Fraud Detection System"
+      ],
+      "skills": [
+        "ai_ml",
+        "web"
+      ]
+    },
+    {
+      "seed_id": "swamphacks-xi--card-compass",
+      "pool": "bny",
+      "devpost_url": "https://devpost.com/software/card-compass",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Finance Hack Sponsored By Capital One",
+        "Best Everyday Life & Wellbeing [Human-Centered Design] Project"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ]
+    },
+    {
+      "seed_id": "hackusf-2026--preqly",
+      "pool": "gemini",
+      "devpost_url": "https://devpost.com/software/preqly",
+      "hackathon": "hackusf-2026",
+      "hackathon_name": "HackUSF 2026",
+      "year": 2026,
+      "opted_into": [
+        "[MLH] Best Use of Gemini API"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ]
+    },
+    {
+      "seed_id": "hackusf-2026--katchef",
+      "pool": "gemini",
+      "devpost_url": "https://devpost.com/software/katchef",
+      "hackathon": "hackusf-2026",
+      "hackathon_name": "HackUSF 2026",
+      "year": 2026,
+      "opted_into": [
+        "[MLH] Best Use of Gemini API"
+      ],
+      "skills": [
+        "mobile",
+        "ai_ml"
+      ]
+    },
+    {
+      "seed_id": "swamphacks-xi--bookiverse",
+      "pool": "gemini",
+      "devpost_url": "https://devpost.com/software/bookiverse",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Use of Gemini API"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ]
+    },
+    {
+      "seed_id": "swamphacks-xi--plainspeak-u174s8",
+      "pool": "gemini",
+      "devpost_url": "https://devpost.com/software/plainspeak-u174s8",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Use of Gemini API",
+        "Best Use of ElevenLabs"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ]
+    },
+    {
+      "seed_id": "hackusf-2026--smart-interview",
+      "pool": "elevenlabs",
+      "devpost_url": "https://devpost.com/software/smart-interview",
+      "hackathon": "hackusf-2026",
+      "hackathon_name": "HackUSF 2026",
+      "year": 2026,
+      "opted_into": [
+        "[MLH] Best Use of ElevenLabs"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ]
+    },
+    {
+      "seed_id": "swamphacks-xi--ball-don-t-lie",
+      "pool": "elevenlabs",
+      "devpost_url": "https://devpost.com/software/ball-don-t-lie",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Use of Gemini API",
+        "Best Use of ElevenLabs",
+        "Best Everyday Life & Wellbeing [Human-Centered Design] Project"
+      ],
+      "skills": [
+        "ai_ml",
+        "web"
+      ]
+    },
+    {
+      "seed_id": "swamphacks-xi--cue-jv57fh",
+      "pool": "elevenlabs",
+      "devpost_url": "https://devpost.com/software/cue-jv57fh",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Use of Gemini API",
+        "Best Use of ElevenLabs"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ]
+    },
+    {
+      "seed_id": "hackthenorth2024--planetshare",
+      "pool": "databricks",
+      "devpost_url": "https://devpost.com/software/planetshare",
+      "hackathon": "hackthenorth2024",
+      "hackathon_name": "Hack the North 2024",
+      "year": 2024,
+      "opted_into": [
+        "Databricks: Best Use of Databricks"
+      ],
+      "skills": [
+        "web",
+        "data"
+      ]
+    },
+    {
+      "seed_id": "hackthenorth2024--kitchenvision",
+      "pool": "databricks",
+      "devpost_url": "https://devpost.com/software/kitchenvision",
+      "hackathon": "hackthenorth2024",
+      "hackathon_name": "Hack the North 2024",
+      "year": 2024,
+      "opted_into": [
+        "Databricks: Best Use of Databricks"
+      ],
+      "skills": [
+        "data",
+        "mobile"
+      ]
+    },
+    {
+      "seed_id": "hackthenorth2025--finlake",
+      "pool": "databricks",
+      "devpost_url": "https://devpost.com/software/finlake",
+      "hackathon": "hackthenorth2025",
+      "hackathon_name": "Hack the North 2025",
+      "year": 2025,
+      "opted_into": [
+        "Databricks: Best Use of Databricks"
+      ],
+      "skills": [
+        "data",
+        "ai_ml"
+      ]
+    },
+    {
+      "seed_id": "hackthenorth2025--langsketch",
+      "pool": "databricks",
+      "devpost_url": "https://devpost.com/software/langsketch",
+      "hackathon": "hackthenorth2025",
+      "hackathon_name": "Hack the North 2025",
+      "year": 2025,
+      "opted_into": [
+        "Databricks: Best Use of Databricks"
+      ],
+      "skills": [
+        "data",
+        "web"
+      ]
+    },
+    {
+      "seed_id": "swamphacks-xi--the-final-draw",
+      "pool": "general",
+      "devpost_url": "https://devpost.com/software/the-final-draw",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Game Design Project"
+      ],
+      "skills": [
+        "game_dev"
+      ]
+    },
+    {
+      "seed_id": "swamphacks-xi--gator-spot-frenzy",
+      "pool": "general",
+      "devpost_url": "https://devpost.com/software/gator-spot-frenzy",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Game Design Project"
+      ],
+      "skills": [
+        "game_dev"
+      ]
+    },
+    {
+      "seed_id": "swamphacks-xi--angel-on-your-desk",
+      "pool": "general",
+      "devpost_url": "https://devpost.com/software/angel-on-your-desk",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Everyday Life & Wellbeing [Human-Centered Design] Project"
+      ],
+      "skills": [
+        "web",
+        "ai_ml"
+      ]
+    },
+    {
+      "seed_id": "swamphacks-xi--bike-buddy-8j9kg6",
+      "pool": "general",
+      "devpost_url": "https://devpost.com/software/bike-buddy-8j9kg6",
+      "hackathon": "swamphacks-xi",
+      "hackathon_name": "SwampHacks XI",
+      "year": 2026,
+      "opted_into": [
+        "Best Game Design Project",
+        "Best Everyday Life & Wellbeing [Human-Centered Design] Project"
+      ],
+      "skills": [
+        "hardware"
+      ]
+    }
+  ]
+}
