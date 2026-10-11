@@ -58,18 +58,28 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
       <button type="button" aria-label="Zoom in" onClick={() => camera("in")}>+</button>
       <button type="button" aria-label="Zoom out" onClick={() => camera("out")}>−</button>
       <button type="button" onClick={() => camera("reset")}>Reset</button>
-      <button type="button" onClick={() => camera("iso")}>{location.kind === "atrium" ? "Balcony view" : "Orbit view"}</button>
-      <button type="button" onClick={() => camera("top")}>{location.kind === "atrium" ? "Whole floor" : "Top view"}</button>
+      <button type="button" onClick={() => camera("iso")}>{location.kind === "atrium" ? "Balcony view" : location.kind === "awards" ? "Room overview" : "Orbit view"}</button>
+      <button type="button" onClick={() => camera("top")}>{location.kind !== "campus" ? "Whole floor" : "Top view"}</button>
       {location.kind === "atrium" ? <>
         <button type="button" onClick={() => camera("floor")}>Table level</button>
         <button type="button" onClick={() => camera("stairs")}>Staircase</button>
         <button type="button" onClick={() => camera("ceiling")}>Skylights</button>
         <button type="button" onClick={() => camera("entrance")}>Glass entrance</button>
+      </> : location.kind === "awards" ? <>
+        <button type="button" onClick={() => camera("floor")}>Center aisle</button>
+        <button type="button" onClick={() => camera("stage")}>Award stage</button>
+        <button type="button" onClick={() => camera("ceiling")}>Ceiling detail</button>
       </> : <button type="button" onClick={() => camera("front")}>Front view</button>}
       {location.kind === "campus" && <button type="button" onClick={() => camera("tower")}>Tower detail</button>}
     </div>
     {location.kind === "atrium" && <AtriumMap projectNames={result ? [projectName, ...result.rivals.map((entry) => entry.name)] : []} />}
     {location.kind === "atrium" && !result && <p className="atrium-empty glass-panel">Explore Engineering II. Submit an idea on the Exterior to bring your project and API-returned competition into the room.</p>}
+    {location.kind === "awards" && <aside className="ballroom-caption glass-panel" aria-label="Award ceremony room">
+      <span className="scene-caption">UCF STUDENT UNION · THIRD FLOOR</span>
+      <h1>Cape Ballroom</h1>
+      <p>Award ceremony · ready for the first applause.</p>
+      <small>Drag to explore · scroll to zoom</small>
+    </aside>}
     {result && <section className="scene-results glass-panel" aria-label="API results in the scene">
       <button type="button" className="results-toggle" aria-expanded={resultsExpanded} aria-controls="scene-result-content" onClick={() => setResultsExpanded((value) => !value)}>
         {challenges.find((challenge) => challenge.id === result.challenge_id)?.name ?? result.challenge_id} · {result.score_10.toFixed(1)} / 10 · {resultsExpanded ? "Collapse" : "Details"}

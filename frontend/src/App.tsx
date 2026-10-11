@@ -392,7 +392,7 @@ function ReportCard({
 }
 
 export default function App() {
-  const [panelsVisible, setPanelsVisible] = useState(() => sceneLocation(new URL(window.location.href)).kind !== "atrium");
+  const [panelsVisible, setPanelsVisible] = useState(() => sceneLocation(new URL(window.location.href)).kind === "campus");
   const [location, setLocation] = useState(() => sceneLocation(new URL(window.location.href)));
   const [entering, setEntering] = useState(false);
   const sceneController = useRef<SceneController | null>(null);
@@ -425,7 +425,7 @@ export default function App() {
       setEntering(false);
       const next = sceneLocation(new URL(window.location.href));
       setLocation(next);
-      setPanelsVisible(next.kind !== "atrium");
+      setPanelsVisible(next.kind === "campus");
     };
     window.addEventListener("popstate", back);
     return () => { sceneTransition.current++; window.removeEventListener("popstate", back); };
@@ -437,7 +437,7 @@ export default function App() {
     const next = { kind, building };
     window.history.pushState(null, "", scenePath(next));
     setLocation(next);
-    setPanelsVisible(kind !== "atrium");
+    setPanelsVisible(kind === "campus");
     window.scrollTo({ top: 0, behavior: "instant" });
   }
 
@@ -747,7 +747,7 @@ export default function App() {
 
   return (
     <main className={`app-shell engineering-app view-${location.kind}`}>
-      <SceneBoundary><Suspense fallback={<p className="scene-fallback glass-panel" role="status">Loading Engineering campus…</p>}>
+      <SceneBoundary><Suspense fallback={<p className="scene-fallback glass-panel" role="status">Loading {location.kind === "awards" ? "Cape Ballroom" : "Engineering campus"}…</p>}>
         <EngineeringExplorer job={job} challenges={config?.challenges ?? []}
           projectName={submittedSubmission?.name ?? "Your idea"}
           category={sceneCategory} onCategory={setSceneCategory} panelsVisible={panelsVisible} isStale={reportIsStale}
@@ -759,12 +759,12 @@ export default function App() {
         <a href="/" className="wordmark" aria-label="LennyRoasts home" onClick={(event) => { event.preventDefault(); navigate("campus"); }}>
           <img src="/assets/engineering/lenny-roasts-logo-transparent.png" alt="Lenny Roasts" />
         </a>
-        <nav className="scene-tabs" aria-label="Explore Engineering buildings">
+        <nav className="scene-tabs" aria-label="Explore UCF rooms and buildings">
           <button type="button" aria-pressed={location.kind === "campus"} onClick={() => navigate("campus")}>Exterior</button>
           <button type="button" aria-pressed={location.kind === "atrium"} onClick={() => navigate("atrium", "Engineering II")}>Atrium</button>
-          <button type="button" aria-pressed={location.kind === "awards"} onClick={() => navigate("awards")}>Auditorium</button>
+          <button type="button" aria-pressed={location.kind === "awards"} onClick={() => navigate("awards")}>Awards</button>
         </nav>
-        <button type="button" className="secondary-button panel-toggle" aria-expanded={panelsVisible} aria-controls="glass-content" onClick={() => setPanelsVisible((value) => !value)}>{location.kind === "atrium" ? panelsVisible ? "Close report" : "Judging report" : panelsVisible ? "Hide panels" : "Show panels"}</button>
+        {location.kind !== "awards" && <button type="button" className="secondary-button panel-toggle" aria-expanded={panelsVisible} aria-controls="glass-content" onClick={() => setPanelsVisible((value) => !value)}>{location.kind === "atrium" ? panelsVisible ? "Close report" : "Judging report" : panelsVisible ? "Hide panels" : "Show panels"}</button>}
       </header>
 
       <div className="glass-content" id="glass-content" hidden={!panelsVisible}>
