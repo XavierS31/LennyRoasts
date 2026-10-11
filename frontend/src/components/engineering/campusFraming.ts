@@ -16,7 +16,7 @@ export function engineeringFrame(bounds: THREE.Box3, width: number, height: numb
     distance = Math.max(distance, depth + Math.abs(delta.dot(horizontal)) * focal / halfWidth, depth + Math.abs(delta.dot(vertical)) * focal / halfHeight);
   }
   // A small breathing margin also accommodates projecting sills and foliage.
-  distance *= 1.06;
+  distance *= 1.015;
   return {
     position: target.clone().addScaledVector(direction, distance), target, distance,
     offsetX: width / 2 - (left + right) / 2,

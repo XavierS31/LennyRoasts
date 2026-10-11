@@ -6,7 +6,7 @@ import { framedWindow, stoneUVs, type ExteriorMaterials } from "./exteriorMateri
 // (+Z). Proportions and placement are inferred, not a surveyed campus model.
 export const healthSciencesOrigin = [-106, -6] as const;
 
-function brickMap(relief = false) {
+export function brickMap(relief = false) {
   const canvas = document.createElement("canvas"); canvas.width = canvas.height = 512;
   const ctx = canvas.getContext("2d");
   if (!ctx) return null;
