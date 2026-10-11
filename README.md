@@ -60,6 +60,21 @@ The live practice artifact contains **106 accepted projects**: Luna rewrites of 
 
 Local development also includes a separate **200-project synthetic mock field** with deterministic heuristic scores. Mock results are labeled and never substitute for live Qwen results.
 
+### Why some tracks are excluded
+
+We chose tracks that can be evaluated from a project write-up and supported by enough comparable past submissions to build a useful practice field. Other challenges need evidence our text-based simulation cannot provide, or more historical data than we collected for this MVP.
+
+| Excluded tracks | Reason |
+| --- | --- |
+| NVIDIA Jetson Nano, Encompass Data Capturing Hardware, Best Embedded Hack | **Hardware.** A written description cannot demonstrate a working device, sensor pipeline, or hardware performance. Simulated write-ups would not provide the physical evidence these challenges need. |
+| Figma Best Design, Adobe Prettiest Hack | **Visual design and UI.** These tracks require seeing the interface, interaction, and visual execution. Text alone cannot support a fair comparison. |
+| AMD, OneEthos Innovation for Good, Hugging Face, Neon, Tiger Data, Presage, Vultr, Solana | **Limited comparable history in our dataset.** We did not collect enough relevant past entries and verified challenge outcomes to inform category-specific judging prompts and create a representative set of simulated competitors. Expanding these tracks needs more data collection first. |
+| Best Domain Name from GoDaddy Registry | **Different judging evidence.** A general project write-up is not enough to assess the domain-specific entry. |
+| Best First Time Hack | **Missing eligibility information.** This requires team experience information that our current submission/persona schema does not capture. |
+| Most Involved Hacker | **Individual participation award.** This depends on a hacker's activity and points, rather than the project submission. |
+
+The history limitation refers to the usable data collected for this project. Past submissions and outcomes can help us understand category expectations and prepare plausible competitors; the current v6 judge uses saved challenge briefs and rubrics, with no historical reference examples or fine-tuning. See the [event scope and exclusions](plan_draft.md#3-event-config-knight-hacks-ix) for the original track selection.
+
 ## Quick start
 
 Use **Python 3.13+** and **Node.js 24**. Run the following from the repository root in two terminals. Mock mode needs no inference or database credentials.
