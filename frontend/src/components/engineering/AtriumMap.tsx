@@ -23,7 +23,7 @@ export default function AtriumMap({ projectNames }: { projectNames: string[] }) 
           const [x, z] = projectStation(index), [cx, cy] = point(x, z);
           return <g key={`${index}:${name}`}><title>{index === 0 ? "Your idea: " : "API rival: "}{name}</title><circle cx={cx} cy={cy} r="4" fill={index === 0 ? "#f3bd34" : "#3d89a7"} stroke="#27343b" /></g>;
         })}
-        <g fill="#f5f3e8" fontFamily="Bagnard, Georgia, serif" fontSize="10" textAnchor="middle">
+        <g fill="#f5f3e8" fontFamily="inherit" fontSize="10" textAnchor="middle">
           <text x="120" y="20">Glass entrance · photos 1–2</text>
           <text x="120" y="338">Stairs · photos 4–6</text>
           <text x="16" y="180" transform="rotate(-90 16 180)">Brick + window bands</text>
