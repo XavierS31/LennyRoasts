@@ -3,9 +3,10 @@ import type { Challenge, EvaluationJob } from "../../api/client";
 import EngineeringScene, { type CameraCommand, type SceneController } from "./EngineeringScene";
 import type { LocationState } from "./navigation";
 import AtriumMap from "./AtriumMap";
-import { lennySponsors } from "./lennyLayout";
+import CameraMenu from "./CameraMenu";
+import { LightbulbIcon, TrophyIcon } from "@phosphor-icons/react";
 
-export default function EngineeringExplorer({ job, challenges, projectName, category, onCategory, panelsVisible, isStale, location, onBuilding, onEnter, entering, controller }: {
+export default function EngineeringExplorer({ job, challenges, projectName, category, onCategory, panelsVisible, isStale, location, onBuilding, controller }: {
   job: EvaluationJob | null;
   challenges: Challenge[];
   projectName: string;
@@ -15,11 +16,8 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
   isStale: boolean;
   location: LocationState;
   onBuilding: (building: LocationState["building"]) => void;
-  onEnter: () => void;
-  entering: boolean;
   controller: RefObject<SceneController | null>;
 }) {
-  const [hovered, setHovered] = useState("");
   const [marker, setMarker] = useState("user");
   const [resultsExpanded, setResultsExpanded] = useState(false);
   const [visitingSponsor, setVisitingSponsor] = useState(false);
@@ -44,49 +42,14 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
 
   return <div className={`engineering-explorer scene-${location.kind} ${panelsVisible ? "with-panels" : "without-panels"}`}>
     <EngineeringScene kind={location.kind} result={result} projectName={projectName} selectedMarker={marker}
-      controller={controller} onSelectMarker={setMarker} onHoverBuilding={setHovered}
+      controller={controller} onSelectMarker={setMarker} onHoverBuilding={() => {}}
       onSelectBuilding={(building) => onBuilding(building === "Engineering I" ? "Engineering I" : "Engineering II")} />
-    {location.kind === "campus" && <div className="scene-navigation glass-panel">
-      <span className="scene-caption">UCF · ENGINEERING I / II</span>
-      <div className="building-entry">
-        <label htmlFor="building-choice" className="visually-hidden">Building to enter</label>
-        <select id="building-choice" value={location.building} disabled={entering} onChange={(event) => onBuilding(event.target.value as LocationState["building"])}>
-          <option>Engineering I</option><option>Engineering II</option>
-        </select>
-        <button type="button" onClick={onEnter} disabled={entering}>{entering ? "Entering…" : "Enter building ↗"}</button>
-      </div>
-      <small>{hovered || "Select a building · drag to orbit · scroll to zoom"}</small>
-    </div>}
-    <div className="camera-controls glass-panel" role="group" aria-label="Camera controls">
-      <button type="button" aria-label="Zoom in" onClick={() => camera("in")}>+</button>
-      <button type="button" aria-label="Zoom out" onClick={() => camera("out")}>−</button>
-      <button type="button" onClick={() => camera("reset")}>Reset</button>
-      <button type="button" onClick={() => camera("iso")}>{location.kind === "atrium" ? "Balcony view" : location.kind === "awards" ? "Room overview" : "Orbit view"}</button>
-      <button type="button" onClick={() => camera("top")}>{location.kind !== "campus" ? "Whole floor" : "Top view"}</button>
-      {location.kind === "atrium" ? <>
-        <button type="button" onClick={() => camera("floor")}>Table level</button>
-        <button type="button" onClick={() => camera("stairs")}>Staircase</button>
-        <button type="button" onClick={() => camera("ceiling")}>Skylights</button>
-        <button type="button" onClick={() => camera("entrance")}>Glass entrance</button>
-        <span className="lenny-controls" role="group" aria-label="Visit sponsor Lennys">
-          {lennySponsors.map((sponsor) => <button type="button" key={sponsor.id} onClick={() => { setVisitingSponsor(true); void controller.current?.command("sponsor", sponsor.id); }} aria-label={`Visit ${sponsor.name} Lenny`}>{sponsor.name} Lenny</button>)}
-        </span>
-      </> : location.kind === "awards" ? <>
-        <button type="button" onClick={() => camera("floor")}>Center aisle</button>
-        <button type="button" onClick={() => camera("stage")}>Award stage</button>
-        <button type="button" onClick={() => camera("ceiling")}>Ceiling detail</button>
-      </> : <button type="button" onClick={() => camera("front")}>Front view</button>}
-      {location.kind === "campus" && <button type="button" onClick={() => camera("tower")}>Tower detail</button>}
-      {location.kind === "campus" && <button type="button" onClick={() => camera("west")}>Left wing</button>}
-      {location.kind === "campus" && <button type="button" onClick={() => camera("walk")}>Entrance walk</button>}
-    </div>
+    <CameraMenu key={location.kind} kind={location.kind} onCamera={camera}
+      onSponsor={(id) => { setVisitingSponsor(true); void controller.current?.command("sponsor", id); }} />
     {location.kind === "atrium" && <AtriumMap projectNames={result ? [projectName, ...result.rivals.map((entry) => entry.name)] : []} />}
-    {location.kind === "atrium" && !result && !visitingSponsor && <p className="atrium-empty glass-panel">Explore Engineering II. Submit an idea on the Exterior to bring your project and API-returned competition into the room.</p>}
+    {location.kind === "atrium" && !result && !visitingSponsor && <p className="atrium-empty glass-panel"><LightbulbIcon size={20} weight="light" aria-hidden="true" /> Submit an idea to explore your practice field.</p>}
     {location.kind === "awards" && <aside className="ballroom-caption glass-panel" aria-label="Award ceremony room">
-      <span className="scene-caption">UCF STUDENT UNION · THIRD FLOOR</span>
-      <h1>Cape Ballroom</h1>
-      <p>Lenny is ready to present the awards.</p>
-      <small>Drag to explore · scroll to zoom</small>
+      <h1 className="icon-heading"><TrophyIcon size={23} weight="light" aria-hidden="true" /> Cape Ballroom</h1>
     </aside>}
     {result && <section className="scene-results glass-panel" aria-label="API results in the scene">
       <button type="button" className="results-toggle" aria-expanded={resultsExpanded} aria-controls="scene-result-content" onClick={() => setResultsExpanded((value) => !value)}>
