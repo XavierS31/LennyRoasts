@@ -771,8 +771,11 @@ export default function App() {
       <section className="intro" aria-label={location.kind === "campus" ? "Project introduction and service status" : "Service status"} hidden={location.kind === "awards"}>
         <h1 id="page-title" hidden={location.kind !== "campus"}>Let Lenny roast your hackathon project.</h1>
 
-      <details className={`mode-banner mode-${mode}`} hidden={location.kind === "awards"} open={mode === "unavailable" || Boolean(configError) ? true : undefined}>
-        <summary>Service status: {modeLabel(mode)}</summary>
+      <div className="service-status-row">
+      <details className={`mode-banner mode-${mode}`} hidden={location.kind === "awards"}>
+        <summary>
+          <span>Service status: {configLoading || configError || !config ? "Loading API" : mode === "mock" ? "Mock API" : mode === "fixture" ? "Fixture API" : mode === "unavailable" ? "API unavailable" : "Judge API ready"}</span>
+        </summary>
         <div className="mode-copy">
           <span className="mode-indicator" aria-hidden="true" />
           <div>
@@ -796,7 +799,6 @@ export default function App() {
                 The API reports that evaluation is not ready. You can prepare the form, but no scoring request will be sent until the field is available.
               </p>
             )}
-            {mode === "loading" && <p>Loading challenge definitions and field readiness from the API.</p>}
             {config && (
               <p className="version-line">
                 Judge <code>{config.judge_version}</code> <span aria-hidden="true">·</span> Field <code>{config.pool_version}</code>
@@ -804,25 +806,14 @@ export default function App() {
             )}
           </div>
         </div>
-        {configError && (
-          <div className="config-failure" role="alert">
-            <p>{configError.message}</p>
-            <button type="button" className="secondary-button" onClick={refreshChallenges}>
-              Retry challenge load
-            </button>
-          </div>
-        )}
-        {mode === "unavailable" && !configError && (
-          <button
-            type="button"
-            className="secondary-button readiness-retry"
-            onClick={refreshChallenges}
-            disabled={configLoading}
-          >
-            {configLoading ? "Refreshing…" : "Refresh field status"}
-          </button>
-        )}
       </details>
+      {(configError || mode === "unavailable") &&
+        <button type="button" className="text-button service-retry" onClick={refreshChallenges} disabled={configLoading} aria-busy={configLoading}>
+          Retry challenge load
+        </button>
+      }
+      </div>
+      {configError && <small className="compact-api-error" role="alert">{configError.message}</small>}
       </section>
 
       <div className="workspace">
@@ -876,16 +867,12 @@ export default function App() {
         <section className="form-panel" aria-labelledby="form-heading" hidden={location.kind !== "campus"}>
           <div className="section-heading">
             <div>
-              <h2 id="form-heading">Your idea</h2>
+              <h2 id="form-heading">Your hackathon project idea</h2>
             </div>
             <button type="button" className="text-button" onClick={loadSample} disabled={Boolean(activeJobId) || isSubmitting || isImporting}>
               Try a sample
             </button>
           </div>
-
-          <p className="form-intro">
-            What would it do, who would it help, and what would your first demo show?
-          </p>
 
           <form onSubmit={submit} noValidate aria-describedby="privacy-copy">
             {notice && (

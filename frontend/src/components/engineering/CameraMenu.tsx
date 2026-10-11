@@ -27,6 +27,8 @@ export default function CameraMenu({ kind, onCamera, onSponsor }: {
       { action: "walk" as const, icon: PersonSimpleWalkIcon, label: "Entrance walk" },
       { action: "health" as const, icon: BuildingOfficeIcon, label: "Health Sciences" },
       { action: "service" as const, icon: BuildingsIcon, label: "Service side" },
+      { action: "alley" as const, icon: PersonSimpleWalkIcon, label: "Campus lane" },
+      { action: "junction" as const, icon: BuildingOfficeIcon, label: "Rear junction" },
     ] : kind === "atrium" ? [
       { action: "floor" as const, icon: ChairIcon, label: "Table level" },
       { action: "stairs" as const, icon: StepsIcon, label: "Staircase" },

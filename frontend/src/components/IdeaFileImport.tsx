@@ -60,11 +60,10 @@ export default function IdeaFileImport({ idea, disabled, onImport, onBusyChange 
         onClick={() => fileInput.current?.click()} aria-describedby="file-import-hint">
         <PaperclipIcon size={18} weight="light" aria-hidden="true" /> {busy ? "Reading…" : "Import notes"}
       </button>
-      <small id="file-import-hint">.pdf, .md, .markdown · up to 10 MB</small>
+      <small id="file-import-hint">PDF · MD · Markdown · 10 MB</small>
     </div>
     <input ref={fileInput} type="file" hidden accept=".pdf,.md,.markdown,application/pdf,text/markdown"
       aria-label="Choose a PDF or Markdown file" disabled={disabled || busy} onChange={(event) => void readFile(event)} />
-    <p className="file-import-copy">Text PDFs or Markdown. Files stay in your browser.</p>
     <p className="file-import-status" role="status">{status}</p>
     {draft && <div className="file-import-preview form-field">
       <label htmlFor="document-preview">Review extracted text <span className="required-label">{draft.name}</span></label>

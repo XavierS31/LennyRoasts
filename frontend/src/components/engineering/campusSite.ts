@@ -224,4 +224,5 @@ export function addCampusSite(scene: THREE.Scene) {
     const lamp=new THREE.Mesh(new THREE.ConeGeometry(.42,.16,20),paleMetal); lamp.position.set(x,6.1,z); scene.add(lamp);
     const diffuser=new THREE.Mesh(new THREE.CylinderGeometry(.25,.25,.12,16),new THREE.MeshStandardMaterial({color:0xe0e3d4,roughness:.5})); diffuser.position.set(x,5.98,z); scene.add(diffuser);
   }
+  return { grass, asphalt, concrete, mulch, curb, paint, paleMetal, bark, darkLeaf };
 }
