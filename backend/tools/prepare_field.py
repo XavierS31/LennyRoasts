@@ -8,7 +8,7 @@ import re
 import shutil
 import tempfile
 
-from backend.app.contracts import validate
+from backend.app.contracts import validate, validator
 from backend.app.field_import import validate_project_metadata
 from backend.app.judge_config import canonical_json
 from offline import artifact, config
@@ -55,6 +55,8 @@ def prepare_snapshot(accepted_dir, field_id='kh9-integration-10', count=10):
         record = config.load_json(source / filename)
         if record['team_id'] != Path(filename).stem:
             raise ValueError('Team id differs from its accepted filename.')
+        project_schema = validator('PoolProject')
+        project_schema.evolve(schema=project_schema.schema['properties']['project_id']).validate(record['project_id'])
         validate('Submission', record['submission'])
         validate_project_metadata(record['submission'], artifact.project_meta(record, f'{field_id}-n{count}'), f'{field_id}-n{count}')
         records.append(record)

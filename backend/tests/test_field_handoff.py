@@ -4,6 +4,7 @@ import json
 import stat
 
 import pytest
+from jsonschema.exceptions import ValidationError
 
 from backend.app.field_import import validate_artifact
 from backend.tests.live_helpers import replay_field
@@ -56,6 +57,15 @@ def test_invalid_metadata_or_missing_count_writes_nothing(handoff):
     record['fit'] = {}
     (source/'t001.json').write_text(json.dumps(record))
     with pytest.raises(ValueError, match='metadata'):
+        prepare_snapshot(source, 'integration-test', 1)
+    assert not config.field_dir('integration-test').exists()
+
+
+def test_invalid_project_id_is_rejected_before_snapshot_or_scoring(handoff):
+    source, record = handoff
+    record['project_id'] = ''
+    (source/'t001.json').write_text(json.dumps(record))
+    with pytest.raises(ValidationError):
         prepare_snapshot(source, 'integration-test', 1)
     assert not config.field_dir('integration-test').exists()
 
