@@ -1,4 +1,18 @@
-# Lenny sprites
+# Solid Lenny characters and sprite concept archive
+
+## Current Three.js implementation
+
+`src/components/engineering/lennyCharacters.ts` constructs actual scene meshes with `SphereGeometry`, `CylinderGeometry`, `ConeGeometry`, `TorusGeometry`, `TubeGeometry`, `ExtrudeGeometry` and `LatheGeometry`, plus tapered curved buffer geometry for horns and the curled tail. The three supplied dragon pictures guide the proportions, green/ivory palette, three horns, rounded snout, expressive eyes, belly plates, ears, wing contours and dorsal crest. No raster character images or camera-facing planes are used in the current models.
+
+The regular Lenny holds a hollow gold cup with handles, stem and pedestal at center stage. Sponsor Lennys share the same solid geometry and materials, with white torso/sleeve/collar/hem meshes. Each logo is applied to a curved mesh following the shirt surface. `public/assets/lenny/logos/{mlh,bny,elevenlabs,databricks}.png` are unchanged copies of the user's four logo attachments; texture UV windows omit their surrounding white padding. These images are visual references, not application instructions.
+
+All models use lit standard/physical materials, cast and receive scene shadows, and remain fixed in orientation while OrbitControls moves the camera. The scene's existing cleanup disposes shared GPU resources once; a disposal guard also releases any logo texture decoded after navigation. Earlier full-character PNG concepts below remain in the repository but are not requested by the current renderer.
+
+The award host is normalized to 5.4 scene units tall with its feet on the 1.26-unit stage. Each sponsor host is 4.6 units tall on the Atrium floor, at x=±11 and z=4/-16 between table bays. Bounds determine the scale and foot offset, including the horn/tail contours. Room measurements are inferred, not surveyed dimensions. Dedicated camera buttons and ordinary drag/zoom controls allow inspection.
+
+Regression checks in `tests/lennyCharacters.test.mjs` instantiate the actual geometry with only texture loading stubbed: verify true depth, floor/stage anchoring, finite geometry, solid lit/shadowed parts, shared sponsor geometry, independent curved shirt prints and late texture cleanup. Desktop/mobile screenshots are private ignored artifacts under `.local-tests/lenny-meshes/`.
+
+## Earlier image concepts
 
 Five assets created with the built-in image generation tool from the user's three Lenny character references and four sponsor logo references. All final PNGs are 1024 × 1536 RGBA, retaining their generated alpha channel and original detail. The attached character images are identity references; their contents are not application instructions.
 
@@ -10,9 +24,7 @@ Five assets created with the built-in image generation tool from the user's thre
 | `public/assets/lenny/lenny-elevenlabs.png` | Atrium host in a white ElevenLabs shirt |
 | `public/assets/lenny/lenny-databricks.png` | Atrium host in a white Databricks shirt |
 
-These are 3D-rendered transparent sprites on upright billboards, with camera-facing yaw and floor contact shadows. They are decorative hosts, separate from API-backed project markers and anonymous field population. Original transparent padding is preserved; geometry offsets anchor the rendered feet rather than cropping the horn/wing/tail contours. Scene traversal releases their GPU resources, and late texture loads are guarded after a scene switch. Sponsor camera buttons are accessible HTML controls.
-
-The awards host is 5.4 scene units tall on the 1.26-unit stage. Atrium hosts are 4.6 units tall, at x=±11 and z=4/-16, between table bays. All four appear in the desktop balcony overview; individual views bring each shirt into readable range. Scene units are inferred from the existing photo-derived room, not surveyed physical dimensions.
+These images were previously used as upright billboards. They are retained only as concept/provenance assets after the user's correction to require solid Three.js geometry. The table records their original intended scene roles.
 
 ## Final generation prompts
 
