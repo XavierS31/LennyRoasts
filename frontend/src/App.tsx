@@ -771,10 +771,10 @@ export default function App() {
       <section className="intro" aria-label={location.kind === "campus" ? "Project introduction and service status" : "Service status"} hidden={location.kind === "awards"}>
         <h1 id="page-title" hidden={location.kind !== "campus"}>Let Lenny roast your hackathon project.</h1>
 
+      <div className="service-status-row">
       <details className={`mode-banner mode-${mode}`} hidden={location.kind === "awards"}>
         <summary>
-          <span>Service status: {configLoading || configError || !config ? "Loading" : mode === "mock" ? "Mock scoring" : mode === "fixture" ? "Practice fixtures" : mode === "unavailable" ? "Unavailable" : "Ready"}</span>
-          <span className="api-load-label">{configLoading || configError || !config ? "Loading API" : mode === "mock" ? "Mock API" : mode === "fixture" ? "Fixture API" : mode === "live" ? "Judge API" : "API loaded"}</span>
+          <span>Service status: {configLoading || configError || !config ? "Loading API" : mode === "mock" ? "Mock API" : mode === "fixture" ? "Fixture API" : mode === "unavailable" ? "API unavailable" : "Judge API ready"}</span>
         </summary>
         <div className="mode-copy">
           <span className="mode-indicator" aria-hidden="true" />
@@ -807,12 +807,13 @@ export default function App() {
           </div>
         </div>
       </details>
-      {(configError || mode === "unavailable") && <div className="compact-api-retry">
-        <button type="button" className="text-button" onClick={refreshChallenges} disabled={configLoading}>
-          {configLoading ? "Loading API…" : "Retry challenge load"}
+      {(configError || mode === "unavailable") &&
+        <button type="button" className="text-button service-retry" onClick={refreshChallenges} disabled={configLoading} aria-busy={configLoading}>
+          Retry challenge load
         </button>
-        {configError && <small role="alert">{configError.message}</small>}
-      </div>}
+      }
+      </div>
+      {configError && <small className="compact-api-error" role="alert">{configError.message}</small>}
       </section>
 
       <div className="workspace">

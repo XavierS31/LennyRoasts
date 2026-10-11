@@ -57,9 +57,10 @@ export default function IdeaFileImport({ idea, disabled, onImport, onBusyChange 
   return <div className="idea-file-import">
     <div className="file-import-heading">
       <button type="button" className="secondary-button" disabled={disabled || busy}
-        onClick={() => fileInput.current?.click()}>
+        onClick={() => fileInput.current?.click()} aria-describedby="file-import-hint">
         <PaperclipIcon size={18} weight="light" aria-hidden="true" /> {busy ? "Reading…" : "Import notes"}
       </button>
+      <small id="file-import-hint">PDF · MD · Markdown · 10 MB</small>
     </div>
     <input ref={fileInput} type="file" hidden accept=".pdf,.md,.markdown,application/pdf,text/markdown"
       aria-label="Choose a PDF or Markdown file" disabled={disabled || busy} onChange={(event) => void readFile(event)} />

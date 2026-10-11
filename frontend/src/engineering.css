@@ -67,8 +67,8 @@
 .masthead .scene-tabs button:hover { background: rgba(255,255,255,.12); }
 .masthead .scene-tabs button[aria-pressed=true] { background: rgba(255,255,255,.13); border-color: var(--line); }
 .engineering-app .edition { margin-left: auto; color: var(--muted); }
-.glass-content { position: relative; z-index: 2; width: min(500px, 38vw); margin-left: 0; }
-.engineering-app .intro { padding: 16px 20px; margin: 0 0 10px; }
+.glass-content { position: relative; z-index: 2; width: min(540px, 40vw); margin-left: 0; }
+.engineering-app .intro { padding: 20px 24px; margin: 0 0 10px; }
 .engineering-app .intro h1 { font-size: clamp(32px, 3vw, 44px); font-weight: 650; line-height: 1.12; letter-spacing: -.035em; max-width: 490px; margin: 0 0 10px; }
 .engineering-app :is(.eyebrow, .section-kicker) { color: var(--muted); }
 .engineering-app .lede { font-size: 14px; line-height: 1.55; margin: 0; }
@@ -79,25 +79,24 @@
 .engineering-app .mode-banner summary { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; min-height: 24px; }
 .engineering-app .mode-banner summary::before { content: ""; width: 6px; height: 6px; border-right: 1px solid currentColor; border-bottom: 1px solid currentColor; transform: rotate(-45deg); align-self: center; }
 .engineering-app .mode-banner[open] summary::before { transform: rotate(45deg); }
-.api-load-label { margin-left: auto; font-size: 11px; color: var(--muted); }
-.compact-api-retry { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
-.engineering-app .compact-api-retry button { min-height: 28px; padding: 4px 0; font-size: 11px; }
-.compact-api-retry small { font-size: 11px; line-height: 1.4; color: var(--muted); text-align: right; overflow-wrap: anywhere; }
+.service-status-row { display: flex; align-items: flex-start; gap: 10px; border-top: 1px solid var(--line); padding-top: 8px; }
+.service-status-row .mode-banner { flex: 1; min-width: 0; }
+.engineering-app .service-retry { flex: 0 0 auto; min-height: 28px; padding: 4px 0; font-size: 11px; }
+.compact-api-error { display: block; font-size: 11px; line-height: 1.4; color: var(--muted); text-align: right; overflow-wrap: anywhere; }
 .engineering-app #form-heading { font-size: 24px; line-height: 1.2; }
 .engineering-app .idea-file-import { margin-bottom: 14px; }
 .engineering-app .section-heading { margin-bottom: 14px; }
 .engineering-app .intro .mode-banner {
-  padding: 8px 0 0;
+  padding: 0;
   margin: 0;
   border: 0;
-  border-top: 1px solid var(--line);
   border-radius: 0;
   background: transparent;
   box-shadow: none;
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
 }
-.engineering-app.view-atrium .intro .mode-banner { border-top: 0; padding-top: 0; }
+.engineering-app.view-atrium .service-status-row { border-top: 0; padding-top: 0; }
 .submission-status { padding: 20px 24px; }
 .submission-status h2 { scroll-margin-top: 120px; }
 .submission-status .evaluation-status { margin-top: 0; }
@@ -212,7 +211,7 @@ select option { background: #26333f; color: #fff; }
   .engineering-explorer.with-panels .scene-results { display: none; }
   .scene-results { width: auto; left: 12px; right: 12px; top: 170px; bottom: auto; max-height: calc(100dvh - 285px); padding: 16px; }
   .engineering-app :is(.form-panel, .report-panel, .intro) { padding: 20px; }
-  .engineering-app .intro { padding: 16px 18px; }
+  .engineering-app .intro { padding: 20px; }
   .engineering-app .intro h1 { font-size: 30px; }
   .submission-status h2 { scroll-margin-top: 170px; }
   .scene-fallback { top: 275px; left: 12px; right: 12px; max-width: none; }

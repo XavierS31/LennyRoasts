@@ -6,7 +6,7 @@ import { engineeringFrame } from "../src/components/engineering/campusFraming.ts
 test("full Engineering bounds stay beside the dashboard at desktop viewport sizes", () => {
   const bounds = new THREE.Box3(new THREE.Vector3(-50, 0, -45), new THREE.Vector3(60, 24, 35));
   for (const [width, height] of [[901,620], [1280,720], [1440,900], [1920,1080]]) {
-    const dashboardRight = 20 + Math.min(500, width * .38), headerBottom = 92;
+    const dashboardRight = 20 + Math.min(540, width * .4), headerBottom = 92;
     const view = engineeringFrame(bounds, width, height, dashboardRight, headerBottom);
     const camera = new THREE.PerspectiveCamera(48, width / height, .1, 800);
     camera.setViewOffset(width, height, view.offsetX, view.offsetY, width, height);
