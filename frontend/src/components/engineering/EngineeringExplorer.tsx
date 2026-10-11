@@ -40,7 +40,7 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
   function selectProject(id: string) { setMarker(id); void controller.current?.command("focus", id); }
 
   return <div className={`engineering-explorer scene-${location.kind} ${panelsVisible ? "with-panels" : "without-panels"}`}>
-    <EngineeringScene kind={location.kind} result={result} projectName={projectName} selectedMarker={marker}
+    <EngineeringScene kind={location.kind} result={result} projectName={projectName} selectedMarker={marker} panelsVisible={panelsVisible}
       controller={controller} onSelectMarker={setMarker} onHoverBuilding={() => {}}
       onSelectBuilding={(building) => onBuilding(building === "Engineering I" ? "Engineering I" : "Engineering II")} />
     <CameraMenu key={location.kind} kind={location.kind} onCamera={camera}

@@ -90,7 +90,7 @@ export function addCampusSite(scene: THREE.Scene) {
   const darkLeaf = new THREE.MeshStandardMaterial({ color: 0x315331, roughness: .98 });
 
   const addSurface = (shape: THREE.Shape, y: number, material: THREE.Material, tile: number, name: string, depth = 0) => {
-    const geometry = depth ? new THREE.ExtrudeGeometry(shape, {depth, bevelEnabled:false}) : new THREE.ShapeGeometry(shape);
+    const geometry = depth ? new THREE.ExtrudeGeometry(shape, {depth, bevelEnabled:false, curveSegments:64}) : new THREE.ShapeGeometry(shape,64);
     geometry.rotateX(-Math.PI / 2); stoneUVs(geometry, tile);
     const mesh = new THREE.Mesh(geometry, material); mesh.position.y = y;
     mesh.name = name; mesh.receiveShadow = true; scene.add(mesh); return mesh;
@@ -107,38 +107,47 @@ export function addCampusSite(scene: THREE.Scene) {
   addSurface(shapeFrom(pondEdge), -.22, water, 12, "Pond beyond the road and lawn");
   // A single road surface rounds the corner instead of overlapping two black boxes.
   const road = new THREE.Shape(); road.moveTo(-76,77); road.lineTo(-60,77); road.lineTo(-60,-38);
-  road.quadraticCurveTo(-60,-49,-49,-49); road.lineTo(94,-49); road.lineTo(94,-63); road.lineTo(-76,-63); road.closePath();
+  road.absarc(-49,-38,11,Math.PI,Math.PI*1.5,false); road.lineTo(94,-49); road.lineTo(94,-65); road.lineTo(-49,-65);
+  road.absarc(-49,-38,27,Math.PI*1.5,Math.PI,true); road.closePath();
   addSurface(road, -.015, asphalt, 7, "Curved campus road");
   // Curbside sidewalk is continuous around the corner. The entrance walk joins it.
-  const sidewalk = new THREE.Shape(); sidewalk.moveTo(-59.7,77); sidewalk.lineTo(-56.5,77); sidewalk.lineTo(-56.5,-37.5);
-  sidewalk.quadraticCurveTo(-56.5,-45.7,-48.5,-45.7); sidewalk.lineTo(94,-45.7); sidewalk.lineTo(94,-48.7); sidewalk.lineTo(-49,-48.7);
-  sidewalk.quadraticCurveTo(-59.7,-48.7,-59.7,-38); sidewalk.closePath();
+  const sidewalk = new THREE.Shape(); sidewalk.moveTo(-59.7,77); sidewalk.lineTo(-56.5,77); sidewalk.lineTo(-56.5,-38);
+  sidewalk.absarc(-49,-38,7.5,Math.PI,Math.PI*1.5,false); sidewalk.lineTo(94,-45.5); sidewalk.lineTo(94,-48.7); sidewalk.lineTo(-49,-48.7);
+  sidewalk.absarc(-49,-38,10.7,Math.PI*1.5,Math.PI,true); sidewalk.closePath();
   addSurface(sidewalk, .02, concrete, 3.8, "Continuous curbside sidewalk", .12);
   addSurface(shapeFrom(entryWalk), .03, concrete, 3.8, "Engineering II entrance forecourt", .12);
   addSurface(shapeFrom([[12,21.2],[59,21.2],[59,25.4],[12,25.4]]), .03, concrete, 3.8, "Front facade pedestrian walk", .12);
   addSurface(shapeFrom([[-56.5,-37],[-49.18,-37],[-49.18,-33],[-56.5,-33]]), .03, concrete, 3.8, "Left wing entrance spur", .12);
   // Across the road: sidewalk, lawn, then Health Sciences, as in photo 1.
-  addSurface(shapeFrom([[-80,-77],[-76.3,-77],[-76.3,45],[-80,45]]), .02, concrete, 3.8, "Health Sciences curbside sidewalk", .12);
+  const oppositeWalk = new THREE.Shape(); oppositeWalk.moveTo(-80,77); oppositeWalk.lineTo(-76.3,77); oppositeWalk.lineTo(-76.3,-38);
+  oppositeWalk.absarc(-49,-38,27.3,Math.PI,Math.PI*1.5,false); oppositeWalk.lineTo(94,-65.3); oppositeWalk.lineTo(94,-69); oppositeWalk.lineTo(-49,-69);
+  oppositeWalk.absarc(-49,-38,31,Math.PI*1.5,Math.PI,true); oppositeWalk.closePath();
+  addSurface(oppositeWalk, .02, concrete, 3.8, "Health Sciences curbside sidewalk", .12);
   addSurface(shapeFrom([[-96,-29],[-76.3,-29],[-76.3,-13],[-96,-13]]), .025, concrete, 3.8, "Health Sciences service drive", .1);
   addSurface(shapeFrom([[-122,8.8],[-93,8.8],[-93,11.8],[-122,11.8]]), .025, concrete, 3.8, "Palm arcade pedestrian walk", .12);
   addSurface(shapeFrom([[-95,10],[-92,10],[-78,24],[-78,28],[-81,28]]), .03, concrete, 3.8, "Health Sciences corner approach", .12);
-  for (const [from, to] of [[-77,-29],[-13,44]]) solid([.22,.18,to-from],[-76.18,.065,(from+to)/2],curb,"Opposite roadside curb");
+  for (const [from, to] of [[-77,-29],[-13,38]]) solid([.22,.18,to-from],[-76.18,.065,(from+to)/2],curb,"Opposite roadside curb");
   // Thin curb and painted edge follow the same bend as the road and sidewalk.
-  const curbPoints: THREE.Vector3[] = [];
-  for (let z = -77; z < 38; z += 3) curbPoints.push(new THREE.Vector3(-59.9,.1,z));
-  for (let i = 0; i <= 12; i++) {
-    const a = Math.PI - i * Math.PI / 24;
-    curbPoints.push(new THREE.Vector3(-49 + 10.9 * Math.cos(a),.1,38 + 10.9 * Math.sin(a)));
-  }
-  curbPoints.push(new THREE.Vector3(94,.1,48.9));
-  const curbMesh = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(curbPoints),100,.12,4,false),curb);
-  curbMesh.name = "Raised curved curb"; curbMesh.receiveShadow = true; scene.add(curbMesh);
+  const curvedStrip = (inner: number, outer: number, material: THREE.Material, y: number, name: string, depth=0) => {
+    const shape = new THREE.Shape(); shape.moveTo(-49-inner,-38);
+    shape.absarc(-49,-38,inner,Math.PI,Math.PI*1.5,false); shape.lineTo(-49,-38-outer);
+    shape.absarc(-49,-38,outer,Math.PI*1.5,Math.PI,true); shape.closePath();
+    addSurface(shape,y,material,3.8,name,depth);
+  };
+  solid([.22,.18,115],[-59.9,.065,-19.5],curb,"Straight Engineering curb");
+  solid([143,.18,.22],[22.5,.065,48.9],curb,"Front Engineering curb");
+  curvedStrip(10.8,11,curb,.065,"Rounded inner curb",.12);
+  solid([143,.18,.22],[22.5,.065,65.18],curb,"Front opposite curb");
+  curvedStrip(27.08,27.28,curb,.065,"Rounded outer curb",.12);
   solid([139,.016,.12],[24.5,.015,49.75],paint,"Faded road edge line");
-  for (let x = -43; x < 92; x += 9) solid([3.6,.018,.15],[x,.015,56],paint,"Broken lane marking");
   const yellowPaint = new THREE.MeshStandardMaterial({color:0xd9b64e,roughness:.98});
   for (const x of [-68.2,-67.8]) {
     solid([.13,.018,99],[x,.02,-27.5],yellowPaint,"Double yellow center line");
-    solid([.13,.018,9],[x,.02,35.5],yellowPaint,"Center line beyond crossing");
+    solid([.13,.018,7],[x,.02,34.5],yellowPaint,"Center line beyond crossing");
+  }
+  for (const radius of [18.8,19.2]) {
+    curvedStrip(radius-.065,radius+.065,yellowPaint,.023,"Curved double yellow line");
+    solid([143,.018,.13],[22.5,.023,38+radius],yellowPaint,"Front double yellow line");
   }
   for (let x=-74.5; x<-60; x+=2.65) solid([1.15,.022,2.8],[x,.026,26.5],paint,"Pedestrian crossing stripe");
   solid([15.2,.018,.28],[-68,.026,23.8],paint,"Crossing stop line");
@@ -147,7 +156,7 @@ export function addCampusSite(scene: THREE.Scene) {
     for (let i=0;i<7;i++) solid([.55,.025,.055],[-75.85,.046,z-.48+i*.16],paleMetal,"Drain grate bar");
   }
   // Pavement seams and utility covers remain visible from the street camera.
-  for (let z=-73; z<43; z+=3.8) solid([3.6,.012,.025],[-78.15,.147,z],curb,"Sidewalk expansion joint");
+  for (let z=-73; z<38; z+=3.8) solid([3.6,.012,.025],[-78.15,.147,z],curb,"Sidewalk expansion joint");
   for (const z of [-26,-16]) {
     const cover = new THREE.Mesh(new THREE.CylinderGeometry(.42,.42,.028,24),paleMetal);
     cover.position.set(-83,.151,z); cover.receiveShadow=true; scene.add(cover);

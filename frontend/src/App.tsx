@@ -768,15 +768,11 @@ export default function App() {
       </header>
 
       <div className="glass-content" id="glass-content" hidden={!panelsVisible}>
-      <section className="intro" aria-labelledby="page-title" hidden={location.kind !== "campus"}>
-        <h1 id="page-title">Let Lenny roast your hackathon project.</h1>
-        <p className="lede">
-          Test your idea. Explore the practice field in the Atrium.
-        </p>
-      </section>
+      <section className="intro" aria-label={location.kind === "campus" ? "Project introduction and service status" : "Service status"} hidden={location.kind === "awards"}>
+        <h1 id="page-title" hidden={location.kind !== "campus"}>Let Lenny roast your hackathon project.</h1>
 
       <details className={`mode-banner mode-${mode}`} hidden={location.kind === "awards"} open={mode === "unavailable" || Boolean(configError) ? true : undefined}>
-        <summary>{modeLabel(mode)}</summary>
+        <summary>Service status: {modeLabel(mode)}</summary>
         <div className="mode-copy">
           <span className="mode-indicator" aria-hidden="true" />
           <div>
@@ -827,6 +823,7 @@ export default function App() {
           </button>
         )}
       </details>
+      </section>
 
       <div className="workspace">
         {(job || activeJobId || pollNotice) && location.kind !== "awards" && <section className="submission-status glass-panel" aria-label="Submission status">
