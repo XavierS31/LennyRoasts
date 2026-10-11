@@ -28,7 +28,7 @@ Live server wiring: started the actual uvicorn app on free port 8111 because an 
 
 ## Required next handoffs
 
-1. [Dev1 issue #10](https://github.com/XavierS31/LennyRoasts/issues/10): review all eight provisional prompts and confirm reference availability. Dev2 applies accepted changes and freezes one final judge version/hash before field caching. No historical reference examples are claimed.
+1. [Dev1 issue #10](https://github.com/XavierS31/LennyRoasts/issues/10): done. Dev1's reviewed prompts are frozen as `kh9-qwen32b-v5`, hash `87c962cfcaeb6da15575fb837009f88f915fea9f283d696f28d002170480af4a`; it passed all ten synthetic category controls and the four judge smoke cases (see `backend/config/README.md`). No historical reference examples are claimed.
 2. [Dev1 issue #11](https://github.com/XavierS31/LennyRoasts/issues/11): score/export/validate the ten automatically accepted private projects with that exact final config and privately transfer PoolArtifact/config/report under `.local-tests/handoff/`. Under merged PR #9, semantic field spot checks are optional; automatic acceptance does not prove scope/fit realism.
 3. Dev2: validate/import the delivered field, verify actual considered/eligible counts and real import → queued/running/completed Qwen report → restart/private 404. Expand only afterward.
 4. [Dev3 issue #12](https://github.com/XavierS31/LennyRoasts/issues/12): integrate UI mode/count labels and rehearse against the real live field, keeping edits frontend-only. No API shape change is needed.
