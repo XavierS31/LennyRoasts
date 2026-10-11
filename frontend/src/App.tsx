@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect, useRef, useState, type FormEvent } from "react";
-import { BuildingsIcon, BankIcon, TrophyIcon, NotebookIcon, ChartBarIcon, LightbulbIcon, TagIcon, CheckIcon, PlusIcon } from "@phosphor-icons/react";
+import { NotebookIcon, ChartBarIcon, CheckIcon, PlusIcon } from "@phosphor-icons/react";
 import sampleIdea from "../demo/campus-queue.txt?raw";
 import SceneBoundary from "./components/engineering/SceneBoundary";
 import { sceneLocation, scenePath, type LocationState } from "./components/engineering/navigation";
@@ -760,9 +760,9 @@ export default function App() {
           <img src="/assets/engineering/lenny-roasts-logo-transparent.png" alt="Lenny Roasts" />
         </a>
         <nav className="scene-tabs" aria-label="Explore UCF rooms and buildings">
-          <button type="button" aria-label="Exterior" aria-pressed={location.kind === "campus"} onClick={() => navigate("campus")}><BuildingsIcon size={20} weight="light" aria-hidden="true" /> Exterior</button>
-          <button type="button" aria-label="Atrium" aria-pressed={location.kind === "atrium"} onClick={() => navigate("atrium", "Engineering II")}><BankIcon size={20} weight="light" aria-hidden="true" /> Atrium</button>
-          <button type="button" aria-label="Awards" aria-pressed={location.kind === "awards"} onClick={() => navigate("awards")}><TrophyIcon size={20} weight="light" aria-hidden="true" /> Awards</button>
+          <button type="button" aria-label="Exterior" aria-pressed={location.kind === "campus"} onClick={() => navigate("campus")}>Exterior</button>
+          <button type="button" aria-label="Atrium" aria-pressed={location.kind === "atrium"} onClick={() => navigate("atrium", "Engineering II")}>Atrium</button>
+          <button type="button" aria-label="Awards" aria-pressed={location.kind === "awards"} onClick={() => navigate("awards")}>Awards</button>
         </nav>
         {location.kind !== "awards" && <button type="button" className="secondary-button panel-toggle" aria-label={location.kind === "atrium" ? "Judging report" : "Idea panel"} title={location.kind === "atrium" ? "Judging report" : "Idea panel"} aria-expanded={panelsVisible} aria-controls="glass-content" onClick={() => setPanelsVisible((value) => !value)}>{location.kind === "atrium" ? <ChartBarIcon size={23} weight="light" aria-hidden="true" /> : <NotebookIcon size={23} weight="light" aria-hidden="true" />}</button>}
       </header>
@@ -879,7 +879,7 @@ export default function App() {
         <section className="form-panel" aria-labelledby="form-heading" hidden={location.kind !== "campus"}>
           <div className="section-heading">
             <div>
-              <h2 id="form-heading" className="icon-heading"><LightbulbIcon size={23} weight="light" aria-hidden="true" /> Your idea</h2>
+              <h2 id="form-heading">Your idea</h2>
             </div>
             <button type="button" className="text-button" onClick={loadSample} disabled={Boolean(activeJobId) || isSubmitting || isImporting}>
               Try a sample
@@ -946,7 +946,7 @@ export default function App() {
                 aria-labelledby="sponsor-heading"
                 aria-describedby={errors.challenges ? "error-challenges" : undefined}
               >
-                <summary id="sponsor-heading"><TagIcon size={18} weight="light" aria-hidden="true" /> Sponsor tracks <span className="required-label">Optional{selectedChallenges.length ? ` · ${selectedChallenges.length} selected` : ""}</span></summary>
+                <summary id="sponsor-heading">Sponsor tracks <span className="required-label">Optional{selectedChallenges.length ? ` · ${selectedChallenges.length} selected` : ""}</span></summary>
                 <p className="muted-copy">Choose the tools your idea would use.</p>
                 {errors.challenges && <p className="field-error" id="error-challenges">{errors.challenges}</p>}
                 {!configLoading && sponsorChallenges.length === 0 && (

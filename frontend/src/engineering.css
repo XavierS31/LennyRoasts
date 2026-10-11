@@ -8,19 +8,19 @@
 }
 :root {
   font-family: Bagnard, Georgia, 'Times New Roman', serif;
-  color-scheme: light;
+  color-scheme: dark;
   --page: #172432;
-  --surface: rgba(255, 255, 255, .22);
-  --surface-muted: rgba(255, 255, 255, .12);
-  --ink: #172333;
-  --muted: #344454;
+  --surface: rgba(255, 255, 255, .06);
+  --surface-muted: rgba(255, 255, 255, .04);
+  --ink: #fff;
+  --muted: rgba(255, 255, 255, .9);
   --line: rgba(255, 255, 255, .4);
-  --line-strong: rgba(23, 35, 51, .35);
+  --line-strong: rgba(255, 255, 255, .7);
   --accent: #ffda74;
   --accent-ink: #413513;
-  --focus: #275c87;
-  --glass-fill: rgba(255, 255, 255, .22);
-  --glass-shine: rgba(255, 255, 255, .14);
+  --focus: #fff;
+  --glass-fill: rgba(255, 255, 255, .04);
+  --glass-shine: rgba(255, 255, 255, .025);
   -webkit-font-smoothing: antialiased;
   --warning: rgba(133, 95, 24, .2);
   --warning-line: rgba(255, 211, 111, .45);
@@ -30,7 +30,7 @@
   --success-line: rgba(157, 230, 202, .4);
 }
 [hidden] { display: none !important; }
-.engineering-app { width: 100%; max-width: none; padding: 20px; color: var(--ink); }
+.engineering-app { width: 100%; max-width: none; padding: 20px; color: var(--ink); text-shadow: 0 1px 2px rgba(0,0,0,.2); }
 .engineering-scene { position: fixed; inset: 0; z-index: 0; background: linear-gradient(180deg, #5caee5 0%, #acd4e5 14%, #ffc1a0 24%, #ff9b7b 34%, #ffd37e 50%); }
 .engineering-scene canvas { display: block; width: 100%; height: 100%; touch-action: none; }
 /* Interior rooms occupy the viewport independently of the exterior form. */
@@ -39,18 +39,23 @@
 .view-awards .glass-content { display: none; }
 .glass-panel, .engineering-app :is(.masthead, .intro, .mode-banner, .form-panel, .report-panel, .page-footer, .report-card, .track-item, .placement-box, .criterion, .run-criteria, .result-mode, .evidence-quote, .processing-panel, .challenge-picker, .notice, .file-import-preview, .rival, .warning-section) {
   /* Apple-inspired web glass: a translucent fill and a lit edge over the scene. */
-  background: linear-gradient(135deg, var(--glass-shine), rgba(255,255,255,.025)), var(--glass-fill);
-  border: 1px solid rgba(255,255,255,.42);
+  background: linear-gradient(135deg, var(--glass-shine), transparent), var(--glass-fill);
+  border: 1px solid rgba(255,255,255,.28);
   border-radius: 22px;
   /* Prefix first: the production minifier must retain the standard declaration. */
-  -webkit-backdrop-filter: blur(16px) saturate(120%) brightness(1.15);
-  backdrop-filter: blur(16px) saturate(120%) brightness(1.15);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.65), 0 8px 28px rgba(0,0,0,.08);
+  -webkit-backdrop-filter: blur(10px) saturate(110%) brightness(.4);
+  backdrop-filter: blur(10px) saturate(110%) brightness(.4);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 8px 28px rgba(0,0,0,.08);
   color: var(--ink);
+}
+/* Nested cards share the parent glass without repeatedly dimming the scene. */
+.engineering-app :is(.report-card, .track-item, .placement-box, .criterion, .run-criteria, .result-mode, .evidence-quote, .challenge-picker, .file-import-preview, .rival, .warning-section) {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 .engineering-app .masthead { position: sticky; top: 20px; z-index: 5; padding: 12px 18px; margin: 0 0 20px; gap: 14px; min-height: 68px; }
 .engineering-app .wordmark { display: flex; align-items: center; color: #fff; }
-.engineering-app .wordmark img { width: 155px; height: 46px; object-fit: contain; filter: drop-shadow(.45px 0 0 rgba(0,0,0,.5)) drop-shadow(-.45px 0 0 rgba(0,0,0,.5)) drop-shadow(0 .45px 0 rgba(0,0,0,.5)) drop-shadow(0 -.45px 0 rgba(0,0,0,.5)); }
+.engineering-app .wordmark img { width: 155px; height: 46px; object-fit: contain; filter: brightness(0) invert(1); }
 .masthead .scene-tabs { margin-left: auto; }
 .masthead .scene-tabs button { min-height: 44px; padding: 9px 20px; border: 1px solid transparent; border-radius: 14px; background: transparent; font-size: 16px; display: inline-flex; gap: 7px; align-items: center; justify-content: center; white-space: nowrap; }
 .masthead .scene-tabs button:hover { background: rgba(255,255,255,.12); }
@@ -80,21 +85,21 @@
 .panel-switch { display: flex; gap: 6px; padding: 6px; }
 .panel-switch button { flex: 1; }
 .engineering-app :is(.secondary-button, .text-button) { color: var(--ink); }
-.engineering-app .secondary-button { background: rgba(255,255,255,.16); border-color: var(--line); }
-.engineering-app :is(.notice, .stale-report-note, .warning-section) { color: #493410; }
-.engineering-app .notice-error { color: #711c22; }
-.engineering-app :is(.status-chip, .eligibility) { color: var(--ink); background: rgba(255,255,255,.18); border-color: var(--line); }
+.engineering-app .secondary-button { background: rgba(255,255,255,.06); border-color: var(--line); }
+.engineering-app :is(.notice, .stale-report-note, .warning-section, .notice-error) { color: var(--ink); }
+.engineering-app :is(.status-chip, .eligibility) { color: var(--ink); background: rgba(255,255,255,.06); border-color: var(--line); }
 .engineering-app :is(.score-block, .placement-box strong, .criterion dd, .rival > span) { color: var(--ink); }
 .engineering-app :is(.track-checkmark, .track-name, .challenge-description summary, .challenge-detail-copy, .rationale-section p, .criterion dt, .placement-box span, .evidence-list dt, .evidence-quote, table, .evaluation-status) { color: var(--ink); }
-.engineering-app :is(.field-error, .field-error a) { color: #711c22; }
+.engineering-app .report-detail summary, .engineering-app .track-choice:has(input:checked), .engineering-app .track-choice input:checked + .track-checkmark, .engineering-app .improvements-section li::marker { color: var(--ink); }
+.engineering-app :is(.field-error, .field-error a) { color: var(--ink); }
 .engineering-app :is(.automatic-copy, .challenge-picker summary, .empty-label, .empty-report h3, .processing-panel strong, .rival h4, .rival p, .improvements-section li, .warning-section h4, .run-heading, .run-criteria dt) { color: var(--ink); }
-.engineering-app :is(textarea, input:not([type=checkbox]), select) { background: rgba(255,255,255,.24); color: var(--ink); border-color: rgba(23,35,51,.2); caret-color: var(--focus); }
+.engineering-app :is(textarea, input:not([type=checkbox]), select) { background: rgba(255,255,255,.04); color: var(--ink); border-color: rgba(255,255,255,.3); caret-color: var(--focus); text-shadow: inherit; }
 .engineering-app textarea::placeholder { color: var(--muted); }
 .engineering-app textarea { min-height: 220px; }
 .engineering-app .track-choice input { accent-color: #ffda74; }
-.engineering-app .submit-button { background: #ffda74; color: #262414; border-color: #ffe7b3; }
-.engineering-app .submit-button:hover:not(:disabled) { background: #ffe4a0; }
-.engineering-app .version-line code, .engineering-app .job-id { background: rgba(255,255,255,.2); color: var(--ink); }
+.engineering-app .submit-button { background: rgba(255,255,255,.12); color: var(--ink); border-color: rgba(255,255,255,.6); }
+.engineering-app .submit-button:hover:not(:disabled) { background: rgba(255,255,255,.2); }
+.engineering-app .version-line code, .engineering-app .job-id { background: rgba(255,255,255,.06); color: var(--ink); }
 .engineering-app .page-footer { margin: 12px 0 0; padding: 14px 18px; flex-wrap: wrap; gap: 8px; font-size: 10px; }
 .scene-link { margin-bottom: 14px; }
 #report-heading { scroll-margin-top: 130px; }
@@ -105,7 +110,7 @@
 .engineering-explorer button:hover, .panel-switch button:hover { background: rgba(255,255,255,.18); }
 .engineering-explorer button[aria-pressed=true], .panel-switch button[aria-pressed=true] { background: rgba(255,255,255,.36); border-color: var(--line-strong); color: var(--ink); }
 .engineering-explorer select { min-height: 40px; padding: 8px; border-radius: 13px; border: 1px solid var(--line); font: inherit; font-size: 12px; }
-select option { background: #f5f7fa; color: #172333; }
+select option { background: #26333f; color: #fff; }
 .scene-results { position: fixed; z-index: 3; right: 160px; top: 110px; padding: 20px; width: min(390px, 36vw); max-height: calc(100dvh - 140px); overflow-y: auto; overflow-wrap: anywhere; }
 .scene-results .section-kicker { margin-top: 0; color: var(--muted); font-size: 10px; }
 .scene-results .results-toggle { width: 100%; text-align: left; line-height: 1.5; margin-bottom: 10px; }
@@ -140,30 +145,27 @@ select option { background: #f5f7fa; color: #172333; }
 .engineering-app p { text-wrap: pretty; }
 .engineering-app :is(.scene-score, .score-block, .field-meta, .criterion dd) { font-variant-numeric: tabular-nums; }
 .engineering-app ::selection { background: #ffe2a5; color: #172333; }
-.engineering-app { scrollbar-color: rgba(23,35,51,.4) transparent; }
+.engineering-app { scrollbar-color: rgba(255,255,255,.45) transparent; }
 .engineering-app .panel-toggle { width: 44px; min-height: 44px; padding: 8px; border-radius: 50%; display: grid; place-items: center; }
-.icon-heading, .atrium-empty { display: flex; align-items: center; gap: 9px; }
-.icon-heading svg, .atrium-empty svg, .scene-tabs svg { flex-shrink: 0; }
 .file-import-heading button { display: inline-flex; align-items: center; gap: 7px; }
-.challenge-picker summary svg { vertical-align: middle; margin-right: 5px; }
 .camera-menu { position: fixed; bottom: 24px; left: 24px; z-index: 8; }
 .engineering-explorer .camera-menu-toggle { width: 58px; height: 58px; padding: 0; border-radius: 50%; font-size: 27px; display: grid; place-items: center; }
 .camera-menu-tray { position: absolute; bottom: 72px; left: 0; width: 248px; padding: 12px; border-radius: 26px; opacity: 0; visibility: hidden; pointer-events: none; transform: scale(.86); transform-origin: bottom left; clip-path: circle(0 at 0 100%); transition: opacity 180ms ease-out, transform 280ms cubic-bezier(.16,1,.3,1), clip-path 280ms cubic-bezier(.16,1,.3,1), visibility 280ms; }
 .camera-menu.is-open .camera-menu-tray { opacity: 1; visibility: visible; pointer-events: auto; transform: scale(1); clip-path: circle(160% at 0 100%); }
 .camera-menu-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
-.engineering-explorer .camera-action { position: relative; min-width: 44px; height: 46px; padding: 0; display: grid; place-items: center; border-radius: 14px; background: rgba(255,255,255,.20); }
-.camera-action .control-tooltip { position: absolute; bottom: calc(100% + 9px); left: 50%; transform: translateX(-50%); width: max-content; max-width: 170px; padding: 7px 10px; font: 12px/1.3 system-ui, sans-serif; color: #172333; background: rgba(255,255,255,.96); box-shadow: 0 4px 12px rgba(0,0,0,.12); border-radius: 9px; opacity: 0; pointer-events: none; transition: opacity 120ms ease-out; z-index: 2; }
+.engineering-explorer .camera-action { position: relative; min-width: 44px; height: 46px; padding: 0; display: grid; place-items: center; border-radius: 14px; background: rgba(255,255,255,.06); }
+.camera-action .control-tooltip { position: absolute; bottom: calc(100% + 9px); left: 50%; transform: translateX(-50%); width: max-content; max-width: 170px; padding: 7px 10px; font: 12px/1.3 system-ui, sans-serif; color: #fff; background: rgba(24,34,46,.96); box-shadow: 0 4px 12px rgba(0,0,0,.12); border-radius: 9px; opacity: 0; pointer-events: none; transition: opacity 120ms ease-out; z-index: 2; }
 .camera-action:nth-child(4n) .control-tooltip { left: auto; right: 0; transform: none; }
 .camera-action:nth-child(4n + 1) .control-tooltip { left: 0; transform: none; }
 .camera-action:is(:hover, :focus-visible) .control-tooltip { opacity: 1; }
 .camera-menu button { transition: background-color 120ms ease-out, scale 120ms ease-out; }
 .camera-menu button:active { scale: .96; }
-.camera-menu-toggle[aria-expanded=true] { background: rgba(255,255,255,.42); }
+.camera-menu-toggle[aria-expanded=true] { background: rgba(255,255,255,.12); }
 @supports not (backdrop-filter: blur(1px)) {
-  :root { --glass-fill: rgba(245,248,251,.94); --glass-shine: transparent; }
+  :root { --glass-fill: rgba(24,34,46,.94); --glass-shine: transparent; }
 }
 @media (prefers-reduced-transparency: reduce) {
-  :root { --glass-fill: #f5f8fb; --glass-shine: transparent; }
+  :root { --glass-fill: #18222e; --glass-shine: transparent; }
   .glass-panel, .engineering-app :is(.masthead, .intro, .mode-banner, .form-panel, .report-panel, .page-footer, .report-card, .track-item, .placement-box, .criterion, .run-criteria, .result-mode, .evidence-quote, .processing-panel, .challenge-picker, .notice, .file-import-preview, .rival, .warning-section) { backdrop-filter: none; -webkit-backdrop-filter: none; }
 }
 @media (max-width: 900px) {

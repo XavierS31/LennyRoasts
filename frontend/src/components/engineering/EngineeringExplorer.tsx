@@ -4,7 +4,6 @@ import EngineeringScene, { type CameraCommand, type SceneController } from "./En
 import type { LocationState } from "./navigation";
 import AtriumMap from "./AtriumMap";
 import CameraMenu from "./CameraMenu";
-import { LightbulbIcon, TrophyIcon } from "@phosphor-icons/react";
 
 export default function EngineeringExplorer({ job, challenges, projectName, category, onCategory, panelsVisible, isStale, location, onBuilding, controller }: {
   job: EvaluationJob | null;
@@ -47,9 +46,9 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
     <CameraMenu key={location.kind} kind={location.kind} onCamera={camera}
       onSponsor={(id) => { setVisitingSponsor(true); void controller.current?.command("sponsor", id); }} />
     {location.kind === "atrium" && <AtriumMap projectNames={result ? [projectName, ...result.rivals.map((entry) => entry.name)] : []} />}
-    {location.kind === "atrium" && !result && !visitingSponsor && <p className="atrium-empty glass-panel"><LightbulbIcon size={20} weight="light" aria-hidden="true" /> Submit an idea to explore your practice field.</p>}
+    {location.kind === "atrium" && !result && !visitingSponsor && <p className="atrium-empty glass-panel">Submit an idea to explore your practice field.</p>}
     {location.kind === "awards" && <aside className="ballroom-caption glass-panel" aria-label="Award ceremony room">
-      <h1 className="icon-heading"><TrophyIcon size={23} weight="light" aria-hidden="true" /> Cape Ballroom</h1>
+      <h1>Cape Ballroom</h1>
     </aside>}
     {result && <section className="scene-results glass-panel" aria-label="API results in the scene">
       <button type="button" className="results-toggle" aria-expanded={resultsExpanded} aria-controls="scene-result-content" onClick={() => setResultsExpanded((value) => !value)}>
