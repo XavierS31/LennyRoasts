@@ -16,7 +16,7 @@ from backend.app.judging import JudgeFailure, score_submission
 async def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--judge-config',default=str(ROOT/'backend/config/judge_config.json'))
-    parser.add_argument('--case', choices=['overall','game-negative','game-positive','injection'],default='overall')
+    parser.add_argument('--case', choices=['overall','game-negative','game-positive','injection','all'],default='overall')
     args=parser.parse_args()
     config=load_config(args.judge_config)
     async with httpx.AsyncClient(timeout=20,trust_env=False) as client:
@@ -26,6 +26,9 @@ async def main():
         print(json.dumps({'model':'Qwen/Qwen3-32B','provider':'deepinfra','metadata_http':metadata.status_code,'provider_status':provider.get('status'),'provider_model':provider.get('providerId')}))
     submission=copy.deepcopy(FIXTURES['request']['submission'])
     ids=['overall']
+    if args.case=='all':
+        ids=list(config['prompts'])
+        submission['challenges']=['gemini','elevenlabs','databricks','bny']
     if args.case.startswith('game'):
         ids=['best_game']
     if args.case=='game-positive':

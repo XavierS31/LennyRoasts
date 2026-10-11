@@ -2,17 +2,18 @@
 import asyncio
 import json
 import os
-from pathlib import Path
 import re
 import secrets
+import time
 from statistics import mean
 from typing import Any
 
 import httpx
+from jsonschema import Draft202012Validator
 from jsonschema.exceptions import ValidationError
 
-from .contracts import ROOT, SPEC, validate
-from .judge_config import config_hash, validate_config
+from .contracts import ROOT, validate
+from .judge_config import config_hash, validate_config, provider_schema
 from .scoring_contract import validate_score_result
 from .settings import load_environment
 
@@ -41,6 +42,7 @@ def parse_response(response, schema_name):
         # No fence stripping, thinking stripping or JSON repair.
         raw = json.loads(choice['message']['content'])
         validate(schema_name, raw)
+        Draft202012Validator(provider_schema(schema_name)).validate(raw)
         keys = set(raw) - {'rationale', 'evidence'}
         if any(type(raw[key]) is not int for key in keys):
             raise ValueError('Criteria must be JSON integers')
@@ -85,8 +87,8 @@ def aggregate(challenge_id, raw_runs, submission):
 
 
 def save_diagnostic(identifier, challenge_id, run, attempt, response, config):
-    # Private, opt-in diagnostics. No input or authorization header is written.
-    if os.getenv('LENNY_JUDGE_DIAGNOSTICS') != '1':
+    # Private raw diagnostics expire after an hour. Never write input/authorization.
+    if os.getenv('LENNY_JUDGE_DIAGNOSTICS', '1') != '1':
         return
     directory = ROOT / '.local-tests/judge-diagnostics' / identifier
     directory.mkdir(parents=True, exist_ok=True, mode=0o700)
@@ -96,8 +98,23 @@ def save_diagnostic(identifier, challenge_id, run, attempt, response, config):
         json.dump({'judge_config_sha256': config_hash(config), 'response': response}, f, ensure_ascii=False)
 
 
+def expire_diagnostics():
+    base = ROOT / '.local-tests/judge-diagnostics'
+    if not base.exists(): return
+    cutoff = time.time() - 3600
+    for directory in base.iterdir():
+        if directory.is_symlink() or not directory.is_dir() or directory.stat().st_mtime >= cutoff: continue
+        for path in directory.glob('*.json'):
+            try:
+                if not path.is_symlink() and path.stat().st_mtime < cutoff: path.unlink()
+            except FileNotFoundError: pass
+        try: directory.rmdir()
+        except OSError: pass
+
+
 async def _score(submission, challenge_ids, judge_config):
     load_environment()
+    expire_diagnostics()
     token = os.getenv('HF_TOKEN', '').strip()
     if not token:
         raise JudgeFailure('HF_TOKEN is not configured.')
@@ -112,7 +129,7 @@ async def _score(submission, challenge_ids, judge_config):
                            {'role': 'system', 'content': judge_config['prompts'][cid]},
                            {'role': 'user', 'content': '<submission>\n' + json.dumps(submission, ensure_ascii=False) + '\n</submission>\n/no_think'}],
                        'response_format': {'type': 'json_schema', 'json_schema': {
-                           'name': name, 'strict': True, 'schema': SPEC['components']['schemas'][name]}}}
+                           'name': name, 'strict': True, 'schema': provider_schema(name)}}}
             for attempt in range(RETRIES + 1):
                 try:
                     async with semaphore:

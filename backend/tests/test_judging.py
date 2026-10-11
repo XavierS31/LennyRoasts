@@ -112,7 +112,7 @@ def test_invalid_provider_json_exhausts_bounded_retries(monkeypatch):
     install_transport(monkeypatch,handler)
     with pytest.raises(judging.JudgeFailure):
         asyncio.run(judging.score_submission(FIXTURES['request']['submission'],['overall'],load_config()))
-    assert len(calls)==9  # 3 runs, at most 3 attempts each; no partial publication.
+    assert 3 <= len(calls) <= 9  # Remaining runs are cancelled on the first exhausted run.
 
 
 def test_raw_schema_is_part_of_frozen_config():
