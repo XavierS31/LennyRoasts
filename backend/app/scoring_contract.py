@@ -16,6 +16,8 @@ def validate_score_result(result, submission=None):
     if {run['run'] for run in runs} != {0, 1, 2}:
         raise ValueError('Scores require three distinct run indices.')
     for run in runs:
+        if type(run['run']) is not int or any(type(value) is not int for value in run['criteria'].values()):
+            raise ValueError('Run indices and criterion scores must be JSON integers.')
         if set(run['criteria']) != expected_keys or run['max_total'] != maximum:
             raise ValueError('Run criteria/denominator do not match the category.')
         if run['total'] != sum(run['criteria'].values()):
@@ -34,6 +36,10 @@ def validate_score_result(result, submission=None):
             raise ValueError('Aggregate total/score must average all three runs.')
     if result['eligible'] != (sum(run['eligible'] for run in runs) >= 2):
         raise ValueError('Aggregate eligibility must use the majority rule.')
+    if set(result['evidence']) != expected_keys:
+        raise ValueError('Evidence criteria must exactly match the category.')
+    if len({run['eligible'] for run in runs}) > 1 and not any('disagree' in warning.lower() for warning in result['warnings']):
+        raise ValueError('Eligibility disagreement requires a warning.')
     if submission is not None:
         strings = [value for value in submission.values() if isinstance(value, str)] + submission['built_with']
         for quote in result['evidence'].values():
