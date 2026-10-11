@@ -769,7 +769,7 @@ export default function App() {
 
       <div className="glass-content" id="glass-content" hidden={!panelsVisible}>
       <section className="intro" aria-label={location.kind === "campus" ? "Project introduction and service status" : "Service status"} hidden={location.kind === "awards"}>
-        <h1 id="page-title" hidden={location.kind !== "campus"}>Let Lenny roast your hackathon project.</h1>
+        <h1 id="page-title" hidden={location.kind !== "campus"}><span className="welcome-prefix">Welcome to</span><span className="hackathon-name">Knight Hacks</span></h1>
 
       <div className="service-status-row">
       <details className={`mode-banner mode-${mode}`} hidden={location.kind === "awards"}>
@@ -810,7 +810,7 @@ export default function App() {
       </details>
       {(configLoading || configError || mode === "unavailable") &&
         <button type="button" className="text-button service-retry" onClick={refreshChallenges} disabled={configLoading} aria-busy={configLoading}>
-          Retry challenge load
+          Reload
         </button>
       }
       {configError && <small className="compact-api-error" role="alert">{configError.message}</small>}
@@ -868,7 +868,7 @@ export default function App() {
         <section className="form-panel" aria-labelledby="form-heading" hidden={location.kind !== "campus"}>
           <div className="section-heading">
             <div>
-              <h2 id="form-heading">Your hackathon project idea</h2>
+              <h2 id="form-heading">Let Lenny roast your project</h2>
             </div>
             <button type="button" className="text-button" onClick={loadSample} disabled={Boolean(activeJobId) || isSubmitting || isImporting}>
               Try a sample
