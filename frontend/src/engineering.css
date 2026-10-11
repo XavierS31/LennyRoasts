@@ -80,9 +80,9 @@
 .engineering-app .edition { margin-left: auto; color: var(--muted); }
 .glass-content { position: relative; z-index: 2; width: min(540px, 40vw); margin-left: 0; }
 .engineering-app .intro { padding: 28px; margin: 0 0 18px; }
-.engineering-app .intro h1 { display: grid; gap: 3px; font-size: clamp(30px, 2.6vw, 38px); font-weight: 650; line-height: 1.12; letter-spacing: -.025em; max-width: 490px; margin: 0 0 20px; }
+.engineering-app .intro h1 { display: grid; justify-items: start; gap: 8px; font-size: clamp(30px, 2.6vw, 38px); font-weight: 650; line-height: 1.12; letter-spacing: -.025em; max-width: 490px; margin: 0 0 24px; }
 .engineering-app .intro h1 .welcome-prefix { color: var(--muted); font-size: 15px; font-weight: 550; line-height: 1.4; letter-spacing: 0; }
-.engineering-app .intro h1 .hackathon-name { color: #101522; font-weight: 720; }
+.engineering-app .intro h1 .hackathon-logo { display: block; width: min(100%, 420px); height: auto; object-fit: contain; object-position: left center; }
 .engineering-app :is(.eyebrow, .section-kicker) { color: var(--muted); }
 .engineering-app .lede { font-size: 14px; line-height: 1.55; margin: 0; }
 .engineering-app .mode-banner { display: block; padding: 16px 20px; margin: 0 0 12px; }

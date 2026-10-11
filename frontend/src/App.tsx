@@ -769,7 +769,7 @@ export default function App() {
 
       <div className="glass-content" id="glass-content" hidden={!panelsVisible}>
       <section className="intro" aria-label={location.kind === "campus" ? "Project introduction and service status" : "Service status"} hidden={location.kind === "awards"}>
-        <h1 id="page-title" hidden={location.kind !== "campus"}><span className="welcome-prefix">Welcome to</span><span className="hackathon-name">Knight Hacks</span></h1>
+        <h1 id="page-title" hidden={location.kind !== "campus"}><span className="welcome-prefix">Welcome to</span><img className="hackathon-logo" src="/assets/engineering/knight-hacks-logo-black.png" alt="Knight Hacks" /></h1>
 
       <div className="service-status-row">
       <details className={`mode-banner mode-${mode}`} hidden={location.kind === "awards"}>
