@@ -1,6 +1,7 @@
 // Adapted from the user-owned Figma Make project rmSpAlKuWy4ZPVhzoY8dXW.
 // Original geometry, procedural textures, materials and architectural dimensions.
 import * as THREE from "three";
+import { addDetailedAtrium } from "./atriumGeometry";
 
 
 const gold = 0xffc904;
@@ -324,51 +325,7 @@ export function addExterior(scene: THREE.Scene) {
 }
 
 export function addAtrium(scene: THREE.Scene, participantCount = 0) {
-  box(scene, [48, 0.4, 54], [0, 0, 0], 0xd8d1c2);
-  box(scene, [48, 28, 1], [0, 14, -27], 0x773e35);
-  box(scene, [1, 28, 54], [-24, 14, 0], brick);
-  box(scene, [1, 28, 54], [24, 14, 0], cream);
-  for (let i = 0; i < 5; i++) {
-    box(scene, [4.7, 10, 0.18], [-12 + i * 6, 17, -26.4], 0x82a7b0);
-  }
-  for (const x of [-17, -7, 7, 17]) {
-    const pillar = new THREE.Mesh(
-      new THREE.CylinderGeometry(0.75, 0.95, 25, 12),
-      new THREE.MeshStandardMaterial({ color: 0x2d3130, metalness: 0.45 }),
-    );
-    pillar.position.set(x, 12.5, -3);
-    scene.add(pillar);
-    const canopy = new THREE.Mesh(
-      new THREE.ConeGeometry(3.5, 4, 8),
-      new THREE.MeshStandardMaterial({ color: gold, metalness: 0.5 }),
-    );
-    canopy.position.set(x, 24, -3);
-    scene.add(canopy);
-  }
-  for (let i = 0; i < 9; i++) {
-    const table = new THREE.Mesh(
-      new THREE.CylinderGeometry(2.2, 2.2, 0.25, 24),
-      new THREE.MeshStandardMaterial({ color: 0xe9e6dc }),
-    );
-    table.position.set(-14 + (i % 3) * 14, 1.5, -16 + Math.floor(i / 3) * 14);
-    scene.add(table);
-  }
-  const people = new THREE.InstancedMesh(
-    new THREE.CapsuleGeometry(0.28, 1.05, 3, 6),
-    new THREE.MeshStandardMaterial({ color: 0x20252b, roughness: 0.8 }),
-    200,
-  );
-  const matrix = new THREE.Matrix4();
-  for (let i = 0; i < 200; i++) {
-    const x = ((i * 17) % 430) / 10 - 21.5;
-    const z = ((i * 31) % 490) / 10 - 24.5;
-    matrix.makeTranslation(x, 1, z);
-    people.setMatrixAt(i, matrix);
-    people.setColorAt(i, new THREE.Color(i % 5 === 0 ? gold : i % 3 === 0 ? 0x683d7a : 0x1f2937));
-  }
-  people.count = Math.min(200, Math.max(0, participantCount));
-  people.userData.fieldPopulation = true;
-  scene.add(people);
+  return addDetailedAtrium(scene, participantCount);
 }
 
 export function addAuditorium(scene: THREE.Scene) {
