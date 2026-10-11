@@ -332,3 +332,98 @@ select option { background: #fff; color: var(--ink); }
   .camera-menu button { transition: background-color 80ms ease-out; }
   .camera-menu button:active { scale: 1; }
 }
+
+/* The room stays fixed while the report moves inside its own glass surface. */
+.engineering-app.view-atrium { height: 100dvh; overflow: hidden; }
+.view-atrium.has-completed-report .glass-content { top: 118px; left: 20px; right: 20px; bottom: 20px; width: auto; max-width: 1120px; margin: 0 auto; overscroll-behavior: contain; scrollbar-gutter: stable; }
+.view-atrium.has-completed-report .report-panel { padding: 30px; border-radius: 26px; margin: 0; }
+.view-atrium.has-completed-report .report-heading-row { margin-bottom: 12px; }
+.view-atrium.has-completed-report .report-heading-row .status-chip { flex-shrink: 0; white-space: nowrap; }
+#report-heading:focus { outline: none; }
+.scene-atrium.with-panels .atrium-map { display: none; }
+.dashboard-mode-note { margin: 0 0 24px; color: var(--muted); font-size: 13px; line-height: 1.6; max-width: 75ch; }
+.dashboard-toolbar { display: flex; align-items: end; justify-content: space-between; gap: 20px; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+.dashboard-toolbar label { display: grid; gap: 8px; font-size: 13px; font-weight: 550; width: min(380px, 65%); }
+.engineering-app .dashboard-toolbar select { min-height: 44px; border-radius: 12px; border-color: var(--line); background: rgba(255,255,255,.65); font-size: 14px; }
+.engineering-app :is(.dashboard-revise, .dashboard-ceremonies-link button, .ceremony-play) { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 16px; font-size: 13px; font-weight: 550; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,.5); color: var(--ink); }
+.dashboard-columns { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 40px; padding-top: 28px; }
+.atrium-dashboard h3, .ceremony-dashboard h2 { display: flex; align-items: center; gap: 9px; margin: 0 0 16px; font-size: 19px; font-weight: 600; letter-spacing: -.02em; }
+.atrium-dashboard h3 svg, .ceremony-dashboard h2 svg { flex-shrink: 0; }
+.dashboard-project-name { font-size: 15px; margin: 0 0 18px; overflow-wrap: anywhere; }
+.dashboard-category-scores { margin: 0 0 28px; }
+.dashboard-category-scores > div { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
+.dashboard-category-scores dd { margin: 0; font-variant-numeric: tabular-nums; }
+.dashboard-category-scores dd span { color: var(--muted); }
+.engineering-app .dashboard-category-scores button { min-height: 36px; padding: 0; border: 0; background: transparent; text-align: left; font-size: 13px; font-weight: 500; }
+.engineering-app .dashboard-category-scores button[aria-pressed=true] { color: var(--focus); font-weight: 650; }
+.dashboard-category-place { color: var(--muted); font-size: 12px; }
+.dashboard-score-row { display: flex; align-items: center; gap: 28px; margin: 0 0 26px; }
+.dashboard-score { display: flex; align-items: baseline; gap: 7px; margin: 0; font-variant-numeric: tabular-nums; }
+.dashboard-score strong { font-size: 40px; font-weight: 600; line-height: 1.1; letter-spacing: -.035em; }
+.dashboard-score span { color: var(--muted); font-size: 15px; }
+.dashboard-placement { display: grid; gap: 3px; margin: 0; font-size: 14px; line-height: 1.45; }
+.dashboard-placement strong { font-weight: 600; }
+.dashboard-placement span { color: var(--muted); font-size: 12px; }
+.dashboard-rubric-heading { margin: 0 0 12px; font-size: 13px; font-weight: 600; line-height: 1.5; }
+.dashboard-criteria { margin: 0; font-size: 14px; }
+.dashboard-criteria > div { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.dashboard-criteria dd { margin: 0; white-space: nowrap; font-weight: 600; font-variant-numeric: tabular-nums; }
+.dashboard-criteria dd span { color: var(--muted); font-weight: 450; }
+.dashboard-rationale { font-size: 14px; line-height: 1.65; margin: 20px 0 0; }
+.dashboard-improvements { padding-top: 32px; }
+.dashboard-improvements ol { margin: 0; padding-left: 19px; }
+.dashboard-improvements li { font-size: 14px; line-height: 1.65; margin-bottom: 14px; padding-left: 4px; }
+.dashboard-footnote { font-size: 12px; color: var(--muted); line-height: 1.6; margin: 12px 0; }
+.dashboard-agents { padding-left: 32px; border-left: 1px solid var(--line); }
+.dashboard-agent-categories { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.engineering-app :is(.dashboard-agent-categories, .ceremony-categories) button { min-height: 40px; border: 0; border-radius: 999px; padding: 8px 12px; color: var(--muted); background: rgba(255,255,255,.5); font-size: 12px; }
+.engineering-app :is(.dashboard-agent-categories, .ceremony-categories) button[aria-pressed=true] { color: #fff; background: #192234; }
+.dashboard-agents ul { padding: 0; list-style: none; margin: 18px 0 0; }
+.dashboard-agents li { padding: 20px 0; border-bottom: 1px solid var(--line); }
+.dashboard-agent-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+.dashboard-agent-heading h4 { font-size: 15px; font-weight: 600; line-height: 1.45; margin: 0; overflow-wrap: anywhere; }
+.dashboard-agent-heading p { display: flex; gap: 5px; white-space: nowrap; margin: 0; font-size: 15px; font-variant-numeric: tabular-nums; }
+.dashboard-agent-heading span { font-size: 12px; color: var(--muted); }
+.dashboard-agents li > p, .dashboard-no-agents { font-size: 13px; line-height: 1.65; margin: 12px 0; overflow-wrap: anywhere; }
+.engineering-app .dashboard-agents li > button { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; border: 0; padding: 6px 0; border-radius: 4px; background: transparent; font-size: 12px; font-weight: 550; color: var(--focus); }
+.dashboard-ceremonies-link { display: flex; align-items: center; justify-content: space-between; gap: 32px; border-top: 1px solid var(--line); padding-top: 26px; margin-top: 32px; }
+.dashboard-ceremonies-link h3 { font-size: 17px; margin-bottom: 8px; }
+.dashboard-ceremonies-link p { font-size: 12px; line-height: 1.6; color: var(--muted); margin: 0; max-width: 48ch; }
+.engineering-app .dashboard-ceremonies-link button { background: #192234; color: #fff; border: 0; flex-shrink: 0; }
+.dashboard-scoring-details { margin-top: 28px; border-top: 1px solid var(--line); padding-top: 10px; }
+.dashboard-scoring-details > summary { min-height: 44px; cursor: pointer; font-size: 13px; padding: 12px 0; }
+.engineering-app .dashboard-scoring-details .report-card { margin: 12px 0 0; border: 0; background: transparent; box-shadow: none; padding: 0; }
+.engineering-app .dashboard-scoring-details .report-card::before { display: none; }
+.atrium-dashboard :focus-visible, .ceremony-dashboard :focus-visible, .map-rooms :focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+.engineering-app :is(.dashboard-revise, .dashboard-category-scores button, .dashboard-agents li > button, .dashboard-agent-categories button, .ceremony-categories button, .ceremony-play, .ceremony-preview button):hover:not(:disabled) { background: rgba(255,255,255,.8); color: var(--ink); }
+.engineering-app .dashboard-ceremonies-link button:hover { background: #303a50; }
+.map-rooms { display: grid; gap: 4px; margin-bottom: 12px; }
+.engineering-explorer .map-rooms button { display: flex; align-items: center; gap: 9px; min-height: 40px; padding: 8px 10px; border: 0; background: rgba(255,255,255,.5); text-align: left; font-size: 12px; border-radius: 9px; }
+.map-rooms button span { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.ceremony-dashboard { position: fixed; z-index: 4; top: 118px; right: 20px; width: 360px; padding: 24px; max-height: calc(100dvh - 220px); overflow-y: auto; overscroll-behavior: contain; border-radius: 26px; }
+.ceremony-categories { display: flex; flex-wrap: wrap; gap: 6px; }
+.ceremony-announcement { margin: 24px 0; }
+.ceremony-dashboard h3 { font-size: 17px; font-weight: 600; margin: 0 0 12px; }
+.ceremony-dashboard p { font-size: 13px; line-height: 1.65; }
+.ceremony-dashboard small { font-size: 12px; color: var(--muted); }
+.ceremony-user-win { font-weight: 600; }
+.ceremony-preview { margin-top: 24px; border-top: 1px solid var(--line); padding-top: 22px; }
+.ceremony-preview p { font-size: 12px; color: var(--muted); }
+.ceremony-dashboard summary { min-height: 44px; padding: 12px 0; font-size: 13px; cursor: pointer; }
+.ceremony-preview button { min-height: 44px; font-size: 12px; border-radius: 999px; }
+.ceremony-preview button:disabled { opacity: .6; cursor: default; }
+.view-awards .ballroom-caption { max-width: min(420px, calc(100vw - 40px)); }
+@media (max-width: 900px) {
+  .view-atrium.has-completed-report .glass-content { top: 156px; left: 12px; right: 12px; bottom: 12px; }
+  .view-atrium.has-completed-report .report-panel { padding: 22px; }
+  .dashboard-columns { grid-template-columns: 1fr; gap: 32px; }
+  .dashboard-agents { border-left: 0; border-top: 1px solid var(--line); padding: 28px 0 0; }
+  .dashboard-toolbar { align-items: start; flex-direction: column; gap: 14px; }
+  .dashboard-toolbar label { width: 100%; }
+  .dashboard-ceremonies-link { flex-direction: column; align-items: start; gap: 18px; }
+  .dashboard-category-scores > div { gap: 8px; }
+  .dashboard-category-place { font-size: 11px; }
+  .dashboard-score-row { gap: 18px; }
+  .ceremony-dashboard { top: auto; bottom: 88px; right: 12px; left: 12px; width: auto; padding: 20px; max-height: 42dvh; }
+  .view-awards .ballroom-caption { display: none; }
+}

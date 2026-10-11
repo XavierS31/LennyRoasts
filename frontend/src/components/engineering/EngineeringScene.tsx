@@ -6,6 +6,7 @@ import type { ChallengeResult } from "../../api/client";
 import { addAtrium, addExterior } from "./geometry";
 import { atriumViews, projectStation } from "./atriumLayout";
 import { createAgentField, type AgentEntry } from "./agentMeshes";
+import { createAwardsAudience } from "./awardsAgents";
 import { ballroomViews } from "./ballroomLayout";
 import { addDetailedBallroom } from "./ballroomGeometry";
 import { addLennyCharacters } from "./lennyCharacters";
@@ -16,7 +17,7 @@ import { addSunsetSky } from "./sunsetSky";
 import { engineeringFrame } from "./campusFraming";
 
 export type SceneKind = "campus" | "atrium" | "awards" | "classroom";
-export type CameraCommand = "in" | "out" | "reset" | "iso" | "top" | "front" | "enter" | "floor" | "stairs" | "ceiling" | "entrance" | "focus" | "tower" | "west" | "walk" | "stage" | "sponsor" | "health" | "service" | "alley" | "junction" | "courtyard" | "modern";
+export type CameraCommand = "in" | "out" | "reset" | "iso" | "top" | "front" | "enter" | "floor" | "stairs" | "ceiling" | "entrance" | "focus" | "tower" | "west" | "walk" | "stage" | "sponsor" | "health" | "service" | "alley" | "junction" | "courtyard" | "modern" | "award" | "pauseAward" | "resumeAward";
 export type SceneController = { command: (action: CameraCommand, building?: string) => Promise<void> };
 
 function disposeObjects(root: THREE.Object3D) {
@@ -68,7 +69,7 @@ function scoreLabel(name: string, score: number) {
 
 export default function EngineeringScene({
   kind, result, projectName, selectedMarker, panelsVisible, onSelectBuilding, onHoverBuilding,
-  onSelectMarker, controller, sponsor, onSponsor, onReturnAtrium, onPitch, agents,
+  onSelectMarker, controller, sponsor, onSponsor, onReturnAtrium, onPitch, agents, prizeAgent,
 }: {
   kind: SceneKind;
   panelsVisible: boolean;
@@ -76,6 +77,7 @@ export default function EngineeringScene({
   projectName: string;
   selectedMarker: string;
   agents: AgentEntry[];
+  prizeAgent?: string;
   onSelectBuilding: (building: string) => void;
   onHoverBuilding: (building: string) => void;
   onSelectMarker: (marker: string) => void;
@@ -89,7 +91,7 @@ export default function EngineeringScene({
   const [error, setError] = useState<string>();
   const callbacks = useRef({ onSelectBuilding, onHoverBuilding, onSelectMarker, onSponsor, onReturnAtrium, onPitch });
   const pinElements = useRef(new Map<string, HTMLButtonElement>());
-  const updateData = useRef<((result?: ChallengeResult, name?: string, selected?: string, agents?: AgentEntry[]) => void) | null>(null);
+  const updateData = useRef<((result?: ChallengeResult, name?: string, selected?: string, agents?: AgentEntry[], prizeAgent?: string) => void) | null>(null);
   const panelState = useRef(panelsVisible);
   const updateLayout = useRef<(() => void) | null>(null);
   useEffect(() => { callbacks.current = { onSelectBuilding, onHoverBuilding, onSelectMarker, onSponsor, onReturnAtrium, onPitch }; });
@@ -195,12 +197,23 @@ export default function EngineeringScene({
     const markerPositions = new Map<string, THREE.Vector3>();
     let agentField: ReturnType<typeof createAgentField> | undefined;
     let currentAgents: AgentEntry[] | undefined;
+    let awardsAudience: ReturnType<typeof createAwardsAudience> | undefined;
+    let followingPrize = false;
+    let prizeTravel = 0;
+    let currentPrizeAgent: string | undefined;
 
-    updateData.current = (nextResult, name = "Your idea", selected = "user", nextAgents = []) => {
+    updateData.current = (nextResult, name = "Your idea", selected = "user", nextAgents = [], nextPrizeAgent) => {
       disposeObjects(markerGroup);
       markerGroup.clear();
       markerTargets.length = 0;
       markerPositions.clear();
+      if (kind === "awards" && (nextAgents !== currentAgents || nextPrizeAgent !== currentPrizeAgent)) {
+        if (awardsAudience) { awardsAudience.dispose?.(); scene.remove(awardsAudience.group); disposeObjects(awardsAudience.group); }
+        awardsAudience = createAwardsAudience(nextAgents, nextPrizeAgent ?? nextAgents[0]?.key ?? "");
+        currentPrizeAgent = nextPrizeAgent;
+        scene.add(awardsAudience.group); currentAgents = nextAgents;
+        followingPrize = false;
+      }
       if (kind === "atrium") {
         if (nextAgents !== currentAgents) {
           if (agentField) { scene.remove(agentField.group); disposeObjects(agentField.group); }
@@ -303,6 +316,18 @@ export default function EngineeringScene({
         overview = true; fitOverview(); return Promise.resolve();
       }
       if (kind === "awards") {
+        if (action === "pauseAward") { prizeTravel++; followingPrize = false; awardsAudience?.pause(); return Promise.resolve(); }
+        if (action === "resumeAward") { const token = ++prizeTravel; followingPrize = !motion.matches; return awardsAudience?.resume().then(() => { if (token === prizeTravel) followingPrize = false; }) ?? Promise.resolve(); }
+        if (action === "award") {
+          const token = ++prizeTravel;
+          followingPrize = !motion.matches;
+          if (motion.matches) {
+            const view = ballroomViews.stage;
+            void travel(host.clientWidth <= 900 ? new THREE.Vector3(1, 5, -8) : new THREE.Vector3(...view.position), host.clientWidth <= 900 ? new THREE.Vector3(1, 4, -28.4) : new THREE.Vector3(...view.target));
+          }
+          const trophy = scene.getObjectByName("Gold award trophy"); if (trophy) trophy.visible = true;
+          return awardsAudience?.start(motion.matches).then(() => { if (token === prizeTravel) followingPrize = false; }) ?? Promise.resolve();
+        }
         const key = action === "reset" || action === "front" ? "overview" : action;
         if (key in ballroomViews) {
           const view = ballroomViews[key as keyof typeof ballroomViews];
@@ -316,6 +341,7 @@ export default function EngineeringScene({
           return Promise.resolve();
         }
         if (action === "focus") {
+          callbacks.current.onSelectMarker(building ?? "user");
           const point = markerPositions.get(building ?? "user");
           if (point) return travel(point.clone().add(new THREE.Vector3(6, 5, 9)), point.clone().setY(2.5));
           return Promise.resolve();
@@ -427,7 +453,7 @@ export default function EngineeringScene({
     renderer.domElement.addEventListener("pointermove", move);
     renderer.domElement.addEventListener("pointerleave", leave);
     renderer.domElement.addEventListener("pointercancel", cancelPress);
-    const stopTravel = () => { overview = false; finish?.(); finish = null; destination = targetDestination = null; };
+    const stopTravel = () => { followingPrize = false; overview = false; finish?.(); finish = null; destination = targetDestination = null; };
     controls.addEventListener("start", stopTravel);
     const resize = () => {
       const width = Math.max(1, host.clientWidth);
@@ -435,6 +461,16 @@ export default function EngineeringScene({
       camera.aspect = width / height;
       if (kind === "classroom") camera.fov = camera.aspect < .8 ? 90 : 64;
       camera.updateProjectionMatrix();
+      if (kind === "awards") {
+        const dashboard = document.querySelector(".ceremony-dashboard")?.getBoundingClientRect();
+        const header = document.querySelector(".masthead")?.getBoundingClientRect();
+        if (dashboard && header) {
+          // Compose the ceremony in the uncovered part of the fixed room.
+          const centerX = width > 900 ? (dashboard.left - 20) / 2 : width / 2;
+          const centerY = width > 900 ? (header.bottom + height - 20) / 2 : (header.bottom + dashboard.top) / 2;
+          camera.setViewOffset(width, height, width / 2 - centerX, height / 2 - centerY, width, height);
+        }
+      }
       renderer.setSize(width, height);
       sky?.resize(width, height);
       if (overview) fitOverview(); else resizeManualProjection();
@@ -444,9 +480,21 @@ export default function EngineeringScene({
     resize();
     let frame = 0;
     let disposed = false;
+    let lastFrame = performance.now();
     const animate = () => {
       if (disposed) return;
       if (document.hidden) { frame = 0; return; }
+      const now = performance.now();
+      const delta = Math.min(.05, (now - lastFrame) / 1000); lastFrame = now;
+      awardsAudience?.animate(delta, motion.matches);
+      if (followingPrize && awardsAudience?.winner) {
+        const point = awardsAudience.winner.position;
+        camera.position.lerp(point.clone().add(new THREE.Vector3(6, 5, 9)), .055);
+        controls.target.lerp(point.clone().add(new THREE.Vector3(0, 1.6, 0)), .055);
+      }
+      if (awardsAudience?.award?.visible) {
+        const trophy = scene.getObjectByName("Gold award trophy"); if (trophy) trophy.visible = false;
+      }
       if (destination && targetDestination) {
         camera.position.lerp(destination, motion.matches ? 1 : 0.065);
         controls.target.lerp(targetDestination, motion.matches ? 1 : 0.065);
@@ -499,6 +547,7 @@ export default function EngineeringScene({
       scene.traverse((object) => { if (object instanceof THREE.Light && "shadow" in object) (object as THREE.DirectionalLight).shadow?.dispose(); });
       environment?.dispose();
       lennys?.dispose();
+      awardsAudience?.dispose?.();
       disposeObjects(scene);
       renderer.dispose();
       renderer.forceContextLoss();
@@ -507,16 +556,16 @@ export default function EngineeringScene({
   }, [kind, sponsor, controller]);
 
   useEffect(() => {
-    updateData.current?.(result, projectName, selectedMarker, agents);
+    updateData.current?.(result, projectName, selectedMarker, agents, prizeAgent);
     let cancelled = false;
     // Canvas textures need redrawing if the local font finishes loading later.
     void document.fonts.load("500 28px Inter").then(() => {
-      if (!cancelled) updateData.current?.(result, projectName, selectedMarker, agents);
+      if (!cancelled) updateData.current?.(result, projectName, selectedMarker, agents, prizeAgent);
     });
     return () => { cancelled = true; };
-  }, [kind, sponsor, result, projectName, selectedMarker, agents]);
+  }, [kind, sponsor, result, projectName, selectedMarker, agents, prizeAgent]);
 
-  return <div className="engineering-scene" ref={mount} aria-label={`${kind === "campus" ? "UCF Engineering I and II exterior" : kind === "atrium" ? "Engineering atrium with four colored sponsor classroom pins" : kind === "classroom" ? `${sponsorRoom(sponsor).name} classroom with Lenny, desks, projector and an exit door` : "UCF Student Union Cape Ballroom, third floor, with Lenny presenting a trophy on the award stage"} 3D scene`}>
+  return <div className="engineering-scene" ref={mount} aria-label={`${kind === "campus" ? "UCF Engineering I and II exterior" : kind === "atrium" ? "Engineering atrium with five colored judging room pins" : kind === "classroom" ? `${sponsorRoom(sponsor).name} classroom with Lenny, desks, projector and an exit door` : "UCF Student Union Cape Ballroom, third floor, with seated 3D agents and Lenny on the award stage"} 3D scene`}>
     {kind === "atrium" && <div className="sponsor-pins" role="group" aria-label="Sponsor classroom entrances">
       {sponsorRooms.map((room) => <button type="button" key={room.id} className="sponsor-pin"
         style={{ "--sponsor-color": room.color } as React.CSSProperties}
