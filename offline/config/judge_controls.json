@@ -1,0 +1,206 @@
+{
+  "controls_version": "kh9-category-controls-v1",
+  "note": "Synthetic hand-written submissions with expected category outcomes, for smoke-testing a JudgeConfig before field scoring (issue #10). Not real projects, never part of a field or PoolArtifact. 'eligible' is compared with the code-computed two-of-three gate; 'min'/'max' bound the three-run criterion means. Only the categories listed under 'expect' are scored.",
+  "controls": [
+    {
+      "id": "game-playable",
+      "purpose": "Real gameplay: documented objective, rules, win and loss states",
+      "submission": {
+        "name": "Lantern Drift",
+        "tagline": "Guide a paper lantern through a storm before its flame goes out.",
+        "inspiration": "We wanted a short browser game that is tense but calm to look at.",
+        "what_it_does": "Lantern Drift is a 2D browser game. The player steers a lantern with the arrow keys through five storm levels. Gusts push the lantern sideways and rain shrinks its flame; collecting sparks refills it. You win a level by reaching the shrine at the top and lose when the flame reaches zero.",
+        "how_we_built_it": "We used Phaser 3 with TypeScript. Each level is a Tiled map; a wind system applies random gust forces every few seconds, and an arcade-physics overlap check handles spark pickups and the flame meter.",
+        "challenges_we_ran_into": "Gusts felt unfair at first, so we added a one-second warning streak before each gust.",
+        "accomplishments": "All five levels are playable from the title screen to the win screen, with a restart on loss.",
+        "what_we_learned": "Playtesting with friends changed our level layouts more than anything else.",
+        "whats_next": "Add a level editor and an online leaderboard.",
+        "built_with": ["phaser", "typescript", "tiled"],
+        "challenges": []
+      },
+      "expect": {
+        "best_game": {"eligible": true}
+      }
+    },
+    {
+      "id": "game-vr-no-gameplay",
+      "purpose": "Unity/VR without gameplay: no objective, rules or player challenge",
+      "submission": {
+        "name": "CampusVR",
+        "tagline": "Walk the UCF campus in virtual reality before your first day.",
+        "inspiration": "New students get lost during their first week on a large campus.",
+        "what_it_does": "CampusVR is a virtual reality tour. Users put on a Quest headset, walk between five campus buildings and open floating info panels with office hours and room numbers.",
+        "how_we_built_it": "We built the scenes in Unity with the XR Interaction Toolkit, imported building models from SketchUp and wrote C# scripts for teleport movement and the info panels.",
+        "challenges_we_ran_into": "Large building models dropped the frame rate on the headset, so we simplified the meshes.",
+        "accomplishments": "The walkthrough of all five buildings runs on a Quest 2.",
+        "what_we_learned": "We learned how to profile and optimize Unity scenes for standalone VR.",
+        "whats_next": "Add more buildings and voice-guided directions.",
+        "built_with": ["unity", "c#", "oculus-quest", "sketchup"],
+        "challenges": []
+      },
+      "expect": {
+        "best_game": {"eligible": false}
+      }
+    },
+    {
+      "id": "ai-product",
+      "purpose": "AI product: a trained model drives the core user-facing feature",
+      "submission": {
+        "name": "LeafLens",
+        "tagline": "Snap a tomato leaf and get a disease diagnosis in seconds.",
+        "inspiration": "A teammate's family garden lost its tomato crop to early blight last summer.",
+        "what_it_does": "Users photograph a tomato leaf in the web app. A computer vision model classifies it as healthy or one of six diseases, shows the confidence and highlights the infected region with a heatmap.",
+        "how_we_built_it": "We fine-tuned a MobileNetV2 image classifier in PyTorch on the PlantVillage tomato images, exported it to ONNX and serve it from a FastAPI endpoint. Grad-CAM produces the heatmap shown in the React front end.",
+        "challenges_we_ran_into": "Photos taken outdoors looked different from the clean training images, so we added color and blur augmentation.",
+        "accomplishments": "The model reaches 94 percent accuracy on our held-out split and the photo-to-diagnosis flow works end to end.",
+        "what_we_learned": "Validation accuracy on curated images overstates accuracy on real photos.",
+        "whats_next": "Collect real garden photos and add more crops.",
+        "built_with": ["pytorch", "onnx", "fastapi", "react"],
+        "challenges": []
+      },
+      "expect": {
+        "best_ai": {"eligible": true}
+      }
+    },
+    {
+      "id": "ai-coding-only",
+      "purpose": "AI used only to write the code; no model in the product",
+      "submission": {
+        "name": "StudySprint",
+        "tagline": "A Pomodoro planner that turns your syllabus into focused sprints.",
+        "inspiration": "We kept losing track of what to study during long exam weeks.",
+        "what_it_does": "Students enter their courses and exam dates. StudySprint splits the remaining days into 25-minute sprints, shows a countdown timer and tracks completed sprints on a calendar.",
+        "how_we_built_it": "The app is React with a Firebase database. We used GitHub Copilot and ChatGPT to write most of our components and to debug our date logic.",
+        "challenges_we_ran_into": "Time zones broke our calendar until we stored every date in UTC.",
+        "accomplishments": "Course entry, sprint planning, the timer and the calendar all work.",
+        "what_we_learned": "AI coding assistants sped us up but we still had to understand every line.",
+        "whats_next": "Add reminders and shared study groups.",
+        "built_with": ["react", "firebase", "github-copilot", "chatgpt"],
+        "challenges": []
+      },
+      "expect": {
+        "best_ai": {"eligible": false}
+      }
+    },
+    {
+      "id": "funny-goofy",
+      "purpose": "Funny/goofy premise presented as life changing",
+      "submission": {
+        "name": "Snack Court",
+        "tagline": "Your fridge now holds a trial every time you open it after midnight.",
+        "inspiration": "We wanted to solve humanity's greatest crisis: eating cold pizza at 2 AM.",
+        "what_it_does": "When the fridge door sensor fires after midnight, Snack Court opens a dramatic courtroom on your phone. A cartoon judge reads the charges, your roommates vote guilty or not guilty within thirty seconds and the verdict sentences you to a punishment such as ten jumping jacks or a written apology to the pizza.",
+        "how_we_built_it": "A door sensor posts to a Node.js server, which pushes a Socket.IO event to every roommate's browser. The courtroom is a React page with hand-drawn sprites and a gavel sound effect; votes are tallied on the server.",
+        "challenges_we_ran_into": "Our first gavel sound was so loud it woke up a teammate's actual roommate.",
+        "accomplishments": "A full trial runs from fridge opening to verdict across three phones.",
+        "what_we_learned": "Comedy timing matters: the thirty-second vote window felt funnier than a minute.",
+        "whats_next": "An appeals court and a jury of strangers.",
+        "built_with": ["node.js", "socket.io", "react"],
+        "challenges": []
+      },
+      "expect": {
+        "most_useful": {"eligible": true}
+      }
+    },
+    {
+      "id": "ordinary-utility",
+      "purpose": "Ordinary practical utility without a comic premise",
+      "submission": {
+        "name": "ParkSpot",
+        "tagline": "See open spaces in every campus garage before you drive in.",
+        "inspiration": "Students waste the first twenty minutes of class circling parking garages.",
+        "what_it_does": "ParkSpot shows a live count of open spaces per garage and level, predicts how full each garage will be in the next hour and sends a notification when your preferred garage is nearly full.",
+        "how_we_built_it": "We poll the university's public garage occupancy feed every minute, store counts in PostgreSQL and train a simple regression on the past month to predict the next hour. The front end is a React map.",
+        "challenges_we_ran_into": "The occupancy feed sometimes repeats stale values, so we detect and skip unchanged readings.",
+        "accomplishments": "Live counts, predictions and notifications work for all six garages.",
+        "what_we_learned": "We learned how to clean noisy sensor feeds.",
+        "whats_next": "Add bike rack availability.",
+        "built_with": ["react", "postgresql", "python", "scikit-learn"],
+        "challenges": []
+      },
+      "expect": {
+        "most_useful": {"eligible": false}
+      }
+    },
+    {
+      "id": "finance-workflow",
+      "purpose": "Financial-services workflow improvement without a proprietary BNY API",
+      "submission": {
+        "name": "BreakFinder",
+        "tagline": "Automatically match custodian and ledger trades and route settlement breaks.",
+        "inspiration": "A teammate interned in fund operations, where analysts reconciled trade files by hand every morning.",
+        "what_it_does": "Operations analysts upload the custodian's trade file and the internal ledger export. BreakFinder matches trades by identifier, quantity and settlement date, flags breaks such as quantity or price mismatches and assigns each break to an analyst queue with a suggested reason.",
+        "how_we_built_it": "A Python service parses both CSV formats with pandas, normalizes identifiers and runs exact then tolerance-based matching. Breaks are saved in PostgreSQL and shown in a React queue with filters by break type.",
+        "challenges_we_ran_into": "Partial fills split one ledger trade into several custodian rows, so we added aggregation before matching.",
+        "accomplishments": "Our synthetic 2,000-trade sample reconciles in under two seconds and every seeded break is flagged.",
+        "what_we_learned": "Most reconciliation work is data normalization rather than matching.",
+        "whats_next": "Support SWIFT message inputs and break aging reports.",
+        "built_with": ["python", "pandas", "postgresql", "react"],
+        "challenges": ["bny"]
+      },
+      "expect": {
+        "bny": {"eligible": true}
+      }
+    },
+    {
+      "id": "elevenlabs-central-incomplete",
+      "purpose": "Central ElevenLabs integration that was not connected: fit high, functionality low",
+      "submission": {
+        "name": "Charla",
+        "tagline": "A Spanish conversation partner that talks back in a natural voice.",
+        "inspiration": "Language apps teach vocabulary, but we were scared of actually speaking.",
+        "what_it_does": "Charla is designed as a spoken Spanish conversation partner: you speak, it replies out loud in a natural ElevenLabs voice and corrects your grammar in the conversation. In the current demo, replies come from text and the voice plays from pre-recorded ElevenLabs clips.",
+        "how_we_built_it": "We planned a loop of browser speech recognition, a reply generator and the ElevenLabs streaming text-to-speech API. We generated twenty voice clips in the ElevenLabs dashboard; the live API call from our server is written but not connected.",
+        "challenges_we_ran_into": "Our streaming requests failed with authentication errors we could not fix in time, so the live voice loop does not work yet.",
+        "accomplishments": "The conversation screen and the pre-recorded voice replies work for one scripted dialogue.",
+        "what_we_learned": "We should have tested the voice API on the first night.",
+        "whats_next": "Connect the live ElevenLabs stream and add more scenarios.",
+        "built_with": ["elevenlabs", "javascript", "node.js"],
+        "challenges": ["elevenlabs"]
+      },
+      "expect": {
+        "elevenlabs": {"eligible": true, "min": {"relevance": 3.5}, "max": {"functionality": 3}}
+      }
+    },
+    {
+      "id": "databricks-central-incomplete",
+      "purpose": "Central Databricks pipeline not connected to the product: fit high, functionality low",
+      "submission": {
+        "name": "FloodWatch",
+        "tagline": "Predict which Orlando streets flood next during a storm.",
+        "inspiration": "Our apartment complex floods every hurricane season with no warning.",
+        "what_it_does": "FloodWatch is meant to show a map of streets ranked by predicted flood risk for the next six hours. The current map shows predictions we exported once from Databricks; it does not update live.",
+        "how_we_built_it": "In Databricks we ingested NOAA rainfall and city 311 flooding reports into Delta tables, built features per street segment in a notebook and trained a gradient-boosted model tracked with MLflow. We did not finish connecting a serving endpoint to the web map.",
+        "challenges_we_ran_into": "Joining 311 reports to street segments took most of the weekend, and we ran out of time for model serving.",
+        "accomplishments": "The ingestion, feature and training notebooks run end to end in our workspace.",
+        "what_we_learned": "Spatial joins are harder than the model.",
+        "whats_next": "Deploy a model serving endpoint and refresh the map hourly.",
+        "built_with": ["databricks", "delta-lake", "mlflow", "leaflet"],
+        "challenges": ["databricks"]
+      },
+      "expect": {
+        "databricks": {"eligible": true, "min": {"relevance": 3.5}, "max": {"functionality": 3}}
+      }
+    },
+    {
+      "id": "elevenlabs-tag-only",
+      "purpose": "Sponsor tag and opt-in without any described sponsor use",
+      "submission": {
+        "name": "ShelfShare",
+        "tagline": "Lend and borrow textbooks with students in your dorm.",
+        "inspiration": "Textbooks are expensive and most sit unused after the semester.",
+        "what_it_does": "Students list textbooks they own, search their dorm's shelf and request a loan. The owner approves and both get a reminder before the return date.",
+        "how_we_built_it": "We used Next.js with a Supabase database and email reminders through Resend.",
+        "challenges_we_ran_into": "Handling overlapping loan requests took longer than expected.",
+        "accomplishments": "Listing, search, requests and reminders all work.",
+        "what_we_learned": "We learned row-level security in Supabase.",
+        "whats_next": "Add ISBN barcode scanning.",
+        "built_with": ["next.js", "supabase", "resend", "elevenlabs"],
+        "challenges": ["elevenlabs"]
+      },
+      "expect": {
+        "elevenlabs": {"eligible": false}
+      }
+    }
+  ]
+}
