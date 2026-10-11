@@ -392,7 +392,7 @@ function ReportCard({
 }
 
 export default function App() {
-  const [panelsVisible, setPanelsVisible] = useState(true);
+  const [panelsVisible, setPanelsVisible] = useState(() => sceneLocation(new URL(window.location.href)).kind !== "atrium");
   const [location, setLocation] = useState(() => sceneLocation(new URL(window.location.href)));
   const [entering, setEntering] = useState(false);
   const sceneController = useRef<SceneController | null>(null);
@@ -423,8 +423,9 @@ export default function App() {
     const back = () => {
       sceneTransition.current++;
       setEntering(false);
-      setLocation(sceneLocation(new URL(window.location.href)));
-      setPanelsVisible(true);
+      const next = sceneLocation(new URL(window.location.href));
+      setLocation(next);
+      setPanelsVisible(next.kind !== "atrium");
     };
     window.addEventListener("popstate", back);
     return () => { sceneTransition.current++; window.removeEventListener("popstate", back); };
@@ -436,7 +437,7 @@ export default function App() {
     const next = { kind, building };
     window.history.pushState(null, "", scenePath(next));
     setLocation(next);
-    setPanelsVisible(true);
+    setPanelsVisible(kind !== "atrium");
     window.scrollTo({ top: 0, behavior: "instant" });
   }
 
@@ -590,7 +591,7 @@ export default function App() {
   }, [activeJobId, pollingEnabled]);
 
   useEffect(() => {
-    if (job || activeJobId || pollNotice) {
+    if ((job || activeJobId || pollNotice) && (location.kind === "campus" || job?.status === "failed")) {
       setPanelsVisible(true);
     }
   }, [job?.evaluation_id, job?.status, activeJobId, pollNotice]);
@@ -603,12 +604,12 @@ export default function App() {
   }, [notice]);
 
   useEffect(() => {
-    if (location.kind === "atrium" && (job?.status === "completed" || job?.status === "failed")) {
+    if (location.kind === "atrium" && panelsVisible && (job?.status === "completed" || job?.status === "failed")) {
       window.requestAnimationFrame(() => reportHeading.current?.focus());
     } else if (location.kind === "campus" && job?.status === "completed") {
       window.requestAnimationFrame(() => entryHeading.current?.focus());
     }
-  }, [job?.status, location.kind]);
+  }, [job?.status, location.kind, panelsVisible]);
 
   function loadSample() {
     setIdea(sampleIdea.trim());
@@ -745,7 +746,7 @@ export default function App() {
   else if (!config?.field_ready) evaluationStatus = "Evaluation unavailable until the field is ready";
 
   return (
-    <main className="app-shell engineering-app">
+    <main className={`app-shell engineering-app view-${location.kind}`}>
       <SceneBoundary><Suspense fallback={<p className="scene-fallback glass-panel" role="status">Loading Engineering campus…</p>}>
         <EngineeringExplorer job={job} challenges={config?.challenges ?? []}
           projectName={submittedSubmission?.name ?? "Your idea"}
@@ -763,7 +764,7 @@ export default function App() {
           <button type="button" aria-pressed={location.kind === "atrium"} onClick={() => navigate("atrium", "Engineering II")}>Atrium</button>
           <button type="button" aria-pressed={location.kind === "awards"} onClick={() => navigate("awards")}>Auditorium</button>
         </nav>
-        <button type="button" className="secondary-button panel-toggle" aria-expanded={panelsVisible} aria-controls="glass-content" onClick={() => setPanelsVisible((value) => !value)}>{panelsVisible ? "Hide panels" : "Show panels"}</button>
+        <button type="button" className="secondary-button panel-toggle" aria-expanded={panelsVisible} aria-controls="glass-content" onClick={() => setPanelsVisible((value) => !value)}>{location.kind === "atrium" ? panelsVisible ? "Close report" : "Judging report" : panelsVisible ? "Hide panels" : "Show panels"}</button>
       </header>
 
       <div className="glass-content" id="glass-content" hidden={!panelsVisible}>
@@ -1062,7 +1063,7 @@ export default function App() {
                     key={result.challenge_id}
                     result={result}
                     challenge={config?.challenges.find((challenge) => challenge.id === result.challenge_id)}
-                    selected={sceneCategory === result.challenge_id || (!sceneCategory && result === job.result?.challenge_results[0])}
+                    selected={sceneCategory === result.challenge_id || (!sceneCategory && result.challenge_id === "overall")}
                     onShowInScene={() => { setSceneCategory(result.challenge_id); setPanelsVisible(false); }}
                   />
                 ))}

@@ -120,6 +120,18 @@ select option { background: #1a2738; color: #fff; }
 .scene-results p { font-size: 12px; line-height: 1.55; }
 .scene-results small { font-size: 10px; line-height: 1.5; color: var(--muted); }
 .scene-fallback { position: fixed; right: 20px; top: 260px; z-index: 3; max-width: 40vw; padding: 20px; }
+/* The atrium opens as a room to explore; the preserved report is a drawer. */
+.view-atrium .glass-content { position: fixed; left: 20px; top: 218px; bottom: 20px; width: min(430px, calc(100vw - 40px)); overflow-y: auto; z-index: 4; border-radius: 22px; }
+.scene-atrium .camera-controls { top: 110px; left: 20px; right: auto; display: flex; flex-wrap: wrap; width: min(760px, calc(100vw - 340px)); gap: 5px; }
+.scene-atrium .scene-results { left: 20px; right: auto; top: auto; bottom: 20px; width: min(360px, calc(100vw - 40px)); max-height: calc(100dvh - 245px); }
+.scene-atrium.with-panels .scene-results { left: auto; right: 20px; width: min(340px, 32vw); }
+.atrium-map { position: fixed; top: 110px; right: 20px; z-index: 3; padding: 8px; width: 260px; max-height: calc(100dvh - 140px); overflow-y: auto; }
+.atrium-map:has(#atrium-reference-map[hidden]) { width: auto; }
+.atrium-map > button { width: 100%; }
+.atrium-map svg { display: block; width: 100%; max-height: 45dvh; }
+.atrium-map p { font-size: 12px; line-height: 1.5; margin: 8px; }
+.atrium-map small { display: block; margin: 8px; font-size: 10px; line-height: 1.5; color: var(--muted); }
+.atrium-empty { position: fixed; bottom: 20px; left: 20px; padding: 16px 20px; z-index: 3; max-width: 380px; font-size: 14px; line-height: 1.55; margin: 0; }
 @supports not (backdrop-filter: blur(1px)) {
   .glass-panel, .engineering-app :is(.masthead, .intro, .mode-banner, .form-panel, .report-panel, .page-footer) { background: rgba(16,25,39,.88); }
 }
@@ -142,5 +154,12 @@ select option { background: #1a2738; color: #fff; }
   .engineering-app .intro h1 { font-size: 30px; }
   .submission-status h2 { scroll-margin-top: 170px; }
   .scene-fallback { top: 275px; left: 12px; right: 12px; max-width: none; }
+  .view-atrium .glass-content { top: 144px; left: 12px; right: 12px; bottom: 12px; width: auto; }
+  .scene-atrium .camera-controls { top: auto; left: 12px; right: 12px; bottom: 12px; width: auto; padding: 6px; }
+  .scene-atrium .camera-controls button { min-height: 32px; font-size: 10px; padding: 6px 8px; }
+  .scene-atrium .scene-results { top: auto; left: 12px; right: 12px; width: auto; bottom: 116px; max-height: calc(100dvh - 315px); }
+  .atrium-map { top: 140px; right: 12px; width: min(260px, calc(100vw - 24px)); max-height: calc(100dvh - 280px); }
+  .scene-atrium.with-panels .atrium-map { display: none; }
+  .atrium-empty { left: 12px; right: 12px; bottom: 126px; max-width: none; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
