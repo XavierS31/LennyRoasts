@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState, type RefObject } from "react";
 import type { Challenge, EvaluationJob } from "../../api/client";
-import EngineeringScene, { type CameraCommand, type SceneController, type SceneKind } from "./EngineeringScene";
-import { sceneLocation, scenePath } from "./navigation";
+import EngineeringScene, { type CameraCommand, type SceneController } from "./EngineeringScene";
+import type { LocationState } from "./navigation";
 
-export default function EngineeringExplorer({ job, challenges, projectName, category, onCategory, panelsVisible, isStale }: {
+export default function EngineeringExplorer({ job, challenges, projectName, category, onCategory, panelsVisible, isStale, location, onBuilding, onEnter, entering, controller }: {
   job: EvaluationJob | null;
   challenges: Challenge[];
   projectName: string;
@@ -11,25 +11,21 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
   onCategory: (id: string) => void;
   panelsVisible: boolean;
   isStale: boolean;
+  location: LocationState;
+  onBuilding: (building: LocationState["building"]) => void;
+  onEnter: () => void;
+  entering: boolean;
+  controller: RefObject<SceneController | null>;
 }) {
-  const [location, setLocation] = useState(() => sceneLocation(new URL(window.location.href)));
   const [hovered, setHovered] = useState("");
   const [marker, setMarker] = useState("user");
-  const [entering, setEntering] = useState(false);
   const [resultsExpanded, setResultsExpanded] = useState(() => !window.matchMedia("(max-width: 900px)").matches);
-  const controller = useRef<SceneController | null>(null);
-  const transition = useRef(0);
-  const results = job?.status === "completed" ? job.result?.challenge_results ?? [] : [];
+  const results = location.kind === "atrium" && job?.status === "completed" ? job.result?.challenge_results ?? [] : [];
   const result = results.find((entry) => entry.challenge_id === category) ?? results[0];
   const rival = result?.rivals.find((entry) => entry.project_id === marker);
   const selectedName = rival?.name ?? projectName;
   const selectedScore = rival?.score_10 ?? result?.score_10;
 
-  useEffect(() => {
-    const back = () => { transition.current++; setEntering(false); setLocation(sceneLocation(new URL(window.location.href))); };
-    window.addEventListener("popstate", back);
-    return () => { transition.current++; window.removeEventListener("popstate", back); };
-  }, []);
   useEffect(() => { setMarker("user"); }, [result]);
   useEffect(() => {
     const narrow = window.matchMedia("(max-width: 900px)");
@@ -38,42 +34,23 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
     return () => narrow.removeEventListener("change", resize);
   }, []);
 
-  function navigate(kind: SceneKind) {
-    transition.current++;
-    setEntering(false);
-    const next = { ...location, kind };
-    window.history.pushState(null, "", scenePath(next));
-    setLocation(next);
-    setHovered("");
-  }
-  async function enter() {
-    const token = ++transition.current;
-    setEntering(true);
-    await controller.current?.command("enter", location.building);
-    if (token === transition.current) navigate("atrium");
-  }
   function camera(action: CameraCommand) { void controller.current?.command(action); }
 
   return <div className={`engineering-explorer ${panelsVisible ? "with-panels" : "without-panels"}`}>
     <EngineeringScene kind={location.kind} result={result} projectName={projectName} selectedMarker={marker}
       controller={controller} onSelectMarker={setMarker} onHoverBuilding={setHovered}
-      onSelectBuilding={(building) => setLocation((current) => ({ ...current, building: building === "Engineering I" ? "Engineering I" : "Engineering II" }))} />
-    <nav className="scene-navigation glass-panel" aria-label="Explore Engineering buildings">
+      onSelectBuilding={(building) => onBuilding(building === "Engineering I" ? "Engineering I" : "Engineering II")} />
+    {location.kind === "campus" && <div className="scene-navigation glass-panel">
       <span className="scene-caption">UCF · ENGINEERING I / II</span>
-      <div className="scene-tabs">
-        <button type="button" aria-pressed={location.kind === "campus"} onClick={() => navigate("campus")}>Exterior</button>
-        <button type="button" aria-pressed={location.kind === "atrium"} onClick={() => navigate("atrium")}>Atrium</button>
-        <button type="button" aria-pressed={location.kind === "awards"} onClick={() => navigate("awards")}>Auditorium</button>
-      </div>
-      {location.kind === "campus" && <div className="building-entry">
+      <div className="building-entry">
         <label htmlFor="building-choice" className="visually-hidden">Building to enter</label>
-        <select id="building-choice" value={location.building} onChange={(event) => setLocation((current) => ({ ...current, building: event.target.value as typeof current.building }))}>
+        <select id="building-choice" value={location.building} disabled={entering} onChange={(event) => onBuilding(event.target.value as LocationState["building"])}>
           <option>Engineering I</option><option>Engineering II</option>
         </select>
-        <button type="button" onClick={() => void enter()} disabled={entering}>{entering ? "Entering…" : "Enter building ↗"}</button>
-      </div>}
-      <small>{hovered || (location.kind === "campus" ? "Select a building · drag to orbit · scroll to zoom" : `${location.building} · drag to orbit · scroll to zoom`)}</small>
-    </nav>
+        <button type="button" onClick={onEnter} disabled={entering}>{entering ? "Entering…" : "Enter building ↗"}</button>
+      </div>
+      <small>{hovered || "Select a building · drag to orbit · scroll to zoom"}</small>
+    </div>}
     <div className="camera-controls glass-panel" role="group" aria-label="Camera controls">
       <button type="button" aria-label="Zoom in" onClick={() => camera("in")}>+</button>
       <button type="button" aria-label="Zoom out" onClick={() => camera("out")}>−</button>
@@ -104,6 +81,13 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
         <p>{result.placement ? `${result.placement.eligible_competitors} eligible competitors. Atrium figures are anonymous representatives, capped at 200.` : "No field population is inferred."}</p>
       </>}
       <small>Gold: your idea · blue: returned rivals. Marker height shows API score, never win probability. {job?.judge_version}</small>
+      <h3>Competition scores</h3>
+      <p>The API returns these nearby rivals, not the full field or their ranks.</p>
+      <ol className="competition-scores" aria-label="Returned rivals by score">
+        {[...result.rivals].sort((a, b) => b.score_10 - a.score_10).map((entry) => <li key={entry.project_id}>
+          <button type="button" aria-pressed={marker === entry.project_id} onClick={() => setMarker(entry.project_id)}>{entry.name} <strong>{entry.score_10.toFixed(1)} / 10</strong></button>
+        </li>)}
+      </ol>
       </div>
     </section>}
   </div>;

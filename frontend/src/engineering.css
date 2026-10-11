@@ -1,5 +1,13 @@
 /* Translucent surfaces over the original Figma Make campus. */
+@font-face {
+  font-family: Bagnard;
+  src: url('/fonts/Bagnard.otf') format('opentype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
 :root {
+  font-family: Bagnard, Georgia, 'Times New Roman', serif;
   color-scheme: dark;
   --page: #172432;
   --surface: rgba(19, 27, 40, .37);
@@ -33,17 +41,32 @@
   color: var(--ink);
 }
 .engineering-app .masthead { position: sticky; top: 20px; z-index: 5; padding: 12px 18px; margin: 0 0 20px; gap: 14px; min-height: 68px; }
-.engineering-app .wordmark { display: flex; align-items: center; font-size: 23px; color: #fff; }
-.engineering-app .wordmark img { width: 44px; height: 44px; object-fit: contain; margin-right: 9px; }
+.engineering-app .wordmark { display: flex; align-items: center; color: #fff; }
+.engineering-app .wordmark img { width: 155px; height: 46px; object-fit: contain; }
+.masthead .scene-tabs { margin-left: auto; }
+.masthead .scene-tabs button { min-height: 42px; padding: 9px 20px; border: 1px solid transparent; border-radius: 14px; background: transparent; font-size: 16px; }
+.masthead .scene-tabs button:hover { background: rgba(255,255,255,.12); }
+.masthead .scene-tabs button[aria-pressed=true] { background: rgba(255,255,255,.13); border-color: var(--line); }
 .engineering-app .wordmark span { color: #ffda74; }
 .engineering-app .edition { margin-left: auto; color: var(--muted); }
 .glass-content { position: relative; z-index: 2; width: min(600px, 47vw); }
 .engineering-app .intro { padding: 22px 24px; margin: 0 0 12px; }
-.engineering-app .intro h1 { font-size: clamp(27px, 2.6vw, 38px); line-height: 1.1; letter-spacing: -1.2px; max-width: 490px; margin: 8px 0 12px; }
+.engineering-app .intro h1 { font-size: clamp(32px, 3vw, 44px); line-height: 1.1; letter-spacing: -.4px; max-width: 490px; margin: 8px 0 12px; }
 .engineering-app :is(.eyebrow, .section-kicker) { color: #ffdf90; }
 .engineering-app .lede { font-size: 14px; line-height: 1.55; margin: 0; }
 .engineering-app .mode-banner { padding: 16px 20px; margin: 0 0 12px; }
 .engineering-app .mode-copy p { font-size: 12px; }
+.engineering-app .mode-banner summary { cursor: pointer; font-size: 14px; }
+.engineering-app .mode-banner[open] summary { margin-bottom: 14px; }
+.submission-status { padding: 20px 24px; }
+.submission-status h2 { scroll-margin-top: 120px; }
+.submission-status .evaluation-status { margin-top: 0; }
+.enter-results h2 { font-size: 26px; margin: 12px 0 8px; }
+.enter-results p { color: var(--muted); font-size: 15px; line-height: 1.5; }
+.competition-scores { padding-left: 22px; }
+.competition-scores li { margin: 8px 0; }
+.competition-scores button { width: 100%; text-align: left; }
+.competition-scores strong { display: block; color: #ffdf95; margin-top: 4px; }
 .engineering-app .workspace { display: flex; flex-direction: column; align-items: stretch; gap: 12px; margin: 0; }
 .engineering-app :is(.form-panel, .report-panel) { padding: 24px; scroll-margin-top: 110px; }
 .panel-switch { display: flex; gap: 6px; padding: 6px; }
@@ -58,6 +81,7 @@
 .engineering-app :is(.score-block, .placement-box strong, .criterion dd, .rival > span) { color: #ffde8c; }
 .engineering-app :is(.track-checkmark, .track-name, .challenge-description summary, .challenge-detail-copy, .rationale-section p, .criterion dt, .placement-box span, .evidence-list dt, .evidence-quote, table, .evaluation-status) { color: var(--ink); }
 .engineering-app :is(.field-error, .field-error a) { color: #ffcdca; }
+.engineering-app :is(.automatic-copy, .challenge-picker summary, .empty-label, .empty-report h3, .processing-panel strong, .rival h4, .rival p, .improvements-section li, .warning-section h4, .run-heading, .run-criteria dt) { color: var(--ink); }
 .engineering-app :is(textarea, input:not([type=checkbox]), select) { background: rgba(6, 15, 29, .26); color: #fff; border-color: rgba(255,255,255,.3); }
 .engineering-app textarea::placeholder { color: #c3cbd8; }
 .engineering-app textarea { min-height: 220px; }
@@ -81,8 +105,8 @@
 .engineering-explorer select { min-height: 40px; padding: 8px; border-radius: 13px; border: 1px solid var(--line); font: inherit; font-size: 12px; }
 select option { background: #1a2738; color: #fff; }
 .scene-navigation small { display: block; margin-top: 12px; font-size: 11px; line-height: 1.5; color: #e0e8f1; }
-.camera-controls { position: fixed; z-index: 3; right: 20px; top: 345px; display: grid; gap: 5px; padding: 8px; }
-.scene-results { position: fixed; z-index: 3; right: 160px; bottom: 20px; padding: 20px; width: min(390px, 36vw); max-height: calc(100dvh - 340px); overflow-y: auto; overflow-wrap: anywhere; }
+.camera-controls { position: fixed; z-index: 3; right: 20px; top: 290px; display: grid; gap: 5px; padding: 8px; }
+.scene-results { position: fixed; z-index: 3; right: 160px; top: 110px; padding: 20px; width: min(390px, 36vw); max-height: calc(100dvh - 140px); overflow-y: auto; overflow-wrap: anywhere; }
 .scene-results .section-kicker { margin-top: 0; color: #ffdf95; font-size: 10px; }
 .scene-results .results-toggle { width: 100%; text-align: left; line-height: 1.5; margin-bottom: 10px; }
 .scene-results:has(#scene-result-content[hidden]) .results-toggle { margin-bottom: 0; }
@@ -103,14 +127,20 @@ select option { background: #1a2738; color: #fff; }
   .engineering-app { padding: 12px; }
   .engineering-app .masthead { top: 12px; padding: 8px 12px; gap: 8px; margin-bottom: 12px; }
   .engineering-app .edition { display: none; }
+  .engineering-app .masthead { flex-wrap: wrap; }
+  .engineering-app .wordmark img { width: 130px; height: 40px; }
+  .masthead .scene-tabs { order: 3; width: 100%; margin-left: 0; }
+  .masthead .scene-tabs button { padding: 8px 12px; font-size: 14px; }
   .panel-toggle { margin-left: auto; }
-  .glass-content { width: min(560px, calc(100vw - 24px)); margin-top: 185px; }
-  .scene-navigation { top: 100px; right: 12px; left: 12px; width: auto; padding: 12px; }
+  .glass-content { width: min(560px, 100%); margin-top: 0; }
+  .scene-navigation { top: auto; bottom: 125px; right: 12px; left: 12px; width: auto; padding: 12px; }
+  .engineering-explorer.with-panels .scene-navigation { display: none; }
   .camera-controls { top: auto; bottom: 12px; right: 12px; left: 12px; display: flex; justify-content: center; flex-wrap: wrap; }
   .engineering-explorer.with-panels .camera-controls, .engineering-explorer.with-panels .scene-results { display: none; }
-  .scene-results { width: auto; left: 12px; right: 12px; bottom: 120px; max-height: calc(100dvh - 410px); padding: 16px; }
+  .scene-results { width: auto; left: 12px; right: 12px; top: 170px; bottom: auto; max-height: calc(100dvh - 285px); padding: 16px; }
   .engineering-app :is(.form-panel, .report-panel, .intro) { padding: 20px; }
   .engineering-app .intro h1 { font-size: 30px; }
+  .submission-status h2 { scroll-margin-top: 170px; }
   .scene-fallback { top: 275px; left: 12px; right: 12px; max-width: none; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
