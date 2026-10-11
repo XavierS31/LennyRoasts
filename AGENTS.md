@@ -25,7 +25,7 @@ Validate your owned deliverable against the contract and fixtures, then report t
 
 ## Existing bootstrap
 
-Continue the packages rather than recreating them. API: `backend.app.main:app`; async judge import: `backend.app.judging.score_submission`; offline CLI: `python -m offline.cli`; frontend types: generated `frontend/src/api/contract.d.ts`; fetch wrappers: `frontend/src/api/client.ts`. Package READMEs give startup/check commands. Explicit mock mode now uses 200 committed synthetic projects and calculates input-dependent scores/placements; live Qwen, Neon and field generation remain unimplemented.
+Continue the packages rather than recreating them. API: `backend.app.main:app`; async judge import: `backend.app.judging.score_submission`; offline CLI: `python -m offline.cli`; frontend types: generated `frontend/src/api/contract.d.ts`; fetch wrappers: `frontend/src/api/client.ts`. Full continuation prompts are in `docs/prompts/DEV1_OFFLINE.md`, `DEV2_BACKEND.md` and `DEV3_FRONTEND.md`. Package READMEs give startup/check commands. Explicit mock mode now uses 200 committed synthetic projects and calculates input-dependent scores/placements; live Qwen and Neon remain unimplemented. The offline field pipeline is now merged; its README reports a private ten-project accepted field awaiting shared Qwen scoring/export and artifact transfer.
 
 Use `codex/offline-*`, `codex/backend-*` or `codex/frontend-*` branches. CI catches accidental cross-owner edits and contract/type drift. Merge small PRs serially and integrate every 2-3 hours.
 

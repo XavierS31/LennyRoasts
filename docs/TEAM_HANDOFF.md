@@ -1,6 +1,6 @@
 # Start here: three agents, one foundation
 
-Everyone pulls the merged bootstrap before implementation. It contains working local mock routes backed by 200 synthetic projects and computed rankings, generated frontend types, a submit/poll UI and an offline validation CLI. Live Qwen, Neon storage and field generation remain assigned implementation work.
+Everyone pulls current main before continuing. It contains mock routes backed by 200 synthetic projects and computed rankings, generated frontend types, a submit/poll UI, and the offline field pipeline merged in PR #6. Live Qwen and Neon remain implementation work. The offline README reports ten accepted Luna mutations stored privately on Dev1's machine; these artifacts are not included in a Git pull and still need shared Qwen scoring/export.
 
 ## Kickoff
 
@@ -24,35 +24,27 @@ Canonical foundation:
 | Shared mock field | `contracts/mock/pool.json`; saved scores and per-category `rankings.json`; `LENNY_MODE=mock` |
 | Runtime inputs/exports | Ignored `.local-tests/`; no secrets or copied stories in Git |
 
-## Give your agent this common instruction
+## Copyable prompts for each agent
 
-```text
-Read AGENTS.md, plan_draft.md, docs/TEAM_HANDOFF.md, your package README
-and contracts/README.md, openapi.json and fixtures.json before editing.
-Continue the existing bootstrap; do not replace it with a new template.
+Each developer pastes the **entire assigned file** into their agent. These replace the earlier short common prompt plus role paragraph. They include current implementation state, owned paths, schemas/API, dependencies, commands and acceptance checks.
 
-Implement only my assigned workstream in its owned paths, on the assigned
-codex/ branch. Use the exact shared schema, endpoints, scoring import and
-versioning rules. Deliver a working small increment before expansion.
+| Developer | Full prompt | First useful handoff |
+| --- | --- | --- |
+| Dev1 — offline/data | [DEV1_OFFLINE.md](prompts/DEV1_OFFLINE.md) | Continue the merged pipeline; review the private ten-project field and deliver eight judge-prompt drafts/reference availability to Dev2. |
+| Dev2 — backend/integrator | [DEV2_BACKEND.md](prompts/DEV2_BACKEND.md) | Implement the shared scorer and freeze its config; document the field import path, then integrate Neon and real jobs. |
+| Dev3 — frontend | [DEV3_FRONTEND.md](prompts/DEV3_FRONTEND.md) | Complete the full input/report/failure flow against mock mode, then use the unchanged API with the live field. |
 
-Use fixtures for early integration, visibly labeled as synthetic. Never
-substitute them for unavailable live judging. Keep credentials/raw runtime
-data out of Git. If another owner's module is missing, report the precise
-dependency and continue independent work; do not implement a duplicate.
+All three start in parallel. Dev1 waits for Dev2 only for Qwen scoring/export; Dev3 waits only for final real integration. Dev2 can build/test the scorer, persistence and artifact import with synthetic replay fixtures while Dev1 reviews the field. No owner creates a second judge or patches another owner's package to bypass a dependency.
 
-Run the relevant checks, commit, push and open a small PR. Sync main before
-final PR verification. Report actual working behavior, tests and blockers.
-Do not merge: Person 2 integrates serially. Do not change the contract or
-another owner's files without a coordinated handoff to that owner.
-```
+The real handoff sequence is:
 
-## Append the assigned role
+1. Dev1 gives Dev2 reviewed briefs, prompt drafts and honest reference availability. Review the collected Most “Useful” brief's funny/goofy definition before freezing live scoring; mock heuristics are not authoritative rubric definitions.
+2. Dev2 gives Dev1 one complete frozen `JudgeConfig`, its canonical hash and the implemented async scorer. Changes after caching require a new judge version and full rescore.
+3. Dev1 privately transfers the semantically validated `PoolArtifact`, matching config/hash/versions, report and actual category counts. The teammate-reported ten accepted projects are not yet a scored/importable cache.
+4. Dev2 imports and activates the matching field/config pair in Neon and supplies the verified live startup/API to Dev3. `result.challenge_results` uses the existing contract; no new endpoint is needed.
+5. Dev3 verifies the same frontend against the real field and reports actual mode/counts. Dev2 integrates small reviewed PRs serially.
 
-**Person 1:** branch `codex/offline-field`; owns `offline/` and `experiments/`. Collect a small verified seed set, provenance and reviewed challenge configs; prepare Luna batches; validate mutations and produce ten accepted projects first. Export PoolArtifact using the shared async scoring module when Person 2 implements it. Record config hashes and versions. Do not create a second judge client or database schema. First handoff: reviewed seeds/config and accepted mutation examples. Later handoff: scored, validated field artifact and preparation commands.
-
-**Person 2:** branch `codex/backend-judge`; owns `backend/`, `contracts/`, shared root files, `.github/` and this document. Implement the existing judging stub with Qwen3-32B, code-derived scores/eligibility, evidence checks, bounded failures and matching offline/live protocol. Replace process-local fixture jobs with Neon persistence and version-checked cache import/ranking. Preserve the contracted endpoints. First handoff: working shared scoring module plus its config requirements and a documented field-import command. Merge PRs serially after checks pass.
-
-**Person 3:** branch `codex/frontend`; owns `frontend/`. Continue the starter form, fetch wrappers and generated types. Design the final input/report layout; implement criterion scores, evidence/warnings, rivals/improvements, honest ranges and failure states. Verify the real API when Person 2 supplies it; keep the fixture marker until actual live behavior is verified. First handoff: usable fixture flow with the intended UI. No frontend HF or database credentials.
+Keep runtime artifacts under ignored `.local-tests/` or the team's agreed private channel. Agents do not send teammates messages or publish artifacts automatically. Human owners coordinate transfers and review their agent's output.
 
 ## Integration rules
 
@@ -67,7 +59,7 @@ We cannot guarantee zero conflicts or zero integration bugs. These boundaries ma
 
 ## Deadline checkpoints
 
-By hour 4, frontend and backend communicate and the shared judge scores one category. By hour 8, integrate a ten-project real-seed field. Expand only after that works. Freeze features at hour 15 and use the last three hours for blockers, deployment configuration and rehearsal. Show actual accepted counts; 109 is an expansion target.
+Use the remaining time in the original 18-hour budget; pulling this update does not restart the clock. By hour 4, frontend and backend communicate and the shared judge scores one category. By hour 8, integrate a ten-project real-seed field. Expand only after that works. Freeze features at hour 15 and use the last three hours for blockers, deployment configuration and rehearsal. Show actual accepted counts; 109 is an expansion target.
 
 ## Mock data is ready now
 
