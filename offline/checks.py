@@ -1,7 +1,8 @@
 """Mechanical checks on every rewrite (plan section 4.9). Each returns a list of problems.
 
-Semantic properties (light mutations keep the core concept, weak fit is really
-incidental) still need review; schema checks alone missed such issues in the Luna test.
+A rewrite that passes every check is accepted without manual review. Semantic
+properties (light mutations keep the core concept, weak fit is really incidental)
+are not verified here; `reject` remains available for spot fixes.
 """
 import math
 import re

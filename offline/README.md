@@ -27,7 +27,7 @@ Use the root Python environment from `backend/requirements.txt`, plus `offline/r
 | `sampler.py` | Challenge assigner, persona sampler, least-used seed picker. Per-team RNG, so growing the field never changes existing teams |
 | `prompts.py`, `generate.py` | Plan 4.8 mutation prompts, batched; `codex exec -m gpt-6-luna` in a read-only sandbox with an output schema, recording provenance |
 | `checks.py`, `similarity.py` | Plan 4.9 checks: schema, exact challenge ids, style lengths ±50%, sponsor tech, leaked labels/hackathon names, completion honesty, renamed title/tagline, 12-word copy runs, cosine > 0.95 to seeds or accepted projects |
-| `field.py` | Field state, batches, ingest with a 3-attempt budget, review sheet, reject, pool report |
+| `field.py` | Field state, batches, ingest with a 3-attempt budget, optional review sheet and reject, pool report |
 | `scoring.py`, `artifact.py` | Calls the shared scorer, adds offline checks, exports and validates `PoolArtifact` |
 
 ## Commands
@@ -51,10 +51,11 @@ python -m offline.cli generate --field kh9-smoke --batch b001   # Codex/Luna, th
 python -m offline.cli ingest --field kh9-smoke --batch b001 --output <answer.json> --model gpt-6-luna
 #    re-validates an answer produced outside `generate`
 
-# 4. Semantic review and pool report
+# 4. Pool report (projects passing the automatic checks are accepted; no manual review step)
+python -m offline.cli report --field kh9-smoke       # writes pool_report.json
+#    optional spot checks:
 python -m offline.cli review --field kh9-smoke       # writes review.md beside the field
 python -m offline.cli reject --field kh9-smoke --team t004 --reason "light mutation changed the core concept"
-python -m offline.cli report --field kh9-smoke       # writes pool_report.json
 
 # 5. Scoring with backend.app.judging.score_submission, then export
 python -m offline.cli score --field kh9-smoke --judge-config <judge_config.json>
@@ -64,6 +65,7 @@ python -m offline.cli validate-artifact --artifact <artifact.json> --judge-confi
 
 ## Rules the code enforces
 
+- A rewrite that passes every mechanical, copy and similarity check is accepted automatically. Semantic properties (light keeps the core concept, weak fit is really incidental) are not checked by hand.
 - Judges only ever receive `submission`; seed ids, persona, fit and awards stay in hidden metadata.
 - Seeds may not come from Knight Hacks VII (reserved for judge reference examples) or Knight Hacks VIII (reserved for the KH25 backtest).
 - Scores are saved per `judge_version` with the config SHA-256. A changed config under the same version is refused, and so is export with any unscored project. Pool versions are immutable once exported.
@@ -71,4 +73,4 @@ python -m offline.cli validate-artifact --artifact <artifact.json> --judge-confi
 
 ## Status
 
-Smoke field `kh9-smoke`: 10 accepted Luna mutations of 12 sampled teams (2 skipped after three failed attempts), stored locally. Scoring and export wait for the implemented `score_submission` and the frozen live `JudgeConfig`.
+Smoke field `kh9-smoke`: 10 Luna mutations accepted on automatic checks, of 12 sampled teams (2 skipped after three failed attempts), stored locally. Scoring and export wait for the implemented `score_submission` and the frozen live `JudgeConfig`.
