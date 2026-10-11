@@ -2,6 +2,7 @@ import { useState, type ReactNode, type Ref } from "react";
 import { ArrowUpRightIcon, CaretDownIcon, LightbulbIcon, RobotIcon, PencilSimpleIcon, TrophyIcon } from "@phosphor-icons/react";
 import type { Challenge, ChallengeResult } from "../api/client";
 import { ceremonyCategories } from "./engineering/ceremonyResults";
+import JudgingCategoryLabel from "./JudgingCategoryLabel";
 
 const criteria = [
   ["originality", "Originality"], ["tech_understanding", "Technical understanding"],
@@ -73,15 +74,19 @@ export default function AtriumDashboard({ result, results, challenges, projectNa
       <div className="dashboard-agent-categories">
         {ceremonyCategories.map((category) => {
           const categoryResult = results.find((entry) => entry.challenge_id === category.id);
-          return <details className="dashboard-agent-category" key={category.id}>
-            <summary><span>{category.name}</span><CaretDownIcon size={17} aria-hidden="true" /></summary>
+          return <div key={category.id}>
+            {category.id === "overall" && <h3 className="dashboard-general-heading">Overall project</h3>}
+            <details className="dashboard-agent-category">
+            <summary><JudgingCategoryLabel category={category} /><CaretDownIcon size={17} aria-hidden="true" /></summary>
             {categoryResult?.rivals.length ? <ol aria-label={`${category.name} API field leaders`}>{categoryResult.rivals.map((rival) => <li key={rival.project_id}>
               <div className="dashboard-agent-heading"><h4>{rival.name}</h4><p><strong>{rival.score_10.toFixed(1)}</strong><span>/ 10</span></p></div>
               <details className="dashboard-agent-project"><summary>Project summary</summary><p>{rival.summary}</p></details>
               <button type="button" onClick={() => { onCategory(category.id); onAgent(rival.project_id); }}>View agent in atrium<ArrowUpRightIcon size={16} aria-hidden="true" /></button>
             </li>)}</ol> : <p className="dashboard-no-agents">{categoryResult ? "No rival ratings were returned for this category." : "This category was not evaluated in your submission."}</p>}
-          </details>;
+            </details>
+          </div>;
         })}
+        <p className="category-unavailable">Best Embedded <span>Unavailable in this API</span></p>
       </div>
       <p className="dashboard-footnote">The API returns up to three field leaders by average score. Top ten is unavailable.</p>
       <div className="dashboard-ceremonies-link">

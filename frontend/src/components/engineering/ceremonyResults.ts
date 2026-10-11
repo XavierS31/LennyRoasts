@@ -1,9 +1,18 @@
 import type { ChallengeResult } from "../../api/client.ts";
 
-export const ceremonyCategories = [
-  { id: "gemini", name: "Gemini" }, { id: "elevenlabs", name: "ElevenLabs" },
-  { id: "overall", name: "Overall Judging" }, { id: "databricks", name: "Databricks" }, { id: "bny", name: "BNY" },
+export const sponsorCategories = [
+  { id: "gemini", name: "Gemini", logo: "/assets/sponsors/gemini.png" },
+  { id: "elevenlabs", name: "ElevenLabs", logo: "/assets/sponsors/elevenlabs.png" },
+  { id: "databricks", name: "Databricks", logo: "/assets/sponsors/databricks.png" },
+  { id: "bny", name: "BNY", logo: "/assets/sponsors/bny.png" },
 ] as const;
+
+export const generalCategories = [
+  { id: "overall", name: "Best Hack" }, { id: "best_ai", name: "Best AI" },
+  { id: "best_game", name: "Best Game" }, { id: "most_useful", name: "Most Useful" },
+] as const;
+
+export const ceremonyCategories = [...sponsorCategories, ...generalCategories] as const;
 
 // A range overlapping the top three does not confirm a top-three finish.
 export function confirmedTopThree(result: ChallengeResult | undefined) {
