@@ -6,7 +6,7 @@ Paste this entire file into Dev1's agent. This continues the offline pipeline me
 
 Repository: [XavierS31/LennyRoasts](https://github.com/XavierS31/LennyRoasts). Work from current `main`, preserving existing workstream changes.
 
-You are Dev1 for LennyRoasts, a Knight Hacks IX MVP built by three human developers supervising AI agents. Deliver a reviewed, Qwen-scored, immutable simulated competitor field that Dev2 can import. Work within the team's remaining 18-hour budget: a working small field comes before expansion.
+You are Dev1 for LennyRoasts, a Knight Hacks IX MVP built by three human developers supervising AI agents. Deliver an automatically accepted, Qwen-scored, immutable simulated competitor field that Dev2 can import. Work within the team's remaining 18-hour budget: a working small field comes before expansion.
 
 Read `AGENTS.md`, `docs/TEAM_HANDOFF.md`, `plan_draft.md` sections 4–7 and 10, `contracts/README.md`, `contracts/openapi.json`, `contracts/fixtures.json`, `contracts/mock/README.md`, `offline/README.md`, and `experiments/RESULTS.md` first. The contract, including its semantic rules, controls implementation. Resolve ambiguity with the human integrator instead of inventing fields or formulas.
 
@@ -15,8 +15,8 @@ Use your own clone/worktree and the existing `codex/offline-field` branch if thi
 Current foundation:
 
 - Collection, provenance, seeded sampling, Luna batch preparation/generation/ingest, copy/similarity checks, review/reject/report and scoring/export commands now exist under `offline/`. Inspect and continue them.
-- `offline/README.md` reports ten accepted Luna mutations from twelve sampled teams in `kh9-smoke`, with two skipped after three attempts. These are private local artifacts, not files delivered by a Git pull. Verify their presence and review status; obtain them from your human owner before regenerating them.
-- `backend.app.judging.score_submission` remains the shared live-scoring stub. Offline scoring/export depend on Dev2 implementing it and handing off the frozen `JudgeConfig`.
+- `offline/README.md` reports ten accepted Luna mutations from twelve sampled teams in `kh9-smoke`, with two skipped after three attempts. These are private local artifacts, not files delivered by a Git pull. Verify their presence and automatic acceptance/optional spot-check status; obtain them from your human owner before regenerating them.
+- `backend.app.judging.score_submission` is implemented in Dev2 PR #8. Review the complete provisional eight-category config and confirm reference availability in issue #10; scoring/export still wait for Dev2 to freeze the accepted version/hash. Do not score the whole field against provisional prompts.
 - `contracts/mock/` contains 200 synthetic projects, heuristic scores and saved rankings for integration. They are not Luna/Qwen results. The real field expansion target remains 109 accepted projects; show actual counts and never pad it with mock entries.
 
 ## Fixed integration boundary
@@ -41,8 +41,8 @@ Export `PoolArtifact` with `contract_version`, `judge_version`, `pool_version`, 
 1. Audit existing state, tests, challenge descriptions, seed provenance and accepted records. Preserve accepted work. Review the brief sources recorded in `offline/config/kh9_challenges.json` before finalizing judges. In particular, its Most “Useful” brief asks for funny/goofy projects; do not replace it with a generic practical-utility rubric. Hand any discrepancy with mock/API descriptions to Dev2.
 2. Finish reviewed prompt drafts for all eight categories under `offline/config/`, using the plan's rubric and the exact raw schemas `OverallJudgeResponse`/`CategoryJudgeResponse`. Luna may prepare drafts once through the existing Codex account; review them before freezing. Judges receive only the submission, never persona/fit/seed/award labels. Separate intended sponsor relevance from completion, require actual gameplay for Best Game, and do not punish an already working scoped core for future features in `whats_next`.
 3. Verify seed URLs, opt-ins and award provenance; do not turn unknown awards into confirmed non-winners. Preserve the configured disjoint split: Knight Hacks VII is reserved for judge examples and VIII for future backtesting. If time allows, prepare reviewed reference examples from the reserved split; otherwise hand off explicit empty example arrays rather than fabricated references. Large historical scraping/backtesting is outside the MVP.
-4. Run semantic review of the existing ten accepted projects. Light mutations retain the core idea; heavy ones visibly borrow a technique from the second seed; weak sponsor fit means real incidental use, not zero use. Check candid broken/partial scope, originality of wording, renamed titles and no hidden-label leakage. Mechanical/embedding checks support review; passing them alone does not establish realism. Record rejections with the existing retry budget.
-5. Keep collection, generation, semantic review and reports moving while Dev2 finishes scoring. The current generator requests `gpt-6-luna` through `codex exec`; use small serial batches and record provenance. Use the documented external-output `ingest` route if generation is run through a Codex Luna subagent instead. Do not silently substitute another model or buy separate API access. If the model/login is unavailable, report that dependency and continue the rest of the pipeline.
+4. Run the pool report for the existing ten accepted projects. Under merged PR #9, every mutation passing automatic mechanical/copy/similarity checks is accepted; manual semantic review is optional. Optional spot checks can inspect retained core concepts, second-seed techniques, incidental weak fit, candid scope and label leakage. Passing automatic checks alone does not establish realism; report any performed spot checks accurately. Record any optional rejections with the existing retry budget.
+5. Keep collection, generation, automatic checks and reports moving while Dev2 finishes scoring. The current generator requests `gpt-6-luna` through `codex exec`; use small serial batches and record provenance. Use the documented external-output `ingest` route if generation is run through a Codex Luna subagent instead. Do not silently substitute another model or buy separate API access. If the model/login is unavailable, report that dependency and continue the rest of the pipeline.
 6. When Dev2 provides the shared scorer and final config, score a small bounded subset, inspect score/evidence/gate behavior, then score all accepted projects. Save/reuse successful results for the exact config. Do not fill failed/missing scores with heuristic data. Export and semantically validate the ten-project field, then hand it off privately to Dev2 with its config, versions, hash, commands and report.
 7. Grow toward 109 only after the ten-project real flow works. Verify immutable sampling and accepted records when extending; account for skipped teams, seed-use caps and category coverage. A changed judge requires rescoring the entire final field. A smaller validated field is acceptable; a claimed 109 without accepted/exported records is not.
 8. Add focused tests for any changed behavior, especially resumability, malformed/duplicate batch entries, version/hash mismatch, unavailable scoring and export rejection of incomplete results. Do not spend the remaining time rebuilding modules that already pass meaningful checks.
@@ -56,7 +56,7 @@ Run from the repository root; create `.venv` with Python 3.13 if absent. Install
 .venv/bin/python -m pytest offline/tests -q
 .venv/bin/python -m backend.tools.check_contracts
 .venv/bin/python -m offline.cli --help
-.venv/bin/python -m offline.cli review --field kh9-smoke
+.venv/bin/python -m offline.cli review --field kh9-smoke  # optional
 .venv/bin/python -m offline.cli report --field kh9-smoke
 ```
 
@@ -75,7 +75,7 @@ Inspect large JSON programmatically, not by pasting the whole field into an agen
 
 ## Handoffs and definition of done
 
-First handoff: reviewed eight-track brief/prompt drafts, reference availability, ten-project review status and exact dependency on Dev2's config/scorer. Do this early, before field expansion. Final handoff: a contract- and semantics-valid scored artifact, matching complete `JudgeConfig`, SHA-256, actual accepted/eligible category counts, report, provenance, preparation commands and private artifact location. Your human owner coordinates the private transfer; do not send messages or publish data without their instruction.
+First handoff: reviewed eight-track brief/prompt drafts, reference availability, ten-project automatic acceptance and optional spot-check status and exact dependency on Dev2's config/scorer. Do this early, before field expansion. Final handoff: a contract- and semantics-valid scored artifact, matching complete `JudgeConfig`, SHA-256, actual accepted/eligible category counts, report, provenance, preparation commands and private artifact location. Your human owner coordinates the private transfer; do not send messages or publish data without their instruction.
 
 Before a PR, save your work, fetch/merge current main, run your tests, `git diff --check` and `.venv/bin/python backend/tools/check_ownership.py`. Commit, push and open a small PR limited to your paths; do not merge it. Dev2's human owner integrates reviewed PRs serially. Update `offline/README.md` with verified status and commands.
 

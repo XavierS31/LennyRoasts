@@ -1,0 +1,34 @@
+{
+  "gemini": {
+    "name": "[MLH] Best Use of Gemini API",
+    "description": "It’s time to push the boundaries of what’s possible with AI using Google Gemini. Check out the Gemini API to build AI-powered apps that make your friends say WHOA. So, what can Gemini do for your hackathon project?\nUnderstand language like a human and build a chatbot that gives personalized advice\nAnalyze info like a supercomputer and create an app that summarizes complex research papers\nGenerate creative content like code, scripts, music, and more\nThink of the possibilities… what will you build with the Google Gemini API this weekend?"
+  },
+  "elevenlabs": {
+    "name": "[MLH] Best Use of ElevenLabs",
+    "description": "Deploy natural, human-sounding audio with ElevenLabs. Create realistic, dynamic, and emotionally expressive voices for any project, from interactive AI companions to narrated stories and voice-enabled apps. ElevenLabs will empower you to build rich, immersive experiences without the need for actors or complex audio production, using simply the power of AI.\nIntegrate fully autonomous audio experiences into your hack with ElevenLabs and give your project a voice, along with giving your team the chance to win some wireless earbuds!"
+  },
+  "databricks": {
+    "name": "Databricks: Best Use of Databricks",
+    "description": "Build a solution that uses Databricks to turn data into useful insights, predictions, or actions that address a real-world problem. Bring in data of your choice, prepare it, and use Databricks analytics, machine learning, or AI capabilities to power your solution. Demonstrate a working prototype that connects the work done in Databricks to a useful result."
+  },
+  "bny": {
+    "name": "BNY: Financial Services Challenge",
+    "description": "Make financial services work better! Build a tool or application that improves a process in the industry, whether you simplify data management, improve client experiences, automate workflows, or tackle another problem that could make a difference."
+  },
+  "overall": {
+    "name": "Best Overall Hack",
+    "description": "This track is our most prestigious, and is awarded to the team who really steals the show, making something truly unique and spectacular!"
+  },
+  "best_ai": {
+    "name": "Best AI Hack",
+    "description": "This track is for the hack that pushes the boundary of AI use! This does not mean that it was coded with AI - it must feature some sort of model, whether it be classic machine learning algorithms, computer vision, LLMs, etc."
+  },
+  "best_game": {
+    "name": "Best Game Hack",
+    "description": "This track is for the best game your team can make in 36 hours—think of it as a mini-game jam! Show us something creative, engaging, and most of all, fun!"
+  },
+  "most_useful": {
+    "name": "Most “Useful” Hack",
+    "description": "This track is for the most “useful” project submitted. A truly life changing project. One that people could not live without. On par with solving world hunger, or discovering human immortality.\nNote: we are actually looking for the funniest and goofiest project…"
+  }
+}

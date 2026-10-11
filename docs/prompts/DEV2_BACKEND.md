@@ -14,10 +14,10 @@ Use your own clone/worktree and `codex/backend-judge` or `codex/backend-<task>`.
 
 Current state:
 
-- `backend.app.main:app` implements explicit mock routes and cookie-scoped process-local jobs. Mock completion currently happens while GET is polled; this must become real queued background work in live mode.
-- `backend.app.judging.score_submission` is still a stub. `backend.app.contracts`, `scoring_contract.validate_score_result` and `ranking.rank_results` already implement reusable validation/ranking behavior. Preserve and reuse them.
+- `backend.app.main:app` implements explicit mock routes and cookie-scoped process-local jobs. Mock completion happens while GET is polled. Explicit LENNY_MODE=live uses persisted queued background work in Dev2’s storage implementation; GET only reads state. Do not change mock simulation to claim live evidence.
+- `backend.app.judging.score_submission` is implemented in PR #8 with a complete provisional config. Read docs/DEV2_STATUS.md before repeating work; prompt review/freeze and real-field handoff are tracked in issues #10 and #11. `backend.app.contracts`, `scoring_contract.validate_score_result` and `ranking.rank_results` already implement reusable validation/ranking behavior. Preserve and reuse them.
 - Dev1's merged offline pipeline already imports the shared scorer and has score/export/validation commands. Its README reports ten accepted Luna mutations held privately on the teammate's machine; Git does not deliver them. It now needs your frozen config and functioning scorer, then your import command.
-- The committed 200-project field uses deterministic mock scores. It is for development. Live comparisons require a real Qwen-scored field; the real expansion target is 109, after a ten-project demo works. Neon/Qwen production integration is not yet implemented or verified.
+- The committed 200-project field uses deterministic mock scores. It is for development. Live comparisons require a real Qwen-scored field; the real expansion target is 109, after a ten-project demo works. Bounded Qwen provider checks and isolated Neon replay persistence are verified; a complete real-field/live-user flow and deployment remain unverified.
 
 ## Exact API and shared interface
 

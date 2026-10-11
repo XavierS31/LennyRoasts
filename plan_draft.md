@@ -52,7 +52,7 @@ Whiteboard plan, mapped to this flow:
 
 ## 3. Event config: Knight Hacks IX
 
-Store challenges, descriptions, prizes and the rubric in `kh9_challenges.json`, to be extracted and checked against the Knight Hacks IX Hacker's Guide during implementation. This file has not been built yet. Active sponsor tracks are Gemini, ElevenLabs, Databricks and BNY; active general categories are Best Overall, Best AI, Best Game and Most Useful. Excluded tracks remain excluded even though Hugging Face hosts our judge model.
+Store challenges, descriptions, prizes and the rubric in `kh9_challenges.json`, to be extracted and checked against the Knight Hacks IX Hacker's Guide during implementation. The collected briefs are now saved in offline/config/kh9_challenges.json. Active sponsor tracks are Gemini, ElevenLabs, Databricks and BNY; active general categories are Best Overall, Best AI, Best Game and Most Useful. Excluded tracks remain excluded even though Hugging Face hosts our judge model.
 
 ### General challenges (every project is considered automatically)
 
@@ -482,7 +482,7 @@ Plus general categories, and a saturation warning when many rivals share the ide
 
 **Storage (Neon-hosted PostgreSQL).** Neon is the backend database, while its sponsor challenge remains excluded. Person 2 owns schema migrations, persistence and imports; offline scripts produce versioned artifacts and use the backend import path rather than changing tables independently. Store structured submissions/configs/evidence as JSONB and index project/challenge/version keys.
 
-Keep `DATABASE_URL` (Neon pooled connection for runtime) and `DATABASE_URL_DIRECT` (direct connection for migrations) server-only, alongside `HF_TOKEN`. Use the console-provided TLS connection settings; never disable TLS verification or expose either URL to the browser. Follow [Neon connection guidance](https://neon.com/docs/get-started/connect-neon) and [pooling guidance](https://neon.com/docs/connect/connection-pooling). Use SQLAlchemy 2 with psycopg 3; parse the PostgreSQL URL and select the psycopg dialect without logging credentials. No Neon project or live connection has been configured or tested yet.
+Keep `DATABASE_URL` (Neon pooled connection for runtime) and `DATABASE_URL_DIRECT` (direct connection for migrations) server-only, alongside `HF_TOKEN`. Use the console-provided TLS connection settings; never disable TLS verification or expose either URL to the browser. Follow [Neon connection guidance](https://neon.com/docs/get-started/connect-neon) and [pooling guidance](https://neon.com/docs/connect/connection-pooling). Use SQLAlchemy 2 with psycopg 3; parse the PostgreSQL URL and select the psycopg dialect without logging credentials. Neon direct and pooled TLS connections, migration and isolated replay persistence have now been verified by Dev2; the real scored field is still pending (docs/DEV2_STATUS.md).
 
 Planned tables:
 
@@ -500,7 +500,7 @@ Planned tables:
 
 Reusable probes and a sanitized summary are in [`experiments/`](experiments/README.md) and [`experiments/RESULTS.md`](experiments/RESULTS.md). Tokens, copied Devpost stories, generated outputs and raw provider responses stay in Git-ignored local files.
 
-- **Luna:** ten mutations from synthetic inputs in one Codex batch. All ten passed mechanical checks; manual review found two scope/fit issues. This supports offline generation with validation, not automatic acceptance of every output.
+- **Luna:** ten mutations from synthetic inputs in one Codex batch. All ten passed mechanical checks; manual review found two scope/fit issues. This supports bounded offline generation with checks, but semantic scope/fit issues can pass automatic acceptance. PR #9 makes manual field spot checks optional; report this limitation.
 - **Bounded Qwen3-32B:** 13/13 JSON/schema and relevance/eligibility consistency checks passed; median observed request time was about 7 seconds. It excluded a non-game under the explicit gameplay rule and admitted a real game control. Qwen3-14B made eligibility/category errors in the comparison.
 - **Remaining issues:** 5/13 32B responses contained a non-exact evidence excerpt. Real-input padded wording shifted the average by 0.4/10, while repeated scores also varied by 0.4. One rationale included an unsupported detail. Longer responses previously produced truncation and timeout failures, motivating the output bounds.
 
@@ -562,7 +562,7 @@ Open questions: which historical editions supply disjoint seeds and examples, an
 
 Use Python/FastAPI for the scoring API and Neon PostgreSQL, with React/TypeScript/Vite for the frontend. This keeps the Python probes and offline tooling usable without a second scoring implementation. Three human developers supervise separate AI-agent workstreams, each in its own clone or worktree and branch; never run their agents against one shared working directory.
 
-The initial source of truth is [`contracts/openapi.json`](contracts/openapi.json), with [`contracts/fixtures.json`](contracts/fixtures.json) and the semantic rules in [`contracts/README.md`](contracts/README.md). The shared bootstrap now implements these endpoints in explicit mock mode using 200 synthetic projects, cached mock scores and computed rankings, with a starter frontend. The merged offline pipeline now includes collection, seeded sampling, Luna batches, validation/review/report and shared-scoring/export commands; its README reports ten accepted Luna mutations held privately by Dev1. Live scoring, Neon storage and scoring/import of that field remain pending. See [`docs/TEAM_HANDOFF.md`](docs/TEAM_HANDOFF.md) for the fixed module paths, startup commands and agent handoffs. All agents must read these files before coding and reuse the exact field names, challenge ids, status values and endpoint paths.
+The initial source of truth is [`contracts/openapi.json`](contracts/openapi.json), with [`contracts/fixtures.json`](contracts/fixtures.json) and the semantic rules in [`contracts/README.md`](contracts/README.md). The shared bootstrap now implements these endpoints in explicit mock mode using 200 synthetic projects, cached mock scores and computed rankings, with a starter frontend. The merged offline pipeline now includes collection, seeded sampling, Luna batches, validation/review/report and shared-scoring/export commands; its README reports ten accepted Luna mutations held privately by Dev1. The shared Qwen scorer, Neon migrations/persistence, validated import and background jobs are implemented in Dev2 branches. Judge review/freeze, private field scoring/import and the integrated demo remain pending; see docs/DEV2_STATUS.md. See [`docs/TEAM_HANDOFF.md`](docs/TEAM_HANDOFF.md) for the fixed module paths, startup commands and agent handoffs. All agents must read these files before coding and reuse the exact field names, challenge ids, status values and endpoint paths.
 
 | Owner | Work | Deliverable and handoff |
 | --- | --- | --- |
@@ -584,7 +584,7 @@ The initial source of truth is [`contracts/openapi.json`](contracts/openapi.json
 | --- | --- | --- |
 | 0-1h | Freeze contract, folders, stack, branches and demo acceptance checks | All agents read the plan and contract; Person 2 confirms scaffolding/API shape and Neon setup; Person 1 chooses seeds/config; Person 3 runs fixture UI. |
 | 1-4h | One category works with Qwen; frontend submits and polls using fixtures | Person 1 builds small Luna batches and provenance; Person 2 validates real Qwen output and async jobs; Person 3 implements form/results/error states. |
-| 4-8h | Ten accepted real-seed projects, versioned cache import, real API-to-UI path | Person 1 reviews mutations and scores with shared client; Person 2 adds ranking/cache checks; Person 3 integrates endpoints. Freeze the judge before broader caching. |
+| 4-8h | Ten accepted real-seed projects, versioned cache import, real API-to-UI path | Person 1 reports automatically accepted mutations, optionally spot-checks them and scores with the shared client; Person 2 adds ranking/cache checks; Person 3 integrates endpoints. Freeze the judge before broader caching. |
 | 8-12h | Complete demo across four sponsor tracks and four general categories | Grow toward 109 only while the working demo stays intact. Report actual accepted/eligible counts. Check injection, non-games, partial builds, quote warnings and repeated-run gates. |
 | 12-15h | Integration and failure checks pass on the final cache | Verify fresh setup, schema/type compatibility, asynchronous progress, invalid input, provider timeout, ineligible results, ties, private sessions and version mismatch rejection. |
 | 15-18h | Feature freeze, final merged build, rehearsed demo and README | Fix blockers only. Verify deployment configuration, server-only secrets and runtime data handoff. Rehearse with an ordinary project and an ineligible track. |
