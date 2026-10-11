@@ -47,13 +47,13 @@ function scoreLabel(name: string, score: number) {
   context.strokeStyle = "rgba(255,255,255,.4)";
   context.strokeRect(1, 1, 510, 126);
   context.fillStyle = "#ffffff";
-  context.font = "28px Bagnard, Georgia, serif";
+  context.font = '500 28px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
   context.textAlign = "center";
   // Plain text only: user/model strings never become markup or executable code.
   const shortName = Array.from(name).slice(0, 24).join("");
   context.fillText(shortName, 256, 48, 480);
   context.fillStyle = "#ffe18b";
-  context.font = "36px Bagnard, Georgia, serif";
+  context.font = '600 36px Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
   context.fillText(`${score.toFixed(1)} / 10`, 256, 100);
   const texture = new THREE.CanvasTexture(canvas);
   texture.colorSpace = THREE.SRGBColorSpace;
@@ -404,7 +404,7 @@ export default function EngineeringScene({
     updateData.current?.(result, projectName, selectedMarker);
     let cancelled = false;
     // Canvas textures need redrawing if the local font finishes loading later.
-    void document.fonts.load("28px Bagnard").then(() => {
+    void document.fonts.load("500 28px Inter").then(() => {
       if (!cancelled) updateData.current?.(result, projectName, selectedMarker);
     });
     return () => { cancelled = true; };
