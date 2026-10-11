@@ -28,7 +28,7 @@
 }
 [hidden] { display: none !important; }
 .engineering-app { width: 100%; max-width: none; padding: 20px; color: var(--ink); }
-.engineering-scene { position: fixed; inset: 0; z-index: 0; background: #abc5d8; }
+.engineering-scene { position: fixed; inset: 0; z-index: 0; background: linear-gradient(180deg, #5caee5 0%, #acd4e5 14%, #ffc1a0 24%, #ff9b7b 34%, #ffd37e 50%); }
 .engineering-scene canvas { display: block; width: 100%; height: 100%; touch-action: none; }
 /* Interior rooms occupy the viewport independently of the exterior form. */
 .engineering-app:is(.view-atrium, .view-awards) { min-height: 100dvh; }
