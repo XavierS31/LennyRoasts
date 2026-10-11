@@ -1,4 +1,4 @@
-/* Translucent surfaces over the original Figma Make campus. */
+/* Clear, sunlit glass over the original Figma Make campus. */
 @font-face {
   font-family: Bagnard;
   src: url('/fonts/Bagnard.otf') format('opentype');
@@ -8,51 +8,69 @@
 }
 :root {
   font-family: Bagnard, Georgia, 'Times New Roman', serif;
-  color-scheme: dark;
-  --page: #172432;
-  --surface: rgba(19, 27, 40, .37);
-  --surface-muted: rgba(24, 35, 50, .28);
-  --ink: #f7f9ff;
-  --muted: #d3ddea;
-  --line: rgba(255, 255, 255, .2);
-  --line-strong: rgba(255, 255, 255, .38);
-  --accent: #ffda74;
-  --accent-ink: #ffda74;
-  --focus: #ffe3a3;
-  --warning: rgba(133, 95, 24, .2);
-  --warning-line: rgba(255, 211, 111, .45);
-  --error: rgba(140, 49, 48, .22);
-  --error-line: rgba(255, 170, 170, .5);
-  --success: rgba(69, 128, 114, .2);
-  --success-line: rgba(157, 230, 202, .4);
+  color-scheme: light;
+  --page: #f3c5a6;
+  --surface: rgba(255, 253, 247, .48);
+  --surface-muted: rgba(255, 253, 247, .28);
+  --glass-fill: rgba(255, 253, 247, .52);
+  --ink: #192f38;
+  --muted: #334b55;
+  --line: rgba(255, 255, 255, .5);
+  --line-strong: rgba(42, 72, 80, .32);
+  --accent: #ffd595;
+  --accent-ink: #70401d;
+  --focus: #1b5664;
+  --warning: rgba(255, 231, 181, .65);
+  --warning-line: rgba(149, 99, 28, .45);
+  --error: rgba(255, 222, 214, .74);
+  --error-line: rgba(154, 64, 47, .46);
+  --success: rgba(218, 243, 222, .65);
+  --success-line: rgba(52, 105, 77, .4);
 }
 [hidden] { display: none !important; }
 .engineering-app { width: 100%; max-width: none; padding: 20px; color: var(--ink); }
-.engineering-scene { position: fixed; inset: 0; z-index: 0; background: #abc5d8; }
-.engineering-scene canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+.engineering-scene { position: fixed; inset: 0; z-index: 0; background: #c9dce0; }
+.engineering-scene-campus {
+  /* The gradient remains visible while the local sky asset loads, or without WebGL. */
+  background-color: #f3c5a6;
+  background-image: linear-gradient(180deg, #3a8899 0%, #8fc5c5 30%, #f4e3ba 58%, #ffca8e 78%, #eea391 100%);
+}
+.engineering-scene-campus::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 30%;
+  /* Frame the golden horizon above the campus instead of hiding it behind the ground. */
+  background: url('/assets/engineering/sunset-sky.webp') center bottom / cover no-repeat;
+  pointer-events: none;
+}
+.engineering-scene canvas { position: relative; display: block; width: 100%; height: 100%; touch-action: none; }
+.view-atrium { --glass-fill: rgba(255, 253, 247, .64); }
+.view-awards { --glass-fill: rgba(255, 253, 247, .76); }
 .glass-panel, .engineering-app :is(.masthead, .intro, .mode-banner, .form-panel, .report-panel, .page-footer) {
-  background: rgba(16, 25, 39, .38);
-  border: 1px solid rgba(255,255,255,.27);
+  background: var(--glass-fill);
+  border: 1px solid rgba(255,255,255,.65);
   border-radius: 22px;
+  /* Keep the live canvas blur within the rounded panel in Chromium compositing. */
+  clip-path: inset(0 round 22px);
   /* Prefix first: the production minifier must retain the standard declaration. */
-  -webkit-backdrop-filter: blur(18px) saturate(140%);
-  backdrop-filter: blur(18px) saturate(140%);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 12px 35px rgba(0,0,0,.14);
+  -webkit-backdrop-filter: blur(18px) saturate(115%);
+  backdrop-filter: blur(18px) saturate(115%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.72), inset 0 -1px 0 rgba(255,255,255,.12), 0 12px 35px rgba(54, 73, 79, .12);
   color: var(--ink);
 }
 .engineering-app .masthead { position: sticky; top: 20px; z-index: 5; padding: 12px 18px; margin: 0 0 20px; gap: 14px; min-height: 68px; }
-.engineering-app .wordmark { display: flex; align-items: center; color: #fff; }
-.engineering-app .wordmark img { width: 155px; height: 46px; object-fit: contain; }
+.engineering-app .wordmark { display: flex; align-items: center; color: var(--ink); }
+.engineering-app .wordmark img { width: 155px; height: 46px; object-fit: contain; filter: brightness(0); opacity: .8; }
 .masthead .scene-tabs { margin-left: auto; }
 .masthead .scene-tabs button { min-height: 42px; padding: 9px 20px; border: 1px solid transparent; border-radius: 14px; background: transparent; font-size: 16px; }
-.masthead .scene-tabs button:hover { background: rgba(255,255,255,.12); }
-.masthead .scene-tabs button[aria-pressed=true] { background: rgba(255,255,255,.13); border-color: var(--line); }
-.engineering-app .wordmark span { color: #ffda74; }
+.masthead .scene-tabs button:hover { background: rgba(255,255,255,.4); }
+.masthead .scene-tabs button[aria-pressed=true] { background: rgba(255,255,255,.55); border-color: rgba(42,72,80,.2); }
+.engineering-app .wordmark span { color: var(--accent-ink); }
 .engineering-app .edition { margin-left: auto; color: var(--muted); }
 .glass-content { position: relative; z-index: 2; width: min(600px, 47vw); }
 .engineering-app .intro { padding: 22px 24px; margin: 0 0 12px; }
 .engineering-app .intro h1 { font-size: clamp(32px, 3vw, 44px); line-height: 1.1; letter-spacing: -.4px; max-width: 490px; margin: 8px 0 12px; }
-.engineering-app :is(.eyebrow, .section-kicker) { color: #ffdf90; }
+.engineering-app :is(.eyebrow, .section-kicker) { color: var(--accent-ink); }
 .engineering-app .lede { font-size: 14px; line-height: 1.55; margin: 0; }
 .engineering-app .mode-banner { padding: 16px 20px; margin: 0 0 12px; }
 .engineering-app .mode-copy p { font-size: 12px; }
@@ -66,48 +84,51 @@
 .competition-scores { padding-left: 22px; }
 .competition-scores li { margin: 8px 0; }
 .competition-scores button { width: 100%; text-align: left; }
-.competition-scores strong { display: block; color: #ffdf95; margin-top: 4px; }
+.competition-scores strong { display: block; color: var(--accent-ink); margin-top: 4px; }
 .engineering-app .workspace { display: flex; flex-direction: column; align-items: stretch; gap: 12px; margin: 0; }
 .engineering-app :is(.form-panel, .report-panel) { padding: 24px; scroll-margin-top: 110px; }
 .panel-switch { display: flex; gap: 6px; padding: 6px; }
 .panel-switch button { flex: 1; }
 .engineering-app :is(.secondary-button, .text-button) { color: var(--ink); }
 .engineering-app :is(.secondary-button, .challenge-picker, .track-item, .report-card, .placement-box, .criterion, .run-criteria, .result-mode, .evidence-quote, .processing-panel) {
-  background: rgba(19, 29, 43, .22); border-color: var(--line);
+  background: rgba(255, 255, 255, .28); border-color: var(--line-strong);
 }
-.engineering-app :is(.notice, .stale-report-note, .warning-section) { color: #fff0c9; }
-.engineering-app .notice-error { color: #ffe0df; }
-.engineering-app :is(.status-chip, .eligibility) { color: #eef6ff; background: rgba(255,255,255,.1); border-color: var(--line); }
-.engineering-app :is(.score-block, .placement-box strong, .criterion dd, .rival > span) { color: #ffde8c; }
+.engineering-app :is(.notice, .stale-report-note, .warning-section) { color: #62401b; }
+.engineering-app .notice-error { color: #7b3024; }
+.engineering-app :is(.status-chip, .eligibility) { color: var(--ink); background: rgba(255,255,255,.42); border-color: var(--line-strong); }
+.engineering-app :is(.score-block, .placement-box strong, .criterion dd, .rival > span) { color: var(--accent-ink); }
 .engineering-app :is(.track-checkmark, .track-name, .challenge-description summary, .challenge-detail-copy, .rationale-section p, .criterion dt, .placement-box span, .evidence-list dt, .evidence-quote, table, .evaluation-status) { color: var(--ink); }
-.engineering-app :is(.field-error, .field-error a) { color: #ffcdca; }
+.engineering-app :is(.field-error, .field-error a) { color: #852f23; }
 .engineering-app :is(.automatic-copy, .challenge-picker summary, .empty-label, .empty-report h3, .processing-panel strong, .rival h4, .rival p, .improvements-section li, .warning-section h4, .run-heading, .run-criteria dt) { color: var(--ink); }
-.engineering-app :is(textarea, input:not([type=checkbox]), select) { background: rgba(6, 15, 29, .26); color: #fff; border-color: rgba(255,255,255,.3); }
-.engineering-app textarea::placeholder { color: #c3cbd8; }
+.engineering-app :is(textarea, input:not([type=checkbox]), select) { background: rgba(255, 255, 255, .43); color: var(--ink); border-color: var(--line-strong); }
+.engineering-app :is(textarea, input)::placeholder { color: #405b66; }
+.engineering-app :is(textarea, input:not([type=checkbox]), select):focus-visible { background: rgba(255, 255, 255, .62); }
 .engineering-app textarea { min-height: 220px; }
-.engineering-app .track-choice input { accent-color: #ffda74; }
-.engineering-app .submit-button { background: #ffda74; color: #262414; border-color: #ffe7b3; }
-.engineering-app .submit-button:hover:not(:disabled) { background: #ffe4a0; }
-.engineering-app .version-line code, .engineering-app .job-id { background: rgba(0,0,0,.15); color: #e6edf7; }
+.engineering-app .track-choice input { accent-color: #285765; }
+.engineering-app .submit-button { background: #ffd595; color: #452e1b; border-color: rgba(117,75,38,.3); }
+.engineering-app .submit-button:hover:not(:disabled) { background: #ffe2b4; }
+.engineering-app .version-line code, .engineering-app .job-id { background: rgba(255,255,255,.42); color: var(--ink); }
 .engineering-app .page-footer { margin: 12px 0 0; padding: 14px 18px; flex-wrap: wrap; gap: 8px; font-size: 10px; }
 .scene-link { margin-bottom: 14px; }
 #report-heading { scroll-margin-top: 130px; }
-.engineering-app .report-card.scene-selected { border-color: rgba(255,218,116,.8); }
+.engineering-app .report-card.scene-selected { border-color: rgba(145,88,34,.7); }
 .scene-navigation { position: fixed; z-index: 3; top: 110px; right: 20px; width: min(390px, 45vw); padding: 16px; }
-.scene-caption { display: block; font-size: 11px; font-weight: 700; letter-spacing: .12em; color: #ffdf95; margin-bottom: 12px; }
+.scene-caption { display: block; font-size: 11px; font-weight: 700; letter-spacing: .12em; color: var(--accent-ink); margin-bottom: 12px; }
 .scene-tabs, .building-entry { display: flex; gap: 6px; }
 .scene-tabs button { flex: 1; }
 .building-entry { margin-top: 10px; }
 .building-entry select { flex: 1; width: 0; }
-.engineering-explorer button, .panel-switch button { min-height: 40px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 13px; background: rgba(255,255,255,.08); color: #f7f9ff; font-size: 12px; }
-.engineering-explorer button:hover, .panel-switch button:hover { background: rgba(255,255,255,.18); }
-.engineering-explorer button[aria-pressed=true], .panel-switch button[aria-pressed=true] { background: rgba(255,218,116,.2); border-color: rgba(255,218,116,.6); color: #ffe5a9; }
+.engineering-explorer button, .panel-switch button { min-height: 40px; padding: 8px 12px; border: 1px solid var(--line-strong); border-radius: 13px; background: rgba(255,255,255,.28); color: var(--ink); font-size: 12px; }
+.engineering-explorer button:hover, .panel-switch button:hover { background: rgba(255,255,255,.55); }
+.engineering-explorer button[aria-pressed=true], .panel-switch button[aria-pressed=true] { background: rgba(255,213,149,.58); border-color: rgba(117,75,38,.42); color: #59351a; }
+.engineering-app :is(button, textarea, input, select) { transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease; }
+.engineering-app button:active:enabled { transform: translateY(1px); }
 .engineering-explorer select { min-height: 40px; padding: 8px; border-radius: 13px; border: 1px solid var(--line); font: inherit; font-size: 12px; }
-select option { background: #1a2738; color: #fff; }
-.scene-navigation small { display: block; margin-top: 12px; font-size: 11px; line-height: 1.5; color: #e0e8f1; }
+select option { background: #fffaf1; color: var(--ink); }
+.scene-navigation small { display: block; margin-top: 12px; font-size: 11px; line-height: 1.5; color: var(--muted); }
 .camera-controls { position: fixed; z-index: 3; right: 20px; top: 290px; display: grid; gap: 5px; padding: 8px; }
 .scene-results { position: fixed; z-index: 3; right: 160px; top: 110px; padding: 20px; width: min(390px, 36vw); max-height: calc(100dvh - 140px); overflow-y: auto; overflow-wrap: anywhere; }
-.scene-results .section-kicker { margin-top: 0; color: #ffdf95; font-size: 10px; }
+.scene-results .section-kicker { margin-top: 0; color: var(--accent-ink); font-size: 10px; }
 .scene-results .results-toggle { width: 100%; text-align: left; line-height: 1.5; margin-bottom: 10px; }
 .scene-results:has(#scene-result-content[hidden]) .results-toggle { margin-bottom: 0; }
 .scene-results label { font-size: 12px; margin-right: 10px; }
@@ -115,7 +136,7 @@ select option { background: #1a2738; color: #fff; }
 .marker-selector { display: flex; flex-wrap: wrap; gap: 5px; }
 .marker-selector button { max-width: 100%; overflow-wrap: anywhere; }
 .scene-results h2 { font-size: 19px; margin: 16px 0 4px; }
-.scene-score { font-size: 33px !important; color: #ffdf95; margin: 0; }
+.scene-score { font-size: 33px !important; color: var(--accent-ink); margin: 0; }
 .scene-score span { font-size: 13px; color: var(--muted); }
 .scene-results p { font-size: 12px; line-height: 1.55; }
 .scene-results small { font-size: 10px; line-height: 1.5; color: var(--muted); }
@@ -133,7 +154,7 @@ select option { background: #1a2738; color: #fff; }
 .atrium-map small { display: block; margin: 8px; font-size: 10px; line-height: 1.5; color: var(--muted); }
 .atrium-empty { position: fixed; bottom: 20px; left: 20px; padding: 16px 20px; z-index: 3; max-width: 380px; font-size: 14px; line-height: 1.55; margin: 0; }
 @supports not (backdrop-filter: blur(1px)) {
-  .glass-panel, .engineering-app :is(.masthead, .intro, .mode-banner, .form-panel, .report-panel, .page-footer) { background: rgba(16,25,39,.88); }
+  .glass-panel, .engineering-app :is(.masthead, .intro, .mode-banner, .form-panel, .report-panel, .page-footer) { background: rgba(255,253,247,.9); }
 }
 @media (max-width: 900px) {
   .engineering-app { padding: 12px; }
@@ -162,4 +183,7 @@ select option { background: #1a2738; color: #fff; }
   .scene-atrium.with-panels .atrium-map { display: none; }
   .atrium-empty { left: 12px; right: 12px; bottom: 126px; max-width: none; }
 }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .engineering-app :is(button, textarea, input, select) { transition: none; }
+}

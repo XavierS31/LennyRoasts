@@ -27,6 +27,14 @@ Integration checks: production build/typecheck, five adapter/navigation tests, r
 
 ## Local development
 
+### Sunset sky and clear glass
+
+The exterior uses a local [sunset sky asset](public/assets/engineering/sunset-sky.webp), with teal, gold and peach clouds inspired by the supplied references. Its [generation prompt and provenance](public/assets/engineering/sunset-sky.md) are saved beside it. A gradient remains visible while the image loads and when WebGL is unavailable. The exterior canvas is transparent; warm sunlight and peach distance fog blend the existing campus into the sky. Atrium and auditorium backgrounds retain their own lighting.
+
+Panels use pale translucent glass with blur, bright edges and dark ink. Inputs, scene controls, the logo and in-scene score labels follow the same readable palette. Atrium and auditorium glass has more opacity to maintain contrast over darker interiors; browsers without backdrop blur get a light opaque fallback. The API, form content and evaluation behavior remain unchanged.
+
+Verified at 1440 × 900 and 390 × 844: sunset/cloud framing, pale glass, readable logo/input/report text, mock sample → submit/poll → Engineering II entry → five-category report (including the ineligible Game result), return to Exterior with the idea retained, one canvas and no horizontal document overflow. Rounded clipping contains the backdrop blur over the moving canvas. Production build/typecheck, all eleven existing tests and generated-contract drift checks pass. Verification uses the existing development mock service, not live Qwen/Neon results. The existing large Three.js chunk advisory remains.
+
 From this folder:
 
 ```sh

@@ -37,17 +37,17 @@ function scoreLabel(name: string, score: number) {
   canvas.height = 128;
   const context = canvas.getContext("2d");
   if (!context) return null;
-  context.fillStyle = "rgba(14, 20, 28, .66)";
+  context.fillStyle = "rgba(255, 253, 247, .86)";
   context.fillRect(0, 0, 512, 128);
-  context.strokeStyle = "rgba(255,255,255,.4)";
+  context.strokeStyle = "rgba(255,255,255,.8)";
   context.strokeRect(1, 1, 510, 126);
-  context.fillStyle = "#ffffff";
+  context.fillStyle = "#192f38";
   context.font = "28px Bagnard, Georgia, serif";
   context.textAlign = "center";
   // Plain text only: user/model strings never become markup or executable code.
   const shortName = Array.from(name).slice(0, 24).join("");
   context.fillText(shortName, 256, 48, 480);
-  context.fillStyle = "#ffe18b";
+  context.fillStyle = "#70401d";
   context.font = "36px Bagnard, Georgia, serif";
   context.fillText(`${score.toFixed(1)} / 10`, 256, 100);
   const texture = new THREE.CanvasTexture(canvas);
@@ -81,15 +81,17 @@ export default function EngineeringScene({
     if (!host) return;
     let renderer: THREE.WebGLRenderer;
     try {
-      renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: kind === "campus" });
     } catch {
       setError("The 3D view is unavailable on this device. Your form and API report still work.");
       return;
     }
     setError(undefined);
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(kind === "campus" ? 0xabc5d8 : kind === "atrium" ? 0xc9dce0 : 0x08080a);
-    scene.fog = new THREE.Fog(scene.background, 110, 190);
+    // A CSS sky stays crisp across camera presets and provides a no-WebGL backdrop.
+    scene.background = kind === "campus" ? null : new THREE.Color(kind === "atrium" ? 0xc9dce0 : 0x08080a);
+    scene.fog = new THREE.Fog(kind === "campus" ? 0xf3c5a6 : kind === "atrium" ? 0xc9dce0 : 0x08080a, 110, 190);
+    if (kind === "campus") renderer.setClearColor(0x000000, 0);
     const camera = new THREE.PerspectiveCamera(kind === "atrium" ? 64 : 42, 1, 0.1, 400);
     const start = kind === "campus" ? new THREE.Vector3(68, 45, 72)
       : kind === "atrium" ? new THREE.Vector3(...atriumViews.overview.position) : new THREE.Vector3(0, 24, 54);
@@ -108,8 +110,8 @@ export default function EngineeringScene({
     controls.maxDistance = kind === "atrium" ? 100 : 125;
     controls.maxPolarAngle = kind === "atrium" ? Math.PI * .72 : Math.PI / 2.05;
     controls.screenSpacePanning = true;
-    scene.add(new THREE.HemisphereLight(0xe6f3ff, 0x202018, kind === "atrium" ? 1.7 : 2.4));
-    const sun = new THREE.DirectionalLight(0xfff1d2, kind === "atrium" ? 2.4 : 4);
+    scene.add(new THREE.HemisphereLight(kind === "campus" ? 0xd9eeed : 0xe6f3ff, kind === "campus" ? 0x665044 : 0x202018, kind === "atrium" ? 1.7 : 2.4));
+    const sun = new THREE.DirectionalLight(kind === "campus" ? 0xffd9b0 : 0xfff1d2, kind === "atrium" ? 2.4 : 4);
     sun.position.set(34, 60, 20);
     sun.castShadow = true;
     sun.shadow.mapSize.set(2048, 2048);
@@ -366,7 +368,7 @@ export default function EngineeringScene({
     return () => { cancelled = true; };
   }, [kind, result, projectName, selectedMarker]);
 
-  return <div className="engineering-scene" ref={mount} aria-label={`${kind === "campus" ? "UCF Engineering I and II exterior" : kind === "atrium" ? "Engineering atrium" : "Auditorium"} 3D scene`}>
+  return <div className={`engineering-scene engineering-scene-${kind}`} ref={mount} aria-label={`${kind === "campus" ? "UCF Engineering I and II exterior" : kind === "atrium" ? "Engineering atrium" : "Auditorium"} 3D scene`}>
     {error && <p className="scene-fallback glass-panel" role="status">{error}</p>}
   </div>;
 }

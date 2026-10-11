@@ -1,0 +1,7 @@
+# Sunset sky asset
+
+Generated with the built-in `image_gen` tool from the user's sunset references. The selected 1672 × 941 PNG was encoded as `sunset-sky.webp` (quality 88, 148,566 bytes). This is decorative artwork, not a photograph of the campus. No new runtime dependency or external image request is needed.
+
+## Generation prompt
+
+Use case: photorealistic-natural. Asset type: high resolution wide background sky texture behind an interactive 3D university campus. Create one landscape 16:9 photograph of a beautiful sunset sky. At the very top deep soft teal blue transitions gradually through turquoise and pale mint in the upper half into buttery ivory sunlight, then glowing golden apricot, warm peach and muted coral at the lower edge. Sun glow slightly right of center near the bottom, soft rather than blown out. Fine wispy cirrus streaks stretch diagonally across the open central sky. Scattered delicate cumulus clouds along upper left and upper right, with a few larger soft peach pink clouds on the right and lower left illuminated on the underside by sunset light. Match the feeling of real tropical Florida evening sky, luminous and airy, naturally detailed, atmospheric photography, subtle cloud shadows in desaturated blue grey. Only sky all the way to the edges: no land, no water, no landscape, no horizon silhouette, no buildings, no trees, no UI, no text, no logos, no watermark. Refined natural palette, not oversaturated, avoid purple. Keep central area open and airy so it works as a backdrop. High-resolution 2048x1152 or larger.
