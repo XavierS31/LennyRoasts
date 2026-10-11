@@ -385,16 +385,31 @@ fieldset {
   line-height: 1.45;
 }
 
-.write-up-fields {
-  margin-top: 24px;
-  padding-top: 23px;
-  border-top: 1px solid var(--line);
+.idea-field textarea {
+  min-height: 300px;
+  padding: 16px;
+  font-size: 15px;
+  line-height: 1.7;
 }
 
 .challenge-picker {
-  margin-top: 26px;
-  padding-top: 23px;
+  margin-top: 22px;
+  padding-top: 18px;
   border-top: 1px solid var(--line);
+}
+
+.challenge-picker > summary {
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.challenge-picker > summary .required-label {
+  margin-left: 8px;
+}
+
+.challenge-picker[open] > summary {
+  margin-bottom: 14px;
 }
 
 .challenge-picker-heading h3 {

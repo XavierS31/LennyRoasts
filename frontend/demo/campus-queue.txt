@@ -1,0 +1,9 @@
+Campus Queue
+
+Students often arrive at a campus shuttle stop without knowing whether the bus is late, full, or just around the corner. I want to build a simple page that turns confusing route data into a useful answer: should I wait here, walk to another stop, or find another way to class?
+
+A student would choose a stop and ask a question like, "Can I make my 10:30 class if I wait here?" The app would show a route summary and use Gemini to explain the options in plain language, grounded in the available arrival times and occupancy estimates. It would show which data informed the answer and say when the information is too uncertain to make a recommendation.
+
+For the hackathon, I would keep the first demo small: one campus route, a sample CSV with arrival times and occupancy estimates, and three realistic student questions. A React page would send the selected stop and question to a Python API. The API would calculate the route summary, pass only those facts to Gemini, and return an explanation with its supporting data. I would test an ordinary arrival, a full bus, and missing data so the app does not invent an ETA.
+
+This is an idea, not an implemented app. The first thing I would build is the CSV-to-route-summary flow, then add the grounded explanations. Live GPS feeds, notifications, and personalized walking routes would come later. The intended difference from a basic arrival board is helping a student make a decision, rather than just showing a countdown.
