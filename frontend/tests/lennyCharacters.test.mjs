@@ -4,17 +4,29 @@ import * as THREE from "three";
 import { addLennyCharacters } from "../src/components/engineering/lennyCharacters.ts";
 import { lennyPresenter, lennySponsors, sponsorLennyHeight } from "../src/components/engineering/lennyLayout.ts";
 
-function fixture(kind) {
+function fixture(kind, sponsor) {
   const pending = [];
   const load = mock.method(THREE.TextureLoader.prototype, "load", (url, ready) => {
     const texture = new THREE.Texture();
     pending.push({ url, texture, ready }); return texture;
   });
   const scene = new THREE.Scene();
-  const controller = addLennyCharacters(scene, kind);
+  const controller = addLennyCharacters(scene, kind, sponsor);
   load.mock.restore();
   return { scene, controller, pending, hosts: scene.children[0].children };
 }
+
+test("a classroom has one correctly branded Lenny at student scale, without a trophy", () => {
+  for (const sponsor of lennySponsors) {
+    const { scene, hosts, pending } = fixture("classroom", sponsor.id);
+    assert.equal(hosts.length, 1);
+    assertSolid(hosts[0], .03, 2.35);
+    assert.deepEqual(pending.map(({ url }) => url), [`/assets/lenny/logos/${sponsor.id}.png`]);
+    assert.ok(hosts[0].getObjectByName(`${sponsor.id} shirt print`));
+    assert.equal(hosts[0].getObjectByName("Gold award trophy"), undefined);
+    release(scene);
+  }
+});
 
 function release(scene) {
   const geometries = new Set(), materials = new Set(), textures = new Set();
