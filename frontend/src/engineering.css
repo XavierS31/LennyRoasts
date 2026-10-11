@@ -174,4 +174,9 @@ select option { background: #1a2738; color: #fff; }
   .ballroom-caption p { margin-bottom: 0; }
   .ballroom-caption small { display: none; }
 }
+@media (max-width: 480px) {
+  .scene-campus .scene-navigation { bottom: 160px; }
+  .scene-campus .camera-controls { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .scene-campus .camera-controls button { min-height: 34px; padding: 6px; font-size: 11px; }
+}
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
