@@ -946,7 +946,7 @@ export default function App() {
               <details
                 id="sponsor-challenges"
                 className="challenge-picker"
-                open={errors.challenges ? true : undefined}
+                open
                 aria-labelledby="sponsor-heading"
                 aria-describedby={errors.challenges ? "error-challenges" : undefined}
               >
