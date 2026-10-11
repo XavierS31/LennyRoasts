@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
+import { readFileSync } from "node:fs";
 import * as THREE from "three";
 import { agentRoster } from "../src/components/engineering/agentRoster.ts";
 import { ballroomCapacity, ballroomSeat, winnerRoute, routePosition, createAwardsAudience, CEREMONY_SECONDS } from "../src/components/engineering/awardsAgents.ts";
@@ -42,7 +43,9 @@ test("the selected mesh keeps its appearance, collects the prize, leaves, and sk
 });
 
 test("ceremonies retain API identities and ratings and confirm only fully top-three placement ranges", () => {
-  assert.deepEqual(ceremonyCategories.map((category) => category.id), ["gemini", "elevenlabs", "overall", "databricks", "bny"]);
+  assert.deepEqual(ceremonyCategories.map((category) => category.id), ["gemini", "elevenlabs", "databricks", "bny", "overall", "best_ai", "best_game", "most_useful"]);
+  const contract = JSON.parse(readFileSync(new URL("../../contracts/openapi.json", import.meta.url), "utf8"));
+  assert.deepEqual(ceremonyCategories.map((category) => category.id).sort(), [...contract.components.schemas.ChallengeId.enum].sort(), "Every API category gets a ceremony; unsupported categories cannot enter the sequence");
   const rivals = [{ project_id: "a", score_10: 9 }, { project_id: "b", score_10: 8.5 }, { project_id: "c", score_10: 8 }];
   assert.deepEqual(ceremonyLeaders({ rivals }), [rivals[2], rivals[1], rivals[0]]);
   assert.equal(rivals[0].project_id, "a"); assert.deepEqual(ceremonyLeaders(undefined), []);
