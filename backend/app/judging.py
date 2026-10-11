@@ -33,6 +33,8 @@ class JudgeFailure(LiveScoringNotReady):
 
 def parse_response(response, schema_name):
     try:
+        if response.get('model') != 'Qwen/Qwen3-32B':
+            raise ValueError('Missing/unexpected model metadata')
         choice = response['choices'][0]
         if choice['finish_reason'] != 'stop':
             raise ValueError('Incomplete output')
@@ -123,9 +125,12 @@ async def _score(submission, challenge_ids, judge_config):
                     else:
                         try:
                             body = response.json()
+                            if not isinstance(body, dict): body = {}
                         except ValueError:
                             body = {}
                         save_diagnostic(identifier, cid, run, attempt, body, judge_config)
+                        if body.get('model') is not None and body['model'] != judge_config['model']:
+                            raise JudgeFailure('Provider returned an unexpected model; scoring was refused.')
                         try:
                             return parse_response(body, name)
                         except JudgeFailure:

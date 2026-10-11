@@ -2,7 +2,9 @@
 
 `judge_config.json` is complete and contract-valid for all eight categories. It is **provisional**, awaiting Dev1 prompt review and bounded live validation. Do not cache the field until human owners approve the prompts and freeze a new judge version (remove the provisional suffix by creating a new config, never rewriting an imported version). All reference arrays are empty because no reviewed reference examples have been supplied.
 
-The prompts use Dev1's collected KH IX briefs, including funny/goofy Most “Useful”, gameplay requirements for Best Game, and financial-services fit for BNY. Human handoff: Dev1 reviews all eight prompts and confirms reference availability; Dev2 freezes the accepted config before Dev1 scores the ten accepted projects.
+Current provisional version: `kh9-qwen32b-v2-provisional`; prompt/rubric v2 aligns the exact plan originality anchors, rare Wow defaults, 36-hour plausibility and completion-independent fit. Its canonical hash is `48a9e1bae9110bb414230454106245fea53e84f3987f138e390e9d5ba3d1562f`. This replaces the v1 provisional config before any field caching.
+
+The prompts use Dev1's collected KH IX briefs, including funny/goofy Most “Useful”, gameplay requirements for Best Game, and financial-services fit for BNY. Human handoff ([issue #10](https://github.com/XavierS31/LennyRoasts/issues/10)): Dev1 reviews all eight prompts and confirms reference availability; Dev2 freezes the accepted config before Dev1 scores the ten accepted projects.
 
 Frozen protocol: Hugging Face router, exact `Qwen/Qwen3-32B:deepinfra` selector, schema output, 0.2 temperature, 1,200 tokens, `/no_think`, three validated independent runs. Raw response schemas are the contract's OverallJudgeResponse and CategoryJudgeResponse. The exact schemas are also embedded in each prompt so contract/schema changes change the config hash. No JSON repair or provider/model fallback.
 

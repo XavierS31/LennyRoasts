@@ -18,7 +18,7 @@ def raw(overall=False, relevance=3):
 
 
 def response(value, finish='stop'):
-    return {'choices': [{'finish_reason': finish, 'message': {'content': json.dumps(value)}}]}
+    return {'model': 'Qwen/Qwen3-32B', 'choices': [{'finish_reason': finish, 'message': {'content': json.dumps(value)}}]}
 
 
 def install_transport(monkeypatch, handler):
@@ -70,7 +70,7 @@ def test_retry_invalid_then_success(monkeypatch):
     calls=[]
     def handler(request):
         calls.append(1)
-        return httpx.Response(200,json={} if len(calls)<=3 else response(raw(True)))
+        return httpx.Response(200,json={'model':'Qwen/Qwen3-32B'} if len(calls)<=3 else response(raw(True)))
     install_transport(monkeypatch, handler)
     result=asyncio.run(judging.score_submission(FIXTURES['request']['submission'], ['overall'],load_config()))
     assert len(calls)==6 and len(result)==1
@@ -90,4 +90,32 @@ def test_permanent_failure_stops_without_retry(monkeypatch):
 def test_mock_config_rejected():
     config=load_config();config['judge_version']='mock-pretend-live'
     with pytest.raises(ValueError):
+        asyncio.run(judging.score_submission(FIXTURES['request']['submission'],['overall'],config))
+
+
+def test_unexpected_model_is_permanent(monkeypatch):
+    calls=[]
+    def handler(request):
+        calls.append(1);data=response(raw(True));data['model']='another-model'
+        return httpx.Response(200,json=data)
+    install_transport(monkeypatch,handler)
+    with pytest.raises(judging.JudgeFailure,match='unexpected model'):
+        asyncio.run(judging.score_submission(FIXTURES['request']['submission'],['overall'],load_config()))
+    assert len(calls)<=3
+
+
+def test_invalid_provider_json_exhausts_bounded_retries(monkeypatch):
+    calls=[]
+    def handler(request):
+        calls.append(1)
+        return httpx.Response(200,content=b'{truncated')
+    install_transport(monkeypatch,handler)
+    with pytest.raises(judging.JudgeFailure):
+        asyncio.run(judging.score_submission(FIXTURES['request']['submission'],['overall'],load_config()))
+    assert len(calls)==9  # 3 runs, at most 3 attempts each; no partial publication.
+
+
+def test_raw_schema_is_part_of_frozen_config():
+    config=load_config();config['prompts']['overall']+=' changed-schema'
+    with pytest.raises(ValueError,match='schema differs'):
         asyncio.run(judging.score_submission(FIXTURES['request']['submission'],['overall'],config))
