@@ -1,0 +1,55 @@
+{
+  "project_id": "kh9-smoke-t033",
+  "team_id": "t033",
+  "submission": {
+    "name": "Campus Cushion",
+    "tagline": "Turn everyday spending into a small buffer for student costs.",
+    "inspiration": "Small expenses can make it hard for students to set money aside, even when they want to prepare for upcoming costs. We adapted round-up saving into a tool aimed at building a modest buffer for predictable campus expenses.",
+    "what_it_does": "Campus Cushion reads sample transaction data, rounds purchases up to the next dollar, and totals the difference as savings for a chosen expense such as books or transit. Gemini summarizes spending patterns and suggests a possible adjustment, while the dashboard shows the savings amount and a simulated wallet transfer.",
+    "how_we_built_it": "A FastAPI service processes transaction records and calculates round-ups, while a React interface presents totals and Gemini-generated explanations. We used the Solana SDK to demonstrate a devnet transfer flow and Nessie sample banking data for transactions.",
+    "challenges_we_ran_into": "We had to keep the money calculations consistent across transaction processing and the wallet display, especially for very small amounts. The demo flow works end to end with sample data, but the savings suggestions can be too broad when the transaction history is sparse.",
+    "accomplishments": "We connected sample banking data, round-up calculations, a Gemini explanation, and a simulated wallet transfer in one working flow. We’re proud that the dashboard shows both the amount set aside and the spending pattern behind it.",
+    "what_we_learned": "We learned that AI summaries are more useful when grounded in a clear transaction breakdown, and that monetary values need precise handling through every step. We also gained experience connecting a financial data flow to a blockchain demo.",
+    "whats_next": "We’d add goal tracking for recurring campus costs and more useful monthly projections. We’d also improve the suggestions for short or incomplete transaction histories.",
+    "built_with": [
+      "fastapi",
+      "gemini",
+      "javascript",
+      "nessie",
+      "python",
+      "react",
+      "solana"
+    ],
+    "challenges": [
+      "bny",
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--sparesense"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/sparesense"
+  ],
+  "primary_pool": "bny",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "ai_ml",
+    "completion": "polished",
+    "writing_style": "terse"
+  },
+  "fit": {
+    "bny": "strong",
+    "gemini": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009033,
+  "batch_id": "b010",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.6974552675439547,
+    "field": 0.48314092060554326
+  },
+  "created_at": "2026-10-11T00:48:36+00:00"
+}

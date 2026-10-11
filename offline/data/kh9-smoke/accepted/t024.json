@@ -1,0 +1,54 @@
+{
+  "project_id": "kh9-smoke-t024",
+  "team_id": "t024",
+  "submission": {
+    "name": "Workshop Dash",
+    "tagline": "Race to spot a lab hazard, with a physical controller that brings the game into your hands.",
+    "inspiration": "We like quick competitive games and wanted to make a workshop safety scenario feel more interactive than a quiz. A handheld controller seemed like a fun way to connect simple physical movement to decisions on screen.",
+    "what_it_does": "Two players compete to identify and respond to hazards in a fictional campus workshop. A thick card-shaped controller sends movement and button input to a Godot game, while Gemini provides brief flavor text and alternate descriptions for a round. A small Databricks notebook summarizes the round event log to show which hazard prompts came up most often.",
+    "how_we_built_it": "The game is built in Godot, with a Raspberry Pi and microcontroller sending serial input through a Python bridge over UDP. Godot uses that input to move each player and trigger actions, while a small Gemini call supplies optional round text. We exported round events to a Databricks notebook for a basic count summary; that analysis is separate from the live controls.",
+    "challenges_we_ran_into": "Serial data conversion and controller drivers were difficult to keep stable, and the UDP connection occasionally drops inputs. The game does run end-to-end, but one controller can disconnect after repeated rounds and the animations still look rough. The Databricks piece is only a small post-round summary, not part of the gameplay loop.",
+    "accomplishments": "We are proud that physical controller actions can affect a playable head-to-head game. We also got a basic event export and summary working alongside the prototype.",
+    "what_we_learned": "We learned how much coordination it takes to move input across hardware, Python, and Godot without losing timing. Gemini was useful for short bits of generated flavor, while the Databricks exercise helped us see how simple event logs can become a game balancing clue.",
+    "whats_next": "We would make controller reconnection more reliable and improve the game feedback for missed inputs. We would also use the round summaries to tune hazard pacing and add more workshop scenarios.",
+    "built_with": [
+      "databricks",
+      "gemini",
+      "godot",
+      "python",
+      "raspberry-pi",
+      "udp"
+    ],
+    "challenges": [
+      "gemini",
+      "databricks"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--the-final-draw"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/the-final-draw"
+  ],
+  "primary_pool": "general",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "game_dev",
+    "completion": "shaky",
+    "writing_style": "average"
+  },
+  "fit": {
+    "gemini": "medium",
+    "databricks": "weak"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009024,
+  "batch_id": "b008",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.3469638387781413,
+    "field": 0.5765301064740339
+  },
+  "created_at": "2026-10-11T00:47:52+00:00"
+}

@@ -1,0 +1,378 @@
+{
+  "project_id": "kh9-smoke-t107",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "bny",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 16,
+      "max_total": 25,
+      "score_10": 6.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "Invoice Pantry addresses a meaningful financial process improvement for small teams with a practical bill tracking system, using a React/Node stack and explainable prioritization logic, though voice input and workflow integration remain incomplete.",
+      "evidence": {
+        "originality": "We wanted to make routine bill tracking less scattered for student organizations",
+        "tech_understanding": "We made a web app with a React interface and a Node backend, using MongoDB",
+        "functionality": "The demo does not work end-to-end: the bill list and ranking can run separately",
+        "wow": "We are proud that the ranking makes its reasoning visible instead of presenting",
+        "relevance": "Invoice Pantry lets a user enter bills, due dates, and a few payment preferences"
+      },
+      "warnings": [
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect voice entry to persistent bill records for end-to-end workflow",
+        "Add shared access for group collaboration as planned in 'whats_next'",
+        "Explain the prioritization algorithm's tradeoffs in the 'how_we_built_it' section"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 12,
+      "max_total": 20,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project shows a clear component/data flow with decisions but has a partial working core with limitations in voice entry integration.",
+      "evidence": {
+        "originality": "Sort upcoming bills into a practical next step for a small finance team.",
+        "tech_understanding": "A scoring flow uses due dates and entered constraints to rank bills",
+        "functionality": "not described",
+        "wow": "Invoice Pantry lets a user enter bills, due dates, and a few payment preferences"
+      },
+      "warnings": [
+        "Run 0: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Improve voice transcription reliability for amount and date parsing",
+        "Connect review flow to persistent bill records for end-to-end functionality",
+        "Add shared access for group treasurer with real payment workflow testing"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project uses a meaningful ML model for bill prioritization but lacks central AI behavior; core features work separately with some limitations.",
+      "evidence": {
+        "originality": "It can suggest a simple payment order and show the reason behind each suggestion",
+        "tech_understanding": "A scoring flow uses due dates and entered constraints to rank bills",
+        "functionality": "The demo does not work end-to-end: the bill list and ranking can run separately",
+        "wow": "We are proud that the ranking makes its reasoning visible instead of presenting a payment order without context",
+        "relevance": "Gemini helped us explore ways to summarize why a bill was surfaced"
+      },
+      "warnings": [
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate the voice entry with bill saving to create a working end-to-end flow",
+        "Add detailed explanations of how the AI model makes prioritization decisions",
+        "Implement shared group access and test the ranking against real payment workflows"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 2.3333333333333335,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 10.333333333333334,
+      "max_total": 25,
+      "score_10": 4.133333333333334,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission describes a finance management tool with game-like features but lacks core gameplay elements.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We made a web app with a React interface and a Node backend, using MongoDB for group, bill, and preference data.",
+        "functionality": "The demo does not work end-to-end: the bill list and ranking can run separately, but voice entry and saving a reviewed",
+        "wow": "not described",
+        "relevance": "Invoice Pantry lets a user enter bills, due dates, and a few payment preferences, then highlights what needs attention"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add core gameplay elements like rules, challenges, and win/loss conditions to transform the finance tool into a game."
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 2.6666666666666665,
+        "tech_understanding": 3.3333333333333335,
+        "functionality": 3,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 12,
+      "max_total": 25,
+      "score_10": 4.8,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project addresses a practical need with a functional app but lacks a goofy or humorous concept, leading to low wow and relevance scores.",
+      "evidence": {
+        "originality": "We wanted to make routine bill tracking less scattered",
+        "tech_understanding": "We made a web app with a React interface and a Node backend",
+        "functionality": "not described",
+        "wow": "not described",
+        "relevance": "It is easy to lose track of which expenses are due soon"
+      },
+      "warnings": [
+        "Run 0: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a humorous twist to the bill tracking concept to increase relevance to the funny/goofy category",
+        "Improve the integration between voice entry and bill saving to enhance functionality",
+        "Document the technical decisions and tradeoffs in the scoring flow to increase technical understanding"
+      ]
+    }
+  ]
+}

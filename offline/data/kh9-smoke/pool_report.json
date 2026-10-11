@@ -1,0 +1,311 @@
+{
+  "field_id": "kh9-smoke",
+  "generated_at": "2026-10-11T01:38:38+00:00",
+  "teams_sampled": 109,
+  "status": {
+    "skipped": 3,
+    "accepted": 106
+  },
+  "accepted_field_size": 106,
+  "skipped": [
+    {
+      "team_id": "t001",
+      "reason": "failed 3 attempts"
+    },
+    {
+      "team_id": "t003",
+      "reason": "failed 3 attempts"
+    },
+    {
+      "team_id": "t059",
+      "reason": "failed 3 attempts"
+    }
+  ],
+  "teams_per_challenge": {
+    "elevenlabs": 45,
+    "bny": 43,
+    "overall": 106,
+    "best_ai": 106,
+    "best_game": 106,
+    "most_useful": 106,
+    "gemini": 51,
+    "databricks": 30
+  },
+  "seeds_used_per_pool": {
+    "bny": 15,
+    "databricks": 12,
+    "elevenlabs": 15,
+    "gemini": 13,
+    "general": 20
+  },
+  "seed_uses": {
+    "swamphacks-xi--cue-jv57fh": 1,
+    "hackusf-2026--katchef": 3,
+    "swamphacks-xi--gator-spot-frenzy": 3,
+    "swamphacks-xi--plainspeak-u174s8": 1,
+    "swamphacks-xi--ball-don-t-lie": 2,
+    "swamphacks-xi--bike-buddy-8j9kg6": 2,
+    "hackusf-2026--smart-interview": 2,
+    "shellhacks2024--fraudguard-3gxd0w": 1,
+    "swamphacks-xi--angel-on-your-desk": 2,
+    "hackthenorth2025--finlake": 1,
+    "swamphacks-xi--card-compass": 2,
+    "hackusf-2026--formcoach-uj5yst": 1,
+    "swamphacks-xi--clothing-clues": 3,
+    "swamphacks-xi--mapp-lrchui": 2,
+    "swamphacks-xi--pair-screen-sharing-app": 2,
+    "hackusf-2026--safely-398y1j": 1,
+    "swamphacks-xi--aegis-axf8et": 2,
+    "shellhacks2024--lingualeap": 2,
+    "swamphacks-xi--strugglemeals-8z9kby": 2,
+    "swamphacks-xi--replot": 1,
+    "hacklytics-2026--visiun": 1,
+    "swamphacks-xi--agent-agent-fg28e9": 1,
+    "hackusf-2026--responseone": 1,
+    "swamphacks-xi--the-final-draw": 3,
+    "swamphacks-xi--improvigator": 2,
+    "shellhacks2024--baitblock-8ti7d2": 2,
+    "swamphacks-xi--nexsetu": 2,
+    "swamphacks-xi--community-compass-rmojbk": 2,
+    "swamphacks-xi--talk2doc-eu9fl0": 1,
+    "hacklytics-2026--aidsignal": 2,
+    "swamphacks-xi--splash-l3sgun": 3,
+    "swamphacks-xi--one-3pymti": 2,
+    "swamphacks-xi--project-c1nomzfei7a0": 1,
+    "hackusf-2026--signbridge-ba4imv": 1,
+    "swamphacks-xi--sparesense": 2,
+    "hackusf-2026--cooked-m9206r": 1,
+    "swamphacks-xi--smart_ptr": 2,
+    "hackusf-2026--notus-r8uont": 1,
+    "swamphacks-xi--creditwise-j9tduq": 2,
+    "swamphacks-xi--swampmaker": 2,
+    "swamphacks-xi--zettle": 2,
+    "hackusf-2026--reverse-phst5o": 2,
+    "hackusf-2026--preqly": 1,
+    "swamphacks-xi--blast-ois-object-identification-system": 1,
+    "hackusf-2026--pantheon-rhemfw": 2,
+    "swamphacks-xi--swampy-the-crocodile": 2,
+    "swamphacks-xi--koalakite": 2,
+    "hackusf-2026--litlens": 2,
+    "hacklytics-2026--arbittron": 1,
+    "shellhacks2024--fraud-guard": 1,
+    "swamphacks-xi--financeflow-cvl2hf": 2,
+    "hackusf-2026--the-surge-usf": 1,
+    "hacklytics-2026--meredith-2dv74r": 2,
+    "hackusf-2026--recall-oswlh3": 1,
+    "swamphacks-xi--bill-y-the-investo-gator": 2,
+    "swamphacks-xi--finfluence-5y7wo1": 2,
+    "swamphacks-xi--baby-quant": 2,
+    "swamphacks-xi--arise-d3k0ap": 1,
+    "hackharvard-2024--hackenzyme": 2,
+    "swamphacks-xi--noma-t0ysng": 2,
+    "hackusf-2026--asl-to-tts": 1,
+    "swamphacks-xi--carianadvisors": 2,
+    "swamphacks-xi--stabilityquest": 2,
+    "hackusf-2026--eppec-employee-personal-protection-equipment-checker": 1,
+    "hacklytics-2026--sentinel-xeiwj7": 1,
+    "swamphacks-xi--l-earning": 1,
+    "swamphacks-xi--cut-p64i2u": 3,
+    "swamphacks-xi--live-translation-extension": 1,
+    "hackusf-2026--dispatch-3cdaye": 1,
+    "hackthenorth2024--kitchenvision": 1,
+    "hackharvard-2024--albatross": 2,
+    "hackharvard-2024--educrate": 1,
+    "hackthenorth2024--planetshare": 1,
+    "swamphacks-xi--move-your-joints": 2,
+    "hackthenorth2025--langsketch": 1
+  },
+  "mutation_mix": {
+    "medium": 37,
+    "light": 51,
+    "heavy": 18
+  },
+  "completion_mix": {
+    "shaky": 34,
+    "partial": 32,
+    "polished": 22,
+    "broken": 18
+  },
+  "writing_style_mix": {
+    "terse": 39,
+    "average": 48,
+    "detailed": 19
+  },
+  "skill_focus_mix": {
+    "hardware": 13,
+    "mobile": 10,
+    "game_dev": 11,
+    "web": 36,
+    "ai_ml": 27,
+    "data": 9
+  },
+  "fit_mix": {
+    "strong": 82,
+    "medium": 56,
+    "weak": 31
+  },
+  "attempts_used_by_accepted": {
+    "1": 96,
+    "2": 9,
+    "3": 1
+  },
+  "rejections": [
+    {
+      "team_id": "t001",
+      "batch_id": "b001",
+      "problems": [
+        "review: databricks fit is strong but Databricks is described as an optional run-log store, not central"
+      ]
+    },
+    {
+      "team_id": "t001",
+      "batch_id": "b003",
+      "problems": [
+        "review: databricks fit is strong but Databricks is still an optional run-record dashboard"
+      ]
+    },
+    {
+      "team_id": "t001",
+      "batch_id": "b004",
+      "problems": [
+        "review: third attempt: Databricks still a secondary analytics add-on despite strong fit"
+      ]
+    },
+    {
+      "team_id": "t003",
+      "batch_id": "b001",
+      "problems": [
+        "review: elevenlabs fit is strong but ElevenLabs is described as a separate small feature"
+      ]
+    },
+    {
+      "team_id": "t003",
+      "batch_id": "b003",
+      "problems": [
+        "review: elevenlabs fit is strong but ElevenLabs is still a separate playback experiment"
+      ]
+    },
+    {
+      "team_id": "t003",
+      "batch_id": "b004",
+      "problems": [
+        "review: third attempt: ElevenLabs still a separate demo step despite strong fit"
+      ]
+    },
+    {
+      "team_id": "t004",
+      "batch_id": "b001",
+      "problems": [
+        "review: medium mutation kept the seed's problem (meals from food on hand); only the setting changed"
+      ]
+    },
+    {
+      "team_id": "t005",
+      "batch_id": "b001",
+      "problems": [
+        "review: medium mutation kept the seed's concept (racing to a campus parking/loading spot)"
+      ]
+    },
+    {
+      "team_id": "t016",
+      "batch_id": "b006",
+      "problems": [
+        "inspiration: 4 sentences outside terse bounds 1-3",
+        "what_it_does: 4 sentences outside terse bounds 1-3",
+        "how_we_built_it: 4 sentences outside terse bounds 1-3"
+      ]
+    },
+    {
+      "team_id": "t017",
+      "batch_id": "b006",
+      "problems": [
+        "inspiration: 4 sentences outside terse bounds 1-3",
+        "what_it_does: 5 sentences outside terse bounds 1-3",
+        "how_we_built_it: 5 sentences outside terse bounds 1-3",
+        "challenges_we_ran_into: 5 sentences outside terse bounds 1-3",
+        "accomplishments: 4 sentences outside terse bounds 1-3"
+      ]
+    },
+    {
+      "team_id": "t031",
+      "batch_id": "b010",
+      "problems": [
+        "completion is broken but the write-up mentions nothing unfinished or unreliable"
+      ]
+    },
+    {
+      "team_id": "t043",
+      "batch_id": "b012",
+      "problems": [
+        "completion is partial but the write-up mentions nothing unfinished or unreliable"
+      ]
+    },
+    {
+      "team_id": "t059",
+      "batch_id": "b016",
+      "problems": [
+        "databricks fit is medium but built_with names none of ['databricks']"
+      ]
+    },
+    {
+      "team_id": "t059",
+      "batch_id": "b017",
+      "problems": [
+        "databricks fit is medium but built_with names none of ['databricks']"
+      ]
+    },
+    {
+      "team_id": "t059",
+      "batch_id": "b018",
+      "problems": [
+        "databricks fit is medium but built_with names none of ['databricks']"
+      ]
+    },
+    {
+      "team_id": "t067",
+      "batch_id": "b017",
+      "problems": [
+        "how_we_built_it: 4 sentences outside terse bounds 1-3"
+      ]
+    },
+    {
+      "team_id": "t067",
+      "batch_id": "b018",
+      "problems": [
+        "elevenlabs fit is medium but built_with names none of ['elevenlabs']"
+      ]
+    },
+    {
+      "team_id": "t071",
+      "batch_id": "b019",
+      "problems": [
+        "completion is shaky but the write-up mentions nothing unfinished or unreliable"
+      ]
+    },
+    {
+      "team_id": "t075",
+      "batch_id": "b020",
+      "problems": [
+        "completion is partial but the write-up mentions nothing unfinished or unreliable"
+      ]
+    },
+    {
+      "team_id": "t102",
+      "batch_id": "b025",
+      "problems": [
+        "what_it_does: 4 sentences outside terse bounds 1-3",
+        "how_we_built_it: 4 sentences outside terse bounds 1-3"
+      ]
+    }
+  ],
+  "max_seed_similarity": 0.7800662494380677,
+  "nearest_neighbor_similarity_histogram": {
+    "0.50-0.55": 1,
+    "0.55-0.60": 10,
+    "0.60-0.65": 18,
+    "0.65-0.70": 32,
+    "0.70-0.75": 22,
+    "0.75-0.80": 21,
+    "0.80-0.85": 2
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "project_id": "kh9-smoke-t014",
+  "team_id": "t014",
+  "submission": {
+    "name": "ShiftLedger",
+    "tagline": "Keep track of shift clothes, care notes, and the outfit you need for a workday.",
+    "inspiration": "For students balancing campus jobs and classes, getting ready for a shift can mean checking the weather, remembering a uniform detail, and figuring out when work clothes need washing. We borrowed the idea of a visual closet but aimed it at people who rotate a small set of work outfits. We wanted a quick way to organize those items and make mornings a little less guessy. We also saw a chance to make outfit planning useful for students preparing for interviews or service shifts.",
+    "what_it_does": "ShiftLedger lets users add clothing photos and label items for a job, interview, or campus event. A weather panel can show current conditions, while a separate outfit suggestion panel offers combinations from the saved items. Gemini is used for a small part of photo labeling, but those results do not reliably flow into the outfit suggestions yet. ElevenLabs can read a saved care note or reminder aloud. We also mocked a monthly clothing-spend summary to connect wardrobe planning with budgeting, though it is not linked to a bank account.",
+    "how_we_built_it": "We used React Native and Expo for the mobile screens, with on-device storage for saved clothing entries and image handling. The weather lookup feeds its own card, and Gemini photo labels appear in a separate inventory view. ElevenLabs reads care notes through a simple playback action. A basic budget summary screen is currently populated with sample entries rather than connected transactions. These components demonstrate the intended pieces, but they are not yet joined into one dependable recommendation flow.",
+    "challenges_we_ran_into": "The main issue was coordinating features that each worked on their own but shared different data shapes. Photo labels did not consistently match the categories expected by the outfit screen. Image sizing and mobile storage took time, and the weather panel could fail without a clear message. The BNY-related budget screen is only a mock, so it cannot provide real spending insights. Gemini's role is limited in this version, and its labels still need review.",
+    "accomplishments": "We built several working mobile screens for a closet inventory, local weather, and spoken care reminders. We are glad the project has a clear use case for students who need to prepare for work as well as class. We also made a first pass at connecting wardrobe choices with clothing costs. The demo shows the pieces we want to bring together, even though the full flow is unfinished.",
+    "what_we_learned": "We learned that separate features can look complete while still failing to share useful data. Mobile image handling also took more care than we expected. AI tools helped us draft the labeling prompt and get a basic voice playback working, but they did not solve the integration details. We need simpler shared data structures before adding more screens.",
+    "whats_next": "Next we would connect the inventory labels to outfit suggestions and make the app handle missing or uncertain labels clearly. We would replace the sample budget entries with an intentional manual spending tracker, without requiring bank access. We also want to add a reliable way to edit care notes and replay them. A later version could test whether the pieces save time during a real workweek.",
+    "built_with": [
+      "react-native",
+      "expo",
+      "javascript",
+      "css",
+      "gemini",
+      "elevenlabs",
+      "open-meteo"
+    ],
+    "challenges": [
+      "gemini",
+      "elevenlabs",
+      "bny"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--clothing-clues"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/clothing-clues"
+  ],
+  "primary_pool": "general",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "partial",
+    "writing_style": "detailed"
+  },
+  "fit": {
+    "gemini": "weak",
+    "elevenlabs": "medium",
+    "bny": "medium"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009014,
+  "batch_id": "b006",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.6885206356351188,
+    "field": 0.5749836033261804
+  },
+  "created_at": "2026-10-11T00:46:29+00:00"
+}

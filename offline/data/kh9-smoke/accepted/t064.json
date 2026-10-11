@@ -1,0 +1,54 @@
+{
+  "project_id": "kh9-smoke-t064",
+  "team_id": "t064",
+  "submission": {
+    "name": "FieldGuide Lens",
+    "tagline": "A first-pass visual guide to plant problems for community garden volunteers.",
+    "inspiration": "Community garden volunteers often have to decide what to do when a leaf or fruit looks unhealthy, but expert help may not be nearby. We wanted to make a phone-based reference that turns a photo and a few observations into clearer questions to bring to a local grower.",
+    "what_it_does": "The app lets a volunteer note the plant type, where the issue appears, and how long it has been visible, then take a guided photo. A sample image classifier is intended to suggest possible plant issues, while Gemini can combine that label with the answers into a plain-language summary and suggested next steps. It is a prototype for learning and triage, not an authoritative diagnosis, and the classifier and summary are not yet connected in the demo.",
+    "how_we_built_it": "We made the interface in React Native with Expo and TypeScript, using a camera guide to encourage a closer, well-lit photo. A Hugging Face image model is the planned source of candidate labels, and Gemini is meant to explain those labels alongside the volunteer's notes. The reason for splitting the work this way is to give the image model a narrow classification job and let Gemini handle the contextual explanation. During the weekend, the mobile flow and AI experiments worked separately, so results still need a reliable handoff between them.",
+    "challenges_we_ran_into": "Photo quality changed a lot with distance, shadows, and phone cameras, which made a single image hard to interpret consistently. We also spent time trying to make Gemini's wording useful without making a guess sound certain. Several screens and model calls remained disconnected, and merging changes between branches cost time.",
+    "accomplishments": "We built a working mobile shell with a guided capture flow and a place to show a contextual result. We are glad we narrowed the project to one practical garden question instead of trying to cover every plant or condition.",
+    "what_we_learned": "We learned how image classification and language models can serve different roles in a small app, and why passing structured information between them matters. Gemini helped us draft explanations, but we had to keep the output cautious and reviewable. We also got more practice optimizing photos and coordinating mobile work across branches.",
+    "whats_next": "We would connect the classifier output to the Gemini prompt and save prior observations so volunteers can compare changes over time. We would also want input from experienced growers and more varied plant photos before treating any suggestions as dependable.",
+    "built_with": [
+      "expo",
+      "gemini-api",
+      "huggingface",
+      "javascript",
+      "react-native",
+      "typescript"
+    ],
+    "challenges": [
+      "bny",
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--noma-t0ysng"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/noma-t0ysng"
+  ],
+  "primary_pool": "gemini",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "ai_ml",
+    "completion": "partial",
+    "writing_style": "detailed"
+  },
+  "fit": {
+    "bny": "medium",
+    "gemini": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009064,
+  "batch_id": "b017",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.5265699127485991,
+    "field": 0.6122648154698853
+  },
+  "created_at": "2026-10-11T00:52:03+00:00"
+}

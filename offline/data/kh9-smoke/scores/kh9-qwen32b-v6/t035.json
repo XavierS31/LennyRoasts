@@ -1,0 +1,304 @@
+{
+  "project_id": "kh9-smoke-t035",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3.3333333333333335,
+        "wow": 2
+      },
+      "total": 12.333333333333334,
+      "max_total": 20,
+      "score_10": 6.166666666666667,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project combines browser-based Python execution with structured debugging hints and coordination views, but multi-panel summaries lack agreement on key clues.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "Pyodide runs Python in a browser worker. We convert execution output into structured data for visualizations and Gemini",
+        "functionality": "built a working path from writing code to running tests, viewing a trace, and receiving a contextual hint",
+        "wow": "The coordination view gives users a way to compare different debugging clues without replacing the execution details"
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: wow evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add clearer coordination between specialist panels to resolve disagreements about key clues",
+        "Expand trace filtering to handle larger examples more effectively",
+        "Document the structured data format used for visualizations and Gemini prompts"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 16,
+      "max_total": 25,
+      "score_10": 6.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project integrates a browser-based Python debugger with Gemini hints and team coordination features, showing clear technical understanding but partial implementation of the multi-panel summaries.",
+      "evidence": {
+        "originality": "The coordination view gives users a way to compare different debugging clues without replacing the execution details.",
+        "tech_understanding": "We convert execution output into structured data for visualizations and Gemini prompts; the specialist panels are simple",
+        "functionality": "We built a working path from writing code to running tests, viewing a trace, and receiving a contextual hint.",
+        "wow": "We built a working path from writing code to running tests, viewing a trace, and receiving a contextual hint.",
+        "relevance": "The app uses Next.js with Monaco Editor, and Pyodide runs Python in a browser worker."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add explicit evidence of how Gemini model behavior influences the debugging hints and coordination suggestions",
+        "Implement clearer coordination mechanisms between the specialist panels as described in the 'whats_next' section",
+        "Document the structured data format used to convert execution output for model prompts and visualizations"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 15,
+      "max_total": 25,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The submission describes a browser-based tool for debugging Python code with visualizations and Gemini hints, which qualifies as a game-like experience with challenges and goals but lacks a clear gameplay loop.",
+      "evidence": {
+        "originality": "We wanted a browser tool that makes execution visible and adds a lightweight team-coordination idea",
+        "tech_understanding": "Pyodide runs Python in a browser worker. We convert execution output into structured data for visualizations and Gemini",
+        "functionality": "We built a working path from writing code to running tests, viewing a trace, and receiving a contextual hint",
+        "wow": "We learned that useful hints depend on structured runtime evidence, not just sending source code to a model",
+        "relevance": "Students can run Python problems in the browser, inspect variable changes and control flow, and get Gemini hints"
+      },
+      "warnings": [
+        "Run 2: wow evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a clear gameplay loop with win/loss conditions to enhance relevance as a game",
+        "Improve trace filtering and coordination between specialist panels for better functionality",
+        "Expand the problem set and explore execution views for additional languages to increase originality"
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project offers a useful debugging tool with structured data and coordination features but lacks a goofy or humorous concept as required by the category.",
+      "evidence": {
+        "originality": "We built a working path from writing code to running tests, viewing a trace, and receiving a contextual hint.",
+        "tech_understanding": "The app uses Next.js with Monaco Editor, and Pyodide runs Python in a browser worker.",
+        "functionality": "We built a working path from writing code to running tests, viewing a trace, and receiving a contextual hint.",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a humorous or absurd element to the debugging experience to better fit the funny/goofy category requirements."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "project_id": "kh9-smoke-t044",
+  "team_id": "t044",
+  "submission": {
+    "name": "ClearPath Scout",
+    "tagline": "A camera-guided rover that can spot obstacles and mark a safer route through a workshop.",
+    "inspiration": "Busy workshops and maker spaces can have cluttered aisles that are hard to inspect from the entrance. We wanted to prototype a small mobile scout that could help a student or staff member notice blocked paths before carrying equipment through them.",
+    "what_it_does": "A camera feed is analyzed for a few common obstacle types, and the system points a small servo-mounted marker toward the detected area while a wheeled base moves through a test lane. Gemini can turn a detection summary into a short plain-language note, but a person still decides whether the route is safe to use.",
+    "how_we_built_it": "A Jetson runs Python, OpenCV, and a YOLO model on the camera feed to estimate where an obstacle appears in the frame. It sends compact direction commands over a local network to a laptop, which relays them by serial connection to an Arduino controlling the wheels, servo, and indicator; Gemini receives only the summarized detection so it can produce a readable note for the operator.",
+    "challenges_we_ran_into": "The camera angle and lighting changed detection quality, and noisy coordinates made the marker twitch until we smoothed its movement. Network delay between the Jetson, laptop, and Arduino sometimes made the rover react late, so it can still bump into objects during quick turns; we kept the test area slow and supervised.",
+    "accomplishments": "We connected edge vision, networked control, and a physical rover into an end-to-end demonstration. We are proud that the marker and short Gemini note give the operator two ways to understand what the camera noticed.",
+    "what_we_learned": "We learned that a detection model is only one part of a useful robot: camera placement, command timing, and motor response all shape the result. Gemini was useful for turning a small amount of structured output into a readable note, but it does not verify the scene or make a safety decision.",
+    "whats_next": "We would like to improve obstacle detection across lighting conditions, add an emergency stop and more reliable distance sensing, and test the route marking with a larger set of workshop layouts. We would also explore whether the notes could be saved for facilities staff to review later.",
+    "built_with": [
+      "arduino",
+      "gemini",
+      "jetson",
+      "opencv",
+      "python",
+      "servo",
+      "yolov8"
+    ],
+    "challenges": [
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--blast-ois-object-identification-system"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/blast-ois-object-identification-system"
+  ],
+  "primary_pool": "general",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "hardware",
+    "completion": "shaky",
+    "writing_style": "detailed"
+  },
+  "fit": {
+    "gemini": "weak"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009044,
+  "batch_id": "b012",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.45083773089461676,
+    "field": 0.5483316504548701
+  },
+  "created_at": "2026-10-11T00:49:44+00:00"
+}

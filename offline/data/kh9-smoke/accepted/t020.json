@@ -1,0 +1,48 @@
+{
+  "project_id": "kh9-smoke-t020",
+  "team_id": "t020",
+  "submission": {
+    "name": "GearTurn",
+    "tagline": "Turn the equipment you already own into a simple plan for your next outdoor repair.",
+    "inspiration": "We noticed that small outdoor projects often stall because people cannot remember what supplies they have or which task to start with. We wanted to adapt a pantry-style inventory and guided-step flow for student clubs maintaining bikes and camping gear.",
+    "what_it_does": "GearTurn is meant to track repair supplies, their condition, and when they may need attention, then suggest a small repair based on available materials and the time someone has. A guided mode breaks a repair into steps with timers, and voice entry is intended to make logging gear faster. The inventory, recommendations, and voice experiments remain loosely connected, so the full repair flow is not working end to end.",
+    "how_we_built_it": "We used React and TypeScript for the interface, Node.js for a backend experiment, and MongoDB for inventory data. The planned flow starts with a user adding parts manually or by voice through ElevenLabs, then sends the saved inventory and constraints to a recommendation step that uses Gemini to select a repair guide. The backend is intended to return structured steps to the frontend, where a guided session can display instructions and timers; currently those parts are mocked or run separately.",
+    "challenges_we_ran_into": "The main difficulty was turning vague entries such as a partly used tube of sealant into consistent inventory data that recommendations could use. Voice recognition and parsing need a confirmation step, and we did not finish connecting the saved inventory, suggestion logic, and repair session into one reliable path. We also had to keep the project small enough to describe real maintenance without pretending the suggestions are expert instructions.",
+    "accomplishments": "We made a first pass at an inventory and repair-planning interface and explored how voice input could reduce the effort of recording supplies. We are proud of the problem framing for club equipment, where using what is already on hand can make a small fix more approachable.",
+    "what_we_learned": "We learned that recommendation quality depends on a clean model for parts, condition, and task constraints, not only on adding AI. Structured outputs and a quick review step matter when voice input is uncertain. We also learned to make component boundaries clear: the interface collects data, the backend should preserve it, and the recommendation stage needs to explain which supplies it expects to use.",
+    "whats_next": "We would connect inventory entry through repair guidance and add a way to confirm or correct parsed voice entries. Later, we would ask experienced club members to review the repair steps and broaden the catalog to common bike and camping gear maintenance.",
+    "built_with": [
+      "react",
+      "typescript",
+      "node.js",
+      "mongodb",
+      "gemini",
+      "elevenlabs"
+    ],
+    "challenges": []
+  },
+  "seed_ids": [
+    "swamphacks-xi--strugglemeals-8z9kby"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/strugglemeals-8z9kby"
+  ],
+  "primary_pool": "general",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "partial",
+    "writing_style": "detailed"
+  },
+  "fit": {},
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009020,
+  "batch_id": "b007",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.398993232870549,
+    "field": 0.58483983784499
+  },
+  "created_at": "2026-10-11T00:47:28+00:00"
+}

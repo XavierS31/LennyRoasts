@@ -1,0 +1,61 @@
+{
+  "project_id": "kh9-smoke-t048",
+  "team_id": "t048",
+  "submission": {
+    "name": "GrantGraph",
+    "tagline": "Map research citations and spot funding topics that may be gaining momentum.",
+    "inspiration": "We wanted research teams to see how papers connect while getting a quick sense of which themes might be worth exploring next. We combined citation mapping with a simple opportunity view inspired by comparing prices across a changing market.",
+    "what_it_does": "Users add research paper links to a shared workspace, where the app builds a citation graph and highlights frequently referenced papers that are missing from the collection. Gemini summarizes topic clusters and compares their recent paper counts to flag areas with changing activity; Databricks handles a small aggregate analysis of sample metadata.",
+    "how_we_built_it": "The app uses React and React Flow with a FastAPI backend, PostgreSQL, and Semantic Scholar metadata. Gemini powers grounded summaries, while a Databricks notebook prepares sample publication data for the trend panel; the team graph, gap list, and chat flow work through the demo.",
+    "challenges_we_ran_into": "Paper metadata varies, and graph gaps can be confusing when a suggested citation is later added. We also had to explain that a rise in paper counts is only a signal to investigate, not evidence that a topic will receive funding.",
+    "accomplishments": "We connected paper ingestion to a shared graph, missing-citation suggestions, and a cited chat view. We also got a small data trend panel working alongside the research workflow.",
+    "what_we_learned": "We learned that useful research assistance depends on showing where an answer came from and labeling uncertain signals clearly. Gemini helped summarize the workspace, while the market comparison idea pushed us to think about changes over time instead of a static list.",
+    "whats_next": "We would improve membership checks and add citation exports. We would also validate the trend view against broader publication data and make its limits more visible.",
+    "built_with": [
+      "databricks",
+      "fastapi",
+      "gemini",
+      "postgresql",
+      "python",
+      "react",
+      "react-flow",
+      "semantic-scholar",
+      "sqlalchemy",
+      "typescript",
+      "vite"
+    ],
+    "challenges": [
+      "gemini",
+      "databricks"
+    ]
+  },
+  "seed_ids": [
+    "hackusf-2026--litlens",
+    "hacklytics-2026--arbittron"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/litlens",
+    "https://devpost.com/software/arbittron"
+  ],
+  "primary_pool": "gemini",
+  "mutation": "heavy",
+  "persona": {
+    "skill_focus": "ai_ml",
+    "completion": "polished",
+    "writing_style": "terse"
+  },
+  "fit": {
+    "gemini": "strong",
+    "databricks": "weak"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009048,
+  "batch_id": "b013",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.752692644120494,
+    "field": 0.5963119480683176
+  },
+  "created_at": "2026-10-11T00:50:08+00:00"
+}

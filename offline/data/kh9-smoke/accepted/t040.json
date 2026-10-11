@@ -1,0 +1,54 @@
+{
+  "project_id": "kh9-smoke-t040",
+  "team_id": "t040",
+  "submission": {
+    "name": "Benefit Beacon",
+    "tagline": "A checkout-side guide to choosing a card for the purchase in front of you.",
+    "inspiration": "We wanted to help people make a more informed payment choice at the moment they shop, instead of expecting them to study card terms in advance. We focused on students and other new cardholders who may not know which benefits apply to a particular merchant.",
+    "what_it_does": "A browser extension recognizes likely checkout pages, estimates the merchant category, and suggests a matching card from a small wallet the user maintains in the dashboard. Users can compare rewards and basic fee or APR details, while a spoken summary makes the recommendation easier to catch during checkout.",
+    "how_we_built_it": "We used JavaScript, a Manifest V3 Chrome extension, and a Node.js/Express REST API to connect page signals to the user's saved cards. Merchant keywords and category rules drive the initial match, with Gemini helping rank ambiguous cases; the dashboard stores wallet details and the extension presents the result in a side panel.",
+    "challenges_we_ran_into": "Merchants structure checkout pages differently, and a URL or page label does not always reveal what is being purchased. Our category fallback can still be too broad, and recommendations depend on users entering accurate card terms and profile preferences.",
+    "accomplishments": "We connected checkout detection, merchant categorization, card matching, and a usable recommendation panel into one working flow. We are glad the prototype can show a relevant suggestion without asking someone to leave the checkout page.",
+    "what_we_learned": "We learned that small errors in merchant classification can change a financial recommendation, so the reasoning and fallback behavior matter as much as the interface. Gemini helped us handle less familiar merchant descriptions, while building the extension taught us how much browser page variation affects detection.",
+    "whats_next": "We would like to test the extension across more merchants, make category matches easier for users to correct, and add clearer explanations of how each recommendation is calculated. A later version could explore transaction imports and spending summaries with appropriate account connections.",
+    "built_with": [
+      "express.js",
+      "gemini-api",
+      "javascript",
+      "manifest-v3",
+      "node.js",
+      "rest-api"
+    ],
+    "challenges": [
+      "bny",
+      "elevenlabs"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--creditwise-j9tduq"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/creditwise-j9tduq"
+  ],
+  "primary_pool": "bny",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "ai_ml",
+    "completion": "polished",
+    "writing_style": "terse"
+  },
+  "fit": {
+    "bny": "strong",
+    "elevenlabs": "weak"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009040,
+  "batch_id": "b012",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.777598614714643,
+    "field": 0.8237201797801327
+  },
+  "created_at": "2026-10-11T00:49:44+00:00"
+}

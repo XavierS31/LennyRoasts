@@ -1,0 +1,57 @@
+{
+  "project_id": "kh9-smoke-t013",
+  "team_id": "t013",
+  "submission": {
+    "name": "RepReady",
+    "tagline": "A voice-first workout partner for students learning the basics of strength training.",
+    "inspiration": "We kept hearing classmates ask whether they were doing a lift correctly, especially when the campus gym was busy and no trainer was nearby. We wanted to make beginner guidance easier to access without turning every workout into a complicated plan. The idea became a small coaching tool that can talk someone through a routine and help them keep track of how it felt. We focused on students fitting exercise around classes, limited equipment, and uneven experience.",
+    "what_it_does": "RepReady lets a user enter a fitness goal and available equipment, then suggests a short routine with practical technique reminders. Gemini helps turn those constraints into a simple session and adjusts suggestions based on a user's feedback afterward. ElevenLabs reads the plan and reminders aloud so users can listen between sets instead of staring at a screen. The app also records completed sessions and basic notes. It is not reliable enough to judge live lifting form, so its guidance stays general.",
+    "how_we_built_it": "We kept the seed's Python and Google ADK agent structure, with separate steps for planning, coaching language, and follow-up suggestions. Gemini handles the prompt-based routine and adapts it to the user's stated goals and equipment. We send the resulting reminders to ElevenLabs for spoken playback, while Railway and Docker provide the app's deployment setup. A small Databricks notebook groups session notes by exercise and shows which reminders come up most often, giving us a basic data view to inform prompt changes. These pieces work together in the demo, though the notebook data flow is still fragile.",
+    "challenges_we_ran_into": "It was difficult to keep advice concise while still making each exercise understandable. Gemini sometimes returned inconsistent exercise names, which made the spoken reminders awkward or mismatched to the routine. The voice playback also occasionally lagged behind the plan screen. Our analytics depend on a small set of manually entered session records, so the Databricks view is not a strong basis for broad conclusions. We could not validate whether the suggestions are appropriate for every user's health or ability.",
+    "accomplishments": "We got a basic flow working from a student's equipment and goal to a suggested routine and spoken reminders. We are proud that audio is part of the coaching experience rather than an unrelated add-on. We also connected a simple view of exercise notes to the planning work, which gave us a way to inspect the kinds of advice the app produces. The prototype is small, but it gives us a useful starting point for campus fitness support.",
+    "what_we_learned": "We learned that an AI coach needs a narrow job and careful wording to avoid sounding more certain than it should. Connecting generated plans to audio exposed naming and timing issues that were easy to miss in text-only testing. We used AI coding tools to sketch agent steps and debug integration problems, then had to simplify their suggestions when they added too much complexity. We also saw how messy even a small collection of workout notes can be when trying to summarize it.",
+    "whats_next": "We would like to add clearer onboarding for ability and equipment, plus a way to save routines between visits. We also want to make audio playback controls more dependable and let users ask for a reminder again without replaying the full plan. More structured session data could support a more useful Databricks analysis. Any future form feedback would need careful validation before it could be treated as safety guidance.",
+    "built_with": [
+      "python",
+      "gemini",
+      "google-adk",
+      "elevenlabs",
+      "databricks",
+      "docker",
+      "railway"
+    ],
+    "challenges": [
+      "elevenlabs",
+      "gemini",
+      "databricks"
+    ]
+  },
+  "seed_ids": [
+    "hackusf-2026--formcoach-uj5yst"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/formcoach-uj5yst"
+  ],
+  "primary_pool": "elevenlabs",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "ai_ml",
+    "completion": "shaky",
+    "writing_style": "detailed"
+  },
+  "fit": {
+    "elevenlabs": "strong",
+    "gemini": "strong",
+    "databricks": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009013,
+  "batch_id": "b006",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.7022107044204027,
+    "field": 0.6053002732883033
+  },
+  "created_at": "2026-10-11T00:46:29+00:00"
+}

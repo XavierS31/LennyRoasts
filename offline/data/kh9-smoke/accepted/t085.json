@@ -1,0 +1,55 @@
+{
+  "project_id": "kh9-smoke-t085",
+  "team_id": "t085",
+  "submission": {
+    "name": "PitchQuest",
+    "tagline": "Practice interview answers in the way that works for you.",
+    "inspiration": "Interview practice often assumes everyone wants to type answers in English. We wanted a small practice room where students could prepare from their own experience and try voice or basic signing input.",
+    "what_it_does": "Upload a resume to get a few tailored practice questions, then answer by speaking in English or Spanish, typing, or trying letter-by-letter ASL input. The app asks a follow-up based on the answer and can read prompts aloud. Resume parsing and ASL recognition are rough, and ASL input is limited to fingerspelling rather than full sign language.",
+    "how_we_built_it": "A React interface sends resume text and answers to a FastAPI backend in Python. The backend uses resume sections to prompt question generation and follow-ups, while ElevenLabs speaks the questions and Gemini helps rephrase an answer into a short practice tip. MediaPipe extracts hand landmarks for a small scikit-learn classifier that attempts letter recognition; that path runs but sometimes confuses letters in changing light.",
+    "challenges_we_ran_into": "The ASL letter recognizer is unreliable when hands move quickly or lighting changes. We also saw intermittent failures in the speech browser API, so a voice answer can stop before the user is done.",
+    "accomplishments": "We connected resume-based questions, spoken prompts, and answer capture into a practice loop that works most of the time. It was satisfying to get several input modes into one demo, even with the signing path still limited.",
+    "what_we_learned": "We learned that adding an input mode means designing feedback for it, not just connecting a model. Gemini helped us shape question and coaching text, while testing ElevenLabs made us pay attention to how voice timing affects a practice session.",
+    "whats_next": "We would improve the ASL input beyond isolated letters and make speech capture more dependable. We would also save sessions so users could revisit their answers and choose which practice mode to use by default.",
+    "built_with": [
+      "elevenlabs",
+      "fastapi",
+      "gemini",
+      "mediapipe",
+      "python",
+      "react",
+      "scikit-learn"
+    ],
+    "challenges": [
+      "elevenlabs",
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "hackusf-2026--smart-interview"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/smart-interview"
+  ],
+  "primary_pool": "elevenlabs",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "game_dev",
+    "completion": "shaky",
+    "writing_style": "terse"
+  },
+  "fit": {
+    "elevenlabs": "strong",
+    "gemini": "weak"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009085,
+  "batch_id": "b022",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.6966263280626419,
+    "field": 0.6368753936627588
+  },
+  "created_at": "2026-10-11T00:55:12+00:00"
+}

@@ -1,0 +1,53 @@
+{
+  "project_id": "kh9-smoke-t049",
+  "team_id": "t049",
+  "submission": {
+    "name": "Ledger Lantern",
+    "tagline": "Spot unusual account activity and hear a quick explanation of what stood out.",
+    "inspiration": "We wanted to make transaction review less intimidating for people who help manage finances at neighborhood nonprofits. Small teams may not have time to inspect every line in a statement, even when catching an unfamiliar charge matters.",
+    "what_it_does": "Ledger Lantern compares recent transactions with a simple history of typical amounts and flags entries that cross a configurable threshold. A short ElevenLabs voice readout describes the flagged item so a staff member can review it while working through the list.",
+    "how_we_built_it": "We used Python to calculate transaction patterns and SQL to store and query sample account activity, with a small API and Streamlit screen for uploading and viewing data. We planned the voice feature around ElevenLabs, but it is only loosely connected to the review flow in this demo.",
+    "challenges_we_ran_into": "Choosing thresholds that catch unusual charges without producing too many false alarms was difficult, and our test data was too small to tune them well. The separate data and interface pieces run, but we did not get the complete upload-to-alert experience working reliably end to end.",
+    "accomplishments": "We put together a basic transaction review screen and a first pass at comparing activity against historical averages. We are glad we kept the scope focused enough to show how a small finance team might triage a statement.",
+    "what_we_learned": "We learned how much transaction formats affect even simple analysis, and how Python and SQL can work together for a review tool. AI coding assistance helped us sketch the UI and voice-readout integration, but we still had to debug the data flow by hand.",
+    "whats_next": "We would connect the upload, flagging, and spoken summary into one dependable path, then let staff tune thresholds for different account types. We would also add clear review and dismissal notes so a flag is treated as a prompt for human checking, not a fraud verdict.",
+    "built_with": [
+      "python",
+      "sql",
+      "streamlit",
+      "api",
+      "elevenlabs"
+    ],
+    "challenges": [
+      "bny",
+      "elevenlabs"
+    ]
+  },
+  "seed_ids": [
+    "shellhacks2024--fraud-guard"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/fraud-guard"
+  ],
+  "primary_pool": "bny",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "data",
+    "completion": "broken",
+    "writing_style": "average"
+  },
+  "fit": {
+    "bny": "strong",
+    "elevenlabs": "medium"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009049,
+  "batch_id": "b014",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.43288081809090545,
+    "field": 0.5252760929106821
+  },
+  "created_at": "2026-10-11T00:50:53+00:00"
+}

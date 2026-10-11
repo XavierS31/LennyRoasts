@@ -1,0 +1,46 @@
+{
+  "project_id": "kh9-smoke-t099",
+  "team_id": "t099",
+  "submission": {
+    "name": "Lot Loop",
+    "tagline": "Make the last open spot a little less stressful.",
+    "inspiration": "We wanted to turn the scramble for a spot at a busy student event into a quick arcade game. The setting is a made-up UCF concert lot, where drivers weave around cones and other cars while trying to reach an open space first. It keeps the familiar parking pressure but gives it a playful, short-session format.",
+    "what_it_does": "Players steer through a crowded lot and race toward open spaces while avoiding obstacles. We added a simple boost pickup so players can make a risky dash when the route opens up. The game runs from start to finish, though collisions sometimes behave oddly and can leave a car stuck against a barrier.",
+    "how_we_built_it": "We used Unity and C# for the driving, collision rules, and game flow. Photoshop was used for the bright car and lot art, and GitHub helped us work on separate parts of the project. The boost pickup is a small change to the core parking race and gives players a choice between a safe route and a faster one.",
+    "challenges_we_ran_into": "Unity scenes and shared assets caused a few confusing Git conflicts early on. We also had trouble tuning the car handling so the game felt chaotic without becoming frustrating. The demo is playable, but collisions near the edge of the lot can still trap the player.",
+    "accomplishments": "We made a complete short game loop with a start, a parking race, and a finish condition. We are happy with how the colorful visuals make a stressful lot feel silly and approachable.",
+    "what_we_learned": "We got more practice with Unity physics, C# event handling, and collaborating through version control. We also learned that small changes to steering and collision settings can have a large effect on whether a game feels fair.",
+    "whats_next": "We would add a pause screen and sound controls, then make a few different event lots with new obstacles. We would also revisit collision handling and tune the boost so it helps without making the race trivial.",
+    "built_with": [
+      "c#",
+      "github",
+      "photoshop",
+      "unity"
+    ],
+    "challenges": []
+  },
+  "seed_ids": [
+    "swamphacks-xi--gator-spot-frenzy"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/gator-spot-frenzy"
+  ],
+  "primary_pool": "general",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "game_dev",
+    "completion": "shaky",
+    "writing_style": "average"
+  },
+  "fit": {},
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009099,
+  "batch_id": "b025",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.6280462015316766,
+    "field": 0.7131673738400193
+  },
+  "created_at": "2026-10-11T00:56:48+00:00"
+}

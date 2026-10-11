@@ -1,0 +1,54 @@
+{
+  "project_id": "kh9-smoke-t103",
+  "team_id": "t103",
+  "submission": {
+    "name": "LabLink Remote",
+    "tagline": "Let a teammate see your setup and help with the clicks.",
+    "inspiration": "We wanted to make it easier for students to get hands-on help with a coding environment or a campus lab workstation. A call can show the problem, but it is often hard to point out the exact control or reproduce a sequence of steps together.",
+    "what_it_does": "A host shares a live view of their screen with a helper on the same local network. The helper can click or type into the shared view while the host can still use their own mouse and keyboard. Gemini has a small optional role suggesting a concise troubleshooting checklist from a typed description of the issue.",
+    "how_we_built_it": "The desktop client is built with Python and PySide6, using MSS to capture screen frames and OpenCV and Pillow for image handling. PyAutoGUI applies remote pointer and keyboard events, while a lightweight network connection sends frames and input between machines on the same Wi-Fi. We used Gemini to draft and refine the optional checklist prompt, but the screen sharing works independently of it.",
+    "challenges_we_ran_into": "Keeping the stream responsive while forwarding input was the main challenge. AI-generated code needed trimming and review, and the checklist is not tied to live screen contents, so it can miss details that a person can see.",
+    "accomplishments": "We connected screen viewing and remote input in a working local-network prototype. We are proud that the host can keep interacting while a helper demonstrates a step.",
+    "what_we_learned": "We got practice with screen capture, desktop UI events, and the tradeoffs between image quality and responsiveness. Gemini helped us get an initial checklist flow in place, but we still had to test the networking and input behavior ourselves.",
+    "whats_next": "We would work on lower-latency streaming, secure connections beyond the local network, and a clearer permission flow for remote input. Audio chat and profiles could also make longer help sessions easier.",
+    "built_with": [
+      "claude",
+      "gemini",
+      "mss",
+      "opencv-python",
+      "pillow",
+      "pyautogui",
+      "pyside6",
+      "python"
+    ],
+    "challenges": [
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--pair-screen-sharing-app"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/pair-screen-sharing-app"
+  ],
+  "primary_pool": "general",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "ai_ml",
+    "completion": "polished",
+    "writing_style": "terse"
+  },
+  "fit": {
+    "gemini": "weak"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009103,
+  "batch_id": "b026",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.6753276732036859,
+    "field": 0.7734382116134217
+  },
+  "created_at": "2026-10-11T00:57:10+00:00"
+}

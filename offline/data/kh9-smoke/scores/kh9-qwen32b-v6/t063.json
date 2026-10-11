@@ -1,0 +1,300 @@
+{
+  "project_id": "kh9-smoke-t063",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.3333333333333335,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 11.333333333333334,
+      "max_total": 20,
+      "score_10": 5.666666666666667,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project combines habit tracking with a molecule-inspired sequence generator but lacks integration between features and detailed technical explanations.",
+      "evidence": {
+        "originality": "A second idea came from molecule tools that turn a compact text description into a possible sequence of components.",
+        "tech_understanding": "We used React Native for the task and reflection screens, Express with Supabase for user progress, and a Cohere-powered",
+        "functionality": "The prototype lets users choose a goal, log a few daily tasks, and see a small progress garden change as they keep going",
+        "wow": "Grow a routine by turning small goals into building blocks."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate the sequence generator with the habit tracker for cohesive functionality",
+        "Add detailed technical explanations of how the molecule-inspired system works",
+        "Implement data validation for the sequence generator to ensure accuracy"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "The submission uses a molecule-style string-to-sequence concept for habit planning but keeps it disconnected from the main app, showing partial integration of AI.",
+      "evidence": {
+        "originality": "A second idea came from molecule tools that turn a compact text description into a possible sequence of components.",
+        "tech_understanding": "We used React Native for the task and reflection screens, Express with Supabase for user progress, and a Cohere-powered",
+        "functionality": "The prototype lets users choose a goal, log a few daily tasks, and see a small progress garden change as they keep going",
+        "wow": "We made a usable task and reflection flow with levels stored in Supabase, and explored a separate interface for",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect the molecule-style sequence generator to the habit tracker core functionality",
+        "Add detailed explanations of how the Cohere-powered coach concept works with user data",
+        "Show how the app maintains data consistency across screens using Supabase and React Native"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission shows a habit tracker with game-like progress visuals but lacks core gameplay mechanics.",
+      "evidence": {
+        "originality": "We wanted to make personal goals feel easier to start by connecting daily habits with a visual sense of progress.",
+        "tech_understanding": "We used React Native for the task and reflection screens, Express with Supabase for user progress, and a Cohere-powered",
+        "functionality": "The prototype lets users choose a goal, log a few daily tasks, and see a small progress garden change as they keep going",
+        "wow": "We made a usable task and reflection flow with levels stored in Supabase, and explored a separate interface for",
+        "relevance": "The prototype lets users choose a goal, log a few daily tasks, and see a small progress garden change as they keep going"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add player-controlled actions and win/loss conditions to transform the habit tracker into a game",
+        "Integrate the molecule sequence generator with the habit tracking core to create a unified gameplay loop",
+        "Document the data flow between React Native, Supabase, and Cohere to clarify technical implementation"
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project combines habit tracking with a molecule-like sequence generator but lacks integrated functionality and comedic elements expected in this category.",
+      "evidence": {
+        "originality": "The prototype lets users choose a goal, log a few daily tasks, and see a small progress garden change as they keep going",
+        "tech_understanding": "We used React Native for the task and reflection screens, Express with Supabase for user progress, and a Cohere-powered",
+        "functionality": "A separate mocked screen accepts a molecule-style string and displays a sample sequence of habit steps, but it is not",
+        "wow": "We made a usable task and reflection flow with levels stored in Supabase, and explored a separate interface for",
+        "relevance": "We wanted to make personal goals feel easier to start by connecting daily habits with a visual sense of progress"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a clearly absurd or humorous premise to align with the category's focus on comedy",
+        "Integrate the molecule sequence generator with the habit tracker to create a cohesive experience",
+        "Explain how the molecule-inspired concept adds a goofy twist to habit tracking"
+      ]
+    }
+  ]
+}

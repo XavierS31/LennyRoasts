@@ -1,0 +1,56 @@
+{
+  "project_id": "kh9-smoke-t015",
+  "team_id": "t015",
+  "submission": {
+    "name": "Aid Atlas",
+    "tagline": "Map nearby student support services and keep track of practical campus resources.",
+    "inspiration": "Students often need to find a place that can help with food, transit, or short-term financial support, but the information is spread across different pages. We wanted to make nearby options easier to browse on a map and let campus groups add useful listings. The idea applies an event-style map to resource discovery, where location and opening details matter. We kept the scope to a small searchable directory for the weekend.",
+    "what_it_does": "Aid Atlas displays campus-area support resources as map pins and lets users submit a listing with its location and basic details. Users can search by name or category and open a card with address information. We included a small financial-services section for resources such as budgeting help and emergency aid offices. The app works from submission through browsing, but location lookup can return imprecise results and listings are not verified. There is no account system yet.",
+    "how_we_built_it": "We used a React and TypeScript frontend with Leaflet for the map and a Node/Express backend backed by MongoDB and Mongoose. The form sends a resource name, category, description, and coordinates to the backend, which stores records and serves them to the search view. OpenCage helps turn an entered address into a map location, and the user can adjust the pin before submitting. Keeping the financial-help listings in the same record format makes them searchable alongside other campus resources. We spent time on the interface in Figma and used Tailwind for styling.",
+    "challenges_we_ran_into": "Address geocoding was inconsistent, especially when a user entered a building name without a full address. The search results can also include listings outside the intended campus area. We had trouble with MongoDB Atlas configuration and did not finish deployment, so the demo depends on a local setup. Users can submit inaccurate information because we have not built verification or moderation. The map sometimes takes a moment to reflect a newly added pin.",
+    "accomplishments": "We connected a working resource form, backend storage, search, and map display. We are proud of the pin-adjustment flow because it lets a submitter correct a rough address result. The financial support category also gives the project a focused use beyond a generic map directory. We learned enough about Leaflet and MongoDB to build a useful end-to-end prototype.",
+    "what_we_learned": "We learned how map libraries, geocoding services, and database records fit together in a web app. MongoDB queries and search behavior took more iteration than we expected. We also saw that a resource directory needs a plan for keeping information current and trustworthy. Figma helped us settle the main screens before we connected the backend.",
+    "whats_next": "We would add login and a review process for new listings, then verify addresses and opening hours. Better search filters could help students narrow results by service type and distance. We also want to deploy the app so campus groups can try adding resources. A later version could include links to official financial aid and budgeting information.",
+    "built_with": [
+      "react",
+      "typescript",
+      "node.js",
+      "express.js",
+      "mongodb",
+      "mongoose",
+      "leaflet.js",
+      "opencage",
+      "tailwindcss",
+      "figma"
+    ],
+    "challenges": [
+      "bny"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--mapp-lrchui"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/mapp-lrchui"
+  ],
+  "primary_pool": "general",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "shaky",
+    "writing_style": "detailed"
+  },
+  "fit": {
+    "bny": "medium"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009015,
+  "batch_id": "b006",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.48307874222498026,
+    "field": 0.48003857624278956
+  },
+  "created_at": "2026-10-11T00:46:29+00:00"
+}

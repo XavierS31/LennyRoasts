@@ -1,0 +1,533 @@
+{
+  "project_id": "kh9-smoke-t014",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "gemini",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project uses Gemini for photo labeling in a visual closet app but this feature is isolated and not integrated into outfit suggestions, limiting its role to a minor add-on.",
+      "evidence": {
+        "originality": "We borrowed the idea of a visual closet but aimed it at people who rotate a small set of work outfits.",
+        "tech_understanding": "We used React Native and Expo for the mobile screens, with on-device storage for saved clothing entries and image",
+        "functionality": "We built several working mobile screens for a closet inventory, local weather, and spoken care reminders.",
+        "wow": "We are glad the project has a clear use case for students who need to prepare for work as well as class.",
+        "relevance": "Gemini is used for a small part of photo labeling, but those results do not reliably flow into the outfit suggestions"
+      },
+      "warnings": [
+        "Run 1: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect Gemini photo labels to the outfit suggestion panel to make the AI integration central to the user flow",
+        "Add error handling and clearer feedback when weather panel or image features fail",
+        "Replace sample budget entries with a manual spending tracker that links wardrobe choices to costs"
+      ]
+    },
+    {
+      "challenge_id": "elevenlabs",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "ElevenLabs provides a meaningful secondary audio role by reading care notes aloud, but is not central to the main user flow.",
+      "evidence": {
+        "originality": "We borrowed the idea of a visual closet but aimed it at people who rotate a small set of work outfits.",
+        "tech_understanding": "ElevenLabs reads care notes through a simple playback action.",
+        "functionality": "We built several working mobile screens for a closet inventory, local weather, and spoken care reminders.",
+        "wow": "We are glad the project has a clear use case for students who need to prepare for work as well as class.",
+        "relevance": "ElevenLabs can read a saved care note or reminder aloud."
+      },
+      "warnings": [
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Make ElevenLabs audio playback a required step in outfit preparation workflow",
+        "Add user-configurable voice options for care notes using ElevenLabs parameters",
+        "Document how audio features improve morning readiness compared to text-only notes"
+      ]
+    },
+    {
+      "challenge_id": "bny",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "ShiftLedger addresses a meaningful improvement in organizing work outfits for students with a visual closet approach, integrating weather and care notes, but lacks deep financial workflow integration.",
+      "evidence": {
+        "originality": "We borrowed the idea of a visual closet but aimed it at people who rotate a small set of work outfits.",
+        "tech_understanding": "We used React Native and Expo for the mobile screens, with on-device storage for saved clothing entries and image",
+        "functionality": "We built several working mobile screens for a closet inventory, local weather, and spoken care reminders.",
+        "wow": "We are glad the project has a clear use case for students who need to prepare for work as well as class.",
+        "relevance": "We wanted a quick way to organize those items and make mornings a little less guessy."
+      },
+      "warnings": [
+        "Run 1: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect inventory labels to outfit suggestions for a unified flow",
+        "Replace sample budget entries with a manual spending tracker",
+        "Add reliable care note editing and replay functionality"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 11,
+      "max_total": 20,
+      "score_10": 5.5,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project addresses a specific need with a visual closet for work outfits but lacks integration between features and detailed technical explanations.",
+      "evidence": {
+        "originality": "We borrowed the idea of a visual closet but aimed it at people who rotate a small set of work outfits.",
+        "tech_understanding": "We used React Native and Expo for the mobile screens, with on-device storage for saved clothing entries and image",
+        "functionality": "We built several working mobile screens for a closet inventory, local weather, and spoken care reminders.",
+        "wow": "We are glad the project has a clear use case for students who need to prepare for work as well as class."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect inventory labels to outfit suggestions for a cohesive flow",
+        "Replace sample budget entries with a manual spending tracker",
+        "Add clear handling for missing or uncertain labels"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "ShiftLedger integrates AI for photo labeling and voice playback but lacks full integration between features, showing partial working core with clear data flow challenges.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "Gemini photo labels appear in a separate inventory view",
+        "functionality": "We built several working mobile screens for a closet inventory",
+        "wow": "We also made a first pass at connecting wardrobe choices with clothing costs",
+        "relevance": "Gemini is used for a small part of photo labeling"
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described.",
+        "Run 2: originality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect inventory labels to outfit suggestions with clear handling of missing data",
+        "Replace sample budget entries with a manual spending tracker",
+        "Add reliable care note editing and replay functionality"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 2.6666666666666665,
+        "wow": 1.6666666666666667,
+        "relevance": 2
+      },
+      "total": 11.333333333333334,
+      "max_total": 25,
+      "score_10": 4.533333333333333,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission is a utility app with game-like features, not a game, scoring low on relevance.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We used React Native and Expo for the mobile screens",
+        "functionality": "We built several working mobile screens for a closet inventory",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 1: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add gameplay elements like challenges or win/loss conditions to increase relevance as a game"
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 12,
+      "max_total": 25,
+      "score_10": 4.8,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project addresses a practical need with a visual closet for work outfits but lacks a central goofy or absurd premise, and the documented features show partial integration without a fully working core.",
+      "evidence": {
+        "originality": "aimed it at people who rotate a small set of work outfits",
+        "tech_understanding": "React Native and Expo for the mobile screens",
+        "functionality": "These components demonstrate the intended pieces, but they are not yet joined into one dependable recommendation flow",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a central humorous or absurd concept to align with the funny/goofy category focus.",
+        "Improve the integration between inventory labels and outfit suggestions to create a more cohesive user experience.",
+        "Document and implement a clear method for handling missing or uncertain labels to enhance functionality."
+      ]
+    }
+  ]
+}

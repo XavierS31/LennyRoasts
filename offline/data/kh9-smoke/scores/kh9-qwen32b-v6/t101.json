@@ -1,0 +1,381 @@
+{
+  "project_id": "kh9-smoke-t101",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "gemini",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "Gemini provides optional hints based on trace data, which is a meaningful secondary feature but not central to the core tracing functionality.",
+      "evidence": {
+        "originality": "We are glad we found a direction for turning test failures into concrete visual clues.",
+        "tech_understanding": "not described",
+        "functionality": "The editor and trace prototype run separately, and we did not get the complete run-to-hint flow working in the demo.",
+        "wow": "We built a usable editor screen and separate prototypes for tracing output and requesting a Gemini hint.",
+        "relevance": "Gemini is meant to offer a short hint based on the error and trace."
+      },
+      "warnings": [
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: wow evidence was not an exact quote; replaced with not described.",
+        "Run 1: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate execution data flow to connect editor, runner, trace, and Gemini hint generation end-to-end",
+        "Add stable trace format implementation to ensure consistent runtime information for Gemini prompts",
+        "Document how Pyodide execution details are extracted and formatted for both visualization and Gemini API input"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.3333333333333335,
+        "functionality": 2.3333333333333335,
+        "wow": 2
+      },
+      "total": 10.666666666666666,
+      "max_total": 20,
+      "score_10": 5.333333333333333,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2
+          },
+          "total": 10,
+          "max_total": 20,
+          "score_10": 5.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2
+          },
+          "total": 10,
+          "max_total": 20,
+          "score_10": 5.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The idea of visualizing Python execution traces for learning is somewhat novel but not unique.",
+      "evidence": {
+        "originality": "We built this for students practicing small coding exercises who get stuck when a test fails.",
+        "tech_understanding": "The web app uses TypeScript and a Monaco-style editor, with Pyodide and WebAssembly intended to execute code in the",
+        "functionality": "The editor and trace prototype run separately, and we did not get the complete run-to-hint flow working in the demo.",
+        "wow": "We built this for students practicing small coding exercises who get stuck when a test fails."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate the execution pipeline to connect editor, runner, trace, and hint components end-to-end",
+        "Implement a stable trace format that reliably captures execution data for Gemini hints",
+        "Demonstrate working trace visualization for loops and nested data structures"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 2.6666666666666665,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 14.666666666666666,
+      "max_total": 25,
+      "score_10": 5.866666666666666,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "A central AI model role with partial working core but disconnected components and limited evidence of detailed technical tradeoffs.",
+      "evidence": {
+        "originality": "turning test failures into concrete visual clues",
+        "tech_understanding": "Pyodide and WebAssembly can run code in a browser",
+        "functionality": "prototypes for tracing output and requesting a Gemini hint",
+        "wow": "not described",
+        "relevance": "Gemini is meant to offer a short hint based on the error and trace"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate the editor, runner, trace, and hint into an end-to-end working core",
+        "Add detailed explanations of technical tradeoffs in trace format design",
+        "Demonstrate stable execution data flow between components"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 2,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 12,
+      "max_total": 25,
+      "score_10": 4.8,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission is a coding practice tool with game-like features but lacks core gameplay mechanics, scoring low on relevance as a game.",
+      "evidence": {
+        "originality": "We built this for students practicing small coding exercises who get stuck when a test fails.",
+        "tech_understanding": "The web app uses TypeScript and a Monaco-style editor, with Pyodide and WebAssembly intended to execute code in the br",
+        "functionality": "The editor and trace prototype run separately, and we did not get the complete run-to-hint flow working in the demo.",
+        "wow": "We built this for students practicing small coding exercises who get stuck when a test fails.",
+        "relevance": "Users can enter Python and run it against a few sample cases, then view a basic step trace of variables and output."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add core gameplay elements like challenges, rules, and win/loss conditions to transform the tool into a game.",
+        "Integrate the execution pipeline to ensure the editor, runner, trace, and hint components work together seamlessly.",
+        "Develop a stable trace format to improve the reliability of runtime information for Gemini hints."
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.3333333333333335,
+        "functionality": 3,
+        "wow": 1,
+        "relevance": 1
+      },
+      "total": 11.333333333333334,
+      "max_total": 25,
+      "score_10": 4.533333333333333,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project offers a practical coding tool with a clear technical approach but lacks a goofy or humorous concept as required by the category, and the documented functionality shows partial integration issues.",
+      "evidence": {
+        "originality": "We built this for students practicing small coding exercises who get stuck when a test fails.",
+        "tech_understanding": "not described",
+        "functionality": "Users can enter Python and run it against a few sample cases, then view a basic step trace of variables and output.",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: tech_understanding evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a humorous twist to the tool's concept or interface to align with the funny/goofy category focus.",
+        "Ensure the execution pipeline from editor to trace to Gemini hint is fully integrated and working in the demo.",
+        "Document specific examples of the visual clues and how they help with test failures, including any limitations observed."
+      ]
+    }
+  ]
+}

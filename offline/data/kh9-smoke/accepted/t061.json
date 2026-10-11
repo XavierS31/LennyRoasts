@@ -1,0 +1,53 @@
+{
+  "project_id": "kh9-smoke-t061",
+  "team_id": "t061",
+  "submission": {
+    "name": "Campus Momentum",
+    "tagline": "Build steady habits around class, wellbeing, and your money.",
+    "inspiration": "We wanted a lightweight way for students to keep track of small goals without juggling separate habit and spending apps. Campus Momentum turns a few daily choices into progress for a personal character.",
+    "what_it_does": "Students log habits and selected spending decisions to earn or lose experience, review a short progress history, and get suggested next steps. Gemini helps tailor the suggestions, and ElevenLabs reads level-up and task-completion prompts aloud.",
+    "how_we_built_it": "We used TypeScript and JavaScript for the app, with Capital One data represented by a limited sample connection and Gemini used to rank suggested quests and spending categories. ElevenLabs generates short audio cues when progress changes. The main screens and APIs connect, but the finance sync sometimes fails and a few transaction examples are still mocked.",
+    "challenges_we_ran_into": "Getting the shared app structure and API calls to work together took several rounds of cleanup. We also had to adjust Gemini prompts so task suggestions matched their intended difficulty, and the spending flow can still show stale data after a failed sync.",
+    "accomplishments": "We connected habit tracking, a progress system, and voice feedback into one student-focused prototype. We are glad the app can show a useful path through the main flow even though some data handling remains unreliable.",
+    "what_we_learned": "We learned to coordinate work across a shared codebase and to treat prompt design as part of the product logic. ElevenLabs made progress cues easy to hear, while Gemini helped shape suggestions from the user’s goals.",
+    "whats_next": "We would make transaction syncing more dependable, add clearer controls for financial data, and let users record reflections by voice or video. Shared progress with friends could also be explored later.",
+    "built_with": [
+      "capital-one-api",
+      "elevenlabs",
+      "gemini",
+      "javascript",
+      "typescript"
+    ],
+    "challenges": [
+      "elevenlabs",
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--arise-d3k0ap"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/arise-d3k0ap"
+  ],
+  "primary_pool": "elevenlabs",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "shaky",
+    "writing_style": "average"
+  },
+  "fit": {
+    "elevenlabs": "strong",
+    "gemini": "medium"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009061,
+  "batch_id": "b016",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.5900907714003565,
+    "field": 0.69190363925224
+  },
+  "created_at": "2026-10-11T00:51:38+00:00"
+}

@@ -1,0 +1,56 @@
+{
+  "project_id": "kh9-smoke-t002",
+  "team_id": "t002",
+  "submission": {
+    "name": "Money Rehearsal",
+    "tagline": "Practice a tough money conversation out loud before you have it for real.",
+    "inspiration": "Asking a bank or financial aid office about fees, missed payments, or a confusing notice can be intimidating. We wanted to make a low-pressure place to practice asking those questions and saying what you need. The project is a rehearsal tool, not financial advice.",
+    "what_it_does": "Users can speak through a short practice conversation with an AI office representative, then hear a spoken reply. The prompts focus on everyday banking and student account situations, such as asking for a fee explanation. We also tried camera based expression cues, but they can misread faces and should not be treated as reliable feedback.",
+    "how_we_built_it": "A React interface sends speech through ElevenLabs transcription to a Flask service, which passes the text and conversation context to Gemini for a response. ElevenLabs then speaks the answer back so the practice feels conversational. Our camera experiment uses OpenCV for rough expression signals, but it is an optional input and not needed for the main flow.",
+    "challenges_we_ran_into": "Camera expression estimates are inconsistent, especially with lighting and different faces, and audio transcription sometimes gets names or amounts wrong. The conversation loop works, but the expression feature can make it less dependable.",
+    "accomplishments": "We connected speech input, generated replies, and spoken responses in a working practice loop. We also built a basic screen for choosing a banking scenario.",
+    "what_we_learned": "We learned how audio transcription and speech playback fit into a web conversation, and saw why facial expression guesses need careful limits.",
+    "whats_next": "We would test the scenarios with financial educators and make the voice and camera options easier to adjust or turn off. We also want clearer boundaries so the tool directs users to a real bank representative for account specific decisions.",
+    "built_with": [
+      "react",
+      "javascript",
+      "flask",
+      "python",
+      "elevenlabs",
+      "gemini",
+      "opencv",
+      "pytorch"
+    ],
+    "challenges": [
+      "elevenlabs",
+      "bny"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--cue-jv57fh"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/cue-jv57fh"
+  ],
+  "primary_pool": "elevenlabs",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "hardware",
+    "completion": "shaky",
+    "writing_style": "terse"
+  },
+  "fit": {
+    "elevenlabs": "strong",
+    "bny": "medium"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009002,
+  "batch_id": "b001",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.6935781541251325,
+    "field": 0.36650815432667816
+  },
+  "created_at": "2026-10-10T23:31:00+00:00"
+}

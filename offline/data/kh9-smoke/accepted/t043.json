@@ -1,0 +1,50 @@
+{
+  "project_id": "kh9-smoke-t043",
+  "team_id": "t043",
+  "submission": {
+    "name": "Parkway Dash",
+    "tagline": "A goofy parking race for UCF commuters, with a tiny look at what each trip costs.",
+    "inspiration": "Our team spends plenty of time circling for campus parking, and we wanted to turn that familiar annoyance into a quick game. We also wanted to make the hidden costs of commuting a little easier to notice without turning the project into a budgeting app.",
+    "what_it_does": "Players steer through a crowded campus lot, dodge traffic and obstacles, and race to claim an open spot. A small end-of-round panel tracks pretend parking and fuel costs so players can compare how their route went.",
+    "how_we_built_it": "We made a colorful Unity game in C#, with simple driving, collision, and spot-finding mechanics. The cost panel is a separate prototype screen using sample values; we did not connect it to real financial accounts or services.",
+    "challenges_we_ran_into": "Getting the Unity project and Git workflow to behave across the team took some setup. The cost display and the game are still loosely connected, and we spent more time tuning movement than balancing the rounds.",
+    "accomplishments": "We got the main parking loop playable and made the interface readable while the lot is busy. We are happy with the original art direction and the small cost summary that gives the game a campus-finance angle.",
+    "what_we_learned": "We got more practice with C#, Unity physics, and handling shared game files in Git. We also learned that even a simple cost estimate needs clear assumptions to be useful.",
+    "whats_next": "We would add more lot layouts, a pause menu, and adjustable sound. We would also connect the cost summary to round data and let players compare different commuting scenarios.",
+    "built_with": [
+      "c#",
+      "github",
+      "photoshop",
+      "unity"
+    ],
+    "challenges": [
+      "bny"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--gator-spot-frenzy"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/gator-spot-frenzy"
+  ],
+  "primary_pool": "general",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "game_dev",
+    "completion": "partial",
+    "writing_style": "average"
+  },
+  "fit": {
+    "bny": "medium"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009043,
+  "batch_id": "b013",
+  "attempt": 2,
+  "similarity": {
+    "seed": 0.5427141574357603,
+    "field": 0.49394751726155056
+  },
+  "created_at": "2026-10-11T00:50:08+00:00"
+}

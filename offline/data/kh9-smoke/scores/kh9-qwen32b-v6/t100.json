@@ -1,0 +1,370 @@
+{
+  "project_id": "kh9-smoke-t100",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "databricks",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "Databricks supports data preparation and analysis but is not central to the main user flow; the prototype shows partial working core with some limitations in consistency and dataset size.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We used Python with pandas and NumPy to prepare a small set of compound and sequence pairs",
+        "functionality": "The sequence path works for some inputs, but the structure step and data workflow do not always respond in time",
+        "wow": "We are proud that the project gave our team a concrete way to explore how chemical and protein data might meet in a web",
+        "relevance": "Databricks is used to organize the sample data and run a first-pass analysis of which compound groups appear in the data"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Expand and validate the paired dataset to improve model reliability and consistency of outputs",
+        "Integrate Databricks more centrally into the main user flow to ensure results are used in the sequence and structure generation steps",
+        "Add clear confidence indicators and provenance information for each candidate to enhance usability and trust in the results"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.3333333333333335,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 11.333333333333334,
+      "max_total": 20,
+      "score_10": 5.666666666666667,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project connects chemical inputs to enzyme sequences using a transformer model but has partial working core and limited consistency.",
+      "evidence": {
+        "originality": "We wanted to make enzyme sequence exploration a little more approachable for students",
+        "tech_understanding": "We used Python with pandas and NumPy to prepare a small set of compound and sequence pairs",
+        "functionality": "The UI sends a SMILES input to the backend, which returns a candidate sequence and a summary",
+        "wow": "We connected a basic compound input form to a sequence generation path and made a simple data view in Databricks"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Expand and validate the paired dataset to improve model reliability and consistency of outputs",
+        "Implement clearer communication of confidence and provenance for each candidate enzyme suggestion",
+        "Enhance the structure-view service to reduce failures and timeouts for a more dependable user experience"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.6666666666666665,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3.6666666666666665
+      },
+      "total": 15.333333333333334,
+      "max_total": 25,
+      "score_10": 6.133333333333334,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project uses a transformer-based model for enzyme sequence prediction from SMILES inputs but has partial working core functionality with some unreliable components.",
+      "evidence": {
+        "originality": "We adapted the idea toward teaching and early exploration rather than making medical claims.",
+        "tech_understanding": "We used Python with pandas and NumPy to prepare a small set of compound and sequence pairs, then connected a transformer",
+        "functionality": "The sequence path works for some inputs, but the structure step and data workflow do not always respond in time.",
+        "wow": "We are proud that the project gave our team a concrete way to explore how chemical and protein data might meet in a web",
+        "relevance": "A user enters a compound as a SMILES string and gets a candidate amino acid sequence to inspect."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Expand and validate the paired dataset to improve model reliability and consistency",
+        "Implement error handling and clearer confidence indicators for unreliable structure predictions",
+        "Document the model's limitations and data preparation steps for future validation"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 2,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 10,
+      "max_total": 25,
+      "score_10": 4.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission is a data exploration tool with game-like elements but lacks core gameplay mechanics.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We used Python with pandas and NumPy to prepare a small set of compound and sequence pairs",
+        "functionality": "The sequence path works for some inputs, but the structure step and data workflow do not always respond in time",
+        "wow": "not described",
+        "relevance": "A user enters a compound as a SMILES string and gets a candidate amino acid sequence to inspect"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add player-controlled actions and win/loss conditions to transform the tool into a game",
+        "Improve the reliability of the structure view and data workflow to enhance functionality",
+        "Clearly explain the connections between chemical and protein data in the technical implementation"
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 12,
+      "max_total": 25,
+      "score_10": 4.8,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project has a meaningful absurd premise by making enzyme sequence exploration approachable for students, but the humor is incidental rather than central.",
+      "evidence": {
+        "originality": "We wanted to make enzyme sequence exploration a little more approachable for students",
+        "tech_understanding": "We used Python with pandas and NumPy to prepare a small set of compound and sequence pairs",
+        "functionality": "The sequence path works for some inputs, but the structure step and data workflow do not always respond in time",
+        "wow": "not described",
+        "relevance": "We wanted to make enzyme sequence exploration a little more approachable for students"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a humorous framing or absurd scenario to present the enzyme exploration as an over-engineered solution to a trivial student problem"
+      ]
+    }
+  ]
+}

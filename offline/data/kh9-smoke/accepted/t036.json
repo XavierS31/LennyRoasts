@@ -1,0 +1,59 @@
+{
+  "project_id": "kh9-smoke-t036",
+  "team_id": "t036",
+  "submission": {
+    "name": "Checkout Compass",
+    "tagline": "A quick card guide for community organizations buying supplies.",
+    "inspiration": "Small campus organizations often buy food, equipment, or event supplies without much time to compare which card earns the best rewards. We adapted a card recommendation idea for student treasurers who need a useful answer at checkout, while keeping the tool focused on their organization's approved wallet.",
+    "what_it_does": "A browser extension prototype looks for checkout signals and suggests a card based on a merchant category and a small set of reward rules. The dashboard lets a treasurer enter cards and review a basic rewards summary; it does not connect to bank accounts or handle payments.",
+    "how_we_built_it": "The prototype uses a Manifest V3 JavaScript extension, an Express API, and a small card and merchant dataset. We planned Databricks processing for comparing category rewards, Gemini to help interpret ambiguous merchant descriptions, and ElevenLabs to read a recommendation aloud, but these pieces were not connected into one reliable flow.",
+    "challenges_we_ran_into": "Checkout pages vary a lot, and our detection only behaves predictably on a few test pages. The recommendation logic, extension panel, and AI services run as separate pieces, so some results are mocked and a suggestion can be missing or miscategorized.",
+    "accomplishments": "We put together a working slice of checkout detection and a basic card comparison view for organization purchases. We also mapped out how structured rewards data could support a more useful financial workflow for student groups.",
+    "what_we_learned": "We learned that merchant categorization and incomplete card terms can matter more than adding another model call. Gemini helped us explore merchant descriptions, while Databricks and ElevenLabs showed us possible extensions, but connecting services takes more time than making each piece run alone.",
+    "whats_next": "We would validate the reward data, connect the extension to one stable recommendation API, and add organization-specific spending limits. A more dependable merchant mapping and a complete audio recommendation flow would come after that.",
+    "built_with": [
+      "databricks",
+      "elevenlabs",
+      "express.js",
+      "gemini",
+      "javascript",
+      "manifest-v3",
+      "node.js"
+    ],
+    "challenges": [
+      "bny",
+      "databricks",
+      "elevenlabs",
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--creditwise-j9tduq"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/creditwise-j9tduq"
+  ],
+  "primary_pool": "bny",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "ai_ml",
+    "completion": "partial",
+    "writing_style": "average"
+  },
+  "fit": {
+    "bny": "strong",
+    "databricks": "medium",
+    "elevenlabs": "medium",
+    "gemini": "medium"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009036,
+  "batch_id": "b011",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.7742400196957437,
+    "field": 0.5991917509370676
+  },
+  "created_at": "2026-10-11T00:48:57+00:00"
+}

@@ -1,0 +1,60 @@
+{
+  "project_id": "kh9-smoke-t070",
+  "team_id": "t070",
+  "submission": {
+    "name": "CounterTalk",
+    "tagline": "Practice the English you need for a neighborhood shop shift",
+    "inspiration": "Some people learning English need to use it right away while handling everyday tasks at work. We wanted to make practice feel connected to situations like helping a customer or asking a coworker for clarification.",
+    "what_it_does": "Users choose a shop-floor situation and their comfort level, then get a short practice dialogue built around familiar vocabulary. The prototype also has a flashcard view and an audio playback path for hearing example phrases, though account onboarding and personalized vocabulary do not yet work as one flow.",
+    "how_we_built_it": "We used Astro and React with Tailwind and Shadcn for the web interface, with a Go backend and Firebase for storing user data. Gemini generates draft dialogues and ElevenLabs can read sample lines aloud; the app pieces are present, but the complete account-to-practice path failed during the demo.",
+    "challenges_we_ran_into": "The biggest issue was connecting onboarding vocabulary to the generated exercises and saved progress. We also hit Gemini API limits while iterating, and our Go service was new to several of us, so some endpoints remained disconnected from the screens.",
+    "accomplishments": "We made several screens for choosing a situation, reviewing words, and practicing sample lines. We are proud that teammates learned unfamiliar tools while still producing something we could click through.",
+    "what_we_learned": "We learned that personalization depends on getting a small amount of user information reliably through the whole app. Gemini helped us create dialogue drafts, and ElevenLabs showed how audio can support practice, but both need tighter integration with the learner's chosen level.",
+    "whats_next": "We would fix the account and vocabulary flow, make generated dialogues easier to review for naturalness, and add a more dependable audio playback experience. We would also ask language learners which work situations are most useful to practice.",
+    "built_with": [
+      "astro",
+      "docker",
+      "elevenlabs",
+      "firebase",
+      "gemini",
+      "golang",
+      "react",
+      "shadcn",
+      "tailwindcss",
+      "vercel"
+    ],
+    "challenges": [
+      "bny",
+      "elevenlabs",
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "shellhacks2024--lingualeap"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/lingualeap"
+  ],
+  "primary_pool": "bny",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "ai_ml",
+    "completion": "broken",
+    "writing_style": "average"
+  },
+  "fit": {
+    "bny": "strong",
+    "elevenlabs": "strong",
+    "gemini": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009070,
+  "batch_id": "b018",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.5842347353930142,
+    "field": 0.7652519493508838
+  },
+  "created_at": "2026-10-11T00:52:24+00:00"
+}

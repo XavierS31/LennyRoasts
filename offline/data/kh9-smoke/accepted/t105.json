@@ -1,0 +1,54 @@
+{
+  "project_id": "kh9-smoke-t105",
+  "team_id": "t105",
+  "submission": {
+    "name": "Cashflow Canopy",
+    "tagline": "See how a small business’s transactions branch into everyday spending patterns.",
+    "inspiration": "We liked the idea of viewing information as connected pieces rather than rows in a spreadsheet. We wanted to apply that approach to a small shop’s transactions, where seeing how purchases relate to broader expense groups could help an owner decide what to review.",
+    "what_it_does": "The prototype imports sample transaction data from a CSV and displays purchases as nodes grouped under category nodes, sized by amount. A short AI-generated note calls out patterns in the sample data, such as a category that has grown between periods. Bank connections and live updates are not implemented.",
+    "how_we_built_it": "We used a TypeScript web interface with D3.js to render the transaction graph, plus a small Go service to parse CSV data into JSON. A Python script sends summarized data to Gemini for draft observations. The graph and analysis can be demonstrated separately, but their data handoff is still basic and some displayed insights use prepared examples.",
+    "challenges_we_ran_into": "We changed backend direction during the weekend and had to reshape the data flow while the graph was already underway. The category layout and AI analysis are both prototypes, and we have not connected them to actual banking data or validated the insights with business owners.",
+    "accomplishments": "We made a CSV-to-graph demo that lets viewers inspect spending by category and transaction. We are proud that the visual approach is clear enough to discuss, even while the analysis connection needs more work.",
+    "what_we_learned": "We learned that a financial visualization needs a useful question behind it, not just an interesting layout. Gemini can help draft observations from summarized data, but careful inputs and checks are needed before those notes could guide real decisions.",
+    "whats_next": "We would connect the import, graph, and analysis steps reliably, add controls for comparing date ranges, and test the tool with small business bookkeeping workflows. Secure account connections would be a later step.",
+    "built_with": [
+      "d3.js",
+      "gemini",
+      "go",
+      "golang",
+      "html",
+      "python",
+      "tailwind",
+      "typescript"
+    ],
+    "challenges": [
+      "bny"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--zettle"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/zettle"
+  ],
+  "primary_pool": "bny",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "partial",
+    "writing_style": "terse"
+  },
+  "fit": {
+    "bny": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009105,
+  "batch_id": "b026",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.6593483261142641,
+    "field": 0.7513383580551809
+  },
+  "created_at": "2026-10-11T00:57:10+00:00"
+}

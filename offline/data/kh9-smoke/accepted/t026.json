@@ -1,0 +1,52 @@
+{
+  "project_id": "kh9-smoke-t026",
+  "team_id": "t026",
+  "submission": {
+    "name": "CrewSignal",
+    "tagline": "Match campus event crews to short-term jobs and see which skills open the next door.",
+    "inspiration": "Campus venues and local event organizers often need several stagehands, lighting techs, or setup crews on short notice. We wanted to make it easier for students with practical skills to find those gigs without sorting through unrelated job listings.",
+    "what_it_does": "Organizers paste in a shift description and get its key skills and requirements pulled into a structured listing. Students can be ranked against the opening, see missing credentials, and review a suggested next step; organizers can select a group and send interview requests.",
+    "how_we_built_it": "We used a React and TypeScript frontend with a FastAPI backend and SQLAlchemy models. A centralized Python AI service turns free-form shift posts into validated schemas, and the app stores listings and candidate profiles in PostgreSQL.",
+    "challenges_we_ran_into": "Getting inconsistent event descriptions into predictable fields took careful prompt and schema work, and our suggested training paths are only a first pass. We also had to make tradeoffs around how matching should be priced and how to compete with existing staffing services.",
+    "accomplishments": "We got the main path working from a pasted job description through structured requirements, ranked candidates, and interview invitations. We are proud that the same flow can point a student toward a missing qualification instead of simply rejecting their application.",
+    "what_we_learned": "We learned that matching depends on representing both a shift’s requirements and a worker’s experience in a useful way. AI-assisted extraction helped us move faster, but we still needed validation and clear rules around the data it produced.",
+    "whats_next": "We would like to verify licenses and safety credentials, then try the workflow with a few local venues. Longer term, we could add other hands-on roles such as venue maintenance and technical production.",
+    "built_with": [
+      "fastapi",
+      "openai",
+      "postgresql",
+      "pydantic",
+      "python",
+      "react",
+      "sqlalchemy",
+      "tailwind",
+      "typescript",
+      "vite"
+    ],
+    "challenges": []
+  },
+  "seed_ids": [
+    "swamphacks-xi--nexsetu"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/nexsetu"
+  ],
+  "primary_pool": "general",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "ai_ml",
+    "completion": "polished",
+    "writing_style": "terse"
+  },
+  "fit": {},
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009026,
+  "batch_id": "b009",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.6265619341306269,
+    "field": 0.4880004993758512
+  },
+  "created_at": "2026-10-11T00:48:16+00:00"
+}

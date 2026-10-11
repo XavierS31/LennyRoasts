@@ -1,0 +1,380 @@
+{
+  "project_id": "kh9-smoke-t089",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "bny",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 15,
+      "max_total": 25,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The game improves a financial process by simulating transaction checks in a competitive setting, but it is framed as a fictional scenario rather than a real tool.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "Python converts that input into messages sent to Godot over UDP",
+        "functionality": "Two players face off in a short card duel, using a thick card-shaped controller to trigger actions that appear in the",
+        "wow": "We got a physical controller to drive a playable head-to-head game",
+        "relevance": "The round is framed around checking transactions and spotting the discrepancy, with a score deciding who resolves the c"
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: originality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a real-time feedback system to highlight suspicious transactions during the game",
+        "Implement a more robust connection protocol for the Raspberry Pi Pico controller to reduce reconnection issues",
+        "Expand the mock transaction ledger to include more complex financial scenarios for deeper gameplay"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 4,
+        "wow": 2
+      },
+      "total": 13,
+      "max_total": 20,
+      "score_10": 6.5,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "eligible": true
+        }
+      ],
+      "rationale": "The physical controller integration with Godot via Raspberry Pi Pico shows clear technical understanding and a working core, but originality is moderate and wow factor is limited.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "Python converts that input into messages sent to Godot over UDP, where the game applies the actions to the current round",
+        "functionality": "We got a physical controller to drive a playable head-to-head game and tied its actions to an in-game financial scenario",
+        "wow": "Two players face off in a short card duel, using a thick card-shaped controller to trigger actions that appear in the"
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 2: originality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a dynamic transaction ledger system with real-time updates to enhance gameplay depth and financial context",
+        "Implement automatic controller reconnection logic to improve user experience reliability",
+        "Develop more sophisticated AI opponent behavior to increase strategic engagement"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.3333333333333335,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 1.6666666666666667
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 1
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission includes a physical controller and game scenario but lacks documented AI model integration or use of machine learning, computer vision, or LLMs in the product.",
+      "evidence": {
+        "originality": "We like quick card games where a round can turn on one bold move",
+        "tech_understanding": "We made the game in Godot and used a Raspberry Pi Pico controller to send button and movement data to a Python process",
+        "functionality": "Two players face off in a short card duel, using a thick card-shaped controller to trigger actions that appear in the",
+        "wow": "We are proud that the hardware and game communicate through the full input path",
+        "relevance": "not described"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a clear description of how an AI model is integrated into the game mechanics or scenario",
+        "Explain the decision-making process for using specific machine learning algorithms or AI techniques in the project"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": true,
+      "criteria": {
+        "originality": 3.6666666666666665,
+        "tech_understanding": 4,
+        "functionality": 4,
+        "wow": 2.6666666666666665,
+        "relevance": 4
+      },
+      "total": 18.333333333333332,
+      "max_total": 25,
+      "score_10": 7.333333333333333,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 4,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 3,
+            "relevance": 4
+          },
+          "total": 19,
+          "max_total": 25,
+          "score_10": 7.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 4,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 3,
+            "relevance": 4
+          },
+          "total": 19,
+          "max_total": 25,
+          "score_10": 7.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "A two-player card duel with a physical controller and financial theme shows original gameplay and technical integration, though some hardware reliability issues remain.",
+      "evidence": {
+        "originality": "We shifted the setting to a small financial office simulation",
+        "tech_understanding": "Python converts that input into messages sent to Godot over UDP",
+        "functionality": "Two players face off in a short card duel, using a thick card-shaped controller to trigger actions",
+        "wow": "We got a physical controller to drive a playable head-to-head game",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 1: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Improve controller reconnection reliability",
+        "Expand the transaction ledger and feedback explanations",
+        "Enhance opponent AI behavior for more engaging gameplay"
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 15,
+      "max_total": 25,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "Vault Showdown is a card duel game with a financial office theme, using a physical controller to settle disputes, which offers a meaningful absurd premise but lacks exceptional goofiness.",
+      "evidence": {
+        "originality": "We shifted the setting to a small financial office simulation",
+        "tech_understanding": "Python converts that input into messages sent to Godot over UDP",
+        "functionality": "Two players face off in a short card duel, using a thick card-shaped controller to trigger actions",
+        "wow": "not described",
+        "relevance": "We shifted the setting to a small financial office simulation"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Enhance the comedic elements by making the financial office scenario more absurd and over-the-top",
+        "Improve the controller reconnection reliability for a smoother gameplay experience",
+        "Add more detailed explanations of the transaction clues to enhance the game's thematic depth"
+      ]
+    }
+  ]
+}

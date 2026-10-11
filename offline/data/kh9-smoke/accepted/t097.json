@@ -1,0 +1,59 @@
+{
+  "project_id": "kh9-smoke-t097",
+  "team_id": "t097",
+  "submission": {
+    "name": "Market Minute",
+    "tagline": "Swipe through money explainers, then see how a simple investing rule reacts to market signals.",
+    "inspiration": "Short financial videos are easy to find, but it can be hard to tell whether a clip explains a useful idea or just makes a bold claim. We wanted to connect bite-sized learning with a small, transparent way to explore how market signals can inform a rule.",
+    "what_it_does": "The web prototype shows short finance explainers and lets users mark clips as useful, then presents a paper-trading sandbox with a few adjustable rules and sample sentiment signals. A rough content check uses sentence similarity to flag clips that appear off topic, and an ElevenLabs voice can read a clip summary aloud.",
+    "how_we_built_it": "The React and TypeScript interface has separate feed and sandbox views, while a FastAPI backend provides placeholder clip records and rule inputs. We prototyped sentence-transformer checks in Python and a market-signal calculation inspired by a trading-rule project, but those pieces are not wired into the feed or each other. The BNY angle is the financial education and decision-support workflow, and voice narration is an optional accessibility feature.",
+    "challenges_we_ran_into": "The demo is not connected end-to-end: the feed, similarity check, paper-trading calculation, and voice playback work only as separate pieces or mocked screens. We did not complete user accounts, real market data, or a rewards system, so the displayed signals should not be treated as investment advice.",
+    "accomplishments": "We built a navigable feed mockup and separate working prototypes for content similarity and a simple rule calculation. We are proud that the sandbox makes its inputs visible instead of presenting a mysterious prediction.",
+    "what_we_learned": "We learned that financial content review is more nuanced than matching a clip to a topic label, and that market rules need clear assumptions. AI tools helped us sketch summaries and interface copy, but we still need human review before trusting generated explanations.",
+    "whats_next": "We would connect clip transcripts to the review service, add sourced market data for paper trading, and make the voice playback part of the clip view. A later version could include progress tracking and verified educational material without tying learning rewards to speculative token mechanics.",
+    "built_with": [
+      "bny",
+      "elevenlabs",
+      "fastapi",
+      "mongodb",
+      "python",
+      "react",
+      "sentence-transformers",
+      "typescript",
+      "vite"
+    ],
+    "challenges": [
+      "bny",
+      "elevenlabs"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--finfluence-5y7wo1",
+    "swamphacks-xi--baby-quant"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/finfluence-5y7wo1",
+    "https://devpost.com/software/baby-quant"
+  ],
+  "primary_pool": "general",
+  "mutation": "heavy",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "partial",
+    "writing_style": "detailed"
+  },
+  "fit": {
+    "bny": "medium",
+    "elevenlabs": "medium"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009097,
+  "batch_id": "b024",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.5531643177708598,
+    "field": 0.7595308987076747
+  },
+  "created_at": "2026-10-11T00:56:24+00:00"
+}

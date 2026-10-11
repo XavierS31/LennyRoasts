@@ -1,0 +1,56 @@
+{
+  "project_id": "kh9-smoke-t062",
+  "team_id": "t062",
+  "submission": {
+    "name": "Campus Repair Map",
+    "tagline": "Find nearby places to borrow tools and get a small fix done.",
+    "inspiration": "We noticed that students often need a quick repair but do not know which campus or neighborhood spaces have tools or help available. We applied a map-and-pin approach to local repair resources instead of event listings.",
+    "what_it_does": "Users can add repair locations with a description and map pin, then search the list and browse nearby options. Gemini has a small optional role suggesting a category from a location description; the map and resource listing are the core.",
+    "how_we_built_it": "We used a React and TypeScript frontend with Leaflet for the map, and an Express backend with MongoDB and Mongoose for resource records. OpenCage helps turn an entered address into coordinates, and users can adjust the pin before saving. The Gemini categorization is a separate helper call and can fail without blocking a manual entry.",
+    "challenges_we_ran_into": "Pin placement and address lookup took more effort than expected, and our MongoDB Atlas setup was unfamiliar. The app works across the main add-and-search flow, but deployment and the Gemini helper are not reliable yet.",
+    "accomplishments": "We built a working map with searchable repair listings and a form for moving a pin to a more precise spot. We also got the resource records flowing from the frontend into MongoDB.",
+    "what_we_learned": "We learned how to connect Leaflet interactions with stored coordinates and how to shape MongoDB queries for a simple search experience. Gemini was a small experiment in reducing form typing, rather than a required part of finding a location.",
+    "whats_next": "We would improve address validation, make deployment stable, and add clearer ways to confirm that a listed repair resource is still available. Community updates and login could come after that.",
+    "built_with": [
+      "express.js",
+      "gemini",
+      "leaflet.js",
+      "mongodb",
+      "mongoose",
+      "node.js",
+      "opencage",
+      "react",
+      "tailwindcss",
+      "typescript"
+    ],
+    "challenges": [
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--mapp-lrchui"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/mapp-lrchui"
+  ],
+  "primary_pool": "general",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "shaky",
+    "writing_style": "average"
+  },
+  "fit": {
+    "gemini": "weak"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009062,
+  "batch_id": "b016",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.45147877266944236,
+    "field": 0.7426420796112256
+  },
+  "created_at": "2026-10-11T00:51:38+00:00"
+}

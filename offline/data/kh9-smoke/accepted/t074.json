@@ -1,0 +1,59 @@
+{
+  "project_id": "kh9-smoke-t074",
+  "team_id": "t074",
+  "submission": {
+    "name": "Campus Signal Desk",
+    "tagline": "Bring scattered campus incident reports into one map for a human team to review.",
+    "inspiration": "A campus disruption can generate reports in different places: a facilities note, a student message, or an emergency call. We wanted a shared screen that helps a campus response team see those reports together and decide what needs attention, without claiming that software should dispatch help on its own.",
+    "what_it_does": "Campus Signal Desk accepts sample incident reports from several sources, uses Gemini agents to extract locations and summarize what may be happening, and assigns a rough priority for human review. A map shows the reported locations and can display suggested routes between them and campus response points. Databricks is used to group sample reports by type and time, and ElevenLabs can read a short incident summary aloud for staff who are monitoring the map. The system does not connect to live emergency calls or send responders.",
+    "how_we_built_it": "The React and Leaflet frontend requests a run from a FastAPI backend and listens for server-sent events as sample reports are processed. Gemini handles language-based extraction and summaries, while ordinary backend code places incidents into a review list and requests route geometry from OSRM. We used a small Databricks analysis to explore how incident categories cluster across the sample set, with results shown as a simple supporting view. ElevenLabs reads selected summaries so an operator can hear the key details while keeping the map visible; we chose this flow to keep all routing and prioritization reviewable by people.",
+    "challenges_we_ran_into": "The demo does not work end-to-end yet. The report cards and Gemini summaries can be produced, and the map can render sample points, but the route objects sometimes fail to reach the frontend because their geometry payload is too large for the current event flow. We also have not connected the Databricks summary or voice playback to the live run, so those parts are separate demonstrations.",
+    "accomplishments": "We built the core report review screen and a backend path that can summarize sample incidents. The map gives the project a concrete shared view, and we are proud that the prototype keeps a person in control of any response decision. We also identified a specific integration issue with transporting detailed route data.",
+    "what_we_learned": "We learned that language models are useful for turning reports into structured fields, but route calculation should stay in ordinary code and route geometry should not be pushed through a model response. Gemini helped us prototype report extraction and summaries, while building the map taught us to pay attention to payload size and event timing. We also saw how a shared review queue can make multiple data sources easier to compare.",
+    "whats_next": "We would move route geometry into a direct backend response or a stored run object, then connect it reliably to the map. We also want to link the voice and Databricks views to the same run and test the interface with more varied sample reports before considering any live data source.",
+    "built_with": [
+      "databricks",
+      "elevenlabs",
+      "fastapi",
+      "google-adk",
+      "google-gemini-api",
+      "leaflet.js",
+      "osrm",
+      "python",
+      "react"
+    ],
+    "challenges": [
+      "databricks",
+      "elevenlabs",
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "hackusf-2026--dispatch-3cdaye"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/dispatch-3cdaye"
+  ],
+  "primary_pool": "gemini",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "broken",
+    "writing_style": "detailed"
+  },
+  "fit": {
+    "databricks": "medium",
+    "elevenlabs": "medium",
+    "gemini": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009074,
+  "batch_id": "b019",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.6471304227138919,
+    "field": 0.7031326651485308
+  },
+  "created_at": "2026-10-11T00:53:23+00:00"
+}

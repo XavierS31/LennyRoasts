@@ -1,0 +1,388 @@
+{
+  "project_id": "kh9-smoke-t090",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "databricks",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 2,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 12,
+      "max_total": 25,
+      "score_10": 4.8,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        }
+      ],
+      "rationale": "Databricks is used for a disconnected experiment with sample data, not in the main app flow.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We also got a first look at preparing simple category data in Databricks",
+        "functionality": "not described",
+        "wow": "not described",
+        "relevance": "We also tried a small Databricks notebook to summarize sample clothing categories, but it is separate from the working"
+      },
+      "warnings": [
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect Databricks analysis to app flow for real-time wardrobe insights",
+        "Implement reliable end-to-end photo-to-outfit recommendation pipeline",
+        "Add detailed explanation of Databricks data preparation and analysis methods"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 2,
+        "wow": 2
+      },
+      "total": 10,
+      "max_total": 20,
+      "score_10": 5.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2
+          },
+          "total": 10,
+          "max_total": 20,
+          "score_10": 5.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2
+          },
+          "total": 10,
+          "max_total": 20,
+          "score_10": 5.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2
+          },
+          "total": 10,
+          "max_total": 20,
+          "score_10": 5.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The app concept is practical but not unique, with partial implementation of core features showing technical understanding but lacking a working end-to-end flow.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We used React Native and Expo for a mobile prototype, with Gemini intended to identify clothing details from photos",
+        "functionality": "The app is meant to suggest combinations from the saved wardrobe, but the full path from photo to recommendation did not",
+        "wow": "not described"
+      },
+      "warnings": [
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Integrate photo labeling, wardrobe storage, weather lookup, and recommendation into a dependable flow",
+        "Connect Databricks analysis to the app to provide wardrobe category insights",
+        "Ensure the core photo-to-outfit recommendation path works reliably in a demo"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 2,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": true
+        }
+      ],
+      "rationale": "The app uses Gemini for clothing identification and Databricks for wardrobe analysis but lacks a reliable end-to-end flow.",
+      "evidence": {
+        "originality": "The app is meant to suggest combinations from the saved wardrobe",
+        "tech_understanding": "We used React Native and Expo for a mobile prototype",
+        "functionality": "not described",
+        "wow": "The prototype gave us a concrete starting point for testing how wardrobe information could be organized on a phone",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 0: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: wow evidence was not an exact quote; replaced with not described.",
+        "Run 1: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect photo labeling, wardrobe storage, weather lookup, and recommendation screen into one dependable flow",
+        "Make the Databricks analysis useful to the app by showing underrepresented clothing categories",
+        "Ensure the image upload, Gemini response, and saved wardrobe state stay consistently connected"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 2,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 10,
+      "max_total": 25,
+      "score_10": 4.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission is a clothing planning app with game-like features but lacks core gameplay mechanics.",
+      "evidence": {
+        "originality": "We wanted to help students who have to move between class, a club event, and a part-time shift without changing outfits.",
+        "tech_understanding": "We used React Native and Expo for a mobile prototype, with Gemini intended to identify clothing details from photos and",
+        "functionality": "The app is meant to suggest combinations from the saved wardrobe, but the full path from photo to recommendation did not",
+        "wow": "We built a mobile wardrobe screen and got parts of the photo and clothing-label flow running.",
+        "relevance": "Users can photograph clothes and ask for outfit ideas for a campus event or work shift, with local weather as a small"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add core gameplay mechanics like challenges or win conditions to transform the app into a game.",
+        "Implement a reliable end-to-end flow connecting photo labeling, wardrobe storage, and recommendations.",
+        "Integrate Databricks analysis directly into the app to provide actionable insights about wardrobe categories."
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 2.6666666666666665,
+        "tech_understanding": 3,
+        "functionality": 2,
+        "wow": 1,
+        "relevance": 1.6666666666666667
+      },
+      "total": 10.333333333333334,
+      "max_total": 25,
+      "score_10": 4.133333333333334,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 9,
+          "max_total": 25,
+          "score_10": 3.6,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project offers a practical solution to outfit planning but lacks a goofy or absurd premise, and the core functionality is incomplete with disconnected components.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We used React Native and Expo for a mobile prototype, with Gemini intended to identify clothing details from photos",
+        "functionality": "The app is meant to suggest combinations from the saved wardrobe, but the full path from photo to recommendation did not",
+        "wow": "not described",
+        "relevance": "We wanted to help students who have to move between class, a club event, and a part-time shift without changing outfits."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a humorous or absurd twist to the outfit recommendation logic to increase relevance to the funny category",
+        "Implement a reliable end-to-end flow connecting photo labeling, wardrobe storage, and recommendations",
+        "Integrate Databricks analysis into the app to provide actionable insights about wardrobe categories"
+      ]
+    }
+  ]
+}

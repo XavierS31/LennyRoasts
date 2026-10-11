@@ -1,0 +1,52 @@
+{
+  "project_id": "kh9-smoke-t054",
+  "team_id": "t054",
+  "submission": {
+    "name": "Quiet Quench",
+    "tagline": "A spoken nudge and splash for campus study sessions that keep getting interrupted.",
+    "inspiration": "We built this for students trying to study in busy dorms and shared apartments, where a phone break can turn into a long detour. We wanted a physical reminder that makes the interruption hard to ignore, with a voice that can call out the moment too.",
+    "what_it_does": "A webcam and YOLOv8 watch for a phone being picked up during a study session. When one appears, the app asks Gemini to check the image and come up with a short teasing line, then ElevenLabs reads it aloud while an Arduino switches on a small water pump.",
+    "how_we_built_it": "Python and OpenCV handle the webcam feed and YOLOv8 detection, while separate threads keep video capture moving during API requests. Gemini checks a detected phone and supplies the message; ElevenLabs turns that text into speech. An Arduino and relay control the pump when the laptop sends a trigger.",
+    "challenges_we_ran_into": "We planned to run the vision code on a Raspberry Pi, but the boards we had could not be brought up reliably. We moved the detection work to a laptop and used the Arduino for the pump, so the demo works but depends on the laptop staying connected and the camera seeing the desk.",
+    "accomplishments": "We got the camera detection, generated voice, and physical pump working together for a study-session demo. Adding a short pen tip to the outlet made the water stream more noticeable, and threading helped avoid freezing the camera while waiting for responses.",
+    "what_we_learned": "We learned how to wire a relay and microcontroller to a physical output, and how much time hardware setup can take. We also got practice with YOLOv8, concurrent tasks, and shaping text so a synthesized voice sounds like a quick interruption rather than a long announcement.",
+    "whats_next": "We would like to add a way to follow a student who moves away from the camera's view, and make the pump trigger safer to use around study materials. A more reliable single-board setup would also make it easier to move between desks.",
+    "built_with": [
+      "arduino",
+      "elevenlabs",
+      "gemini",
+      "opencv",
+      "python",
+      "yolov8"
+    ],
+    "challenges": [
+      "elevenlabs"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--splash-l3sgun"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/splash-l3sgun"
+  ],
+  "primary_pool": "elevenlabs",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "hardware",
+    "completion": "polished",
+    "writing_style": "average"
+  },
+  "fit": {
+    "elevenlabs": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009054,
+  "batch_id": "b015",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.5921115349947794,
+    "field": 0.7441683113340853
+  },
+  "created_at": "2026-10-11T00:51:16+00:00"
+}

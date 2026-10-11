@@ -1,0 +1,377 @@
+{
+  "project_id": "kh9-smoke-t076",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "bny",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 16,
+      "max_total": 25,
+      "score_10": 6.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "The Receipt Ledger addresses a meaningful financial process improvement for small businesses by integrating receipt scanning and transaction summaries, though extraction limitations and partial inventory reliability affect functionality.",
+      "evidence": {
+        "originality": "We combined transaction summaries with receipt scanning to give those records a shared starting point.",
+        "tech_understanding": "Gemini processes receipt images and CSV headers, while the inventory idea borrows a receipt-to-items flow",
+        "functionality": "the upload view and summary view work, but the inventory update is not reliable for every receipt",
+        "wow": "We are glad the prototype can turn several awkward inputs into a view that is easier to scan.",
+        "relevance": "Users can upload a receipt image and a CSV of sales or expenses to build a simple weekly view of money in and money out."
+      },
+      "warnings": [
+        "Run 1: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a manual correction interface for receipt extraction errors to improve data accuracy and reliability",
+        "Implement automated reconciliation between sales and purchase records to strengthen the cash flow analysis",
+        "Document the system's limitations and data flow decisions to clarify its role as an organizer rather than formal accounting tool"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.6666666666666665,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 11.666666666666666,
+      "max_total": 20,
+      "score_10": 5.833333333333333,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project combines receipt scanning and CSV processing for small business cash flow tracking, with a working prototype but incomplete inventory reliability.",
+      "evidence": {
+        "originality": "We combined transaction summaries with receipt scanning to give those records a shared starting point.",
+        "tech_understanding": "Gemini processes receipt images and CSV headers, while the inventory idea borrows a receipt-to-items flow",
+        "functionality": "Users can upload a receipt image and a CSV of sales or expenses to build a simple weekly view of money in and money out",
+        "wow": "Turn a small business receipt pile into a clearer cash flow picture."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a correction flow for parsed items to improve data accuracy",
+        "Enhance inventory update reliability for all receipt types",
+        "Document the limitations of weekly totals as an organizer rather than formal bookkeeping"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 16,
+      "max_total": 25,
+      "score_10": 6.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        }
+      ],
+      "rationale": "The Receipt Ledger integrates Gemini API for receipt processing into a cash flow dashboard, showing meaningful AI use but with partial core functionality and some technical limitations.",
+      "evidence": {
+        "originality": "We combined transaction summaries with receipt scanning to give those records a shared starting point.",
+        "tech_understanding": "Gemini processes receipt images and CSV headers, while the inventory idea borrows a receipt-to-items flow",
+        "functionality": "Users can upload a receipt image and a CSV of sales or expenses to build a simple weekly view of money in and money out",
+        "wow": "We are glad the prototype can turn several awkward inputs into a view that is easier to scan.",
+        "relevance": "Gemini extracts likely line items and suggests categories, while a small inventory list can be updated from purchased"
+      },
+      "warnings": [
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: wow evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a correction flow for parsed items to improve data accuracy and reliability",
+        "Enhance reconciliation between purchases and sales for more accurate weekly totals",
+        "Implement a review step before data affects totals or inventory to address AI extraction limitations"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 11,
+      "max_total": 25,
+      "score_10": 4.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission is a financial tracking tool with game-like features but lacks core gameplay elements.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "The prototype uses a React and TypeScript frontend with a Node and Express backend and MongoDB persistence.",
+        "functionality": "Users can upload a receipt image and a CSV of sales or expenses to build a simple weekly view of money in and money out.",
+        "wow": "not described",
+        "relevance": "Users can upload a receipt image and a CSV of sales or expenses to build a simple weekly view of money in and money out."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add core gameplay elements like rules, challenges, and win/loss conditions to transform the tool into a game."
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 2.6666666666666665,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 1,
+        "relevance": 1.6666666666666667
+      },
+      "total": 11.333333333333334,
+      "max_total": 25,
+      "score_10": 4.533333333333333,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        }
+      ],
+      "rationale": "The Receipt Ledger offers a practical solution for small businesses to track cash flow but lacks a goofy or humorous concept, resulting in low wow and relevance scores.",
+      "evidence": {
+        "originality": "We combined transaction summaries with receipt scanning to give those records a shared starting point.",
+        "tech_understanding": "The prototype uses a React and TypeScript frontend with a Node and Express backend and MongoDB persistence.",
+        "functionality": "Users can upload a receipt image and a CSV of sales or expenses to build a simple weekly view of money in and money out.",
+        "wow": "We are glad the prototype can turn several awkward inputs into a view that is easier to scan.",
+        "relevance": "Student-run market stalls and small vendors often have sales records in one place and purchase receipts somewhere else"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a humorous twist to the cash flow tracking, such as a funny visual representation of expenses or a playful categorization system for line items."
+      ]
+    }
+  ]
+}

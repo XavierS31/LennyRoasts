@@ -1,0 +1,52 @@
+{
+  "project_id": "kh9-smoke-t022",
+  "team_id": "t022",
+  "submission": {
+    "name": "Clinic Case Desk",
+    "tagline": "Turn scattered clinic intake notes into a reviewable queue with spoken next steps.",
+    "inspiration": "Student and community clinics often have to sort through intake notes, appointment messages, and follow-up paperwork while keeping staff focused on patients. We wanted to adapt a case dashboard for a setting where a quick spoken summary can help a busy coordinator decide what needs attention.",
+    "what_it_does": "Clinic Case Desk organizes sample patient cases into a dashboard and uses specialized AI tasks to suggest follow-ups, missing information, or a draft patient message. Staff can accept or dismiss suggestions with a swipe-style control, and ElevenLabs reads a short case summary or selected next step aloud. Suggestions remain review items for staff rather than actions sent automatically.",
+    "how_we_built_it": "The frontend uses React and Next.js, with a FastAPI service coordinating the case workflow and MongoDB storing case records and review decisions. Gemini-powered agents produce different kinds of case suggestions, while ElevenLabs converts selected summaries into audio for the dashboard. The pieces connect through API calls so a case can be opened, analyzed, reviewed, and played back in one flow.",
+    "challenges_we_ran_into": "Connecting MongoDB records to the FastAPI workflow and routing each case to the right agent took the most iteration. We also had to keep the audio focused on short, useful summaries instead of reading every detail. The demo flow works end-to-end with sample cases, but it does not yet handle secure real clinic records or a full intake upload process.",
+    "accomplishments": "We are proud to have the case queue, agent suggestions, swipe review, and spoken summaries working together in the demo. The voice feature gives coordinators another way to scan a case while they are moving between tasks.",
+    "what_we_learned": "We learned how to connect a database-backed dashboard to several focused AI tasks without hiding the review step. Prompting tools helped us draft and revise agent instructions, and building the ElevenLabs playback path taught us to treat audio as part of the workflow rather than an add-on.",
+    "whats_next": "We would add secure authentication and a controlled way to import intake documents. We would also refine the agent roles and let staff configure which updates are read aloud.",
+    "built_with": [
+      "elevenlabs",
+      "fastapi",
+      "gemini",
+      "mongodb",
+      "next.js",
+      "react"
+    ],
+    "challenges": [
+      "elevenlabs"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--agent-agent-fg28e9"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/agent-agent-fg28e9"
+  ],
+  "primary_pool": "elevenlabs",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "data",
+    "completion": "polished",
+    "writing_style": "average"
+  },
+  "fit": {
+    "elevenlabs": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009022,
+  "batch_id": "b008",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.5827355790140294,
+    "field": 0.5985107864248489
+  },
+  "created_at": "2026-10-11T00:47:52+00:00"
+}

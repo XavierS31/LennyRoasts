@@ -1,0 +1,64 @@
+{
+  "project_id": "kh9-smoke-t080",
+  "team_id": "t080",
+  "submission": {
+    "name": "ReviewMap",
+    "tagline": "Give your lab team a shared map of the sources behind a research question.",
+    "inspiration": "When students split a research topic across a project team, it is easy to miss how their sources relate or which themes have little coverage. We wanted to help campus research groups organize reading before they prepare a proposal.",
+    "what_it_does": "A team can add paper links or DOIs, view citation connections, and ask Gemini questions grounded in the papers that were ingested. Databricks is used to group paper topics and surface areas with relatively few sources; a short ElevenLabs audio summary is an optional way to review a finding.",
+    "how_we_built_it": "We built a React and Vite frontend with a FastAPI backend, PostgreSQL with pgvector, and background jobs for paper ingestion. Semantic Scholar supplies metadata, Gemini handles grounded questions and topic labels, and a Databricks notebook explores the source collection; ElevenLabs is used for a brief spoken recap.",
+    "challenges_we_ran_into": "The paper lookup and graph view ran as separate pieces, but our full ingestion-to-gap-to-chat demo failed when jobs did not finish consistently. Some imported papers had sparse metadata, which also made the topic groups and spoken recap less useful.",
+    "accomplishments": "We built an initial citation graph view and got individual paper lookup and Gemini question answering working on a small collection. The Databricks analysis gave us a first way to inspect topic coverage, and we added an audio recap as a small accessibility option.",
+    "what_we_learned": "We learned that research tools depend on dependable source metadata and clear definitions of what counts as a gap. Gemini was helpful for summarizing and labeling, but it could not compensate for missing papers or broken ingestion steps.",
+    "whats_next": "We would stabilize the background ingestion flow, make the gap explanations easier to verify, and add workspace access checks before inviting more research teams. We would also test whether audio recaps are useful for reviewing sources between meetings.",
+    "built_with": [
+      "databricks",
+      "elevenlabs",
+      "fastapi",
+      "gemini",
+      "pgvector",
+      "postgresql",
+      "python",
+      "react",
+      "redis",
+      "scikit-learn",
+      "semanticscholarapi",
+      "sqlalchemy",
+      "typescript",
+      "vite"
+    ],
+    "challenges": [
+      "gemini",
+      "elevenlabs",
+      "databricks"
+    ]
+  },
+  "seed_ids": [
+    "hackusf-2026--litlens"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/litlens"
+  ],
+  "primary_pool": "gemini",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "data",
+    "completion": "broken",
+    "writing_style": "terse"
+  },
+  "fit": {
+    "gemini": "strong",
+    "elevenlabs": "weak",
+    "databricks": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009080,
+  "batch_id": "b021",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.7497958193818981,
+    "field": 0.7603445188739031
+  },
+  "created_at": "2026-10-11T00:54:28+00:00"
+}

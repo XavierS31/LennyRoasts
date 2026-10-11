@@ -1,0 +1,59 @@
+{
+  "project_id": "kh9-smoke-t073",
+  "team_id": "t073",
+  "submission": {
+    "name": "Lecture Bridge",
+    "tagline": "Listen to a class explanation in another language while keeping the original lecture in view.",
+    "inspiration": "International students in our group described how difficult it can be to follow a fast lecture while also trying to translate unfamiliar terms. We wanted to put translated audio and subtitles next to the browser video, so students could keep their attention on the class material.",
+    "what_it_does": "Lecture Bridge is a Chrome extension that captures a short audio chunk from a lecture tab, transcribes it, translates the text, and shows subtitles with synthesized speech in the selected language. Deepgram handles transcription, DeepL handles translation, and ElevenLabs provides the spoken output. Gemini is used for an optional brief glossary explanation, while a small Databricks notebook is intended to organize language and usage samples; neither is required for the main translation flow. The financial-services connection is a secondary accessibility use case for listening to short banking help clips in another language.",
+    "how_we_built_it": "The extension popup lets the user choose a language and start or stop capture, while a background script coordinates audio chunks and API requests. An offscreen document plays the generated audio because the service worker cannot play it directly, and a content script places subtitles over the active page. We kept the Deepgram to DeepL to ElevenLabs sequence from our initial design and added Gemini only for a glossary action. The pieces were developed by separate teammates, and the extension currently has mocked responses in place of a completed end-to-end pipeline.",
+    "challenges_we_ran_into": "We did not connect all of the extension components by demo time. Audio capture, subtitle rendering, and speech playback each work in isolation, but messages between the background worker and offscreen page are not reliable, so a translated chunk can fail to appear or play. We also did not finish handling the timing difference between subtitles and generated speech, and the Databricks and Gemini additions remain prototypes.",
+    "accomplishments": "We built the popup, subtitle overlay, and audio playback pieces and established the intended API sequence. We are proud that the extension has a clear browser-based interaction and does not require students to move lecture content into a separate app. The parts give us a practical base for finishing the integration.",
+    "what_we_learned": "We learned that a Chrome extension has several separate execution contexts, and audio has to be passed carefully between them. ElevenLabs made the translated text usable as speech, while Gemini helped us explore concise glossary explanations. We also learned that a multi-service pipeline needs clear failure states when any API call stalls.",
+    "whats_next": "We would finish the message flow between capture, translation, subtitles, and playback, then test it on a small set of lecture videos. We also want to add retry handling and make the glossary and sample analysis optional features that do not interrupt the main audio experience.",
+    "built_with": [
+      "chrome-extension",
+      "databricks",
+      "deepl",
+      "deepgram",
+      "elevenlabs",
+      "gemini",
+      "javascript"
+    ],
+    "challenges": [
+      "elevenlabs",
+      "bny",
+      "databricks",
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--live-translation-extension"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/live-translation-extension"
+  ],
+  "primary_pool": "elevenlabs",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "hardware",
+    "completion": "partial",
+    "writing_style": "average"
+  },
+  "fit": {
+    "elevenlabs": "strong",
+    "bny": "medium",
+    "databricks": "weak",
+    "gemini": "medium"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009073,
+  "batch_id": "b019",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.6842385408448393,
+    "field": 0.6144215553392972
+  },
+  "created_at": "2026-10-11T00:53:23+00:00"
+}

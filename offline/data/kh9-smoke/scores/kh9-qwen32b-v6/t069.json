@@ -1,0 +1,467 @@
+{
+  "project_id": "kh9-smoke-t069",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "gemini",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "Gemini is intended to summarize data insights but not yet connected, giving relevance 3 as a meaningful secondary step; functionality is limited to partial working components.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We prepared public and sample project data with Python, pandas, and SQL",
+        "functionality": "We have working pieces for the map and model exploration",
+        "wow": "We also made a first pass at showing how an outlier might prompt a closer look",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 1: wow evidence was not an exact quote; replaced with not described.",
+        "Run 1: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect the Gemini API to the dashboard to generate summaries from the data insights",
+        "Add source links and coordinator review notes to enhance the dashboard's utility",
+        "Test the workflow with a local relief organization to validate the practical application"
+      ]
+    },
+    {
+      "challenge_id": "databricks",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14,
+      "max_total": 25,
+      "score_10": 5.6,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        }
+      ],
+      "rationale": "Databricks is used for meaningful outlier detection but not yet fully connected to the dashboard; the solution shows a concrete coordination question with a data workflow and experiment.",
+      "evidence": {
+        "originality": "We brought together a map concept, a data-preparation workflow, and an anomaly model experiment around a concrete",
+        "tech_understanding": "We prepared public and sample project data with Python, pandas, and SQL, then used Databricks to experiment with an Is",
+        "functionality": "We have working pieces for the map and model exploration, but a reliable deployed endpoint and verified Gemini summar",
+        "wow": "We would connect the Databricks results to the dashboard, add source links and coordinator review notes, and test the w",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 0: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 1: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 2: tech_understanding evidence was not an exact quote; replaced with not described.",
+        "Run 2: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect the Databricks model output to the dashboard to show how outliers influence the displayed data",
+        "Add detailed explanations of the data flow and decisions made during preparation and modeling in the submission text",
+        "Implement and document the Gemini panel's integration with the model results for clearer data summaries"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.6666666666666665,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 11.666666666666666,
+      "max_total": 20,
+      "score_10": 5.833333333333333,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        }
+      ],
+      "rationale": "The dashboard combines a map and anomaly detection for community relief, but partial integration and unready features limit originality and wow.",
+      "evidence": {
+        "originality": "The dashboard maps sample community response areas and compares reported need with recorded support.",
+        "tech_understanding": "We prepared public and sample project data with Python, pandas, and SQL, then used Databricks to experiment with an Isol",
+        "functionality": "We brought together a map concept, a data-preparation workflow, and an anomaly model experiment around a concrete coord",
+        "wow": "A clearer view of local needs and the resources assigned to them"
+      },
+      "warnings": [
+        "Run 1: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect Databricks results to the dashboard for full integration",
+        "Add source links and coordinator review notes for transparency",
+        "Test the workflow with a local relief organization for real-world feedback"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.3333333333333335,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3.6666666666666665
+      },
+      "total": 15,
+      "max_total": 25,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project uses an Isolation Forest model for outlier detection in community relief data but lacks full integration with the dashboard and Gemini summaries.",
+      "evidence": {
+        "originality": "It also flags unusual project-level ratios for review and has a Gemini panel intended to summarize what the data shows",
+        "tech_understanding": "We prepared public and sample project data with Python, pandas, and SQL, then used Databricks to experiment with an Isol",
+        "functionality": "We have working pieces for the map and model exploration, but a reliable deployed endpoint and verified Gemini summaries",
+        "wow": "A clearer view of local needs and the resources assigned to them",
+        "relevance": "The dashboard maps sample community response areas and compares reported need with recorded support."
+      },
+      "warnings": [
+        "Run 0: functionality evidence was not an exact quote; replaced with not described.",
+        "Run 0: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 1: originality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Connect the Databricks model results to the dashboard for real-time outlier visualization",
+        "Implement verified Gemini summaries to explain data insights",
+        "Develop the voice notification concept beyond its current stub state"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 2,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 10,
+      "max_total": 25,
+      "score_10": 4.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 2,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission is a data dashboard with game-like elements but lacks core gameplay mechanics; technical components are partially connected but incomplete.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We prepared public and sample project data with Python, pandas, and SQL",
+        "functionality": "a Gemini panel intended to summarize what the data shows; a separate voice notification concept is still a stub",
+        "wow": "not described",
+        "relevance": "The dashboard maps sample community response areas and compares reported need with recorded support."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add player-controlled actions and clear win/loss conditions to transform the dashboard into a game",
+        "Complete the integration between the Databricks model and the dashboard for functional outlier detection",
+        "Develop the voice notification concept into a working feature with clear user interactions"
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 2.6666666666666665,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 1,
+        "relevance": 1.6666666666666667
+      },
+      "total": 11.333333333333334,
+      "max_total": 25,
+      "score_10": 4.533333333333333,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project addresses a practical need with a dashboard for community relief coordination but lacks a goofy or absurd premise required for the funny/goofy category.",
+      "evidence": {
+        "originality": "We brought together a map concept, a data-preparation workflow, and an anomaly model experiment",
+        "tech_understanding": "We prepared public and sample project data with Python, pandas, and SQL, then used Databricks to experiment with an Isol",
+        "functionality": "The dashboard maps sample community response areas and compares reported need with recorded support",
+        "wow": "Forecasting and voice notifications would come later.",
+        "relevance": "Community relief groups can have many spreadsheets describing needs, donations, and active projects, but it is hard to s"
+      },
+      "warnings": [
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add an absurd or over-engineered solution to a trivial problem presented as life changing to increase relevance to the funny/goofy category.",
+        "Develop the voice notification concept beyond a stub to improve functionality and wow factor.",
+        "Incorporate a more humorous or comedic element into the dashboard's design or purpose to enhance the overall appeal for the category."
+      ]
+    }
+  ]
+}

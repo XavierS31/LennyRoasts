@@ -1,0 +1,378 @@
+{
+  "project_id": "kh9-smoke-t043",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "bny",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "A playful parking game with a minor cost display offers a common implementation for financial awareness without deep financial process integration.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We made a colorful Unity game in C#, with simple driving, collision, and spot-finding mechanics",
+        "functionality": "Players steer through a crowded campus lot, dodge traffic and obstacles, and race to claim an open spot",
+        "wow": "We are happy with the original art direction and the small cost summary that gives the game a campus-finance angle",
+        "relevance": "A small end-of-round panel tracks pretend parking and fuel costs so players can compare how their route went."
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add real financial data connections to show actual commuting costs",
+        "Explain how the cost estimates are calculated with clear assumptions",
+        "Improve the integration between game mechanics and financial display features"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2
+      },
+      "total": 11,
+      "max_total": 20,
+      "score_10": 5.5,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 11,
+          "max_total": 20,
+          "score_10": 5.5,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project combines a familiar annoyance with a game loop and cost tracking, but the core mechanics are common.",
+      "evidence": {
+        "originality": "turn that familiar annoyance into a quick game",
+        "tech_understanding": "Unity game in C#, with simple driving, collision",
+        "functionality": "main parking loop playable and made the interface readable",
+        "wow": "A goofy parking race for UCF commuters"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add detailed explanations of how the cost summary connects to gameplay mechanics to improve technical understanding",
+        "Implement and document additional lot layouts and adjustable sound to enhance originality and wow factor",
+        "Provide evidence of Git workflow challenges resolved to strengthen functionality claims"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": false,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 13,
+      "max_total": 25,
+      "score_10": 5.2,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project uses a game to highlight parking costs but lacks a central AI model, relying on basic Unity mechanics and static cost values.",
+      "evidence": {
+        "originality": "Players steer through a crowded campus lot, dodge traffic and obstacles, and race to claim an open spot.",
+        "tech_understanding": "We made a colorful Unity game in C#, with simple driving, collision, and spot-finding mechanics.",
+        "functionality": "We got the main parking loop playable and made the interface readable while the lot is busy.",
+        "wow": "We are happy with the original art direction and the small cost summary that gives the game a campus-finance angle.",
+        "relevance": "The cost panel is a separate prototype screen using sample values; we did not connect it to real financial accounts or"
+      },
+      "warnings": [
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add an AI model to simulate dynamic parking availability or calculate realistic cost estimates based on player behavior."
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 4,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 17,
+      "max_total": 25,
+      "score_10": 6.8,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        }
+      ],
+      "rationale": "A playable parking game with core mechanics and a loose financial overlay shows relevance and partial functionality.",
+      "evidence": {
+        "originality": "A goofy parking race for UCF commuters, with a tiny look at what each trip costs.",
+        "tech_understanding": "We made a colorful Unity game in C#, with simple driving, collision, and spot-finding mechanics.",
+        "functionality": "Players steer through a crowded campus lot, dodge traffic and obstacles, and race to claim an open spot.",
+        "wow": "We are happy with the original art direction and the small cost summary that gives the game a campus-finance angle.",
+        "relevance": "Players steer through a crowded campus lot, dodge traffic and obstacles, and race to claim an open spot."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add clear win/loss conditions to strengthen gameplay core",
+        "Document cost calculation assumptions for transparency",
+        "Better integrate cost tracking with game rounds"
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 3.6666666666666665,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 14.666666666666666,
+      "max_total": 25,
+      "score_10": 5.866666666666666,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project turns a common annoyance into a game with a humorous angle, but the documented implementation lacks detailed technical explanations and the comedic impact is moderate.",
+      "evidence": {
+        "originality": "turn that familiar annoyance into a quick game",
+        "tech_understanding": "made a colorful Unity game in C#",
+        "functionality": "got the main parking loop playable",
+        "wow": "not described",
+        "relevance": "goofy parking race for UCF commuters"
+      },
+      "warnings": [
+        "Run 0: relevance evidence was not an exact quote; replaced with not described.",
+        "Run 1: wow evidence was not an exact quote; replaced with not described.",
+        "Run 2: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add detailed technical explanations of how the game mechanics and cost panel are implemented.",
+        "Enhance the comedic elements and documented impact to increase wow factor.",
+        "Improve the connection between the game and cost summary for better functionality."
+      ]
+    }
+  ]
+}

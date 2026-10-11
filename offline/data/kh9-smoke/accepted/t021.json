@@ -1,0 +1,54 @@
+{
+  "project_id": "kh9-smoke-t021",
+  "team_id": "t021",
+  "submission": {
+    "name": "Parcel Quest",
+    "tagline": "Explore underused city blocks and weigh the tradeoffs of turning them into homes.",
+    "inspiration": "We wanted to make city planning feel more tangible by letting people explore what could happen to overlooked lots. We were interested in infill housing, but wanted to show that a promising parcel also has costs, constraints, and neighborhood effects.",
+    "what_it_does": "Parcel Quest lets a user choose an area and browse possible infill sites on a map. Gemini helps summarize each candidate’s apparent suitability across site conditions, development feasibility, housing potential, and environmental impact, then the app ranks the options and shows the reasoning and source notes. A small overview panel compares a few sustainability measures so users can inspect the tradeoffs.",
+    "how_we_built_it": "We used Python with FastAPI for the API and React, JavaScript, HTML, and CSS for the map interface. The backend sends candidate parcel information to Gemini for structured summaries and scores, then returns ranked results and notes for the frontend to display. We also added a basic validation view to make it easier to see which inputs informed a result.",
+    "challenges_we_ran_into": "Getting suggested places to line up with the correct locations on the map took repeated coordinate fixes. Some parts of the demo work in isolation, but the full flow from area search through ranked results does not consistently complete. Parcel details and environmental estimates also need stronger source checks before anyone could use them for real planning.",
+    "accomplishments": "We put together a working map view and a first pass at comparing candidate sites across several factors. We are proud that the project exposes its reasoning instead of presenting a single unexplained score.",
+    "what_we_learned": "We learned how much parcel scoring depends on uncertain data and assumptions about zoning, costs, and neighborhood needs. Gemini helped us organize messy candidate information into a consistent format, but we still had to check the outputs and design the ranking logic ourselves.",
+    "whats_next": "We would connect the search and ranking pieces into a reliable end-to-end flow and cache previous area results. We would also improve parcel boundaries and add clearer links to authoritative zoning and environmental data.",
+    "built_with": [
+      "fastapi",
+      "google-gemini",
+      "google-maps",
+      "javascript",
+      "python",
+      "react"
+    ],
+    "challenges": [
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--replot",
+    "hacklytics-2026--visiun"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/replot",
+    "https://devpost.com/software/visiun"
+  ],
+  "primary_pool": "gemini",
+  "mutation": "heavy",
+  "persona": {
+    "skill_focus": "game_dev",
+    "completion": "broken",
+    "writing_style": "average"
+  },
+  "fit": {
+    "gemini": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009021,
+  "batch_id": "b008",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.7059273818249256,
+    "field": 0.6057713196228481
+  },
+  "created_at": "2026-10-11T00:47:52+00:00"
+}

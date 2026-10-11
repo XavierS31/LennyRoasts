@@ -1,0 +1,52 @@
+{
+  "project_id": "kh9-smoke-t030",
+  "team_id": "t030",
+  "submission": {
+    "name": "Desk Splashdown",
+    "tagline": "A voice-powered study timer that spots phone breaks and gives your desk a playful warning.",
+    "inspiration": "We found it easy to reach for a phone during a long study block, especially when working through difficult classes. We wanted a physical reminder that reacts right away and makes the break feel noticeable without turning the whole session into another app.",
+    "what_it_does": "A webcam checks for phone use with YOLOv8, then Gemini confirms likely distractions and writes a short nudge aloud through ElevenLabs. An Arduino can trigger a small desk fan as a playful cue, and the program keeps camera processing, AI requests, and hardware control running separately.",
+    "how_we_built_it": "We used Python and OpenCV with YOLOv8 for camera detection, Gemini for the follow-up message, and ElevenLabs text-to-speech for the spoken prompt. An Arduino controls the fan through a relay, while a laptop runs the detection and API calls.",
+    "challenges_we_ran_into": "The Raspberry Pi boards we planned to use would not boot reliably, so we moved processing to a laptop and kept the Arduino for the physical response. Detection can still mistake a phone for another object, and the fan response is more of a nudge than a precise distraction measure.",
+    "accomplishments": "We connected the webcam, AI message, spoken feedback, and hardware cue into a working study-session loop. Splitting the work across threads helped the camera keep updating while the other parts were busy.",
+    "what_we_learned": "We learned the basics of Arduino control, computer vision, and threading, and saw how hardware and AI calls need to coordinate without blocking each other. ElevenLabs made the feedback audible without requiring us to record a set of prompts ourselves.",
+    "whats_next": "We would like to make phone detection more dependable and add a way to pause the system when a student needs their phone for classwork. We could also test other gentle physical reminders for different study spaces.",
+    "built_with": [
+      "arduino",
+      "elevenlabs",
+      "gemini",
+      "opencv",
+      "python",
+      "yolov8"
+    ],
+    "challenges": [
+      "elevenlabs"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--splash-l3sgun"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/splash-l3sgun"
+  ],
+  "primary_pool": "elevenlabs",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "hardware",
+    "completion": "polished",
+    "writing_style": "average"
+  },
+  "fit": {
+    "elevenlabs": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009030,
+  "batch_id": "b009",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.5133060729670438,
+    "field": 0.5927600410534197
+  },
+  "created_at": "2026-10-11T00:48:16+00:00"
+}

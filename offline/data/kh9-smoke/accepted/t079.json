@@ -1,0 +1,58 @@
+{
+  "project_id": "kh9-smoke-t079",
+  "team_id": "t079",
+  "submission": {
+    "name": "LabPath",
+    "tagline": "Turn a training goal into a short course plan for your next lab skill.",
+    "inspiration": "Students often need to learn a specific tool or procedure before a project, but broad online courses can be hard to fit around a deadline. We wanted a way to turn a learner’s goal into a focused path with a few useful resources.",
+    "what_it_does": "Learners enter a skill goal and their current experience, then receive a sequence of short lessons and suggested videos. A Databricks notebook groups sample learning topics and activity data into skill areas, which the app uses to shape the course outline.",
+    "how_we_built_it": "The app uses Next.js and JavaScript with Gemini to draft course steps, and YouTube API results to attach relevant videos. We prepared a small learning dataset in Databricks and used its analysis to organize topic suggestions; Neon and Drizzle hold course records, with Firebase used for some user data.",
+    "challenges_we_ran_into": "The flow works end to end in the demo, but generated lessons sometimes repeat or point to videos that do not quite match the topic. Getting the Databricks output, Gemini course draft, and two different data stores to agree took more time than expected.",
+    "accomplishments": "We connected a learner prompt to a generated course outline and resource list, and got a small Databricks analysis to influence the suggested topics. The prototype gave us a useful starting point for skill-focused learning rather than a general course catalog.",
+    "what_we_learned": "We learned that a course generator needs good topic data as well as a capable model, and that data preparation affects what the learner sees. Gemini helped draft explanations, while Databricks helped us see how to group the learning topics into a more usable path.",
+    "whats_next": "We would improve the topic dataset, add simple progress tracking, and check video relevance before showing recommendations. We also want to make the generated sequence easier to edit when a learner already knows part of a skill.",
+    "built_with": [
+      "databricks",
+      "drizzle",
+      "firebase",
+      "gemini",
+      "javascript",
+      "neon",
+      "next.js",
+      "node.js",
+      "postgresql",
+      "react",
+      "tailwind",
+      "youtubeapi"
+    ],
+    "challenges": [
+      "databricks"
+    ]
+  },
+  "seed_ids": [
+    "hackharvard-2024--educrate"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/educrate"
+  ],
+  "primary_pool": "databricks",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "ai_ml",
+    "completion": "shaky",
+    "writing_style": "average"
+  },
+  "fit": {
+    "databricks": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009079,
+  "batch_id": "b021",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.5754672430300614,
+    "field": 0.7447471350532263
+  },
+  "created_at": "2026-10-11T00:54:28+00:00"
+}

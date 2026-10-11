@@ -1,0 +1,447 @@
+{
+  "project_id": "kh9-smoke-t034",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "gemini",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 4,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 17,
+      "max_total": 25,
+      "score_10": 6.8,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        }
+      ],
+      "rationale": "Gemini's substitution suggestions are central to the meal planning flow, but inconsistent data affects reliability.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "Gemini handles substitution suggestions, while the cost panel uses rough item estimates in the app.",
+        "functionality": "The end-to-end flow works, but Gemini sometimes suggests a substitute that doesn’t fit the recipe",
+        "wow": "We connected ingredient entry, ranked recipe results, and pantry-based substitution suggestions in a working web app.",
+        "relevance": "Gemini handles substitution suggestions, while the cost panel uses rough item estimates in the app."
+      },
+      "warnings": [
+        "Run 1: wow evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a documented example of a Gemini substitution suggestion in the app interface",
+        "Explain how recipe context constraints are applied to Gemini's output",
+        "Show how shared pantry data is synchronized between users"
+      ]
+    },
+    {
+      "challenge_id": "bny",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 3
+      },
+      "total": 15,
+      "max_total": 25,
+      "score_10": 6.0,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 3
+          },
+          "total": 15,
+          "max_total": 25,
+          "score_10": 6.0,
+          "eligible": true
+        }
+      ],
+      "rationale": "Improves shared kitchen cost tracking and meal planning with ingredient matching and substitution suggestions, but has data consistency issues affecting reliability.",
+      "evidence": {
+        "originality": "We wanted to connect meal planning with a simple view of what a shared household may need to buy.",
+        "tech_understanding": "We used a Next.js and TypeScript frontend with Tailwind styling, and a Python Flask service that matches ingredients",
+        "functionality": "Users enter available ingredients and get recipe suggestions ranked by how well they match",
+        "wow": "We connected ingredient entry, ranked recipe results, and pantry-based substitution suggestions in a working web app",
+        "relevance": "Shared apartments often have ingredients in the kitchen but no clear plan for using them, while grocery costs are split"
+      },
+      "warnings": [
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add ingredient normalization to improve recipe matching reliability",
+        "Implement roommate shared pantry saving for better collaboration",
+        "Develop more consistent grocery cost estimation methods"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3.6666666666666665,
+        "wow": 2
+      },
+      "total": 12.666666666666666,
+      "max_total": 20,
+      "score_10": 6.333333333333333,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2
+          },
+          "total": 12,
+          "max_total": 20,
+          "score_10": 6.0,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project connects meal planning with shared kitchen costs using a working web app, but challenges remain in data consistency and estimate reliability.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We used a Next.js and TypeScript frontend with Tailwind styling, and a Python Flask service that matches ingredients",
+        "functionality": "Users enter available ingredients and get recipe suggestions ranked by how well they match, including missing items",
+        "wow": "not described"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Implement ingredient normalization to improve match accuracy and cost estimates",
+        "Add a review step for Gemini's substitution suggestions to ensure recipe compatibility",
+        "Develop a shared pantry system for roommates to enhance collaboration features"
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3.6666666666666665,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 16.666666666666668,
+      "max_total": 25,
+      "score_10": 6.666666666666667,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project uses Gemini for substitution suggestions and recipe matching with a working web app, but faces challenges with ingredient data consistency and cost estimates.",
+      "evidence": {
+        "originality": "Users enter available ingredients and get recipe suggestions ranked by how well they match",
+        "tech_understanding": "Gemini handles substitution suggestions, while the cost panel uses rough item estimates in the app",
+        "functionality": "We connected ingredient entry, ranked recipe results, and pantry-based substitution suggestions in a working web app",
+        "wow": "We wanted to connect meal planning with a simple view of what a shared household may need to buy",
+        "relevance": "Gemini handles substitution suggestions, while the cost panel uses rough item estimates in the app"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add ingredient normalization to improve recipe matching accuracy",
+        "Implement roommate-shared pantry saving for better collaboration",
+        "Develop more consistent grocery cost estimation methods"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 1,
+        "relevance": 2
+      },
+      "total": 11,
+      "max_total": 25,
+      "score_10": 4.4,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 11,
+          "max_total": 25,
+          "score_10": 4.4,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission describes a meal planning tool with game-like elements but lacks core gameplay mechanics.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We used a Next.js and TypeScript frontend with Tailwind styling, and a Python Flask service that matches ingredients",
+        "functionality": "We connected ingredient entry, ranked recipe results, and pantry-based substitution suggestions in a working web app",
+        "wow": "not described",
+        "relevance": "Users enter available ingredients and get recipe suggestions ranked by how well they match, including missing items and"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add core gameplay elements like win/loss conditions or player challenges to increase relevance as a game"
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 2.6666666666666665,
+        "tech_understanding": 3.6666666666666665,
+        "functionality": 3,
+        "wow": 1,
+        "relevance": 1.6666666666666667
+      },
+      "total": 12,
+      "max_total": 25,
+      "score_10": 4.8,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project addresses a practical kitchen management issue with a functional but not inherently goofy solution, missing the humor required for higher relevance and wow scores.",
+      "evidence": {
+        "originality": "We wanted to connect meal planning with a simple view of what a shared household may need to buy.",
+        "tech_understanding": "We used a Next.js and TypeScript frontend with Tailwind styling, and a Python Flask service that matches ingredients",
+        "functionality": "Users enter available ingredients and get recipe suggestions ranked by how well they match",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add a humorous twist to the meal planning experience, such as absurd recipe substitutions or playful cost estimates to increase relevance and wow factor."
+      ]
+    }
+  ]
+}

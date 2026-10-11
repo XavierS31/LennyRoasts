@@ -1,0 +1,56 @@
+{
+  "project_id": "kh9-smoke-t010",
+  "team_id": "t010",
+  "submission": {
+    "name": "Focus Beacon",
+    "tagline": "A desk companion that notices when your focus drifts and offers a small market news break.",
+    "inspiration": "We liked the idea of a physical reminder that can bring someone back from a distracting screen without blocking their work. We paired that with a brief stream of financial headlines so a break could be guided by a topic the user chose.",
+    "what_it_does": "A small desk display uses webcam attention cues to change its expression when someone appears to look away for a while. A separate dashboard can show a handful of recent market headlines and use Gemini to turn one into a short spoken summary. The pieces are demonstrated separately today, so headlines do not yet affect the physical companion.",
+    "how_we_built_it": "The hardware prototype uses Raspberry Pi Pico W boards, a small LCD, a motor, and a cardboard housing. A local React and TypeScript page captures webcam frames and sends them to a Python service using MediaPipe face landmarks to estimate whether the user is looking away; the service updates the companion state through MongoDB. We also built a web dashboard that loads sample market headlines and asks Gemini for a brief summary. The news view is currently a separate demo path, and its audio playback is not connected to the desk device.",
+    "challenges_we_ran_into": "The Pico Wi-Fi setup and screen libraries took time to get working, and we switched from acrylic to cardboard when fabrication became impractical. MediaPipe gave us more useful face landmarks than our first approach, but looking away is only a rough signal for distraction. The headline dashboard and the hardware state still need an integration pass.",
+    "accomplishments": "We made the physical display respond to the webcam based attention estimate and built a separate Gemini headline summary page. We are proud of the homemade enclosure and the working path from camera frames to a visible companion state.",
+    "what_we_learned": "We learned to keep a fallback fabrication plan and to test hardware libraries early. Gemini was useful for turning a headline into a short explanation, while we learned that adding a cloud feature does not automatically make it part of the device experience.",
+    "whats_next": "We would connect the headline summaries to the desk display, add spoken playback, and make the attention cue easier to adjust. We would also test the hardware on a more stable network and improve the enclosure.",
+    "built_with": [
+      "c",
+      "c++",
+      "digitalocean",
+      "google-gemini",
+      "mongodb",
+      "python",
+      "react",
+      "typescript"
+    ],
+    "challenges": [
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--angel-on-your-desk",
+    "hackthenorth2025--finlake"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/angel-on-your-desk",
+    "https://devpost.com/software/finlake"
+  ],
+  "primary_pool": "general",
+  "mutation": "heavy",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "partial",
+    "writing_style": "detailed"
+  },
+  "fit": {
+    "gemini": "medium"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009010,
+  "batch_id": "b002",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.4279614813815091,
+    "field": 0.45143918019893636
+  },
+  "created_at": "2026-10-10T23:32:04+00:00"
+}

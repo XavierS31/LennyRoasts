@@ -1,0 +1,56 @@
+{
+  "project_id": "kh9-smoke-t091",
+  "team_id": "t091",
+  "submission": {
+    "name": "Civic Call Desk",
+    "tagline": "Turn incoming city service calls into clearer handoffs and a live view of recurring neighborhood issues.",
+    "inspiration": "We were interested in the way a resident may have to explain a broken streetlight or missed pickup several times before it reaches the right department. The same handoff friction we noticed in healthcare can affect local services, especially when a busy desk is sorting calls and messages.",
+    "what_it_does": "The prototype takes a service-call transcript, creates a short summary with Gemini, and shows the status and key details on an operator dashboard. It groups sample issue reports by location and time so staff can notice a cluster, such as repeated water or road complaints. The dashboard updates live, but it is a workflow demo and does not dispatch city crews.",
+    "how_we_built_it": "We built a web dashboard with Next.js, React, TypeScript, Tailwind, and Recharts, backed by a small event-driven call store. Incoming call events are reconciled by the backend, then Gemini turns transcript text into structured issue fields and a summary; server-sent events carry updates to the dashboard. We prepared sample reports in Databricks and use its aggregation to power the neighborhood issue view, linking the resulting counts back to the operator screen.",
+    "challenges_we_ran_into": "Events can arrive out of order, and a live transcript update can trigger a stale summary if it races with another update. The dashboard sometimes needs a refresh to recover after that sequence. Our Databricks view depends on prepared sample data, so it is not yet a dependable signal for real service demand.",
+    "accomplishments": "We connected a transcript summary, live operator view, and location-based issue aggregation in one web demo. We are proud that an operator can follow a report from its incoming details to a broader pattern without leaving the dashboard.",
+    "what_we_learned": "We learned to treat event ordering and state reconciliation as core product work in a real-time interface. Gemini helped structure informal reports, while Databricks made it easier to group prepared records; both still need clear validation before staff could rely on the output.",
+    "whats_next": "We would test with a larger, realistic set of anonymized service reports and make the event recovery behavior more robust. We would also add a human review step before any issue summary or cluster is routed to a department.",
+    "built_with": [
+      "databricks",
+      "gemini",
+      "nextjs",
+      "react",
+      "recharts",
+      "sse",
+      "tailwindcss",
+      "typescript"
+    ],
+    "challenges": [
+      "databricks",
+      "gemini"
+    ]
+  },
+  "seed_ids": [
+    "hacklytics-2026--meredith-2dv74r"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/meredith-2dv74r"
+  ],
+  "primary_pool": "databricks",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "shaky",
+    "writing_style": "average"
+  },
+  "fit": {
+    "databricks": "strong",
+    "gemini": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009091,
+  "batch_id": "b023",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.5017854245425138,
+    "field": 0.66873256502479
+  },
+  "created_at": "2026-10-11T00:56:00+00:00"
+}

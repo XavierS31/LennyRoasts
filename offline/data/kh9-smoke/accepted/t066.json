@@ -1,0 +1,54 @@
+{
+  "project_id": "kh9-smoke-t066",
+  "team_id": "t066",
+  "submission": {
+    "name": "ClubTab",
+    "tagline": "A simple money dashboard for student club treasurers.",
+    "inspiration": "Student organizations often have several people trying to understand the same small budget, and transaction lists can be difficult to explain at a glance. We wanted to make a lightweight place where a treasurer could see recent activity and ask basic questions about club spending.",
+    "what_it_does": "ClubTab shows a sample club account's purchases, deposits, and withdrawals, with a chart grouping spending into a few categories. A chat helper explains common banking and budget terms in plain language. The account feed and assistant are separate in this prototype, so the assistant does not yet answer questions using the displayed transactions.",
+    "how_we_built_it": "We used React with HTML, CSS, and JavaScript for the dashboard, and Python with Flask for account and API work. The original plan was to use a financial-data API for transaction records and an LLM endpoint for the helper's explanations. Those pieces connect through the Flask layer in the intended design, while the current demo relies on sample account data and a standalone assistant prompt. We focused the interface on a club treasurer's view rather than building a general personal finance product.",
+    "challenges_we_ran_into": "Getting the account data, chart, and assistant to share the same information was harder than building each screen on its own. We also lost time sorting out Git merges, and the financial API flow is represented with sample data rather than a complete live connection.",
+    "accomplishments": "We made a usable dashboard layout with a transaction list and a spending breakdown, and we sketched how a treasurer could get plain-language help from the same site. This was our first time bringing a finance-oriented API concept and a web app together in a weekend.",
+    "what_we_learned": "We learned more about organizing frontend and Flask work, and about the work involved in moving financial records safely into a user-facing screen. The AI helper showed us how an LLM can explain terms, but it needs account context before it can give useful answers.",
+    "whats_next": "We would connect the chat helper to selected account summaries and make the categories editable for each club. We would also replace sample transactions with a dependable financial data integration and add support for multiple club accounts.",
+    "built_with": [
+      "capital-one-api",
+      "css",
+      "flask",
+      "html",
+      "javascript",
+      "openrouter-api",
+      "python",
+      "react"
+    ],
+    "challenges": [
+      "bny"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--carianadvisors"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/carianadvisors"
+  ],
+  "primary_pool": "bny",
+  "mutation": "light",
+  "persona": {
+    "skill_focus": "web",
+    "completion": "partial",
+    "writing_style": "average"
+  },
+  "fit": {
+    "bny": "strong"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009066,
+  "batch_id": "b017",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.6555226178289602,
+    "field": 0.6998258911522304
+  },
+  "created_at": "2026-10-11T00:52:03+00:00"
+}

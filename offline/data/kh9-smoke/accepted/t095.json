@@ -1,0 +1,56 @@
+{
+  "project_id": "kh9-smoke-t095",
+  "team_id": "t095",
+  "submission": {
+    "name": "HandPause",
+    "tagline": "A small desktop buddy that nudges makers to rest their hands between long build sessions.",
+    "inspiration": "People who spend hours modeling, coding, or editing can lose track of how long they have been repeating the same hand movements. We wanted a simple reminder that feels friendly and is easy to pause when someone is in the middle of something.",
+    "what_it_does": "The Python desktop prototype counts down from a user-set work interval and opens a short hand-stretch break when time is up. A small animated companion changes expression to get attention, and an ElevenLabs voice can read a brief prompt; users choose a stretch and break length themselves.",
+    "how_we_built_it": "We used Tkinter for the windows and timer, Python and PIL for the images, and basic animation logic for the companion. A separate Databricks notebook sketches how anonymized session lengths could be summarized into break patterns, while the app stores no connected analytics yet.",
+    "challenges_we_ran_into": "The desktop timer and companion run, but our full reminder flow did not connect reliably and the voice prompt sometimes failed to load. We did not finish the Databricks connection or any automatic activity sensing, so the timer cannot tell whether the user is actually at the computer.",
+    "accomplishments": "We got the timer controls and draggable animated companion working as separate pieces. We also made a basic stretch selection screen, even though the transitions between parts still need work.",
+    "what_we_learned": "We learned to keep a desktop interface manageable with Tkinter and to animate small image states. Our AI tool helped us draft reminder wording, but we had to keep the prompts short so they fit the break screen.",
+    "whats_next": "We would connect the screens into one stable flow and make missed voice playback fall back to on-screen text. Later, session summaries could help users choose a less disruptive reminder schedule, and a sensor could detect when someone has stepped away.",
+    "built_with": [
+      "elevenlabs",
+      "databricks",
+      "bny",
+      "pil",
+      "python",
+      "tkinter"
+    ],
+    "challenges": [
+      "elevenlabs",
+      "databricks",
+      "bny"
+    ]
+  },
+  "seed_ids": [
+    "swamphacks-xi--move-your-joints"
+  ],
+  "source_urls": [
+    "https://devpost.com/software/move-your-joints"
+  ],
+  "primary_pool": "general",
+  "mutation": "medium",
+  "persona": {
+    "skill_focus": "data",
+    "completion": "broken",
+    "writing_style": "terse"
+  },
+  "fit": {
+    "elevenlabs": "weak",
+    "databricks": "medium",
+    "bny": "weak"
+  },
+  "model": "gpt-6-luna",
+  "prompt_version": "luna-mutation-v1",
+  "rng_seed": 20261009095,
+  "batch_id": "b024",
+  "attempt": 1,
+  "similarity": {
+    "seed": 0.694046181406348,
+    "field": 0.6316971784286753
+  },
+  "created_at": "2026-10-11T00:56:24+00:00"
+}

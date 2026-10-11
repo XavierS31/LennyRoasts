@@ -1,0 +1,376 @@
+{
+  "project_id": "kh9-smoke-t009",
+  "judge_version": "kh9-qwen32b-v6",
+  "judge_config_sha256": "46a532c5938db8e4ffb67dfc966bfbfdfbbdb62e243f14aab2043244ef12da79",
+  "challenge_results": [
+    {
+      "challenge_id": "elevenlabs",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 4,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 17,
+      "max_total": 25,
+      "score_10": 6.8,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        }
+      ],
+      "rationale": "ElevenLabs is central to the learning loop with spoken feedback, but the audio integration has delays and limited scenario variety.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "ElevenLabs generates the spoken coach response, and the frontend plays it after each answer so the user can review the",
+        "functionality": "The transaction examples are demo data, not a connection to real bank accounts.",
+        "wow": "We would add more scenario types, improve the rules with safer example data, and let users adjust the pace of the audio",
+        "relevance": "ElevenLabs generates the spoken coach response, and the frontend plays it after each answer so the user can review the"
+      },
+      "warnings": [
+        "Run 0: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: originality evidence was not an exact quote; replaced with not described.",
+        "Run 1: functionality evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add more scenario types to increase engagement and learning variety",
+        "Improve the anomaly detection rules with more diverse example data",
+        "Implement a way for users to adjust the audio coach's pace for better accessibility"
+      ]
+    },
+    {
+      "challenge_id": "overall",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 4,
+        "wow": 2
+      },
+      "total": 13,
+      "max_total": 20,
+      "score_10": 6.5,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2
+          },
+          "total": 13,
+          "max_total": 20,
+          "score_10": 6.5,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project combines a mobile-friendly interface with audio feedback for fraud detection practice, showing clear component connections but limited novelty.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "We built a React mobile web interface and a FastAPI backend in Python.",
+        "functionality": "The backend checks transaction fields against simple anomaly rules and sends the scenario and result to a language model",
+        "wow": "We are proud that the audio is part of the main learning loop rather than an afterthought."
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add more detailed documentation on how the anomaly detection rules are implemented and how they differentiate between suspicious and fraudulent transactions.",
+        "Implement a more robust system for handling audio delays, ensuring the demo remains responsive even when the voice service is slow.",
+        "Expand the variety of scenarios and include a feature to track user progress and the warning signs they have practiced."
+      ]
+    },
+    {
+      "challenge_id": "best_ai",
+      "eligible": true,
+      "criteria": {
+        "originality": 3,
+        "tech_understanding": 4,
+        "functionality": 3.6666666666666665,
+        "wow": 2,
+        "relevance": 4
+      },
+      "total": 16.666666666666668,
+      "max_total": 25,
+      "score_10": 6.666666666666667,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 16,
+          "max_total": 25,
+          "score_10": 6.4,
+          "eligible": true
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 2,
+            "relevance": 4
+          },
+          "total": 17,
+          "max_total": 25,
+          "score_10": 6.8,
+          "eligible": true
+        }
+      ],
+      "rationale": "The project uses a model for fraud detection explanations but lacks detailed technical depth; the audio feedback integration is meaningful but not groundbreaking.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "The backend checks transaction fields against simple anomaly rules and sends the scenario and result to a language model",
+        "functionality": "The backend checks transaction fields against simple anomaly rules and sends the scenario and result to a language model",
+        "wow": "not described",
+        "relevance": "The backend checks transaction fields against simple anomaly rules and sends the scenario and result to a language model"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add detailed documentation of the model's decision-making process and how it integrates with the anomaly rules",
+        "Implement a more sophisticated fraud detection model with clear explanations of its behavior and limitations",
+        "Enhance the audio feedback system to provide more interactive and dynamic responses based on user input"
+      ]
+    },
+    {
+      "challenge_id": "best_game",
+      "eligible": false,
+      "criteria": {
+        "originality": 2.3333333333333335,
+        "tech_understanding": 3,
+        "functionality": 3,
+        "wow": 2,
+        "relevance": 2
+      },
+      "total": 12.333333333333334,
+      "max_total": 25,
+      "score_10": 4.933333333333334,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 2,
+            "relevance": 2
+          },
+          "total": 12,
+          "max_total": 25,
+          "score_10": 4.8,
+          "eligible": false
+        }
+      ],
+      "rationale": "The submission is a learning tool with game-like features but lacks core gameplay elements like rules, challenges, or win conditions.",
+      "evidence": {
+        "originality": "not described",
+        "tech_understanding": "The backend checks transaction fields against simple anomaly rules and sends the scenario and result to a language model",
+        "functionality": "Users can practice with voice or tap through the choices",
+        "wow": "not described",
+        "relevance": "not described"
+      },
+      "warnings": [
+        "Run 1: relevance evidence was not an exact quote; replaced with not described."
+      ],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Add core gameplay elements like rules, challenges, or win conditions to transform the learning tool into a game"
+      ]
+    },
+    {
+      "challenge_id": "most_useful",
+      "eligible": false,
+      "criteria": {
+        "originality": 2.6666666666666665,
+        "tech_understanding": 3.6666666666666665,
+        "functionality": 3.3333333333333335,
+        "wow": 1,
+        "relevance": 1.6666666666666667
+      },
+      "total": 12.333333333333334,
+      "max_total": 25,
+      "score_10": 4.933333333333334,
+      "runs": [
+        {
+          "run": 0,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 4,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 14,
+          "max_total": 25,
+          "score_10": 5.6,
+          "eligible": false
+        },
+        {
+          "run": 1,
+          "criteria": {
+            "originality": 2,
+            "tech_understanding": 3,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 1
+          },
+          "total": 10,
+          "max_total": 25,
+          "score_10": 4.0,
+          "eligible": false
+        },
+        {
+          "run": 2,
+          "criteria": {
+            "originality": 3,
+            "tech_understanding": 4,
+            "functionality": 3,
+            "wow": 1,
+            "relevance": 2
+          },
+          "total": 13,
+          "max_total": 25,
+          "score_10": 5.2,
+          "eligible": false
+        }
+      ],
+      "rationale": "The project offers a practical approach to fraud detection education with audio feedback but lacks a central goofy or absurd concept that would align with the category's focus on humor and fun.",
+      "evidence": {
+        "originality": "We built a React mobile web interface and a FastAPI backend in Python.",
+        "tech_understanding": "The backend checks transaction fields against simple anomaly rules and sends the scenario and result to a language model",
+        "functionality": "Users can practice with voice or tap through the choices.",
+        "wow": "not described",
+        "relevance": "We wanted a low pressure way for people to practice spotting suspicious payment situations"
+      },
+      "warnings": [],
+      "placement": null,
+      "rivals": [],
+      "improvements": [
+        "Introduce a humorous or absurd premise to the project to better align with the category's focus on funny and goofy concepts.",
+        "Enhance the audio feedback with more entertaining or whimsical elements to increase the wow factor.",
+        "Consider adding playful or exaggerated scenarios that present everyday money decisions as overly dramatic or comically trivial situations."
+      ]
+    }
+  ]
+}
