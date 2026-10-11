@@ -58,6 +58,7 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
       <button type="button" onClick={() => camera("iso")}>Orbit view</button>
       <button type="button" onClick={() => camera("top")}>Top view</button>
       <button type="button" onClick={() => camera("front")}>Front view</button>
+      {location.kind === "campus" && <button type="button" onClick={() => camera("tower")}>Tower detail</button>}
     </div>
     {result && <section className="scene-results glass-panel" aria-label="API results in the scene">
       <button type="button" className="results-toggle" aria-expanded={resultsExpanded} aria-controls="scene-result-content" onClick={() => setResultsExpanded((value) => !value)}>

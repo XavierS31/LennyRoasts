@@ -1,6 +1,8 @@
 // Adapted from the user-owned Figma Make project rmSpAlKuWy4ZPVhzoY8dXW.
 // Original geometry, procedural textures, materials and architectural dimensions.
 import * as THREE from "three";
+import { batchExteriorWindows, createExteriorMaterials, framedWindow, stoneUVs } from "./exteriorMaterials";
+import { addReferenceTower } from "./towerGeometry";
 
 
 const gold = 0xffc904;
@@ -77,14 +79,14 @@ export function addExterior(scene: THREE.Scene) {
     return texture;
   };
   const brickTexture = masonryTexture("#78382e", "#b98a76", 32, 14);
-  const creamTexture = masonryTexture("#d8c8aa", "#eee5d4", 46, 18);
+  const exteriorMaterials = createExteriorMaterials();
   const brickMaterial = new THREE.MeshStandardMaterial({ color: 0xffffff, map: brickTexture, roughness: 0.9 });
-  const creamMaterial = new THREE.MeshStandardMaterial({ color: 0xffffff, map: creamTexture, roughness: 0.82 });
+  const creamMaterial = exteriorMaterials.stone;
   const roofMaterial = new THREE.MeshStandardMaterial({ color: 0xb8b6aa, roughness: 0.88 });
-  const glassMaterial = new THREE.MeshPhysicalMaterial({ color: 0x244653, metalness: 0.35, roughness: 0.18, transparent: true, opacity: 0.9 });
-  const windowGeometry = new THREE.BoxGeometry(1.35, 1.35, 0.12);
+  const glassMaterial = exteriorMaterials.glass;
   const architecturalBox = (size: [number, number, number], position: [number, number, number], material: THREE.Material) => {
     const mesh = new THREE.Mesh(new THREE.BoxGeometry(...size), material);
+    if (material === creamMaterial) stoneUVs(mesh.geometry);
     mesh.position.set(...position);
     mesh.castShadow = true;
     mesh.receiveShadow = true;
@@ -101,12 +103,14 @@ export function addExterior(scene: THREE.Scene) {
     z: number,
     rotation = 0,
     floors = 4,
+    frontWindows = true,
   ) => {
     const group = new THREE.Group();
     group.position.set(x, 0, z);
     group.rotation.y = rotation;
     scene.add(group);
     const addLayer = (geometry: THREE.BufferGeometry, material: THREE.Material, y: number) => {
+      if (material === creamMaterial) stoneUVs(geometry);
       const mesh = new THREE.Mesh(geometry, material);
       mesh.position.y = y;
       mesh.name = name;
@@ -119,29 +123,30 @@ export function addExterior(scene: THREE.Scene) {
     };
     addLayer(new THREE.BoxGeometry(width, 2.8, depth), creamMaterial, 1.4);
     addLayer(new THREE.BoxGeometry(width, height - 6.3, depth), brickMaterial, (height - 3.5) / 2 + 1.4);
-    addLayer(new THREE.BoxGeometry(width + 0.2, 0.5, depth + 0.2), creamMaterial, Math.min(8.5, height - 5));
+    addLayer(new THREE.BoxGeometry(width + 0.2, 0.5, depth + 0.2), creamMaterial, height * .5);
     addLayer(new THREE.BoxGeometry(width + 0.3, 3.2, depth + 0.3), creamMaterial, height - 1.9);
     addLayer(new THREE.BoxGeometry(width + 0.7, 0.45, depth + 0.7), roofMaterial, height + 0.2);
-    const windowMaterial = new THREE.MeshStandardMaterial({ color: 0x19343f, metalness: 0.5, roughness: 0.2 });
     const frontCount = Math.max(2, Math.floor((width - 3) / 3.1));
     const sideCount = Math.max(2, Math.floor((depth - 3) / 3.1));
     for (let floor = 0; floor < floors; floor++) {
-      const y = 2 + floor * ((height - 3) / floors);
+      const levels = floors === 4 ? [1.65, height * .33, height * .6, height - 2.1]
+        : floors === 3 ? [1.65, height * .5, height - 2.1] : [1.65, height - 2.1];
+      const y = levels[floor];
       for (let i = 0; i < frontCount; i++) {
         const wx = -width / 2 + 2 + i * ((width - 4) / Math.max(1, frontCount - 1));
-        for (const wz of [-depth / 2 - 0.07, depth / 2 + 0.07]) {
-          const win = new THREE.Mesh(windowGeometry, windowMaterial);
+        for (const wz of [-depth / 2 - .22, depth / 2 + .22]) {
+          if (wz > 0 && !frontWindows) continue;
+          const win = framedWindow(group, 1.35, 1.35, exteriorMaterials);
           win.position.set(wx, y, wz);
-          group.add(win);
+          if (wz < 0) win.rotation.y = Math.PI;
         }
       }
       for (let i = 0; i < sideCount; i++) {
         const wz = -depth / 2 + 2 + i * ((depth - 4) / Math.max(1, sideCount - 1));
-        for (const wx of [-width / 2 - 0.07, width / 2 + 0.07]) {
-          const win = new THREE.Mesh(windowGeometry, windowMaterial);
-          win.rotation.y = Math.PI / 2;
+        for (const wx of [-width / 2 - .22, width / 2 + .22]) {
+          const win = framedWindow(group, 1.35, 1.35, exteriorMaterials);
+          win.rotation.y = wx < 0 ? -Math.PI / 2 : Math.PI / 2;
           win.position.set(wx, y, wz);
-          group.add(win);
         }
       }
     }
@@ -184,15 +189,15 @@ export function addExterior(scene: THREE.Scene) {
   const footprint = new THREE.Shape();
   const footprintPoints: Array<[number, number]> = [
     [-49, -44], [-29, -44], [-29, -25], [28, -25], [28, -17],
-    [58, -17], [58, 30], [45, 30], [45, 24], [-25, 24],
-    [-25, 37], [-49, 37],
+    [58, -17], [58, 30], [45, 30], [45, 24], [31.2, 24],
+    [31.2, 19.7], [-25, 19.7], [-25, 15], [-49, 15],
   ];
   footprint.moveTo(footprintPoints[0][0], -footprintPoints[0][1]);
   footprintPoints.slice(1).forEach(([x, z]) => footprint.lineTo(x, -z));
   footprint.closePath();
   const footprintGeometry = new THREE.ExtrudeGeometry(footprint, { depth: 2.7, bevelEnabled: false });
   footprintGeometry.rotateX(-Math.PI / 2);
-  const footprintMesh = new THREE.Mesh(footprintGeometry, creamMaterial);
+  const footprintMesh = new THREE.Mesh(stoneUVs(footprintGeometry), creamMaterial);
   footprintMesh.position.y = 0.02;
   footprintMesh.name = "Engineering I + II";
   footprintMesh.userData.building = "Engineering I + II";
@@ -202,10 +207,11 @@ export function addExterior(scene: THREE.Scene) {
   selectable.push(footprintMesh);
 
   // Western Engineering II bar and the continuous diagonal front facade.
-  mass("Engineering II", 19, 63, 14.5, -39, -6, 0, 4);
+  // Both wings terminate beside the tower; no rectangular mass projects through it.
+  mass("Engineering II", 19, 52.5, 14.5, -39, -11.25, 0, 4);
   mass("Engineering II", 17, 18, 12, -39, -37, 0, 3);
   const angle = 0;
-  mass("Engineering I", 86, 21, 17, 1, 8, angle, 4);
+  mass("Engineering I", 70, 21, 17, 9, 8, angle, 4, false);
   // Filled perpendicular rear volume intersects the front bar at full depth.
   mass("Engineering I", 25, 49, 16, 7, -17, angle, 4);
   mass("Engineering I", 31, 29, 14, 34, -17, angle, 3);
@@ -214,40 +220,13 @@ export function addExterior(scene: THREE.Scene) {
   // Keep the connector behind the tower so its full polygonal silhouette remains visible.
   mass("Engineering I + II", 17, 10, 9, -21, 2, 0, 2);
 
-  // Tall polygonal tower at the bottom-left/front of the map footprint.
-  const towerGroup = new THREE.Group();
-  towerGroup.position.set(-36, 0, 15);
-  scene.add(towerGroup);
-  const tower = new THREE.Mesh(new THREE.CylinderGeometry(6.4, 6.4, 25, 8), creamMaterial);
-  tower.position.y = 12.5;
-  tower.name = "Engineering II";
-  tower.userData.building = "Engineering II";
-  tower.castShadow = true;
-  tower.receiveShadow = true;
-  towerGroup.add(tower);
-  selectable.push(tower);
-  for (const x of [-2.2, 0, 2.2]) {
-    const glassBay = new THREE.Mesh(new THREE.BoxGeometry(1.55, 14, 0.2), glassMaterial);
-    glassBay.position.set(x, 16.5, 6.12);
-    towerGroup.add(glassBay);
-    for (let floor = 0; floor < 4; floor++) {
-      const mullion = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.12, 0.23), creamMaterial);
-      mullion.position.set(x, 11.2 + floor * 3.2, 6.25);
-      towerGroup.add(mullion);
-    }
+  // The reference corner is the tower alone, with a recessed beige link to the wing.
+  selectable.push(addReferenceTower(scene, exteriorMaterials));
+  architecturalBox([5.8, 17, 9], [-28.9, 8.5, 10.5], creamMaterial);
+  for (const y of [2, 6, 10, 14.5]) {
+    const linkWindow = framedWindow(scene, 2.15, 2.65, exteriorMaterials);
+    linkWindow.position.set(-27.7, y, 15.06);
   }
-  for (const x of [-1.8, 1.8]) {
-    const lowerWindow = new THREE.Mesh(new THREE.BoxGeometry(1.55, 1.55, 0.2), glassMaterial);
-    lowerWindow.position.set(x, 6, 6.18);
-    towerGroup.add(lowerWindow);
-  }
-  const towerRoof = new THREE.Mesh(
-    new THREE.ConeGeometry(5.5, 3.2, 4),
-    new THREE.MeshStandardMaterial({ color: 0xd8ddda, metalness: 0.38, roughness: 0.35 }),
-  );
-  towerRoof.position.y = 26.7;
-  towerRoof.rotation.y = Math.PI / 4;
-  towerGroup.add(towerRoof);
 
   // Glass classroom/connector wing visible at the right of the reference facade.
   const curtainWall = new THREE.Mesh(new THREE.BoxGeometry(23, 10.5, 0.3), glassMaterial);
@@ -260,30 +239,22 @@ export function addExterior(scene: THREE.Scene) {
   architecturalBox([52, 9, 1.25], [5, 8.1, 19.15], brickMaterial);
   architecturalBox([52.4, 0.5, 1.4], [5, 8.35, 19.2], creamMaterial);
   architecturalBox([52.4, 0.55, 1.5], [5, 12.55, 19.2], creamMaterial);
-  // Two precise rows of framed windows across the brick facade.
+  // Framed panes carry sky reflection and slight roughness instead of flat black fills.
   for (const y of [5.6, 10.35]) {
     for (const x of [-15, -6.5, 2, 10.5, 19, 27.5]) {
-      box(scene, [2.75, 2.25, 0.18], [x, y, 19.86], cream);
-      box(scene, [2.25, 1.78, 0.22], [x, y, 19.98], 0x19343f);
-      box(scene, [0.1, 1.8, 0.24], [x, y, 20.11], 0xc8cbc7);
-      box(scene, [2.28, 0.1, 0.24], [x, y, 20.11], 0xc8cbc7);
+      const win = framedWindow(scene, 2.4, 1.95, exteriorMaterials);
+      win.position.set(x, y, 19.9);
     }
   }
-  // Narrow windows across the cream upper floor.
   for (const x of [-17, -10, -3, 4, 11, 18, 25, 32]) {
-    box(scene, [3.5, 1.45, 0.2], [x, 14.7, 18.72], 0x203c47);
-    box(scene, [0.12, 1.5, 0.24], [x, 14.7, 18.85], 0xd0d2cd);
+    const win = framedWindow(scene, 3.5, 1.45, exteriorMaterials);
+    win.position.set(x, 14.7, 18.72);
   }
-  // Beige fourth/ground floor with framed windows matching the upper levels.
   architecturalBox([52.4, 3.15, 1.35], [5, 1.58, 19.18], creamMaterial);
   for (const x of [-15, -6.5, 2, 10.5, 19, 27.5]) {
-    box(scene, [2.75, 2.25, 0.18], [x, 1.55, 19.86], cream);
-    box(scene, [2.25, 1.78, 0.22], [x, 1.55, 19.98], 0x19343f);
-    box(scene, [0.1, 1.8, 0.24], [x, 1.55, 20.11], 0xc8cbc7);
-    box(scene, [2.28, 0.1, 0.24], [x, 1.55, 20.11], 0xc8cbc7);
+    const win = framedWindow(scene, 2.4, 1.95, exteriorMaterials);
+    win.position.set(x, 1.55, 19.9);
   }
-  for (const x of [-38, -34]) box(scene, [2.4, 3, 0.2], [x, 1.6, 21.25], 0x17313b);
-  box(scene, [10, 0.35, 2.5], [-36, 3.65, 21.65], 0xb0b1aa);
   for (const x of [-20, 31]) {
     const fixture = new THREE.PointLight(0xffe7b0, 2.2, 7);
     fixture.position.set(x, 11.8, 21);
@@ -320,6 +291,7 @@ export function addExterior(scene: THREE.Scene) {
     lamp.position.set(x, 4.25, 46);
     scene.add(lamp);
   }
+  batchExteriorWindows(scene);
   return selectable;
 }
 
