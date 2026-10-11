@@ -23,6 +23,7 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
   const [marker, setMarker] = useState("user");
   const [resultsExpanded, setResultsExpanded] = useState(false);
   const [visitingSponsor, setVisitingSponsor] = useState(false);
+  const [cameraExpanded, setCameraExpanded] = useState(false);
   const results = location.kind === "atrium" && job?.status === "completed" ? job.result?.challenge_results ?? [] : [];
   const result = results.find((entry) => entry.challenge_id === category) ?? results.find((entry) => entry.challenge_id === "overall") ?? results[0];
   const rival = result?.rivals.find((entry) => entry.project_id === marker);
@@ -57,7 +58,9 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
       </div>
       <small>{hovered || "Select a building · drag to orbit · scroll to zoom"}</small>
     </div>}
-    <div className="camera-controls glass-panel" role="group" aria-label="Camera controls">
+    <div className={`camera-controls glass-panel ${cameraExpanded ? "camera-expanded" : ""}`} role="group" aria-label="Camera controls">
+      {location.kind === "campus" && <button type="button" className="camera-menu-toggle" aria-expanded={cameraExpanded} aria-controls="camera-view-buttons" onClick={() => setCameraExpanded(value => !value)}>Campus views {cameraExpanded ? "−" : "+"}</button>}
+      <div className="camera-buttons" id="camera-view-buttons" hidden={location.kind === "campus" && !cameraExpanded}>
       <button type="button" aria-label="Zoom in" onClick={() => camera("in")}>+</button>
       <button type="button" aria-label="Zoom out" onClick={() => camera("out")}>−</button>
       <button type="button" onClick={() => camera("reset")}>Reset</button>
@@ -79,6 +82,9 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
       {location.kind === "campus" && <button type="button" onClick={() => camera("tower")}>Tower detail</button>}
       {location.kind === "campus" && <button type="button" onClick={() => camera("west")}>Left wing</button>}
       {location.kind === "campus" && <button type="button" onClick={() => camera("walk")}>Entrance walk</button>}
+      {location.kind === "campus" && <button type="button" onClick={() => camera("health")}>Health Sciences</button>}
+      {location.kind === "campus" && <button type="button" onClick={() => camera("service")}>Service side</button>}
+      </div>
     </div>
     {location.kind === "atrium" && <AtriumMap projectNames={result ? [projectName, ...result.rivals.map((entry) => entry.name)] : []} />}
     {location.kind === "atrium" && !result && !visitingSponsor && <p className="atrium-empty glass-panel">Explore Engineering II. Submit an idea on the Exterior to bring your project and API-returned competition into the room.</p>}

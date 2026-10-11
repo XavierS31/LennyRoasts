@@ -6,6 +6,7 @@ import { addReferenceTower } from "./towerGeometry";
 import { addDetailedAtrium } from "./atriumGeometry";
 import { addReferenceWestWing } from "./westWingGeometry";
 import { addCampusSite } from "./campusSite";
+import { addHealthSciences } from "./healthSciencesGeometry";
 
 
 const gold = 0xffc904;
@@ -181,6 +182,7 @@ export function addExterior(scene: THREE.Scene) {
   };
 
   addCampusSite(scene);
+  addHealthSciences(scene, exteriorMaterials);
 
   // A connected lower footprint unifies the approximate rear campus volumes.
   const footprint = new THREE.Shape();

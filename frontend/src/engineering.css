@@ -1,4 +1,4 @@
-/* Translucent surfaces over the original Figma Make campus. */
+/* Readable tinted surfaces over the UCF campus scene. */
 @font-face {
   font-family: Bagnard;
   src: url('/fonts/Bagnard.otf') format('opentype');
@@ -10,8 +10,8 @@
   font-family: Bagnard, Georgia, 'Times New Roman', serif;
   color-scheme: dark;
   --page: #172432;
-  --surface: rgba(19, 27, 40, .37);
-  --surface-muted: rgba(24, 35, 50, .28);
+  --surface: rgba(19, 27, 40, .94);
+  --surface-muted: rgba(24, 35, 50, .91);
   --ink: #f7f9ff;
   --muted: #d3ddea;
   --line: rgba(255, 255, 255, .2);
@@ -35,7 +35,7 @@
 .view-awards { height: 100dvh; overflow: hidden; }
 .view-awards .glass-content { display: none; }
 .glass-panel, .engineering-app :is(.masthead, .intro, .mode-banner, .form-panel, .report-panel, .page-footer) {
-  background: rgba(16, 25, 39, .38);
+  background: rgba(16, 25, 39, .92);
   border: 1px solid rgba(255,255,255,.27);
   border-radius: 22px;
   /* Prefix first: the production minifier must retain the standard declaration. */
@@ -53,7 +53,16 @@
 .masthead .scene-tabs button[aria-pressed=true] { background: rgba(255,255,255,.13); border-color: var(--line); }
 .engineering-app .wordmark span { color: #ffda74; }
 .engineering-app .edition { margin-left: auto; color: var(--muted); }
-.glass-content { position: relative; z-index: 2; width: min(600px, 47vw); }
+.glass-content { position: relative; z-index: 2; width: min(540px, 40vw); }
+.view-campus .glass-content { margin-left: 0; padding-bottom: 80px; }
+.engineering-app .campus-panel-toggle { position: fixed; right: 20px; bottom: 20px; z-index: 6; display: flex; align-items: center; gap: 9px; min-height: 46px; padding: 10px 16px; background: rgba(16,25,39,.96); border-radius: 14px; box-shadow: 0 6px 24px rgba(0,0,0,.18); }
+.camera-buttons { display: contents; }
+.scene-campus .camera-controls { top: auto; bottom: 82px; display: block; width: min(340px, calc(100vw - 40px)); }
+.scene-campus .camera-menu-toggle { width: 100%; text-align: left; }
+.scene-campus .camera-buttons { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 5px; margin-top: 8px; }
+.scene-campus .camera-buttons button:last-child { grid-column: span 2; }
+.scene-campus .scene-navigation { top: auto; bottom: 154px; width: min(340px, 35vw); }
+.scene-campus:has(.camera-expanded) .scene-navigation { bottom: 342px; }
 .engineering-app .intro { padding: 22px 24px; margin: 0 0 12px; }
 .engineering-app .intro h1 { font-size: clamp(32px, 3vw, 44px); line-height: 1.1; letter-spacing: -.4px; max-width: 490px; margin: 8px 0 12px; }
 .engineering-app :is(.eyebrow, .section-kicker) { color: #ffdf90; }
@@ -77,7 +86,7 @@
 .panel-switch button { flex: 1; }
 .engineering-app :is(.secondary-button, .text-button) { color: var(--ink); }
 .engineering-app :is(.secondary-button, .challenge-picker, .track-item, .report-card, .placement-box, .criterion, .run-criteria, .result-mode, .evidence-quote, .processing-panel) {
-  background: rgba(19, 29, 43, .22); border-color: var(--line);
+  background: rgba(19, 29, 43, .91); border-color: var(--line);
 }
 .engineering-app :is(.notice, .stale-report-note, .warning-section) { color: #fff0c9; }
 .engineering-app .notice-error { color: #ffe0df; }
@@ -86,7 +95,7 @@
 .engineering-app :is(.track-checkmark, .track-name, .challenge-description summary, .challenge-detail-copy, .rationale-section p, .criterion dt, .placement-box span, .evidence-list dt, .evidence-quote, table, .evaluation-status) { color: var(--ink); }
 .engineering-app :is(.field-error, .field-error a) { color: #ffcdca; }
 .engineering-app :is(.automatic-copy, .challenge-picker summary, .empty-label, .empty-report h3, .processing-panel strong, .rival h4, .rival p, .improvements-section li, .warning-section h4, .run-heading, .run-criteria dt) { color: var(--ink); }
-.engineering-app :is(textarea, input:not([type=checkbox]), select) { background: rgba(6, 15, 29, .26); color: #fff; border-color: rgba(255,255,255,.3); }
+.engineering-app :is(textarea, input:not([type=checkbox]), select) { background: rgba(6, 15, 29, .94); color: #fff; border-color: rgba(255,255,255,.3); }
 .engineering-app textarea::placeholder { color: #c3cbd8; }
 .engineering-app textarea { min-height: 220px; }
 .engineering-app .track-choice input { accent-color: #ffda74; }
@@ -156,6 +165,10 @@ select option { background: #1a2738; color: #fff; }
   .masthead .scene-tabs button { padding: 8px 12px; font-size: 14px; }
   .panel-toggle { margin-left: auto; }
   .glass-content { width: min(560px, 100%); margin-top: 0; }
+  .engineering-app .campus-panel-toggle { right: 12px; bottom: 12px; }
+  .scene-campus .scene-navigation { left: 12px; right: 12px; width: auto; bottom: 144px; }
+  .scene-campus:has(.camera-expanded) .scene-navigation { bottom: 332px; }
+  .scene-campus .camera-controls { left: 12px; right: 12px; width: auto; bottom: 74px; }
   .scene-navigation { top: auto; bottom: 125px; right: 12px; left: 12px; width: auto; padding: 12px; }
   .engineering-explorer.with-panels .scene-navigation { display: none; }
   .camera-controls { top: auto; bottom: 12px; right: 12px; left: 12px; display: flex; justify-content: center; flex-wrap: wrap; }
@@ -181,8 +194,8 @@ select option { background: #1a2738; color: #fff; }
   .ballroom-caption small { display: none; }
 }
 @media (max-width: 480px) {
-  .scene-campus .scene-navigation { bottom: 160px; }
-  .scene-campus .camera-controls { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .scene-campus .scene-navigation { bottom: 144px; }
+  .scene-campus .camera-controls { display: block; }
   .scene-campus .camera-controls button { min-height: 34px; padding: 6px; font-size: 11px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

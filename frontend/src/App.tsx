@@ -764,13 +764,16 @@ export default function App() {
           <button type="button" aria-pressed={location.kind === "atrium"} onClick={() => navigate("atrium", "Engineering II")}>Atrium</button>
           <button type="button" aria-pressed={location.kind === "awards"} onClick={() => navigate("awards")}>Awards</button>
         </nav>
-        {location.kind !== "awards" && <button type="button" className="secondary-button panel-toggle" aria-expanded={panelsVisible} aria-controls="glass-content" onClick={() => setPanelsVisible((value) => !value)}>{location.kind === "atrium" ? panelsVisible ? "Close report" : "Judging report" : panelsVisible ? "Hide panels" : "Show panels"}</button>}
+        {location.kind === "atrium" && <button type="button" className="secondary-button panel-toggle" aria-expanded={panelsVisible} aria-controls="glass-content" onClick={() => setPanelsVisible((value) => !value)}>{panelsVisible ? "Close report" : "Judging report"}</button>}
       </header>
+      {location.kind === "campus" && <button type="button" className="secondary-button panel-toggle campus-panel-toggle" aria-expanded={panelsVisible} aria-controls="glass-content" onClick={() => setPanelsVisible((value) => !value)}>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/>{!panelsVisible && <path d="m3 3 18 18"/>}</svg>
+        {panelsVisible ? "Hide dashboard" : "Show dashboard"}
+      </button>}
 
       <div className="glass-content" id="glass-content" hidden={!panelsVisible}>
       <section className="intro" aria-labelledby="page-title" hidden={location.kind !== "campus"}>
-        <p className="eyebrow">BEFORE YOU BUILD, TEST THE IDEA</p>
-        <h1 id="page-title">What will you build?</h1>
+        <h1 id="page-title">Let Lenny roast your hackathon project.</h1>
         <p className="lede">
           Submit your idea here. Enter Engineering II to explore your competition and judging results.
         </p>
@@ -1090,8 +1093,8 @@ export default function App() {
       </div>
 
       <footer className="page-footer" hidden={location.kind === "awards"}>
-        <span>KNIGHT HACKS IX</span>
-        <span>TEXT-ONLY PRACTICE · SIMULATED FIELD · NOT A REAL-WINNER PREDICTION</span>
+        <span>Lenny acts as your hackathon judges for Knight Hacks IX.</span>
+        <span>Text-only practice · simulated field · not a real-winner prediction</span>
       </footer>
       </div>
     </main>
