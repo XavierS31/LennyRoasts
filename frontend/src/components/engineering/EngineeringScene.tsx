@@ -10,9 +10,10 @@ import { addDetailedBallroom } from "./ballroomGeometry";
 import { addLennyCharacters } from "./lennyCharacters";
 import { sponsorView } from "./lennyLayout";
 import { addSunsetSky } from "./sunsetSky";
+import { engineeringFrame } from "./campusFraming";
 
 export type SceneKind = "campus" | "atrium" | "awards";
-export type CameraCommand = "in" | "out" | "reset" | "iso" | "top" | "front" | "enter" | "floor" | "stairs" | "ceiling" | "entrance" | "focus" | "tower" | "west" | "walk" | "stage" | "sponsor";
+export type CameraCommand = "in" | "out" | "reset" | "iso" | "top" | "front" | "enter" | "floor" | "stairs" | "ceiling" | "entrance" | "focus" | "tower" | "west" | "walk" | "stage" | "sponsor" | "health" | "service";
 export type SceneController = { command: (action: CameraCommand, building?: string) => Promise<void> };
 
 function disposeObjects(root: THREE.Object3D) {
@@ -63,10 +64,11 @@ function scoreLabel(name: string, score: number) {
 }
 
 export default function EngineeringScene({
-  kind, result, projectName, selectedMarker, onSelectBuilding, onHoverBuilding,
+  kind, result, projectName, selectedMarker, panelsVisible, onSelectBuilding, onHoverBuilding,
   onSelectMarker, controller,
 }: {
   kind: SceneKind;
+  panelsVisible: boolean;
   result?: ChallengeResult;
   projectName: string;
   selectedMarker: string;
@@ -79,7 +81,10 @@ export default function EngineeringScene({
   const [error, setError] = useState<string>();
   const callbacks = useRef({ onSelectBuilding, onHoverBuilding, onSelectMarker });
   const updateData = useRef<((result?: ChallengeResult, name?: string, selected?: string) => void) | null>(null);
+  const panelState = useRef(panelsVisible);
+  const updateLayout = useRef<(() => void) | null>(null);
   useEffect(() => { callbacks.current = { onSelectBuilding, onHoverBuilding, onSelectMarker }; });
+  useEffect(() => { panelState.current = panelsVisible; updateLayout.current?.(); }, [panelsVisible]);
 
   useEffect(() => {
     const host = mount.current;
@@ -98,13 +103,13 @@ export default function EngineeringScene({
     const sky = kind === "campus" ? addSunsetSky(scene) : undefined;
     if (kind === "campus") {
       scene.background = null;
-      scene.fog = new THREE.Fog(0xffd4a4, 125, 230);
+      scene.fog = new THREE.Fog(0xffd4a4, 155, 250);
     }
-    const camera = new THREE.PerspectiveCamera(kind === "campus" ? 42 : 64, 1, 0.1, 400);
-    const start = kind === "campus" ? new THREE.Vector3(-68, 32, 88)
+    const camera = new THREE.PerspectiveCamera(kind === "campus" ? 48 : 64, 1, 0.1, 800);
+    const start = kind === "campus" ? new THREE.Vector3(-89, 28, 106)
       : kind === "atrium" ? new THREE.Vector3(...atriumViews.overview.position) : new THREE.Vector3(...ballroomViews.overview.position);
     const startTarget = kind === "atrium" ? new THREE.Vector3(...atriumViews.overview.target)
-      : kind === "awards" ? new THREE.Vector3(...ballroomViews.overview.target) : new THREE.Vector3(-5, 6, -7);
+      : kind === "awards" ? new THREE.Vector3(...ballroomViews.overview.target) : new THREE.Vector3(-55, 6, -8);
     camera.position.copy(start);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.6));
     renderer.shadowMap.enabled = true;
@@ -116,7 +121,7 @@ export default function EngineeringScene({
     controls.enableDamping = true;
     controls.target.copy(startTarget);
     controls.minDistance = kind === "campus" ? 18 : 3;
-    controls.maxDistance = kind === "atrium" ? 100 : 125;
+    controls.maxDistance = kind === "atrium" ? 100 : kind === "campus" ? 500 : 125;
     controls.maxPolarAngle = kind === "campus" ? Math.PI / 2.05 : Math.PI * .72;
     controls.screenSpacePanning = true;
     scene.add(new THREE.HemisphereLight(kind === "awards" ? 0xfff5e1 : 0xe6f3ff, kind === "awards" ? 0x514332 : 0x202018, kind === "campus" ? 2 : kind === "awards" ? 1.2 : 1.7));
@@ -220,7 +225,39 @@ export default function EngineeringScene({
     let destination: THREE.Vector3 | null = null;
     let targetDestination: THREE.Vector3 | null = null;
     let finish: (() => void) | null = null;
+    let overview = true;
+    const engineeringBounds = new THREE.Box3();
+    clickable.forEach((mesh) => engineeringBounds.expandByObject(mesh));
+    const fitOverview = () => {
+      if (kind !== "campus" || !overview) return;
+      finish?.(); finish = null; destination = targetDestination = null;
+      const width = host.clientWidth, height = host.clientHeight;
+      const dashboard = document.getElementById("glass-content")?.getBoundingClientRect();
+      if (panelState.current && width > 900 && dashboard) {
+        const header = document.querySelector(".masthead")?.getBoundingClientRect();
+        const view = engineeringFrame(engineeringBounds, width, height, dashboard.right, header?.bottom ?? 92);
+        camera.setViewOffset(width, height, view.offsetX, view.offsetY, width, height);
+        camera.position.copy(view.position); controls.target.copy(view.target);
+        if (scene.fog instanceof THREE.Fog) { scene.fog.near = view.distance + 35; scene.fog.far = view.distance + 160; }
+      } else {
+        camera.clearViewOffset(); camera.position.copy(start); controls.target.copy(startTarget);
+        if (scene.fog instanceof THREE.Fog) { scene.fog.near = 155; scene.fog.far = 250; }
+      }
+    };
+    const resizeManualProjection = () => {
+      if (kind !== "campus" || !camera.view?.enabled) return;
+      const width = host.clientWidth, height = host.clientHeight;
+      const dashboard = document.getElementById("glass-content")?.getBoundingClientRect();
+      if (panelState.current && width > 900 && dashboard) {
+        const header = document.querySelector(".masthead")?.getBoundingClientRect();
+        const view = engineeringFrame(engineeringBounds, width, height, dashboard.right, header?.bottom ?? 92);
+        camera.setViewOffset(width, height, view.offsetX, view.offsetY, width, height);
+      } else camera.clearViewOffset();
+    };
+    updateLayout.current = () => { if (overview) fitOverview(); else resizeManualProjection(); };
     const travel = (position: THREE.Vector3, target: THREE.Vector3) => {
+      overview = false;
+      if (kind === "campus") camera.clearViewOffset();
       finish?.();
       if (motion.matches) {
         camera.position.copy(position);
@@ -234,6 +271,9 @@ export default function EngineeringScene({
       return new Promise<void>((resolve) => { finish = resolve; });
     };
     controller.current = { command: (action, building) => {
+      if (kind === "campus" && (action === "reset" || action === "iso")) {
+        overview = true; fitOverview(); return Promise.resolve();
+      }
       if (kind === "awards") {
         const key = action === "reset" || action === "front" ? "overview" : action;
         if (key in ballroomViews) {
@@ -258,6 +298,7 @@ export default function EngineeringScene({
         }
       }
       if (action === "in" || action === "out") {
+        overview = false;
         finish?.(); finish = null; destination = targetDestination = null;
         const offset = camera.position.clone().sub(controls.target);
         const distance = THREE.MathUtils.clamp(offset.length() * (action === "in" ? 0.82 : 1.18), controls.minDistance, controls.maxDistance);
@@ -271,6 +312,8 @@ export default function EngineeringScene({
       }
       if (action === "top") return travel(new THREE.Vector3(0, 112, 0.1), new THREE.Vector3(0, 0, 0));
       if (action === "tower" && kind === "campus") return travel(new THREE.Vector3(-54, 14, 68), new THREE.Vector3(-36, 13, 17));
+      if (action === "health" && kind === "campus") return travel(new THREE.Vector3(-69, 14, 35), new THREE.Vector3(-104, 5.5, -7));
+      if (action === "service" && kind === "campus") return travel(new THREE.Vector3(-66, 12, -30), new THREE.Vector3(-104, 5, -12));
       if (action === "west" && kind === "campus") return travel(new THREE.Vector3(-86, 18, 31), new THREE.Vector3(-43, 9, -12));
       if (action === "walk" && kind === "campus") return travel(new THREE.Vector3(-46, 7, 55), new THREE.Vector3(-28, 5, 17));
       if (action === "front") return travel(kind === "campus" ? new THREE.Vector3(-50, 17, 105) : new THREE.Vector3(0, 16, 58), kind === "campus" ? new THREE.Vector3(-5, 8, -7) : new THREE.Vector3(2, 8, -5));
@@ -337,7 +380,7 @@ export default function EngineeringScene({
     renderer.domElement.addEventListener("pointermove", move);
     renderer.domElement.addEventListener("pointerleave", leave);
     renderer.domElement.addEventListener("pointercancel", cancelPress);
-    const stopTravel = () => { finish?.(); finish = null; destination = targetDestination = null; };
+    const stopTravel = () => { overview = false; finish?.(); finish = null; destination = targetDestination = null; };
     controls.addEventListener("start", stopTravel);
     const resize = () => {
       const width = Math.max(1, host.clientWidth);
@@ -346,6 +389,7 @@ export default function EngineeringScene({
       camera.updateProjectionMatrix();
       renderer.setSize(width, height);
       sky?.resize(width, height);
+      if (overview) fitOverview(); else resizeManualProjection();
     };
     const observer = new ResizeObserver(resize);
     observer.observe(host);
@@ -380,6 +424,7 @@ export default function EngineeringScene({
       finish?.();
       controller.current = null;
       updateData.current = null;
+      updateLayout.current = null;
       cancelAnimationFrame(frame);
       observer.disconnect();
       document.removeEventListener("visibilitychange", visibility);
