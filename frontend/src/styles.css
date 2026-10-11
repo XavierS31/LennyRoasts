@@ -296,16 +296,76 @@ h1 {
   margin: 0 0 19px;
 }
 
-.idea-file-import { margin-bottom: 22px; }
-.file-import-heading, .file-import-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
-.file-import-heading small, .file-import-copy, .file-import-status { color: var(--muted); font-size: 11px; line-height: 1.5; }
-.file-import-copy { margin: 8px 0 0; }
+.idea-input-modes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3px;
+  margin: 0 0 14px;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, .22);
+}
+.idea-input-modes button {
+  min-width: 0;
+  min-height: 38px;
+  padding: 7px 12px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+  transition: background-color 140ms ease, border-color 140ms ease, color 140ms ease;
+}
+.idea-input-modes button:hover:enabled { background: rgba(255, 255, 255, .42); }
+.idea-input-modes button[aria-pressed="true"] {
+  border-color: rgba(255, 255, 255, .72);
+  background: rgba(255, 255, 255, .68);
+  color: var(--ink);
+  box-shadow: 0 1px 3px rgba(31, 45, 67, .07);
+}
+.idea-input-modes button:focus-visible, .file-browse-button:focus-visible {
+  outline: 2px solid rgba(82, 98, 123, .46);
+  outline-offset: 2px;
+}
+.idea-file-import { margin: 0; }
+.file-dropzone {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 88px;
+  padding: 15px 16px;
+  border: 1px dashed rgba(82, 98, 123, .22);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .36);
+  transition: background-color 140ms ease, border-color 140ms ease;
+}
+.file-dropzone.is-dragging { border-color: rgba(82, 98, 123, .48); background: rgba(255, 255, 255, .62); }
+.file-dropzone.is-disabled { opacity: .65; }
+.file-dropzone-icon { flex: 0 0 auto; color: var(--muted); }
+.file-dropzone-copy { display: grid; flex: 1 1 auto; min-width: 0; gap: 4px; }
+.file-dropzone-copy strong { font-size: 12px; font-weight: 600; line-height: 1.4; }
+.file-dropzone-copy small, .file-import-status { color: var(--muted); font-size: 11px; line-height: 1.5; }
+.file-browse-button {
+  flex: 0 0 auto;
+  min-height: 36px;
+  padding: 7px 12px;
+  border: 1px solid rgba(59, 76, 105, .14);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .58);
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 600;
+}
+.file-browse-button:hover:enabled { background: rgba(255, 255, 255, .82); }
 .file-import-status { margin: 8px 0 0; overflow-wrap: anywhere; }
 .file-import-status:empty { display: none; }
 .file-import-preview { margin: 14px 0 0; padding: 14px; border: 1px solid var(--line); border-radius: 10px; }
 .file-import-preview label { flex-wrap: wrap; }
 .file-import-preview .required-label { overflow-wrap: anywhere; min-width: 0; }
-.file-import-actions { margin-top: 12px; }
+.file-import-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
 .file-import-actions button { flex: 1 1 auto; }
 
 fieldset {

@@ -21,6 +21,7 @@ import {
 
 type ErrorField = "idea" | "challenges";
 type FormErrors = Partial<Record<ErrorField, string>>;
+type IdeaInputMode = "describe" | "import";
 type Notice = {
   title: string;
   message: string;
@@ -400,6 +401,7 @@ export default function App() {
   const sceneTransition = useRef(0);
   const [sceneCategory, setSceneCategory] = useState("");
   const [idea, setIdea] = useState("");
+  const [ideaInputMode, setIdeaInputMode] = useState<IdeaInputMode>("describe");
   const [isImporting, setIsImporting] = useState(false);
   const [selectedChallenges, setSelectedChallenges] = useState<Submission["challenges"]>([]);
   const [config, setConfig] = useState<ChallengeList>();
@@ -893,36 +895,50 @@ export default function App() {
 
             <fieldset disabled={Boolean(activeJobId) || isSubmitting}>
               <legend className="visually-hidden">Your idea</legend>
-              <IdeaFileImport idea={idea} disabled={Boolean(activeJobId) || isSubmitting}
-                onBusyChange={setIsImporting} onImport={(text) => {
-                  setIdea(text);
-                  setErrors((current) => ({ ...current, idea: undefined }));
-                  setNotice(null);
-                  window.requestAnimationFrame(() => { ideaInput.current?.focus(); if (ideaInput.current) ideaInput.current.scrollTop = 0; });
-                }} />
-              <div className="form-field idea-field">
-                <label htmlFor="idea-description">Describe your idea <span className="required-label">Required</span></label>
-                <textarea
-                  ref={ideaInput}
-                  id="idea-description"
-                  name="idea"
-                  rows={8}
-                  disabled={isImporting}
-                  value={idea}
-                  onChange={(event) => {
-                    setIdea(event.target.value);
+              <div className="idea-input-modes" role="group" aria-label="Choose how to add your idea">
+                <button type="button" aria-pressed={ideaInputMode === "describe"}
+                  aria-controls="idea-description-panel" disabled={isImporting}
+                  onClick={() => setIdeaInputMode("describe")}>Describe your idea</button>
+                <button type="button" aria-pressed={ideaInputMode === "import"}
+                  aria-controls="idea-import-panel" disabled={isImporting}
+                  onClick={() => setIdeaInputMode("import")}>Import notes</button>
+              </div>
+              <div id="idea-description-panel" className="idea-input-panel" hidden={ideaInputMode !== "describe"}>
+                <div className="form-field idea-field">
+                  <label htmlFor="idea-description">Your idea <span className="required-label">Required</span></label>
+                  <textarea
+                    ref={ideaInput}
+                    id="idea-description"
+                    name="idea"
+                    rows={8}
+                    disabled={isImporting}
+                    value={idea}
+                    onChange={(event) => {
+                      setIdea(event.target.value);
+                      setErrors((current) => ({ ...current, idea: undefined }));
+                      setNotice(null);
+                    }}
+                    placeholder={"I want to build…\n\nIt would help… by…\n\nFor the hackathon, the first demo would…"}
+                    aria-required="true"
+                    aria-invalid={Boolean(errors.idea)}
+                    aria-describedby={`hint-idea${errors.idea ? " error-idea" : ""}`}
+                  />
+                  <div className="field-meta">
+                    <small id="hint-idea">Rough notes are welcome.</small>
+                    <span>{Array.from(idea).length.toLocaleString()} / {MAX_IDEA_LENGTH.toLocaleString()}</span>
+                  </div>
+                  {errors.idea && <p className="field-error" id="error-idea">{errors.idea}</p>}
+                </div>
+              </div>
+              <div id="idea-import-panel" className="idea-input-panel" hidden={ideaInputMode !== "import"}>
+                <IdeaFileImport idea={idea} disabled={Boolean(activeJobId) || isSubmitting}
+                  onBusyChange={setIsImporting} onImport={(text) => {
+                    setIdea(text);
+                    setIdeaInputMode("describe");
                     setErrors((current) => ({ ...current, idea: undefined }));
                     setNotice(null);
-                  }}
-                  placeholder={"I want to build…\n\nIt would help… by…\n\nFor the hackathon, the first demo would…"}
-                  aria-invalid={Boolean(errors.idea)}
-                  aria-describedby={`hint-idea${errors.idea ? " error-idea" : ""}`}
-                />
-                <div className="field-meta">
-                  <small id="hint-idea">Rough notes are welcome.</small>
-                  <span>{Array.from(idea).length.toLocaleString()} / {MAX_IDEA_LENGTH.toLocaleString()}</span>
-                </div>
-                {errors.idea && <p className="field-error" id="error-idea">{errors.idea}</p>}
+                    window.requestAnimationFrame(() => { ideaInput.current?.focus(); if (ideaInput.current) ideaInput.current.scrollTop = 0; });
+                  }} />
               </div>
 
               <details

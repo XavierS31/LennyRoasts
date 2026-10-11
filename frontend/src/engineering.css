@@ -79,8 +79,8 @@
 .masthead .scene-tabs button[aria-pressed=true] { background: #fff; color: #111827; border-color: #fff; box-shadow: 0 2px 5px rgba(0,0,0,.14); }
 .engineering-app .edition { margin-left: auto; color: var(--muted); }
 .glass-content { position: relative; z-index: 2; width: min(540px, 40vw); margin-left: 0; }
-.engineering-app .intro { padding: 18px 24px; margin: 0 0 18px; }
-.engineering-app .intro h1 { display: grid; justify-items: start; gap: 4px; font-size: clamp(30px, 2.6vw, 38px); font-weight: 650; line-height: 1.12; letter-spacing: -.025em; max-width: 490px; margin: 0 0 12px; }
+.engineering-app .intro { padding: 12px 22px; margin: 0 0 16px; }
+.engineering-app .intro h1 { display: grid; justify-items: start; gap: 4px; font-size: clamp(30px, 2.6vw, 38px); font-weight: 650; line-height: 1.12; letter-spacing: -.025em; max-width: 490px; margin: 0 0 8px; }
 .engineering-app .intro h1 .welcome-prefix { color: var(--muted); font-size: 15px; font-weight: 550; line-height: 1.4; letter-spacing: 0; }
 .engineering-app .intro h1 .hackathon-logo { display: block; width: min(100%, 390px); height: auto; object-fit: contain; object-position: left center; }
 .engineering-app :is(.eyebrow, .section-kicker) { color: var(--muted); }
@@ -92,7 +92,7 @@
 .engineering-app .mode-banner summary { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; min-height: 24px; }
 .engineering-app .mode-banner summary::before { content: ""; width: 6px; height: 6px; border-right: 1px solid currentColor; border-bottom: 1px solid currentColor; transform: rotate(-45deg); align-self: center; }
 .engineering-app .mode-banner[open] summary::before { transform: rotate(45deg); }
-.service-status-row { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 8px; border-top: 1px solid var(--line); padding-top: 8px; }
+.service-status-row { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 8px; border-top: 1px solid var(--line); padding-top: 6px; }
 .service-status-row .mode-banner { flex: 1 1 96px; min-width: 0; }
 .engineering-app .mode-banner summary { min-height: 40px; align-items: center; flex-wrap: nowrap; }
 .service-label { display: block; font-size: 10px; font-weight: 450; line-height: 1.3; color: var(--muted); }
@@ -100,7 +100,15 @@
 .engineering-app .service-retry { position: relative; flex: 0 0 auto; min-height: 40px; padding: 0 12px; font-size: 11px; font-weight: 600; white-space: nowrap; }
 .compact-api-error { flex: 0 1 110px; display: block; margin: 0; padding-top: 0; font-family: var(--ui-font-family); font-size: 10px; font-weight: 500; line-height: 1.35; color: var(--ink); overflow-wrap: anywhere; }
 .engineering-app #form-heading { font-size: 22px; line-height: 1.3; letter-spacing: -.015em; }
-.engineering-app .idea-file-import { margin-bottom: 22px; }
+.engineering-app .idea-file-import { margin: 0; }
+.engineering-app .idea-input-modes { border-color: rgba(255,255,255,.4); background: rgba(255,255,255,.22); }
+.engineering-app .idea-input-modes button[aria-pressed="true"] { border-color: rgba(255,255,255,.72); background: rgba(255,255,255,.7); }
+.engineering-app .file-dropzone { border-color: rgba(82,98,123,.2); background: rgba(255,255,255,.36); }
+.engineering-app .file-dropzone.is-dragging { border-color: rgba(82,98,123,.48); background: rgba(255,255,255,.64); }
+.engineering-app .file-dropzone-copy strong, .engineering-app .file-browse-button { color: var(--ink); }
+.engineering-app .file-dropzone-copy small { color: var(--muted); }
+.engineering-app .file-browse-button { border-color: rgba(59,76,105,.14); background: rgba(255,255,255,.6); }
+.engineering-app .file-browse-button:hover:enabled { background: rgba(255,255,255,.84); }
 .engineering-app .section-heading { align-items: center; gap: 16px; margin-bottom: 22px; }
 .engineering-app .section-heading .text-button { min-height: 44px; flex-shrink: 0; font-size: 13px; font-weight: 550; background: rgba(255,255,255,.56); border-color: rgba(255,255,255,.56); box-shadow: none; }
 .engineering-app .section-heading .text-button:hover:enabled { background: rgba(255,255,255,.72); border-color: rgba(255,255,255,.72); }
@@ -128,7 +136,7 @@
 .engineering-app :is(.form-panel, .report-panel) { padding: 28px; scroll-margin-top: 120px; }
 .engineering-app :is(.form-intro, .field-meta) { font-size: 13px; line-height: 1.6; }
 .engineering-app .form-field label { font-size: 14px; font-weight: 600; margin-bottom: 10px; }
-.engineering-app :is(.file-import-copy, .file-import-status, .file-import-heading small) { font-size: 13px; line-height: 1.5; }
+.engineering-app .file-import-status { font-size: 13px; line-height: 1.5; }
 .engineering-app .required-label { font-size: 12px; font-weight: 450; }
 .engineering-app :is(.report-panel, .scene-results) h2 { font-size: 22px; line-height: 1.3; letter-spacing: -.015em; }
 .engineering-app :is(.report-card, .empty-report, .processing-panel) h3 { font-size: 18px; line-height: 1.4; }
@@ -199,7 +207,7 @@ select option { background: #fff; color: var(--ink); }
 .engineering-app h1, .engineering-app h2 { text-wrap: balance; }
 /* Dark headings and quieter supporting copy follow the supplied glass reference. */
 .engineering-app :is(.glass-content, .glass-panel) :is(h1, h2, h3, h4, p, span, small, label, legend, summary, a, button, dt, dd, li, td, th, code, blockquote) { color: var(--ink); }
-.engineering-app :is(.glass-content, .glass-panel) :is(.muted-copy, .file-import-copy, .file-import-heading small, .field-meta, .field-meta small, .section-kicker, .mode-copy p, .empty-report > p:last-child) { color: var(--muted); }
+.engineering-app :is(.glass-content, .glass-panel) :is(.muted-copy, .file-dropzone-copy small, .field-meta, .field-meta small, .section-kicker, .mode-copy p, .empty-report > p:last-child) { color: var(--muted); }
 .engineering-app .glass-content :is(.required-label, .service-label) { color: var(--muted); }
 .engineering-app .glass-content .service-retry { min-height: 40px; color: #111827; background: rgba(17,24,39,.06); border: 1px solid rgba(17,24,39,.12); border-radius: 999px; padding: 6px 12px; font-size: 11px; font-weight: 600; }
 .engineering-app .glass-content .service-retry:hover:not(:disabled) { background: rgba(17,24,39,.1); }
@@ -216,7 +224,6 @@ select option { background: #fff; color: var(--ink); }
 .engineering-app ::selection { background: #ffe2a5; color: #172333; }
 .engineering-app { scrollbar-color: rgba(0,0,0,.35) transparent; }
 .engineering-app .panel-toggle { width: 44px; min-height: 44px; padding: 8px; border-radius: 50%; display: grid; place-items: center; }
-.file-import-heading button { display: inline-flex; align-items: center; gap: 7px; }
 .camera-menu { position: fixed; bottom: 24px; right: 24px; z-index: 8; }
 .engineering-explorer .camera-menu-toggle { width: 58px; height: 58px; padding: 0; border-radius: 50%; font-size: 27px; display: grid; place-items: center; background: var(--glass-fill); }
 .camera-menu-tray { position: absolute; bottom: 72px; right: 0; width: 248px; padding: 12px; border-radius: 26px; opacity: 0; visibility: hidden; pointer-events: none; transform: scale(.86); transform-origin: bottom right; clip-path: circle(0 at 100% 100%); transition: opacity 180ms ease-out, transform 280ms cubic-bezier(.16,1,.3,1), clip-path 280ms cubic-bezier(.16,1,.3,1), visibility 280ms; }
@@ -252,7 +259,7 @@ select option { background: #fff; color: var(--ink); }
   .engineering-explorer.with-panels .scene-results { display: none; }
   .scene-results { width: auto; left: 12px; right: 12px; top: 170px; bottom: auto; max-height: calc(100dvh - 285px); padding: 16px; }
   .engineering-app :is(.form-panel, .report-panel, .intro) { padding: 20px; }
-  .engineering-app .intro { padding: 12px 16px; }
+  .engineering-app .intro { padding: 8px 14px; }
   .engineering-app .intro h1 { font-size: 30px; }
   .compact-api-error { flex: 0 1 110px; padding-top: 0; }
   .engineering-app #form-heading { font-size: 20px; }
