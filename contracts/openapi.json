@@ -984,6 +984,17 @@
               "wow",
               "relevance"
             ]
+          },
+          "improvements": {
+            "type": "array",
+            "description": "One to three concrete next steps for this submission, aimed at its lowest criteria in this category.",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300
+            },
+            "minItems": 1,
+            "maxItems": 3
           }
         },
         "required": [
@@ -993,9 +1004,10 @@
           "wow",
           "relevance",
           "rationale",
-          "evidence"
+          "evidence",
+          "improvements"
         ],
-        "description": "Raw model output only. The application validates quotes and computes totals/eligibility."
+        "description": "Raw model output only. The application validates quotes and computes totals/eligibility; improvements from the selected run become the result's improvements."
       },
       "OverallJudgeResponse": {
         "type": "object",
@@ -1057,6 +1069,17 @@
               "functionality",
               "wow"
             ]
+          },
+          "improvements": {
+            "type": "array",
+            "description": "One to three concrete next steps for this submission, aimed at its lowest criteria in this category.",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300
+            },
+            "minItems": 1,
+            "maxItems": 3
           }
         },
         "required": [
@@ -1065,9 +1088,10 @@
           "functionality",
           "wow",
           "rationale",
-          "evidence"
+          "evidence",
+          "improvements"
         ],
-        "description": "Raw model output only. The application validates quotes and computes totals/eligibility."
+        "description": "Raw model output only. The application validates quotes and computes totals/eligibility; improvements from the selected run become the result's improvements."
       },
       "JudgeResponse": {
         "oneOf": [

@@ -9,7 +9,8 @@ def replay_results(submission, ids):
     out=[]
     for cid in ids:
         keys=['originality','tech_understanding','functionality','wow']+([] if cid=='overall' else ['relevance'])
-        raw={**{k:3 for k in keys},'rationale':'Synthetic transport replay only.', 'evidence':{k:'not described' for k in keys}}
+        raw={**{k:3 for k in keys},'rationale':'Synthetic transport replay only.', 'evidence':{k:'not described' for k in keys},
+             'improvements':['Synthetic replay improvement.']}
         out.append(aggregate(cid,[copy.deepcopy(raw) for _ in range(3)],submission))
     return out
 

@@ -43,7 +43,7 @@ def test_invalid_import_atomic(store,case):
     if case=='quote':r['evidence']['wow']='invented excerpt'
     if case=='fit':a['projects'][0]['meta']['fit']={}
     if case=='duplicate':a['projects'].append(copy.deepcopy(a['projects'][0]))
-    if case=='enriched':r['improvements']=['Enriched']
+    if case=='enriched':r['rivals']=[{'project_id':'synthetic-rival','name':'Rival','summary':'Synthetic rival.','score_10':5.0}]
     if case=='run':r['runs'][1]['run']=0
     if case=='provisional':c['judge_version']='provisional-judge'
     if case=='mock':a['pool_version']='mock-pool'

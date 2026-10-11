@@ -14,7 +14,8 @@ def raw(overall=False, relevance=3):
     keys = ['originality', 'tech_understanding', 'functionality', 'wow'] + ([] if overall else ['relevance'])
     return {**{k: relevance if k == 'relevance' else 3 for k in keys},
             'rationale': 'The described connections support this score.',
-            'evidence': {k: 'not described' for k in keys}}
+            'evidence': {k: 'not described' for k in keys},
+            'improvements': ['Describe which step of the core flow works end to end.']}
 
 
 def response(value, finish='stop'):
@@ -41,27 +42,32 @@ def test_three_runs_all_eight_and_no_hidden_metadata(monkeypatch):
     config = load_config()
     results = asyncio.run(judging.score_submission(FIXTURES['request']['submission'], list(config['prompts']), config))
     assert len(calls) == 24 and len(results) == 8
-    assert all(r['placement'] is None and r['rivals'] == [] and r['improvements'] == [] for r in results)
+    assert all(r['placement'] is None and r['rivals'] == [] and r['improvements'] == raw()['improvements'] for r in results)
     assert next(r for r in results if r['challenge_id']=='overall')['max_total'] == 20
 
 
 def test_means_majority_and_quotes():
     runs = [raw(relevance=v) for v in [2, 3, 4]]
     runs[1]['evidence']['wow'] = 'invented quote'
+    runs[1]['improvements'] = ['Run nearest the mean supplies the improvements.']
     r = judging.aggregate('best_game', runs, FIXTURES['request']['submission'])
     assert r['eligible'] and r['criteria']['relevance'] == 3
     assert r['evidence']['wow'] == 'not described'
     assert len(r['warnings']) == 2
     assert r['score_10'] == 6
+    assert r['improvements'] == ['Run nearest the mean supplies the improvements.']
 
 
-@pytest.mark.parametrize('change', ['extra', 'fraction', 'truncated', 'sentences', 'wrong_evidence'])
+@pytest.mark.parametrize('change', ['extra', 'fraction', 'truncated', 'sentences', 'wrong_evidence', 'no_improvements', 'many_improvements', 'long_improvement'])
 def test_raw_rejections(change):
     value = raw()
     if change == 'extra': value['eligible'] = True
     if change == 'fraction': value['wow'] = 3.5
     if change == 'sentences': value['rationale'] = 'One. Two. Three.'
     if change == 'wrong_evidence': value['evidence'].pop('wow')
+    if change == 'no_improvements': value['improvements'] = []
+    if change == 'many_improvements': value['improvements'] = ['Add one.', 'Add two.', 'Add three.', 'Add four.']
+    if change == 'long_improvement': value['improvements'] = ['x' * 301]
     with pytest.raises(judging.JudgeFailure):
         judging.parse_response(response(value, 'length' if change == 'truncated' else 'stop'), 'CategoryJudgeResponse')
 

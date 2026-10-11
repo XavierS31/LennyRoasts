@@ -44,7 +44,7 @@ def validate_artifact(artifact, config):
             raise ValueError('Exact category coverage is required.')
         for result in results:
             validate_score_result(result, submission)
-            if result['placement'] is not None or result['rivals'] or result['improvements']:
+            if result['placement'] is not None or result['rivals']:
                 raise ValueError('Imported scores must be unenriched.')
     return artifact
 

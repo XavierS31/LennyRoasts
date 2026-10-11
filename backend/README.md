@@ -19,7 +19,7 @@ from backend.app.judging import score_submission
 results = await score_submission(submission, challenge_ids, judge_config)
 ```
 
-This exact async signature is implemented and used by Dev1's existing score/export pipeline and the live worker. It produces three validated runs per category, with null placement and empty rivals/improvements. See [config instructions](config/README.md) for the provisional eight-category config, canonical hash, frozen response schema, exact quotes, arithmetic/majority rules, retries and bounded provider smoke commands. Config changes require a new judge version and full field rescore.
+This exact async signature is implemented and used by Dev1's existing score/export pipeline and the live worker. It produces three validated runs per category, with null placement, empty rivals and the judge's improvements from the run nearest the mean. See [config instructions](config/README.md) for the frozen eight-category config, canonical hash, frozen response schema, exact quotes, arithmetic/majority rules, retries and bounded provider smoke commands. Config changes require a new judge version and full field rescore.
 
 `HF_TOKEN`, pooled `DATABASE_URL` and direct migration `DATABASE_URL_DIRECT` are server-only. Environment variables override ignored root `.env.local`, loaded with python-dotenv. Commit only the empty `.env.example`. Credentials, real projects and raw responses remain under ignored private storage. Never log connection strings or provider/user payloads.
 
