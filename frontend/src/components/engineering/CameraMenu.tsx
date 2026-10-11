@@ -1,6 +1,6 @@
 import { useEffect, useId, useRef, useState } from "react";
 import type { CameraCommand, SceneKind } from "./EngineeringScene";
-import { lennySponsors } from "./lennyLayout";
+import { sponsorRooms } from "./classroomLayout";
 import { EyeIcon, PlusIcon, MinusIcon, ArrowCounterClockwiseIcon, CompassIcon, MapTrifoldIcon, BuildingOfficeIcon, BuildingsIcon, ArrowLeftIcon, PersonSimpleWalkIcon, ChairIcon, StepsIcon, SunIcon, DoorOpenIcon, RobotIcon, BankIcon, MicrophoneIcon, StackIcon, TrophyIcon, LightbulbIcon, type Icon } from "@phosphor-icons/react";
 
 type View = { action: CameraCommand; icon: Icon; label: string; sponsor?: string };
@@ -36,8 +36,13 @@ export default function CameraMenu({ kind, onCamera, onSponsor }: {
       { action: "stairs" as const, icon: StepsIcon, label: "Staircase" },
       { action: "ceiling" as const, icon: SunIcon, label: "Skylights" },
       { action: "entrance" as const, icon: DoorOpenIcon, label: "Glass entrance" },
-      ...lennySponsors.map((sponsor, index) => ({ action: "sponsor" as const,
-        icon: [RobotIcon, BankIcon, MicrophoneIcon, StackIcon][index], label: `Visit ${sponsor.name} Lenny`, sponsor: sponsor.id })),
+      ...sponsorRooms.map((sponsor, index) => ({ action: "sponsor" as const,
+        icon: [RobotIcon, MicrophoneIcon, StackIcon, BankIcon][index], label: `Enter ${sponsor.name} classroom`, sponsor: sponsor.id })),
+    ] : kind === "classroom" ? [
+      { action: "floor" as const, icon: PersonSimpleWalkIcon, label: "Pitch area" },
+      { action: "front" as const, icon: RobotIcon, label: "Meet Lenny" },
+      { action: "entrance" as const, icon: DoorOpenIcon, label: "Classroom door" },
+      { action: "ceiling" as const, icon: LightbulbIcon, label: "Projector and ceiling" },
     ] : [
       { action: "floor" as const, icon: PersonSimpleWalkIcon, label: "Center aisle" },
       { action: "stage" as const, icon: TrophyIcon, label: "Award stage" },

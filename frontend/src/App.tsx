@@ -3,6 +3,7 @@ import { NotebookIcon, ChartBarIcon, CheckIcon, PlusIcon } from "@phosphor-icons
 import sampleIdea from "../demo/campus-queue.txt?raw";
 import SceneBoundary from "./components/engineering/SceneBoundary";
 import { sceneLocation, scenePath, type LocationState } from "./components/engineering/navigation";
+import { sponsorRoom, type SponsorRoomId } from "./components/engineering/classroomLayout";
 import type { SceneController } from "./components/engineering/EngineeringScene";
 import { ideaError, ideaSubmission, MAX_IDEA_LENGTH } from "./ideaSubmission";
 import IdeaFileImport from "./components/IdeaFileImport";
@@ -434,14 +435,28 @@ export default function App() {
     return () => { sceneTransition.current++; window.removeEventListener("popstate", back); };
   }, []);
 
-  function navigate(kind: LocationState["kind"], building = location.building) {
+  function navigate(kind: LocationState["kind"], building = location.building, sponsor?: SponsorRoomId) {
     sceneTransition.current++;
     setEntering(false);
-    const next = { kind, building };
+    const next: LocationState = kind === "classroom" ? { kind, building, sponsor: sponsor ?? "gemini" } : { kind, building };
     window.history.pushState(null, "", scenePath(next));
     setLocation(next);
     setPanelsVisible(kind === "campus");
     window.scrollTo({ top: 0, behavior: "instant" });
+  }
+
+  function openClassroom(id: SponsorRoomId) {
+    setSceneCategory(id);
+    navigate("classroom", location.building, id);
+  }
+
+  function pitchInClassroom() {
+    const id = sponsorRoom(location.sponsor).id;
+    // Opt in only when the student chooses to pitch, and preserve other choices.
+    if (!activeJobId && !isSubmitting) setSelectedChallenges((current) => current.includes(id) ? current : [...current, id]);
+    setIdeaInputMode("describe");
+    setPanelsVisible(true);
+    window.requestAnimationFrame(() => ideaInput.current?.focus());
   }
 
   async function enterBuilding(building = location.building) {
@@ -601,7 +616,7 @@ export default function App() {
 
   useEffect(() => {
     if (notice) {
-      navigate("campus");
+      if (location.kind !== "classroom") navigate("campus");
       setPanelsVisible(true);
     }
   }, [notice]);
@@ -616,7 +631,7 @@ export default function App() {
 
   function loadSample() {
     setIdea(sampleIdea.trim());
-    setSelectedChallenges(["gemini"]);
+    setSelectedChallenges(location.kind === "classroom" && location.sponsor !== "gemini" ? ["gemini", sponsorRoom(location.sponsor).id] : ["gemini"]);
     setJob(null);
     setSubmittedSubmission(null);
     setErrors({});
@@ -628,7 +643,7 @@ export default function App() {
   }
 
   function focusFirstError(nextErrors: FormErrors) {
-    if (location.kind !== "campus") navigate("campus");
+    if (location.kind !== "campus" && location.kind !== "classroom") navigate("campus");
     setPanelsVisible(true);
     const focusOrder: ErrorField[] = ["idea", "challenges"];
     const field = focusOrder.find(
@@ -755,6 +770,9 @@ export default function App() {
           projectName={submittedSubmission?.name ?? "Your idea"}
           category={sceneCategory} onCategory={setSceneCategory} panelsVisible={panelsVisible} isStale={reportIsStale}
           location={location} controller={sceneController}
+          onSponsor={openClassroom} onReturnAtrium={() => navigate("atrium")}
+          onPitch={pitchInClassroom}
+          onViewReport={() => { navigate("atrium"); setPanelsVisible(true); }}
           onBuilding={(building) => setLocation((current) => ({ ...current, building }))} />
       </Suspense></SceneBoundary>
       <header className="masthead">
@@ -766,7 +784,7 @@ export default function App() {
           <button type="button" aria-label="Atrium" aria-pressed={location.kind === "atrium"} onClick={() => navigate("atrium", "Engineering II")}>Atrium</button>
           <button type="button" aria-label="Awards" aria-pressed={location.kind === "awards"} onClick={() => navigate("awards")}>Awards</button>
         </nav>
-        {location.kind !== "awards" && <button type="button" className="secondary-button panel-toggle" aria-label={location.kind === "atrium" ? "Judging report" : "Idea panel"} title={location.kind === "atrium" ? "Judging report" : "Idea panel"} aria-expanded={panelsVisible} aria-controls="glass-content" onClick={() => setPanelsVisible((value) => !value)}>{location.kind === "atrium" ? <ChartBarIcon size={23} weight="light" aria-hidden="true" /> : <NotebookIcon size={23} weight="light" aria-hidden="true" />}</button>}
+        {location.kind !== "awards" && <button type="button" className="secondary-button panel-toggle" aria-label={location.kind === "atrium" ? "Judging report" : location.kind === "classroom" ? "Pitch panel" : "Idea panel"} title={location.kind === "atrium" ? "Judging report" : location.kind === "classroom" ? "Pitch panel" : "Idea panel"} aria-expanded={panelsVisible} aria-controls="glass-content" onClick={() => { if (location.kind === "classroom" && !panelsVisible) pitchInClassroom(); else setPanelsVisible((value) => !value); }}>{location.kind === "atrium" ? <ChartBarIcon size={23} weight="light" aria-hidden="true" /> : <NotebookIcon size={23} weight="light" aria-hidden="true" />}</button>}
       </header>
 
       <div className="glass-content" id="glass-content" hidden={!panelsVisible}>
@@ -867,15 +885,17 @@ export default function App() {
             </button>
           </div>}
         </section>}
-        <section className="form-panel" aria-labelledby="form-heading" hidden={location.kind !== "campus"}>
+        <section className="form-panel" aria-labelledby="form-heading" hidden={location.kind !== "campus" && location.kind !== "classroom"}>
           <div className="section-heading">
             <div>
-              <h2 id="form-heading">Let Lenny roast your project</h2>
+              <h2 id="form-heading">{location.kind === "classroom" ? `Pitch to ${sponsorRoom(location.sponsor).name} Lenny` : "Let Lenny roast your project"}</h2>
             </div>
             <button type="button" className="text-button" onClick={loadSample} disabled={Boolean(activeJobId) || isSubmitting || isImporting}>
               Try a sample
             </button>
           </div>
+
+          {location.kind === "classroom" && <p className="classroom-track-note">{selectedChallenges.includes(sponsorRoom(location.sponsor).id) ? `The ${sponsorRoom(location.sponsor).name} track is included in your sponsor choices.` : `Add the ${sponsorRoom(location.sponsor).name} track below to include this sponsor.`} Describe your product below.</p>}
 
           <form onSubmit={submit} noValidate>
             {notice && (

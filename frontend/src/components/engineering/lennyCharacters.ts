@@ -62,7 +62,7 @@ const logoPrints: Record<LennySponsor, { crop: [number, number, number, number];
   databricks: { crop: [.215, .39, .57, .22], width: 1.64, height: .32 },
 };
 
-export function addLennyCharacters(scene: THREE.Scene, kind: "atrium" | "awards") {
+export function addLennyCharacters(scene: THREE.Scene, kind: "atrium" | "awards" | "classroom", roomSponsor: LennySponsor = "mlh") {
   const hosts = new THREE.Group(); hosts.name = "Solid 3D Lenny hosts";
   scene.add(hosts);
   let disposed = false;
@@ -225,7 +225,7 @@ export function addLennyCharacters(scene: THREE.Scene, kind: "atrium" | "awards"
   }
 
   // Share the same geometry/materials across all four sponsor models.
-  const prototype = build(kind === "awards" ? undefined : "mlh");
+  const prototype = build(kind === "awards" ? undefined : kind === "classroom" ? roomSponsor : "mlh");
   function place(model: THREE.Group, position: readonly number[], height: number) {
     const bounds = new THREE.Box3().setFromObject(model);
     const root = new THREE.Group(); root.name = model.name;
@@ -234,6 +234,7 @@ export function addLennyCharacters(scene: THREE.Scene, kind: "atrium" | "awards"
     root.position.set(position[0], position[1], position[2]); hosts.add(root);
   }
   if (kind === "awards") place(prototype, lennyPresenter.position, lennyPresenter.height);
+  else if (kind === "classroom") place(prototype, [3.7, .03, -6.7], 2.35);
   else {
     place(prototype, [lennySponsors[0].position[0], .03, lennySponsors[0].position[1]], sponsorLennyHeight);
     // Reuse the complete solid model; only the curved print material differs.

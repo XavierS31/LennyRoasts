@@ -8,11 +8,13 @@ import { atriumViews, projectStation } from "./atriumLayout";
 import { ballroomViews } from "./ballroomLayout";
 import { addDetailedBallroom } from "./ballroomGeometry";
 import { addLennyCharacters } from "./lennyCharacters";
-import { sponsorView } from "./lennyLayout";
+import { classroomViews, sponsorRoom, sponsorRooms, type SponsorRoomId } from "./classroomLayout";
+import { addClassroom, addSponsorPins } from "./classroomGeometry";
+import { MapPinIcon } from "@phosphor-icons/react";
 import { addSunsetSky } from "./sunsetSky";
 import { engineeringFrame } from "./campusFraming";
 
-export type SceneKind = "campus" | "atrium" | "awards";
+export type SceneKind = "campus" | "atrium" | "awards" | "classroom";
 export type CameraCommand = "in" | "out" | "reset" | "iso" | "top" | "front" | "enter" | "floor" | "stairs" | "ceiling" | "entrance" | "focus" | "tower" | "west" | "walk" | "stage" | "sponsor" | "health" | "service" | "alley" | "junction" | "courtyard" | "modern";
 export type SceneController = { command: (action: CameraCommand, building?: string) => Promise<void> };
 
@@ -65,7 +67,7 @@ function scoreLabel(name: string, score: number) {
 
 export default function EngineeringScene({
   kind, result, projectName, selectedMarker, panelsVisible, onSelectBuilding, onHoverBuilding,
-  onSelectMarker, controller,
+  onSelectMarker, controller, sponsor, onSponsor, onReturnAtrium, onPitch,
 }: {
   kind: SceneKind;
   panelsVisible: boolean;
@@ -76,14 +78,19 @@ export default function EngineeringScene({
   onHoverBuilding: (building: string) => void;
   onSelectMarker: (marker: string) => void;
   controller: React.RefObject<SceneController | null>;
+  sponsor?: SponsorRoomId;
+  onSponsor: (id: SponsorRoomId) => void;
+  onReturnAtrium: () => void;
+  onPitch: () => void;
 }) {
   const mount = useRef<HTMLDivElement>(null);
   const [error, setError] = useState<string>();
-  const callbacks = useRef({ onSelectBuilding, onHoverBuilding, onSelectMarker });
+  const callbacks = useRef({ onSelectBuilding, onHoverBuilding, onSelectMarker, onSponsor, onReturnAtrium, onPitch });
+  const pinElements = useRef(new Map<string, HTMLButtonElement>());
   const updateData = useRef<((result?: ChallengeResult, name?: string, selected?: string) => void) | null>(null);
   const panelState = useRef(panelsVisible);
   const updateLayout = useRef<(() => void) | null>(null);
-  useEffect(() => { callbacks.current = { onSelectBuilding, onHoverBuilding, onSelectMarker }; });
+  useEffect(() => { callbacks.current = { onSelectBuilding, onHoverBuilding, onSelectMarker, onSponsor, onReturnAtrium, onPitch }; });
   useEffect(() => { panelState.current = panelsVisible; updateLayout.current?.(); }, [panelsVisible]);
 
   useEffect(() => {
@@ -98,7 +105,7 @@ export default function EngineeringScene({
     }
     setError(undefined);
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(kind === "campus" ? 0xabc5d8 : kind === "atrium" ? 0xc9dce0 : 0xd3c5aa);
+    scene.background = new THREE.Color(kind === "campus" ? 0xabc5d8 : kind === "atrium" ? 0xc9dce0 : kind === "classroom" ? 0xb8cad1 : 0xd3c5aa);
     scene.fog = new THREE.Fog(scene.background, 110, 190);
     const sky = kind === "campus" ? addSunsetSky(scene) : undefined;
     if (kind === "campus") {
@@ -107,9 +114,9 @@ export default function EngineeringScene({
     }
     const camera = new THREE.PerspectiveCamera(kind === "campus" ? 48 : 64, 1, 0.1, 800);
     const start = kind === "campus" ? new THREE.Vector3(-89, 28, 106)
-      : kind === "atrium" ? new THREE.Vector3(...atriumViews.overview.position) : new THREE.Vector3(...ballroomViews.overview.position);
+      : kind === "atrium" ? new THREE.Vector3(...atriumViews.overview.position) : kind === "classroom" ? new THREE.Vector3(...classroomViews.overview.position) : new THREE.Vector3(...ballroomViews.overview.position);
     const startTarget = kind === "atrium" ? new THREE.Vector3(...atriumViews.overview.target)
-      : kind === "awards" ? new THREE.Vector3(...ballroomViews.overview.target) : new THREE.Vector3(-55, 6, -8);
+      : kind === "awards" ? new THREE.Vector3(...ballroomViews.overview.target) : kind === "classroom" ? new THREE.Vector3(...classroomViews.overview.target) : new THREE.Vector3(-55, 6, -8);
     camera.position.copy(start);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.6));
     renderer.shadowMap.enabled = true;
@@ -120,7 +127,7 @@ export default function EngineeringScene({
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.target.copy(startTarget);
-    controls.minDistance = kind === "campus" ? 18 : 3;
+    controls.minDistance = kind === "campus" ? 18 : kind === "classroom" ? 1 : 3;
     controls.maxDistance = kind === "atrium" ? 100 : kind === "campus" ? 500 : 125;
     controls.maxPolarAngle = kind === "campus" ? Math.PI / 2.05 : Math.PI * .72;
     controls.screenSpacePanning = true;
@@ -152,11 +159,24 @@ export default function EngineeringScene({
         light.position.set(x, 16.4, z); scene.add(light);
       }
     }
+    if (kind === "classroom") {
+      sun.intensity = 1.4; sun.position.set(5, 8, 4);
+      Object.assign(sun.shadow.camera, { left: -12, right: 12, top: 14, bottom: -14, near: .5, far: 40 });
+      sun.shadow.bias = -.0003; sun.shadow.normalBias = .03; sun.shadow.camera.updateProjectionMatrix();
+    }
     scene.add(sun);
     const clickable = kind === "campus" ? addExterior(scene) : [];
     if (kind === "atrium") addAtrium(scene);
     if (kind === "awards") addDetailedBallroom(scene);
-    const lennys = kind === "campus" ? undefined : addLennyCharacters(scene, kind);
+    const room = sponsorRoom(sponsor);
+    if (kind === "classroom") clickable.push(...addClassroom(scene, room.id).targets);
+    const pins = kind === "atrium" ? addSponsorPins(scene) : [];
+    clickable.push(...pins);
+    // Sponsor hosts now welcome students inside their rooms; the atrium has pins.
+    const lennys = kind === "awards" || kind === "classroom" ? addLennyCharacters(scene, kind, room.lenny) : undefined;
+    if (kind === "classroom") scene.getObjectByName("Solid 3D Lenny hosts")?.traverse((object) => {
+      if (object instanceof THREE.Mesh) { object.userData.action = "pitch"; clickable.push(object); }
+    });
     let environment: THREE.WebGLRenderTarget | undefined;
     if (kind !== "campus") {
       const room = new RoomEnvironment();
@@ -184,7 +204,7 @@ export default function EngineeringScene({
           object.computeBoundingSphere();
         }
       });
-      if (!nextResult) return;
+      if (kind !== "atrium" || !nextResult) return;
       const entries = [
         { key: "user", name, score: nextResult.score_10, eligible: nextResult.eligible },
         ...nextResult.rivals.map((rival) => ({ key: rival.project_id, name: rival.name, score: rival.score_10, eligible: true })),
@@ -283,8 +303,9 @@ export default function EngineeringScene({
       }
       if (kind === "atrium") {
         if (action === "sponsor") {
-          const view = sponsorView(building ?? "");
-          return view ? travel(new THREE.Vector3(...view.position), new THREE.Vector3(...view.target)) : Promise.resolve();
+          const room = sponsorRooms.find((entry) => entry.id === building);
+          if (room) callbacks.current.onSponsor(room.id);
+          return Promise.resolve();
         }
         if (action === "focus") {
           const point = markerPositions.get(building ?? "user");
@@ -294,6 +315,13 @@ export default function EngineeringScene({
         const key = action === "front" ? "entrance" : action === "iso" || action === "reset" ? "overview" : action;
         if (key in atriumViews) {
           const view = atriumViews[key as keyof typeof atriumViews];
+          return travel(new THREE.Vector3(...view.position), new THREE.Vector3(...view.target));
+        }
+      }
+      if (kind === "classroom") {
+        const key = action === "reset" ? "overview" : action;
+        if (key in classroomViews) {
+          const view = classroomViews[key as keyof typeof classroomViews];
           return travel(new THREE.Vector3(...view.position), new THREE.Vector3(...view.target));
         }
       }
@@ -342,6 +370,9 @@ export default function EngineeringScene({
       if (!origin || Math.hypot(event.clientX - origin.x, event.clientY - origin.y) > 5) return;
       const hit = hitAt(event);
       if (!hit) return;
+      if (hit.userData.sponsor) { callbacks.current.onSponsor(hit.userData.sponsor); return; }
+      if (hit.userData.action === "atrium") { callbacks.current.onReturnAtrium(); return; }
+      if (hit.userData.action === "pitch") { callbacks.current.onPitch(); return; }
       if (hit.userData.marker) {
         callbacks.current.onSelectMarker(hit.userData.marker);
         void controller.current?.command("focus", hit.userData.marker);
@@ -360,7 +391,7 @@ export default function EngineeringScene({
     };
     const move = (event: PointerEvent) => {
       const hit = hitAt(event);
-      const next = hit instanceof THREE.Mesh && !hit.userData.marker ? hit : null;
+      const next = hit instanceof THREE.Mesh && !hit.userData.marker && !hit.userData.sponsor && !hit.userData.action ? hit : null;
       if (next !== hovered) {
         clearHover();
         if (next) {
@@ -390,6 +421,7 @@ export default function EngineeringScene({
       const width = Math.max(1, host.clientWidth);
       const height = Math.max(1, host.clientHeight);
       camera.aspect = width / height;
+      if (kind === "classroom") camera.fov = camera.aspect < .8 ? 90 : 64;
       camera.updateProjectionMatrix();
       renderer.setSize(width, height);
       sky?.resize(width, height);
@@ -416,6 +448,18 @@ export default function EngineeringScene({
       for (const object of cutaways) {
         const { axis, value, outward } = object.userData.cutaway as { axis: "x" | "y" | "z"; value: number; outward: number };
         object.visible = (camera.position[axis] - value) * outward < .3;
+      }
+      // Project interactive HTML buttons onto the hall's real gallery positions.
+      // This keeps touch targets and keyboard focus independent of WebGL picking.
+      camera.updateMatrixWorld();
+      for (const pin of pins) {
+        const element = pinElements.current.get(pin.userData.sponsor);
+        if (!element) continue;
+        const point = pin.position.clone().project(camera);
+        const visible = point.z > -1 && point.z < 1;
+        element.hidden = !visible;
+        element.style.left = `${THREE.MathUtils.clamp((point.x + 1) * host.clientWidth / 2, 64, host.clientWidth - 64)}px`;
+        element.style.top = `${THREE.MathUtils.clamp((1 - point.y) * host.clientHeight / 2, 155, host.clientHeight - 120)}px`;
       }
       renderer.render(scene, camera);
       frame = requestAnimationFrame(animate);
@@ -447,7 +491,7 @@ export default function EngineeringScene({
       renderer.forceContextLoss();
       renderer.domElement.remove();
     };
-  }, [kind, controller]);
+  }, [kind, sponsor, controller]);
 
   useEffect(() => {
     updateData.current?.(result, projectName, selectedMarker);
@@ -457,9 +501,17 @@ export default function EngineeringScene({
       if (!cancelled) updateData.current?.(result, projectName, selectedMarker);
     });
     return () => { cancelled = true; };
-  }, [kind, result, projectName, selectedMarker]);
+  }, [kind, sponsor, result, projectName, selectedMarker]);
 
-  return <div className="engineering-scene" ref={mount} aria-label={`${kind === "campus" ? "UCF Engineering I and II exterior" : kind === "atrium" ? "Engineering atrium with four Lennys wearing MLH, BNY, ElevenLabs and Databricks shirts" : "UCF Student Union Cape Ballroom, third floor, with Lenny presenting a trophy on the award stage"} 3D scene`}>
+  return <div className="engineering-scene" ref={mount} aria-label={`${kind === "campus" ? "UCF Engineering I and II exterior" : kind === "atrium" ? "Engineering atrium with four colored sponsor classroom pins" : kind === "classroom" ? `${sponsorRoom(sponsor).name} classroom with Lenny, desks, projector and an exit door` : "UCF Student Union Cape Ballroom, third floor, with Lenny presenting a trophy on the award stage"} 3D scene`}>
+    {kind === "atrium" && <div className="sponsor-pins" role="group" aria-label="Sponsor classroom entrances">
+      {sponsorRooms.map((room) => <button type="button" key={room.id} className="sponsor-pin"
+        style={{ "--sponsor-color": room.color } as React.CSSProperties}
+        ref={(element) => { if (element) pinElements.current.set(room.id, element); else pinElements.current.delete(room.id); }}
+        aria-label={`Enter ${room.name} classroom`} title={`${room.name} · ${room.landmark}`} onClick={() => onSponsor(room.id)}>
+        <MapPinIcon size={29} weight="fill" aria-hidden="true" /><span>{room.name}</span>
+      </button>)}
+    </div>}
     {error && <p className="scene-fallback glass-panel" role="status">{error}</p>}
   </div>;
 }
