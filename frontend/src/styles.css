@@ -296,6 +296,18 @@ h1 {
   margin: 0 0 19px;
 }
 
+.idea-file-import { margin-bottom: 22px; }
+.file-import-heading, .file-import-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.file-import-heading small, .file-import-copy, .file-import-status { color: var(--muted); font-size: 11px; line-height: 1.5; }
+.file-import-copy { margin: 8px 0 0; }
+.file-import-status { margin: 8px 0 0; overflow-wrap: anywhere; }
+.file-import-status:empty { display: none; }
+.file-import-preview { margin: 14px 0 0; padding: 14px; border: 1px solid var(--line); border-radius: 10px; }
+.file-import-preview label { flex-wrap: wrap; }
+.file-import-preview .required-label { overflow-wrap: anywhere; min-width: 0; }
+.file-import-actions { margin-top: 12px; }
+.file-import-actions button { flex: 1 1 auto; }
+
 fieldset {
   min-width: 0;
   margin: 0;
