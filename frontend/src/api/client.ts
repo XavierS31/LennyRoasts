@@ -3,8 +3,22 @@ import type { components } from "./contract";
 export type Submission = components["schemas"]["Submission"];
 export type EvaluationJob = components["schemas"]["EvaluationJob"];
 export type ChallengeList = components["schemas"]["ChallengeList"];
+export type Challenge = components["schemas"]["Challenge"];
+export type ChallengeResult = components["schemas"]["ChallengeResult"];
+export type RunScore = components["schemas"]["RunScore"];
 export type EvaluationRequest = components["schemas"]["EvaluationRequest"];
 export type APIError = components["schemas"]["APIError"];
+
+export class ApiRequestError extends Error {
+  constructor(
+    readonly status: number,
+    readonly apiError: APIError | undefined,
+    message: string,
+  ) {
+    super(message);
+    this.name = "ApiRequestError";
+  }
+}
 
 async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
   const response = await fetch(path, {
@@ -13,13 +27,40 @@ async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
     headers: {
       Accept: "application/json",
       ...(options.body ? { "Content-Type": "application/json" } : {}),
+      ...options.headers,
     },
   });
-  if (!response.ok) {
-    const error = (await response.json()) as APIError;
-    throw new Error(error.message || `Request failed (${response.status}).`);
+  const bodyText = await response.text();
+  let body: unknown;
+  try {
+    body = bodyText ? JSON.parse(bodyText) : undefined;
+  } catch {
+    body = undefined;
   }
-  return response.json() as Promise<T>;
+
+  if (!response.ok) {
+    const apiError = isAPIError(body) ? body : undefined;
+    throw new ApiRequestError(
+      response.status,
+      apiError,
+      apiError?.message || `Request failed (${response.status}).`,
+    );
+  }
+  if (body === undefined) {
+    throw new Error("The API returned an unreadable response.");
+  }
+  return body as T;
+}
+
+function isAPIError(value: unknown): value is APIError {
+  if (!value || typeof value !== "object") return false;
+  const candidate = value as Partial<APIError>;
+  return (
+    typeof candidate.code === "string" &&
+    typeof candidate.message === "string" &&
+    Array.isArray(candidate.details) &&
+    candidate.details.every((detail) => typeof detail === "string")
+  );
 }
 
 export const getChallenges = (signal?: AbortSignal) =>
