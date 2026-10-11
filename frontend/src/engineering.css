@@ -69,7 +69,7 @@
 .engineering-app .edition { margin-left: auto; color: var(--muted); }
 .glass-content { position: relative; z-index: 2; width: min(540px, 40vw); margin-left: 0; }
 .engineering-app .intro { padding: 20px 24px; margin: 0 0 10px; }
-.engineering-app .intro h1 { font-size: clamp(32px, 3vw, 44px); font-weight: 650; line-height: 1.12; letter-spacing: -.035em; max-width: 490px; margin: 0 0 10px; }
+.engineering-app .intro h1 { font-size: clamp(30px, 2.6vw, 38px); font-weight: 650; line-height: 1.16; letter-spacing: -.025em; max-width: 490px; margin: 0 0 20px; }
 .engineering-app :is(.eyebrow, .section-kicker) { color: var(--muted); }
 .engineering-app .lede { font-size: 14px; line-height: 1.55; margin: 0; }
 .engineering-app .mode-banner { display: block; padding: 16px 20px; margin: 0 0 12px; }
@@ -79,13 +79,17 @@
 .engineering-app .mode-banner summary { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; min-height: 24px; }
 .engineering-app .mode-banner summary::before { content: ""; width: 6px; height: 6px; border-right: 1px solid currentColor; border-bottom: 1px solid currentColor; transform: rotate(-45deg); align-self: center; }
 .engineering-app .mode-banner[open] summary::before { transform: rotate(45deg); }
-.service-status-row { display: flex; align-items: flex-start; gap: 10px; border-top: 1px solid var(--line); padding-top: 8px; }
-.service-status-row .mode-banner { flex: 1; min-width: 0; }
-.engineering-app .service-retry { flex: 0 0 auto; min-height: 28px; padding: 4px 0; font-size: 11px; }
-.compact-api-error { display: block; font-size: 11px; line-height: 1.4; color: var(--muted); text-align: right; overflow-wrap: anywhere; }
-.engineering-app #form-heading { font-size: 24px; line-height: 1.2; }
-.engineering-app .idea-file-import { margin-bottom: 14px; }
-.engineering-app .section-heading { margin-bottom: 14px; }
+.service-status-row { display: flex; align-items: flex-start; flex-wrap: wrap; gap: 8px 14px; border-top: 1px solid var(--line); padding-top: 14px; }
+.service-status-row .mode-banner { flex: 1 1 116px; min-width: 0; }
+.engineering-app .mode-banner summary { min-height: 44px; align-items: center; flex-wrap: nowrap; }
+.service-label { display: block; font-size: 12px; font-weight: 450; line-height: 1.4; color: var(--muted); }
+.service-value { display: block; font-size: 14px; font-weight: 600; line-height: 1.5; }
+.engineering-app .service-retry { flex: 0 0 auto; min-height: 44px; padding: 10px 0; font-size: 12px; font-weight: 550; white-space: nowrap; }
+.compact-api-error { flex: 0 1 130px; display: block; margin: 0; padding-top: 12px; font-size: 12px; line-height: 1.5; color: #ffd4ca; overflow-wrap: anywhere; }
+.engineering-app #form-heading { font-size: 22px; line-height: 1.3; letter-spacing: -.015em; }
+.engineering-app .idea-file-import { margin-bottom: 22px; }
+.engineering-app .section-heading { align-items: center; gap: 16px; margin-bottom: 22px; }
+.engineering-app .section-heading .text-button { min-height: 44px; flex-shrink: 0; font-size: 13px; font-weight: 550; }
 .engineering-app .intro .mode-banner {
   padding: 0;
   margin: 0;
@@ -108,8 +112,13 @@
 .competition-scores strong { display: block; color: var(--ink); margin-top: 4px; }
 .engineering-app .workspace { display: flex; flex-direction: column; align-items: stretch; gap: 12px; margin: 0; }
 .engineering-app :is(.form-panel, .report-panel) { padding: 24px; scroll-margin-top: 110px; }
-.engineering-app :is(.form-intro, .form-field label, .submit-help, .privacy-copy, .field-meta) { font-size: 13px; }
-.engineering-app :is(.file-import-copy, .file-import-status, .file-import-heading small) { font-size: 12px; }
+.engineering-app :is(.form-intro, .submit-help, .privacy-copy, .field-meta) { font-size: 13px; line-height: 1.6; }
+.engineering-app .form-field label { font-size: 14px; font-weight: 600; margin-bottom: 10px; }
+.engineering-app :is(.file-import-copy, .file-import-status, .file-import-heading small) { font-size: 13px; line-height: 1.5; }
+.engineering-app .required-label { font-size: 12px; font-weight: 450; }
+.engineering-app :is(.report-panel, .scene-results) h2 { font-size: 22px; line-height: 1.3; letter-spacing: -.015em; }
+.engineering-app :is(.report-card, .empty-report, .processing-panel) h3 { font-size: 18px; line-height: 1.4; }
+.engineering-app :is(.rationale-section p, .improvements-section li, .empty-report p, .notice p) { font-size: 15px; line-height: 1.65; }
 .engineering-app :is(h2, h3, h4, .scene-tabs button) { font-weight: 600; }
 .engineering-app :is(code, .job-id) { font-family: var(--ui-font-family); }
 .panel-switch { display: flex; gap: 6px; padding: 6px; }
@@ -125,7 +134,7 @@
 .engineering-app :is(.automatic-copy, .challenge-picker summary, .empty-label, .empty-report h3, .processing-panel strong, .rival h4, .rival p, .improvements-section li, .warning-section h4, .run-heading, .run-criteria dt) { color: var(--ink); }
 .engineering-app :is(textarea, input:not([type=checkbox]), select) { background: rgba(6,15,29,.9); color: var(--ink); border-color: rgba(255,255,255,.3); caret-color: var(--focus); text-shadow: inherit; }
 .engineering-app textarea::placeholder { color: var(--muted); }
-.engineering-app textarea { min-height: 220px; }
+.engineering-app textarea { min-height: 220px; font-size: 16px; line-height: 1.65; padding: 16px; }
 .engineering-app .track-choice input { accent-color: #ffda74; }
 .engineering-app .submit-button { background: rgba(255,255,255,.12); color: var(--ink); border-color: rgba(255,255,255,.6); }
 .engineering-app .submit-button:hover:not(:disabled) { background: rgba(255,255,255,.2); }
@@ -213,6 +222,8 @@ select option { background: #26333f; color: #fff; }
   .engineering-app :is(.form-panel, .report-panel, .intro) { padding: 20px; }
   .engineering-app .intro { padding: 20px; }
   .engineering-app .intro h1 { font-size: 30px; }
+  .compact-api-error { flex-basis: 100%; padding-top: 0; }
+  .engineering-app #form-heading { font-size: 20px; }
   .submission-status h2 { scroll-margin-top: 170px; }
   .scene-fallback { top: 275px; left: 12px; right: 12px; max-width: none; }
   .view-atrium .glass-content { top: 144px; left: 12px; right: 12px; bottom: 12px; width: auto; }

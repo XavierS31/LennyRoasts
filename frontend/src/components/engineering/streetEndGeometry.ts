@@ -32,10 +32,13 @@ export function addStreetEnd(scene: THREE.Scene, facade: ExteriorMaterials, site
   for(const x of [-47,-41,-35]) for(const y of [8,13,17.5]) pane(.9,1.65,x,y,11.24,1);
   for(let x=-51;x<-33;x+=3) box(building,[.035,15.6,.07],[x,12,11.23],facade.frame,"Cream cladding joint");
   for(const y of [6,10,14,18]) box(building,[18,.035,.07],[-43,y,11.23],facade.frame,"Panel horizontal joint");
-  const glazing = curtainGrid(building, 48, 12.5, facade, 14, 9, .55, .9);
+  const glazing = curtainGrid(building, 48, 12.5, facade, 14, 9, .9, 1.25);
   glazing.position.set(-8.8, 12.7, 11.18);
   glazing.name = "Broad glazing with thick projecting metal surround";
-  box(building,[49,1.15,1.65],[-8.8,5.75,11.35],facade.metal,"Projecting curtain wall silver spandrel");
+  // Solid header and end returns connect the roof coping to the glass frame.
+  box(building,[49.8,1.9,1.65],[-8.8,19.95,11.35],facade.metal,"Roof-to-window silver header");
+  for (const x of [-33.25,15.65]) box(building,[.9,14.95,1.65],[x,12.475,11.35],facade.metal,"Continuous roof-to-sill gray return");
+  box(building,[49.8,1.4,1.85],[-8.8,5.75,11.35],facade.metal,"Projecting curtain wall silver spandrel");
   box(building,[11,22.65,4.3],[21.8,11.325,12],brick,"Deeper raised brick stair tower");
   pane(6.35,19.5,20.95,10.65,14.24,14);
   pane(.95,17.5,25.96,11.5,14.24,10);

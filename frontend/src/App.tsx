@@ -774,11 +774,12 @@ export default function App() {
       <div className="service-status-row">
       <details className={`mode-banner mode-${mode}`} hidden={location.kind === "awards"}>
         <summary>
-          <span>Service status: {configLoading || configError || !config ? "Loading API" : mode === "mock" ? "Mock API" : mode === "fixture" ? "Fixture API" : mode === "unavailable" ? "API unavailable" : "Judge API ready"}</span>
+          <span><span className="service-label">Service status</span><span className="service-value">{configLoading ? "Loading API…" : configError || !config || mode === "unavailable" ? "API unavailable" : mode === "mock" ? "Mock API" : mode === "fixture" ? "Fixture API" : "Judge API ready"}</span></span>
         </summary>
         <div className="mode-copy">
           <span className="mode-indicator" aria-hidden="true" />
           <div>
+            {configLoading ? <p>Loading challenge information. You can keep preparing your project below.</p> : configError ? <p>Challenge information could not be loaded. Retry to check the service again.</p> : null}
             {mode === "mock" && (
               <p>
                 This API version uses deterministic development mock rules. Scores and placements are not live judge results or verified software outcomes.
@@ -807,13 +808,13 @@ export default function App() {
           </div>
         </div>
       </details>
-      {(configError || mode === "unavailable") &&
+      {(configLoading || configError || mode === "unavailable") &&
         <button type="button" className="text-button service-retry" onClick={refreshChallenges} disabled={configLoading} aria-busy={configLoading}>
           Retry challenge load
         </button>
       }
-      </div>
       {configError && <small className="compact-api-error" role="alert">{configError.message}</small>}
+      </div>
       </section>
 
       <div className="workspace">
