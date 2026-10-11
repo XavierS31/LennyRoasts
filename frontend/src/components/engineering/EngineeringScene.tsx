@@ -7,7 +7,7 @@ import { addAtrium, addAuditorium, addExterior } from "./geometry";
 import { atriumViews, projectStation } from "./atriumLayout";
 
 export type SceneKind = "campus" | "atrium" | "awards";
-export type CameraCommand = "in" | "out" | "reset" | "iso" | "top" | "front" | "enter" | "floor" | "stairs" | "ceiling" | "entrance" | "focus";
+export type CameraCommand = "in" | "out" | "reset" | "iso" | "top" | "front" | "enter" | "floor" | "stairs" | "ceiling" | "entrance" | "focus" | "tower";
 export type SceneController = { command: (action: CameraCommand, building?: string) => Promise<void> };
 
 function disposeObjects(root: THREE.Object3D) {
@@ -230,6 +230,7 @@ export default function EngineeringScene({
         return travel(new THREE.Vector3(x, 5, 36), new THREE.Vector3(x, 3, 16));
       }
       if (action === "top") return travel(new THREE.Vector3(0, 112, 0.1), new THREE.Vector3(0, 0, 0));
+      if (action === "tower" && kind === "campus") return travel(new THREE.Vector3(-54, 14, 68), new THREE.Vector3(-36, 13, 17));
       if (action === "front") return travel(kind === "campus" ? new THREE.Vector3(4, 19, 88) : new THREE.Vector3(0, 16, 58), new THREE.Vector3(2, 8, -5));
       if (action === "iso") return travel(start.clone(), startTarget.clone());
       return travel(start.clone(), startTarget.clone());

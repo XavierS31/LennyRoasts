@@ -66,6 +66,7 @@ export default function EngineeringExplorer({ job, challenges, projectName, cate
         <button type="button" onClick={() => camera("ceiling")}>Skylights</button>
         <button type="button" onClick={() => camera("entrance")}>Glass entrance</button>
       </> : <button type="button" onClick={() => camera("front")}>Front view</button>}
+      {location.kind === "campus" && <button type="button" onClick={() => camera("tower")}>Tower detail</button>}
     </div>
     {location.kind === "atrium" && <AtriumMap projectNames={result ? [projectName, ...result.rivals.map((entry) => entry.name)] : []} />}
     {location.kind === "atrium" && !result && <p className="atrium-empty glass-panel">Explore Engineering II. Submit an idea on the Exterior to bring your project and API-returned competition into the room.</p>}
