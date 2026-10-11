@@ -1,6 +1,6 @@
 # Dev2 evidence and handoff — October 10, 2026
 
-Work runs in the clean original checkout on `codex/backend-judge`, synced with `origin/main` including Dev1 PR #9. No offline or handwritten frontend files were edited by Dev2. [PR #8](https://github.com/XavierS31/LennyRoasts/pull/8) delivers the scorer/config early; [PR #13](https://github.com/XavierS31/LennyRoasts/pull/13) adds storage/import; live jobs and integration docs follow in the next stacked PR. The human owner merges serially.
+Work runs in the clean original checkout on `codex/backend-judge`, synced with `origin/main` including Dev1 PR #9. No offline or handwritten frontend files were edited by Dev2. [PR #8](https://github.com/XavierS31/LennyRoasts/pull/8) delivers the scorer/config early; [PR #13](https://github.com/XavierS31/LennyRoasts/pull/13) adds storage/import; [PR #14](https://github.com/XavierS31/LennyRoasts/pull/14) adds live jobs and integration docs. Review/merge #8 → #13 → #14, retargeting the next PR after each base merges. The human owner merges serially.
 
 Implemented:
 
